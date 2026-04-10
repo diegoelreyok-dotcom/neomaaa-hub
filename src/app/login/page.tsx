@@ -222,6 +222,13 @@ export default function LoginPage() {
             RU
           </button>
         </div>
+
+        {/* Register link */}
+        <div className="text-center mt-4">
+          <a href="/register" className="text-neo-text-muted text-xs hover:text-neo-primary transition-colors">
+            {lang === 'es' ? 'No tengo acceso — Solicitar registro' : 'У меня нет доступа — Запросить регистрацию'}
+          </a>
+        </div>
       </div>
     </div>
   );

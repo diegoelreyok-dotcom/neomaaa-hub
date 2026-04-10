@@ -7,7 +7,7 @@ export default auth((req) => {
   const isAdmin = (req.auth?.user as any)?.isAdmin;
 
   // Public routes
-  if (pathname.startsWith('/login') || pathname.startsWith('/api/auth')) {
+  if (pathname.startsWith('/login') || pathname.startsWith('/register') || pathname.startsWith('/api/auth') || pathname.startsWith('/api/register')) {
     if (isLoggedIn && pathname.startsWith('/login')) {
       return NextResponse.redirect(new URL('/dashboard', req.url));
     }

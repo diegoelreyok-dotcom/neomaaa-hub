@@ -22,6 +22,7 @@ export default async function AdminLayout({
     { href: '/admin', label: 'Dashboard' },
     { href: '/admin/users', label: 'Usuarios' },
     { href: '/admin/roles', label: 'Roles' },
+    { href: '/admin/registrations', label: 'Solicitudes' },
     { href: '/admin/progress', label: 'Progreso' },
   ];
 
