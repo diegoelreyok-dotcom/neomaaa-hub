@@ -24,6 +24,7 @@ export default async function AdminLayout({
     { href: '/admin/roles', label: 'Roles' },
     { href: '/admin/registrations', label: 'Solicitudes' },
     { href: '/admin/progress', label: 'Progreso' },
+    { href: '/admin/settings', label: 'Settings' },
   ];
 
   return (
