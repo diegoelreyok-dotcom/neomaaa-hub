@@ -1,0 +1,1068 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   NEOMAAA Hub — Premium Fintech Portal Theme
+   Ported from Docsify custom.css to Next.js
+   ============================================ */
+
+/* ---------- DESIGN TOKENS ---------- */
+:root {
+  /* Brand */
+  --neo-primary: #00D4AA;
+  --neo-primary-dark: #00B894;
+  --neo-primary-light: #00F5C4;
+  --neo-primary-glow: rgba(0, 212, 170, 0.15);
+  --neo-accent: #6C5CE7;
+  --neo-accent-light: #A29BFE;
+
+  /* Surfaces */
+  --neo-dark: #0A0E1A;
+  --neo-dark-2: #111827;
+  --neo-dark-3: #1F2937;
+  --neo-dark-4: #374151;
+  --neo-dark-5: #4B5563;
+
+  /* Text — WCAG AA compliant on dark backgrounds */
+  --neo-text: #F9FAFB;
+  --neo-text-body: #D1D5DB;
+  --neo-text-secondary: #9CA3AF;
+  --neo-text-muted: #6B7280;
+
+  /* Semantic */
+  --neo-success: #10B981;
+  --neo-warning: #F59E0B;
+  --neo-danger: #EF4444;
+  --neo-info: #3B82F6;
+
+  /* Typography */
+  --base-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --base-font-size: 15px;
+  --base-line-height: 1.7;
+}
+
+
+/* ===========================================
+   1. GLOBAL
+   =========================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--neo-dark);
+  color: var(--neo-text-body);
+  font-family: var(--base-font-family);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ===========================================
+   2. SCROLLBAR (thin, subtle)
+   =========================================== */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neo-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neo-dark-4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neo-dark-5);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--neo-dark-4) var(--neo-dark);
+}
+
+
+/* ===========================================
+   3. MAIN CONTENT
+   =========================================== */
+
+/* Fade-in animation for page content */
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.markdown-section {
+  max-width: 920px;
+  padding: 36px 48px;
+  animation: fadeInContent 0.35s ease-out;
+}
+
+
+/* ===========================================
+   4. TYPOGRAPHY
+   =========================================== */
+
+.markdown-section h1 {
+  color: var(--neo-text);
+  font-weight: 800;
+  font-size: 2.2em;
+  line-height: 1.3;
+  border-bottom: 2px solid var(--neo-primary);
+  padding-bottom: 14px;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.markdown-section h2 {
+  color: var(--neo-primary);
+  font-weight: 600;
+  font-size: 1.5em;
+  line-height: 1.3;
+  margin-top: 2.2em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--neo-dark-3);
+}
+
+.markdown-section h3 {
+  color: var(--neo-text);
+  font-weight: 600;
+  font-size: 1.2em;
+  line-height: 1.3;
+  margin-top: 1.6em;
+}
+
+.markdown-section h4 {
+  color: var(--neo-text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+
+.markdown-section h5,
+.markdown-section h6 {
+  color: var(--neo-text-secondary);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Body text — WCAG AA compliant */
+.markdown-section p {
+  color: var(--neo-text-body);
+  line-height: 1.7;
+  margin: 0.8em 0;
+}
+
+.markdown-section strong {
+  color: var(--neo-text);
+  font-weight: 600;
+}
+
+.markdown-section em {
+  color: var(--neo-text-body);
+}
+
+/* Links */
+.markdown-section a {
+  color: var(--neo-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.markdown-section a:hover {
+  color: var(--neo-primary-light);
+  border-bottom-color: var(--neo-primary);
+}
+
+.markdown-section a:focus-visible {
+  outline: 2px solid var(--neo-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+
+/* ===========================================
+   5. TABLES
+   =========================================== */
+
+.markdown-section table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5em 0;
+  border-radius: 10px;
+  overflow: hidden;
+  display: table;
+}
+
+.markdown-section table thead {
+  background: var(--neo-dark-3);
+}
+
+.markdown-section table th {
+  color: var(--neo-primary);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 13px 16px;
+  text-align: left;
+  border: none;
+  white-space: nowrap;
+}
+
+.markdown-section table td {
+  color: var(--neo-text-body);
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--neo-dark-3);
+  border-left: none;
+  border-right: none;
+  font-size: 14px;
+}
+
+/* Alternating row stripes */
+.markdown-section table tbody tr:nth-child(odd) {
+  background: var(--neo-dark-2);
+}
+
+.markdown-section table tbody tr:nth-child(even) {
+  background: rgba(31, 41, 55, 0.5);
+}
+
+.markdown-section table tr:hover td {
+  background: rgba(0, 212, 170, 0.04);
+}
+
+
+/* ===========================================
+   6. CODE BLOCKS
+   =========================================== */
+.markdown-section code {
+  background: var(--neo-dark-3);
+  color: var(--neo-primary-light);
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-size: 0.88em;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+}
+
+.markdown-section pre {
+  background: var(--neo-dark-2);
+  border: 1px solid var(--neo-dark-3);
+  border-radius: 10px;
+  padding: 18px;
+  overflow-x: auto;
+}
+
+.markdown-section pre code {
+  background: transparent;
+  color: var(--neo-text-body);
+  padding: 0;
+  border-radius: 0;
+}
+
+
+/* ===========================================
+   7. LISTS
+   =========================================== */
+.markdown-section ul,
+.markdown-section ol {
+  color: var(--neo-text-body);
+}
+
+.markdown-section li {
+  margin: 5px 0;
+  line-height: 1.7;
+}
+
+.markdown-section li::marker {
+  color: var(--neo-primary);
+}
+
+/* Checkboxes */
+.markdown-section input[type="checkbox"] {
+  accent-color: var(--neo-primary);
+  margin-right: 8px;
+  transform: scale(1.15);
+  cursor: pointer;
+}
+
+
+/* ===========================================
+   8. BLOCKQUOTES (callouts)
+   =========================================== */
+.markdown-section blockquote {
+  border-left: 4px solid var(--neo-primary);
+  background: rgba(0, 212, 170, 0.06);
+  padding: 14px 22px;
+  border-radius: 0 10px 10px 0;
+  margin: 1.5em 0;
+}
+
+.markdown-section blockquote p {
+  color: var(--neo-text);
+}
+
+
+/* ===========================================
+   9. HORIZONTAL RULE
+   =========================================== */
+.markdown-section hr {
+  border: none;
+  border-top: 1px solid var(--neo-dark-3);
+  margin: 2.5em 0;
+}
+
+
+/* ===========================================
+   10. CARDS
+   =========================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 24px 0;
+}
+
+.card {
+  background: var(--neo-dark-2);
+  border: 1px solid var(--neo-dark-3);
+  border-radius: 12px;
+  padding: 22px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform;
+}
+
+.card:hover {
+  border-color: var(--neo-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(0, 212, 170, 0.15),
+              0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card h4 {
+  margin-top: 0;
+  color: var(--neo-text);
+  text-transform: none;
+  font-size: 1em;
+  letter-spacing: 0;
+}
+
+.card p {
+  font-size: 13px;
+  margin-bottom: 0;
+  color: var(--neo-text-body);
+}
+
+
+/* ===========================================
+   11. STATUS BADGES
+   =========================================== */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.badge-ready {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--neo-success);
+}
+.badge-progress {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--neo-warning);
+}
+.badge-pending {
+  background: rgba(107, 114, 128, 0.15);
+  color: var(--neo-text-muted);
+}
+.badge-critical {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--neo-danger);
+}
+
+
+/* ===========================================
+   12. KPI BOXES
+   =========================================== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.kpi-box {
+  background: var(--neo-dark-2);
+  border: 1px solid var(--neo-dark-3);
+  border-top: 3px solid var(--neo-primary);
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.kpi-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.kpi-box .kpi-value {
+  font-size: 2.4em;
+  font-weight: 800;
+  color: var(--neo-primary);
+  line-height: 1.2;
+}
+
+.kpi-box .kpi-label {
+  font-size: 11px;
+  color: var(--neo-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 6px;
+}
+
+
+/* ===========================================
+   13. TEAM SECTION
+   =========================================== */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.team-card {
+  background: var(--neo-dark-2);
+  border: 1px solid var(--neo-dark-3);
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  border-color: rgba(0, 212, 170, 0.3);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.team-card .avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--neo-dark-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.team-card .avatar-initial {
+  background: linear-gradient(135deg, var(--neo-primary-dark), var(--neo-primary-light));
+  color: var(--neo-dark);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-card .info .name {
+  color: var(--neo-text);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.team-card .info .role {
+  color: var(--neo-text-muted);
+  font-size: 12px;
+}
+
+
+/* ===========================================
+   14. ORG PYRAMID
+   =========================================== */
+.org-pyramid {
+  margin: 28px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.org-level {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  padding: 16px 20px;
+  width: 100%;
+}
+
+.org-level-label {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--neo-text-muted);
+  text-transform: uppercase;
+  writing-mode: horizontal-tb;
+  opacity: 0.6;
+}
+
+.org-connector {
+  width: 2px;
+  height: 12px;
+  background: var(--neo-dark-4);
+}
+
+.org-node {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--neo-text);
+  text-align: center;
+  border: 1px solid var(--neo-dark-3);
+  background: var(--neo-dark-2);
+  transition: all 0.2s ease;
+  min-width: 100px;
+}
+
+.org-node span {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--neo-text-muted);
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.org-node:hover {
+  border-color: rgba(0, 212, 170, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Level 1 — Principals */
+.org-level-1 {
+  background: rgba(0, 212, 170, 0.06);
+  border-radius: 12px;
+  max-width: 420px;
+}
+
+.org-principal {
+  border-color: var(--neo-primary);
+  background: rgba(0, 212, 170, 0.08);
+}
+
+.org-principal span {
+  color: var(--neo-primary);
+}
+
+/* Level 2 — Heads */
+.org-level-2 {
+  background: rgba(59, 130, 246, 0.04);
+  border-radius: 12px;
+  max-width: 520px;
+}
+
+.org-head {
+  border-color: var(--neo-info);
+  background: rgba(59, 130, 246, 0.06);
+}
+
+.org-head span {
+  color: var(--neo-info);
+}
+
+/* Level 3 — Operations */
+.org-level-3 {
+  max-width: 700px;
+}
+
+.org-ops {
+  border-color: var(--neo-dark-4);
+}
+
+/* Level 4 — Vacancies */
+.org-level-4 {
+  max-width: 700px;
+}
+
+.org-vacant {
+  border: 1px dashed var(--neo-dark-4);
+  background: transparent;
+  color: var(--neo-text-muted);
+  opacity: 0.7;
+}
+
+.org-vacant span {
+  color: var(--neo-warning);
+}
+
+/* Responsive org pyramid */
+@media (max-width: 767px) {
+  .org-level {
+    padding: 12px 10px;
+  }
+
+  .org-node {
+    min-width: 80px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .org-level-label {
+    position: static;
+    transform: none;
+    text-align: center;
+    width: 100%;
+    margin-top: 6px;
+  }
+}
+
+
+/* ===========================================
+   15. TIMELINE
+   =========================================== */
+.timeline {
+  border-left: 2px solid var(--neo-dark-3);
+  padding-left: 22px;
+  margin: 24px 0 24px 12px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--neo-dark-4);
+  border: 2px solid var(--neo-dark-3);
+  transition: all 0.2s ease;
+}
+
+.timeline-item.active::before {
+  background: var(--neo-primary);
+  border-color: var(--neo-primary);
+  box-shadow: 0 0 10px rgba(0, 212, 170, 0.45);
+}
+
+.timeline-item.done::before {
+  background: var(--neo-success);
+  border-color: var(--neo-success);
+}
+
+
+/* ===========================================
+   16. PROGRESS BAR
+   =========================================== */
+.progress {
+  background: var(--neo-dark-3);
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+.progress-bar.green {
+  background: linear-gradient(90deg, var(--neo-success), var(--neo-primary));
+}
+.progress-bar.yellow {
+  background: linear-gradient(90deg, var(--neo-warning), #FBBF24);
+}
+.progress-bar.red {
+  background: linear-gradient(90deg, var(--neo-danger), #F87171);
+}
+
+
+/* ===========================================
+   17. ALERT BOXES
+   =========================================== */
+.alert {
+  padding: 14px 20px;
+  border-radius: 10px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.alert-info {
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 4px solid var(--neo-info);
+  color: #93C5FD;
+}
+
+.alert-warning {
+  background: rgba(245, 158, 11, 0.1);
+  border-left: 4px solid var(--neo-warning);
+  color: #FCD34D;
+}
+
+.alert-success {
+  background: rgba(16, 185, 129, 0.1);
+  border-left: 4px solid var(--neo-success);
+  color: #6EE7B7;
+}
+
+.alert-danger {
+  background: rgba(239, 68, 68, 0.1);
+  border-left: 4px solid var(--neo-danger);
+  color: #FCA5A5;
+}
+
+
+/* ===========================================
+   18. PDF DOWNLOAD BANNER
+   =========================================== */
+.pdf-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--neo-dark-2);
+  border: 1px solid var(--neo-dark-3);
+  border-left: 3px solid var(--neo-primary);
+  border-radius: 8px;
+  padding: 14px 20px;
+  margin-bottom: 24px;
+}
+
+.pdf-banner-text {
+  color: var(--neo-text-secondary);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.pdf-banner-btn {
+  background: var(--neo-primary);
+  color: var(--neo-dark);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  margin-left: 16px;
+}
+
+.pdf-banner-btn:hover {
+  background: var(--neo-primary-dark);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 767px) {
+  .pdf-banner {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .pdf-banner-btn {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+
+/* ===========================================
+   19. LANGUAGE SWITCHER
+   =========================================== */
+.lang-switch-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--neo-dark-3);
+  border: 1px solid var(--neo-dark-4);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--neo-text-secondary);
+  letter-spacing: 0.3px;
+}
+
+.lang-switch-btn:hover {
+  background: var(--neo-dark-4);
+  border-color: var(--neo-primary);
+  color: var(--neo-text);
+}
+
+.lang-switch-btn .flag {
+  display: block;
+  border-radius: 2px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.lang-switch-btn .lang-label {
+  font-size: 12px;
+}
+
+
+/* ===========================================
+   20. PDF FLOATING BUTTON
+   =========================================== */
+.pdf-download-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--neo-primary);
+  color: var(--neo-dark);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 50;
+  box-shadow: 0 4px 12px rgba(0, 212, 170, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.pdf-download-btn:hover {
+  background: var(--neo-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 212, 170, 0.35), 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+  .pdf-download-btn {
+    bottom: 16px;
+    right: 16px;
+    font-size: 12px;
+  }
+}
+
+
+/* ===========================================
+   21. ACCESSIBILITY — Focus styles
+   =========================================== */
+
+/* Visible focus ring on all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--neo-primary);
+  outline-offset: 2px;
+}
+
+/* Remove outline for mouse clicks */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible) {
+  outline: none;
+}
+
+
+/* ===========================================
+   22. RESPONSIVE — Tablet (768px to 1199px)
+   =========================================== */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .markdown-section {
+    padding: 28px 32px;
+  }
+
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ===========================================
+   23. RESPONSIVE — Mobile (under 768px)
+   =========================================== */
+@media (max-width: 767px) {
+  .markdown-section {
+    padding: 20px 16px;
+    max-width: 100%;
+  }
+
+  /* Single column grids */
+  .kpi-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Table horizontal scroll */
+  .markdown-section table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  /* Smaller headings on mobile */
+  .markdown-section h1 {
+    font-size: 1.7em;
+  }
+
+  .markdown-section h2 {
+    font-size: 1.3em;
+  }
+
+  /* KPI boxes tighter on mobile */
+  .kpi-box {
+    padding: 18px;
+  }
+
+  .kpi-box .kpi-value {
+    font-size: 2em;
+  }
+}
+
+
+/* ===========================================
+   24. PRINT STYLES
+   =========================================== */
+@media print {
+  .lang-switch-btn,
+  .progress,
+  .pdf-download-btn,
+  .pdf-banner {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #1a1a1a !important;
+  }
+
+  .markdown-section {
+    max-width: 100% !important;
+    padding: 0 !important;
+    color: #1a1a1a !important;
+  }
+
+  .markdown-section h1 {
+    color: #000 !important;
+    border-bottom-color: #333 !important;
+  }
+
+  .markdown-section h2 {
+    color: #006B55 !important;
+    border-bottom-color: #ccc !important;
+  }
+
+  .markdown-section h3 {
+    color: #000 !important;
+  }
+
+  .markdown-section p,
+  .markdown-section li,
+  .markdown-section td {
+    color: #333 !important;
+  }
+
+  .markdown-section a {
+    color: #006B55 !important;
+    text-decoration: underline !important;
+  }
+
+  .markdown-section table {
+    border: 1px solid #ccc !important;
+  }
+
+  .markdown-section table th {
+    color: #000 !important;
+    background: #f0f0f0 !important;
+  }
+
+  .markdown-section table td {
+    border-bottom-color: #ddd !important;
+    color: #333 !important;
+  }
+
+  .card,
+  .kpi-box,
+  .team-card {
+    border: 1px solid #ccc !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+
+  .kpi-box .kpi-value {
+    color: #006B55 !important;
+  }
+
+  .badge {
+    border: 1px solid currentColor !important;
+    background: transparent !important;
+  }
+}
