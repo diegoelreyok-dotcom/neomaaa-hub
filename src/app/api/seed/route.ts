@@ -1,30 +1,30 @@
 import { NextResponse } from 'next/server';
-import { seedDefaultData, getRole } from '@/lib/db';
+import { seedDefaultData, getRole, getUser } from '@/lib/db';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    // Only seed if admin role doesn't exist yet
-    const existingAdmin = await getRole('admin');
-    if (existingAdmin) {
-      return NextResponse.json(
-        { message: 'Datos ya inicializados. Seed no necesario.' },
-        { status: 200 }
-      );
-    }
-
     await seedDefaultData();
 
+    // Verify the data exists
+    const adminRole = await getRole('admin');
+    const diegoUser = await getUser('diego');
+
     return NextResponse.json({
-      message: 'Seed completado exitosamente',
-      seeded: {
-        roles: ['admin', 'principal', 'sales', 'compliance', 'support-role', 'dealing', 'marketing-role', 'dev'],
-        users: ['diego', 'yulia', 'stanislav'],
-        defaultCode: '123456',
+      message: 'Seed completado',
+      adminRoleExists: !!adminRole,
+      diegoExists: !!diegoUser,
+      loginWith: {
+        usuario: 'diego',
+        codigo: '123456',
       },
+      allUsers: ['diego', 'yulia', 'stanislav'],
+      allRoles: ['admin', 'principal', 'sales', 'compliance', 'support-role', 'dealing', 'marketing-role', 'dev'],
     });
-  } catch (error) {
+  } catch (error: any) {
     return NextResponse.json(
-      { error: 'Error al ejecutar seed' },
+      { error: 'Error al ejecutar seed', details: error?.message || 'Unknown' },
       { status: 500 }
     );
   }

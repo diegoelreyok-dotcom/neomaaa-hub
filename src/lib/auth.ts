@@ -1,6 +1,17 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { validateLogin, getUser, getRole } from './db';
+import { validateLogin, getUser, getRole, seedDefaultData, getRole as checkRole } from './db';
+
+// Auto-seed on first use
+let seeded = false;
+async function ensureSeeded() {
+  if (seeded) return;
+  const existing = await checkRole('admin');
+  if (!existing) {
+    await seedDefaultData();
+  }
+  seeded = true;
+}
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
@@ -11,6 +22,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         code: { label: 'Codigo', type: 'password' },
       },
       async authorize(credentials) {
+        await ensureSeeded();
         if (!credentials?.userId || !credentials?.code) return null;
         const user = await validateLogin(
           credentials.userId as string,
