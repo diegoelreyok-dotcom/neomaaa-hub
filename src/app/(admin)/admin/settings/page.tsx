@@ -28,13 +28,7 @@ interface BrokerInfo {
   entidad: string;
   licencia: string;
   dominio: string;
-  helpCenter: string;
   telefono: string;
-  plataforma: string;
-  crm: string;
-  kycProvider: string;
-  chat: string;
-  partnerTracking: string;
 }
 
 /* ───────────────────────── Constants ───────────────────────── */
@@ -44,106 +38,205 @@ const DEFAULT_BROKER: BrokerInfo = {
   entidad: 'Neomaaa Ltd (IBC 15968)',
   licencia: 'L15968/N — AOFA',
   dominio: 'neomaaa.com',
-  helpCenter: 'help.neomaaa.com',
   telefono: '+41 44 707 9633',
-  plataforma: 'MetaTrader 5',
-  crm: 'Skale CRM',
-  kycProvider: 'Sumsub',
-  chat: 'Intercom',
-  partnerTracking: 'Cellxpert',
 };
 
-const LANG_FLAG: Record<string, string> = {
-  es: '\uD83C\uDDEA\uD83C\uDDF8',
-  ru: '\uD83C\uDDF7\uD83C\uDDFA',
-};
+type CategoryId = 'general' | 'team' | 'roles' | 'content' | 'languages' | 'security' | 'integrations' | 'platform';
 
-const SECTION_NAV = [
-  { id: 'broker', label: 'Broker' },
-  { id: 'roles', label: 'Roles' },
-  { id: 'equipo', label: 'Equipo' },
-  { id: 'contenido', label: 'Contenido' },
-  { id: 'idiomas', label: 'Idiomas' },
-  { id: 'seguridad', label: 'Seguridad' },
-  { id: 'plataforma', label: 'Plataforma' },
-  { id: 'links', label: 'Links' },
-];
-
-const ADMIN_LINKS = [
-  { href: '/admin/users', title: 'Usuarios', desc: 'Gestionar cuentas, roles y permisos de los usuarios del equipo.' },
-  { href: '/admin/roles', title: 'Roles', desc: 'Configurar roles y las secciones que cada rol puede ver.' },
-  { href: '/admin/registrations', title: 'Solicitudes', desc: 'Revisar y aprobar solicitudes de registro nuevas.' },
-  { href: '/admin/progress', title: 'Progreso', desc: 'Ver el avance de lectura de cada usuario por seccion.' },
-  { href: '/dashboard', title: 'Portal', desc: 'Ir al portal de contenido visible para los usuarios del equipo.' },
-  { href: '/api/seed', title: 'Seed Data', desc: 'Re-ejecutar el seed para restaurar datos por defecto.', external: true },
-];
-
-/* ───────────────────────── Helpers ───────────────────────── */
-
-function SectionCard({ id, title, subtitle, children }: {
-  id: string;
-  title: string;
-  subtitle: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section id={id} className="bg-neo-dark-2 border border-neo-dark-3 rounded-xl p-6 scroll-mt-24">
-      <div className="mb-5">
-        <h2 className="text-neo-text font-bold text-lg">{title}</h2>
-        <p className="text-neo-text-muted text-sm mt-0.5">{subtitle}</p>
-      </div>
-      {children}
-    </section>
-  );
+interface CategoryGroup {
+  label: string;
+  items: { id: CategoryId; label: string; icon: React.ReactNode }[];
 }
 
-function InfoField({ label, value, editable, onChange }: {
-  label: string;
-  value: string;
-  editable?: boolean;
-  onChange?: (v: string) => void;
-}) {
+const CATEGORY_GROUPS: CategoryGroup[] = [
+  {
+    label: 'Configuracion',
+    items: [
+      {
+        id: 'general',
+        label: 'General',
+        icon: (
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93s.844.141 1.206-.067l.72-.431a1.146 1.146 0 011.47.228l.774.774c.394.394.48.99.228 1.47l-.431.72a1.38 1.38 0 00-.067 1.206c.166.396.506.71.93.78l.894.15c.542.09.94.56.94 1.109v1.094c0 .55-.398 1.02-.94 1.11l-.894.149a1.38 1.38 0 00-.93.78 1.38 1.38 0 00.067 1.206l.431.72c.252.48.166 1.076-.228 1.47l-.774.774a1.146 1.146 0 01-1.47.228l-.72-.431a1.38 1.38 0 00-1.206-.067 1.38 1.38 0 00-.78.93l-.15.894c-.09.542-.56.94-1.109.94h-1.094c-.55 0-1.02-.398-1.11-.94l-.148-.894a1.38 1.38 0 00-.78-.93 1.38 1.38 0 00-1.207.067l-.72.431a1.146 1.146 0 01-1.47-.228l-.773-.774a1.146 1.146 0 01-.228-1.47l.43-.72a1.38 1.38 0 00.068-1.206 1.38 1.38 0 00-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.148a1.38 1.38 0 00.93-.78 1.38 1.38 0 00-.067-1.207l-.431-.72a1.146 1.146 0 01.228-1.47l.774-.773a1.146 1.146 0 011.47-.228l.72.43a1.38 1.38 0 001.206.068.38.38 0 00.78-.93l.15-.894z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        ),
+      },
+      {
+        id: 'team',
+        label: 'Equipo',
+        icon: (
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+          </svg>
+        ),
+      },
+      {
+        id: 'roles',
+        label: 'Roles',
+        icon: (
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+          </svg>
+        ),
+      },
+    ],
+  },
+  {
+    label: 'Contenido',
+    items: [
+      {
+        id: 'content',
+        label: 'Documentos',
+        icon: (
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+          </svg>
+        ),
+      },
+      {
+        id: 'languages',
+        label: 'Idiomas',
+        icon: (
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
+          </svg>
+        ),
+      },
+    ],
+  },
+  {
+    label: 'Sistema',
+    items: [
+      {
+        id: 'security',
+        label: 'Seguridad',
+        icon: (
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+          </svg>
+        ),
+      },
+      {
+        id: 'integrations',
+        label: 'Integraciones',
+        icon: (
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+          </svg>
+        ),
+      },
+      {
+        id: 'platform',
+        label: 'Plataforma',
+        icon: (
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+          </svg>
+        ),
+      },
+    ],
+  },
+];
+
+const INTEGRATIONS = [
+  { name: 'MetaTrader 5', desc: 'Plataforma de trading', status: 'Conectado', initial: 'MT', color: 'from-blue-500 to-blue-700' },
+  { name: 'Skale CRM', desc: 'Gestion de clientes', status: 'Conectado', initial: 'SK', color: 'from-violet-500 to-violet-700' },
+  { name: 'Sumsub', desc: 'Verificacion KYC', status: 'Conectado', initial: 'SS', color: 'from-emerald-500 to-emerald-700' },
+  { name: 'Intercom', desc: 'Chat en vivo y soporte', status: 'Conectado', initial: 'IC', color: 'from-sky-500 to-sky-700' },
+  { name: 'Cellxpert', desc: 'Tracking de afiliados', status: 'Conectado', initial: 'CX', color: 'from-amber-500 to-amber-700' },
+  { name: 'Vercel', desc: 'Hosting y deploy', status: 'Conectado', initial: 'VC', color: 'from-gray-400 to-gray-600' },
+  { name: 'GitHub', desc: 'Codigo fuente', status: 'Conectado', initial: 'GH', color: 'from-gray-500 to-gray-700' },
+];
+
+/* ───────────────────────── Skeleton Loader ───────────────────────── */
+
+function SettingsSkeleton() {
   return (
-    <div>
-      <div className="text-neo-text-muted text-xs font-semibold uppercase tracking-wider mb-1">
-        {label}
+    <div className="animate-pulse">
+      {/* Header skeleton */}
+      <div className="mb-8">
+        <div className="h-8 w-32 bg-neo-dark-3 rounded-lg mb-2" />
+        <div className="h-4 w-64 bg-neo-dark-3/60 rounded-lg" />
       </div>
-      {editable ? (
-        <input
-          type="text"
-          value={value}
-          onChange={(e) => onChange?.(e.target.value)}
-          className="w-full bg-neo-dark border border-neo-dark-3 text-neo-text-body rounded-md px-3 py-2 text-sm focus:outline-none focus:border-neo-primary transition-all duration-200"
-        />
-      ) : (
-        <div className="text-neo-text text-sm">{value}</div>
-      )}
+      <div className="flex gap-6 min-h-[calc(100vh-12rem)]">
+        {/* Sidebar skeleton */}
+        <div className="w-60 flex-shrink-0">
+          <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-4 space-y-6">
+            {[1, 2, 3].map((g) => (
+              <div key={g} className="space-y-2">
+                <div className="h-3 w-20 bg-neo-dark-3/40 rounded mb-3" />
+                {[1, 2, 3].slice(0, g === 2 ? 2 : 3).map((i) => (
+                  <div key={i} className="h-9 bg-neo-dark-3/30 rounded-lg" />
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Content skeleton */}
+        <div className="flex-1 max-w-3xl space-y-6">
+          <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-6">
+            <div className="h-6 w-48 bg-neo-dark-3 rounded-lg mb-2" />
+            <div className="h-4 w-72 bg-neo-dark-3/50 rounded-lg mb-8" />
+            <div className="grid grid-cols-2 gap-4">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="space-y-2">
+                  <div className="h-3 w-24 bg-neo-dark-3/40 rounded" />
+                  <div className="h-10 bg-neo-dark-3/30 rounded-lg" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
-function StatusDot({ active }: { active: boolean }) {
+/* ───────────────────────── Card Wrapper ───────────────────────── */
+
+function SettingsCard({
+  title,
+  description,
+  children,
+  headerRight,
+}: {
+  title: string;
+  description: string;
+  children: React.ReactNode;
+  headerRight?: React.ReactNode;
+}) {
   return (
-    <span
-      className={`inline-block w-2 h-2 rounded-full ${
-        active ? 'bg-neo-success' : 'bg-neo-dark-4'
-      }`}
-    />
+    <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl overflow-hidden">
+      {/* Card header */}
+      <div className="px-6 pt-6 pb-5 flex items-start justify-between">
+        <div>
+          <h2 className="text-lg font-semibold text-neo-text tracking-tight">{title}</h2>
+          <p className="text-neo-text-muted text-sm mt-1 leading-relaxed">{description}</p>
+        </div>
+        {headerRight && <div className="flex-shrink-0 ml-4">{headerRight}</div>}
+      </div>
+      {/* Divider */}
+      <div className="border-b border-neo-dark-3/40 mx-6" />
+      {/* Card body */}
+      <div className="px-6 py-6">{children}</div>
+    </div>
   );
 }
 
 /* ───────────────────────── Main Page ───────────────────────── */
 
 export default function SettingsPage() {
+  const [activeSection, setActiveSection] = useState<CategoryId>('general');
   const [roles, setRoles] = useState<RoleData[]>([]);
   const [users, setUsers] = useState<UserData[]>([]);
   const [loading, setLoading] = useState(true);
   const [broker, setBroker] = useState<BrokerInfo>(DEFAULT_BROKER);
-  const [editingBroker, setEditingBroker] = useState(false);
-  const [savedMsg, setSavedMsg] = useState<string | null>(null);
+  const [originalBroker, setOriginalBroker] = useState<BrokerInfo>(DEFAULT_BROKER);
   const [seedStatus, setSeedStatus] = useState<string | null>(null);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
-  const [langToggles, setLangToggles] = useState<Record<string, boolean>>({ es: true, ru: true });
+
+  const hasChanges = JSON.stringify(broker) !== JSON.stringify(originalBroker);
 
   /* ── Fetch data ── */
   const loadData = useCallback(async () => {
@@ -165,31 +258,20 @@ export default function SettingsPage() {
 
   useEffect(() => {
     loadData();
-    // Load broker info from localStorage
     const stored = localStorage.getItem('neomaaa-broker-info');
     if (stored) {
       try {
-        setBroker(JSON.parse(stored));
+        const parsed = JSON.parse(stored);
+        setBroker(parsed);
+        setOriginalBroker(parsed);
       } catch { /* ignore */ }
     }
   }, [loadData]);
 
-  /* ── Broker save ── */
+  /* ── Save broker ── */
   function saveBroker() {
     localStorage.setItem('neomaaa-broker-info', JSON.stringify(broker));
-    setEditingBroker(false);
-    setSavedMsg('Informacion guardada');
-    setTimeout(() => setSavedMsg(null), 2500);
-  }
-
-  function cancelBrokerEdit() {
-    const stored = localStorage.getItem('neomaaa-broker-info');
-    if (stored) {
-      try { setBroker(JSON.parse(stored)); } catch { setBroker(DEFAULT_BROKER); }
-    } else {
-      setBroker(DEFAULT_BROKER);
-    }
-    setEditingBroker(false);
+    setOriginalBroker({ ...broker });
   }
 
   /* ── Seed ── */
@@ -217,568 +299,638 @@ export default function SettingsPage() {
     });
   }
 
-  /* ── Nav scroll ── */
-  function scrollTo(id: string) {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  }
-
   /* ── Derived data ── */
-  function usersForRole(roleId: string) {
-    return users.filter((u) => u.roleId === roleId);
+  const esContentCount = SECTIONS.reduce((acc, s) => acc + s.documents.length, 0);
+
+  function getRoleName(roleId: string) {
+    return roles.find((r) => r.id === roleId)?.name || roleId;
   }
 
-  const esContentCount = SECTIONS.reduce((acc, s) => acc + s.documents.length, 0);
-  const ruContentCount = esContentCount; // mirror
+  function isAdminRole(roleId: string) {
+    return roles.find((r) => r.id === roleId)?.isAdmin || false;
+  }
 
   /* ── Loading state ── */
   if (loading) {
+    return <SettingsSkeleton />;
+  }
+
+  /* ── Section renderers ── */
+
+  function renderGeneral() {
+    const fields: { label: string; key: keyof BrokerInfo; span?: boolean }[] = [
+      { label: 'Nombre del Broker', key: 'nombre' },
+      { label: 'Entidad Legal', key: 'entidad' },
+      { label: 'Numero de Licencia', key: 'licencia' },
+      { label: 'Dominio Principal', key: 'dominio' },
+      { label: 'Telefono de Soporte', key: 'telefono' },
+    ];
+
     return (
-      <div className="flex items-center justify-center min-h-[60vh]">
-        <div className="w-8 h-8 border-2 border-neo-primary border-t-transparent rounded-full animate-spin" />
-      </div>
+      <SettingsCard
+        title="Informacion General"
+        description="Datos corporativos, licencia y contacto del broker."
+        headerRight={
+          hasChanges ? (
+            <button
+              onClick={saveBroker}
+              className="inline-flex items-center gap-2 bg-neo-primary text-neo-dark font-semibold px-5 py-2 rounded-lg hover:bg-neo-primary-light transition-all duration-200 text-sm shadow-lg shadow-neo-primary/20"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              Guardar
+            </button>
+          ) : undefined
+        }
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-5">
+          {fields.map(({ label, key }) => (
+            <div key={key}>
+              <label className="block text-xs uppercase tracking-wide text-neo-text-muted font-medium mb-2">
+                {label}
+              </label>
+              <input
+                type="text"
+                value={broker[key]}
+                onChange={(e) => setBroker((prev) => ({ ...prev, [key]: e.target.value }))}
+                className="w-full bg-neo-dark-3/50 border border-neo-dark-4/50 rounded-lg px-4 py-2.5 text-sm text-neo-text placeholder:text-neo-text-muted/50 focus:outline-none focus:border-neo-primary/50 focus:ring-2 focus:ring-neo-primary/10 transition-all duration-200"
+              />
+            </div>
+          ))}
+        </div>
+      </SettingsCard>
     );
   }
 
-  return (
-    <div>
-      {/* ── Page Header ── */}
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-neo-text">Settings</h1>
-        <p className="text-neo-text-muted text-sm mt-1">
-          Centro de configuracion de NEOMAAA Hub — broker, equipo, contenido y plataforma.
-        </p>
-      </div>
+  function renderTeam() {
+    const avatarGradients = [
+      'from-neo-primary to-emerald-600',
+      'from-blue-500 to-indigo-600',
+      'from-violet-500 to-purple-600',
+      'from-rose-500 to-pink-600',
+      'from-amber-500 to-orange-600',
+      'from-cyan-500 to-teal-600',
+    ];
 
-      {/* ── Section Nav Pills ── */}
-      <div className="flex flex-wrap gap-2 mb-8 sticky top-14 z-40 bg-neo-dark py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 border-b border-neo-dark-3">
-        {SECTION_NAV.map((s) => (
-          <button
-            key={s.id}
-            onClick={() => scrollTo(s.id)}
-            className="text-xs font-semibold px-3.5 py-1.5 rounded-full bg-neo-dark-2 border border-neo-dark-3 text-neo-text-secondary hover:text-neo-primary hover:border-neo-primary transition-all duration-200"
+    return (
+      <SettingsCard
+        title="Equipo"
+        description={`${users.length} miembro${users.length !== 1 ? 's' : ''} registrado${users.length !== 1 ? 's' : ''} en la plataforma.`}
+        headerRight={
+          <Link
+            href="/admin/users"
+            className="inline-flex items-center gap-2 text-sm font-medium text-neo-primary hover:text-neo-primary-light transition-all duration-200 bg-neo-primary/10 hover:bg-neo-primary/15 px-4 py-2 rounded-lg"
           >
-            {s.label}
-          </button>
-        ))}
-      </div>
-
-      {/* ── Sections Stack ── */}
-      <div className="space-y-6">
-
-        {/* ═══════════════ 1. BROKER INFO ═══════════════ */}
-        <SectionCard
-          id="broker"
-          title="Informacion General del Broker"
-          subtitle="Datos corporativos, licencia y proveedores tecnologicos."
-        >
-          <div className="flex items-center justify-between mb-4">
-            {savedMsg && (
-              <span className="text-neo-primary text-xs font-medium bg-neo-primary/10 px-3 py-1 rounded-full">
-                {savedMsg}
-              </span>
-            )}
-            {!savedMsg && <span />}
-            {editingBroker ? (
-              <div className="flex gap-2">
-                <button
-                  onClick={cancelBrokerEdit}
-                  className="text-xs font-semibold px-4 py-1.5 rounded-lg bg-neo-dark-3 text-neo-text-secondary hover:bg-neo-dark-4 transition-all duration-200"
-                >
-                  Cancelar
-                </button>
-                <button
-                  onClick={saveBroker}
-                  className="text-xs font-semibold px-4 py-1.5 rounded-lg bg-neo-primary text-neo-dark hover:bg-neo-primary-dark transition-all duration-200"
-                >
-                  Guardar
-                </button>
-              </div>
-            ) : (
-              <button
-                onClick={() => setEditingBroker(true)}
-                className="text-xs font-semibold px-4 py-1.5 rounded-lg bg-neo-dark-3 text-neo-text-secondary hover:text-neo-primary hover:bg-neo-dark-4 transition-all duration-200"
-              >
-                Editar
-              </button>
-            )}
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4">
-            {([
-              ['Nombre del broker', 'nombre'],
-              ['Entidad legal', 'entidad'],
-              ['Licencia', 'licencia'],
-              ['Dominio', 'dominio'],
-              ['Help Center', 'helpCenter'],
-              ['Telefono soporte', 'telefono'],
-              ['Plataforma', 'plataforma'],
-              ['CRM', 'crm'],
-              ['KYC Provider', 'kycProvider'],
-              ['Chat', 'chat'],
-              ['Partner Tracking', 'partnerTracking'],
-            ] as [string, keyof BrokerInfo][]).map(([label, key]) => (
-              <InfoField
-                key={key}
-                label={label}
-                value={broker[key]}
-                editable={editingBroker}
-                onChange={(v) => setBroker((prev) => ({ ...prev, [key]: v }))}
-              />
-            ))}
-          </div>
-        </SectionCard>
-
-        {/* ═══════════════ 2. ROLES ═══════════════ */}
-        <SectionCard
-          id="roles"
-          title="Roles — Resumen Visual"
-          subtitle={`${roles.length} rol${roles.length !== 1 ? 'es' : ''} configurado${roles.length !== 1 ? 's' : ''}`}
-        >
-          <div className="flex items-center justify-between mb-4">
-            <span />
-            <Link
-              href="/admin/roles"
-              className="text-xs font-semibold px-4 py-1.5 rounded-lg bg-neo-primary text-neo-dark hover:bg-neo-primary-dark transition-all duration-200"
-            >
-              Crear Rol
-            </Link>
-          </div>
-
-          {roles.length === 0 ? (
-            <p className="text-neo-text-muted text-sm text-center py-4">
-              No hay roles configurados. Ejecuta el Seed primero.
-            </p>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-              {roles.map((role) => {
-                const count = usersForRole(role.id).length;
-                return (
-                  <Link
-                    key={role.id}
-                    href={`/admin/roles/${role.id}`}
-                    className="bg-neo-dark border border-neo-dark-3 rounded-lg p-4 hover:border-neo-primary transition-all duration-200 hover:-translate-y-0.5 group"
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-neo-text font-semibold text-sm group-hover:text-neo-primary transition-colors duration-200 truncate">
-                        {role.name}
-                      </h4>
-                      {role.isAdmin && (
-                        <span className="bg-neo-accent/15 text-neo-accent text-[10px] font-bold px-2 py-0.5 rounded-full ml-2 flex-shrink-0">
-                          Admin
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex items-center gap-3 text-xs text-neo-text-muted">
-                      <span>{role.sections.length} seccion{role.sections.length !== 1 ? 'es' : ''}</span>
-                      <span className="text-neo-dark-4">|</span>
-                      <span>{count} usuario{count !== 1 ? 's' : ''}</span>
-                    </div>
-                  </Link>
-                );
-              })}
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            Invitar
+          </Link>
+        }
+      >
+        {users.length === 0 ? (
+          <div className="text-center py-12">
+            <div className="w-12 h-12 rounded-full bg-neo-dark-3/50 flex items-center justify-center mx-auto mb-3">
+              <svg className="w-6 h-6 text-neo-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+              </svg>
             </div>
-          )}
-        </SectionCard>
-
-        {/* ═══════════════ 3. EQUIPO ═══════════════ */}
-        <SectionCard
-          id="equipo"
-          title="Equipo — Overview"
-          subtitle={`${users.length} miembro${users.length !== 1 ? 's' : ''} del equipo`}
-        >
-          <div className="flex items-center justify-between mb-4">
-            <span />
-            <Link
-              href="/admin/users"
-              className="text-xs font-semibold px-4 py-1.5 rounded-lg bg-neo-primary text-neo-dark hover:bg-neo-primary-dark transition-all duration-200"
-            >
-              Agregar Usuario
-            </Link>
+            <p className="text-neo-text-muted text-sm">No hay usuarios registrados.</p>
           </div>
+        ) : (
+          <div className="space-y-0.5">
+            {users.map((user, idx) => {
+              const initial = user.name.charAt(0).toUpperCase();
+              const admin = isAdminRole(user.roleId);
+              const roleName = getRoleName(user.roleId);
+              const isOwner = user.id === 'diego';
+              const gradient = avatarGradients[idx % avatarGradients.length];
 
-          {users.length === 0 ? (
-            <p className="text-neo-text-muted text-sm text-center py-4">
-              No hay usuarios. Ejecuta el Seed o agrega usuarios manualmente.
-            </p>
-          ) : (
-            <div className="space-y-5">
-              {roles.map((role) => {
-                const roleUsers = usersForRole(role.id);
-                if (roleUsers.length === 0) return null;
-                return (
-                  <div key={role.id}>
-                    <div className="flex items-center gap-2 mb-2">
-                      <h4 className="text-neo-text-secondary text-xs font-semibold uppercase tracking-wider">
-                        {role.name}
-                      </h4>
-                      <span className="text-neo-text-muted text-xs">({roleUsers.length})</span>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                      {roleUsers.map((u) => (
-                        <div
-                          key={u.id}
-                          className="flex items-center gap-3 bg-neo-dark border border-neo-dark-3 rounded-lg px-4 py-3"
-                        >
-                          <StatusDot active={u.isActive} />
-                          <div className="flex-1 min-w-0">
-                            <div className="text-neo-text text-sm font-medium truncate">{u.name}</div>
-                            <div className="text-neo-text-muted text-xs truncate">{u.id}</div>
-                          </div>
-                          <span className="text-lg flex-shrink-0" title={u.lang === 'es' ? 'Espanol' : 'Ruso'}>
-                            {LANG_FLAG[u.lang] || u.lang}
-                          </span>
-                          {role.isAdmin && (
-                            <span className="bg-neo-accent/15 text-neo-accent text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0">
-                              Admin
-                            </span>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-              {/* Users with unmatched roles */}
-              {(() => {
-                const roleIds = new Set(roles.map((r) => r.id));
-                const orphans = users.filter((u) => !roleIds.has(u.roleId));
-                if (orphans.length === 0) return null;
-                return (
-                  <div>
-                    <h4 className="text-neo-warning text-xs font-semibold uppercase tracking-wider mb-2">
-                      Sin rol valido
-                    </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                      {orphans.map((u) => (
-                        <div
-                          key={u.id}
-                          className="flex items-center gap-3 bg-neo-dark border border-neo-warning/30 rounded-lg px-4 py-3"
-                        >
-                          <StatusDot active={u.isActive} />
-                          <div className="flex-1 min-w-0">
-                            <div className="text-neo-text text-sm font-medium truncate">{u.name}</div>
-                            <div className="text-neo-text-muted text-xs truncate">Rol: {u.roleId}</div>
-                          </div>
-                          <span className="text-lg flex-shrink-0">{LANG_FLAG[u.lang] || u.lang}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })()}
-            </div>
-          )}
-        </SectionCard>
-
-        {/* ═══════════════ 4. SECCIONES DE CONTENIDO ═══════════════ */}
-        <SectionCard
-          id="contenido"
-          title="Secciones de Contenido"
-          subtitle={`${SECTIONS.length} secciones, ${esContentCount} documentos por idioma`}
-        >
-          <div className="space-y-2">
-            {SECTIONS.map((section) => {
-              const isOpen = expandedSections.has(section.id);
               return (
                 <div
-                  key={section.id}
-                  className="bg-neo-dark border border-neo-dark-3 rounded-lg overflow-hidden"
+                  key={user.id}
+                  className="flex items-center gap-4 py-3.5 px-3 -mx-3 rounded-lg hover:bg-neo-dark-3/30 transition-all duration-200 group"
                 >
-                  <button
-                    onClick={() => toggleContentSection(section.id)}
-                    className="w-full flex items-center justify-between px-4 py-3 hover:bg-neo-dark-3/50 transition-all duration-200"
-                  >
-                    <div className="flex items-center gap-3">
-                      <svg
-                        className={`w-4 h-4 text-neo-text-muted transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                      <div className="text-left">
-                        <span className="text-neo-text text-sm font-medium">{section.nameEs}</span>
-                        <span className="text-neo-text-muted text-xs ml-2">{section.nameRu}</span>
-                      </div>
-                    </div>
-                    <span className="text-neo-text-muted text-xs font-medium bg-neo-dark-3 px-2.5 py-0.5 rounded-full">
-                      {section.documents.length} doc{section.documents.length !== 1 ? 's' : ''}
-                    </span>
-                  </button>
+                  {/* Avatar with gradient */}
+                  <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center text-white text-sm font-bold flex-shrink-0 shadow-lg`}>
+                    {initial}
+                  </div>
 
-                  {isOpen && (
-                    <div className="px-4 pb-3 border-t border-neo-dark-3">
-                      <div className="mt-3 space-y-1.5">
-                        {section.documents.map((doc) => (
-                          <div
-                            key={doc.slug}
-                            className="flex items-center gap-2 text-sm"
-                          >
-                            <svg className="w-3.5 h-3.5 text-neo-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                            <span className="text-neo-text-body">{doc.titleEs}</span>
-                            <span className="text-neo-text-muted text-xs">/ {doc.titleRu}</span>
-                          </div>
-                        ))}
-                      </div>
+                  {/* Name + email */}
+                  <div className="flex-1 min-w-0">
+                    <div className="text-neo-text text-sm font-medium group-hover:text-neo-text transition-colors">
+                      {user.name}
                     </div>
+                    <div className="text-neo-text-muted text-xs mt-0.5">{user.id}@neomaaa.com</div>
+                  </div>
+
+                  {/* Status dot */}
+                  <div className="flex items-center gap-1.5 mr-2">
+                    <span className={`w-1.5 h-1.5 rounded-full inline-block ${user.isActive ? 'bg-neo-success' : 'bg-neo-dark-5'}`} />
+                    <span className={`text-xs ${user.isActive ? 'text-neo-success' : 'text-neo-text-muted'}`}>
+                      {user.isActive ? 'Activo' : 'Inactivo'}
+                    </span>
+                  </div>
+
+                  {/* Role badge */}
+                  {isOwner ? (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-neo-info/20 to-violet-500/20 text-neo-info border border-neo-info/20">
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                      </svg>
+                      Owner
+                    </span>
+                  ) : admin ? (
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-neo-primary/15 text-neo-primary border border-neo-primary/20">
+                      Admin
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-neo-dark-3/50 text-neo-text-secondary border border-neo-dark-4/30">
+                      {roleName}
+                    </span>
                   )}
                 </div>
               );
             })}
           </div>
-        </SectionCard>
+        )}
+      </SettingsCard>
+    );
+  }
 
-        {/* ═══════════════ 5. IDIOMAS ═══════════════ */}
-        <SectionCard
-          id="idiomas"
-          title="Idiomas"
-          subtitle="Idiomas soportados y estado del contenido."
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* Espanol */}
-            <div className="bg-neo-dark border border-neo-dark-3 rounded-lg p-4">
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">{LANG_FLAG.es}</span>
-                  <div>
-                    <div className="text-neo-text font-semibold text-sm">Espanol (ES)</div>
-                    <div className="text-neo-text-muted text-xs">{esContentCount} documentos</div>
-                  </div>
-                </div>
-                <button
-                  onClick={() => setLangToggles((p) => ({ ...p, es: !p.es }))}
-                  className={`relative w-11 h-6 rounded-full transition-all duration-200 ${langToggles.es ? 'bg-neo-primary' : 'bg-neo-dark-4'}`}
-                >
-                  <div className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-all duration-200 ${langToggles.es ? 'left-[22px]' : 'left-0.5'}`} />
-                </button>
-              </div>
-              <div className="flex items-center gap-2">
-                <StatusDot active={langToggles.es} />
-                <span className={`text-xs font-medium ${langToggles.es ? 'text-neo-success' : 'text-neo-text-muted'}`}>
-                  {langToggles.es ? 'Activo' : 'Inactivo'}
-                </span>
-              </div>
+  function renderRoles() {
+    return (
+      <SettingsCard
+        title="Roles"
+        description={`${roles.length} rol${roles.length !== 1 ? 'es' : ''} configurado${roles.length !== 1 ? 's' : ''} con permisos por seccion.`}
+        headerRight={
+          <Link
+            href="/admin/roles"
+            className="inline-flex items-center gap-2 text-sm font-medium text-neo-primary hover:text-neo-primary-light transition-all duration-200 bg-neo-primary/10 hover:bg-neo-primary/15 px-4 py-2 rounded-lg"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            Crear rol
+          </Link>
+        }
+      >
+        {roles.length === 0 ? (
+          <div className="text-center py-12">
+            <div className="w-12 h-12 rounded-full bg-neo-dark-3/50 flex items-center justify-center mx-auto mb-3">
+              <svg className="w-6 h-6 text-neo-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
             </div>
-
-            {/* Ruso */}
-            <div className="bg-neo-dark border border-neo-dark-3 rounded-lg p-4">
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">{LANG_FLAG.ru}</span>
-                  <div>
-                    <div className="text-neo-text font-semibold text-sm">Ruso (RU)</div>
-                    <div className="text-neo-text-muted text-xs">{ruContentCount} documentos</div>
-                  </div>
-                </div>
-                <button
-                  onClick={() => setLangToggles((p) => ({ ...p, ru: !p.ru }))}
-                  className={`relative w-11 h-6 rounded-full transition-all duration-200 ${langToggles.ru ? 'bg-neo-primary' : 'bg-neo-dark-4'}`}
-                >
-                  <div className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-all duration-200 ${langToggles.ru ? 'left-[22px]' : 'left-0.5'}`} />
-                </button>
-              </div>
-              <div className="flex items-center gap-2">
-                <StatusDot active={langToggles.ru} />
-                <span className={`text-xs font-medium ${langToggles.ru ? 'text-neo-success' : 'text-neo-text-muted'}`}>
-                  {langToggles.ru ? 'Activo' : 'Inactivo'}
-                </span>
-              </div>
-            </div>
+            <p className="text-neo-text-muted text-sm">No hay roles configurados.</p>
           </div>
-        </SectionCard>
-
-        {/* ═══════════════ 6. SEGURIDAD ═══════════════ */}
-        <SectionCard
-          id="seguridad"
-          title="Seguridad"
-          subtitle="Autenticacion, sesiones y cuentas de administrador."
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4 mb-6">
-            <InfoField label="Metodo de autenticacion" value="Login codes (6 digitos)" />
-            <InfoField label="Duracion de sesion" value="30 dias" />
-            <InfoField label="Proveedor de sesiones" value="NextAuth.js" />
-          </div>
-
-          <div className="mb-5">
-            <div className="text-neo-text-muted text-xs font-semibold uppercase tracking-wider mb-3">
-              Cuentas de administrador
-            </div>
-            <div className="bg-neo-dark border border-neo-dark-3 rounded-lg overflow-hidden">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-neo-dark-3">
-                    <th className="text-left text-neo-text-muted text-xs font-semibold uppercase tracking-wider px-4 py-2.5">Usuario</th>
-                    <th className="text-left text-neo-text-muted text-xs font-semibold uppercase tracking-wider px-4 py-2.5">Nombre</th>
-                    <th className="text-left text-neo-text-muted text-xs font-semibold uppercase tracking-wider px-4 py-2.5">Idioma</th>
-                    <th className="text-left text-neo-text-muted text-xs font-semibold uppercase tracking-wider px-4 py-2.5">Estado</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-neo-dark-3">
-                  {[
-                    { id: 'diego', name: 'Diego', lang: 'es' },
-                    { id: 'yulia', name: 'Yulia', lang: 'ru' },
-                    { id: 'stanislav', name: 'Stanislav', lang: 'ru' },
-                  ].map((acc) => {
-                    const user = users.find((u) => u.id === acc.id);
-                    return (
-                      <tr key={acc.id}>
-                        <td className="px-4 py-2.5 text-neo-text font-medium">{acc.id}</td>
-                        <td className="px-4 py-2.5 text-neo-text-body">{acc.name}</td>
-                        <td className="px-4 py-2.5">
-                          <span className="text-lg">{LANG_FLAG[acc.lang]}</span>
-                        </td>
-                        <td className="px-4 py-2.5">
-                          <div className="flex items-center gap-1.5">
-                            <StatusDot active={user?.isActive ?? false} />
-                            <span className={`text-xs font-medium ${user?.isActive ? 'text-neo-success' : 'text-neo-text-muted'}`}>
-                              {user ? (user.isActive ? 'Activo' : 'Inactivo') : 'No encontrado'}
-                            </span>
-                          </div>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-            <p className="text-neo-warning/80 text-xs mt-2">
-              Los codigos de acceso se asignan al crear usuarios. Usa la pagina de Usuarios para regenerarlos.
-            </p>
-          </div>
-
-          <div>
-            <div className="text-neo-text-muted text-xs font-semibold uppercase tracking-wider mb-2">
-              Seed de datos
-            </div>
-            <div className="flex items-center gap-3">
-              <button
-                onClick={handleSeed}
-                className="text-xs font-semibold px-4 py-2 rounded-lg bg-neo-dark-3 text-neo-text-secondary hover:text-neo-primary hover:bg-neo-dark-4 transition-all duration-200"
-              >
-                Re-ejecutar Seed
-              </button>
-              {seedStatus && (
-                <span className="text-neo-primary text-xs font-medium bg-neo-primary/10 px-3 py-1 rounded-full">
-                  {seedStatus}
-                </span>
-              )}
-            </div>
-            <p className="text-neo-text-muted text-xs mt-1.5">
-              Restaura roles y usuarios por defecto (diego, yulia, stanislav + 8 roles).
-            </p>
-          </div>
-        </SectionCard>
-
-        {/* ═══════════════ 7. PLATAFORMA ═══════════════ */}
-        <SectionCard
-          id="plataforma"
-          title="Plataforma"
-          subtitle="Informacion tecnica del deploy y repositorio."
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4">
-            <div>
-              <div className="text-neo-text-muted text-xs font-semibold uppercase tracking-wider mb-1">Portal URL</div>
-              <a
-                href="https://neomaaa-hub.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neo-primary text-sm hover:underline"
-              >
-                neomaaa-hub.vercel.app
-              </a>
-            </div>
-            <div>
-              <div className="text-neo-text-muted text-xs font-semibold uppercase tracking-wider mb-1">Docsify Portal (legacy)</div>
-              <a
-                href="https://neomaaa-broker.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neo-primary text-sm hover:underline"
-              >
-                neomaaa-broker.vercel.app
-              </a>
-            </div>
-            <div>
-              <div className="text-neo-text-muted text-xs font-semibold uppercase tracking-wider mb-1">GitHub Repo</div>
-              <a
-                href="https://github.com/diegoelreyok-dotcom/neomaaa-hub"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neo-primary text-sm hover:underline"
-              >
-                diegoelreyok-dotcom/neomaaa-hub
-              </a>
-            </div>
-            <div>
-              <div className="text-neo-text-muted text-xs font-semibold uppercase tracking-wider mb-1">Deploy</div>
-              <a
-                href="https://vercel.com/dashboard"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neo-primary text-sm hover:underline"
-              >
-                Vercel Dashboard
-              </a>
-            </div>
-            <InfoField label="Version" value="v1.0" />
-            <InfoField label="Framework" value="Next.js 14 (App Router)" />
-          </div>
-        </SectionCard>
-
-        {/* ═══════════════ 8. LINKS RAPIDOS ═══════════════ */}
-        <SectionCard
-          id="links"
-          title="Links Rapidos (Admin)"
-          subtitle="Acceso directo a las secciones principales de administracion."
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {ADMIN_LINKS.map((link) => {
-              const isExternal = 'external' in link && link.external;
-              const Tag = isExternal ? 'a' : Link;
-              const extraProps = isExternal
-                ? { href: link.href, target: '_blank', rel: 'noopener noreferrer' }
-                : { href: link.href };
-
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {roles.map((role) => {
+              const assignedUsers = users.filter((u) => u.roleId === role.id).length;
               return (
-                <Tag
-                  key={link.href}
-                  {...(extraProps as any)}
-                  className="bg-neo-dark border border-neo-dark-3 rounded-lg p-4 hover:border-neo-primary transition-all duration-200 hover:-translate-y-0.5 group flex items-start gap-3"
+                <Link
+                  key={role.id}
+                  href={`/admin/roles/${role.id}`}
+                  className="group relative flex flex-col gap-3 p-4 rounded-xl border border-neo-dark-3/50 bg-neo-dark-3/20 hover:border-neo-primary/30 hover:bg-neo-dark-3/40 transition-all duration-200"
                 >
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-neo-text font-semibold text-sm group-hover:text-neo-primary transition-colors duration-200">
-                      {link.title}
-                    </h4>
-                    <p className="text-neo-text-muted text-xs mt-1 leading-relaxed">
-                      {link.desc}
-                    </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-neo-text text-sm font-semibold group-hover:text-neo-primary transition-colors">
+                      {role.name}
+                    </span>
+                    {role.isAdmin && (
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-neo-primary/15 text-neo-primary uppercase tracking-wider">
+                        Admin
+                      </span>
+                    )}
                   </div>
-                  <svg
-                    className="w-4 h-4 text-neo-text-muted group-hover:text-neo-primary transition-colors duration-200 flex-shrink-0 mt-0.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex items-center gap-1 text-neo-text-muted text-xs bg-neo-dark-4/40 px-2 py-0.5 rounded-md">
+                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6z" />
+                      </svg>
+                      {role.sections.length} seccion{role.sections.length !== 1 ? 'es' : ''}
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-neo-text-muted text-xs bg-neo-dark-4/40 px-2 py-0.5 rounded-md">
+                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
+                      </svg>
+                      {assignedUsers} usuario{assignedUsers !== 1 ? 's' : ''}
+                    </span>
+                  </div>
+                  {/* Hover arrow */}
+                  <svg className="absolute right-3 top-4 w-4 h-4 text-neo-text-muted opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                   </svg>
-                </Tag>
+                </Link>
               );
             })}
           </div>
-        </SectionCard>
+        )}
+      </SettingsCard>
+    );
+  }
 
+  function renderContent() {
+    return (
+      <SettingsCard
+        title="Contenido"
+        description={`${SECTIONS.length} secciones con ${esContentCount} documentos en total.`}
+      >
+        <div className="space-y-0.5">
+          {SECTIONS.map((section) => {
+            const isOpen = expandedSections.has(section.id);
+            return (
+              <div key={section.id}>
+                <button
+                  onClick={() => toggleContentSection(section.id)}
+                  className="w-full flex items-center justify-between py-3 px-3 -mx-0 rounded-lg hover:bg-neo-dark-3/30 transition-all duration-200 group"
+                >
+                  <div className="flex items-center gap-3">
+                    <svg
+                      className={`w-3.5 h-3.5 text-neo-text-muted transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span className="text-neo-text text-sm font-medium group-hover:text-neo-primary transition-colors">
+                      {section.nameEs}
+                    </span>
+                  </div>
+                  <span className="text-neo-text-muted text-xs bg-neo-dark-4/40 px-2.5 py-0.5 rounded-full font-medium">
+                    {section.documents.length}
+                  </span>
+                </button>
+
+                {isOpen && (
+                  <div className="ml-10 mr-3 mb-2 space-y-0.5 border-l-2 border-neo-dark-3/50 pl-4">
+                    {section.documents.map((doc) => (
+                      <div key={doc.slug} className="flex items-center gap-2.5 py-2 px-2 rounded-md hover:bg-neo-dark-3/20 transition-all duration-150">
+                        <svg className="w-3.5 h-3.5 text-neo-text-muted flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                        </svg>
+                        <span className="text-neo-text-body text-sm">{doc.titleEs}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </SettingsCard>
+    );
+  }
+
+  function renderLanguages() {
+    const languages = [
+      { code: 'es', name: 'Espanol', flag: 'https://flagcdn.com/w40/es.png', count: esContentCount, active: true },
+      { code: 'ru', name: 'Ruso', flag: 'https://flagcdn.com/w40/ru.png', count: esContentCount, active: true },
+    ];
+
+    return (
+      <SettingsCard
+        title="Idiomas"
+        description="Idiomas soportados y estado del contenido traducido."
+      >
+        <div className="space-y-0">
+          {languages.map((lang, idx) => (
+            <div key={lang.code}>
+              <div className="flex items-center gap-4 py-4 px-3 -mx-3 rounded-lg hover:bg-neo-dark-3/20 transition-all duration-200">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={lang.flag}
+                  alt={lang.name}
+                  className="w-9 h-7 rounded-md object-cover flex-shrink-0 shadow-sm ring-1 ring-white/10"
+                />
+                <div className="flex-1 min-w-0">
+                  <div className="text-neo-text text-sm font-medium">{lang.name}</div>
+                  <div className="text-neo-text-muted text-xs mt-0.5">{lang.code.toUpperCase()} -- {lang.count} documentos</div>
+                </div>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-neo-success/10 text-neo-success border border-neo-success/20">
+                  <span className="w-1.5 h-1.5 rounded-full bg-neo-success inline-block" />
+                  Activo
+                </span>
+              </div>
+              {idx < languages.length - 1 && (
+                <div className="border-b border-neo-dark-3/30 mx-3" />
+              )}
+            </div>
+          ))}
+        </div>
+      </SettingsCard>
+    );
+  }
+
+  function renderSecurity() {
+    const admins = [
+      { id: 'diego', name: 'Diego', lang: 'ES' },
+      { id: 'yulia', name: 'Yulia', lang: 'RU' },
+      { id: 'stanislav', name: 'Stanislav', lang: 'RU' },
+    ];
+
+    return (
+      <div className="space-y-6">
+        {/* Auth & Sessions Card */}
+        <SettingsCard
+          title="Seguridad"
+          description="Autenticacion, sesiones y control de acceso."
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="p-4 rounded-lg bg-neo-dark-3/20 border border-neo-dark-3/30">
+              <label className="block text-xs uppercase tracking-wide text-neo-text-muted font-medium mb-2">
+                Metodo de Autenticacion
+              </label>
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-neo-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
+                </svg>
+                <div className="text-neo-text text-sm font-medium">Login codes (6 digitos)</div>
+              </div>
+            </div>
+            <div className="p-4 rounded-lg bg-neo-dark-3/20 border border-neo-dark-3/30">
+              <label className="block text-xs uppercase tracking-wide text-neo-text-muted font-medium mb-2">
+                Duracion de Sesion
+              </label>
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-neo-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div className="text-neo-text text-sm font-medium">30 dias</div>
+              </div>
+            </div>
+          </div>
+        </SettingsCard>
+
+        {/* Admin Accounts Card */}
+        <SettingsCard
+          title="Cuentas de Administrador"
+          description="Usuarios con acceso completo al panel de administracion."
+        >
+          <div className="overflow-hidden rounded-lg border border-neo-dark-3/40">
+            {/* Table header */}
+            <div className="grid grid-cols-12 gap-4 px-4 py-2.5 bg-neo-dark-3/30 border-b border-neo-dark-3/40">
+              <div className="col-span-5 text-xs uppercase tracking-wide text-neo-text-muted font-medium">Usuario</div>
+              <div className="col-span-3 text-xs uppercase tracking-wide text-neo-text-muted font-medium">Idioma</div>
+              <div className="col-span-4 text-xs uppercase tracking-wide text-neo-text-muted font-medium text-right">Estado</div>
+            </div>
+            {/* Table rows */}
+            {admins.map((acc, idx) => {
+              const user = users.find((u) => u.id === acc.id);
+              const gradients = ['from-neo-primary to-emerald-600', 'from-violet-500 to-purple-600', 'from-blue-500 to-indigo-600'];
+              return (
+                <div
+                  key={acc.id}
+                  className={`grid grid-cols-12 gap-4 px-4 py-3.5 items-center hover:bg-neo-dark-3/20 transition-all duration-150 ${
+                    idx < admins.length - 1 ? 'border-b border-neo-dark-3/30' : ''
+                  }`}
+                >
+                  <div className="col-span-5 flex items-center gap-3">
+                    <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${gradients[idx % gradients.length]} flex items-center justify-center text-white text-xs font-bold flex-shrink-0`}>
+                      {acc.name.charAt(0)}
+                    </div>
+                    <div>
+                      <div className="text-neo-text text-sm font-medium">{acc.name}</div>
+                      <div className="text-neo-text-muted text-xs">{acc.id}@neomaaa.com</div>
+                    </div>
+                  </div>
+                  <div className="col-span-3 flex items-center">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-neo-dark-4/30 text-neo-text-secondary">
+                      {acc.lang}
+                    </span>
+                  </div>
+                  <div className="col-span-4 flex items-center justify-end gap-1.5">
+                    <span className={`w-1.5 h-1.5 rounded-full inline-block ${user?.isActive ? 'bg-neo-success' : 'bg-neo-dark-5'}`} />
+                    <span className={`text-xs font-medium ${user?.isActive ? 'text-neo-success' : 'text-neo-text-muted'}`}>
+                      {user ? (user.isActive ? 'Activo' : 'Inactivo') : 'No encontrado'}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Warning note */}
+          <div className="mt-5 flex gap-3 p-4 rounded-lg bg-neo-warning/5 border-l-2 border-neo-warning/60">
+            <svg className="w-4 h-4 text-neo-warning flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+            </svg>
+            <p className="text-neo-text-secondary text-xs leading-relaxed">
+              Los codigos de acceso se asignan al crear usuarios. Usa la pagina de <Link href="/admin/users" className="text-neo-primary hover:text-neo-primary-light transition-colors font-medium">Usuarios</Link> para regenerarlos.
+            </p>
+          </div>
+
+          {/* Seed action */}
+          <div className="mt-5 pt-5 border-t border-neo-dark-3/40">
+            <div className="flex items-center justify-between">
+              <div>
+                <h4 className="text-xs uppercase tracking-wide text-neo-text-muted font-medium mb-1">Seed de Datos</h4>
+                <p className="text-neo-text-muted text-xs">Re-inicializar los datos base del sistema.</p>
+              </div>
+              <div className="flex items-center gap-3">
+                {seedStatus && (
+                  <span className="text-neo-primary text-xs font-medium animate-pulse">{seedStatus}</span>
+                )}
+                <button
+                  onClick={handleSeed}
+                  className="text-sm font-medium px-4 py-2 rounded-lg bg-neo-dark-3/50 text-neo-text-secondary hover:text-neo-text hover:bg-neo-dark-4/50 border border-neo-dark-4/30 hover:border-neo-dark-4/60 transition-all duration-200"
+                >
+                  Re-ejecutar Seed
+                </button>
+              </div>
+            </div>
+          </div>
+        </SettingsCard>
+      </div>
+    );
+  }
+
+  function renderIntegrations() {
+    return (
+      <SettingsCard
+        title="Integraciones"
+        description="Servicios y APIs conectados al ecosistema del broker."
+      >
+        <div className="space-y-0">
+          {INTEGRATIONS.map((integration, idx) => (
+            <div key={integration.name}>
+              <div className="flex items-center gap-4 py-4 px-3 -mx-3 rounded-lg hover:bg-neo-dark-3/20 transition-all duration-200 group">
+                {/* Icon */}
+                <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${integration.color} flex items-center justify-center text-white text-xs font-bold flex-shrink-0 shadow-lg`}>
+                  {integration.initial}
+                </div>
+
+                {/* Name + desc */}
+                <div className="flex-1 min-w-0">
+                  <div className="text-neo-text text-sm font-medium group-hover:text-neo-text transition-colors">
+                    {integration.name}
+                  </div>
+                  <div className="text-neo-text-muted text-xs mt-0.5">{integration.desc}</div>
+                </div>
+
+                {/* Status */}
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-neo-success/10 text-neo-success border border-neo-success/20">
+                  <span className="w-1.5 h-1.5 rounded-full bg-neo-success inline-block" />
+                  {integration.status}
+                </span>
+              </div>
+              {idx < INTEGRATIONS.length - 1 && (
+                <div className="border-b border-neo-dark-3/30 mx-3" />
+              )}
+            </div>
+          ))}
+        </div>
+      </SettingsCard>
+    );
+  }
+
+  function renderPlatform() {
+    const platformData = [
+      {
+        label: 'Portal URL',
+        value: 'neomaaa-hub.vercel.app',
+        href: 'https://neomaaa-hub.vercel.app',
+        isLink: true,
+      },
+      {
+        label: 'GitHub Repo',
+        value: 'diegoelreyok-dotcom/neomaaa-hub',
+        href: 'https://github.com/diegoelreyok-dotcom/neomaaa-hub',
+        isLink: true,
+      },
+      {
+        label: 'Vercel Dashboard',
+        value: 'vercel.com/dashboard',
+        href: 'https://vercel.com/dashboard',
+        isLink: true,
+      },
+      {
+        label: 'Version',
+        value: 'v1.0',
+        isLink: false,
+        badge: true,
+      },
+      {
+        label: 'Framework',
+        value: 'Next.js 14 + TypeScript',
+        isLink: false,
+      },
+      {
+        label: 'Hosting',
+        value: 'Vercel (Edge)',
+        isLink: false,
+      },
+    ];
+
+    return (
+      <SettingsCard
+        title="Plataforma"
+        description="Informacion tecnica del deploy y repositorio."
+      >
+        <div className="overflow-hidden rounded-lg border border-neo-dark-3/40">
+          {platformData.map((item, idx) => (
+            <div
+              key={item.label}
+              className={`flex items-center justify-between px-4 py-3.5 hover:bg-neo-dark-3/20 transition-all duration-150 ${
+                idx < platformData.length - 1 ? 'border-b border-neo-dark-3/30' : ''
+              }`}
+            >
+              <span className="text-xs uppercase tracking-wide text-neo-text-muted font-medium">
+                {item.label}
+              </span>
+              {item.isLink ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-neo-primary text-sm font-medium hover:text-neo-primary-light transition-colors"
+                >
+                  {item.value}
+                  <svg className="w-3.5 h-3.5 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                  </svg>
+                </a>
+              ) : item.badge ? (
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-neo-primary/15 text-neo-primary border border-neo-primary/20">
+                  {item.value}
+                </span>
+              ) : (
+                <span className="text-neo-text text-sm">{item.value}</span>
+              )}
+            </div>
+          ))}
+        </div>
+      </SettingsCard>
+    );
+  }
+
+  const sectionRenderers: Record<CategoryId, () => React.ReactNode> = {
+    general: renderGeneral,
+    team: renderTeam,
+    roles: renderRoles,
+    content: renderContent,
+    languages: renderLanguages,
+    security: renderSecurity,
+    integrations: renderIntegrations,
+    platform: renderPlatform,
+  };
+
+  return (
+    <div>
+      {/* ── Page Header ── */}
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold text-neo-text tracking-tight">Settings</h1>
+        <p className="text-neo-text-muted text-sm mt-1">Configura tu plataforma, equipo e integraciones.</p>
       </div>
 
-      {/* ── Footer ── */}
-      <div className="mt-10 pb-4 text-center">
-        <p className="text-neo-text-muted text-xs">
-          NEOMAAA Hub v1.0 — Admin Settings
-        </p>
+      {/* ── Main layout: sidebar + content ── */}
+      <div className="flex gap-6 min-h-[calc(100vh-12rem)]">
+        {/* Left sidebar */}
+        <div className="w-60 flex-shrink-0">
+          <div className="sticky top-6">
+            <nav className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-3 space-y-5">
+              {CATEGORY_GROUPS.map((group) => (
+                <div key={group.label}>
+                  <div className="px-3 mb-2">
+                    <span className="text-[10px] uppercase tracking-widest text-neo-text-muted/60 font-semibold">
+                      {group.label}
+                    </span>
+                  </div>
+                  <div className="space-y-0.5">
+                    {group.items.map((cat) => {
+                      const isActive = activeSection === cat.id;
+                      return (
+                        <button
+                          key={cat.id}
+                          onClick={() => setActiveSection(cat.id)}
+                          className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200 ${
+                            isActive
+                              ? 'bg-neo-primary/10 text-neo-primary font-medium border border-neo-primary/20'
+                              : 'text-neo-text-secondary hover:bg-neo-dark-3/50 hover:text-neo-text border border-transparent'
+                          }`}
+                        >
+                          <span className={`flex-shrink-0 transition-colors duration-200 ${isActive ? 'text-neo-primary' : 'text-neo-text-muted'}`}>
+                            {cat.icon}
+                          </span>
+                          {cat.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </nav>
+          </div>
+        </div>
+
+        {/* Right content */}
+        <div className="flex-1 max-w-3xl">
+          {sectionRenderers[activeSection]()}
+        </div>
       </div>
     </div>
   );
