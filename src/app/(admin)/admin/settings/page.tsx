@@ -140,13 +140,13 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
 ];
 
 const INTEGRATIONS = [
-  { name: 'MetaTrader 5', desc: 'Plataforma de trading', status: 'Conectado', initial: 'MT', color: 'from-blue-500 to-blue-700' },
-  { name: 'Skale CRM', desc: 'Gestion de clientes', status: 'Conectado', initial: 'SK', color: 'from-violet-500 to-violet-700' },
-  { name: 'Sumsub', desc: 'Verificacion KYC', status: 'Conectado', initial: 'SS', color: 'from-emerald-500 to-emerald-700' },
-  { name: 'Intercom', desc: 'Chat en vivo y soporte', status: 'Conectado', initial: 'IC', color: 'from-sky-500 to-sky-700' },
-  { name: 'Cellxpert', desc: 'Tracking de afiliados', status: 'Conectado', initial: 'CX', color: 'from-amber-500 to-amber-700' },
+  { name: 'Intercom', desc: 'Chat en vivo y soporte', status: 'Parcial', initial: 'IC', color: 'from-sky-500 to-sky-700' },
   { name: 'Vercel', desc: 'Hosting y deploy', status: 'Conectado', initial: 'VC', color: 'from-gray-400 to-gray-600' },
   { name: 'GitHub', desc: 'Codigo fuente', status: 'Conectado', initial: 'GH', color: 'from-gray-500 to-gray-700' },
+  { name: 'MetaTrader 5', desc: 'Plataforma de trading', status: 'No conectado', initial: 'MT', color: 'from-blue-500 to-blue-700' },
+  { name: 'Skale CRM', desc: 'Gestion de clientes', status: 'No conectado', initial: 'SK', color: 'from-violet-500 to-violet-700' },
+  { name: 'Sumsub', desc: 'Verificacion KYC', status: 'No conectado', initial: 'SS', color: 'from-emerald-500 to-emerald-700' },
+  { name: 'Cellxpert', desc: 'Tracking de afiliados', status: 'Pendiente', initial: 'CX', color: 'from-amber-500 to-amber-700' },
 ];
 
 /* ───────────────────────── Skeleton Loader ───────────────────────── */
@@ -773,8 +773,20 @@ export default function SettingsPage() {
                 </div>
 
                 {/* Status */}
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-neo-success/10 text-neo-success border border-neo-success/20">
-                  <span className="w-1.5 h-1.5 rounded-full bg-neo-success inline-block" />
+                <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${
+                  integration.status === 'Conectado'
+                    ? 'bg-neo-success/10 text-neo-success border border-neo-success/20'
+                    : integration.status === 'Parcial' || integration.status === 'Pendiente'
+                    ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
+                    : 'bg-neo-dark-3/50 text-neo-text-muted border border-neo-dark-4/30'
+                }`}>
+                  <span className={`w-1.5 h-1.5 rounded-full inline-block ${
+                    integration.status === 'Conectado'
+                      ? 'bg-neo-success'
+                      : integration.status === 'Parcial' || integration.status === 'Pendiente'
+                      ? 'bg-amber-400'
+                      : 'bg-neo-text-muted/50'
+                  }`} />
                   {integration.status}
                 </span>
               </div>

@@ -17,20 +17,69 @@ interface SectionInfo {
   nameEs: string;
   nameRu: string;
   documentCount: number;
+  documents: string[];
 }
 
-// Mirror of SECTIONS from sections.ts — used client-side
+// Mirror of SECTIONS from sections.ts -- used client-side
 const ALL_SECTIONS: SectionInfo[] = [
-  { id: 'launch', nameEs: 'Master Checklist', nameRu: 'Мастер-чеклист', documentCount: 1 },
-  { id: 'sales', nameEs: 'Ventas', nameRu: 'Продажи', documentCount: 5 },
-  { id: 'compliance', nameEs: 'Compliance', nameRu: 'Комплаенс', documentCount: 5 },
-  { id: 'support', nameEs: 'Soporte', nameRu: 'Поддержка', documentCount: 2 },
-  { id: 'operations', nameEs: 'Operaciones', nameRu: 'Операции', documentCount: 3 },
-  { id: 'marketing', nameEs: 'Marketing', nameRu: 'Маркетинг', documentCount: 4 },
-  { id: 'hiring', nameEs: 'Hiring', nameRu: 'Найм персонала', documentCount: 4 },
-  { id: 'partners', nameEs: 'Partners', nameRu: 'Партнёры', documentCount: 3 },
-  { id: 'encyclopedia', nameEs: 'Enciclopedia', nameRu: 'Энциклопедия', documentCount: 1 },
+  { id: 'launch', nameEs: 'Master Checklist', nameRu: 'Мастер-чеклист', documentCount: 1, documents: ['Checklist Maestro de Lanzamiento'] },
+  { id: 'sales', nameEs: 'Ventas', nameRu: 'Продажи', documentCount: 5, documents: ['Sales Playbook', 'Guion de Llamadas', 'Objeciones Frecuentes', 'Pipeline CRM', 'Metricas de Ventas'] },
+  { id: 'compliance', nameEs: 'Compliance', nameRu: 'Комплаенс', documentCount: 5, documents: ['Politica AML/KYC', 'Procedimiento KYC', 'Onboarding Compliance', 'Monitoreo de Transacciones', 'Reportes Regulatorios'] },
+  { id: 'support', nameEs: 'Soporte', nameRu: 'Поддержка', documentCount: 2, documents: ['Manual de Soporte', 'Escalamiento de Tickets'] },
+  { id: 'operations', nameEs: 'Operaciones', nameRu: 'Операции', documentCount: 3, documents: ['Operaciones Diarias', 'Gestion de Liquidez', 'Mantenimiento de Plataforma'] },
+  { id: 'marketing', nameEs: 'Marketing', nameRu: 'Маркетинг', documentCount: 4, documents: ['Estrategia de Marketing', 'Contenido y SEO', 'Redes Sociales', 'Email Marketing'] },
+  { id: 'hiring', nameEs: 'Hiring', nameRu: 'Найм персонала', documentCount: 4, documents: ['Plan de Contratacion', 'Perfiles de Puesto', 'Proceso de Entrevistas', 'Onboarding de Equipo'] },
+  { id: 'partners', nameEs: 'Partners', nameRu: 'Партнёры', documentCount: 3, documents: ['Programa de Partners', 'Comisiones IB', 'Onboarding de Partners'] },
+  { id: 'encyclopedia', nameEs: 'Enciclopedia', nameRu: 'Энциклопедия', documentCount: 1, documents: ['Glosario General'] },
 ];
+
+const SECTION_ICONS: Record<string, React.ReactNode> = {
+  launch: (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+    </svg>
+  ),
+  sales: (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+    </svg>
+  ),
+  compliance: (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+    </svg>
+  ),
+  support: (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+    </svg>
+  ),
+  operations: (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.384 5.384a2.625 2.625 0 01-3.712-3.712l5.384-5.384M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5" />
+    </svg>
+  ),
+  marketing: (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46" />
+    </svg>
+  ),
+  hiring: (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+    </svg>
+  ),
+  partners: (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+    </svg>
+  ),
+  encyclopedia: (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+    </svg>
+  ),
+};
 
 export default function RolePermissionsPage() {
   const params = useParams();
@@ -41,6 +90,7 @@ export default function RolePermissionsPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
   const loadRole = useCallback(async () => {
     try {
@@ -101,10 +151,43 @@ export default function RolePermissionsPage() {
     }
   }
 
+  async function handleToggleAll(enable: boolean) {
+    if (!role) return;
+    const newSections = enable ? ALL_SECTIONS.map((s) => s.id) : [];
+    setRole({ ...role, sections: newSections });
+    setSaving('all');
+
+    try {
+      const res = await fetch('/api/roles', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: role.id,
+          sections: newSections,
+        }),
+      });
+
+      if (!res.ok) {
+        setRole({ ...role, sections: role.sections });
+      }
+    } catch {
+      setRole({ ...role, sections: role.sections });
+    } finally {
+      setSaving(null);
+    }
+  }
+
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[60vh]">
-        <div className="w-8 h-8 border-2 border-neo-primary border-t-transparent rounded-full animate-spin" />
+      <div className="animate-pulse">
+        <div className="h-4 w-32 bg-neo-dark-3/40 rounded mb-4" />
+        <div className="h-8 w-48 bg-neo-dark-3 rounded-lg mb-2" />
+        <div className="h-4 w-64 bg-neo-dark-3/60 rounded-lg mb-8" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+            <div key={i} className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-5 h-40" />
+          ))}
+        </div>
       </div>
     );
   }
@@ -112,10 +195,15 @@ export default function RolePermissionsPage() {
   if (error || !role) {
     return (
       <div className="text-center py-16">
-        <p className="text-neo-danger text-sm mb-4">{error || 'Rol no encontrado'}</p>
+        <div className="w-16 h-16 rounded-full bg-neo-danger/10 flex items-center justify-center mx-auto mb-4">
+          <svg className="w-8 h-8 text-neo-danger" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+          </svg>
+        </div>
+        <p className="text-neo-danger text-sm font-medium mb-2">{error || 'Rol no encontrado'}</p>
         <Link
           href="/admin/roles"
-          className="text-neo-primary text-sm hover:underline"
+          className="text-neo-primary text-sm hover:text-neo-primary-light transition-colors duration-200 font-medium"
         >
           Volver a Roles
         </Link>
@@ -125,31 +213,60 @@ export default function RolePermissionsPage() {
 
   const enabledCount = role.sections.length;
   const totalSections = ALL_SECTIONS.length;
+  const totalDocsEnabled = ALL_SECTIONS
+    .filter((s) => role.sections.includes(s.id))
+    .reduce((sum, s) => sum + s.documentCount, 0);
 
   return (
-    <div>
+    <div className="pb-24">
       {/* Header */}
-      <div className="mb-6">
+      <div className="mb-8">
         <Link
           href="/admin/roles"
-          className="text-neo-text-muted text-sm hover:text-neo-primary transition-colors duration-200 mb-3 inline-block"
+          className="inline-flex items-center gap-1.5 text-neo-text-muted text-sm hover:text-neo-primary transition-colors duration-200 mb-4"
         >
-          &larr; Volver a Roles
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+          Volver a Roles
         </Link>
-        <div className="flex items-center gap-3">
-          <h1 className="text-2xl font-bold text-neo-text">{role.name}</h1>
-          {role.isAdmin && (
-            <span className="bg-neo-accent/15 text-neo-accent text-xs font-semibold px-2.5 py-0.5 rounded-full">
-              Admin
-            </span>
-          )}
+
+        <div className="flex items-center justify-between">
+          <div>
+            <div className="flex items-center gap-3">
+              <h1 className="text-2xl font-bold text-neo-text">{role.name}</h1>
+              {role.isAdmin && (
+                <span className="bg-neo-primary/15 text-neo-primary text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider border border-neo-primary/20">
+                  Admin
+                </span>
+              )}
+            </div>
+            {role.nameRu !== role.name && (
+              <p className="text-neo-text-muted text-sm mt-0.5">{role.nameRu}</p>
+            )}
+            <p className="text-neo-text-secondary text-sm mt-2">
+              Configura las secciones que este rol puede ver
+            </p>
+          </div>
+
+          {/* Quick toggle all */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => handleToggleAll(true)}
+              disabled={enabledCount === totalSections || saving === 'all'}
+              className="text-xs font-medium px-3 py-2 rounded-lg bg-neo-primary/10 text-neo-primary hover:bg-neo-primary/20 border border-neo-primary/20 hover:border-neo-primary/30 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              Activar todas
+            </button>
+            <button
+              onClick={() => handleToggleAll(false)}
+              disabled={enabledCount === 0 || saving === 'all'}
+              className="text-xs font-medium px-3 py-2 rounded-lg bg-neo-dark-3/50 text-neo-text-secondary hover:text-neo-text hover:bg-neo-dark-4/50 border border-neo-dark-4/30 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              Desactivar todas
+            </button>
+          </div>
         </div>
-        {role.nameRu !== role.name && (
-          <p className="text-neo-text-muted text-sm mt-0.5">{role.nameRu}</p>
-        )}
-        <p className="text-neo-text-secondary text-sm mt-2">
-          {enabledCount} de {totalSections} secciones habilitadas
-        </p>
       </div>
 
       {/* Section toggle grid */}
@@ -157,70 +274,166 @@ export default function RolePermissionsPage() {
         {ALL_SECTIONS.map((section) => {
           const isEnabled = role.sections.includes(section.id);
           const isSaving = saving === section.id;
+          const isExpanded = expandedSection === section.id;
 
           return (
             <div
               key={section.id}
-              className={`bg-neo-dark-2 border rounded-lg p-5 transition-all duration-200 ${
+              className={`bg-neo-dark-2 border rounded-xl transition-all duration-300 ${
                 isEnabled
-                  ? 'border-neo-primary/40 shadow-[0_0_12px_rgba(0,212,170,0.08)]'
-                  : 'border-neo-dark-3'
-              }`}
+                  ? 'border-neo-primary/40 shadow-[0_0_20px_rgba(0,212,170,0.06)]'
+                  : 'border-neo-dark-3/60'
+              } ${isExpanded ? 'sm:col-span-2 lg:col-span-3' : ''}`}
             >
-              <div className="flex items-start justify-between">
-                <div className="flex-1 min-w-0">
-                  <h3 className={`font-semibold text-sm ${isEnabled ? 'text-neo-text' : 'text-neo-text-muted'}`}>
-                    {section.nameEs}
-                  </h3>
-                  <p className="text-neo-text-muted text-xs mt-0.5">
-                    {section.nameRu}
-                  </p>
-                  <p className={`text-xs mt-2 ${isEnabled ? 'text-neo-text-secondary' : 'text-neo-text-muted'}`}>
-                    {section.documentCount} documento{section.documentCount !== 1 ? 's' : ''}
-                  </p>
-                </div>
+              <div className="p-5">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-start gap-3 flex-1 min-w-0">
+                    {/* Section icon */}
+                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                      isEnabled
+                        ? 'bg-neo-primary/15 text-neo-primary'
+                        : 'bg-neo-dark-3/50 text-neo-text-muted'
+                    }`}>
+                      {SECTION_ICONS[section.id] || (
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
+                        </svg>
+                      )}
+                    </div>
 
-                {/* Toggle switch */}
-                <button
-                  type="button"
-                  onClick={() => handleToggle(section.id)}
-                  disabled={isSaving}
-                  className={`relative w-11 h-6 rounded-full transition-all duration-200 flex-shrink-0 ml-3 ${
-                    isEnabled ? 'bg-neo-primary' : 'bg-neo-dark-4'
-                  } ${isSaving ? 'opacity-50' : ''}`}
-                  aria-label={`${isEnabled ? 'Deshabilitar' : 'Habilitar'} ${section.nameEs}`}
-                >
-                  <div
-                    className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-all duration-200 ${
-                      isEnabled ? 'left-[22px]' : 'left-0.5'
-                    }`}
-                  />
-                </button>
+                    <div className="flex-1 min-w-0">
+                      <h3 className={`font-semibold text-sm transition-colors duration-200 ${isEnabled ? 'text-neo-text' : 'text-neo-text-muted'}`}>
+                        {section.nameEs}
+                      </h3>
+                      <p className="text-neo-text-muted text-xs mt-0.5">
+                        {section.nameRu}
+                      </p>
+                      {/* Document count pill */}
+                      <button
+                        onClick={() => setExpandedSection(isExpanded ? null : section.id)}
+                        className={`inline-flex items-center gap-1 text-xs mt-2 px-2 py-0.5 rounded-md transition-all duration-200 ${
+                          isEnabled
+                            ? 'text-neo-text-secondary bg-neo-dark-3/40 hover:bg-neo-dark-3/60'
+                            : 'text-neo-text-muted bg-neo-dark-3/20 hover:bg-neo-dark-3/40'
+                        }`}
+                      >
+                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                        </svg>
+                        {section.documentCount} documento{section.documentCount !== 1 ? 's' : ''}
+                        <svg className={`w-3 h-3 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Toggle switch */}
+                  <button
+                    type="button"
+                    onClick={() => handleToggle(section.id)}
+                    disabled={isSaving}
+                    className={`relative w-12 h-7 rounded-full transition-all duration-300 flex-shrink-0 ml-3 ${
+                      isEnabled
+                        ? 'bg-neo-primary shadow-lg shadow-neo-primary/30'
+                        : 'bg-neo-dark-4 hover:bg-neo-dark-4/80'
+                    } ${isSaving ? 'opacity-50' : ''}`}
+                    aria-label={`${isEnabled ? 'Deshabilitar' : 'Habilitar'} ${section.nameEs}`}
+                  >
+                    <div
+                      className={`absolute top-0.5 w-6 h-6 rounded-full bg-white shadow-md transition-all duration-300 ${
+                        isEnabled ? 'left-[22px]' : 'left-0.5'
+                      }`}
+                    />
+                  </button>
+                </div>
               </div>
+
+              {/* Expanded document list */}
+              {isExpanded && (
+                <div className="px-5 pb-5">
+                  <div className="border-t border-neo-dark-3/40 pt-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                      {section.documents.map((doc, i) => (
+                        <div
+                          key={i}
+                          className={`flex items-center gap-2.5 px-3 py-2 rounded-lg transition-all duration-200 ${
+                            isEnabled
+                              ? 'bg-neo-primary/5 border border-neo-primary/10'
+                              : 'bg-neo-dark-3/20 border border-neo-dark-3/20'
+                          }`}
+                        >
+                          <svg className={`w-3.5 h-3.5 flex-shrink-0 ${isEnabled ? 'text-neo-primary' : 'text-neo-text-muted'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                          </svg>
+                          <span className={`text-xs font-medium ${isEnabled ? 'text-neo-text' : 'text-neo-text-muted'}`}>
+                            {doc}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           );
         })}
       </div>
 
-      {/* Summary bar */}
-      <div className="mt-8 bg-neo-dark-2 border border-neo-dark-3 rounded-lg p-4 flex items-center justify-between">
-        <div className="text-sm">
-          <span className="text-neo-text-muted">Secciones activas:</span>{' '}
-          <span className="text-neo-primary font-semibold">{enabledCount}</span>
-          <span className="text-neo-text-muted"> / {totalSections}</span>
-        </div>
-        <div className="flex gap-2 flex-wrap">
-          {role.sections.map((sid) => {
-            const sec = ALL_SECTIONS.find((s) => s.id === sid);
-            return (
-              <span
-                key={sid}
-                className="text-xs bg-neo-primary/10 text-neo-primary px-2 py-0.5 rounded"
-              >
-                {sec?.nameEs || sid}
-              </span>
-            );
-          })}
+      {/* Sticky summary bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-40">
+        <div className="max-w-5xl mx-auto px-4 pb-4">
+          <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-4 shadow-2xl shadow-black/40 backdrop-blur-sm">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div>
+                  <div className="text-sm font-medium text-neo-text">
+                    <span className="text-neo-primary font-bold text-lg">{enabledCount}</span>
+                    <span className="text-neo-text-muted"> / {totalSections} secciones</span>
+                  </div>
+                  <div className="text-neo-text-muted text-xs mt-0.5">
+                    {totalDocsEnabled} documentos accesibles
+                  </div>
+                </div>
+
+                {/* Progress indicator */}
+                <div className="hidden sm:flex items-center gap-2">
+                  <div className="w-32 bg-neo-dark-3/50 rounded-full h-2 overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-neo-primary to-emerald-400 transition-all duration-500"
+                      style={{ width: `${(enabledCount / totalSections) * 100}%` }}
+                    />
+                  </div>
+                  <span className="text-xs text-neo-text-secondary font-medium">
+                    {Math.round((enabledCount / totalSections) * 100)}%
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex gap-2 flex-wrap justify-end">
+                {role.sections.length === 0 ? (
+                  <span className="text-xs text-neo-text-muted">Ninguna seccion habilitada</span>
+                ) : (
+                  role.sections.slice(0, 5).map((sid) => {
+                    const sec = ALL_SECTIONS.find((s) => s.id === sid);
+                    return (
+                      <span
+                        key={sid}
+                        className="text-xs bg-neo-primary/10 text-neo-primary px-2.5 py-1 rounded-lg font-medium border border-neo-primary/15"
+                      >
+                        {sec?.nameEs || sid}
+                      </span>
+                    );
+                  })
+                )}
+                {role.sections.length > 5 && (
+                  <span className="text-xs bg-neo-dark-3/50 text-neo-text-muted px-2.5 py-1 rounded-lg font-medium">
+                    +{role.sections.length - 5} mas
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
