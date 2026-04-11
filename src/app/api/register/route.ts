@@ -93,7 +93,7 @@ export async function GET(req: Request) {
     const registrations: PendingRegistration[] = [];
     for (const key of keys) {
       const data = await kvGet(key);
-      if (data) registrations.push(JSON.parse(data as string));
+      if (data) registrations.push(data as any);
     }
     // Sort by date, newest first
     registrations.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
@@ -123,7 +123,7 @@ export async function PATCH(req: Request) {
       return NextResponse.json({ error: 'Registration not found' }, { status: 404 });
     }
 
-    const registration: PendingRegistration = JSON.parse(data as string);
+    const registration: PendingRegistration = data as any;
 
     if (action === 'reject') {
       registration.status = 'rejected';

@@ -4,19 +4,22 @@ import { hashSync, compareSync } from 'bcryptjs';
 // In-memory store for development (when Vercel KV is not available)
 const memStore: Record<string, string> = {};
 
-async function kvGet(key: string): Promise<string | null> {
+async function kvGet(key: string): Promise<any | null> {
   try {
     const { kv } = await import('@vercel/kv');
-    return await kv.get(key);
+    const val = await kv.get(key);
+    return val ?? null;
   } catch {
-    return memStore[key] || null;
+    const raw = memStore[key];
+    if (!raw) return null;
+    try { return JSON.parse(raw); } catch { return raw; }
   }
 }
 
 async function kvSet(key: string, value: unknown): Promise<void> {
   try {
     const { kv } = await import('@vercel/kv');
-    await kv.set(key, JSON.stringify(value));
+    await kv.set(key, value);
   } catch {
     memStore[key] = JSON.stringify(value);
   }
@@ -44,7 +47,7 @@ async function kvKeys(pattern: string): Promise<string[]> {
 // ---- USERS ----
 export async function getUser(id: string): Promise<User | null> {
   const data = await kvGet(`user:${id}`);
-  return data ? JSON.parse(data as string) : null;
+  return data ? data as any : null;
 }
 
 export async function getAllUsers(): Promise<User[]> {
@@ -52,7 +55,7 @@ export async function getAllUsers(): Promise<User[]> {
   const users: User[] = [];
   for (const key of keys) {
     const data = await kvGet(key);
-    if (data) users.push(JSON.parse(data as string));
+    if (data) users.push(data as any);
   }
   return users;
 }
@@ -102,7 +105,7 @@ export async function regenerateCode(userId: string, newPlainCode: string): Prom
 // ---- ROLES ----
 export async function getRole(id: string): Promise<Role | null> {
   const data = await kvGet(`role:${id}`);
-  return data ? JSON.parse(data as string) : null;
+  return data ? data as any : null;
 }
 
 export async function getAllRoles(): Promise<Role[]> {
@@ -110,7 +113,7 @@ export async function getAllRoles(): Promise<Role[]> {
   const roles: Role[] = [];
   for (const key of keys) {
     const data = await kvGet(key);
-    if (data) roles.push(JSON.parse(data as string));
+    if (data) roles.push(data as any);
   }
   return roles;
 }
@@ -160,7 +163,7 @@ export async function getUserProgress(userId: string): Promise<ReadProgress[]> {
   const progress: ReadProgress[] = [];
   for (const key of keys) {
     const data = await kvGet(key);
-    if (data) progress.push(JSON.parse(data as string));
+    if (data) progress.push(data as any);
   }
   return progress;
 }
@@ -170,7 +173,7 @@ export async function getAllProgress(): Promise<ReadProgress[]> {
   const progress: ReadProgress[] = [];
   for (const key of keys) {
     const data = await kvGet(key);
-    if (data) progress.push(JSON.parse(data as string));
+    if (data) progress.push(data as any);
   }
   return progress;
 }
