@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect, useCallback } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import Sidebar from '@/components/Sidebar';
 import TopBar from '@/components/TopBar';
-import type { Section, Lang } from '@/lib/types';
+import type { Section, Lang, ReadProgress } from '@/lib/types';
 
 interface PortalShellProps {
   sections: Section[];
@@ -23,7 +23,31 @@ export default function PortalShell({
 }: PortalShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [lang, setLang] = useState<Lang>(initialLang);
+  const [completedDocs, setCompletedDocs] = useState<string[]>([]);
+  const [accessedDocs, setAccessedDocs] = useState<string[]>([]);
   const router = useRouter();
+  const pathname = usePathname();
+
+  const fetchProgress = useCallback(() => {
+    fetch('/api/progress')
+      .then((res) => res.json())
+      .then((data: ReadProgress[]) => {
+        if (Array.isArray(data)) {
+          const completed = data.filter((p) => p.completed).map((p) => p.documentPath);
+          const accessed = data.filter((p) => !p.completed).map((p) => p.documentPath);
+          setCompletedDocs(completed);
+          setAccessedDocs(accessed);
+        }
+      })
+      .catch(() => {
+        // Silently fail
+      });
+  }, []);
+
+  // Fetch progress on mount and when pathname changes (doc completion triggers navigation refresh)
+  useEffect(() => {
+    fetchProgress();
+  }, [fetchProgress, pathname]);
 
   function handleSwitchLang(newLang: Lang) {
     setLang(newLang);
@@ -45,6 +69,8 @@ export default function PortalShell({
         lang={lang}
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
+        completedDocs={completedDocs}
+        accessedDocs={accessedDocs}
       />
 
       <div className="lg:ml-[280px] flex flex-col min-h-screen transition-[margin] duration-300">

@@ -40,6 +40,7 @@ export interface ReadProgress {
   lastAccessed: string;
   accessCount: number;
   completed: boolean;
+  completedAt?: string;
 }
 
 export type Lang = 'es' | 'ru';

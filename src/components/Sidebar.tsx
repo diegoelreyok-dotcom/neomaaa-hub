@@ -10,9 +10,11 @@ interface SidebarProps {
   lang: Lang;
   isOpen: boolean;
   onClose: () => void;
+  completedDocs?: string[];
+  accessedDocs?: string[];
 }
 
-export default function Sidebar({ sections, lang, isOpen, onClose }: SidebarProps) {
+export default function Sidebar({ sections, lang, isOpen, onClose, completedDocs = [], accessedDocs = [] }: SidebarProps) {
   const pathname = usePathname();
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>(() => {
     // Auto-expand the section that contains the current page
@@ -116,6 +118,13 @@ export default function Sidebar({ sections, lang, isOpen, onClose }: SidebarProp
                   (d) => pathname === `/content/${section.id}/${d.slug}`
                 );
 
+                // Count completed docs in this section
+                const sectionCompletedCount = section.documents.filter(
+                  (d) => completedDocs.includes(d.filePath)
+                ).length;
+                const sectionTotal = section.documents.length;
+                const sectionProgress = sectionTotal > 0 ? Math.round((sectionCompletedCount / sectionTotal) * 100) : 0;
+
                 return (
                   <div key={section.id} className="mb-0.5">
                     {/* Section header */}
@@ -134,16 +143,18 @@ export default function Sidebar({ sections, lang, isOpen, onClose }: SidebarProp
                     >
                       <span className="truncate">{getSectionName(section)}</span>
                       <div className="flex items-center gap-1.5 flex-shrink-0 ml-2">
-                        {/* Doc count badge */}
+                        {/* Section progress count */}
                         <span className={`
                           text-[9px] font-bold rounded-full min-w-[18px] h-[18px]
                           flex items-center justify-center px-1
-                          ${isAnySectionDocActive
-                            ? 'bg-neo-primary/15 text-neo-primary'
-                            : 'bg-neo-dark-3/60 text-neo-text-muted'
+                          ${sectionCompletedCount === sectionTotal && sectionTotal > 0
+                            ? 'bg-neo-success/15 text-neo-success'
+                            : isAnySectionDocActive
+                              ? 'bg-neo-primary/15 text-neo-primary'
+                              : 'bg-neo-dark-3/60 text-neo-text-muted'
                           }
                         `}>
-                          {section.documents.length}
+                          {sectionCompletedCount}/{sectionTotal}
                         </span>
                         {/* Chevron */}
                         <svg
@@ -163,6 +174,22 @@ export default function Sidebar({ sections, lang, isOpen, onClose }: SidebarProp
                       </div>
                     </button>
 
+                    {/* Section mini progress bar */}
+                    {(sectionCompletedCount > 0 || accessedDocs.some(d => section.documents.some(sd => sd.filePath === d))) && (
+                      <div className="mx-3 mt-0.5 mb-1">
+                        <div className="h-[2px] bg-neo-dark-3/40 rounded-full overflow-hidden">
+                          <div
+                            className={`h-full rounded-full transition-all duration-500 ${
+                              sectionCompletedCount === sectionTotal && sectionTotal > 0
+                                ? 'bg-neo-success'
+                                : 'bg-neo-primary/60'
+                            }`}
+                            style={{ width: `${sectionProgress}%` }}
+                          />
+                        </div>
+                      </div>
+                    )}
+
                     {/* Documents */}
                     <div
                       className={`
@@ -174,6 +201,8 @@ export default function Sidebar({ sections, lang, isOpen, onClose }: SidebarProp
                         {section.documents.map((doc) => {
                           const href = `/content/${section.id}/${doc.slug}`;
                           const isActive = pathname === href;
+                          const isDocCompleted = completedDocs.includes(doc.filePath);
+                          const isDocAccessed = accessedDocs.includes(doc.filePath);
 
                           return (
                             <Link
@@ -181,7 +210,7 @@ export default function Sidebar({ sections, lang, isOpen, onClose }: SidebarProp
                               href={href}
                               onClick={onClose}
                               className={`
-                                block px-3 py-[7px] ml-3 text-[13px] rounded-lg
+                                flex items-center gap-2 px-3 py-[7px] ml-3 text-[13px] rounded-lg
                                 transition-all duration-200 border-l-2
                                 ${isActive
                                   ? 'border-neo-primary bg-neo-primary/5 text-neo-primary font-medium'
@@ -189,7 +218,19 @@ export default function Sidebar({ sections, lang, isOpen, onClose }: SidebarProp
                                 }
                               `}
                             >
-                              {getDocTitle(doc)}
+                              {/* Progress indicator */}
+                              {isDocCompleted ? (
+                                <span className="w-4 h-4 rounded-full bg-neo-success/20 flex items-center justify-center flex-shrink-0">
+                                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="text-neo-success">
+                                    <polyline points="20 6 9 17 4 12" />
+                                  </svg>
+                                </span>
+                              ) : isDocAccessed ? (
+                                <span className="w-4 h-4 rounded-full border-2 border-amber-400/60 flex-shrink-0" />
+                              ) : (
+                                <span className="w-4 h-4 rounded-full border border-neo-dark-4 flex-shrink-0" />
+                              )}
+                              <span className="truncate">{getDocTitle(doc)}</span>
                             </Link>
                           );
                         })}

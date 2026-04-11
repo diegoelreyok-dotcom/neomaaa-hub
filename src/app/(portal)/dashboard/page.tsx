@@ -61,7 +61,7 @@ export default async function DashboardPage() {
       </div>
 
       {/* Stats cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         {/* Sections accessible */}
         <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-5 group hover:border-neo-dark-3 transition-all duration-200">
           <div className="flex items-center gap-3 mb-3">
@@ -73,7 +73,7 @@ export default async function DashboardPage() {
             <div>
               <div className="text-2xl font-extrabold text-neo-text">{totalSections}</div>
               <div className="text-[11px] text-neo-text-muted font-medium uppercase tracking-wider">
-                {lang === 'ru' ? 'Разделов' : 'Secciones'}
+                {lang === 'ru' ? '\u0420\u0430\u0437\u0434\u0435\u043B\u043E\u0432' : 'Secciones'}
               </div>
             </div>
           </div>
@@ -90,13 +90,15 @@ export default async function DashboardPage() {
             <div>
               <div className="text-2xl font-extrabold text-neo-text">{totalDocs}</div>
               <div className="text-[11px] text-neo-text-muted font-medium uppercase tracking-wider">
-                {lang === 'ru' ? 'Документов' : 'Documentos'}
+                {lang === 'ru' ? '\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u043E\u0432' : 'Documentos'}
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Reading progress card — client component */}
+      {/* Progress card — full width, client component */}
+      <div className="mb-8">
         <DashboardProgress totalDocs={totalDocs} lang={lang} />
       </div>
 

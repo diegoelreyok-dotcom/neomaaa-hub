@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { auth } from '@/lib/auth';
-import { getRole } from '@/lib/db';
+import { getRole, getUserProgress } from '@/lib/db';
 import { canAccessDocument } from '@/lib/permissions';
 import { getSectionById, getDocByPath } from '@/lib/sections';
 import { getMarkdownContent } from '@/lib/content';
@@ -8,6 +8,7 @@ import type { Lang } from '@/lib/types';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import PdfDownloadButton from '@/components/PdfDownloadButton';
 import ProgressTracker from './ProgressTracker';
+import CompletionButton from './CompletionButton';
 
 interface ContentPageProps {
   params: { section: string; slug: string };
@@ -141,6 +142,19 @@ export default async function ContentPage({ params }: ContentPageProps) {
   // Calculate reading time
   const readingTime = estimateReadingTime(content);
 
+  // Check if user has already completed this document
+  const userId = user?.userId;
+  let isCompleted = false;
+  if (userId) {
+    try {
+      const progress = await getUserProgress(userId);
+      const docProgress = progress.find((p) => p.documentPath === doc.filePath);
+      isCompleted = docProgress?.completed === true;
+    } catch {
+      // Non-critical — default to not completed
+    }
+  }
+
   // Previous / Next navigation within the section
   const docIndex = section.documents.findIndex((d) => d.slug === slug);
   const prevDoc = docIndex > 0 ? section.documents[docIndex - 1] : null;
@@ -203,6 +217,13 @@ export default async function ContentPage({ params }: ContentPageProps) {
 
       {/* Markdown content */}
       <MarkdownRenderer content={content} />
+
+      {/* Completion button */}
+      <CompletionButton
+        documentPath={doc.filePath}
+        lang={lang}
+        isCompleted={isCompleted}
+      />
 
       {/* Previous / Next navigation */}
       <div className="mt-12 pt-6 border-t border-neo-dark-3/50">

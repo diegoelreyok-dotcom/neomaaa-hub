@@ -212,6 +212,34 @@ export async function recordAccess(userId: string, documentPath: string): Promis
   }
 }
 
+export async function markCompleted(userId: string, documentPath: string): Promise<ReadProgress | null> {
+  const safeUserId = userId.replace(/[^a-zA-Z0-9_-]/g, '');
+  const safeDocPath = documentPath.replace(/[^a-zA-Z0-9_\-./]/g, '');
+  const key = `progress:${safeUserId}:${safeDocPath}`;
+  const existing = await kvGet<ReadProgress>(key);
+  const now = new Date().toISOString();
+  if (existing) {
+    existing.completed = true;
+    existing.lastAccessed = now;
+    existing.completedAt = now;
+    await kvSet(key, existing);
+    return existing;
+  } else {
+    // If they somehow complete without accessing first, create the record
+    const newProgress: ReadProgress = {
+      userId: safeUserId,
+      documentPath: safeDocPath,
+      firstAccessed: now,
+      lastAccessed: now,
+      accessCount: 1,
+      completed: true,
+      completedAt: now,
+    };
+    await kvSet(key, newProgress);
+    return newProgress;
+  }
+}
+
 export async function getUserProgress(userId: string): Promise<ReadProgress[]> {
   if (!userId || typeof userId !== 'string') return [];
   const safeUserId = userId.replace(/[^a-zA-Z0-9_-]/g, '');
