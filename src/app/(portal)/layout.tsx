@@ -37,9 +37,10 @@ export default async function PortalLayout({
   const userName: string = user.name || userId;
 
   // Try DB first, fall back to hardcoded roles
+  // SECURITY: Fall back to most restrictive role, not admin
   let role = await getRole(roleId);
   if (!role) {
-    role = FALLBACK_ROLES[roleId] || FALLBACK_ROLES['admin'];
+    role = FALLBACK_ROLES[roleId] || (isAdmin ? FALLBACK_ROLES['admin'] : FALLBACK_ROLES['sales']);
   }
 
   const sections = getVisibleSections(role);

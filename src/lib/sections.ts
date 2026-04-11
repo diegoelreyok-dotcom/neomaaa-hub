@@ -21,6 +21,7 @@ export const SECTIONS: Section[] = [
       { slug: 'commissions', titleEs: 'Esquema de Comisiones', titleRu: 'Схема комиссий', filePath: 'sales/commissions.md', pdfSlug: 'sales-commissions' },
       { slug: 'objections-broker', titleEs: 'Objeciones Broker', titleRu: 'Возражения клиентов', filePath: 'sales/objections-broker.md', pdfSlug: 'sales-objections-broker' },
       { slug: 'faq-ventas', titleEs: 'FAQ Ventas', titleRu: 'FAQ отдела продаж', filePath: 'sales/faq-ventas.md', pdfSlug: 'sales-faq-ventas' },
+      { slug: 'primer-contacto', titleEs: 'Primer Contacto', titleRu: 'Первый контакт', filePath: 'sales/primer-contacto.md', pdfSlug: 'sales-primer-contacto' },
     ],
   },
   {
@@ -34,6 +35,11 @@ export const SECTIONS: Section[] = [
       { slug: 'ab-book-policy', titleEs: 'Politica A-Book / B-Book', titleRu: 'Политика A-Book / B-Book', filePath: 'compliance/ab-book-policy.md', pdfSlug: 'compliance-ab-book-policy' },
       { slug: 'manual-susana', titleEs: 'Manual Compliance', titleRu: 'Руководство по комплаенсу', filePath: 'compliance/manual-susana.md', pdfSlug: 'compliance-manual-susana' },
       { slug: 'workflow-sales-compliance', titleEs: 'Workflow Sales-Compliance', titleRu: 'Workflow Продажи-Комплаенс', filePath: 'compliance/workflow-sales-compliance.md', pdfSlug: 'compliance-workflow-sales-compliance' },
+      { slug: 'proceso-kyc-sumsub', titleEs: 'Proceso KYC Completo con Sumsub', titleRu: 'Полный процесс KYC с Sumsub', filePath: 'compliance/proceso-kyc-sumsub.md', pdfSlug: 'compliance-proceso-kyc-sumsub' },
+      { slug: 'screening-sanciones', titleEs: 'Screening de Sanciones', titleRu: 'Скрининг санкций', filePath: 'compliance/screening-sanciones.md', pdfSlug: 'compliance-screening-sanciones' },
+      { slug: 'registro-compliance', titleEs: 'Registro y Documentacion', titleRu: 'Реестр и документация', filePath: 'compliance/registro-compliance.md', pdfSlug: 'compliance-registro-compliance' },
+      { slug: 'mejores-practicas-compliance', titleEs: 'Mejores Practicas Compliance', titleRu: 'Лучшие практики комплаенса', filePath: 'compliance/mejores-practicas-compliance.md', pdfSlug: 'compliance-mejores-practicas' },
+      { slug: 'expansion-regulatoria', titleEs: 'Plan de Expansion Regulatoria', titleRu: 'План регуляторного расширения', filePath: 'compliance/expansion-regulatoria.md', pdfSlug: 'compliance-expansion-regulatoria' },
     ],
   },
   {
@@ -44,6 +50,10 @@ export const SECTIONS: Section[] = [
     documents: [
       { slug: 'playbook', titleEs: 'Support Playbook', titleRu: 'Playbook поддержки', filePath: 'support/playbook.md', pdfSlug: 'support-playbook' },
       { slug: 'enciclopedia-soporte', titleEs: 'Enciclopedia de Soporte', titleRu: 'Энциклопедия поддержки', filePath: 'support/enciclopedia-soporte.md', pdfSlug: 'support-enciclopedia-soporte' },
+      { slug: 'guia-tono-comunicacion', titleEs: 'Guia de Tono y Comunicacion', titleRu: 'Руководство по тону коммуникации', filePath: 'support/guia-tono-comunicacion.md', pdfSlug: 'support-guia-tono-comunicacion' },
+      { slug: 'manejo-quejas', titleEs: 'Manejo de Quejas', titleRu: 'Управление жалобами', filePath: 'support/manejo-quejas.md', pdfSlug: 'support-manejo-quejas' },
+      { slug: 'atencion-vip', titleEs: 'Atencion VIP', titleRu: 'VIP обслуживание', filePath: 'support/atencion-vip.md', pdfSlug: 'support-atencion-vip' },
+      { slug: 'gestion-tickets', titleEs: 'Gestion de Tickets', titleRu: 'Управление тикетами', filePath: 'support/gestion-tickets.md', pdfSlug: 'support-gestion-tickets' },
     ],
   },
   {
@@ -93,10 +103,27 @@ export const SECTIONS: Section[] = [
     ],
   },
   {
+    id: 'legal',
+    nameEs: 'Legal',
+    nameRu: 'Юридические документы',
+    order: 8,
+    documents: [
+      { slug: 'risk-disclosure', titleEs: 'Divulgacion de Riesgos', titleRu: 'Раскрытие рисков', filePath: 'legal/risk-disclosure.md', pdfSlug: 'legal-risk-disclosure' },
+      { slug: 'terms-conditions', titleEs: 'Terminos y Condiciones', titleRu: 'Условия использования', filePath: 'legal/terms-conditions.md', pdfSlug: 'legal-terms-conditions' },
+      { slug: 'privacy-policy', titleEs: 'Politica de Privacidad', titleRu: 'Политика конфиденциальности', filePath: 'legal/privacy-policy.md', pdfSlug: 'legal-privacy-policy' },
+      { slug: 'client-agreement', titleEs: 'Acuerdo del Cliente', titleRu: 'Клиентское соглашение', filePath: 'legal/client-agreement.md', pdfSlug: 'legal-client-agreement' },
+      { slug: 'aml-kyc-policy', titleEs: 'Politica AML/KYC', titleRu: 'Политика AML/KYC', filePath: 'legal/aml-kyc-policy.md', pdfSlug: 'legal-aml-kyc-policy' },
+      { slug: 'order-execution-policy', titleEs: 'Politica de Ejecucion', titleRu: 'Политика исполнения ордеров', filePath: 'legal/order-execution-policy.md', pdfSlug: 'legal-order-execution-policy' },
+      { slug: 'complaint-handling', titleEs: 'Manejo de Quejas', titleRu: 'Обработка жалоб', filePath: 'legal/complaint-handling.md', pdfSlug: 'legal-complaint-handling' },
+      { slug: 'refund-policy', titleEs: 'Politica de Reembolsos', titleRu: 'Политика возвратов', filePath: 'legal/refund-policy.md', pdfSlug: 'legal-refund-policy' },
+      { slug: 'affiliate-terms', titleEs: 'Terminos de Afiliados', titleRu: 'Условия партнёрской программы', filePath: 'legal/affiliate-terms.md', pdfSlug: 'legal-affiliate-terms' },
+    ],
+  },
+  {
     id: 'encyclopedia',
     nameEs: 'Enciclopedia',
     nameRu: 'Энциклопедия',
-    order: 8,
+    order: 9,
     documents: [
       { slug: 'abc', titleEs: 'ABC del Broker', titleRu: 'ABC брокера', filePath: 'encyclopedia/abc.md', pdfSlug: 'encyclopedia-abc' },
     ],

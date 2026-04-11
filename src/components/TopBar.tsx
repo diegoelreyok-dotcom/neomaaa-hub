@@ -106,12 +106,12 @@ export default function TopBar({ userName, isAdmin, lang, onToggleSidebar, onSwi
           </Link>
         )}
 
-        {/* User name */}
-        <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-neo-dark-3/50 rounded-lg">
-          <div className="w-6 h-6 rounded-full bg-neo-primary/20 flex items-center justify-center text-neo-primary text-[10px] font-bold">
+        {/* User info */}
+        <div className="flex items-center gap-2 px-2 sm:px-3 py-1.5 bg-neo-dark-3/50 rounded-lg">
+          <div className="w-6 h-6 rounded-full bg-neo-primary/20 flex items-center justify-center text-neo-primary text-[10px] font-bold flex-shrink-0">
             {userName.charAt(0).toUpperCase()}
           </div>
-          <span className="text-xs font-medium text-neo-text-secondary">{userName}</span>
+          <span className="hidden sm:inline text-xs font-medium text-neo-text-secondary truncate max-w-[120px]">{userName}</span>
         </div>
 
         {/* Logout button */}

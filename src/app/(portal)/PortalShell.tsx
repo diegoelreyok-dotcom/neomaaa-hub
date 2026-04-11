@@ -48,7 +48,7 @@ export default function PortalShell({
         onClose={() => setSidebarOpen(false)}
       />
 
-      <div className="lg:ml-[280px] flex flex-col min-h-screen">
+      <div className="lg:ml-[280px] flex flex-col min-h-screen transition-[margin] duration-300">
         <TopBar
           userName={userName}
           isAdmin={isAdmin}
@@ -57,9 +57,16 @@ export default function PortalShell({
           onSwitchLang={handleSwitchLang}
         />
 
-        <main className="flex-1 p-4 lg:p-8">
+        <main className="flex-1 p-4 sm:p-6 lg:p-8">
           {children}
         </main>
+
+        {/* Footer */}
+        <footer className="px-4 sm:px-6 lg:px-8 py-4 border-t border-neo-dark-3/50">
+          <p className="text-[11px] text-neo-text-muted text-center">
+            NEOMAAA Hub &mdash; Portal interno del equipo
+          </p>
+        </footer>
       </div>
     </div>
   );

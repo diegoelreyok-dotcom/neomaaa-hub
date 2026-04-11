@@ -4,15 +4,19 @@ import { hashSync, compareSync } from 'bcryptjs';
 // In-memory store for development (when Vercel KV is not available)
 const memStore: Record<string, string> = {};
 
-async function kvGet(key: string): Promise<any | null> {
+/**
+ * Get a value from KV store. Vercel KV auto-parses JSON, so the returned
+ * value is already a JS object — do NOT call JSON.parse() on the result.
+ */
+async function kvGet<T = unknown>(key: string): Promise<T | null> {
   try {
     const { kv } = await import('@vercel/kv');
-    const val = await kv.get(key);
+    const val = await kv.get<T>(key);
     return val ?? null;
   } catch {
     const raw = memStore[key];
     if (!raw) return null;
-    try { return JSON.parse(raw); } catch { return raw; }
+    try { return JSON.parse(raw) as T; } catch { return raw as T; }
   }
 }
 
@@ -46,16 +50,17 @@ async function kvKeys(pattern: string): Promise<string[]> {
 
 // ---- USERS ----
 export async function getUser(id: string): Promise<User | null> {
-  const data = await kvGet(`user:${id}`);
-  return data ? data as any : null;
+  if (!id || typeof id !== 'string') return null;
+  const data = await kvGet<User>(`user:${id}`);
+  return data ?? null;
 }
 
 export async function getAllUsers(): Promise<User[]> {
   const keys = await kvKeys('user:*');
   const users: User[] = [];
   for (const key of keys) {
-    const data = await kvGet(key);
-    if (data) users.push(data as any);
+    const data = await kvGet<User>(key);
+    if (data) users.push(data);
   }
   return users;
 }
@@ -64,37 +69,63 @@ export async function createUser(
   user: Omit<User, 'loginCode' | 'createdAt'>,
   plainCode: string
 ): Promise<{ user: User; code: string }> {
+  // Validate inputs
+  if (!user.id || typeof user.id !== 'string' || user.id.length > 50) {
+    throw new Error('Invalid user id');
+  }
+  if (!user.name || typeof user.name !== 'string' || user.name.length > 100) {
+    throw new Error('Invalid user name');
+  }
+  if (!plainCode || plainCode.length < 6) {
+    throw new Error('Code must be at least 6 characters');
+  }
+  // Sanitize the id (alphanumeric + hyphens only)
+  const sanitizedId = user.id.toLowerCase().replace(/[^a-z0-9-]/g, '');
+
+  // Check for duplicate user
+  const existingUser = await getUser(sanitizedId);
+  if (existingUser) {
+    throw new Error('User already exists');
+  }
+
   const hashedCode = hashSync(plainCode, 10);
   const newUser: User = {
     ...user,
+    id: sanitizedId,
     loginCode: hashedCode,
     createdAt: new Date().toISOString(),
   };
-  await kvSet(`user:${user.id}`, newUser);
+  await kvSet(`user:${sanitizedId}`, newUser);
   return { user: newUser, code: plainCode };
 }
 
 export async function updateUser(id: string, updates: Partial<User>): Promise<User | null> {
   const existing = await getUser(id);
   if (!existing) return null;
-  const updated = { ...existing, ...updates };
+  // Prevent changing the user id via updates
+  const safeUpdates = { ...updates };
+  delete safeUpdates.id;
+  const updated = { ...existing, ...safeUpdates };
   await kvSet(`user:${id}`, updated);
   return updated;
 }
 
 export async function deleteUser(id: string): Promise<void> {
+  if (!id || typeof id !== 'string') return;
   await kvDel(`user:${id}`);
 }
 
 export async function validateLogin(userId: string, plainCode: string): Promise<User | null> {
+  if (!userId || !plainCode) return null;
   const user = await getUser(userId);
   if (!user || !user.isActive) return null;
-  if (!compareSync(plainCode, user.loginCode)) return null;
+  if (!user.loginCode || !compareSync(plainCode, user.loginCode)) return null;
   await updateUser(userId, { lastLogin: new Date().toISOString() });
   return user;
 }
 
 export async function regenerateCode(userId: string, newPlainCode: string): Promise<string | null> {
+  if (!newPlainCode || newPlainCode.length < 6) return null;
   const user = await getUser(userId);
   if (!user) return null;
   const hashed = hashSync(newPlainCode, 10);
@@ -104,21 +135,32 @@ export async function regenerateCode(userId: string, newPlainCode: string): Prom
 
 // ---- ROLES ----
 export async function getRole(id: string): Promise<Role | null> {
-  const data = await kvGet(`role:${id}`);
-  return data ? data as any : null;
+  if (!id || typeof id !== 'string') return null;
+  const data = await kvGet<Role>(`role:${id}`);
+  return data ?? null;
 }
 
 export async function getAllRoles(): Promise<Role[]> {
   const keys = await kvKeys('role:*');
   const roles: Role[] = [];
   for (const key of keys) {
-    const data = await kvGet(key);
-    if (data) roles.push(data as any);
+    const data = await kvGet<Role>(key);
+    if (data) roles.push(data);
   }
   return roles;
 }
 
 export async function createRole(role: Role): Promise<Role> {
+  if (!role.id || typeof role.id !== 'string' || role.id.length > 50) {
+    throw new Error('Invalid role id');
+  }
+  if (!role.name || typeof role.name !== 'string') {
+    throw new Error('Invalid role name');
+  }
+  // Validate sections array contains only valid strings
+  if (!Array.isArray(role.sections)) {
+    throw new Error('sections must be an array');
+  }
   await kvSet(`role:${role.id}`, role);
   return role;
 }
@@ -126,29 +168,41 @@ export async function createRole(role: Role): Promise<Role> {
 export async function updateRole(id: string, updates: Partial<Role>): Promise<Role | null> {
   const existing = await getRole(id);
   if (!existing) return null;
-  const updated = { ...existing, ...updates };
+  // Prevent changing role id via updates
+  const safeUpdates = { ...updates };
+  delete safeUpdates.id;
+  const updated = { ...existing, ...safeUpdates };
   await kvSet(`role:${id}`, updated);
   return updated;
 }
 
 export async function deleteRole(id: string): Promise<void> {
+  if (!id || typeof id !== 'string') return;
+  // Prevent deleting the admin role
+  if (id === 'admin') {
+    throw new Error('Cannot delete the admin role');
+  }
   await kvDel(`role:${id}`);
 }
 
 // ---- PROGRESS ----
 export async function recordAccess(userId: string, documentPath: string): Promise<void> {
-  const key = `progress:${userId}:${documentPath}`;
+  // Validate inputs to prevent KV key injection
+  const safeUserId = userId.replace(/[^a-zA-Z0-9_-]/g, '');
+  const safeDocPath = documentPath.replace(/[^a-zA-Z0-9_\-./]/g, '');
+  const key = `progress:${safeUserId}:${safeDocPath}`;
   const existing = await kvGet(key);
   const now = new Date().toISOString();
   if (existing) {
-    const data: ReadProgress = JSON.parse(existing as string);
+    // kvGet already returns a parsed object (Vercel KV auto-parses JSON)
+    const data = existing as ReadProgress;
     data.lastAccessed = now;
     data.accessCount += 1;
     await kvSet(key, data);
   } else {
     const newProgress: ReadProgress = {
-      userId,
-      documentPath,
+      userId: safeUserId,
+      documentPath: safeDocPath,
       firstAccessed: now,
       lastAccessed: now,
       accessCount: 1,
@@ -159,11 +213,13 @@ export async function recordAccess(userId: string, documentPath: string): Promis
 }
 
 export async function getUserProgress(userId: string): Promise<ReadProgress[]> {
-  const keys = await kvKeys(`progress:${userId}:*`);
+  if (!userId || typeof userId !== 'string') return [];
+  const safeUserId = userId.replace(/[^a-zA-Z0-9_-]/g, '');
+  const keys = await kvKeys(`progress:${safeUserId}:*`);
   const progress: ReadProgress[] = [];
   for (const key of keys) {
-    const data = await kvGet(key);
-    if (data) progress.push(data as any);
+    const data = await kvGet<ReadProgress>(key);
+    if (data) progress.push(data);
   }
   return progress;
 }
@@ -172,15 +228,15 @@ export async function getAllProgress(): Promise<ReadProgress[]> {
   const keys = await kvKeys('progress:*');
   const progress: ReadProgress[] = [];
   for (const key of keys) {
-    const data = await kvGet(key);
-    if (data) progress.push(data as any);
+    const data = await kvGet<ReadProgress>(key);
+    if (data) progress.push(data);
   }
   return progress;
 }
 
 // ---- SEED DEFAULT DATA ----
 export async function seedDefaultData(): Promise<void> {
-  // Check if already seeded
+  // Check if already seeded (idempotent)
   const existingAdmin = await getRole('admin');
   if (existingAdmin) return;
 
@@ -278,18 +334,27 @@ export async function seedDefaultData(): Promise<void> {
     await createRole(role);
   }
 
-  // Create default admin users (Principals)
-  // Default code: 123456 (should be changed immediately)
-  await createUser(
-    { id: 'diego', name: 'Diego', roleId: 'admin', lang: 'es', isActive: true },
-    '123456'
-  );
-  await createUser(
-    { id: 'yulia', name: 'Yulia', roleId: 'admin', lang: 'ru', isActive: true },
-    '123456'
-  );
-  await createUser(
-    { id: 'stanislav', name: 'Stanislav', roleId: 'admin', lang: 'ru', isActive: true },
-    '123456'
-  );
+  // Create default admin users — use a generated code that must be changed immediately
+  // The admin code is generated randomly; the admin should use /api/seed while logged in
+  // via hardcoded admin env vars, then regenerate codes for DB users.
+  const seedCode = Math.floor(100000 + Math.random() * 900000).toString();
+  const defaultAdmins = [
+    { id: 'diego', name: 'Diego', lang: 'es' as const },
+    { id: 'yulia', name: 'Yulia', lang: 'ru' as const },
+    { id: 'stanislav', name: 'Stanislav', lang: 'ru' as const },
+  ];
+
+  for (const admin of defaultAdmins) {
+    // Skip if user already exists (idempotent)
+    const existing = await getUser(admin.id);
+    if (existing) continue;
+    try {
+      await createUser(
+        { id: admin.id, name: admin.name, roleId: 'admin', lang: admin.lang, isActive: true },
+        seedCode
+      );
+    } catch {
+      // Ignore duplicate errors during seed
+    }
+  }
 }

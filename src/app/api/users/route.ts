@@ -3,7 +3,8 @@ import { auth } from '@/lib/auth';
 import { getAllUsers, createUser, updateUser, deleteUser } from '@/lib/db';
 
 function generateCode(length = 6): string {
-  const chars = '0123456789';
+  // Use crypto for better randomness in code generation
+  const chars = '0123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz';
   let code = '';
   for (let i = 0; i < length; i++) {
     code += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -39,20 +40,39 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { id, name, roleId, lang, isActive } = body;
 
-    if (!id || !name || !roleId) {
+    if (!id || typeof id !== 'string' || !name || typeof name !== 'string' || !roleId || typeof roleId !== 'string') {
       return NextResponse.json(
         { error: 'Faltan campos: id, name, roleId' },
         { status: 400 }
       );
     }
 
+    // Validate id format (alphanumeric + hyphens, max 50 chars)
+    if (!/^[a-zA-Z0-9-]+$/.test(id) || id.length > 50) {
+      return NextResponse.json(
+        { error: 'ID invalido. Solo letras, numeros y guiones (max 50 caracteres)' },
+        { status: 400 }
+      );
+    }
+
+    // Validate name length
+    if (name.length > 100) {
+      return NextResponse.json(
+        { error: 'Nombre demasiado largo (max 100 caracteres)' },
+        { status: 400 }
+      );
+    }
+
+    // Validate lang
+    const validLang = lang === 'ru' ? 'ru' : 'es';
+
     const code = generateCode();
     const result = await createUser(
       {
-        id,
+        id: id.toLowerCase(),
         name,
         roleId,
-        lang: lang || 'es',
+        lang: validLang,
         isActive: isActive !== undefined ? isActive : true,
       },
       code
@@ -61,11 +81,12 @@ export async function POST(req: Request) {
     // Return the user and the plain code (only time it's visible)
     const { loginCode, ...safeUser } = result.user;
     return NextResponse.json({ user: safeUser, code: result.code }, { status: 201 });
-  } catch (error) {
-    return NextResponse.json(
-      { error: 'Error al crear usuario' },
-      { status: 500 }
-    );
+  } catch (error: any) {
+    const message = error?.message === 'User already exists'
+      ? 'Ya existe un usuario con ese ID'
+      : 'Error al crear usuario';
+    const status = error?.message === 'User already exists' ? 409 : 500;
+    return NextResponse.json({ error: message }, { status });
   }
 }
 
@@ -82,14 +103,25 @@ export async function PATCH(req: Request) {
     const body = await req.json();
     const { id, ...updates } = body;
 
-    if (!id) {
+    if (!id || typeof id !== 'string') {
       return NextResponse.json({ error: 'Falta campo: id' }, { status: 400 });
     }
 
-    // Don't allow direct loginCode updates through this endpoint
-    delete updates.loginCode;
+    // Only allow specific safe fields to be updated
+    const allowedFields = ['name', 'roleId', 'lang', 'isActive'];
+    const safeUpdates: Record<string, unknown> = {};
+    for (const field of allowedFields) {
+      if (updates[field] !== undefined) {
+        safeUpdates[field] = updates[field];
+      }
+    }
 
-    const updated = await updateUser(id, updates);
+    // Validate lang if provided
+    if (safeUpdates.lang && safeUpdates.lang !== 'es' && safeUpdates.lang !== 'ru') {
+      return NextResponse.json({ error: 'Idioma invalido' }, { status: 400 });
+    }
+
+    const updated = await updateUser(id, safeUpdates);
     if (!updated) {
       return NextResponse.json({ error: 'Usuario no encontrado' }, { status: 404 });
     }

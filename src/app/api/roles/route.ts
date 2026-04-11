@@ -28,19 +28,35 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { id, name, nameRu, sections, isAdmin } = body;
 
-    if (!id || !name) {
+    if (!id || typeof id !== 'string' || !name || typeof name !== 'string') {
       return NextResponse.json(
         { error: 'Faltan campos: id, name' },
         { status: 400 }
       );
     }
 
+    // Validate id format
+    if (!/^[a-zA-Z0-9-]+$/.test(id) || id.length > 50) {
+      return NextResponse.json(
+        { error: 'ID invalido. Solo letras, numeros y guiones (max 50 caracteres)' },
+        { status: 400 }
+      );
+    }
+
+    // Validate sections is an array of strings
+    if (sections && (!Array.isArray(sections) || !sections.every((s: unknown) => typeof s === 'string'))) {
+      return NextResponse.json(
+        { error: 'sections debe ser un array de strings' },
+        { status: 400 }
+      );
+    }
+
     const role = await createRole({
-      id,
+      id: id.toLowerCase(),
       name,
       nameRu: nameRu || name,
       sections: sections || [],
-      isAdmin: isAdmin || false,
+      isAdmin: isAdmin === true, // Explicit boolean check (was using || which passes through truthy values)
     });
 
     return NextResponse.json(role, { status: 201 });
@@ -100,12 +116,15 @@ export async function DELETE(req: Request) {
       return NextResponse.json({ error: 'Falta parametro: id' }, { status: 400 });
     }
 
+    // Prevent deleting protected roles
+    if (id === 'admin') {
+      return NextResponse.json({ error: 'No se puede eliminar el rol de administrador' }, { status: 403 });
+    }
+
     await deleteRole(id);
     return NextResponse.json({ success: true });
-  } catch (error) {
-    return NextResponse.json(
-      { error: 'Error al eliminar rol' },
-      { status: 500 }
-    );
+  } catch (error: any) {
+    const message = error?.message?.includes('Cannot delete') ? error.message : 'Error al eliminar rol';
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
