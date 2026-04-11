@@ -236,11 +236,7 @@ export async function getAllProgress(): Promise<ReadProgress[]> {
 
 // ---- SEED DEFAULT DATA ----
 export async function seedDefaultData(): Promise<void> {
-  // Check if already seeded (idempotent)
-  const existingAdmin = await getRole('admin');
-  if (existingAdmin) return;
-
-  // Create default roles
+  // --- Seed roles (idempotent: skip each role that already exists) ---
   const defaultRoles: Role[] = [
     {
       id: 'admin',
@@ -331,27 +327,55 @@ export async function seedDefaultData(): Promise<void> {
   ];
 
   for (const role of defaultRoles) {
-    await createRole(role);
+    const existingRole = await getRole(role.id);
+    if (!existingRole) {
+      await createRole(role);
+    }
   }
 
-  // Create default admin users — use a generated code that must be changed immediately
-  // The admin code is generated randomly; the admin should use /api/seed while logged in
-  // via hardcoded admin env vars, then regenerate codes for DB users.
-  const seedCode = Math.floor(100000 + Math.random() * 900000).toString();
-  const defaultAdmins = [
-    { id: 'diego', name: 'Diego', lang: 'es' as const },
-    { id: 'yulia', name: 'Yulia', lang: 'ru' as const },
-    { id: 'stanislav', name: 'Stanislav', lang: 'ru' as const },
+  // --- Seed users (idempotent: skip each user that already exists) ---
+
+  // Admin users get a random seed code (must be changed immediately)
+  const adminSeedCode = Math.floor(100000 + Math.random() * 900000).toString();
+
+  // Default code for non-admin team members (should be changed via admin panel)
+  const teamDefaultCode = '000000';
+
+  const defaultUsers: Array<{
+    id: string;
+    name: string;
+    roleId: string;
+    lang: 'es' | 'ru';
+    code: string;
+  }> = [
+    // Admins
+    { id: 'diego', name: 'Diego', roleId: 'admin', lang: 'es', code: adminSeedCode },
+    { id: 'yulia', name: 'Yulia', roleId: 'admin', lang: 'ru', code: adminSeedCode },
+    { id: 'stanislav', name: 'Stanislav', roleId: 'admin', lang: 'ru', code: adminSeedCode },
+    // Dealing
+    { id: 'pepe', name: 'Pepe', roleId: 'dealing', lang: 'es', code: teamDefaultCode },
+    // Compliance
+    { id: 'susana', name: 'Susana', roleId: 'compliance', lang: 'es', code: teamDefaultCode },
+    // Sales
+    { id: 'edward', name: 'Edward', roleId: 'sales', lang: 'es', code: teamDefaultCode },
+    { id: 'franco', name: 'Franco', roleId: 'sales', lang: 'es', code: teamDefaultCode },
+    { id: 'luis', name: 'Luis', roleId: 'sales', lang: 'es', code: teamDefaultCode },
+    { id: 'rocio', name: 'Rocio', roleId: 'sales', lang: 'es', code: teamDefaultCode },
+    { id: 'marilyn', name: 'Marilyn', roleId: 'sales', lang: 'es', code: teamDefaultCode },
+    // Dev
+    { id: 'alexa', name: 'Alex A', roleId: 'dev', lang: 'es', code: teamDefaultCode },
+    { id: 'alexb', name: 'Alex B', roleId: 'dev', lang: 'es', code: teamDefaultCode },
+    { id: 'gleb', name: 'Gleb', roleId: 'dev', lang: 'ru', code: teamDefaultCode },
+    { id: 'dimitri', name: 'Dimitri', roleId: 'dev', lang: 'ru', code: teamDefaultCode },
   ];
 
-  for (const admin of defaultAdmins) {
-    // Skip if user already exists (idempotent)
-    const existing = await getUser(admin.id);
+  for (const u of defaultUsers) {
+    const existing = await getUser(u.id);
     if (existing) continue;
     try {
       await createUser(
-        { id: admin.id, name: admin.name, roleId: 'admin', lang: admin.lang, isActive: true },
-        seedCode
+        { id: u.id, name: u.name, roleId: u.roleId, lang: u.lang, isActive: true },
+        u.code
       );
     } catch {
       // Ignore duplicate errors during seed

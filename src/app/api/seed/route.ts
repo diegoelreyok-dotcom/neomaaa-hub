@@ -21,11 +21,23 @@ export async function GET() {
     const adminRole = await getRole('admin');
     const diegoUser = await getUser('diego');
 
+    const allUserIds = [
+      'diego', 'yulia', 'stanislav', 'pepe', 'susana',
+      'edward', 'franco', 'luis', 'rocio', 'marilyn',
+      'alexa', 'alexb', 'gleb', 'dimitri',
+    ];
+    const userChecks: Record<string, boolean> = {};
+    for (const uid of allUserIds) {
+      const u = await getUser(uid);
+      userChecks[uid] = !!u;
+    }
+
     return NextResponse.json({
       message: 'Seed completado',
       adminRoleExists: !!adminRole,
       diegoExists: !!diegoUser,
       allRoles: ['admin', 'principal', 'sales', 'compliance', 'support-role', 'dealing', 'marketing-role', 'dev'],
+      users: userChecks,
     });
   } catch (error: any) {
     return NextResponse.json(
