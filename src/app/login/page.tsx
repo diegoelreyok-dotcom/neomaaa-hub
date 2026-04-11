@@ -163,7 +163,7 @@ export default function LoginPage() {
               disabled={loading || !userId || !code}
               className="
                 w-full py-3 px-4 rounded-lg mt-2
-                bg-neo-primary text-neo-dark
+                bg-neo-primary text-white
                 font-semibold text-sm
                 hover:bg-neo-primary-dark hover:shadow-lg hover:shadow-neo-primary/20
                 active:scale-[0.98]

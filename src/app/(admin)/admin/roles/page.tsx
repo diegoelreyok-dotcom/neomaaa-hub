@@ -18,7 +18,7 @@ interface UserData {
 }
 
 const ROLE_GRADIENTS = [
-  'from-neo-primary to-emerald-600',
+  'from-neo-primary to-neo-primary-light',
   'from-blue-500 to-indigo-600',
   'from-violet-500 to-purple-600',
   'from-rose-500 to-pink-600',
@@ -175,7 +175,7 @@ export default function RolesPage() {
         </div>
         <button
           onClick={() => setShowModal(true)}
-          className="bg-neo-primary text-neo-dark font-semibold text-sm px-4 py-2.5 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200"
+          className="bg-neo-primary text-white font-semibold text-sm px-4 py-2.5 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200"
         >
           Crear Rol
         </button>
@@ -364,7 +364,7 @@ export default function RolesPage() {
                 <button
                   onClick={handleCreate}
                   disabled={!formName.trim() || creating}
-                  className="bg-neo-primary text-neo-dark font-semibold text-sm px-5 py-2.5 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none"
+                  className="bg-neo-primary text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none"
                 >
                   {creating ? 'Creando...' : 'Crear Rol'}
                 </button>

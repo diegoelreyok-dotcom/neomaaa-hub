@@ -170,7 +170,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={loading || !name.trim()}
-            className="w-full bg-neo-primary text-neo-dark font-semibold py-2.5 rounded-lg hover:bg-neo-primary-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+            className="w-full bg-neo-primary text-white font-semibold py-2.5 rounded-lg hover:bg-neo-primary-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm"
           >
             {loading
               ? (lang === 'es' ? 'Enviando...' : 'Отправка...')

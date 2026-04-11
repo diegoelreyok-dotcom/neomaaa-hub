@@ -142,8 +142,8 @@ export default function CompletionButton({ documentPath, lang, isCompleted: init
           w-full py-4 px-6 rounded-xl text-base font-bold
           transition-all duration-200
           ${loading
-            ? 'bg-neo-primary/50 text-neo-dark/60 cursor-wait'
-            : 'bg-neo-primary text-neo-dark hover:bg-neo-primary-light hover:shadow-lg hover:shadow-neo-primary/20 active:scale-[0.98]'
+            ? 'bg-neo-primary/50 text-white/60 cursor-wait'
+            : 'bg-neo-primary text-white hover:bg-neo-primary-light hover:shadow-lg hover:shadow-neo-primary/20 active:scale-[0.98]'
           }
         `}
       >

@@ -197,7 +197,7 @@ export default function RegistrationsPage() {
                 <div className="flex gap-2 flex-shrink-0">
                   <button
                     onClick={() => setApprovalModal({ reg, roleId: roles.find(r => !r.isAdmin)?.id || '' })}
-                    className="bg-neo-primary text-neo-dark text-xs font-semibold px-4 py-2 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200"
+                    className="bg-neo-primary text-white text-xs font-semibold px-4 py-2 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200"
                   >
                     Aprobar
                   </button>
@@ -272,7 +272,7 @@ export default function RegistrationsPage() {
           <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-2xl p-6 max-w-sm w-full shadow-2xl shadow-black/40" onClick={e => e.stopPropagation()}>
             {/* Header */}
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neo-primary to-emerald-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0 shadow-lg">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neo-primary to-neo-primary-light flex items-center justify-center text-white text-sm font-bold flex-shrink-0 shadow-lg">
                 {approvalModal.reg.name.charAt(0).toUpperCase()}
               </div>
               <div>
@@ -299,7 +299,7 @@ export default function RegistrationsPage() {
               <button
                 onClick={handleApprove}
                 disabled={!approvalModal.roleId || processing}
-                className="flex-1 bg-neo-primary text-neo-dark font-semibold py-2.5 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none text-sm"
+                className="flex-1 bg-neo-primary text-white font-semibold py-2.5 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none text-sm"
               >
                 {processing ? 'Creando...' : 'Aprobar y crear usuario'}
               </button>
@@ -358,7 +358,7 @@ export default function RegistrationsPage() {
             {/* Close button */}
             <button
               onClick={() => { setGeneratedCode(null); setApprovalModal(null); setCopiedCode(false); }}
-              className="w-full bg-neo-primary text-neo-dark font-semibold py-2.5 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200 text-sm"
+              className="w-full bg-neo-primary text-white font-semibold py-2.5 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200 text-sm"
             >
               Cerrar
             </button>

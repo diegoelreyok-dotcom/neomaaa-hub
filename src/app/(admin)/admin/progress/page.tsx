@@ -43,7 +43,7 @@ const SECTION_DOC_COUNTS: Record<string, number> = {
 const TOTAL_DOCUMENTS = 28;
 
 const AVATAR_GRADIENTS = [
-  'from-neo-primary to-emerald-600',
+  'from-neo-primary to-neo-primary-light',
   'from-blue-500 to-indigo-600',
   'from-violet-500 to-purple-600',
   'from-rose-500 to-pink-600',
@@ -233,7 +233,7 @@ export default function ProgressPage() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
         <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-5">
           <div className="text-neo-text-muted text-xs font-semibold uppercase tracking-wider mb-2">Usuarios Activos</div>
-          <div className="text-2xl font-bold bg-gradient-to-r from-neo-primary to-emerald-400 bg-clip-text text-transparent">{users.filter(u => u.isActive).length}</div>
+          <div className="text-2xl font-bold bg-gradient-to-r from-neo-primary to-neo-primary-light bg-clip-text text-transparent">{users.filter(u => u.isActive).length}</div>
           <div className="text-neo-text-muted text-xs mt-1">de {users.length} total</div>
         </div>
         <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-5">

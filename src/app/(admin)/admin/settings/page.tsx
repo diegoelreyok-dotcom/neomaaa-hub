@@ -334,7 +334,7 @@ export default function SettingsPage() {
           hasChanges ? (
             <button
               onClick={saveBroker}
-              className="inline-flex items-center gap-2 bg-neo-primary text-neo-dark font-semibold px-5 py-2 rounded-lg hover:bg-neo-primary-light transition-all duration-200 text-sm shadow-lg shadow-neo-primary/20"
+              className="inline-flex items-center gap-2 bg-neo-primary text-white font-semibold px-5 py-2 rounded-lg hover:bg-neo-primary-light transition-all duration-200 text-sm shadow-lg shadow-neo-primary/20"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -365,7 +365,7 @@ export default function SettingsPage() {
 
   function renderTeam() {
     const avatarGradients = [
-      'from-neo-primary to-emerald-600',
+      'from-neo-primary to-neo-primary-light',
       'from-blue-500 to-indigo-600',
       'from-violet-500 to-purple-600',
       'from-rose-500 to-pink-600',
@@ -681,7 +681,7 @@ export default function SettingsPage() {
             {/* Table rows */}
             {admins.map((acc, idx) => {
               const user = users.find((u) => u.id === acc.id);
-              const gradients = ['from-neo-primary to-emerald-600', 'from-violet-500 to-purple-600', 'from-blue-500 to-indigo-600'];
+              const gradients = ['from-neo-primary to-neo-primary-light', 'from-violet-500 to-purple-600', 'from-blue-500 to-indigo-600'];
               return (
                 <div
                   key={acc.id}

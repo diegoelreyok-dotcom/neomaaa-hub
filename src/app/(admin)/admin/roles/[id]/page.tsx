@@ -281,7 +281,7 @@ export default function RolePermissionsPage() {
               key={section.id}
               className={`bg-neo-dark-2 border rounded-xl transition-all duration-300 ${
                 isEnabled
-                  ? 'border-neo-primary/40 shadow-[0_0_20px_rgba(0,212,170,0.06)]'
+                  ? 'border-neo-primary/40 shadow-[0_0_20px_rgba(152,40,58,0.06)]'
                   : 'border-neo-dark-3/60'
               } ${isExpanded ? 'sm:col-span-2 lg:col-span-3' : ''}`}
             >
@@ -400,7 +400,7 @@ export default function RolePermissionsPage() {
                 <div className="hidden sm:flex items-center gap-2">
                   <div className="w-32 bg-neo-dark-3/50 rounded-full h-2 overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-neo-primary to-emerald-400 transition-all duration-500"
+                      className="h-full rounded-full bg-gradient-to-r from-neo-primary to-neo-primary-light transition-all duration-500"
                       style={{ width: `${(enabledCount / totalSections) * 100}%` }}
                     />
                   </div>

@@ -46,7 +46,7 @@ export default async function DashboardPage() {
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold text-neo-text tracking-tight">
               {lang === 'ru' ? 'Добро пожаловать' : 'Bienvenido'},{' '}
-              <span className="bg-gradient-to-r from-neo-primary to-emerald-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-neo-primary to-neo-primary-light bg-clip-text text-transparent">
                 {userName}
               </span>
             </h1>

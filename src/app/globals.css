@@ -10,34 +10,34 @@
 /* ---------- DESIGN TOKENS ---------- */
 :root {
   /* Brand */
-  --neo-primary: #00D4AA;
-  --neo-primary-dark: #00B894;
-  --neo-primary-light: #00F5C4;
-  --neo-primary-glow: rgba(0, 212, 170, 0.15);
-  --neo-accent: #6C5CE7;
-  --neo-accent-light: #A29BFE;
+  --neo-primary: #98283A;
+  --neo-primary-dark: #7A2030;
+  --neo-primary-light: #B33347;
+  --neo-primary-glow: rgba(152, 40, 58, 0.15);
+  --neo-accent: #98283A;
+  --neo-accent-light: #B33347;
 
   /* Surfaces */
-  --neo-dark: #0A0E1A;
-  --neo-dark-2: #111827;
-  --neo-dark-3: #1F2937;
-  --neo-dark-4: #374151;
-  --neo-dark-5: #4B5563;
+  --neo-dark: #0A0A0A;
+  --neo-dark-2: #111111;
+  --neo-dark-3: #1A1A1A;
+  --neo-dark-4: #2A2A2A;
+  --neo-dark-5: #3A3A3A;
 
   /* Text — WCAG AA compliant on dark backgrounds */
-  --neo-text: #F9FAFB;
+  --neo-text: #FFFFFF;
   --neo-text-body: #D1D5DB;
   --neo-text-secondary: #9CA3AF;
   --neo-text-muted: #6B7280;
 
   /* Semantic */
-  --neo-success: #10B981;
+  --neo-success: #38CC97;
   --neo-warning: #F59E0B;
-  --neo-danger: #EF4444;
+  --neo-danger: #f04452;
   --neo-info: #3B82F6;
 
   /* Typography */
-  --base-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --base-font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --base-font-size: 15px;
   --base-line-height: 1.7;
 }
@@ -63,12 +63,12 @@ body {
 
 /* Brand-colored text selection */
 ::selection {
-  background: rgba(0, 212, 170, 0.25);
+  background: rgba(152, 40, 58, 0.25);
   color: var(--neo-text);
 }
 
 ::-moz-selection {
-  background: rgba(0, 212, 170, 0.25);
+  background: rgba(152, 40, 58, 0.25);
   color: var(--neo-text);
 }
 
@@ -253,11 +253,11 @@ body {
 }
 
 .markdown-section table tbody tr:nth-child(even) {
-  background: rgba(31, 41, 55, 0.5);
+  background: rgba(26, 26, 26, 0.5);
 }
 
 .markdown-section table tr:hover td {
-  background: rgba(0, 212, 170, 0.04);
+  background: rgba(152, 40, 58, 0.04);
 }
 
 
@@ -320,7 +320,7 @@ body {
    =========================================== */
 .markdown-section blockquote {
   border-left: 4px solid var(--neo-primary);
-  background: rgba(0, 212, 170, 0.06);
+  background: rgba(152, 40, 58, 0.06);
   padding: 14px 22px;
   border-radius: 0 10px 10px 0;
   margin: 1.5em 0;
@@ -374,7 +374,7 @@ body {
 .card:hover {
   border-color: var(--neo-primary);
   transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(0, 212, 170, 0.15),
+  box-shadow: 0 0 20px rgba(152, 40, 58, 0.15),
               0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
@@ -409,7 +409,7 @@ body {
 }
 
 .badge-ready {
-  background: rgba(16, 185, 129, 0.15);
+  background: rgba(56, 204, 151, 0.15);
   color: var(--neo-success);
 }
 .badge-progress {
@@ -421,7 +421,7 @@ body {
   color: var(--neo-text-muted);
 }
 .badge-critical {
-  background: rgba(239, 68, 68, 0.15);
+  background: rgba(240, 68, 82, 0.15);
   color: var(--neo-danger);
 }
 
@@ -489,7 +489,7 @@ body {
 }
 
 .team-card:hover {
-  border-color: rgba(0, 212, 170, 0.3);
+  border-color: rgba(152, 40, 58, 0.3);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -596,20 +596,20 @@ body {
 }
 
 .org-node:hover {
-  border-color: rgba(0, 212, 170, 0.3);
+  border-color: rgba(152, 40, 58, 0.3);
   transform: translateY(-2px);
 }
 
 /* Level 1 — Principals */
 .org-level-1 {
-  background: rgba(0, 212, 170, 0.06);
+  background: rgba(152, 40, 58, 0.06);
   border-radius: 12px;
   max-width: 420px;
 }
 
 .org-principal {
   border-color: var(--neo-primary);
-  background: rgba(0, 212, 170, 0.08);
+  background: rgba(152, 40, 58, 0.08);
 }
 
 .org-principal span {
@@ -709,7 +709,7 @@ body {
 .timeline-item.active::before {
   background: var(--neo-primary);
   border-color: var(--neo-primary);
-  box-shadow: 0 0 10px rgba(0, 212, 170, 0.45);
+  box-shadow: 0 0 10px rgba(152, 40, 58, 0.45);
 }
 
 .timeline-item.done::before {
@@ -736,7 +736,7 @@ body {
 }
 
 .progress-bar.green {
-  background: linear-gradient(90deg, var(--neo-success), var(--neo-primary));
+  background: linear-gradient(90deg, var(--neo-success), #4de6ad);
 }
 .progress-bar.yellow {
   background: linear-gradient(90deg, var(--neo-warning), #FBBF24);
@@ -770,13 +770,13 @@ body {
 }
 
 .alert-success {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(56, 204, 151, 0.1);
   border-left: 4px solid var(--neo-success);
   color: #6EE7B7;
 }
 
 .alert-danger {
-  background: rgba(239, 68, 68, 0.1);
+  background: rgba(240, 68, 82, 0.1);
   border-left: 4px solid var(--neo-danger);
   color: #FCA5A5;
 }
@@ -805,8 +805,8 @@ body {
 
 .pdf-banner-btn {
   background: var(--neo-primary);
-  color: var(--neo-dark);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #FFFFFF;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 13px;
   font-weight: 600;
   padding: 8px 18px;
@@ -851,7 +851,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 12px;
   font-weight: 500;
   color: var(--neo-text-secondary);
@@ -884,8 +884,8 @@ body {
   bottom: 24px;
   right: 24px;
   background: var(--neo-primary);
-  color: var(--neo-dark);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #FFFFFF;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 13px;
   font-weight: 600;
   padding: 10px 20px;
@@ -893,14 +893,14 @@ body {
   border-radius: 8px;
   cursor: pointer;
   z-index: 50;
-  box-shadow: 0 4px 12px rgba(0, 212, 170, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(152, 40, 58, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease;
 }
 
 .pdf-download-btn:hover {
   background: var(--neo-primary-dark);
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(0, 212, 170, 0.35), 0 3px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 16px rgba(152, 40, 58, 0.35), 0 3px 6px rgba(0, 0, 0, 0.25);
 }
 
 @media (max-width: 768px) {
@@ -1129,7 +1129,7 @@ input:focus:not(:focus-visible) {
   }
 
   .markdown-section h2 {
-    color: #006B55 !important;
+    color: #98283A !important;
     border-bottom-color: #ccc !important;
   }
 
@@ -1144,7 +1144,7 @@ input:focus:not(:focus-visible) {
   }
 
   .markdown-section a {
-    color: #006B55 !important;
+    color: #98283A !important;
     text-decoration: underline !important;
   }
 
@@ -1171,7 +1171,7 @@ input:focus:not(:focus-visible) {
   }
 
   .kpi-box .kpi-value {
-    color: #006B55 !important;
+    color: #98283A !important;
   }
 
   .badge {

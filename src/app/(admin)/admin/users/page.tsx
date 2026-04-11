@@ -21,7 +21,7 @@ interface RoleData {
 }
 
 const AVATAR_GRADIENTS = [
-  'from-neo-primary to-emerald-600',
+  'from-neo-primary to-neo-primary-light',
   'from-blue-500 to-indigo-600',
   'from-violet-500 to-purple-600',
   'from-rose-500 to-pink-600',
@@ -233,7 +233,7 @@ export default function UsersPage() {
         </div>
         <button
           onClick={() => setShowModal(true)}
-          className="bg-neo-primary text-neo-dark font-semibold text-sm px-4 py-2.5 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200"
+          className="bg-neo-primary text-white font-semibold text-sm px-4 py-2.5 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200"
         >
           Agregar Usuario
         </button>
@@ -518,7 +518,7 @@ export default function UsersPage() {
                   <button
                     onClick={handleCreate}
                     disabled={!formName.trim() || !formRoleId || creating}
-                    className="bg-neo-primary text-neo-dark font-semibold text-sm px-5 py-2.5 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none"
+                    className="bg-neo-primary text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none"
                   >
                     {creating ? 'Creando...' : 'Crear Usuario'}
                   </button>

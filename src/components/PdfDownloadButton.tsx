@@ -119,7 +119,7 @@ export default function PdfDownloadButton({ pdfSlug, lang = 'es' }: PdfDownloadB
                 className="
                   flex items-center justify-center gap-3
                   w-full py-3 px-4 rounded-lg
-                  bg-neo-primary text-neo-dark
+                  bg-neo-primary text-white
                   font-semibold text-sm
                   hover:bg-neo-primary-dark
                   transition-colors duration-200

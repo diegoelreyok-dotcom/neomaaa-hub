@@ -94,8 +94,8 @@ export default function DashboardProgress({ totalDocs, lang }: DashboardProgress
           {/* Top row: stats + level badge */}
           <div className="flex items-start justify-between gap-4 mb-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <div className="w-10 h-10 rounded-lg bg-neo-success/10 flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-neo-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -133,7 +133,7 @@ export default function DashboardProgress({ totalDocs, lang }: DashboardProgress
             </div>
             <div className="h-2.5 bg-neo-dark-3 rounded-full overflow-hidden">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-neo-primary to-emerald-400 transition-all duration-700 ease-out"
+                className="h-full rounded-full bg-gradient-to-r from-neo-success/80 to-neo-success transition-all duration-700 ease-out"
                 style={{ width: `${percentage}%` }}
               />
             </div>
