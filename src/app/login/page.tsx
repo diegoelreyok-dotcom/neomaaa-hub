@@ -19,14 +19,18 @@ export default function LoginPage() {
       username: 'Usuario',
       code: 'Codigo de acceso',
       enter: 'Entrar',
+      entering: 'Entrando...',
       error: 'Usuario o codigo incorrecto',
+      placeholder: 'Ingresa tu usuario',
     },
     ru: {
       subtitle: 'Внутренний портал команды',
       username: 'Пользователь',
       code: 'Код доступа',
       enter: 'Войти',
+      entering: 'Вход...',
       error: 'Неверный пользователь или код',
+      placeholder: 'Введите имя',
     },
   };
 
@@ -66,9 +70,12 @@ export default function LoginPage() {
         }}
       />
 
-      <div className="relative w-full max-w-[380px]">
+      {/* Subtle glow effect behind card */}
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-neo-primary/[0.03] rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="relative w-full max-w-[400px] animate-[fadeInContent_0.4s_ease-out]">
         {/* Card */}
-        <div className="bg-neo-dark-2 border border-neo-dark-3 rounded-2xl p-8 shadow-2xl shadow-black/40">
+        <div className="bg-neo-dark-2 border border-neo-dark-3/80 rounded-2xl p-8 sm:p-9 shadow-2xl shadow-black/40">
           {/* Logo */}
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-0 mb-3">
@@ -85,7 +92,7 @@ export default function LoginPage() {
             <div>
               <label
                 htmlFor="userId"
-                className="block text-xs font-medium text-neo-text-secondary mb-1.5 uppercase tracking-wider"
+                className="block text-[11px] font-semibold text-neo-text-secondary mb-1.5 uppercase tracking-wider"
               >
                 {t.username}
               </label>
@@ -93,18 +100,19 @@ export default function LoginPage() {
                 id="userId"
                 type="text"
                 value={userId}
-                onChange={(e) => setUserId(e.target.value)}
+                onChange={(e) => { setUserId(e.target.value); setError(''); }}
                 autoComplete="username"
                 autoFocus
                 required
                 className="
                   w-full px-4 py-3 rounded-lg
-                  bg-neo-dark-3 border border-neo-dark-4
-                  text-neo-text text-sm placeholder-neo-text-muted
-                  focus:outline-none focus:border-neo-primary focus:ring-1 focus:ring-neo-primary/30
-                  transition-colors duration-200
+                  bg-neo-dark-3/70 border border-neo-dark-4/60
+                  text-neo-text text-sm placeholder-neo-text-muted/50
+                  focus:outline-none focus:border-neo-primary/60 focus:ring-1 focus:ring-neo-primary/20
+                  focus:bg-neo-dark-3
+                  transition-all duration-200
                 "
-                placeholder={lang === 'ru' ? 'Введите имя' : 'Ingresa tu usuario'}
+                placeholder={t.placeholder}
               />
             </div>
 
@@ -112,7 +120,7 @@ export default function LoginPage() {
             <div>
               <label
                 htmlFor="code"
-                className="block text-xs font-medium text-neo-text-secondary mb-1.5 uppercase tracking-wider"
+                className="block text-[11px] font-semibold text-neo-text-secondary mb-1.5 uppercase tracking-wider"
               >
                 {t.code}
               </label>
@@ -122,15 +130,16 @@ export default function LoginPage() {
                 inputMode="numeric"
                 maxLength={6}
                 value={code}
-                onChange={(e) => setCode(e.target.value)}
+                onChange={(e) => { setCode(e.target.value); setError(''); }}
                 autoComplete="current-password"
                 required
                 className="
                   w-full px-4 py-3 rounded-lg
-                  bg-neo-dark-3 border border-neo-dark-4
-                  text-neo-text text-sm placeholder-neo-text-muted tracking-[0.3em] text-center
-                  focus:outline-none focus:border-neo-primary focus:ring-1 focus:ring-neo-primary/30
-                  transition-colors duration-200
+                  bg-neo-dark-3/70 border border-neo-dark-4/60
+                  text-neo-text text-sm placeholder-neo-text-muted/50 tracking-[0.3em] text-center
+                  focus:outline-none focus:border-neo-primary/60 focus:ring-1 focus:ring-neo-primary/20
+                  focus:bg-neo-dark-3
+                  transition-all duration-200
                 "
                 placeholder="------"
               />
@@ -138,13 +147,13 @@ export default function LoginPage() {
 
             {/* Error message */}
             {error && (
-              <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-neo-danger/10 border border-neo-danger/20">
+              <div className="flex items-center gap-2.5 px-3.5 py-3 rounded-lg bg-neo-danger/8 border border-neo-danger/15 animate-[fadeInContent_0.2s_ease-out]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neo-danger flex-shrink-0">
                   <circle cx="12" cy="12" r="10" />
                   <line x1="12" y1="8" x2="12" y2="12" />
                   <line x1="12" y1="16" x2="12.01" y2="16" />
                 </svg>
-                <span className="text-xs text-neo-danger">{error}</span>
+                <span className="text-[13px] text-neo-danger font-medium">{error}</span>
               </div>
             )}
 
@@ -153,13 +162,13 @@ export default function LoginPage() {
               type="submit"
               disabled={loading || !userId || !code}
               className="
-                w-full py-3 px-4 rounded-lg
+                w-full py-3 px-4 rounded-lg mt-2
                 bg-neo-primary text-neo-dark
                 font-semibold text-sm
-                hover:bg-neo-primary-dark
-                disabled:opacity-40 disabled:cursor-not-allowed
+                hover:bg-neo-primary-dark hover:shadow-lg hover:shadow-neo-primary/20
+                active:scale-[0.98]
+                disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none disabled:active:scale-100
                 transition-all duration-200
-                mt-2
               "
             >
               {loading ? (
@@ -168,7 +177,7 @@ export default function LoginPage() {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>
-                  {lang === 'ru' ? 'Вход...' : 'Entrando...'}
+                  {t.entering}
                 </span>
               ) : (
                 t.enter
@@ -182,11 +191,11 @@ export default function LoginPage() {
           <button
             onClick={() => setLang('es')}
             className={`
-              flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium
+              flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium
               transition-all duration-200
               ${lang === 'es'
-                ? 'bg-neo-dark-3 text-neo-text border border-neo-dark-4'
-                : 'text-neo-text-muted hover:text-neo-text-secondary'
+                ? 'bg-neo-dark-2 text-neo-text border border-neo-dark-3'
+                : 'text-neo-text-muted hover:text-neo-text-secondary border border-transparent'
               }
             `}
           >
@@ -203,11 +212,11 @@ export default function LoginPage() {
           <button
             onClick={() => setLang('ru')}
             className={`
-              flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium
+              flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium
               transition-all duration-200
               ${lang === 'ru'
-                ? 'bg-neo-dark-3 text-neo-text border border-neo-dark-4'
-                : 'text-neo-text-muted hover:text-neo-text-secondary'
+                ? 'bg-neo-dark-2 text-neo-text border border-neo-dark-3'
+                : 'text-neo-text-muted hover:text-neo-text-secondary border border-transparent'
               }
             `}
           >
@@ -231,7 +240,7 @@ export default function LoginPage() {
               inline-flex items-center gap-1.5
               text-neo-text-muted text-xs
               hover:text-neo-primary transition-colors duration-200
-              border-b border-transparent hover:border-neo-primary/40
+              border-b border-transparent hover:border-neo-primary/30
               pb-0.5
             "
           >

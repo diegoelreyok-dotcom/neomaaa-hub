@@ -12,7 +12,7 @@
     <div class="kpi-label">Зарегистрировано на платформе</div>
   </div>
   <div class="kpi-box">
-    <div class="kpi-value">16</div>
+    <div class="kpi-value">18</div>
     <div class="kpi-label">Членов команды</div>
   </div>
   <div class="kpi-box">
@@ -20,8 +20,8 @@
     <div class="kpi-label">Доступных инструментов</div>
   </div>
   <div class="kpi-box">
-    <div class="kpi-value">6</div>
-    <div class="kpi-label">Недель до запуска</div>
+    <div class="kpi-value">Go-Live</div>
+    <div class="kpi-label">Фаза запуска активна</div>
   </div>
 </div>
 
@@ -67,9 +67,9 @@
 
 | # | Приоритет | Ответственный | Статус |
 |---|-----------|---------------|--------|
-| 1 | Нанять 2 агентов поддержки (ES + EN) | Diego | <span class="badge badge-progress">В процессе</span> |
-| 2 | Edward начинает контакт с ~250 зарегистрированными | Edward | <span class="badge badge-pending">Ожидание</span> |
-| 3 | Edward обучает Franco и Luis | Edward | <span class="badge badge-pending">Ожидание</span> |
+| 1 | Нанять 2 аккаунт-менеджеров (Rocio + Marilyn) | Diego | <span class="badge badge-done">Завершено</span> |
+| 2 | Edward начинает контакт с ~250 зарегистрированными | Edward | <span class="badge badge-progress">В процессе</span> |
+| 3 | Edward обучает Franco и Luis | Edward | <span class="badge badge-progress">В процессе</span> |
 | 4 | Нанять финансового менеджера | Diego | <span class="badge badge-pending">Ожидание</span> |
 | 5 | Завершить обучение Sales (6 недель) | Pepe / Diego | <span class="badge badge-pending">Ожидание</span> |
 | 6 | Обучение комплаенсу Susana | Susana / Diego | <span class="badge badge-pending">Ожидание</span> |
@@ -104,6 +104,11 @@
     <h4>Маркетинг</h4>
     <p>Стратегия удержания, воронка, копирайтинг, конкурентный анализ.</p>
     <a href="#/ru/marketing/retencion-broker">Открыть стратегию</a>
+  </div>
+  <div class="card">
+    <h4>Юридический отдел</h4>
+    <p>Лицензия Anjouan, корпоративная структура, юридические документы, регуляторные политики.</p>
+    <a href="#/ru/legal/license">Открыть раздел</a>
   </div>
   <div class="card">
     <h4>Энциклопедия</h4>
@@ -227,6 +232,7 @@
 |----------|----------|
 | **Юридическое лицо** | Neomaaa Ltd (IBC 15968) |
 | **Лицензия** | L15968/N — Anjouan Offshore Finance Authority |
+| **Срок действия** | Действительна до Февраля 2027 |
 | **Платформа** | MetaTrader 5 (MT5) |
 | **Исполнение** | ECN/STP гибрид |
 | **Инструменты** | 2,000+ (forex, crypto, металлы, акции, индексы, ETF, фьючерсы, энергоносители) |

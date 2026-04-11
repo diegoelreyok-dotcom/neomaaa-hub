@@ -27,7 +27,6 @@ export default function PortalShell({
 
   function handleSwitchLang(newLang: Lang) {
     setLang(newLang);
-    // Persist language change via API
     fetch('/api/users/lang', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
@@ -57,15 +56,20 @@ export default function PortalShell({
           onSwitchLang={handleSwitchLang}
         />
 
-        <main className="flex-1 p-4 sm:p-6 lg:p-8">
+        <main className="flex-1 w-full max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-10 py-6 lg:py-8">
           {children}
         </main>
 
         {/* Footer */}
-        <footer className="px-4 sm:px-6 lg:px-8 py-4 border-t border-neo-dark-3/50">
-          <p className="text-[11px] text-neo-text-muted text-center">
-            NEOMAAA Hub &mdash; Portal interno del equipo
-          </p>
+        <footer className="px-4 sm:px-6 lg:px-8 py-5 border-t border-neo-dark-3/30">
+          <div className="max-w-[1100px] mx-auto flex items-center justify-between">
+            <p className="text-[11px] text-neo-text-muted/60">
+              NEOMAAA Hub &mdash; Portal interno del equipo
+            </p>
+            <p className="text-[11px] text-neo-text-muted/40">
+              {new Date().getFullYear()}
+            </p>
+          </div>
         </footer>
       </div>
     </div>

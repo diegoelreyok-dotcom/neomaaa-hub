@@ -12,7 +12,7 @@
     <div class="kpi-label">Registrados en plataforma</div>
   </div>
   <div class="kpi-box">
-    <div class="kpi-value">16</div>
+    <div class="kpi-value">18</div>
     <div class="kpi-label">Team members</div>
   </div>
   <div class="kpi-box">
@@ -20,8 +20,8 @@
     <div class="kpi-label">Instrumentos disponibles</div>
   </div>
   <div class="kpi-box">
-    <div class="kpi-value">6</div>
-    <div class="kpi-label">Semanas al Go-Live</div>
+    <div class="kpi-value">Go-Live</div>
+    <div class="kpi-label">Fase de lanzamiento activa</div>
   </div>
 </div>
 
@@ -67,9 +67,9 @@
 
 | # | Prioridad | Responsable | Estado |
 |---|-----------|-------------|--------|
-| 1 | Contratar 2 Support Agents (ES + EN) | Diego | <span class="badge badge-progress">En proceso</span> |
-| 2 | Edward arranca contacto con ~250 registrados | Edward | <span class="badge badge-pending">Pendiente</span> |
-| 3 | Edward capacita a Franco y Luis | Edward | <span class="badge badge-pending">Pendiente</span> |
+| 1 | Contratar 2 Account Managers (Rocio + Marilyn) | Diego | <span class="badge badge-done">Completado</span> |
+| 2 | Edward arranca contacto con ~250 registrados | Edward | <span class="badge badge-progress">En proceso</span> |
+| 3 | Edward capacita a Franco y Luis | Edward | <span class="badge badge-progress">En proceso</span> |
 | 4 | Contratar Finance Manager | Diego | <span class="badge badge-pending">Pendiente</span> |
 | 5 | Completar capacitacion Sales (6 semanas) | Pepe / Diego | <span class="badge badge-pending">Pendiente</span> |
 | 6 | Compliance training Susana | Susana / Diego | <span class="badge badge-pending">Pendiente</span> |
@@ -104,6 +104,11 @@
     <h4>Marketing</h4>
     <p>Estrategia de retencion, funnel, copy, analisis competitivo, audit.</p>
     <a href="#/marketing/retencion-broker">Ver Estrategia</a>
+  </div>
+  <div class="card">
+    <h4>Legal</h4>
+    <p>Licencia Anjouan, estructura corporativa, documentos legales, politicas regulatorias.</p>
+    <a href="#/legal/license">Ver Legal</a>
   </div>
   <div class="card">
     <h4>Enciclopedia</h4>
@@ -227,6 +232,7 @@
 |-------|-------|
 | **Entidad** | Neomaaa Ltd (IBC 15968) |
 | **Licencia** | L15968/N — Anjouan Offshore Finance Authority |
+| **Vigencia** | Valida hasta Febrero 2027 |
 | **Plataforma** | MetaTrader 5 (MT5) |
 | **Ejecucion** | ECN/STP Hibrido |
 | **Instrumentos** | 2,000+ (forex, crypto, metales, stocks, indices, ETFs, futuros, energia) |
