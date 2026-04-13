@@ -8,6 +8,7 @@ export const SECTIONS: Section[] = [
     order: 0,
     documents: [
       { slug: 'checklist', titleEs: 'Master Checklist Pre Go-Live', titleRu: 'Мастер-чеклист запуска', filePath: 'launch/checklist.md', pdfSlug: 'launch-checklist' },
+      { slug: 'post-launch-playbook', titleEs: 'Post-Launch Playbook (Semanas 1-4)', titleRu: 'Playbook после запуска (недели 1-4)', filePath: 'launch/post-launch-playbook.md', pdfSlug: 'launch-post-launch-playbook' },
     ],
   },
   {
@@ -67,6 +68,7 @@ export const SECTIONS: Section[] = [
       { slug: 'go-live-runbook', titleEs: 'Go-Live Runbook', titleRu: 'Go-Live Runbook', filePath: 'operations/go-live-runbook.md', pdfSlug: 'operations-go-live-runbook' },
       { slug: 'faq-interno', titleEs: 'FAQ Interno', titleRu: 'Внутренний FAQ', filePath: 'operations/faq-interno.md', pdfSlug: 'operations-faq-interno' },
       { slug: 'manual-crisis', titleEs: 'Manual de Crisis', titleRu: 'Руководство по кризисам', filePath: 'operations/manual-crisis.md', pdfSlug: 'operations-manual-crisis' },
+      { slug: 'dealing-desk-publico', titleEs: 'Dealing Desk — Ejecucion NEOMAAA', titleRu: 'Dealing Desk — исполнение NEOMAAA', filePath: 'operations/dealing-desk-publico.md', pdfSlug: 'operations-dealing-desk-publico' },
     ],
   },
   {
@@ -80,6 +82,7 @@ export const SECTIONS: Section[] = [
       { slug: 'copy-broker', titleEs: 'Copy y Mensajes', titleRu: 'Копирайтинг', filePath: 'marketing/copy-broker.md', pdfSlug: 'marketing-copy-broker' },
       { slug: 'competidores-broker', titleEs: 'Analisis Competidores', titleRu: 'Конкурентный анализ', filePath: 'marketing/competidores-broker.md', pdfSlug: 'marketing-competidores-broker' },
       { slug: 'icps-por-mercado', titleEs: 'ICPs por Mercado', titleRu: 'ICP по рынкам', filePath: 'marketing/icps-por-mercado.md', pdfSlug: 'marketing-icps-por-mercado' },
+      { slug: 'competidores-deep-dive', titleEs: 'Competidores — Battle Cards', titleRu: 'Конкуренты — Battle Cards', filePath: 'marketing/competidores-deep-dive.md', pdfSlug: 'marketing-competidores-deep-dive' },
     ],
   },
   {
@@ -105,6 +108,7 @@ export const SECTIONS: Section[] = [
       { slug: 'programa-completo', titleEs: 'Programa Completo', titleRu: 'Полная программа', filePath: 'partners/programa-completo.md', pdfSlug: 'partners-programa-completo' },
       { slug: 'modelo-financiero', titleEs: 'Modelo Financiero', titleRu: 'Финансовая модель', filePath: 'partners/modelo-financiero.md', pdfSlug: 'partners-modelo-financiero' },
       { slug: 'guia-operativa', titleEs: 'Guia Operativa Partners', titleRu: 'Операционное руководство', filePath: 'partners/guia-operativa.md', pdfSlug: 'partners-guia-operativa' },
+      { slug: 'playbook-ib', titleEs: 'Playbook del IB', titleRu: 'Playbook для IB', filePath: 'partners/playbook-ib.md', pdfSlug: 'partners-playbook-ib' },
     ],
   },
   {
@@ -136,6 +140,7 @@ export const SECTIONS: Section[] = [
       { slug: 'psicologia-trader', titleEs: 'Psicologia del Trader Retail', titleRu: 'Психология розничного трейдера', filePath: 'encyclopedia/psicologia-trader.md', pdfSlug: 'encyclopedia-psicologia-trader' },
       { slug: 'regulacion-jurisdicciones', titleEs: 'Regulacion y Jurisdicciones', titleRu: 'Регулирование и юрисдикции', filePath: 'encyclopedia/regulacion-jurisdicciones.md', pdfSlug: 'encyclopedia-regulacion-jurisdicciones' },
       { slug: 'productos-mt5', titleEs: 'MT5 y Productos NEOMAAA', titleRu: 'MT5 и продукты NEOMAAA', filePath: 'encyclopedia/productos-mt5.md', pdfSlug: 'encyclopedia-productos-mt5' },
+      { slug: 'glosario-trilingue', titleEs: 'Glosario Trilingue ES/EN/RU', titleRu: 'Трёхъязычный глоссарий ES/EN/RU', filePath: 'encyclopedia/glosario-trilingue.md', pdfSlug: 'encyclopedia-glosario-trilingue' },
     ],
   },
 ];
