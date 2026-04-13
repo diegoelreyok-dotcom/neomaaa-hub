@@ -93,6 +93,7 @@ export const SECTIONS: Section[] = [
       { slug: 'support-es', titleEs: 'Support Agent ES', titleRu: 'Агент поддержки (ES)', filePath: 'hiring/support-es.md', pdfSlug: 'hiring-support-es' },
       { slug: 'support-en', titleEs: 'Support Agent EN', titleRu: 'Агент поддержки (EN)', filePath: 'hiring/support-en.md', pdfSlug: 'hiring-support-en' },
       { slug: 'marketing-manager', titleEs: 'Marketing Manager', titleRu: 'Менеджер по маркетингу', filePath: 'hiring/marketing-manager.md', pdfSlug: 'hiring-marketing-manager' },
+      { slug: 'roles-broker-completo', titleEs: 'Roles de un Broker — Estructura Completa', titleRu: 'Роли в брокере — Полная структура', filePath: 'hiring/roles-broker-completo.md', pdfSlug: 'hiring-roles-broker-completo' },
     ],
   },
   {

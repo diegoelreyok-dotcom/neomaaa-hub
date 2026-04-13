@@ -878,8 +878,8 @@ export default function SettingsPage() {
 
   function renderLanguages() {
     const languages = [
-      { code: 'es', name: t.langSpanish, flag: 'https://flagcdn.com/w40/es.png', count: esContentCount, active: true },
-      { code: 'ru', name: t.langRussian, flag: 'https://flagcdn.com/w40/ru.png', count: esContentCount, active: true },
+      { code: 'es', name: t.langSpanish, flag: '/flags/es.svg', count: esContentCount, active: true },
+      { code: 'ru', name: t.langRussian, flag: '/flags/ru.svg', count: esContentCount, active: true },
     ];
 
     return (

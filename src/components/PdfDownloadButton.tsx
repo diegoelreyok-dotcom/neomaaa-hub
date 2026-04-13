@@ -127,12 +127,12 @@ export default function PdfDownloadButton({ pdfSlug, lang = 'es' }: PdfDownloadB
                 "
               >
                 <img
-                  src="https://flagcdn.com/w20/es.png"
-                  srcSet="https://flagcdn.com/w40/es.png 2x"
+                  src="/flags/es.svg"
                   width="20"
                   height="15"
                   alt="ES"
-                  className="rounded-sm"
+                  loading="eager"
+                  className="rounded-sm object-cover"
                 />
                 {labels.spanish}
               </button>
@@ -152,12 +152,12 @@ export default function PdfDownloadButton({ pdfSlug, lang = 'es' }: PdfDownloadB
                 "
               >
                 <img
-                  src="https://flagcdn.com/w20/ru.png"
-                  srcSet="https://flagcdn.com/w40/ru.png 2x"
+                  src="/flags/ru.svg"
                   width="20"
                   height="15"
                   alt="RU"
-                  className="rounded-sm"
+                  loading="eager"
+                  className="rounded-sm object-cover"
                 />
                 {labels.russian}
               </button>

@@ -55,12 +55,12 @@ export default function TopBar({ userName, isAdmin, lang, onToggleSidebar, onSwi
             aria-label="Español"
           >
             <img
-              src="https://flagcdn.com/w20/es.png"
-              srcSet="https://flagcdn.com/w40/es.png 2x"
+              src="/flags/es.svg"
               width="16"
               height="12"
               alt="ES"
-              className="rounded-sm"
+              loading="eager"
+              className="rounded-sm object-cover"
             />
             <span className="hidden sm:inline">ES</span>
           </button>
@@ -77,12 +77,12 @@ export default function TopBar({ userName, isAdmin, lang, onToggleSidebar, onSwi
             aria-label="Ruso"
           >
             <img
-              src="https://flagcdn.com/w20/ru.png"
-              srcSet="https://flagcdn.com/w40/ru.png 2x"
+              src="/flags/ru.svg"
               width="16"
               height="12"
               alt="RU"
-              className="rounded-sm"
+              loading="eager"
+              className="rounded-sm object-cover"
             />
             <span className="hidden sm:inline">RU</span>
           </button>

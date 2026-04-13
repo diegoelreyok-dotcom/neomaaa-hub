@@ -127,7 +127,7 @@ export default function RegisterPage() {
                     : 'bg-neo-dark-3 border-neo-dark-4 text-neo-text-secondary hover:border-neo-dark-5'
                 }`}
               >
-                <img src="https://flagcdn.com/w20/es.png" alt="ES" width="20" height="13" className="rounded-sm" />
+                <img src="/flags/es.svg" alt="ES" width="20" height="13" loading="eager" className="rounded-sm object-cover" />
                 Español
               </button>
               <button
@@ -139,7 +139,7 @@ export default function RegisterPage() {
                     : 'bg-neo-dark-3 border-neo-dark-4 text-neo-text-secondary hover:border-neo-dark-5'
                 }`}
               >
-                <img src="https://flagcdn.com/w20/ru.png" alt="RU" width="20" height="13" className="rounded-sm" />
+                <img src="/flags/ru.svg" alt="RU" width="20" height="13" loading="eager" className="rounded-sm object-cover" />
                 Русский
               </button>
             </div>
