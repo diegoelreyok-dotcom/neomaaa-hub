@@ -1,0 +1,890 @@
+/* ==========================================================================
+   NEOMAAA Hub — Content visual system
+   Custom components used by MarkdownRenderer + inline HTML (neo-* classes)
+   Dark-theme only. Mobile-first responsive.
+   ========================================================================== */
+
+/* ─────────────────────────────────────────────
+   0. Root typography tweaks (tabular numbers, features)
+   ───────────────────────────────────────────── */
+.neo-markdown {
+  font-feature-settings: "ss01", "cv01", "kern";
+}
+.neo-markdown table,
+.neo-markdown .neo-stat-value,
+.neo-markdown .neo-step-num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ─────────────────────────────────────────────
+   1. Headings
+   ───────────────────────────────────────────── */
+.neo-markdown .neo-h1 {
+  position: relative;
+  color: var(--neo-text);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 2.8vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.2em;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--neo-dark-3);
+}
+.neo-markdown .neo-h1::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -1px;
+  width: 64px; height: 3px;
+  background: linear-gradient(90deg, var(--neo-primary), var(--neo-primary-light));
+  border-radius: 2px;
+}
+
+.neo-markdown .neo-h2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--neo-text);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 1.9vw, 1.6rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 2.4em 0 1em;
+  padding: 0;
+  border: 0;
+  scroll-margin-top: 96px;
+}
+.neo-markdown .neo-h2-bar {
+  display: inline-block;
+  width: 4px;
+  height: 1.1em;
+  background: linear-gradient(180deg, var(--neo-primary), var(--neo-primary-light));
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.neo-markdown .neo-h2-text {
+  display: inline-block;
+}
+.neo-markdown .neo-h2-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(152, 40, 58, 0.12);
+  border: 1px solid rgba(152, 40, 58, 0.3);
+  color: var(--neo-primary-light);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.neo-markdown .neo-h2-badge-num {
+  background: var(--neo-primary);
+  color: #fff;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0;
+  margin-left: 2px;
+}
+
+.neo-markdown .neo-h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--neo-text);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  line-height: 1.4;
+  margin: 1.8em 0 0.7em;
+  scroll-margin-top: 96px;
+}
+.neo-markdown .neo-h3-dot {
+  width: 8px; height: 8px;
+  border-radius: 2px;
+  background: var(--neo-primary);
+  box-shadow: 0 0 0 3px rgba(152, 40, 58, 0.15);
+  flex-shrink: 0;
+}
+
+.neo-markdown .neo-h4 {
+  color: var(--neo-text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  margin: 1.5em 0 0.5em;
+  scroll-margin-top: 96px;
+}
+
+/* ─────────────────────────────────────────────
+   2. Links
+   ───────────────────────────────────────────── */
+.neo-markdown .neo-link {
+  color: var(--neo-primary-light);
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  display: inline;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.25s ease, color 0.2s ease;
+}
+.neo-markdown .neo-link:hover {
+  color: var(--neo-primary);
+  background-size: 100% 1px;
+}
+.neo-markdown .neo-link-icon {
+  display: inline-block;
+  width: 12px; height: 12px;
+  margin-left: 3px;
+  vertical-align: middle;
+  opacity: 0.6;
+}
+
+/* ─────────────────────────────────────────────
+   3. Blockquotes & Callouts
+   ───────────────────────────────────────────── */
+.neo-markdown .neo-blockquote {
+  position: relative;
+  margin: 1.5em 0;
+  padding: 14px 20px;
+  border-left: 3px solid var(--neo-primary);
+  background: rgba(152, 40, 58, 0.05);
+  border-radius: 0 10px 10px 0;
+  color: var(--neo-text);
+}
+.neo-markdown .neo-blockquote p {
+  margin: 0.3em 0;
+  color: var(--neo-text);
+}
+
+.neo-markdown .neo-callout,
+.neo-callout {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 14px;
+  padding: 16px 20px;
+  margin: 1.5em 0;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: var(--neo-dark-2);
+}
+.neo-callout-icon {
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.neo-callout-body { min-width: 0; }
+.neo-callout-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 4px;
+}
+.neo-callout-content { color: var(--neo-text); }
+.neo-callout-content > :first-child { margin-top: 0; }
+.neo-callout-content > :last-child { margin-bottom: 0; }
+.neo-callout-content p { margin: 0.35em 0; color: var(--neo-text); }
+
+/* Variants */
+.neo-callout-info {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.25);
+}
+.neo-callout-info .neo-callout-icon {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60A5FA;
+}
+.neo-callout-info .neo-callout-title { color: #60A5FA; }
+
+.neo-callout-warning {
+  background: rgba(212, 160, 58, 0.08);
+  border-color: rgba(212, 160, 58, 0.28);
+}
+.neo-callout-warning .neo-callout-icon {
+  background: rgba(212, 160, 58, 0.15);
+  color: #F5C547;
+}
+.neo-callout-warning .neo-callout-title { color: #F5C547; }
+
+.neo-callout-danger {
+  background: rgba(196, 69, 69, 0.08);
+  border-color: rgba(196, 69, 69, 0.3);
+}
+.neo-callout-danger .neo-callout-icon {
+  background: rgba(196, 69, 69, 0.15);
+  color: #F87171;
+}
+.neo-callout-danger .neo-callout-title { color: #F87171; }
+
+.neo-callout-tip {
+  background: rgba(56, 204, 151, 0.08);
+  border-color: rgba(56, 204, 151, 0.28);
+}
+.neo-callout-tip .neo-callout-icon {
+  background: rgba(56, 204, 151, 0.15);
+  color: #4DE6AD;
+}
+.neo-callout-tip .neo-callout-title { color: #4DE6AD; }
+
+.neo-callout-example {
+  background: rgba(139, 92, 246, 0.08);
+  border-color: rgba(139, 92, 246, 0.28);
+}
+.neo-callout-example .neo-callout-icon {
+  background: rgba(139, 92, 246, 0.15);
+  color: #A78BFA;
+}
+.neo-callout-example .neo-callout-title { color: #A78BFA; }
+
+.neo-callout-quote {
+  background: rgba(156, 163, 175, 0.06);
+  border-color: rgba(156, 163, 175, 0.2);
+}
+.neo-callout-quote .neo-callout-icon {
+  background: rgba(156, 163, 175, 0.12);
+  color: #D1D5DB;
+}
+.neo-callout-quote .neo-callout-title { color: #D1D5DB; }
+
+/* ─────────────────────────────────────────────
+   4. Tables
+   ───────────────────────────────────────────── */
+.neo-markdown .neo-table-wrapper {
+  margin: 1.5em 0;
+  border-radius: 12px;
+  border: 1px solid var(--neo-dark-3);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--neo-dark-2);
+}
+.neo-markdown .neo-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.neo-markdown .neo-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--neo-dark-3);
+  backdrop-filter: blur(8px);
+}
+.neo-markdown .neo-table th {
+  text-align: left;
+  color: var(--neo-primary-light);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--neo-dark-4);
+}
+.neo-markdown .neo-table td {
+  padding: 11px 16px;
+  color: var(--neo-text-body);
+  border-bottom: 1px solid rgba(26, 26, 26, 0.6);
+}
+.neo-markdown .neo-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+.neo-markdown .neo-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.015);
+}
+.neo-markdown .neo-table tbody tr:hover {
+  background: rgba(152, 40, 58, 0.06);
+}
+.neo-markdown .neo-table tbody tr:last-child td { border-bottom: 0; }
+
+/* ─────────────────────────────────────────────
+   5. Code
+   ───────────────────────────────────────────── */
+.neo-markdown .neo-code-inline {
+  background: var(--neo-dark-3);
+  color: var(--neo-primary-light);
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-size: 0.88em;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+  border: 1px solid rgba(152, 40, 58, 0.15);
+}
+
+.neo-markdown .neo-code-wrapper {
+  position: relative;
+  margin: 1.4em 0;
+  background: var(--neo-dark-2);
+  border: 1px solid var(--neo-dark-3);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.neo-markdown .neo-code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--neo-dark-3);
+}
+.neo-markdown .neo-code-lang {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--neo-text-muted);
+}
+.neo-markdown .neo-code-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid var(--neo-dark-4);
+  color: var(--neo-text-secondary);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.neo-markdown .neo-code-copy:hover {
+  background: var(--neo-dark-3);
+  color: var(--neo-text);
+  border-color: var(--neo-dark-5);
+}
+.neo-markdown .neo-code-pre {
+  margin: 0;
+  padding: 16px 18px;
+  background: transparent;
+  border: 0;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--neo-text-body);
+}
+.neo-markdown .neo-code-pre code { color: inherit; background: transparent; padding: 0; }
+
+/* ─────────────────────────────────────────────
+   6. Lists
+   ───────────────────────────────────────────── */
+.neo-markdown .neo-ul,
+.neo-markdown .neo-ol {
+  color: var(--neo-text-body);
+  margin: 0.9em 0;
+  padding-left: 0;
+  list-style: none;
+}
+.neo-markdown .neo-li {
+  position: relative;
+  padding-left: 24px;
+  margin: 6px 0;
+  line-height: 1.7;
+}
+.neo-markdown .neo-li::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0.7em;
+  width: 6px; height: 6px;
+  border-top: 2px solid var(--neo-primary);
+  border-right: 2px solid var(--neo-primary);
+  transform: rotate(45deg);
+}
+.neo-markdown .neo-ol {
+  counter-reset: neo-ol;
+}
+.neo-markdown .neo-ol > .neo-li {
+  padding-left: 32px;
+  counter-increment: neo-ol;
+}
+.neo-markdown .neo-ol > .neo-li::before {
+  content: counter(neo-ol);
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--neo-dark-3);
+  background: var(--neo-dark-2);
+  color: var(--neo-primary-light);
+  border-radius: 6px;
+  transform: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+.neo-markdown .neo-li-task {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 6px 0;
+  padding-left: 0;
+  list-style: none;
+  line-height: 1.7;
+}
+.neo-markdown .neo-task-box {
+  flex-shrink: 0;
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--neo-dark-4);
+  border-radius: 5px;
+  background: var(--neo-dark-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neo-dark);
+  margin-top: 3px;
+  transition: all 0.15s ease;
+}
+.neo-markdown .neo-li-task.is-checked .neo-task-box {
+  background: var(--neo-success);
+  border-color: var(--neo-success);
+  color: var(--neo-dark);
+}
+.neo-markdown .neo-li-task.is-checked > span:last-child {
+  color: var(--neo-text-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--neo-dark-5);
+}
+
+/* Nested lists */
+.neo-markdown .neo-li .neo-ul,
+.neo-markdown .neo-li .neo-ol {
+  margin: 6px 0;
+}
+
+/* ─────────────────────────────────────────────
+   7. HR
+   ───────────────────────────────────────────── */
+.neo-markdown .neo-hr {
+  position: relative;
+  height: 1px;
+  margin: 2.5em 0;
+  background: linear-gradient(90deg, transparent, var(--neo-dark-3) 20%, var(--neo-dark-3) 80%, transparent);
+}
+.neo-markdown .neo-hr-dot {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 6px; height: 6px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: var(--neo-primary);
+  box-shadow: 0 0 0 4px var(--neo-dark);
+}
+
+/* ─────────────────────────────────────────────
+   8. Images
+   ───────────────────────────────────────────── */
+.neo-markdown .neo-figure {
+  margin: 1.6em 0;
+  text-align: center;
+}
+.neo-markdown .neo-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--neo-dark-3);
+}
+.neo-markdown .neo-figcaption {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--neo-text-muted);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   INLINE HTML COMPONENTS — usable inside markdown: <div class="neo-*">
+   ========================================================================== */
+
+/* ─────────────────────────────────────────────
+   Neo stats (KPI grid)
+   ───────────────────────────────────────────── */
+.neo-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin: 1.6em 0;
+}
+.neo-stat {
+  position: relative;
+  padding: 20px 18px;
+  background: var(--neo-dark-2);
+  border: 1px solid var(--neo-dark-3);
+  border-radius: 12px;
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.neo-stat::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neo-primary), var(--neo-primary-light));
+}
+.neo-stat:hover {
+  transform: translateY(-2px);
+  border-color: rgba(152, 40, 58, 0.35);
+}
+.neo-stat-value,
+.neo-stat[data-value]::after {
+  content: attr(data-value);
+  display: block;
+  font-size: clamp(1.7rem, 2.4vw, 2.2rem);
+  font-weight: 800;
+  color: var(--neo-primary-light);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.neo-stat[data-label]::before {
+  content: attr(data-label);
+  display: block;
+  order: 2;
+  margin-top: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--neo-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.neo-stat { display: flex; flex-direction: column; justify-content: center; }
+.neo-stat[data-value]::after { order: 1; }
+
+/* ─────────────────────────────────────────────
+   Neo timeline (vertical)
+   ───────────────────────────────────────────── */
+.neo-timeline {
+  position: relative;
+  padding: 8px 0 8px 32px;
+  margin: 1.6em 0;
+  border-left: 2px solid var(--neo-dark-3);
+}
+.neo-timeline[data-steps] { list-style: none; }
+.neo-timeline[data-steps]::before {
+  content: attr(data-steps);
+  display: none;
+}
+/* Data-driven rendering via ::marker trick won't work for pipe-separated list;
+   use a JS-free fallback that parses at CSS counter level is impossible, so
+   expect either JS augmentation OR manual child elements. Provide both. */
+.neo-timeline .neo-timeline-step {
+  position: relative;
+  padding: 6px 0 22px 10px;
+}
+.neo-timeline .neo-timeline-step:last-child { padding-bottom: 0; }
+.neo-timeline .neo-timeline-step::before {
+  content: '';
+  position: absolute;
+  left: -42px;
+  top: 10px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--neo-dark-2);
+  border: 2px solid var(--neo-primary);
+  box-shadow: 0 0 0 4px var(--neo-dark);
+}
+.neo-timeline .neo-timeline-step-title {
+  display: block;
+  font-weight: 600;
+  color: var(--neo-text);
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.neo-timeline .neo-timeline-step-desc {
+  display: block;
+  color: var(--neo-text-muted);
+  font-size: 13px;
+}
+
+/* ─────────────────────────────────────────────
+   Neo pyramid (3-5 levels)
+   ───────────────────────────────────────────── */
+.neo-pyramid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 1.8em 0;
+}
+.neo-pyramid-level {
+  width: 100%;
+  max-width: 520px;
+  padding: 14px 20px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--neo-text);
+  border-radius: 10px;
+  background: var(--neo-dark-2);
+  border: 1px solid var(--neo-dark-3);
+  font-size: 14px;
+  position: relative;
+}
+.neo-pyramid-level:nth-child(1) {
+  max-width: 280px;
+  background: linear-gradient(135deg, rgba(152, 40, 58, 0.18), rgba(152, 40, 58, 0.08));
+  border-color: rgba(152, 40, 58, 0.4);
+  color: var(--neo-text);
+}
+.neo-pyramid-level:nth-child(2) {
+  max-width: 360px;
+  background: rgba(152, 40, 58, 0.06);
+  border-color: rgba(152, 40, 58, 0.25);
+}
+.neo-pyramid-level:nth-child(3) { max-width: 440px; }
+.neo-pyramid-level:nth-child(4) { max-width: 520px; }
+.neo-pyramid-level:nth-child(5) { max-width: 600px; }
+
+/* Inverted variant */
+.neo-pyramid.inverted { flex-direction: column-reverse; }
+
+/* ─────────────────────────────────────────────
+   Neo compare (side-by-side 2 columns)
+   ───────────────────────────────────────────── */
+.neo-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 1.6em 0;
+}
+.neo-compare-col {
+  background: var(--neo-dark-2);
+  border: 1px solid var(--neo-dark-3);
+  border-radius: 12px;
+  padding: 18px;
+}
+.neo-compare-col--pro { border-top: 3px solid var(--neo-success); }
+.neo-compare-col--con { border-top: 3px solid var(--neo-danger); }
+.neo-compare-col h4,
+.neo-compare-col .neo-compare-title {
+  margin: 0 0 10px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--neo-text);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.neo-compare-col--pro .neo-compare-title::before {
+  content: '';
+  width: 16px; height: 16px;
+  background: var(--neo-success);
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'><polyline points='20 6 9 17 4 12'/></svg>") center/contain no-repeat;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'><polyline points='20 6 9 17 4 12'/></svg>") center/contain no-repeat;
+}
+.neo-compare-col--con .neo-compare-title::before {
+  content: '';
+  width: 16px; height: 16px;
+  background: var(--neo-danger);
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") center/contain no-repeat;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") center/contain no-repeat;
+}
+
+/* ─────────────────────────────────────────────
+   Neo step list (numbered cards)
+   ───────────────────────────────────────────── */
+.neo-step-list {
+  display: grid;
+  gap: 14px;
+  margin: 1.6em 0;
+  counter-reset: neo-step;
+}
+.neo-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  padding: 18px 20px 18px 16px;
+  background: var(--neo-dark-2);
+  border: 1px solid var(--neo-dark-3);
+  border-radius: 12px;
+  counter-increment: neo-step;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.neo-step:hover {
+  border-color: rgba(152, 40, 58, 0.3);
+  transform: translateY(-1px);
+}
+.neo-step::before {
+  content: attr(data-num);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--neo-primary-dark), var(--neo-primary-light));
+  color: #fff;
+  font-weight: 800;
+  font-size: 18px;
+  font-variant-numeric: tabular-nums;
+  align-self: start;
+  box-shadow: 0 4px 12px rgba(152, 40, 58, 0.3);
+}
+.neo-step[data-title]::after {
+  content: attr(data-title);
+  display: block;
+  font-weight: 700;
+  color: var(--neo-text);
+  font-size: 15px;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+}
+.neo-step > * { grid-column: 2; }
+
+/* ─────────────────────────────────────────────
+   Neo formula
+   ───────────────────────────────────────────── */
+.neo-formula {
+  display: block;
+  margin: 1.4em 0;
+  padding: 18px 22px;
+  background: linear-gradient(135deg, rgba(152, 40, 58, 0.06), rgba(152, 40, 58, 0.02));
+  border: 1px solid rgba(152, 40, 58, 0.25);
+  border-radius: 12px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 1.05rem;
+  color: var(--neo-text);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* ─────────────────────────────────────────────
+   Neo badge
+   ───────────────────────────────────────────── */
+.neo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  background: var(--neo-dark-3);
+  color: var(--neo-text-secondary);
+  border: 1px solid var(--neo-dark-4);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.neo-badge--primary { background: rgba(152, 40, 58, 0.15); color: var(--neo-primary-light); border-color: rgba(152, 40, 58, 0.35); }
+.neo-badge--success { background: rgba(56, 204, 151, 0.15); color: var(--neo-success); border-color: rgba(56, 204, 151, 0.35); }
+.neo-badge--warning { background: rgba(212, 160, 58, 0.15); color: #F5C547; border-color: rgba(212, 160, 58, 0.35); }
+.neo-badge--danger  { background: rgba(196, 69, 69, 0.15); color: #F87171; border-color: rgba(196, 69, 69, 0.35); }
+.neo-badge--info    { background: rgba(59, 130, 246, 0.15); color: #60A5FA; border-color: rgba(59, 130, 246, 0.35); }
+
+/* ==========================================================================
+   READING UX — TOC, progress bar
+   ========================================================================== */
+.neo-reading-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neo-primary), var(--neo-primary-light));
+  z-index: 60;
+  transition: width 0.08s linear;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(152, 40, 58, 0.5);
+}
+
+.neo-toc {
+  position: sticky;
+  top: 96px;
+  align-self: start;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  padding: 20px 16px;
+  background: var(--neo-dark-2);
+  border: 1px solid var(--neo-dark-3);
+  border-radius: 12px;
+  font-size: 13px;
+}
+.neo-toc-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--neo-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--neo-dark-3);
+}
+.neo-toc-list { list-style: none; padding: 0; margin: 0; }
+.neo-toc-item { margin: 0; }
+.neo-toc-link {
+  display: block;
+  padding: 6px 10px;
+  margin: 2px 0;
+  border-radius: 6px;
+  color: var(--neo-text-muted);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: all 0.15s ease;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.neo-toc-link:hover {
+  color: var(--neo-text);
+  background: rgba(255, 255, 255, 0.02);
+}
+.neo-toc-link.is-active {
+  color: var(--neo-primary-light);
+  border-left-color: var(--neo-primary);
+  background: rgba(152, 40, 58, 0.08);
+  font-weight: 600;
+}
+.neo-toc-link--h3 {
+  padding-left: 22px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* Layout wrapper (optional use) */
+.neo-content-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+}
+@media (min-width: 1280px) {
+  .neo-content-layout {
+    grid-template-columns: minmax(0, 1fr) 240px;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 767px) {
+  .neo-compare { grid-template-columns: 1fr; }
+  .neo-step { grid-template-columns: 44px 1fr; padding: 14px; }
+  .neo-step::before { width: 38px; height: 38px; font-size: 16px; }
+  .neo-markdown .neo-h2 { gap: 8px; }
+  .neo-markdown .neo-h2-badge { font-size: 10px; padding: 4px 9px; }
+  .neo-toc { display: none; }
+}
+
+/* ==========================================================================
+   PRINT
+   ========================================================================== */
+@media print {
+  .neo-reading-progress,
+  .neo-toc,
+  .neo-code-copy { display: none !important; }
+  .neo-callout { page-break-inside: avoid; }
+  .neo-step { page-break-inside: avoid; }
+}

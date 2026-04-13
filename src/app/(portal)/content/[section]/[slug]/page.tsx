@@ -9,6 +9,8 @@ import MarkdownRenderer from '@/components/MarkdownRenderer';
 import PdfDownloadButton from '@/components/PdfDownloadButton';
 import ProgressTracker from './ProgressTracker';
 import CompletionButton from './CompletionButton';
+import ReadingProgressBar from './ReadingProgressBar';
+import TableOfContents from './TableOfContents';
 
 interface ContentPageProps {
   params: { section: string; slug: string };
@@ -162,6 +164,9 @@ export default async function ContentPage({ params }: ContentPageProps) {
 
   return (
     <div>
+      {/* Reading progress bar (fixed top) */}
+      <ReadingProgressBar />
+
       {/* Breadcrumb */}
       <nav className="flex items-center flex-wrap gap-2 text-[13px] mb-6" aria-label="Breadcrumb">
         <Link
@@ -215,8 +220,15 @@ export default async function ContentPage({ params }: ContentPageProps) {
       {/* PDF Download */}
       {doc.pdfSlug && <PdfDownloadButton pdfSlug={doc.pdfSlug} lang={lang} />}
 
-      {/* Markdown content */}
-      <MarkdownRenderer content={content} />
+      {/* Content + sticky TOC (desktop only) */}
+      <div className="neo-content-layout">
+        <div>
+          <MarkdownRenderer content={content} />
+        </div>
+        <aside className="hidden xl:block">
+          <TableOfContents content={content} lang={lang} />
+        </aside>
+      </div>
 
       {/* Completion button */}
       <CompletionButton

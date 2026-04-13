@@ -126,6 +126,11 @@ export const SECTIONS: Section[] = [
     order: 9,
     documents: [
       { slug: 'abc', titleEs: 'ABC del Broker', titleRu: 'ABC брокера', filePath: 'encyclopedia/abc.md', pdfSlug: 'encyclopedia-abc' },
+      { slug: 'formacion-precio', titleEs: 'Formacion del Precio de Mercado', titleRu: 'Формирование рыночной цены', filePath: 'encyclopedia/formacion-precio.md', pdfSlug: 'encyclopedia-formacion-precio' },
+      { slug: 'noticias-impacto', titleEs: 'Noticias Economicas e Impacto', titleRu: 'Экономические новости и их влияние', filePath: 'encyclopedia/noticias-impacto.md', pdfSlug: 'encyclopedia-noticias-impacto' },
+      { slug: 'psicologia-trader', titleEs: 'Psicologia del Trader Retail', titleRu: 'Психология розничного трейдера', filePath: 'encyclopedia/psicologia-trader.md', pdfSlug: 'encyclopedia-psicologia-trader' },
+      { slug: 'regulacion-jurisdicciones', titleEs: 'Regulacion y Jurisdicciones', titleRu: 'Регулирование и юрисдикции', filePath: 'encyclopedia/regulacion-jurisdicciones.md', pdfSlug: 'encyclopedia-regulacion-jurisdicciones' },
+      { slug: 'productos-mt5', titleEs: 'MT5 y Productos NEOMAAA', titleRu: 'MT5 и продукты NEOMAAA', filePath: 'encyclopedia/productos-mt5.md', pdfSlug: 'encyclopedia-productos-mt5' },
     ],
   },
 ];
