@@ -1,6 +1,78 @@
 'use client';
 
 import { Fragment, useEffect, useState, useCallback } from 'react';
+import type { Lang } from '@/lib/types';
+
+const labels: Record<Lang, {
+  title: string;
+  subtitle: string;
+  exportCSV: string;
+  activeUsers: string;
+  ofTotal: string;
+  docsRead: string;
+  accessesRegistered: string;
+  avgProgress: string;
+  advance: string;
+  colUser: string;
+  colRole: string;
+  colRead: string;
+  colProgress: string;
+  colLastAccess: string;
+  emptyNoUsers: string;
+  noAccessYet: string;
+  docsAccessedLabel: (count: number) => string;
+  accessOne: string;
+  accessMany: string;
+  csvHeaders: string[];
+  csvFileName: string;
+}> = {
+  es: {
+    title: 'Progreso',
+    subtitle: 'Vista general del avance de lectura por usuario',
+    exportCSV: 'Exportar CSV',
+    activeUsers: 'Usuarios Activos',
+    ofTotal: 'de',
+    docsRead: 'Documentos Leidos',
+    accessesRegistered: 'accesos registrados',
+    avgProgress: 'Promedio General',
+    advance: 'de avance',
+    colUser: 'Usuario',
+    colRole: 'Rol',
+    colRead: 'Leidos',
+    colProgress: 'Progreso',
+    colLastAccess: 'Ultimo Acceso',
+    emptyNoUsers: 'No hay usuarios registrados.',
+    noAccessYet: 'Este usuario no ha accedido a ningun documento todavia.',
+    docsAccessedLabel: (c) => `Documentos accedidos (${c})`,
+    accessOne: 'acceso',
+    accessMany: 'accesos',
+    csvHeaders: ['Usuario', 'Rol', 'Documentos Leidos', 'Total Documentos', 'Porcentaje', 'Ultimo Acceso'],
+    csvFileName: 'neomaaa-progreso',
+  },
+  ru: {
+    title: 'Прогресс',
+    subtitle: 'Общий обзор прогресса чтения по пользователям',
+    exportCSV: 'Экспорт CSV',
+    activeUsers: 'Активные пользователи',
+    ofTotal: 'из',
+    docsRead: 'Прочитано документов',
+    accessesRegistered: 'зарегистрированных обращений',
+    avgProgress: 'Средний прогресс',
+    advance: 'прогресса',
+    colUser: 'Пользователь',
+    colRole: 'Роль',
+    colRead: 'Прочитано',
+    colProgress: 'Прогресс',
+    colLastAccess: 'Последний вход',
+    emptyNoUsers: 'Зарегистрированных пользователей нет.',
+    noAccessYet: 'Этот пользователь ещё не открывал ни одного документа.',
+    docsAccessedLabel: (c) => `Открытые документы (${c})`,
+    accessOne: 'обращение',
+    accessMany: 'обращений',
+    csvHeaders: ['Пользователь', 'Роль', 'Прочитано документов', 'Всего документов', 'Процент', 'Последний вход'],
+    csvFileName: 'neomaaa-progress',
+  },
+};
 
 interface UserData {
   id: string;
@@ -23,6 +95,7 @@ interface ProgressData {
 interface RoleData {
   id: string;
   name: string;
+  nameRu?: string;
   sections: string[];
   isAdmin: boolean;
 }
@@ -57,6 +130,19 @@ export default function ProgressPage() {
   const [progress, setProgress] = useState<ProgressData[]>([]);
   const [loading, setLoading] = useState(true);
   const [expandedUser, setExpandedUser] = useState<string | null>(null);
+  const [lang, setLang] = useState<Lang>('es');
+
+  useEffect(() => {
+    fetch('/api/auth/session')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        const l = data?.user?.lang;
+        if (l === 'ru' || l === 'es') setLang(l);
+      })
+      .catch(() => {});
+  }, []);
+
+  const t = labels[lang];
 
   const loadData = useCallback(async () => {
     try {
@@ -86,7 +172,8 @@ export default function ProgressPage() {
 
   function getRoleName(roleId: string): string {
     const role = roles.find((r) => r.id === roleId);
-    return role ? role.name : roleId;
+    if (!role) return roleId;
+    return lang === 'ru' ? (role.nameRu || role.name) : role.name;
   }
 
   function isAdminRole(roleId: string): boolean {
@@ -109,7 +196,7 @@ export default function ProgressPage() {
   function formatDate(dateStr?: string): string {
     if (!dateStr) return '---';
     const d = new Date(dateStr);
-    return d.toLocaleDateString('es-ES', {
+    return d.toLocaleDateString(lang === 'ru' ? 'ru-RU' : 'es-ES', {
       day: '2-digit',
       month: 'short',
       year: 'numeric',
@@ -131,7 +218,7 @@ export default function ProgressPage() {
   }
 
   function handleExportCSV() {
-    const headers = ['Usuario', 'Rol', 'Documentos Leidos', 'Total Documentos', 'Porcentaje', 'Ultimo Acceso'];
+    const headers = t.csvHeaders;
     const rows = users.map((user) => {
       const userProg = getUserProgress(user.id);
       const totalDocs = getTotalDocsForRole(user.roleId);
@@ -162,7 +249,7 @@ export default function ProgressPage() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `neomaaa-progreso-${new Date().toISOString().split('T')[0]}.csv`;
+    link.download = `${t.csvFileName}-${new Date().toISOString().split('T')[0]}.csv`;
     link.click();
     URL.revokeObjectURL(url);
   }
@@ -213,9 +300,9 @@ export default function ProgressPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-white">Progreso</h1>
+          <h1 className="text-2xl font-bold text-white">{t.title}</h1>
           <p className="text-[#666666] text-sm mt-1">
-            Vista general del avance de lectura por usuario
+            {t.subtitle}
           </p>
         </div>
         <button
@@ -225,26 +312,26 @@ export default function ProgressPage() {
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
           </svg>
-          Exportar CSV
+          {t.exportCSV}
         </button>
       </div>
 
       {/* Summary cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
         <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-5">
-          <div className="text-[#666666] text-xs font-semibold uppercase tracking-wider mb-2">Usuarios Activos</div>
+          <div className="text-[#666666] text-xs font-semibold uppercase tracking-wider mb-2">{t.activeUsers}</div>
           <div className="text-2xl font-bold text-white">{users.filter(u => u.isActive).length}</div>
-          <div className="text-[#666666] text-xs mt-1">de {users.length} total</div>
+          <div className="text-[#666666] text-xs mt-1">{t.ofTotal} {users.length}</div>
         </div>
         <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-5">
-          <div className="text-[#666666] text-xs font-semibold uppercase tracking-wider mb-2">Documentos Leidos</div>
+          <div className="text-[#666666] text-xs font-semibold uppercase tracking-wider mb-2">{t.docsRead}</div>
           <div className="text-2xl font-bold text-white">{totalReadDocs}</div>
-          <div className="text-[#666666] text-xs mt-1">accesos registrados</div>
+          <div className="text-[#666666] text-xs mt-1">{t.accessesRegistered}</div>
         </div>
         <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-5">
-          <div className="text-[#666666] text-xs font-semibold uppercase tracking-wider mb-2">Promedio General</div>
+          <div className="text-[#666666] text-xs font-semibold uppercase tracking-wider mb-2">{t.avgProgress}</div>
           <div className={`text-2xl font-bold ${getProgressTextColor(avgProgress)}`}>{avgProgress}%</div>
-          <div className="text-[#666666] text-xs mt-1">de avance</div>
+          <div className="text-[#666666] text-xs mt-1">{t.advance}</div>
         </div>
       </div>
 
@@ -255,19 +342,19 @@ export default function ProgressPage() {
             <thead>
               <tr className="bg-[#0A0A0A]">
                 <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
-                  Usuario
+                  {t.colUser}
                 </th>
                 <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
-                  Rol
+                  {t.colRole}
                 </th>
                 <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
-                  Leidos
+                  {t.colRead}
                 </th>
                 <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3 min-w-[200px]">
-                  Progreso
+                  {t.colProgress}
                 </th>
                 <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
-                  Ultimo Acceso
+                  {t.colLastAccess}
                 </th>
               </tr>
             </thead>
@@ -280,7 +367,7 @@ export default function ProgressPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75z" />
                       </svg>
                     </div>
-                    <p className="text-[#666666] text-sm">No hay usuarios registrados.</p>
+                    <p className="text-[#666666] text-sm">{t.emptyNoUsers}</p>
                   </td>
                 </tr>
               ) : (
@@ -367,13 +454,13 @@ export default function ProgressPage() {
                                   </svg>
                                 </div>
                                 <p className="text-[#666666] text-sm">
-                                  Este usuario no ha accedido a ningun documento todavia.
+                                  {t.noAccessYet}
                                 </p>
                               </div>
                             ) : (
                               <div>
                                 <div className="text-xs text-[#666666] font-medium uppercase tracking-wider mb-3">
-                                  Documentos accedidos ({userProg.length})
+                                  {t.docsAccessedLabel(userProg.length)}
                                 </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                                   {userProg
@@ -409,7 +496,7 @@ export default function ProgressPage() {
                                             </div>
                                             <div className="flex items-center gap-3 mt-1.5">
                                               <span className="text-[#666666] text-xs">
-                                                {p.accessCount} acceso{p.accessCount !== 1 ? 's' : ''}
+                                                {p.accessCount} {p.accessCount !== 1 ? t.accessMany : t.accessOne}
                                               </span>
                                               <span className="text-[#666666] text-xs">
                                                 {formatDate(p.lastAccessed)}

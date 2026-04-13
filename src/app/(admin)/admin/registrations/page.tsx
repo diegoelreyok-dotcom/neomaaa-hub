@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import type { Lang } from '@/lib/types';
 
 interface Registration {
   id: string;
@@ -19,6 +20,104 @@ interface Role {
   isAdmin: boolean;
 }
 
+const labels: Record<Lang, {
+  title: string;
+  subtitle: string;
+  pendingLabelOne: string;
+  pendingLabelMany: string;
+  noPending: string;
+  noEmail: string;
+  approve: string;
+  reject: string;
+  confirmReject: string;
+  confirmDelete: string;
+  errorApprove: string;
+  errorReject: string;
+  errorDelete: string;
+  history: string;
+  approved: string;
+  rejected: string;
+  approveModalTitle: (name: string) => string;
+  approveModalHelper: string;
+  roleLabel: string;
+  selectRole: string;
+  approveConfirm: string;
+  creating: string;
+  cancel: string;
+  userCreated: string;
+  shareData: string;
+  userLabel: string;
+  codeLabel: string;
+  copyData: string;
+  copiedData: string;
+  close: string;
+}> = {
+  es: {
+    title: 'Solicitudes de Registro',
+    subtitle: 'Gestiona las solicitudes de acceso a la plataforma',
+    pendingLabelOne: 'pendiente',
+    pendingLabelMany: 'pendientes',
+    noPending: 'No hay solicitudes pendientes',
+    noEmail: 'Sin email',
+    approve: 'Aprobar',
+    reject: 'Rechazar',
+    confirmReject: 'Rechazar esta solicitud?',
+    confirmDelete: 'Eliminar esta solicitud permanentemente?',
+    errorApprove: 'Error al aprobar',
+    errorReject: 'Error al rechazar',
+    errorDelete: 'Error al eliminar',
+    history: 'Historial',
+    approved: 'Aprobado',
+    rejected: 'Rechazado',
+    approveModalTitle: (name) => `Aprobar a ${name}`,
+    approveModalHelper: 'Selecciona el rol que tendra en la plataforma',
+    roleLabel: 'Rol',
+    selectRole: 'Seleccionar rol...',
+    approveConfirm: 'Aprobar y crear usuario',
+    creating: 'Creando...',
+    cancel: 'Cancelar',
+    userCreated: 'Usuario creado',
+    shareData: 'Comparte estos datos con la persona',
+    userLabel: 'Usuario',
+    codeLabel: 'Codigo',
+    copyData: 'Copiar datos',
+    copiedData: 'Datos copiados',
+    close: 'Cerrar',
+  },
+  ru: {
+    title: 'Заявки на регистрацию',
+    subtitle: 'Управляйте заявками на доступ к платформе',
+    pendingLabelOne: 'ожидает',
+    pendingLabelMany: 'ожидают',
+    noPending: 'Заявок в ожидании нет',
+    noEmail: 'Без email',
+    approve: 'Одобрить',
+    reject: 'Отклонить',
+    confirmReject: 'Отклонить эту заявку?',
+    confirmDelete: 'Удалить эту заявку навсегда?',
+    errorApprove: 'Ошибка при одобрении',
+    errorReject: 'Ошибка при отклонении',
+    errorDelete: 'Ошибка при удалении',
+    history: 'История',
+    approved: 'Одобрено',
+    rejected: 'Отклонено',
+    approveModalTitle: (name) => `Одобрить ${name}`,
+    approveModalHelper: 'Выберите роль, которую получит пользователь',
+    roleLabel: 'Роль',
+    selectRole: 'Выберите роль...',
+    approveConfirm: 'Одобрить и создать пользователя',
+    creating: 'Создание...',
+    cancel: 'Отменить',
+    userCreated: 'Пользователь создан',
+    shareData: 'Передайте эти данные пользователю',
+    userLabel: 'Пользователь',
+    codeLabel: 'Код',
+    copyData: 'Копировать данные',
+    copiedData: 'Данные скопированы',
+    close: 'Закрыть',
+  },
+};
+
 export default function RegistrationsPage() {
   const [registrations, setRegistrations] = useState<Registration[]>([]);
   const [roles, setRoles] = useState<Role[]>([]);
@@ -27,6 +126,19 @@ export default function RegistrationsPage() {
   const [generatedCode, setGeneratedCode] = useState<{ userId: string; code: string } | null>(null);
   const [processing, setProcessing] = useState(false);
   const [copiedCode, setCopiedCode] = useState(false);
+  const [lang, setLang] = useState<Lang>('es');
+
+  useEffect(() => {
+    fetch('/api/auth/session')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        const l = data?.user?.lang;
+        if (l === 'ru' || l === 'es') setLang(l);
+      })
+      .catch(() => {});
+  }, []);
+
+  const t = labels[lang];
 
   useEffect(() => {
     Promise.all([
@@ -62,14 +174,14 @@ export default function RegistrationsPage() {
         );
       }
     } catch {
-      alert('Error al aprobar');
+      alert(t.errorApprove);
     } finally {
       setProcessing(false);
     }
   };
 
   const handleReject = async (id: string) => {
-    if (!confirm('Rechazar esta solicitud?')) return;
+    if (!confirm(t.confirmReject)) return;
 
     try {
       const res = await fetch('/api/register', {
@@ -84,12 +196,12 @@ export default function RegistrationsPage() {
         );
       }
     } catch {
-      alert('Error al rechazar');
+      alert(t.errorReject);
     }
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm('Eliminar esta solicitud permanentemente?')) return;
+    if (!confirm(t.confirmDelete)) return;
 
     try {
       const res = await fetch(`/api/register?id=${id}`, { method: 'DELETE' });
@@ -97,7 +209,7 @@ export default function RegistrationsPage() {
         setRegistrations(prev => prev.filter(r => r.id !== id));
       }
     } catch {
-      alert('Error al eliminar');
+      alert(t.errorDelete);
     }
   };
 
@@ -134,20 +246,22 @@ export default function RegistrationsPage() {
     );
   }
 
+  const localeCode = lang === 'ru' ? 'ru-RU' : 'es-ES';
+
   return (
     <div>
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-white">Solicitudes de Registro</h1>
+          <h1 className="text-2xl font-bold text-white">{t.title}</h1>
           <p className="text-[#666666] text-sm mt-1">
-            Gestiona las solicitudes de acceso a la plataforma
+            {t.subtitle}
           </p>
         </div>
         {pending.length > 0 && (
           <span className="inline-flex items-center gap-1.5 bg-[#D4A03A]/15 text-[#D4A03A] text-xs font-semibold px-3 py-1.5 rounded-full border border-[#D4A03A]/20 animate-pulse">
             <span className="w-1.5 h-1.5 rounded-full bg-[#D4A03A] inline-block" />
-            {pending.length} pendiente{pending.length !== 1 ? 's' : ''}
+            {pending.length} {pending.length !== 1 ? t.pendingLabelMany : t.pendingLabelOne}
           </span>
         )}
       </div>
@@ -160,7 +274,7 @@ export default function RegistrationsPage() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <p className="text-[#666666] text-sm">No hay solicitudes pendientes</p>
+          <p className="text-[#666666] text-sm">{t.noPending}</p>
         </div>
       ) : (
         <div className="space-y-3 mb-8">
@@ -183,9 +297,9 @@ export default function RegistrationsPage() {
                       </span>
                     </div>
                     <div className="flex items-center gap-2 text-[#666666] text-xs">
-                      <span>{reg.email || 'Sin email'}</span>
+                      <span>{reg.email || t.noEmail}</span>
                       <span className="w-1 h-1 rounded-full bg-[#1E1E1E] inline-block" />
-                      <span>{new Date(reg.createdAt).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
+                      <span>{new Date(reg.createdAt).toLocaleDateString(localeCode, { day: '2-digit', month: 'short', year: 'numeric' })}</span>
                     </div>
                     {reg.message && (
                       <div className="mt-2.5 p-3 rounded-lg bg-[#1A1A1A]/20 border border-[#1A1A1A]/30">
@@ -199,13 +313,13 @@ export default function RegistrationsPage() {
                     onClick={() => setApprovalModal({ reg, roleId: roles.find(r => !r.isAdmin)?.id || '' })}
                     className="bg-[#98283A] text-white text-xs font-semibold px-4 py-2 rounded-lg hover:shadow-lg hover:shadow-[#98283A]/20 transition-all duration-200"
                   >
-                    Aprobar
+                    {t.approve}
                   </button>
                   <button
                     onClick={() => handleReject(reg.id)}
                     className="bg-[#1A1A1A]/50 text-[#A0A0A0] text-xs font-semibold px-4 py-2 rounded-lg border border-[#1E1E1E]/30 hover:bg-[#1E1E1E]/50 hover:text-white transition-all duration-200"
                   >
-                    Rechazar
+                    {t.reject}
                   </button>
                 </div>
               </div>
@@ -217,7 +331,7 @@ export default function RegistrationsPage() {
       {/* Processed history */}
       {processed.length > 0 && (
         <div>
-          <h2 className="text-lg font-semibold text-white mb-3">Historial</h2>
+          <h2 className="text-lg font-semibold text-white mb-3">{t.history}</h2>
           <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl overflow-hidden">
             {processed.map((reg, idx) => (
               <div
@@ -233,7 +347,7 @@ export default function RegistrationsPage() {
                   <div>
                     <span className="text-[#A0A0A0] text-sm font-medium">{reg.name}</span>
                     <div className="text-[#666666] text-xs mt-0.5">
-                      {reg.email || 'Sin email'}
+                      {reg.email || t.noEmail}
                     </div>
                   </div>
                   <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-0.5 rounded-full ${
@@ -244,12 +358,12 @@ export default function RegistrationsPage() {
                     <span className={`w-1.5 h-1.5 rounded-full inline-block ${
                       reg.status === 'approved' ? 'bg-[#38CC97]' : 'bg-[#C44545]'
                     }`} />
-                    {reg.status === 'approved' ? 'Aprobado' : 'Rechazado'}
+                    {reg.status === 'approved' ? t.approved : t.rejected}
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-[#666666] text-xs">
-                    {new Date(reg.createdAt).toLocaleDateString('es-ES', { day: '2-digit', month: 'short' })}
+                    {new Date(reg.createdAt).toLocaleDateString(localeCode, { day: '2-digit', month: 'short' })}
                   </span>
                   <button
                     onClick={() => handleDelete(reg.id)}
@@ -276,22 +390,25 @@ export default function RegistrationsPage() {
                 {approvalModal.reg.name.charAt(0).toUpperCase()}
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white">Aprobar a {approvalModal.reg.name}</h3>
-                <p className="text-[#666666] text-xs">Selecciona el rol que tendra en la plataforma</p>
+                <h3 className="text-lg font-bold text-white">{t.approveModalTitle(approvalModal.reg.name)}</h3>
+                <p className="text-[#666666] text-xs">{t.approveModalHelper}</p>
               </div>
             </div>
 
             {/* Role selector */}
-            <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">Rol</label>
+            <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">{t.roleLabel}</label>
             <select
               value={approvalModal.roleId}
               onChange={e => setApprovalModal({ ...approvalModal, roleId: e.target.value })}
               className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E]/50 rounded-lg px-4 py-2.5 text-white text-sm mb-5 outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-all duration-200"
             >
-              <option value="">Seleccionar rol...</option>
-              {roles.map(r => (
-                <option key={r.id} value={r.id}>{r.name} {r.isAdmin ? '(Admin)' : ''}</option>
-              ))}
+              <option value="">{t.selectRole}</option>
+              {roles.map(r => {
+                const rn = lang === 'ru' ? (r.nameRu || r.name) : r.name;
+                return (
+                  <option key={r.id} value={r.id}>{rn} {r.isAdmin ? '(Admin)' : ''}</option>
+                );
+              })}
             </select>
 
             {/* Actions */}
@@ -301,13 +418,13 @@ export default function RegistrationsPage() {
                 disabled={!approvalModal.roleId || processing}
                 className="flex-1 bg-[#98283A] text-white font-semibold py-2.5 rounded-lg hover:shadow-lg hover:shadow-[#98283A]/20 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none text-sm"
               >
-                {processing ? 'Creando...' : 'Aprobar y crear usuario'}
+                {processing ? t.creating : t.approveConfirm}
               </button>
               <button
                 onClick={() => setApprovalModal(null)}
                 className="bg-[#1A1A1A] text-[#A0A0A0] font-medium py-2.5 px-4 rounded-lg hover:bg-[#1E1E1E] hover:text-white transition-all duration-200 text-sm"
               >
-                Cancelar
+                {t.cancel}
               </button>
             </div>
           </div>
@@ -324,17 +441,17 @@ export default function RegistrationsPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="text-lg font-bold text-white mb-1">Usuario creado</h3>
-            <p className="text-[#666666] text-xs mb-5">Comparte estos datos con la persona</p>
+            <h3 className="text-lg font-bold text-white mb-1">{t.userCreated}</h3>
+            <p className="text-[#666666] text-xs mb-5">{t.shareData}</p>
 
             {/* Credentials card */}
             <div className="bg-[#38CC97]/5 border border-[#38CC97]/20 rounded-xl p-5 mb-5 text-left">
               <div className="flex justify-between items-center mb-3 pb-3 border-b border-[#38CC97]/10">
-                <span className="text-[#666666] text-xs font-medium uppercase tracking-wider">Usuario</span>
+                <span className="text-[#666666] text-xs font-medium uppercase tracking-wider">{t.userLabel}</span>
                 <span className="text-white font-mono text-sm font-semibold">{generatedCode.userId}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-[#666666] text-xs font-medium uppercase tracking-wider">Codigo</span>
+                <span className="text-[#666666] text-xs font-medium uppercase tracking-wider">{t.codeLabel}</span>
                 <span className="text-[#38CC97] font-mono text-xl font-bold tracking-widest">{generatedCode.code}</span>
               </div>
             </div>
@@ -342,7 +459,7 @@ export default function RegistrationsPage() {
             {/* Copy button */}
             <button
               onClick={() => {
-                navigator.clipboard.writeText(`Usuario: ${generatedCode.userId}\nCodigo: ${generatedCode.code}`);
+                navigator.clipboard.writeText(`${t.userLabel}: ${generatedCode.userId}\n${t.codeLabel}: ${generatedCode.code}`);
                 setCopiedCode(true);
                 setTimeout(() => setCopiedCode(false), 2000);
               }}
@@ -352,7 +469,7 @@ export default function RegistrationsPage() {
                   : 'bg-[#1A1A1A]/50 text-[#A0A0A0] border border-[#1E1E1E]/30 hover:bg-[#1E1E1E]/50 hover:text-white'
               }`}
             >
-              {copiedCode ? 'Datos copiados' : 'Copiar datos'}
+              {copiedCode ? t.copiedData : t.copyData}
             </button>
 
             {/* Close button */}
@@ -360,7 +477,7 @@ export default function RegistrationsPage() {
               onClick={() => { setGeneratedCode(null); setApprovalModal(null); setCopiedCode(false); }}
               className="w-full bg-[#98283A] text-white font-semibold py-2.5 rounded-lg hover:shadow-lg hover:shadow-[#98283A]/20 transition-all duration-200 text-sm"
             >
-              Cerrar
+              {t.close}
             </button>
           </div>
         </div>

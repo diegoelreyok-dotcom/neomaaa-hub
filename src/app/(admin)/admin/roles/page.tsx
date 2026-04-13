@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
+import type { Lang } from '@/lib/types';
 
 interface RoleData {
   id: string;
@@ -26,13 +27,115 @@ const ROLE_GRADIENTS = [
   'from-slate-500 to-gray-700',
 ];
 
+const labels: Record<Lang, {
+  title: string;
+  configuredOne: string;
+  configuredMany: string;
+  createBtn: string;
+  userOne: string;
+  userMany: string;
+  sectionOne: string;
+  sectionMany: string;
+  configurePermissions: string;
+  deleteBtn: string;
+  emptyHelper: string;
+  modalTitle: string;
+  modalSubtitle: string;
+  nameEs: string;
+  nameRu: string;
+  namePlaceholder: string;
+  nameRuPlaceholder: string;
+  permissions: string;
+  adminRole: string;
+  normalRole: string;
+  adminDesc: string;
+  normalDesc: string;
+  cancel: string;
+  create: string;
+  creating: string;
+  cannotDelete: (name: string, count: number) => string;
+  confirmDelete: (name: string) => string;
+}> = {
+  es: {
+    title: 'Roles',
+    configuredOne: 'rol configurado',
+    configuredMany: 'roles configurados',
+    createBtn: 'Crear Rol',
+    userOne: 'usuario',
+    userMany: 'usuarios',
+    sectionOne: 'seccion',
+    sectionMany: 'secciones',
+    configurePermissions: 'Configurar Permisos',
+    deleteBtn: 'Eliminar',
+    emptyHelper: 'No hay roles configurados. Ejecuta el Seed desde el Dashboard o crea un rol manualmente.',
+    modalTitle: 'Crear Rol',
+    modalSubtitle: 'Define un nuevo rol y sus permisos base',
+    nameEs: 'Nombre (Español)',
+    nameRu: 'Nombre (Ruso)',
+    namePlaceholder: 'Nombre del rol',
+    nameRuPlaceholder: 'Opcional -- se usa el nombre ES si se deja vacio',
+    permissions: 'Permisos',
+    adminRole: 'Administrador',
+    normalRole: 'Usuario normal',
+    adminDesc: 'Acceso completo al panel de administracion',
+    normalDesc: 'Solo accede a secciones asignadas',
+    cancel: 'Cancelar',
+    create: 'Crear Rol',
+    creating: 'Creando...',
+    cannotDelete: (name, count) => `No se puede eliminar el rol "${name}" porque tiene ${count} usuario${count !== 1 ? 's' : ''} asignado${count !== 1 ? 's' : ''}. Reasigna los usuarios primero.`,
+    confirmDelete: (name) => `Seguro que deseas eliminar el rol "${name}"? Esta accion no se puede deshacer.`,
+  },
+  ru: {
+    title: 'Роли',
+    configuredOne: 'роль настроена',
+    configuredMany: 'ролей настроено',
+    createBtn: 'Создать роль',
+    userOne: 'пользователь',
+    userMany: 'пользователей',
+    sectionOne: 'раздел',
+    sectionMany: 'разделов',
+    configurePermissions: 'Настроить разрешения',
+    deleteBtn: 'Удалить',
+    emptyHelper: 'Ролей не настроено. Запустите Seed из панели или создайте роль вручную.',
+    modalTitle: 'Создать роль',
+    modalSubtitle: 'Определите новую роль и её базовые разрешения',
+    nameEs: 'Имя (испанский)',
+    nameRu: 'Имя (русский)',
+    namePlaceholder: 'Название роли',
+    nameRuPlaceholder: 'Опционально — если пусто, используется имя на ES',
+    permissions: 'Разрешения',
+    adminRole: 'Администратор',
+    normalRole: 'Обычный пользователь',
+    adminDesc: 'Полный доступ к панели администрирования',
+    normalDesc: 'Доступ только к назначенным разделам',
+    cancel: 'Отменить',
+    create: 'Создать роль',
+    creating: 'Создание...',
+    cannotDelete: (name, count) => `Нельзя удалить роль "${name}", т.к. у неё ${count} назначенных пользователей. Сначала переназначьте пользователей.`,
+    confirmDelete: (name) => `Точно удалить роль "${name}"? Это действие нельзя отменить.`,
+  },
+};
+
 export default function RolesPage() {
   const [roles, setRoles] = useState<RoleData[]>([]);
   const [users, setUsers] = useState<UserData[]>([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [creating, setCreating] = useState(false);
+  const [lang, setLang] = useState<Lang>('es');
   const router = useRouter();
+
+  useEffect(() => {
+    fetch('/api/auth/session')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        const l = data?.user?.lang;
+        if (l === 'ru' || l === 'es') setLang(l);
+      })
+      .catch(() => {});
+  }, []);
+
+  const t = labels[lang];
 
   // Form state
   const [formName, setFormName] = useState('');
@@ -107,16 +210,13 @@ export default function RolesPage() {
 
   async function handleDelete(role: RoleData) {
     const userCount = getUserCountForRole(role.id);
+    const displayName = lang === 'ru' ? (role.nameRu || role.name) : role.name;
     if (userCount > 0) {
-      window.alert(
-        `No se puede eliminar el rol "${role.name}" porque tiene ${userCount} usuario${userCount !== 1 ? 's' : ''} asignado${userCount !== 1 ? 's' : ''}. Reasigna los usuarios primero.`
-      );
+      window.alert(t.cannotDelete(displayName, userCount));
       return;
     }
 
-    const confirmed = window.confirm(
-      `Seguro que deseas eliminar el rol "${role.name}"? Esta accion no se puede deshacer.`
-    );
+    const confirmed = window.confirm(t.confirmDelete(displayName));
     if (!confirmed) return;
 
     try {
@@ -168,16 +268,16 @@ export default function RolesPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-white">Roles</h1>
+          <h1 className="text-2xl font-bold text-white">{t.title}</h1>
           <p className="text-[#666666] text-sm mt-1">
-            {roles.length} rol{roles.length !== 1 ? 'es' : ''} configurado{roles.length !== 1 ? 's' : ''}
+            {roles.length} {roles.length !== 1 ? t.configuredMany : t.configuredOne}
           </p>
         </div>
         <button
           onClick={() => setShowModal(true)}
           className="bg-[#98283A] text-white font-semibold text-sm px-4 py-2.5 rounded-lg hover:shadow-lg hover:shadow-[#98283A]/20 transition-all duration-200"
         >
-          Crear Rol
+          {t.createBtn}
         </button>
       </div>
 
@@ -186,6 +286,8 @@ export default function RolesPage() {
         {roles.map((role, idx) => {
           const userCount = getUserCountForRole(role.id);
           const gradient = ROLE_GRADIENTS[idx % ROLE_GRADIENTS.length];
+          const displayName = lang === 'ru' ? (role.nameRu || role.name) : role.name;
+          const secondaryName = lang === 'ru' ? role.name : role.nameRu;
 
           return (
             <div
@@ -198,17 +300,17 @@ export default function RolesPage() {
                   className={`w-10 h-10 rounded-lg bg-gradient-to-br ${gradient} flex items-center justify-center text-white text-sm font-bold flex-shrink-0 shadow-lg cursor-pointer`}
                   onClick={() => router.push(`/admin/roles/${role.id}`)}
                 >
-                  {role.name.charAt(0).toUpperCase()}
+                  {displayName.charAt(0).toUpperCase()}
                 </div>
                 <div
                   className="cursor-pointer flex-1 min-w-0"
                   onClick={() => router.push(`/admin/roles/${role.id}`)}
                 >
                   <h3 className="text-white font-semibold text-sm group-hover:text-white transition-colors duration-200 truncate">
-                    {role.name}
+                    {displayName}
                   </h3>
-                  {role.nameRu !== role.name && (
-                    <p className="text-[#666666] text-xs mt-0.5 truncate">{role.nameRu}</p>
+                  {secondaryName && secondaryName !== displayName && (
+                    <p className="text-[#666666] text-xs mt-0.5 truncate">{secondaryName}</p>
                   )}
                 </div>
                 {role.isAdmin && (
@@ -224,13 +326,13 @@ export default function RolesPage() {
                   <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
                   </svg>
-                  {userCount} usuario{userCount !== 1 ? 's' : ''}
+                  {userCount} {userCount !== 1 ? t.userMany : t.userOne}
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-[#666666] text-xs bg-[#1A1A1A]/40 px-2.5 py-1 rounded-full font-medium">
                   <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6z" />
                   </svg>
-                  {role.sections.length} seccion{role.sections.length !== 1 ? 'es' : ''}
+                  {role.sections.length} {role.sections.length !== 1 ? t.sectionMany : t.sectionOne}
                 </span>
               </div>
 
@@ -240,7 +342,7 @@ export default function RolesPage() {
                   onClick={() => router.push(`/admin/roles/${role.id}`)}
                   className="flex-1 text-center text-xs font-medium px-3 py-2.5 rounded-lg bg-[#1A1A1A]/50 text-[#A0A0A0] hover:text-white hover:bg-[#1E1E1E] border border-[#1E1E1E]/30 hover:border-[#98283A]/30 transition-all duration-200"
                 >
-                  Configurar Permisos
+                  {t.configurePermissions}
                 </button>
                 <button
                   onClick={(e) => {
@@ -249,7 +351,7 @@ export default function RolesPage() {
                   }}
                   className="text-xs font-medium px-3 py-2.5 rounded-lg bg-[#C44545]/10 text-[#C44545] hover:bg-[#C44545]/20 border border-[#C44545]/20 hover:border-[#C44545]/30 transition-all duration-200"
                 >
-                  Eliminar
+                  {t.deleteBtn}
                 </button>
               </div>
             </div>
@@ -265,7 +367,7 @@ export default function RolesPage() {
             </svg>
           </div>
           <p className="text-[#666666] text-sm">
-            No hay roles configurados. Ejecuta el Seed desde el Dashboard o crea un rol manualmente.
+            {t.emptyHelper}
           </p>
         </div>
       )}
@@ -276,9 +378,9 @@ export default function RolesPage() {
           <div className="bg-[#111111] border border-[#1E1E1E] rounded-2xl w-full max-w-md shadow-2xl shadow-black/40">
             {/* Modal header */}
             <div className="px-6 pt-6 pb-4">
-              <h2 className="text-lg font-semibold text-white">Crear Rol</h2>
+              <h2 className="text-lg font-semibold text-white">{t.modalTitle}</h2>
               <p className="text-[#666666] text-sm mt-1">
-                Define un nuevo rol y sus permisos base
+                {t.modalSubtitle}
               </p>
             </div>
 
@@ -288,13 +390,13 @@ export default function RolesPage() {
               {/* Name ES */}
               <div>
                 <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">
-                  Nombre (Espanol)
+                  {t.nameEs}
                 </label>
                 <input
                   type="text"
                   value={formName}
                   onChange={(e) => setFormName(e.target.value)}
-                  placeholder="Nombre del rol"
+                  placeholder={t.namePlaceholder}
                   className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E] text-white rounded-lg px-4 py-2.5 text-sm placeholder:text-[#666666]/50 focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-all duration-200"
                 />
                 {formName.trim() && (
@@ -307,13 +409,13 @@ export default function RolesPage() {
               {/* Name RU */}
               <div>
                 <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">
-                  Nombre (Ruso)
+                  {t.nameRu}
                 </label>
                 <input
                   type="text"
                   value={formNameRu}
                   onChange={(e) => setFormNameRu(e.target.value)}
-                  placeholder="Opcional -- se usa el nombre ES si se deja vacio"
+                  placeholder={t.nameRuPlaceholder}
                   className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E] text-white rounded-lg px-4 py-2.5 text-sm placeholder:text-[#666666]/50 focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-all duration-200"
                 />
               </div>
@@ -321,7 +423,7 @@ export default function RolesPage() {
               {/* Is Admin toggle */}
               <div>
                 <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">
-                  Permisos
+                  {t.permissions}
                 </label>
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-[#1A1A1A]/20 border border-[#1A1A1A]/30">
                   <button
@@ -339,10 +441,10 @@ export default function RolesPage() {
                   </button>
                   <div>
                     <span className="text-white text-sm font-medium">
-                      {formIsAdmin ? 'Administrador' : 'Usuario normal'}
+                      {formIsAdmin ? t.adminRole : t.normalRole}
                     </span>
                     <p className="text-[#666666] text-xs mt-0.5">
-                      {formIsAdmin ? 'Acceso completo al panel de administracion' : 'Solo accede a secciones asignadas'}
+                      {formIsAdmin ? t.adminDesc : t.normalDesc}
                     </p>
                   </div>
                 </div>
@@ -359,14 +461,14 @@ export default function RolesPage() {
                   }}
                   className="bg-[#1A1A1A] text-[#A0A0A0] font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#1E1E1E] hover:text-white transition-all duration-200"
                 >
-                  Cancelar
+                  {t.cancel}
                 </button>
                 <button
                   onClick={handleCreate}
                   disabled={!formName.trim() || creating}
                   className="bg-[#98283A] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:shadow-lg hover:shadow-[#98283A]/20 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none"
                 >
-                  {creating ? 'Creando...' : 'Crear Rol'}
+                  {creating ? t.creating : t.create}
                 </button>
               </div>
             </div>

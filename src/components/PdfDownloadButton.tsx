@@ -47,7 +47,7 @@ export default function PdfDownloadButton({ pdfSlug, lang = 'es' }: PdfDownloadB
       bannerBtn: 'Descargar PDF',
       modalTitle: 'Selecciona el idioma',
       modalDesc: 'Elige en que idioma deseas descargar el documento.',
-      spanish: 'Espanol',
+      spanish: 'Español',
       russian: 'Ruso',
       cancel: 'Cancelar',
     },

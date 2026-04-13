@@ -53,7 +53,7 @@ export default function RegisterPage() {
           </h2>
           <p className="text-neo-text-secondary text-sm mb-6">
             {lang === 'es'
-              ? 'Tu solicitud de acceso ha sido enviada. Un administrador la revisara y te asignara un rol. Recibiras tu codigo de acceso pronto.'
+              ? 'Tu solicitud de acceso ha sido enviada. Un administrador la revisará y te asignará un rol. Recibirás tu código de acceso pronto.'
               : 'Ваша заявка на доступ отправлена. Администратор рассмотрит её и назначит вам роль. Вы скоро получите код доступа.'}
           </p>
           <a
@@ -128,7 +128,7 @@ export default function RegisterPage() {
                 }`}
               >
                 <img src="https://flagcdn.com/w20/es.png" alt="ES" width="20" height="13" className="rounded-sm" />
-                Espanol
+                Español
               </button>
               <button
                 type="button"

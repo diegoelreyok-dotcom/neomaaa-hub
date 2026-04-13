@@ -1,6 +1,39 @@
 import { redirect } from 'next/navigation';
 import { auth } from '@/lib/auth';
 import Link from 'next/link';
+import type { Lang } from '@/lib/types';
+
+const labels: Record<Lang, {
+  admin: string;
+  dashboard: string;
+  users: string;
+  roles: string;
+  registrations: string;
+  progress: string;
+  settings: string;
+  backToPortal: string;
+}> = {
+  es: {
+    admin: 'Admin',
+    dashboard: 'Dashboard',
+    users: 'Usuarios',
+    roles: 'Roles',
+    registrations: 'Solicitudes',
+    progress: 'Progreso',
+    settings: 'Settings',
+    backToPortal: 'Volver al Portal',
+  },
+  ru: {
+    admin: 'Админ',
+    dashboard: 'Панель',
+    users: 'Пользователи',
+    roles: 'Роли',
+    registrations: 'Заявки',
+    progress: 'Прогресс',
+    settings: 'Настройки',
+    backToPortal: 'Вернуться в портал',
+  },
+};
 
 export default async function AdminLayout({
   children,
@@ -18,17 +51,20 @@ export default async function AdminLayout({
     redirect('/dashboard');
   }
 
+  const lang: Lang = user.lang === 'ru' ? 'ru' : 'es';
+  const t = labels[lang];
+
   const navLinks = [
-    { href: '/admin', label: 'Dashboard' },
-    { href: '/admin/users', label: 'Usuarios' },
-    { href: '/admin/roles', label: 'Roles' },
-    { href: '/admin/registrations', label: 'Solicitudes' },
-    { href: '/admin/progress', label: 'Progreso' },
-    { href: '/admin/settings', label: 'Settings' },
+    { href: '/admin', label: t.dashboard },
+    { href: '/admin/users', label: t.users },
+    { href: '/admin/roles', label: t.roles },
+    { href: '/admin/registrations', label: t.registrations },
+    { href: '/admin/progress', label: t.progress },
+    { href: '/admin/settings', label: t.settings },
   ];
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A]">
+    <div className="min-h-screen bg-[#0A0A0A]" data-admin-lang={lang}>
       {/* Admin top navigation bar */}
       <nav className="bg-[#111111] border-b border-[#1E1E1E] sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,7 +75,7 @@ export default async function AdminLayout({
                 NEOMAAA
               </span>
               <span className="text-[#666666] text-xs font-medium uppercase tracking-widest border border-[#1E1E1E] rounded px-2 py-0.5">
-                Admin
+                {t.admin}
               </span>
             </div>
 
@@ -59,7 +95,7 @@ export default async function AdminLayout({
                 href="/dashboard"
                 className="px-3 py-1.5 text-sm font-medium text-[#666666] hover:text-white hover:bg-[#161616] rounded-md transition-all duration-200"
               >
-                Volver al Portal
+                {t.backToPortal}
               </Link>
             </div>
           </div>

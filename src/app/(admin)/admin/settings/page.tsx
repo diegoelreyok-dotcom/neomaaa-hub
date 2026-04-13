@@ -3,6 +3,286 @@
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { SECTIONS } from '@/lib/sections';
+import type { Lang } from '@/lib/types';
+
+const labels: Record<Lang, {
+  // Page header
+  pageTitle: string;
+  pageSubtitle: string;
+  // Groups
+  groupConfig: string;
+  groupContent: string;
+  groupSystem: string;
+  // Categories
+  catGeneral: string;
+  catTeam: string;
+  catRoles: string;
+  catContent: string;
+  catLanguages: string;
+  catSecurity: string;
+  catIntegrations: string;
+  catPlatform: string;
+  catDocuments: string;
+  // General card
+  generalTitle: string;
+  generalDesc: string;
+  save: string;
+  brokerName: string;
+  legalEntity: string;
+  licenseNumber: string;
+  mainDomain: string;
+  supportPhone: string;
+  // Team card
+  teamTitle: string;
+  teamDescCount: (n: number) => string;
+  invite: string;
+  noUsers: string;
+  active: string;
+  inactive: string;
+  owner: string;
+  admin: string;
+  // Roles card
+  rolesTitle: string;
+  rolesDescCount: (n: number) => string;
+  createRole: string;
+  noRoles: string;
+  sectionOne: string;
+  sectionMany: string;
+  userOne: string;
+  userMany: string;
+  // Content card
+  contentTitle: string;
+  contentDescCount: (sec: number, docs: number) => string;
+  // Languages card
+  languagesTitle: string;
+  languagesDesc: string;
+  langSpanish: string;
+  langRussian: string;
+  documentsLabel: string;
+  activeStatus: string;
+  // Security
+  securityTitle: string;
+  securityDesc: string;
+  authMethod: string;
+  authValue: string;
+  sessionDuration: string;
+  sessionValue: string;
+  adminAccountsTitle: string;
+  adminAccountsDesc: string;
+  tableUser: string;
+  tableLang: string;
+  tableStatus: string;
+  notFound: string;
+  securityNote: (link: React.ReactNode) => React.ReactNode;
+  usersLinkText: string;
+  seedTitle: string;
+  seedDesc: string;
+  seedRun: string;
+  seedRunning: string;
+  seedDone: string;
+  seedError: string;
+  // Integrations
+  integrationsTitle: string;
+  integrationsDesc: string;
+  statusConnected: string;
+  statusPartial: string;
+  statusPending: string;
+  statusNotConnected: string;
+  // Platform
+  platformTitle: string;
+  platformDesc: string;
+  platformPortal: string;
+  platformGitHub: string;
+  platformVercel: string;
+  platformVersion: string;
+  platformFramework: string;
+  platformHosting: string;
+  // Integration descriptions
+  integrationDescs: Record<string, string>;
+}> = {
+  es: {
+    pageTitle: 'Configuración',
+    pageSubtitle: 'Configura tu plataforma, equipo e integraciones.',
+    groupConfig: 'Configuracion',
+    groupContent: 'Contenido',
+    groupSystem: 'Sistema',
+    catGeneral: 'General',
+    catTeam: 'Equipo',
+    catRoles: 'Roles',
+    catContent: 'Contenido',
+    catLanguages: 'Idiomas',
+    catSecurity: 'Seguridad',
+    catIntegrations: 'Integraciones',
+    catPlatform: 'Plataforma',
+    catDocuments: 'Documentos',
+    generalTitle: 'Informacion General',
+    generalDesc: 'Datos corporativos, licencia y contacto del broker.',
+    save: 'Guardar',
+    brokerName: 'Nombre del Broker',
+    legalEntity: 'Entidad Legal',
+    licenseNumber: 'Numero de Licencia',
+    mainDomain: 'Dominio Principal',
+    supportPhone: 'Telefono de Soporte',
+    teamTitle: 'Equipo',
+    teamDescCount: (n) => `${n} miembro${n !== 1 ? 's' : ''} registrado${n !== 1 ? 's' : ''} en la plataforma.`,
+    invite: 'Invitar',
+    noUsers: 'No hay usuarios registrados.',
+    active: 'Activo',
+    inactive: 'Inactivo',
+    owner: 'Owner',
+    admin: 'Admin',
+    rolesTitle: 'Roles',
+    rolesDescCount: (n) => `${n} rol${n !== 1 ? 'es' : ''} configurado${n !== 1 ? 's' : ''} con permisos por seccion.`,
+    createRole: 'Crear rol',
+    noRoles: 'No hay roles configurados.',
+    sectionOne: 'seccion',
+    sectionMany: 'secciones',
+    userOne: 'usuario',
+    userMany: 'usuarios',
+    contentTitle: 'Contenido',
+    contentDescCount: (sec, docs) => `${sec} secciones con ${docs} documentos en total.`,
+    languagesTitle: 'Idiomas',
+    languagesDesc: 'Idiomas soportados y estado del contenido traducido.',
+    langSpanish: 'Español',
+    langRussian: 'Ruso',
+    documentsLabel: 'documentos',
+    activeStatus: 'Activo',
+    securityTitle: 'Seguridad',
+    securityDesc: 'Autenticacion, sesiones y control de acceso.',
+    authMethod: 'Metodo de Autenticacion',
+    authValue: 'Login codes (6 digitos)',
+    sessionDuration: 'Duracion de Sesion',
+    sessionValue: '30 dias',
+    adminAccountsTitle: 'Cuentas de Administrador',
+    adminAccountsDesc: 'Usuarios con acceso completo al panel de administracion.',
+    tableUser: 'Usuario',
+    tableLang: 'Idioma',
+    tableStatus: 'Estado',
+    notFound: 'No encontrado',
+    securityNote: (link) => (<>Los codigos de acceso se asignan al crear usuarios. Usa la pagina de {link} para regenerarlos.</>),
+    usersLinkText: 'Usuarios',
+    seedTitle: 'Seed de Datos',
+    seedDesc: 'Re-inicializar los datos base del sistema.',
+    seedRun: 'Re-ejecutar Seed',
+    seedRunning: 'Ejecutando seed...',
+    seedDone: 'Seed completado',
+    seedError: 'Error al ejecutar seed',
+    integrationsTitle: 'Integraciones',
+    integrationsDesc: 'Servicios y APIs conectados al ecosistema del broker.',
+    statusConnected: 'Conectado',
+    statusPartial: 'Parcial',
+    statusPending: 'Pendiente',
+    statusNotConnected: 'No conectado',
+    platformTitle: 'Plataforma',
+    platformDesc: 'Informacion tecnica del deploy y repositorio.',
+    platformPortal: 'Portal URL',
+    platformGitHub: 'GitHub Repo',
+    platformVercel: 'Vercel Dashboard',
+    platformVersion: 'Version',
+    platformFramework: 'Framework',
+    platformHosting: 'Hosting',
+    integrationDescs: {
+      Intercom: 'Chat en vivo y soporte',
+      Vercel: 'Hosting y deploy',
+      GitHub: 'Codigo fuente',
+      'MetaTrader 5': 'Plataforma de trading',
+      'Skale CRM': 'Gestion de clientes',
+      Sumsub: 'Verificacion KYC',
+      Cellxpert: 'Tracking de afiliados',
+    },
+  },
+  ru: {
+    pageTitle: 'Настройки',
+    pageSubtitle: 'Настройте платформу, команду и интеграции.',
+    groupConfig: 'Настройки',
+    groupContent: 'Контент',
+    groupSystem: 'Система',
+    catGeneral: 'Общие',
+    catTeam: 'Команда',
+    catRoles: 'Роли',
+    catContent: 'Контент',
+    catLanguages: 'Языки',
+    catSecurity: 'Безопасность',
+    catIntegrations: 'Интеграции',
+    catPlatform: 'Платформа',
+    catDocuments: 'Документы',
+    generalTitle: 'Общая информация',
+    generalDesc: 'Корпоративные данные, лицензия и контакты брокера.',
+    save: 'Сохранить',
+    brokerName: 'Название брокера',
+    legalEntity: 'Юридическое лицо',
+    licenseNumber: 'Номер лицензии',
+    mainDomain: 'Основной домен',
+    supportPhone: 'Телефон поддержки',
+    teamTitle: 'Команда',
+    teamDescCount: (n) => `${n} зарегистрированны${n !== 1 ? 'х' : 'й'} участник${n !== 1 ? 'ов' : ''} на платформе.`,
+    invite: 'Пригласить',
+    noUsers: 'Зарегистрированных пользователей нет.',
+    active: 'Активен',
+    inactive: 'Неактивен',
+    owner: 'Владелец',
+    admin: 'Админ',
+    rolesTitle: 'Роли',
+    rolesDescCount: (n) => `Настроено ${n} рол${n !== 1 ? 'ей' : 'ь'} с правами по разделам.`,
+    createRole: 'Создать роль',
+    noRoles: 'Ролей пока нет.',
+    sectionOne: 'раздел',
+    sectionMany: 'разделов',
+    userOne: 'пользователь',
+    userMany: 'пользователей',
+    contentTitle: 'Контент',
+    contentDescCount: (sec, docs) => `${sec} разделов, всего ${docs} документов.`,
+    languagesTitle: 'Языки',
+    languagesDesc: 'Поддерживаемые языки и статус переведённого контента.',
+    langSpanish: 'Испанский',
+    langRussian: 'Русский',
+    documentsLabel: 'документов',
+    activeStatus: 'Активно',
+    securityTitle: 'Безопасность',
+    securityDesc: 'Аутентификация, сессии и контроль доступа.',
+    authMethod: 'Метод аутентификации',
+    authValue: 'Коды входа (6 цифр)',
+    sessionDuration: 'Длительность сессии',
+    sessionValue: '30 дней',
+    adminAccountsTitle: 'Учётные записи администраторов',
+    adminAccountsDesc: 'Пользователи с полным доступом к админ-панели.',
+    tableUser: 'Пользователь',
+    tableLang: 'Язык',
+    tableStatus: 'Статус',
+    notFound: 'Не найдено',
+    securityNote: (link) => (<>Коды доступа выдаются при создании пользователей. Для их обновления откройте страницу {link}.</>),
+    usersLinkText: 'Пользователи',
+    seedTitle: 'Инициализация данных',
+    seedDesc: 'Переинициализировать базовые данные системы.',
+    seedRun: 'Запустить сид',
+    seedRunning: 'Выполняется сид...',
+    seedDone: 'Сид завершён',
+    seedError: 'Ошибка при запуске сида',
+    integrationsTitle: 'Интеграции',
+    integrationsDesc: 'Сервисы и API, подключённые к экосистеме брокера.',
+    statusConnected: 'Подключено',
+    statusPartial: 'Частично',
+    statusPending: 'В ожидании',
+    statusNotConnected: 'Не подключено',
+    platformTitle: 'Платформа',
+    platformDesc: 'Техническая информация о деплое и репозитории.',
+    platformPortal: 'URL портала',
+    platformGitHub: 'Репозиторий GitHub',
+    platformVercel: 'Панель Vercel',
+    platformVersion: 'Версия',
+    platformFramework: 'Фреймворк',
+    platformHosting: 'Хостинг',
+    integrationDescs: {
+      Intercom: 'Живой чат и поддержка',
+      Vercel: 'Хостинг и деплой',
+      GitHub: 'Исходный код',
+      'MetaTrader 5': 'Торговая платформа',
+      'Skale CRM': 'Управление клиентами',
+      Sumsub: 'Проверка KYC',
+      Cellxpert: 'Трекинг партнёров',
+    },
+  },
+};
 
 /* ───────────────────────── Types ───────────────────────── */
 
@@ -42,19 +322,19 @@ const DEFAULT_BROKER: BrokerInfo = {
 };
 
 type CategoryId = 'general' | 'team' | 'roles' | 'content' | 'languages' | 'security' | 'integrations' | 'platform';
+type GroupKey = 'config' | 'content' | 'system';
 
 interface CategoryGroup {
-  label: string;
-  items: { id: CategoryId; label: string; icon: React.ReactNode }[];
+  key: GroupKey;
+  items: { id: CategoryId; icon: React.ReactNode }[];
 }
 
 const CATEGORY_GROUPS: CategoryGroup[] = [
   {
-    label: 'Configuracion',
+    key: 'config',
     items: [
       {
         id: 'general',
-        label: 'General',
         icon: (
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93s.844.141 1.206-.067l.72-.431a1.146 1.146 0 011.47.228l.774.774c.394.394.48.99.228 1.47l-.431.72a1.38 1.38 0 00-.067 1.206c.166.396.506.71.93.78l.894.15c.542.09.94.56.94 1.109v1.094c0 .55-.398 1.02-.94 1.11l-.894.149a1.38 1.38 0 00-.93.78 1.38 1.38 0 00.067 1.206l.431.72c.252.48.166 1.076-.228 1.47l-.774.774a1.146 1.146 0 01-1.47.228l-.72-.431a1.38 1.38 0 00-1.206-.067 1.38 1.38 0 00-.78.93l-.15.894c-.09.542-.56.94-1.109.94h-1.094c-.55 0-1.02-.398-1.11-.94l-.148-.894a1.38 1.38 0 00-.78-.93 1.38 1.38 0 00-1.207.067l-.72.431a1.146 1.146 0 01-1.47-.228l-.773-.774a1.146 1.146 0 01-.228-1.47l.43-.72a1.38 1.38 0 00.068-1.206 1.38 1.38 0 00-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.148a1.38 1.38 0 00.93-.78 1.38 1.38 0 00-.067-1.207l-.431-.72a1.146 1.146 0 01.228-1.47l.774-.773a1.146 1.146 0 011.47-.228l.72.43a1.38 1.38 0 001.206.068.38.38 0 00.78-.93l.15-.894z" />
@@ -64,7 +344,6 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
       },
       {
         id: 'team',
-        label: 'Equipo',
         icon: (
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
@@ -73,7 +352,6 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
       },
       {
         id: 'roles',
-        label: 'Roles',
         icon: (
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
@@ -83,11 +361,10 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
     ],
   },
   {
-    label: 'Contenido',
+    key: 'content',
     items: [
       {
         id: 'content',
-        label: 'Documentos',
         icon: (
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
@@ -96,7 +373,6 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
       },
       {
         id: 'languages',
-        label: 'Idiomas',
         icon: (
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
@@ -106,11 +382,10 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
     ],
   },
   {
-    label: 'Sistema',
+    key: 'system',
     items: [
       {
         id: 'security',
-        label: 'Seguridad',
         icon: (
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
@@ -119,7 +394,6 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
       },
       {
         id: 'integrations',
-        label: 'Integraciones',
         icon: (
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
@@ -128,7 +402,6 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
       },
       {
         id: 'platform',
-        label: 'Plataforma',
         icon: (
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
@@ -139,14 +412,16 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
   },
 ];
 
-const INTEGRATIONS = [
-  { name: 'Intercom', desc: 'Chat en vivo y soporte', status: 'Parcial', initial: 'IC', color: 'from-slate-500 to-slate-600' },
-  { name: 'Vercel', desc: 'Hosting y deploy', status: 'Conectado', initial: 'VC', color: 'from-gray-400 to-gray-600' },
-  { name: 'GitHub', desc: 'Codigo fuente', status: 'Conectado', initial: 'GH', color: 'from-gray-500 to-gray-700' },
-  { name: 'MetaTrader 5', desc: 'Plataforma de trading', status: 'No conectado', initial: 'MT', color: 'from-zinc-500 to-zinc-600' },
-  { name: 'Skale CRM', desc: 'Gestion de clientes', status: 'No conectado', initial: 'SK', color: 'from-neutral-500 to-neutral-600' },
-  { name: 'Sumsub', desc: 'Verificacion KYC', status: 'No conectado', initial: 'SS', color: 'from-stone-500 to-stone-600' },
-  { name: 'Cellxpert', desc: 'Tracking de afiliados', status: 'Pendiente', initial: 'CX', color: 'from-gray-500 to-gray-600' },
+type IntegrationStatus = 'connected' | 'partial' | 'pending' | 'not_connected';
+
+const INTEGRATIONS: { name: string; status: IntegrationStatus; initial: string; color: string }[] = [
+  { name: 'Intercom', status: 'partial', initial: 'IC', color: 'from-slate-500 to-slate-600' },
+  { name: 'Vercel', status: 'connected', initial: 'VC', color: 'from-gray-400 to-gray-600' },
+  { name: 'GitHub', status: 'connected', initial: 'GH', color: 'from-gray-500 to-gray-700' },
+  { name: 'MetaTrader 5', status: 'not_connected', initial: 'MT', color: 'from-zinc-500 to-zinc-600' },
+  { name: 'Skale CRM', status: 'not_connected', initial: 'SK', color: 'from-neutral-500 to-neutral-600' },
+  { name: 'Sumsub', status: 'not_connected', initial: 'SS', color: 'from-stone-500 to-stone-600' },
+  { name: 'Cellxpert', status: 'pending', initial: 'CX', color: 'from-gray-500 to-gray-600' },
 ];
 
 /* ───────────────────────── Skeleton Loader ───────────────────────── */
@@ -235,6 +510,19 @@ export default function SettingsPage() {
   const [originalBroker, setOriginalBroker] = useState<BrokerInfo>(DEFAULT_BROKER);
   const [seedStatus, setSeedStatus] = useState<string | null>(null);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
+  const [lang, setLang] = useState<Lang>('es');
+
+  useEffect(() => {
+    fetch('/api/auth/session')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        const l = data?.user?.lang;
+        if (l === 'ru' || l === 'es') setLang(l);
+      })
+      .catch(() => {});
+  }, []);
+
+  const t = labels[lang];
 
   const hasChanges = JSON.stringify(broker) !== JSON.stringify(originalBroker);
 
@@ -276,15 +564,15 @@ export default function SettingsPage() {
 
   /* ── Seed ── */
   async function handleSeed() {
-    setSeedStatus('Ejecutando seed...');
+    setSeedStatus(t.seedRunning);
     try {
       const res = await fetch('/api/seed');
       const data = await res.json();
-      setSeedStatus(data.message || 'Seed completado');
+      setSeedStatus(data.message || t.seedDone);
       await loadData();
       setTimeout(() => setSeedStatus(null), 3000);
     } catch {
-      setSeedStatus('Error al ejecutar seed');
+      setSeedStatus(t.seedError);
       setTimeout(() => setSeedStatus(null), 3000);
     }
   }
@@ -303,7 +591,9 @@ export default function SettingsPage() {
   const esContentCount = SECTIONS.reduce((acc, s) => acc + s.documents.length, 0);
 
   function getRoleName(roleId: string) {
-    return roles.find((r) => r.id === roleId)?.name || roleId;
+    const role = roles.find((r) => r.id === roleId);
+    if (!role) return roleId;
+    return lang === 'ru' ? (role.nameRu || role.name) : role.name;
   }
 
   function isAdminRole(roleId: string) {
@@ -319,17 +609,17 @@ export default function SettingsPage() {
 
   function renderGeneral() {
     const fields: { label: string; key: keyof BrokerInfo; span?: boolean }[] = [
-      { label: 'Nombre del Broker', key: 'nombre' },
-      { label: 'Entidad Legal', key: 'entidad' },
-      { label: 'Numero de Licencia', key: 'licencia' },
-      { label: 'Dominio Principal', key: 'dominio' },
-      { label: 'Telefono de Soporte', key: 'telefono' },
+      { label: t.brokerName, key: 'nombre' },
+      { label: t.legalEntity, key: 'entidad' },
+      { label: t.licenseNumber, key: 'licencia' },
+      { label: t.mainDomain, key: 'dominio' },
+      { label: t.supportPhone, key: 'telefono' },
     ];
 
     return (
       <SettingsCard
-        title="Informacion General"
-        description="Datos corporativos, licencia y contacto del broker."
+        title={t.generalTitle}
+        description={t.generalDesc}
         headerRight={
           hasChanges ? (
             <button
@@ -339,7 +629,7 @@ export default function SettingsPage() {
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
-              Guardar
+              {t.save}
             </button>
           ) : undefined
         }
@@ -375,8 +665,8 @@ export default function SettingsPage() {
 
     return (
       <SettingsCard
-        title="Equipo"
-        description={`${users.length} miembro${users.length !== 1 ? 's' : ''} registrado${users.length !== 1 ? 's' : ''} en la plataforma.`}
+        title={t.teamTitle}
+        description={t.teamDescCount(users.length)}
         headerRight={
           <Link
             href="/admin/users"
@@ -385,7 +675,7 @@ export default function SettingsPage() {
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
-            Invitar
+            {t.invite}
           </Link>
         }
       >
@@ -396,7 +686,7 @@ export default function SettingsPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
               </svg>
             </div>
-            <p className="text-[#666666] text-sm">No hay usuarios registrados.</p>
+            <p className="text-[#666666] text-sm">{t.noUsers}</p>
           </div>
         ) : (
           <div className="space-y-0.5">
@@ -429,7 +719,7 @@ export default function SettingsPage() {
                   <div className="flex items-center gap-1.5 mr-2">
                     <span className={`w-1.5 h-1.5 rounded-full inline-block ${user.isActive ? 'bg-[#38CC97]' : 'bg-[#333333]'}`} />
                     <span className={`text-xs ${user.isActive ? 'text-[#38CC97]' : 'text-[#666666]'}`}>
-                      {user.isActive ? 'Activo' : 'Inactivo'}
+                      {user.isActive ? t.active : t.inactive}
                     </span>
                   </div>
 
@@ -439,11 +729,11 @@ export default function SettingsPage() {
                       <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                       </svg>
-                      Owner
+                      {t.owner}
                     </span>
                   ) : admin ? (
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#98283A]/15 text-[#98283A] border border-[#98283A]/20">
-                      Admin
+                      {t.admin}
                     </span>
                   ) : (
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#1A1A1A]/50 text-[#A0A0A0] border border-[#1E1E1E]/30">
@@ -462,8 +752,8 @@ export default function SettingsPage() {
   function renderRoles() {
     return (
       <SettingsCard
-        title="Roles"
-        description={`${roles.length} rol${roles.length !== 1 ? 'es' : ''} configurado${roles.length !== 1 ? 's' : ''} con permisos por seccion.`}
+        title={t.rolesTitle}
+        description={t.rolesDescCount(roles.length)}
         headerRight={
           <Link
             href="/admin/roles"
@@ -472,7 +762,7 @@ export default function SettingsPage() {
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
-            Crear rol
+            {t.createRole}
           </Link>
         }
       >
@@ -483,7 +773,7 @@ export default function SettingsPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
               </svg>
             </div>
-            <p className="text-[#666666] text-sm">No hay roles configurados.</p>
+            <p className="text-[#666666] text-sm">{t.noRoles}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -497,11 +787,11 @@ export default function SettingsPage() {
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-white text-sm font-semibold group-hover:text-white transition-colors">
-                      {role.name}
+                      {lang === 'ru' ? (role.nameRu || role.name) : role.name}
                     </span>
                     {role.isAdmin && (
                       <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#98283A]/15 text-[#98283A] uppercase tracking-wider">
-                        Admin
+                        {t.admin}
                       </span>
                     )}
                   </div>
@@ -510,13 +800,13 @@ export default function SettingsPage() {
                       <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6z" />
                       </svg>
-                      {role.sections.length} seccion{role.sections.length !== 1 ? 'es' : ''}
+                      {role.sections.length} {role.sections.length !== 1 ? t.sectionMany : t.sectionOne}
                     </span>
                     <span className="inline-flex items-center gap-1 text-[#666666] text-xs bg-[#1E1E1E]/40 px-2 py-0.5 rounded-md">
                       <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
                       </svg>
-                      {assignedUsers} usuario{assignedUsers !== 1 ? 's' : ''}
+                      {assignedUsers} {assignedUsers !== 1 ? t.userMany : t.userOne}
                     </span>
                   </div>
                   {/* Hover arrow */}
@@ -535,8 +825,8 @@ export default function SettingsPage() {
   function renderContent() {
     return (
       <SettingsCard
-        title="Contenido"
-        description={`${SECTIONS.length} secciones con ${esContentCount} documentos en total.`}
+        title={t.contentTitle}
+        description={t.contentDescCount(SECTIONS.length, esContentCount)}
       >
         <div className="space-y-0.5">
           {SECTIONS.map((section) => {
@@ -558,7 +848,7 @@ export default function SettingsPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
                     <span className="text-white text-sm font-medium group-hover:text-white transition-colors">
-                      {section.nameEs}
+                      {lang === 'ru' ? section.nameRu : section.nameEs}
                     </span>
                   </div>
                   <span className="text-[#666666] text-xs bg-[#1E1E1E]/40 px-2.5 py-0.5 rounded-full font-medium">
@@ -573,7 +863,7 @@ export default function SettingsPage() {
                         <svg className="w-3.5 h-3.5 text-[#666666] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                         </svg>
-                        <span className="text-[#A0A0A0] text-sm">{doc.titleEs}</span>
+                        <span className="text-[#A0A0A0] text-sm">{lang === 'ru' ? doc.titleRu : doc.titleEs}</span>
                       </div>
                     ))}
                   </div>
@@ -588,14 +878,14 @@ export default function SettingsPage() {
 
   function renderLanguages() {
     const languages = [
-      { code: 'es', name: 'Espanol', flag: 'https://flagcdn.com/w40/es.png', count: esContentCount, active: true },
-      { code: 'ru', name: 'Ruso', flag: 'https://flagcdn.com/w40/ru.png', count: esContentCount, active: true },
+      { code: 'es', name: t.langSpanish, flag: 'https://flagcdn.com/w40/es.png', count: esContentCount, active: true },
+      { code: 'ru', name: t.langRussian, flag: 'https://flagcdn.com/w40/ru.png', count: esContentCount, active: true },
     ];
 
     return (
       <SettingsCard
-        title="Idiomas"
-        description="Idiomas soportados y estado del contenido traducido."
+        title={t.languagesTitle}
+        description={t.languagesDesc}
       >
         <div className="space-y-0">
           {languages.map((lang, idx) => (
@@ -609,11 +899,11 @@ export default function SettingsPage() {
                 />
                 <div className="flex-1 min-w-0">
                   <div className="text-white text-sm font-medium">{lang.name}</div>
-                  <div className="text-[#666666] text-xs mt-0.5">{lang.code.toUpperCase()} -- {lang.count} documentos</div>
+                  <div className="text-[#666666] text-xs mt-0.5">{lang.code.toUpperCase()} -- {lang.count} {t.documentsLabel}</div>
                 </div>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[#38CC97]/10 text-[#38CC97] border border-[#38CC97]/20">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#38CC97] inline-block" />
-                  Activo
+                  {t.activeStatus}
                 </span>
               </div>
               {idx < languages.length - 1 && (
@@ -637,30 +927,30 @@ export default function SettingsPage() {
       <div className="space-y-6">
         {/* Auth & Sessions Card */}
         <SettingsCard
-          title="Seguridad"
-          description="Autenticacion, sesiones y control de acceso."
+          title={t.securityTitle}
+          description={t.securityDesc}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="p-4 rounded-lg bg-[#1A1A1A]/20 border border-[#1A1A1A]/30">
               <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">
-                Metodo de Autenticacion
+                {t.authMethod}
               </label>
               <div className="flex items-center gap-2">
                 <svg className="w-4 h-4 text-[#98283A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
                 </svg>
-                <div className="text-white text-sm font-medium">Login codes (6 digitos)</div>
+                <div className="text-white text-sm font-medium">{t.authValue}</div>
               </div>
             </div>
             <div className="p-4 rounded-lg bg-[#1A1A1A]/20 border border-[#1A1A1A]/30">
               <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">
-                Duracion de Sesion
+                {t.sessionDuration}
               </label>
               <div className="flex items-center gap-2">
                 <svg className="w-4 h-4 text-[#98283A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <div className="text-white text-sm font-medium">30 dias</div>
+                <div className="text-white text-sm font-medium">{t.sessionValue}</div>
               </div>
             </div>
           </div>
@@ -668,15 +958,15 @@ export default function SettingsPage() {
 
         {/* Admin Accounts Card */}
         <SettingsCard
-          title="Cuentas de Administrador"
-          description="Usuarios con acceso completo al panel de administracion."
+          title={t.adminAccountsTitle}
+          description={t.adminAccountsDesc}
         >
           <div className="overflow-hidden rounded-lg border border-[#1A1A1A]/40">
             {/* Table header */}
             <div className="grid grid-cols-12 gap-4 px-4 py-2.5 bg-[#1A1A1A]/30 border-b border-[#1A1A1A]/40">
-              <div className="col-span-5 text-xs uppercase tracking-wide text-[#666666] font-medium">Usuario</div>
-              <div className="col-span-3 text-xs uppercase tracking-wide text-[#666666] font-medium">Idioma</div>
-              <div className="col-span-4 text-xs uppercase tracking-wide text-[#666666] font-medium text-right">Estado</div>
+              <div className="col-span-5 text-xs uppercase tracking-wide text-[#666666] font-medium">{t.tableUser}</div>
+              <div className="col-span-3 text-xs uppercase tracking-wide text-[#666666] font-medium">{t.tableLang}</div>
+              <div className="col-span-4 text-xs uppercase tracking-wide text-[#666666] font-medium text-right">{t.tableStatus}</div>
             </div>
             {/* Table rows */}
             {admins.map((acc, idx) => {
@@ -706,7 +996,7 @@ export default function SettingsPage() {
                   <div className="col-span-4 flex items-center justify-end gap-1.5">
                     <span className={`w-1.5 h-1.5 rounded-full inline-block ${user?.isActive ? 'bg-[#38CC97]' : 'bg-[#333333]'}`} />
                     <span className={`text-xs font-medium ${user?.isActive ? 'text-[#38CC97]' : 'text-[#666666]'}`}>
-                      {user ? (user.isActive ? 'Activo' : 'Inactivo') : 'No encontrado'}
+                      {user ? (user.isActive ? t.active : t.inactive) : t.notFound}
                     </span>
                   </div>
                 </div>
@@ -720,7 +1010,7 @@ export default function SettingsPage() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
             </svg>
             <p className="text-[#A0A0A0] text-xs leading-relaxed">
-              Los codigos de acceso se asignan al crear usuarios. Usa la pagina de <Link href="/admin/users" className="text-[#98283A] hover:text-[#B33347] transition-colors font-medium">Usuarios</Link> para regenerarlos.
+              {t.securityNote(<Link href="/admin/users" className="text-[#98283A] hover:text-[#B33347] transition-colors font-medium">{t.usersLinkText}</Link>)}
             </p>
           </div>
 
@@ -728,8 +1018,8 @@ export default function SettingsPage() {
           <div className="mt-5 pt-5 border-t border-[#1A1A1A]/40">
             <div className="flex items-center justify-between">
               <div>
-                <h4 className="text-xs uppercase tracking-wide text-[#666666] font-medium mb-1">Seed de Datos</h4>
-                <p className="text-[#666666] text-xs">Re-inicializar los datos base del sistema.</p>
+                <h4 className="text-xs uppercase tracking-wide text-[#666666] font-medium mb-1">{t.seedTitle}</h4>
+                <p className="text-[#666666] text-xs">{t.seedDesc}</p>
               </div>
               <div className="flex items-center gap-3">
                 {seedStatus && (
@@ -739,7 +1029,7 @@ export default function SettingsPage() {
                   onClick={handleSeed}
                   className="text-sm font-medium px-4 py-2 rounded-lg bg-[#1A1A1A]/50 text-[#A0A0A0] hover:text-white hover:bg-[#1E1E1E] border border-[#1E1E1E]/30 hover:border-[#1E1E1E] transition-all duration-200"
                 >
-                  Re-ejecutar Seed
+                  {t.seedRun}
                 </button>
               </div>
             </div>
@@ -750,10 +1040,17 @@ export default function SettingsPage() {
   }
 
   function renderIntegrations() {
+    const statusLabel: Record<IntegrationStatus, string> = {
+      connected: t.statusConnected,
+      partial: t.statusPartial,
+      pending: t.statusPending,
+      not_connected: t.statusNotConnected,
+    };
+
     return (
       <SettingsCard
-        title="Integraciones"
-        description="Servicios y APIs conectados al ecosistema del broker."
+        title={t.integrationsTitle}
+        description={t.integrationsDesc}
       >
         <div className="space-y-0">
           {INTEGRATIONS.map((integration, idx) => (
@@ -769,25 +1066,25 @@ export default function SettingsPage() {
                   <div className="text-white text-sm font-medium group-hover:text-white transition-colors">
                     {integration.name}
                   </div>
-                  <div className="text-[#666666] text-xs mt-0.5">{integration.desc}</div>
+                  <div className="text-[#666666] text-xs mt-0.5">{t.integrationDescs[integration.name] || ''}</div>
                 </div>
 
                 {/* Status */}
                 <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${
-                  integration.status === 'Conectado'
+                  integration.status === 'connected'
                     ? 'bg-[#38CC97]/10 text-[#38CC97] border border-[#38CC97]/20'
-                    : integration.status === 'Parcial' || integration.status === 'Pendiente'
+                    : integration.status === 'partial' || integration.status === 'pending'
                     ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
                     : 'bg-[#1A1A1A]/50 text-[#666666] border border-[#1E1E1E]/30'
                 }`}>
                   <span className={`w-1.5 h-1.5 rounded-full inline-block ${
-                    integration.status === 'Conectado'
+                    integration.status === 'connected'
                       ? 'bg-[#38CC97]'
-                      : integration.status === 'Parcial' || integration.status === 'Pendiente'
+                      : integration.status === 'partial' || integration.status === 'pending'
                       ? 'bg-amber-400'
                       : 'bg-[#666666]/50'
                   }`} />
-                  {integration.status}
+                  {statusLabel[integration.status]}
                 </span>
               </div>
               {idx < INTEGRATIONS.length - 1 && (
@@ -803,36 +1100,36 @@ export default function SettingsPage() {
   function renderPlatform() {
     const platformData = [
       {
-        label: 'Portal URL',
+        label: t.platformPortal,
         value: 'neomaaa-hub.vercel.app',
         href: 'https://neomaaa-hub.vercel.app',
         isLink: true,
       },
       {
-        label: 'GitHub Repo',
+        label: t.platformGitHub,
         value: 'diegoelreyok-dotcom/neomaaa-hub',
         href: 'https://github.com/diegoelreyok-dotcom/neomaaa-hub',
         isLink: true,
       },
       {
-        label: 'Vercel Dashboard',
+        label: t.platformVercel,
         value: 'vercel.com/dashboard',
         href: 'https://vercel.com/dashboard',
         isLink: true,
       },
       {
-        label: 'Version',
+        label: t.platformVersion,
         value: 'v1.0',
         isLink: false,
         badge: true,
       },
       {
-        label: 'Framework',
+        label: t.platformFramework,
         value: 'Next.js 14 + TypeScript',
         isLink: false,
       },
       {
-        label: 'Hosting',
+        label: t.platformHosting,
         value: 'Vercel (Edge)',
         isLink: false,
       },
@@ -840,8 +1137,8 @@ export default function SettingsPage() {
 
     return (
       <SettingsCard
-        title="Plataforma"
-        description="Informacion tecnica del deploy y repositorio."
+        title={t.platformTitle}
+        description={t.platformDesc}
       >
         <div className="overflow-hidden rounded-lg border border-[#1A1A1A]/40">
           {platformData.map((item, idx) => (
@@ -895,8 +1192,8 @@ export default function SettingsPage() {
     <div>
       {/* ── Page Header ── */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-white tracking-tight">Settings</h1>
-        <p className="text-[#666666] text-sm mt-1">Configura tu plataforma, equipo e integraciones.</p>
+        <h1 className="text-2xl font-bold text-white tracking-tight">{t.pageTitle}</h1>
+        <p className="text-[#666666] text-sm mt-1">{t.pageSubtitle}</p>
       </div>
 
       {/* ── Main layout: sidebar + content ── */}
@@ -905,16 +1202,27 @@ export default function SettingsPage() {
         <div className="w-60 flex-shrink-0">
           <div className="sticky top-6">
             <nav className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-3 space-y-5">
-              {CATEGORY_GROUPS.map((group) => (
-                <div key={group.label}>
+              {CATEGORY_GROUPS.map((group) => {
+                const groupLabel = group.key === 'config' ? t.groupConfig : group.key === 'content' ? t.groupContent : t.groupSystem;
+                return (
+                <div key={group.key}>
                   <div className="px-3 mb-2">
                     <span className="text-[10px] uppercase tracking-widest text-[#666666]/60 font-semibold">
-                      {group.label}
+                      {groupLabel}
                     </span>
                   </div>
                   <div className="space-y-0.5">
                     {group.items.map((cat) => {
                       const isActive = activeSection === cat.id;
+                      const catLabel =
+                        cat.id === 'general' ? t.catGeneral :
+                        cat.id === 'team' ? t.catTeam :
+                        cat.id === 'roles' ? t.catRoles :
+                        cat.id === 'content' ? t.catDocuments :
+                        cat.id === 'languages' ? t.catLanguages :
+                        cat.id === 'security' ? t.catSecurity :
+                        cat.id === 'integrations' ? t.catIntegrations :
+                        t.catPlatform;
                       return (
                         <button
                           key={cat.id}
@@ -928,13 +1236,14 @@ export default function SettingsPage() {
                           <span className={`flex-shrink-0 transition-colors duration-200 ${isActive ? 'text-[#98283A]' : 'text-[#666666]'}`}>
                             {cat.icon}
                           </span>
-                          {cat.label}
+                          {catLabel}
                         </button>
                       );
                     })}
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </nav>
           </div>
         </div>

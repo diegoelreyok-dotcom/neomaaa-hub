@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
+import type { Lang } from '@/lib/types';
 
 interface UserData {
   id: string;
@@ -29,6 +30,128 @@ const AVATAR_GRADIENTS = [
   'from-slate-500 to-gray-700',
 ];
 
+const labels: Record<Lang, {
+  title: string;
+  registeredOne: string;
+  registeredMany: string;
+  addUser: string;
+  searchPlaceholder: string;
+  colName: string;
+  colRole: string;
+  colLanguage: string;
+  colLastAccess: string;
+  colStatus: string;
+  colActions: string;
+  emptyWithSearch: string;
+  emptyNoUsers: string;
+  active: string;
+  inactive: string;
+  deactivate: string;
+  activate: string;
+  deleteBtn: string;
+  confirmDelete: (name: string) => string;
+  modalTitle: string;
+  modalSuccess: string;
+  modalFormHelper: string;
+  createdOk: (name: string) => React.ReactNode;
+  accessCode: string;
+  copy: string;
+  copied: string;
+  codeOnce: string;
+  close: string;
+  nameLabel: string;
+  namePlaceholder: string;
+  roleLabel: string;
+  selectRole: string;
+  languageLabel: string;
+  spanish: string;
+  russian: string;
+  cancel: string;
+  createBtn: string;
+  creating: string;
+}> = {
+  es: {
+    title: 'Usuarios',
+    registeredOne: 'usuario registrado',
+    registeredMany: 'usuarios registrados',
+    addUser: 'Agregar Usuario',
+    searchPlaceholder: 'Buscar por nombre, ID o rol...',
+    colName: 'Nombre',
+    colRole: 'Rol',
+    colLanguage: 'Idioma',
+    colLastAccess: 'Ultimo Acceso',
+    colStatus: 'Estado',
+    colActions: 'Acciones',
+    emptyWithSearch: 'No se encontraron usuarios con ese criterio.',
+    emptyNoUsers: 'No hay usuarios registrados.',
+    active: 'Activo',
+    inactive: 'Inactivo',
+    deactivate: 'Desactivar',
+    activate: 'Activar',
+    deleteBtn: 'Eliminar',
+    confirmDelete: (name) => `Seguro que deseas eliminar al usuario "${name}"? Esta accion no se puede deshacer.`,
+    modalTitle: 'Agregar Usuario',
+    modalSuccess: 'Usuario creado exitosamente',
+    modalFormHelper: 'Completa los datos del nuevo miembro',
+    createdOk: (name) => (<>Usuario <span className="text-white font-semibold">{name}</span> creado correctamente.</>),
+    accessCode: 'Codigo de Acceso',
+    copy: 'Copiar',
+    copied: 'Copiado',
+    codeOnce: 'Este codigo solo se muestra una vez. Compartelo de forma segura con el usuario.',
+    close: 'Cerrar',
+    nameLabel: 'Nombre',
+    namePlaceholder: 'Nombre completo',
+    roleLabel: 'Rol',
+    selectRole: 'Seleccionar rol...',
+    languageLabel: 'Idioma',
+    spanish: 'Español (ES)',
+    russian: 'Ruso (RU)',
+    cancel: 'Cancelar',
+    createBtn: 'Crear Usuario',
+    creating: 'Creando...',
+  },
+  ru: {
+    title: 'Пользователи',
+    registeredOne: 'зарегистрированный пользователь',
+    registeredMany: 'зарегистрированных пользователей',
+    addUser: 'Добавить пользователя',
+    searchPlaceholder: 'Поиск по имени, ID или роли...',
+    colName: 'Имя',
+    colRole: 'Роль',
+    colLanguage: 'Язык',
+    colLastAccess: 'Последний вход',
+    colStatus: 'Статус',
+    colActions: 'Действия',
+    emptyWithSearch: 'Пользователи по этим критериям не найдены.',
+    emptyNoUsers: 'Зарегистрированных пользователей нет.',
+    active: 'Активен',
+    inactive: 'Неактивен',
+    deactivate: 'Деактивировать',
+    activate: 'Активировать',
+    deleteBtn: 'Удалить',
+    confirmDelete: (name) => `Точно хотите удалить пользователя "${name}"? Это действие нельзя отменить.`,
+    modalTitle: 'Добавить пользователя',
+    modalSuccess: 'Пользователь успешно создан',
+    modalFormHelper: 'Заполните данные нового участника',
+    createdOk: (name) => (<>Пользователь <span className="text-white font-semibold">{name}</span> успешно создан.</>),
+    accessCode: 'Код доступа',
+    copy: 'Копировать',
+    copied: 'Скопировано',
+    codeOnce: 'Этот код показывается только один раз. Передайте его пользователю безопасным способом.',
+    close: 'Закрыть',
+    nameLabel: 'Имя',
+    namePlaceholder: 'Полное имя',
+    roleLabel: 'Роль',
+    selectRole: 'Выберите роль...',
+    languageLabel: 'Язык',
+    spanish: 'Испанский (ES)',
+    russian: 'Русский (RU)',
+    cancel: 'Отменить',
+    createBtn: 'Создать пользователя',
+    creating: 'Создание...',
+  },
+};
+
 export default function UsersPage() {
   const [users, setUsers] = useState<UserData[]>([]);
   const [roles, setRoles] = useState<RoleData[]>([]);
@@ -39,6 +162,19 @@ export default function UsersPage() {
   const [createdUserName, setCreatedUserName] = useState<string>('');
   const [creating, setCreating] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [lang, setLang] = useState<Lang>('es');
+
+  useEffect(() => {
+    fetch('/api/auth/session')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        const l = data?.user?.lang;
+        if (l === 'ru' || l === 'es') setLang(l);
+      })
+      .catch(() => {});
+  }, []);
+
+  const t = labels[lang];
 
   // Form state
   const [formName, setFormName] = useState('');
@@ -76,7 +212,8 @@ export default function UsersPage() {
 
   function getRoleName(roleId: string): string {
     const role = roles.find((r) => r.id === roleId);
-    return role ? role.name : roleId;
+    if (!role) return roleId;
+    return lang === 'ru' ? (role.nameRu || role.name) : role.name;
   }
 
   function isAdminRole(roleId: string): boolean {
@@ -86,7 +223,7 @@ export default function UsersPage() {
   function formatDate(dateStr?: string): string {
     if (!dateStr) return '---';
     const d = new Date(dateStr);
-    return d.toLocaleDateString('es-ES', {
+    return d.toLocaleDateString(lang === 'ru' ? 'ru-RU' : 'es-ES', {
       day: '2-digit',
       month: 'short',
       year: 'numeric',
@@ -150,9 +287,7 @@ export default function UsersPage() {
   }
 
   async function handleDelete(user: UserData) {
-    const confirmed = window.confirm(
-      `Seguro que deseas eliminar al usuario "${user.name}"? Esta accion no se puede deshacer.`
-    );
+    const confirmed = window.confirm(t.confirmDelete(user.name));
     if (!confirmed) return;
 
     try {
@@ -226,16 +361,16 @@ export default function UsersPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-white">Usuarios</h1>
+          <h1 className="text-2xl font-bold text-white">{t.title}</h1>
           <p className="text-[#666666] text-sm mt-1">
-            {users.length} usuario{users.length !== 1 ? 's' : ''} registrado{users.length !== 1 ? 's' : ''}
+            {users.length} {users.length !== 1 ? t.registeredMany : t.registeredOne}
           </p>
         </div>
         <button
           onClick={() => setShowModal(true)}
           className="bg-[#98283A] text-white font-semibold text-sm px-4 py-2.5 rounded-lg hover:bg-[#B33347] transition-all duration-200"
         >
-          Agregar Usuario
+          {t.addUser}
         </button>
       </div>
 
@@ -247,7 +382,7 @@ export default function UsersPage() {
           </svg>
           <input
             type="text"
-            placeholder="Buscar por nombre, ID o rol..."
+            placeholder={t.searchPlaceholder}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E] text-white rounded-lg pl-10 pr-4 py-2.5 text-sm placeholder:text-[#666666]/50 focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-all duration-200"
@@ -262,22 +397,22 @@ export default function UsersPage() {
             <thead>
               <tr className="bg-[#0A0A0A]">
                 <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
-                  Nombre
+                  {t.colName}
                 </th>
                 <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
-                  Rol
+                  {t.colRole}
                 </th>
                 <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
-                  Idioma
+                  {t.colLanguage}
                 </th>
                 <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
-                  Ultimo Acceso
+                  {t.colLastAccess}
                 </th>
                 <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
-                  Estado
+                  {t.colStatus}
                 </th>
                 <th className="text-right text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
-                  Acciones
+                  {t.colActions}
                 </th>
               </tr>
             </thead>
@@ -291,7 +426,7 @@ export default function UsersPage() {
                       </svg>
                     </div>
                     <p className="text-[#666666] text-sm">
-                      {search ? 'No se encontraron usuarios con ese criterio.' : 'No hay usuarios registrados.'}
+                      {search ? t.emptyWithSearch : t.emptyNoUsers}
                     </p>
                   </td>
                 </tr>
@@ -344,7 +479,7 @@ export default function UsersPage() {
                           <span className={`w-1.5 h-1.5 rounded-full inline-block ${
                             user.isActive ? 'bg-[#38CC97]' : 'bg-[#666666]'
                           }`} />
-                          {user.isActive ? 'Activo' : 'Inactivo'}
+                          {user.isActive ? t.active : t.inactive}
                         </span>
                       </td>
                       <td className="px-4 py-3.5 text-right">
@@ -353,13 +488,13 @@ export default function UsersPage() {
                             onClick={() => toggleActive(user)}
                             className="text-xs font-medium px-3 py-1.5 rounded-lg text-[#A0A0A0] hover:text-white hover:bg-[#1A1A1A] border border-transparent hover:border-[#1E1E1E] transition-all duration-200"
                           >
-                            {user.isActive ? 'Desactivar' : 'Activar'}
+                            {user.isActive ? t.deactivate : t.activate}
                           </button>
                           <button
                             onClick={() => handleDelete(user)}
                             className="text-xs font-medium px-3 py-1.5 rounded-lg text-[#C44545] hover:text-[#C44545] hover:bg-[#C44545]/10 border border-transparent hover:border-[#C44545]/20 transition-all duration-200"
                           >
-                            Eliminar
+                            {t.deleteBtn}
                           </button>
                         </div>
                       </td>
@@ -378,9 +513,9 @@ export default function UsersPage() {
           <div className="bg-[#111111] border border-[#1E1E1E] rounded-2xl w-full max-w-md shadow-2xl shadow-black/40">
             {/* Modal header */}
             <div className="px-6 pt-6 pb-4">
-              <h2 className="text-lg font-semibold text-white">Agregar Usuario</h2>
+              <h2 className="text-lg font-semibold text-white">{t.modalTitle}</h2>
               <p className="text-[#666666] text-sm mt-1">
-                {generatedCode ? 'Usuario creado exitosamente' : 'Completa los datos del nuevo miembro'}
+                {generatedCode ? t.modalSuccess : t.modalFormHelper}
               </p>
             </div>
 
@@ -396,12 +531,12 @@ export default function UsersPage() {
                 </div>
 
                 <p className="text-[#A0A0A0] text-sm mb-4 text-center">
-                  Usuario <span className="text-white font-semibold">{createdUserName}</span> creado correctamente.
+                  {t.createdOk(createdUserName)}
                 </p>
 
                 <div className="bg-[#38CC97]/5 border border-[#38CC97]/20 rounded-xl p-5">
                   <label className="block text-xs uppercase tracking-wide text-[#38CC97]/70 font-medium mb-2">
-                    Codigo de Acceso
+                    {t.accessCode}
                   </label>
                   <div className="flex items-center justify-between">
                     <span className="text-[#38CC97] font-mono text-3xl font-bold tracking-widest">
@@ -415,13 +550,13 @@ export default function UsersPage() {
                           : 'bg-[#38CC97]/10 text-[#38CC97] hover:bg-[#38CC97]/20'
                       }`}
                     >
-                      {copied ? 'Copiado' : 'Copiar'}
+                      {copied ? t.copied : t.copy}
                     </button>
                   </div>
                 </div>
 
                 <p className="text-[#666666] text-xs mt-3 text-center">
-                  Este codigo solo se muestra una vez. Compartelo de forma segura con el usuario.
+                  {t.codeOnce}
                 </p>
 
                 <div className="mt-6 flex justify-end">
@@ -429,7 +564,7 @@ export default function UsersPage() {
                     onClick={closeModal}
                     className="bg-[#1A1A1A] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#2A2A2A] transition-all duration-200"
                   >
-                    Cerrar
+                    {t.close}
                   </button>
                 </div>
               </div>
@@ -439,13 +574,13 @@ export default function UsersPage() {
                 {/* Name */}
                 <div>
                   <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">
-                    Nombre
+                    {t.nameLabel}
                   </label>
                   <input
                     type="text"
                     value={formName}
                     onChange={(e) => setFormName(e.target.value)}
-                    placeholder="Nombre completo"
+                    placeholder={t.namePlaceholder}
                     className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E] text-white rounded-lg px-4 py-2.5 text-sm placeholder:text-[#666666]/50 focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-all duration-200"
                   />
                   {formName.trim() && (
@@ -458,17 +593,17 @@ export default function UsersPage() {
                 {/* Role */}
                 <div>
                   <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">
-                    Rol
+                    {t.roleLabel}
                   </label>
                   <select
                     value={formRoleId}
                     onChange={(e) => setFormRoleId(e.target.value)}
                     className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E] text-white rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-all duration-200"
                   >
-                    <option value="">Seleccionar rol...</option>
+                    <option value="">{t.selectRole}</option>
                     {roles.map((role) => (
                       <option key={role.id} value={role.id}>
-                        {role.name}
+                        {lang === 'ru' ? (role.nameRu || role.name) : role.name}
                       </option>
                     ))}
                   </select>
@@ -477,7 +612,7 @@ export default function UsersPage() {
                 {/* Language */}
                 <div>
                   <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">
-                    Idioma
+                    {t.languageLabel}
                   </label>
                   <div className="flex gap-3">
                     <button
@@ -489,7 +624,7 @@ export default function UsersPage() {
                           : 'bg-[#1A1A1A]/50 border-[#1E1E1E] text-[#A0A0A0] hover:border-[#2A2A2A] hover:text-white'
                       }`}
                     >
-                      Espanol (ES)
+                      {t.spanish}
                     </button>
                     <button
                       type="button"
@@ -500,7 +635,7 @@ export default function UsersPage() {
                           : 'bg-[#1A1A1A]/50 border-[#1E1E1E] text-[#A0A0A0] hover:border-[#2A2A2A] hover:text-white'
                       }`}
                     >
-                      Ruso (RU)
+                      {t.russian}
                     </button>
                   </div>
                 </div>
@@ -511,14 +646,14 @@ export default function UsersPage() {
                     onClick={closeModal}
                     className="bg-transparent text-[#A0A0A0] font-semibold text-sm px-5 py-2.5 rounded-lg border border-[#1E1E1E] hover:bg-[#1A1A1A] hover:text-white transition-all duration-200"
                   >
-                    Cancelar
+                    {t.cancel}
                   </button>
                   <button
                     onClick={handleCreate}
                     disabled={!formName.trim() || !formRoleId || creating}
                     className="bg-[#98283A] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#B33347] transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
                   >
-                    {creating ? 'Creando...' : 'Crear Usuario'}
+                    {creating ? t.creating : t.createBtn}
                   </button>
                 </div>
               </div>

@@ -52,7 +52,7 @@ export default function TopBar({ userName, isAdmin, lang, onToggleSidebar, onSwi
                 : 'text-neo-text-muted hover:text-neo-text-secondary'
               }
             `}
-            aria-label="Espanol"
+            aria-label="Español"
           >
             <img
               src="https://flagcdn.com/w20/es.png"

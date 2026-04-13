@@ -17,10 +17,10 @@ export default function LoginPage() {
     es: {
       subtitle: 'Portal interno del equipo',
       username: 'Usuario',
-      code: 'Codigo de acceso',
+      code: 'Código de acceso',
       enter: 'Entrar',
       entering: 'Entrando...',
-      error: 'Usuario o codigo incorrecto',
+      error: 'Usuario o código incorrecto',
       placeholder: 'Ingresa tu usuario',
     },
     ru: {

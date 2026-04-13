@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import type { Lang } from '@/lib/types';
 
 interface RoleData {
   id: string;
@@ -19,6 +20,62 @@ interface SectionInfo {
   documentCount: number;
   documents: string[];
 }
+
+const labels: Record<Lang, {
+  errorLoading: string;
+  notFound: string;
+  connError: string;
+  backToRoles: string;
+  admin: string;
+  configureDesc: string;
+  enableAll: string;
+  disableAll: string;
+  documentOne: string;
+  documentMany: string;
+  toggleEnable: string;
+  toggleDisable: string;
+  sectionsLabel: string;
+  docsAccessible: string;
+  noneEnabled: string;
+  moreSuffix: string;
+}> = {
+  es: {
+    errorLoading: 'Error al cargar roles',
+    notFound: 'Rol no encontrado',
+    connError: 'Error de conexion',
+    backToRoles: 'Volver a Roles',
+    admin: 'Admin',
+    configureDesc: 'Configura las secciones que este rol puede ver',
+    enableAll: 'Activar todas',
+    disableAll: 'Desactivar todas',
+    documentOne: 'documento',
+    documentMany: 'documentos',
+    toggleEnable: 'Habilitar',
+    toggleDisable: 'Deshabilitar',
+    sectionsLabel: 'secciones',
+    docsAccessible: 'documentos accesibles',
+    noneEnabled: 'Ninguna seccion habilitada',
+    moreSuffix: 'mas',
+  },
+  ru: {
+    errorLoading: 'Ошибка загрузки ролей',
+    notFound: 'Роль не найдена',
+    connError: 'Ошибка соединения',
+    backToRoles: 'Назад к ролям',
+    admin: 'Админ',
+    configureDesc: 'Настройте разделы, доступные этой роли',
+    enableAll: 'Включить все',
+    disableAll: 'Отключить все',
+    documentOne: 'документ',
+    documentMany: 'документов',
+    toggleEnable: 'Включить',
+    toggleDisable: 'Отключить',
+    sectionsLabel: 'разделов',
+    docsAccessible: 'доступных документов',
+    noneEnabled: 'Нет включённых разделов',
+    moreSuffix: 'ещё',
+  },
+};
 
 // Mirror of SECTIONS from sections.ts -- used client-side
 const ALL_SECTIONS: SectionInfo[] = [
@@ -91,12 +148,25 @@ export default function RolePermissionsPage() {
   const [saving, setSaving] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
+  const [lang, setLang] = useState<Lang>('es');
+
+  useEffect(() => {
+    fetch('/api/auth/session')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        const l = data?.user?.lang;
+        if (l === 'ru' || l === 'es') setLang(l);
+      })
+      .catch(() => {});
+  }, []);
+
+  const t = labels[lang];
 
   const loadRole = useCallback(async () => {
     try {
       const res = await fetch('/api/roles');
       if (!res.ok) {
-        setError('Error al cargar roles');
+        setError(t.errorLoading);
         return;
       }
       const roles: RoleData[] = await res.json();
@@ -104,14 +174,14 @@ export default function RolePermissionsPage() {
       if (found) {
         setRole(found);
       } else {
-        setError('Rol no encontrado');
+        setError(t.notFound);
       }
     } catch {
-      setError('Error de conexion');
+      setError(t.connError);
     } finally {
       setLoading(false);
     }
-  }, [roleId]);
+  }, [roleId, t.errorLoading, t.notFound, t.connError]);
 
   useEffect(() => {
     loadRole();
@@ -200,12 +270,12 @@ export default function RolePermissionsPage() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
           </svg>
         </div>
-        <p className="text-[#C44545] text-sm font-medium mb-2">{error || 'Rol no encontrado'}</p>
+        <p className="text-[#C44545] text-sm font-medium mb-2">{error || t.notFound}</p>
         <Link
           href="/admin/roles"
           className="text-[#98283A] text-sm hover:text-[#B33347] transition-colors duration-200 font-medium"
         >
-          Volver a Roles
+          {t.backToRoles}
         </Link>
       </div>
     );
@@ -228,24 +298,24 @@ export default function RolePermissionsPage() {
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
           </svg>
-          Volver a Roles
+          {t.backToRoles}
         </Link>
 
         <div className="flex items-center justify-between">
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-bold text-white">{role.name}</h1>
+              <h1 className="text-2xl font-bold text-white">{lang === 'ru' ? (role.nameRu || role.name) : role.name}</h1>
               {role.isAdmin && (
                 <span className="bg-[#98283A]/15 text-[#98283A] text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider border border-[#98283A]/20">
-                  Admin
+                  {t.admin}
                 </span>
               )}
             </div>
             {role.nameRu !== role.name && (
-              <p className="text-[#666666] text-sm mt-0.5">{role.nameRu}</p>
+              <p className="text-[#666666] text-sm mt-0.5">{lang === 'ru' ? role.name : role.nameRu}</p>
             )}
             <p className="text-[#A0A0A0] text-sm mt-2">
-              Configura las secciones que este rol puede ver
+              {t.configureDesc}
             </p>
           </div>
 
@@ -256,14 +326,14 @@ export default function RolePermissionsPage() {
               disabled={enabledCount === totalSections || saving === 'all'}
               className="text-xs font-medium px-3 py-2 rounded-lg bg-[#98283A]/10 text-[#98283A] hover:bg-[#98283A]/20 border border-[#98283A]/20 hover:border-[#98283A]/30 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
             >
-              Activar todas
+              {t.enableAll}
             </button>
             <button
               onClick={() => handleToggleAll(false)}
               disabled={enabledCount === 0 || saving === 'all'}
               className="text-xs font-medium px-3 py-2 rounded-lg bg-[#1A1A1A]/50 text-[#A0A0A0] hover:text-white hover:bg-[#1E1E1E]/50 border border-[#1E1E1E]/30 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
             >
-              Desactivar todas
+              {t.disableAll}
             </button>
           </div>
         </div>
@@ -303,10 +373,10 @@ export default function RolePermissionsPage() {
 
                     <div className="flex-1 min-w-0">
                       <h3 className={`font-semibold text-sm transition-colors duration-200 ${isEnabled ? 'text-white' : 'text-[#666666]'}`}>
-                        {section.nameEs}
+                        {lang === 'ru' ? section.nameRu : section.nameEs}
                       </h3>
                       <p className="text-[#666666] text-xs mt-0.5">
-                        {section.nameRu}
+                        {lang === 'ru' ? section.nameEs : section.nameRu}
                       </p>
                       {/* Document count pill */}
                       <button
@@ -320,7 +390,7 @@ export default function RolePermissionsPage() {
                         <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                         </svg>
-                        {section.documentCount} documento{section.documentCount !== 1 ? 's' : ''}
+                        {section.documentCount} {section.documentCount !== 1 ? t.documentMany : t.documentOne}
                         <svg className={`w-3 h-3 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                         </svg>
@@ -338,7 +408,7 @@ export default function RolePermissionsPage() {
                         ? 'bg-[#98283A] shadow-lg shadow-[#98283A]/30'
                         : 'bg-[#1E1E1E] hover:bg-[#1E1E1E]/80'
                     } ${isSaving ? 'opacity-50' : ''}`}
-                    aria-label={`${isEnabled ? 'Deshabilitar' : 'Habilitar'} ${section.nameEs}`}
+                    aria-label={`${isEnabled ? t.toggleDisable : t.toggleEnable} ${lang === 'ru' ? section.nameRu : section.nameEs}`}
                   >
                     <div
                       className={`absolute top-0.5 w-6 h-6 rounded-full bg-white shadow-md transition-all duration-300 ${
@@ -389,10 +459,10 @@ export default function RolePermissionsPage() {
                 <div>
                   <div className="text-sm font-medium text-white">
                     <span className="text-[#98283A] font-bold text-lg">{enabledCount}</span>
-                    <span className="text-[#666666]"> / {totalSections} secciones</span>
+                    <span className="text-[#666666]"> / {totalSections} {t.sectionsLabel}</span>
                   </div>
                   <div className="text-[#666666] text-xs mt-0.5">
-                    {totalDocsEnabled} documentos accesibles
+                    {totalDocsEnabled} {t.docsAccessible}
                   </div>
                 </div>
 
@@ -412,7 +482,7 @@ export default function RolePermissionsPage() {
 
               <div className="flex gap-2 flex-wrap justify-end">
                 {role.sections.length === 0 ? (
-                  <span className="text-xs text-[#666666]">Ninguna seccion habilitada</span>
+                  <span className="text-xs text-[#666666]">{t.noneEnabled}</span>
                 ) : (
                   role.sections.slice(0, 5).map((sid) => {
                     const sec = ALL_SECTIONS.find((s) => s.id === sid);
@@ -421,14 +491,14 @@ export default function RolePermissionsPage() {
                         key={sid}
                         className="text-xs bg-[#98283A]/10 text-[#98283A] px-2.5 py-1 rounded-lg font-medium border border-[#98283A]/15"
                       >
-                        {sec?.nameEs || sid}
+                        {sec ? (lang === 'ru' ? sec.nameRu : sec.nameEs) : sid}
                       </span>
                     );
                   })
                 )}
                 {role.sections.length > 5 && (
                   <span className="text-xs bg-[#1A1A1A]/50 text-[#666666] px-2.5 py-1 rounded-lg font-medium">
-                    +{role.sections.length - 5} mas
+                    +{role.sections.length - 5} {t.moreSuffix}
                   </span>
                 )}
               </div>

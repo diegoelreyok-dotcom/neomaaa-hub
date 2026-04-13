@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import type { Lang } from '@/lib/types';
 
 interface Stats {
   totalUsers: number;
@@ -9,10 +10,85 @@ interface Stats {
   totalDocuments: number;
 }
 
+const labels: Record<Lang, {
+  title: string;
+  subtitle: string;
+  usersKpi: string;
+  rolesKpi: string;
+  documentsKpi: string;
+  quickActions: string;
+  addUser: string;
+  addUserDesc: string;
+  createRole: string;
+  createRoleDesc: string;
+  viewProgress: string;
+  viewProgressDesc: string;
+  seedData: string;
+  seeding: string;
+  seedDone: string;
+  seedError: string;
+  recentActivity: string;
+  activityPlaceholder: string;
+}> = {
+  es: {
+    title: 'Panel de Administracion',
+    subtitle: 'Gestion de usuarios, roles y permisos de NEOMAAA Hub',
+    usersKpi: 'Usuarios',
+    rolesKpi: 'Roles',
+    documentsKpi: 'Documentos',
+    quickActions: 'Acciones Rapidas',
+    addUser: 'Agregar Usuario',
+    addUserDesc: 'Crear nuevo miembro del equipo',
+    createRole: 'Crear Rol',
+    createRoleDesc: 'Definir permisos por seccion',
+    viewProgress: 'Ver Progreso',
+    viewProgressDesc: 'Avance de lectura del equipo',
+    seedData: 'Seed Data',
+    seeding: 'Ejecutando seed...',
+    seedDone: 'Seed completado',
+    seedError: 'Error al ejecutar seed',
+    recentActivity: 'Actividad Reciente',
+    activityPlaceholder: 'El registro de actividad se mostrara aqui una vez que los usuarios comiencen a interactuar con la plataforma.',
+  },
+  ru: {
+    title: 'Панель администрирования',
+    subtitle: 'Управление пользователями, ролями и разрешениями NEOMAAA Hub',
+    usersKpi: 'Пользователи',
+    rolesKpi: 'Роли',
+    documentsKpi: 'Документы',
+    quickActions: 'Быстрые действия',
+    addUser: 'Добавить пользователя',
+    addUserDesc: 'Создать нового участника команды',
+    createRole: 'Создать роль',
+    createRoleDesc: 'Настроить разрешения по разделам',
+    viewProgress: 'Посмотреть прогресс',
+    viewProgressDesc: 'Прогресс чтения команды',
+    seedData: 'Загрузить данные',
+    seeding: 'Выполняется загрузка...',
+    seedDone: 'Загрузка завершена',
+    seedError: 'Ошибка при загрузке данных',
+    recentActivity: 'Недавняя активность',
+    activityPlaceholder: 'Журнал активности появится здесь, как только пользователи начнут взаимодействовать с платформой.',
+  },
+};
+
 export default function AdminDashboardPage() {
   const [stats, setStats] = useState<Stats | null>(null);
   const [loading, setLoading] = useState(true);
   const [seedStatus, setSeedStatus] = useState<string | null>(null);
+  const [lang, setLang] = useState<Lang>('es');
+
+  useEffect(() => {
+    fetch('/api/auth/session')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        const l = data?.user?.lang;
+        if (l === 'ru' || l === 'es') setLang(l);
+      })
+      .catch(() => {});
+  }, []);
+
+  const t = labels[lang];
 
   useEffect(() => {
     async function loadStats() {
@@ -41,17 +117,17 @@ export default function AdminDashboardPage() {
   }, []);
 
   async function handleSeed() {
-    setSeedStatus('Ejecutando seed...');
+    setSeedStatus(t.seeding);
     try {
       const res = await fetch('/api/seed');
       const data = await res.json();
-      setSeedStatus(data.message || 'Seed completado');
+      setSeedStatus(data.message || t.seedDone);
       // Reload stats after seed
       setTimeout(() => {
         window.location.reload();
       }, 1500);
     } catch {
-      setSeedStatus('Error al ejecutar seed');
+      setSeedStatus(t.seedError);
     }
   }
 
@@ -82,7 +158,7 @@ export default function AdminDashboardPage() {
 
   const kpis = [
     {
-      label: 'Usuarios',
+      label: t.usersKpi,
       value: stats?.totalUsers ?? 0,
       href: '/admin/users',
       icon: (
@@ -92,7 +168,7 @@ export default function AdminDashboardPage() {
       ),
     },
     {
-      label: 'Roles',
+      label: t.rolesKpi,
       value: stats?.totalRoles ?? 0,
       href: '/admin/roles',
       icon: (
@@ -102,7 +178,7 @@ export default function AdminDashboardPage() {
       ),
     },
     {
-      label: 'Documentos',
+      label: t.documentsKpi,
       value: stats?.totalDocuments ?? 0,
       href: '/admin/settings',
       icon: (
@@ -115,9 +191,9 @@ export default function AdminDashboardPage() {
 
   const quickActions = [
     {
-      label: 'Agregar Usuario',
+      label: t.addUser,
       href: '/admin/users',
-      description: 'Crear nuevo miembro del equipo',
+      description: t.addUserDesc,
       primary: true,
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -126,9 +202,9 @@ export default function AdminDashboardPage() {
       ),
     },
     {
-      label: 'Crear Rol',
+      label: t.createRole,
       href: '/admin/roles',
-      description: 'Definir permisos por seccion',
+      description: t.createRoleDesc,
       primary: false,
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -137,9 +213,9 @@ export default function AdminDashboardPage() {
       ),
     },
     {
-      label: 'Ver Progreso',
+      label: t.viewProgress,
       href: '/admin/progress',
-      description: 'Avance de lectura del equipo',
+      description: t.viewProgressDesc,
       primary: false,
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -153,9 +229,9 @@ export default function AdminDashboardPage() {
     <div>
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-white">Panel de Administracion</h1>
+        <h1 className="text-2xl font-bold text-white">{t.title}</h1>
         <p className="text-[#666666] text-sm mt-1">
-          Gestion de usuarios, roles y permisos de NEOMAAA Hub
+          {t.subtitle}
         </p>
       </div>
 
@@ -187,7 +263,7 @@ export default function AdminDashboardPage() {
 
       {/* Quick actions */}
       <div className="mb-8">
-        <h2 className="text-lg font-semibold text-white mb-4">Acciones Rapidas</h2>
+        <h2 className="text-lg font-semibold text-white mb-4">{t.quickActions}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {quickActions.map((action) => (
             <Link
@@ -224,7 +300,7 @@ export default function AdminDashboardPage() {
             onClick={handleSeed}
             className="bg-[#111111] border border-[#1E1E1E] text-[#A0A0A0] font-medium text-sm px-5 py-2.5 rounded-lg hover:bg-[#161616] hover:text-white hover:border-[#2A2A2A] transition-all duration-200"
           >
-            Seed Data
+            {t.seedData}
           </button>
           {seedStatus && (
             <span className="text-sm text-[#A0A0A0] bg-[#1A1A1A] border border-[#1E1E1E] rounded-lg px-4 py-2 font-medium animate-pulse">
@@ -236,7 +312,7 @@ export default function AdminDashboardPage() {
 
       {/* Recent activity placeholder */}
       <div>
-        <h2 className="text-lg font-semibold text-white mb-4">Actividad Reciente</h2>
+        <h2 className="text-lg font-semibold text-white mb-4">{t.recentActivity}</h2>
         <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-8 text-center">
           <div className="w-12 h-12 rounded-full bg-[#1A1A1A] flex items-center justify-center mx-auto mb-3">
             <svg className="w-6 h-6 text-[#666666]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -244,7 +320,7 @@ export default function AdminDashboardPage() {
             </svg>
           </div>
           <p className="text-[#666666] text-sm">
-            El registro de actividad se mostrara aqui una vez que los usuarios comiencen a interactuar con la plataforma.
+            {t.activityPlaceholder}
           </p>
         </div>
       </div>

@@ -90,7 +90,7 @@ export default function PortalShell({
         <footer className="px-4 sm:px-6 lg:px-8 py-5 border-t border-neo-dark-3/30">
           <div className="max-w-[1100px] mx-auto flex items-center justify-between">
             <p className="text-[11px] text-neo-text-muted/60">
-              NEOMAAA Hub &mdash; Portal interno del equipo
+              NEOMAAA Hub &mdash; {lang === 'ru' ? 'Внутренний портал команды' : 'Portal interno del equipo'}
             </p>
             <p className="text-[11px] text-neo-text-muted/40">
               {new Date().getFullYear()}
