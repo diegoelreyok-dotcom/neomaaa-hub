@@ -28,17 +28,17 @@ export default async function AdminLayout({
   ];
 
   return (
-    <div className="min-h-screen bg-neo-dark">
+    <div className="min-h-screen bg-[#0A0A0A]">
       {/* Admin top navigation bar */}
-      <nav className="bg-neo-dark-2 border-b border-neo-dark-3 sticky top-0 z-50">
+      <nav className="bg-[#111111] border-b border-[#1E1E1E] sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14">
             {/* Logo + brand */}
             <div className="flex items-center gap-3">
-              <span className="text-neo-primary font-bold text-lg tracking-tight">
+              <span className="text-white font-bold text-lg tracking-tight">
                 NEOMAAA
               </span>
-              <span className="text-neo-text-muted text-xs font-medium uppercase tracking-widest border border-neo-dark-4 rounded px-2 py-0.5">
+              <span className="text-[#666666] text-xs font-medium uppercase tracking-widest border border-[#1E1E1E] rounded px-2 py-0.5">
                 Admin
               </span>
             </div>
@@ -49,15 +49,15 @@ export default async function AdminLayout({
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-3 py-1.5 text-sm font-medium text-neo-text-secondary hover:text-neo-primary hover:bg-neo-dark-3 rounded-md transition-all duration-200"
+                  className="px-3 py-1.5 text-sm font-medium text-[#A0A0A0] hover:text-white hover:bg-[#161616] rounded-md transition-all duration-200"
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="w-px h-6 bg-neo-dark-4 mx-2" />
+              <div className="w-px h-6 bg-[#1E1E1E] mx-2" />
               <Link
                 href="/dashboard"
-                className="px-3 py-1.5 text-sm font-medium text-neo-text-muted hover:text-neo-text hover:bg-neo-dark-3 rounded-md transition-all duration-200"
+                className="px-3 py-1.5 text-sm font-medium text-[#666666] hover:text-white hover:bg-[#161616] rounded-md transition-all duration-200"
               >
                 Volver al Portal
               </Link>

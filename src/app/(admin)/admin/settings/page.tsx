@@ -140,13 +140,13 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
 ];
 
 const INTEGRATIONS = [
-  { name: 'Intercom', desc: 'Chat en vivo y soporte', status: 'Parcial', initial: 'IC', color: 'from-sky-500 to-sky-700' },
+  { name: 'Intercom', desc: 'Chat en vivo y soporte', status: 'Parcial', initial: 'IC', color: 'from-slate-500 to-slate-600' },
   { name: 'Vercel', desc: 'Hosting y deploy', status: 'Conectado', initial: 'VC', color: 'from-gray-400 to-gray-600' },
   { name: 'GitHub', desc: 'Codigo fuente', status: 'Conectado', initial: 'GH', color: 'from-gray-500 to-gray-700' },
-  { name: 'MetaTrader 5', desc: 'Plataforma de trading', status: 'No conectado', initial: 'MT', color: 'from-blue-500 to-blue-700' },
-  { name: 'Skale CRM', desc: 'Gestion de clientes', status: 'No conectado', initial: 'SK', color: 'from-violet-500 to-violet-700' },
-  { name: 'Sumsub', desc: 'Verificacion KYC', status: 'No conectado', initial: 'SS', color: 'from-emerald-500 to-emerald-700' },
-  { name: 'Cellxpert', desc: 'Tracking de afiliados', status: 'Pendiente', initial: 'CX', color: 'from-amber-500 to-amber-700' },
+  { name: 'MetaTrader 5', desc: 'Plataforma de trading', status: 'No conectado', initial: 'MT', color: 'from-zinc-500 to-zinc-600' },
+  { name: 'Skale CRM', desc: 'Gestion de clientes', status: 'No conectado', initial: 'SK', color: 'from-neutral-500 to-neutral-600' },
+  { name: 'Sumsub', desc: 'Verificacion KYC', status: 'No conectado', initial: 'SS', color: 'from-stone-500 to-stone-600' },
+  { name: 'Cellxpert', desc: 'Tracking de afiliados', status: 'Pendiente', initial: 'CX', color: 'from-gray-500 to-gray-600' },
 ];
 
 /* ───────────────────────── Skeleton Loader ───────────────────────── */
@@ -156,18 +156,18 @@ function SettingsSkeleton() {
     <div className="animate-pulse">
       {/* Header skeleton */}
       <div className="mb-8">
-        <div className="h-8 w-32 bg-neo-dark-3 rounded-lg mb-2" />
-        <div className="h-4 w-64 bg-neo-dark-3/60 rounded-lg" />
+        <div className="h-8 w-32 bg-[#1A1A1A] rounded-lg mb-2" />
+        <div className="h-4 w-64 bg-[#1A1A1A]/60 rounded-lg" />
       </div>
       <div className="flex gap-6 min-h-[calc(100vh-12rem)]">
         {/* Sidebar skeleton */}
         <div className="w-60 flex-shrink-0">
-          <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-4 space-y-6">
+          <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-4 space-y-6">
             {[1, 2, 3].map((g) => (
               <div key={g} className="space-y-2">
-                <div className="h-3 w-20 bg-neo-dark-3/40 rounded mb-3" />
+                <div className="h-3 w-20 bg-[#1A1A1A]/40 rounded mb-3" />
                 {[1, 2, 3].slice(0, g === 2 ? 2 : 3).map((i) => (
-                  <div key={i} className="h-9 bg-neo-dark-3/30 rounded-lg" />
+                  <div key={i} className="h-9 bg-[#1A1A1A]/30 rounded-lg" />
                 ))}
               </div>
             ))}
@@ -175,14 +175,14 @@ function SettingsSkeleton() {
         </div>
         {/* Content skeleton */}
         <div className="flex-1 max-w-3xl space-y-6">
-          <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-6">
-            <div className="h-6 w-48 bg-neo-dark-3 rounded-lg mb-2" />
-            <div className="h-4 w-72 bg-neo-dark-3/50 rounded-lg mb-8" />
+          <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-6">
+            <div className="h-6 w-48 bg-[#1A1A1A] rounded-lg mb-2" />
+            <div className="h-4 w-72 bg-[#1A1A1A]/50 rounded-lg mb-8" />
             <div className="grid grid-cols-2 gap-4">
               {[1, 2, 3, 4].map((i) => (
                 <div key={i} className="space-y-2">
-                  <div className="h-3 w-24 bg-neo-dark-3/40 rounded" />
-                  <div className="h-10 bg-neo-dark-3/30 rounded-lg" />
+                  <div className="h-3 w-24 bg-[#1A1A1A]/40 rounded" />
+                  <div className="h-10 bg-[#1A1A1A]/30 rounded-lg" />
                 </div>
               ))}
             </div>
@@ -207,17 +207,17 @@ function SettingsCard({
   headerRight?: React.ReactNode;
 }) {
   return (
-    <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl overflow-hidden">
+    <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl overflow-hidden">
       {/* Card header */}
       <div className="px-6 pt-6 pb-5 flex items-start justify-between">
         <div>
-          <h2 className="text-lg font-semibold text-neo-text tracking-tight">{title}</h2>
-          <p className="text-neo-text-muted text-sm mt-1 leading-relaxed">{description}</p>
+          <h2 className="text-lg font-semibold text-white tracking-tight">{title}</h2>
+          <p className="text-[#666666] text-sm mt-1 leading-relaxed">{description}</p>
         </div>
         {headerRight && <div className="flex-shrink-0 ml-4">{headerRight}</div>}
       </div>
       {/* Divider */}
-      <div className="border-b border-neo-dark-3/40 mx-6" />
+      <div className="border-b border-[#1A1A1A]/40 mx-6" />
       {/* Card body */}
       <div className="px-6 py-6">{children}</div>
     </div>
@@ -334,7 +334,7 @@ export default function SettingsPage() {
           hasChanges ? (
             <button
               onClick={saveBroker}
-              className="inline-flex items-center gap-2 bg-neo-primary text-white font-semibold px-5 py-2 rounded-lg hover:bg-neo-primary-light transition-all duration-200 text-sm shadow-lg shadow-neo-primary/20"
+              className="inline-flex items-center gap-2 bg-[#98283A] text-white font-semibold px-5 py-2 rounded-lg hover:bg-[#B33347] transition-all duration-200 text-sm shadow-lg shadow-[#98283A]/20"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -347,14 +347,14 @@ export default function SettingsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-5">
           {fields.map(({ label, key }) => (
             <div key={key}>
-              <label className="block text-xs uppercase tracking-wide text-neo-text-muted font-medium mb-2">
+              <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">
                 {label}
               </label>
               <input
                 type="text"
                 value={broker[key]}
                 onChange={(e) => setBroker((prev) => ({ ...prev, [key]: e.target.value }))}
-                className="w-full bg-neo-dark-3/50 border border-neo-dark-4/50 rounded-lg px-4 py-2.5 text-sm text-neo-text placeholder:text-neo-text-muted/50 focus:outline-none focus:border-neo-primary/50 focus:ring-2 focus:ring-neo-primary/10 transition-all duration-200"
+                className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E] rounded-lg px-4 py-2.5 text-sm text-white placeholder:text-[#666666]/50 focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-all duration-200"
               />
             </div>
           ))}
@@ -365,12 +365,12 @@ export default function SettingsPage() {
 
   function renderTeam() {
     const avatarGradients = [
-      'from-neo-primary to-neo-primary-light',
-      'from-blue-500 to-indigo-600',
-      'from-violet-500 to-purple-600',
-      'from-rose-500 to-pink-600',
-      'from-amber-500 to-orange-600',
-      'from-cyan-500 to-teal-600',
+      'from-slate-600 to-slate-700',
+      'from-zinc-600 to-zinc-700',
+      'from-gray-600 to-gray-700',
+      'from-neutral-600 to-neutral-700',
+      'from-stone-600 to-stone-700',
+      'from-slate-500 to-gray-700',
     ];
 
     return (
@@ -380,7 +380,7 @@ export default function SettingsPage() {
         headerRight={
           <Link
             href="/admin/users"
-            className="inline-flex items-center gap-2 text-sm font-medium text-neo-primary hover:text-neo-primary-light transition-all duration-200 bg-neo-primary/10 hover:bg-neo-primary/15 px-4 py-2 rounded-lg"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#98283A] hover:text-[#B33347] transition-all duration-200 bg-[#98283A]/10 hover:bg-[#98283A]/15 px-4 py-2 rounded-lg"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -391,12 +391,12 @@ export default function SettingsPage() {
       >
         {users.length === 0 ? (
           <div className="text-center py-12">
-            <div className="w-12 h-12 rounded-full bg-neo-dark-3/50 flex items-center justify-center mx-auto mb-3">
-              <svg className="w-6 h-6 text-neo-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <div className="w-12 h-12 rounded-full bg-[#1A1A1A]/50 flex items-center justify-center mx-auto mb-3">
+              <svg className="w-6 h-6 text-[#666666]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
               </svg>
             </div>
-            <p className="text-neo-text-muted text-sm">No hay usuarios registrados.</p>
+            <p className="text-[#666666] text-sm">No hay usuarios registrados.</p>
           </div>
         ) : (
           <div className="space-y-0.5">
@@ -410,7 +410,7 @@ export default function SettingsPage() {
               return (
                 <div
                   key={user.id}
-                  className="flex items-center gap-4 py-3.5 px-3 -mx-3 rounded-lg hover:bg-neo-dark-3/30 transition-all duration-200 group"
+                  className="flex items-center gap-4 py-3.5 px-3 -mx-3 rounded-lg hover:bg-[#1A1A1A]/30 transition-all duration-200 group"
                 >
                   {/* Avatar with gradient */}
                   <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center text-white text-sm font-bold flex-shrink-0 shadow-lg`}>
@@ -419,34 +419,34 @@ export default function SettingsPage() {
 
                   {/* Name + email */}
                   <div className="flex-1 min-w-0">
-                    <div className="text-neo-text text-sm font-medium group-hover:text-neo-text transition-colors">
+                    <div className="text-white text-sm font-medium group-hover:text-white transition-colors">
                       {user.name}
                     </div>
-                    <div className="text-neo-text-muted text-xs mt-0.5">{user.id}@neomaaa.com</div>
+                    <div className="text-[#666666] text-xs mt-0.5">{user.id}@neomaaa.com</div>
                   </div>
 
                   {/* Status dot */}
                   <div className="flex items-center gap-1.5 mr-2">
-                    <span className={`w-1.5 h-1.5 rounded-full inline-block ${user.isActive ? 'bg-neo-success' : 'bg-neo-dark-5'}`} />
-                    <span className={`text-xs ${user.isActive ? 'text-neo-success' : 'text-neo-text-muted'}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full inline-block ${user.isActive ? 'bg-[#38CC97]' : 'bg-[#333333]'}`} />
+                    <span className={`text-xs ${user.isActive ? 'text-[#38CC97]' : 'text-[#666666]'}`}>
                       {user.isActive ? 'Activo' : 'Inactivo'}
                     </span>
                   </div>
 
                   {/* Role badge */}
                   {isOwner ? (
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-neo-info/20 to-violet-500/20 text-neo-info border border-neo-info/20">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#6C5CE7]/20 to-violet-500/20 text-[#6C5CE7] border border-[#6C5CE7]/20">
                       <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                       </svg>
                       Owner
                     </span>
                   ) : admin ? (
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-neo-primary/15 text-neo-primary border border-neo-primary/20">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#98283A]/15 text-[#98283A] border border-[#98283A]/20">
                       Admin
                     </span>
                   ) : (
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-neo-dark-3/50 text-neo-text-secondary border border-neo-dark-4/30">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#1A1A1A]/50 text-[#A0A0A0] border border-[#1E1E1E]/30">
                       {roleName}
                     </span>
                   )}
@@ -467,7 +467,7 @@ export default function SettingsPage() {
         headerRight={
           <Link
             href="/admin/roles"
-            className="inline-flex items-center gap-2 text-sm font-medium text-neo-primary hover:text-neo-primary-light transition-all duration-200 bg-neo-primary/10 hover:bg-neo-primary/15 px-4 py-2 rounded-lg"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#98283A] hover:text-[#B33347] transition-all duration-200 bg-[#98283A]/10 hover:bg-[#98283A]/15 px-4 py-2 rounded-lg"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -478,12 +478,12 @@ export default function SettingsPage() {
       >
         {roles.length === 0 ? (
           <div className="text-center py-12">
-            <div className="w-12 h-12 rounded-full bg-neo-dark-3/50 flex items-center justify-center mx-auto mb-3">
-              <svg className="w-6 h-6 text-neo-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <div className="w-12 h-12 rounded-full bg-[#1A1A1A]/50 flex items-center justify-center mx-auto mb-3">
+              <svg className="w-6 h-6 text-[#666666]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
               </svg>
             </div>
-            <p className="text-neo-text-muted text-sm">No hay roles configurados.</p>
+            <p className="text-[#666666] text-sm">No hay roles configurados.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -493,26 +493,26 @@ export default function SettingsPage() {
                 <Link
                   key={role.id}
                   href={`/admin/roles/${role.id}`}
-                  className="group relative flex flex-col gap-3 p-4 rounded-xl border border-neo-dark-3/50 bg-neo-dark-3/20 hover:border-neo-primary/30 hover:bg-neo-dark-3/40 transition-all duration-200"
+                  className="group relative flex flex-col gap-3 p-4 rounded-xl border border-[#1E1E1E]/50 bg-[#1A1A1A]/20 hover:border-[#98283A]/30 hover:bg-[#1A1A1A]/40 transition-all duration-200"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-neo-text text-sm font-semibold group-hover:text-neo-primary transition-colors">
+                    <span className="text-white text-sm font-semibold group-hover:text-white transition-colors">
                       {role.name}
                     </span>
                     {role.isAdmin && (
-                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-neo-primary/15 text-neo-primary uppercase tracking-wider">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#98283A]/15 text-[#98283A] uppercase tracking-wider">
                         Admin
                       </span>
                     )}
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex items-center gap-1 text-neo-text-muted text-xs bg-neo-dark-4/40 px-2 py-0.5 rounded-md">
+                    <span className="inline-flex items-center gap-1 text-[#666666] text-xs bg-[#1E1E1E]/40 px-2 py-0.5 rounded-md">
                       <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6z" />
                       </svg>
                       {role.sections.length} seccion{role.sections.length !== 1 ? 'es' : ''}
                     </span>
-                    <span className="inline-flex items-center gap-1 text-neo-text-muted text-xs bg-neo-dark-4/40 px-2 py-0.5 rounded-md">
+                    <span className="inline-flex items-center gap-1 text-[#666666] text-xs bg-[#1E1E1E]/40 px-2 py-0.5 rounded-md">
                       <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
                       </svg>
@@ -520,7 +520,7 @@ export default function SettingsPage() {
                     </span>
                   </div>
                   {/* Hover arrow */}
-                  <svg className="absolute right-3 top-4 w-4 h-4 text-neo-text-muted opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg className="absolute right-3 top-4 w-4 h-4 text-[#666666] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                   </svg>
                 </Link>
@@ -545,11 +545,11 @@ export default function SettingsPage() {
               <div key={section.id}>
                 <button
                   onClick={() => toggleContentSection(section.id)}
-                  className="w-full flex items-center justify-between py-3 px-3 -mx-0 rounded-lg hover:bg-neo-dark-3/30 transition-all duration-200 group"
+                  className="w-full flex items-center justify-between py-3 px-3 -mx-0 rounded-lg hover:bg-[#1A1A1A]/30 transition-all duration-200 group"
                 >
                   <div className="flex items-center gap-3">
                     <svg
-                      className={`w-3.5 h-3.5 text-neo-text-muted transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}
+                      className={`w-3.5 h-3.5 text-[#666666] transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -557,23 +557,23 @@ export default function SettingsPage() {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
-                    <span className="text-neo-text text-sm font-medium group-hover:text-neo-primary transition-colors">
+                    <span className="text-white text-sm font-medium group-hover:text-white transition-colors">
                       {section.nameEs}
                     </span>
                   </div>
-                  <span className="text-neo-text-muted text-xs bg-neo-dark-4/40 px-2.5 py-0.5 rounded-full font-medium">
+                  <span className="text-[#666666] text-xs bg-[#1E1E1E]/40 px-2.5 py-0.5 rounded-full font-medium">
                     {section.documents.length}
                   </span>
                 </button>
 
                 {isOpen && (
-                  <div className="ml-10 mr-3 mb-2 space-y-0.5 border-l-2 border-neo-dark-3/50 pl-4">
+                  <div className="ml-10 mr-3 mb-2 space-y-0.5 border-l-2 border-[#1E1E1E]/50 pl-4">
                     {section.documents.map((doc) => (
-                      <div key={doc.slug} className="flex items-center gap-2.5 py-2 px-2 rounded-md hover:bg-neo-dark-3/20 transition-all duration-150">
-                        <svg className="w-3.5 h-3.5 text-neo-text-muted flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <div key={doc.slug} className="flex items-center gap-2.5 py-2 px-2 rounded-md hover:bg-[#1A1A1A]/20 transition-all duration-150">
+                        <svg className="w-3.5 h-3.5 text-[#666666] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                         </svg>
-                        <span className="text-neo-text-body text-sm">{doc.titleEs}</span>
+                        <span className="text-[#A0A0A0] text-sm">{doc.titleEs}</span>
                       </div>
                     ))}
                   </div>
@@ -600,7 +600,7 @@ export default function SettingsPage() {
         <div className="space-y-0">
           {languages.map((lang, idx) => (
             <div key={lang.code}>
-              <div className="flex items-center gap-4 py-4 px-3 -mx-3 rounded-lg hover:bg-neo-dark-3/20 transition-all duration-200">
+              <div className="flex items-center gap-4 py-4 px-3 -mx-3 rounded-lg hover:bg-[#1A1A1A]/20 transition-all duration-200">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={lang.flag}
@@ -608,16 +608,16 @@ export default function SettingsPage() {
                   className="w-9 h-7 rounded-md object-cover flex-shrink-0 shadow-sm ring-1 ring-white/10"
                 />
                 <div className="flex-1 min-w-0">
-                  <div className="text-neo-text text-sm font-medium">{lang.name}</div>
-                  <div className="text-neo-text-muted text-xs mt-0.5">{lang.code.toUpperCase()} -- {lang.count} documentos</div>
+                  <div className="text-white text-sm font-medium">{lang.name}</div>
+                  <div className="text-[#666666] text-xs mt-0.5">{lang.code.toUpperCase()} -- {lang.count} documentos</div>
                 </div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-neo-success/10 text-neo-success border border-neo-success/20">
-                  <span className="w-1.5 h-1.5 rounded-full bg-neo-success inline-block" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[#38CC97]/10 text-[#38CC97] border border-[#38CC97]/20">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#38CC97] inline-block" />
                   Activo
                 </span>
               </div>
               {idx < languages.length - 1 && (
-                <div className="border-b border-neo-dark-3/30 mx-3" />
+                <div className="border-b border-[#1A1A1A]/30 mx-3" />
               )}
             </div>
           ))}
@@ -641,26 +641,26 @@ export default function SettingsPage() {
           description="Autenticacion, sesiones y control de acceso."
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="p-4 rounded-lg bg-neo-dark-3/20 border border-neo-dark-3/30">
-              <label className="block text-xs uppercase tracking-wide text-neo-text-muted font-medium mb-2">
+            <div className="p-4 rounded-lg bg-[#1A1A1A]/20 border border-[#1A1A1A]/30">
+              <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">
                 Metodo de Autenticacion
               </label>
               <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-neo-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-4 h-4 text-[#98283A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
                 </svg>
-                <div className="text-neo-text text-sm font-medium">Login codes (6 digitos)</div>
+                <div className="text-white text-sm font-medium">Login codes (6 digitos)</div>
               </div>
             </div>
-            <div className="p-4 rounded-lg bg-neo-dark-3/20 border border-neo-dark-3/30">
-              <label className="block text-xs uppercase tracking-wide text-neo-text-muted font-medium mb-2">
+            <div className="p-4 rounded-lg bg-[#1A1A1A]/20 border border-[#1A1A1A]/30">
+              <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">
                 Duracion de Sesion
               </label>
               <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-neo-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-4 h-4 text-[#98283A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <div className="text-neo-text text-sm font-medium">30 dias</div>
+                <div className="text-white text-sm font-medium">30 dias</div>
               </div>
             </div>
           </div>
@@ -671,22 +671,22 @@ export default function SettingsPage() {
           title="Cuentas de Administrador"
           description="Usuarios con acceso completo al panel de administracion."
         >
-          <div className="overflow-hidden rounded-lg border border-neo-dark-3/40">
+          <div className="overflow-hidden rounded-lg border border-[#1A1A1A]/40">
             {/* Table header */}
-            <div className="grid grid-cols-12 gap-4 px-4 py-2.5 bg-neo-dark-3/30 border-b border-neo-dark-3/40">
-              <div className="col-span-5 text-xs uppercase tracking-wide text-neo-text-muted font-medium">Usuario</div>
-              <div className="col-span-3 text-xs uppercase tracking-wide text-neo-text-muted font-medium">Idioma</div>
-              <div className="col-span-4 text-xs uppercase tracking-wide text-neo-text-muted font-medium text-right">Estado</div>
+            <div className="grid grid-cols-12 gap-4 px-4 py-2.5 bg-[#1A1A1A]/30 border-b border-[#1A1A1A]/40">
+              <div className="col-span-5 text-xs uppercase tracking-wide text-[#666666] font-medium">Usuario</div>
+              <div className="col-span-3 text-xs uppercase tracking-wide text-[#666666] font-medium">Idioma</div>
+              <div className="col-span-4 text-xs uppercase tracking-wide text-[#666666] font-medium text-right">Estado</div>
             </div>
             {/* Table rows */}
             {admins.map((acc, idx) => {
               const user = users.find((u) => u.id === acc.id);
-              const gradients = ['from-neo-primary to-neo-primary-light', 'from-violet-500 to-purple-600', 'from-blue-500 to-indigo-600'];
+              const gradients = ['from-slate-600 to-slate-700', 'from-zinc-600 to-zinc-700', 'from-gray-600 to-gray-700'];
               return (
                 <div
                   key={acc.id}
-                  className={`grid grid-cols-12 gap-4 px-4 py-3.5 items-center hover:bg-neo-dark-3/20 transition-all duration-150 ${
-                    idx < admins.length - 1 ? 'border-b border-neo-dark-3/30' : ''
+                  className={`grid grid-cols-12 gap-4 px-4 py-3.5 items-center hover:bg-[#1A1A1A]/20 transition-all duration-150 ${
+                    idx < admins.length - 1 ? 'border-b border-[#1A1A1A]/30' : ''
                   }`}
                 >
                   <div className="col-span-5 flex items-center gap-3">
@@ -694,18 +694,18 @@ export default function SettingsPage() {
                       {acc.name.charAt(0)}
                     </div>
                     <div>
-                      <div className="text-neo-text text-sm font-medium">{acc.name}</div>
-                      <div className="text-neo-text-muted text-xs">{acc.id}@neomaaa.com</div>
+                      <div className="text-white text-sm font-medium">{acc.name}</div>
+                      <div className="text-[#666666] text-xs">{acc.id}@neomaaa.com</div>
                     </div>
                   </div>
                   <div className="col-span-3 flex items-center">
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-neo-dark-4/30 text-neo-text-secondary">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-[#1E1E1E]/30 text-[#A0A0A0]">
                       {acc.lang}
                     </span>
                   </div>
                   <div className="col-span-4 flex items-center justify-end gap-1.5">
-                    <span className={`w-1.5 h-1.5 rounded-full inline-block ${user?.isActive ? 'bg-neo-success' : 'bg-neo-dark-5'}`} />
-                    <span className={`text-xs font-medium ${user?.isActive ? 'text-neo-success' : 'text-neo-text-muted'}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full inline-block ${user?.isActive ? 'bg-[#38CC97]' : 'bg-[#333333]'}`} />
+                    <span className={`text-xs font-medium ${user?.isActive ? 'text-[#38CC97]' : 'text-[#666666]'}`}>
                       {user ? (user.isActive ? 'Activo' : 'Inactivo') : 'No encontrado'}
                     </span>
                   </div>
@@ -719,25 +719,25 @@ export default function SettingsPage() {
             <svg className="w-4 h-4 text-neo-warning flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
             </svg>
-            <p className="text-neo-text-secondary text-xs leading-relaxed">
-              Los codigos de acceso se asignan al crear usuarios. Usa la pagina de <Link href="/admin/users" className="text-neo-primary hover:text-neo-primary-light transition-colors font-medium">Usuarios</Link> para regenerarlos.
+            <p className="text-[#A0A0A0] text-xs leading-relaxed">
+              Los codigos de acceso se asignan al crear usuarios. Usa la pagina de <Link href="/admin/users" className="text-[#98283A] hover:text-[#B33347] transition-colors font-medium">Usuarios</Link> para regenerarlos.
             </p>
           </div>
 
           {/* Seed action */}
-          <div className="mt-5 pt-5 border-t border-neo-dark-3/40">
+          <div className="mt-5 pt-5 border-t border-[#1A1A1A]/40">
             <div className="flex items-center justify-between">
               <div>
-                <h4 className="text-xs uppercase tracking-wide text-neo-text-muted font-medium mb-1">Seed de Datos</h4>
-                <p className="text-neo-text-muted text-xs">Re-inicializar los datos base del sistema.</p>
+                <h4 className="text-xs uppercase tracking-wide text-[#666666] font-medium mb-1">Seed de Datos</h4>
+                <p className="text-[#666666] text-xs">Re-inicializar los datos base del sistema.</p>
               </div>
               <div className="flex items-center gap-3">
                 {seedStatus && (
-                  <span className="text-neo-primary text-xs font-medium animate-pulse">{seedStatus}</span>
+                  <span className="text-[#98283A] text-xs font-medium animate-pulse">{seedStatus}</span>
                 )}
                 <button
                   onClick={handleSeed}
-                  className="text-sm font-medium px-4 py-2 rounded-lg bg-neo-dark-3/50 text-neo-text-secondary hover:text-neo-text hover:bg-neo-dark-4/50 border border-neo-dark-4/30 hover:border-neo-dark-4/60 transition-all duration-200"
+                  className="text-sm font-medium px-4 py-2 rounded-lg bg-[#1A1A1A]/50 text-[#A0A0A0] hover:text-white hover:bg-[#1E1E1E] border border-[#1E1E1E]/30 hover:border-[#1E1E1E] transition-all duration-200"
                 >
                   Re-ejecutar Seed
                 </button>
@@ -758,7 +758,7 @@ export default function SettingsPage() {
         <div className="space-y-0">
           {INTEGRATIONS.map((integration, idx) => (
             <div key={integration.name}>
-              <div className="flex items-center gap-4 py-4 px-3 -mx-3 rounded-lg hover:bg-neo-dark-3/20 transition-all duration-200 group">
+              <div className="flex items-center gap-4 py-4 px-3 -mx-3 rounded-lg hover:bg-[#1A1A1A]/20 transition-all duration-200 group">
                 {/* Icon */}
                 <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${integration.color} flex items-center justify-center text-white text-xs font-bold flex-shrink-0 shadow-lg`}>
                   {integration.initial}
@@ -766,32 +766,32 @@ export default function SettingsPage() {
 
                 {/* Name + desc */}
                 <div className="flex-1 min-w-0">
-                  <div className="text-neo-text text-sm font-medium group-hover:text-neo-text transition-colors">
+                  <div className="text-white text-sm font-medium group-hover:text-white transition-colors">
                     {integration.name}
                   </div>
-                  <div className="text-neo-text-muted text-xs mt-0.5">{integration.desc}</div>
+                  <div className="text-[#666666] text-xs mt-0.5">{integration.desc}</div>
                 </div>
 
                 {/* Status */}
                 <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${
                   integration.status === 'Conectado'
-                    ? 'bg-neo-success/10 text-neo-success border border-neo-success/20'
+                    ? 'bg-[#38CC97]/10 text-[#38CC97] border border-[#38CC97]/20'
                     : integration.status === 'Parcial' || integration.status === 'Pendiente'
                     ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-                    : 'bg-neo-dark-3/50 text-neo-text-muted border border-neo-dark-4/30'
+                    : 'bg-[#1A1A1A]/50 text-[#666666] border border-[#1E1E1E]/30'
                 }`}>
                   <span className={`w-1.5 h-1.5 rounded-full inline-block ${
                     integration.status === 'Conectado'
-                      ? 'bg-neo-success'
+                      ? 'bg-[#38CC97]'
                       : integration.status === 'Parcial' || integration.status === 'Pendiente'
                       ? 'bg-amber-400'
-                      : 'bg-neo-text-muted/50'
+                      : 'bg-[#666666]/50'
                   }`} />
                   {integration.status}
                 </span>
               </div>
               {idx < INTEGRATIONS.length - 1 && (
-                <div className="border-b border-neo-dark-3/30 mx-3" />
+                <div className="border-b border-[#1A1A1A]/30 mx-3" />
               )}
             </div>
           ))}
@@ -843,15 +843,15 @@ export default function SettingsPage() {
         title="Plataforma"
         description="Informacion tecnica del deploy y repositorio."
       >
-        <div className="overflow-hidden rounded-lg border border-neo-dark-3/40">
+        <div className="overflow-hidden rounded-lg border border-[#1A1A1A]/40">
           {platformData.map((item, idx) => (
             <div
               key={item.label}
-              className={`flex items-center justify-between px-4 py-3.5 hover:bg-neo-dark-3/20 transition-all duration-150 ${
-                idx < platformData.length - 1 ? 'border-b border-neo-dark-3/30' : ''
+              className={`flex items-center justify-between px-4 py-3.5 hover:bg-[#1A1A1A]/20 transition-all duration-150 ${
+                idx < platformData.length - 1 ? 'border-b border-[#1A1A1A]/30' : ''
               }`}
             >
-              <span className="text-xs uppercase tracking-wide text-neo-text-muted font-medium">
+              <span className="text-xs uppercase tracking-wide text-[#666666] font-medium">
                 {item.label}
               </span>
               {item.isLink ? (
@@ -859,7 +859,7 @@ export default function SettingsPage() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-neo-primary text-sm font-medium hover:text-neo-primary-light transition-colors"
+                  className="inline-flex items-center gap-1.5 text-[#98283A] text-sm font-medium hover:text-[#B33347] transition-colors"
                 >
                   {item.value}
                   <svg className="w-3.5 h-3.5 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -867,11 +867,11 @@ export default function SettingsPage() {
                   </svg>
                 </a>
               ) : item.badge ? (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-neo-primary/15 text-neo-primary border border-neo-primary/20">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#98283A]/15 text-[#98283A] border border-[#98283A]/20">
                   {item.value}
                 </span>
               ) : (
-                <span className="text-neo-text text-sm">{item.value}</span>
+                <span className="text-white text-sm">{item.value}</span>
               )}
             </div>
           ))}
@@ -895,8 +895,8 @@ export default function SettingsPage() {
     <div>
       {/* ── Page Header ── */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-neo-text tracking-tight">Settings</h1>
-        <p className="text-neo-text-muted text-sm mt-1">Configura tu plataforma, equipo e integraciones.</p>
+        <h1 className="text-2xl font-bold text-white tracking-tight">Settings</h1>
+        <p className="text-[#666666] text-sm mt-1">Configura tu plataforma, equipo e integraciones.</p>
       </div>
 
       {/* ── Main layout: sidebar + content ── */}
@@ -904,11 +904,11 @@ export default function SettingsPage() {
         {/* Left sidebar */}
         <div className="w-60 flex-shrink-0">
           <div className="sticky top-6">
-            <nav className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-3 space-y-5">
+            <nav className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-3 space-y-5">
               {CATEGORY_GROUPS.map((group) => (
                 <div key={group.label}>
                   <div className="px-3 mb-2">
-                    <span className="text-[10px] uppercase tracking-widest text-neo-text-muted/60 font-semibold">
+                    <span className="text-[10px] uppercase tracking-widest text-[#666666]/60 font-semibold">
                       {group.label}
                     </span>
                   </div>
@@ -921,11 +921,11 @@ export default function SettingsPage() {
                           onClick={() => setActiveSection(cat.id)}
                           className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200 ${
                             isActive
-                              ? 'bg-neo-primary/10 text-neo-primary font-medium border border-neo-primary/20'
-                              : 'text-neo-text-secondary hover:bg-neo-dark-3/50 hover:text-neo-text border border-transparent'
+                              ? 'bg-[#98283A]/10 text-[#98283A] font-medium border border-[#98283A]/20'
+                              : 'text-[#A0A0A0] hover:bg-[#1A1A1A]/50 hover:text-white border border-transparent'
                           }`}
                         >
-                          <span className={`flex-shrink-0 transition-colors duration-200 ${isActive ? 'text-neo-primary' : 'text-neo-text-muted'}`}>
+                          <span className={`flex-shrink-0 transition-colors duration-200 ${isActive ? 'text-[#98283A]' : 'text-[#666666]'}`}>
                             {cat.icon}
                           </span>
                           {cat.label}

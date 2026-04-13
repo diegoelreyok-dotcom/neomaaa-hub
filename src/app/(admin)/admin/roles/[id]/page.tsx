@@ -180,12 +180,12 @@ export default function RolePermissionsPage() {
   if (loading) {
     return (
       <div className="animate-pulse">
-        <div className="h-4 w-32 bg-neo-dark-3/40 rounded mb-4" />
-        <div className="h-8 w-48 bg-neo-dark-3 rounded-lg mb-2" />
-        <div className="h-4 w-64 bg-neo-dark-3/60 rounded-lg mb-8" />
+        <div className="h-4 w-32 bg-[#1A1A1A]/40 rounded mb-4" />
+        <div className="h-8 w-48 bg-[#1A1A1A] rounded-lg mb-2" />
+        <div className="h-4 w-64 bg-[#1A1A1A]/60 rounded-lg mb-8" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-5 h-40" />
+            <div key={i} className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-5 h-40" />
           ))}
         </div>
       </div>
@@ -195,15 +195,15 @@ export default function RolePermissionsPage() {
   if (error || !role) {
     return (
       <div className="text-center py-16">
-        <div className="w-16 h-16 rounded-full bg-neo-danger/10 flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-neo-danger" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <div className="w-16 h-16 rounded-full bg-[#C44545]/10 flex items-center justify-center mx-auto mb-4">
+          <svg className="w-8 h-8 text-[#C44545]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
           </svg>
         </div>
-        <p className="text-neo-danger text-sm font-medium mb-2">{error || 'Rol no encontrado'}</p>
+        <p className="text-[#C44545] text-sm font-medium mb-2">{error || 'Rol no encontrado'}</p>
         <Link
           href="/admin/roles"
-          className="text-neo-primary text-sm hover:text-neo-primary-light transition-colors duration-200 font-medium"
+          className="text-[#98283A] text-sm hover:text-[#B33347] transition-colors duration-200 font-medium"
         >
           Volver a Roles
         </Link>
@@ -223,7 +223,7 @@ export default function RolePermissionsPage() {
       <div className="mb-8">
         <Link
           href="/admin/roles"
-          className="inline-flex items-center gap-1.5 text-neo-text-muted text-sm hover:text-neo-primary transition-colors duration-200 mb-4"
+          className="inline-flex items-center gap-1.5 text-[#666666] text-sm hover:text-white transition-colors duration-200 mb-4"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -234,17 +234,17 @@ export default function RolePermissionsPage() {
         <div className="flex items-center justify-between">
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-bold text-neo-text">{role.name}</h1>
+              <h1 className="text-2xl font-bold text-white">{role.name}</h1>
               {role.isAdmin && (
-                <span className="bg-neo-primary/15 text-neo-primary text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider border border-neo-primary/20">
+                <span className="bg-[#98283A]/15 text-[#98283A] text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider border border-[#98283A]/20">
                   Admin
                 </span>
               )}
             </div>
             {role.nameRu !== role.name && (
-              <p className="text-neo-text-muted text-sm mt-0.5">{role.nameRu}</p>
+              <p className="text-[#666666] text-sm mt-0.5">{role.nameRu}</p>
             )}
-            <p className="text-neo-text-secondary text-sm mt-2">
+            <p className="text-[#A0A0A0] text-sm mt-2">
               Configura las secciones que este rol puede ver
             </p>
           </div>
@@ -254,14 +254,14 @@ export default function RolePermissionsPage() {
             <button
               onClick={() => handleToggleAll(true)}
               disabled={enabledCount === totalSections || saving === 'all'}
-              className="text-xs font-medium px-3 py-2 rounded-lg bg-neo-primary/10 text-neo-primary hover:bg-neo-primary/20 border border-neo-primary/20 hover:border-neo-primary/30 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+              className="text-xs font-medium px-3 py-2 rounded-lg bg-[#98283A]/10 text-[#98283A] hover:bg-[#98283A]/20 border border-[#98283A]/20 hover:border-[#98283A]/30 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
             >
               Activar todas
             </button>
             <button
               onClick={() => handleToggleAll(false)}
               disabled={enabledCount === 0 || saving === 'all'}
-              className="text-xs font-medium px-3 py-2 rounded-lg bg-neo-dark-3/50 text-neo-text-secondary hover:text-neo-text hover:bg-neo-dark-4/50 border border-neo-dark-4/30 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+              className="text-xs font-medium px-3 py-2 rounded-lg bg-[#1A1A1A]/50 text-[#A0A0A0] hover:text-white hover:bg-[#1E1E1E]/50 border border-[#1E1E1E]/30 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
             >
               Desactivar todas
             </button>
@@ -279,10 +279,10 @@ export default function RolePermissionsPage() {
           return (
             <div
               key={section.id}
-              className={`bg-neo-dark-2 border rounded-xl transition-all duration-300 ${
+              className={`bg-[#111111] border rounded-xl transition-all duration-300 ${
                 isEnabled
-                  ? 'border-neo-primary/40 shadow-[0_0_20px_rgba(152,40,58,0.06)]'
-                  : 'border-neo-dark-3/60'
+                  ? 'border-[#98283A]/40 shadow-[0_0_20px_rgba(152,40,58,0.06)]'
+                  : 'border-[#1E1E1E]'
               } ${isExpanded ? 'sm:col-span-2 lg:col-span-3' : ''}`}
             >
               <div className="p-5">
@@ -291,8 +291,8 @@ export default function RolePermissionsPage() {
                     {/* Section icon */}
                     <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
                       isEnabled
-                        ? 'bg-neo-primary/15 text-neo-primary'
-                        : 'bg-neo-dark-3/50 text-neo-text-muted'
+                        ? 'bg-[#98283A]/15 text-[#98283A]'
+                        : 'bg-[#1A1A1A]/50 text-[#666666]'
                     }`}>
                       {SECTION_ICONS[section.id] || (
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -302,10 +302,10 @@ export default function RolePermissionsPage() {
                     </div>
 
                     <div className="flex-1 min-w-0">
-                      <h3 className={`font-semibold text-sm transition-colors duration-200 ${isEnabled ? 'text-neo-text' : 'text-neo-text-muted'}`}>
+                      <h3 className={`font-semibold text-sm transition-colors duration-200 ${isEnabled ? 'text-white' : 'text-[#666666]'}`}>
                         {section.nameEs}
                       </h3>
-                      <p className="text-neo-text-muted text-xs mt-0.5">
+                      <p className="text-[#666666] text-xs mt-0.5">
                         {section.nameRu}
                       </p>
                       {/* Document count pill */}
@@ -313,8 +313,8 @@ export default function RolePermissionsPage() {
                         onClick={() => setExpandedSection(isExpanded ? null : section.id)}
                         className={`inline-flex items-center gap-1 text-xs mt-2 px-2 py-0.5 rounded-md transition-all duration-200 ${
                           isEnabled
-                            ? 'text-neo-text-secondary bg-neo-dark-3/40 hover:bg-neo-dark-3/60'
-                            : 'text-neo-text-muted bg-neo-dark-3/20 hover:bg-neo-dark-3/40'
+                            ? 'text-[#A0A0A0] bg-[#1A1A1A]/40 hover:bg-[#1A1A1A]/60'
+                            : 'text-[#666666] bg-[#1A1A1A]/20 hover:bg-[#1A1A1A]/40'
                         }`}
                       >
                         <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -335,8 +335,8 @@ export default function RolePermissionsPage() {
                     disabled={isSaving}
                     className={`relative w-12 h-7 rounded-full transition-all duration-300 flex-shrink-0 ml-3 ${
                       isEnabled
-                        ? 'bg-neo-primary shadow-lg shadow-neo-primary/30'
-                        : 'bg-neo-dark-4 hover:bg-neo-dark-4/80'
+                        ? 'bg-[#98283A] shadow-lg shadow-[#98283A]/30'
+                        : 'bg-[#1E1E1E] hover:bg-[#1E1E1E]/80'
                     } ${isSaving ? 'opacity-50' : ''}`}
                     aria-label={`${isEnabled ? 'Deshabilitar' : 'Habilitar'} ${section.nameEs}`}
                   >
@@ -352,21 +352,21 @@ export default function RolePermissionsPage() {
               {/* Expanded document list */}
               {isExpanded && (
                 <div className="px-5 pb-5">
-                  <div className="border-t border-neo-dark-3/40 pt-4">
+                  <div className="border-t border-[#1A1A1A]/40 pt-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                       {section.documents.map((doc, i) => (
                         <div
                           key={i}
                           className={`flex items-center gap-2.5 px-3 py-2 rounded-lg transition-all duration-200 ${
                             isEnabled
-                              ? 'bg-neo-primary/5 border border-neo-primary/10'
-                              : 'bg-neo-dark-3/20 border border-neo-dark-3/20'
+                              ? 'bg-[#98283A]/5 border border-[#98283A]/10'
+                              : 'bg-[#1A1A1A]/20 border border-[#1A1A1A]/20'
                           }`}
                         >
-                          <svg className={`w-3.5 h-3.5 flex-shrink-0 ${isEnabled ? 'text-neo-primary' : 'text-neo-text-muted'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <svg className={`w-3.5 h-3.5 flex-shrink-0 ${isEnabled ? 'text-[#98283A]' : 'text-[#666666]'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                           </svg>
-                          <span className={`text-xs font-medium ${isEnabled ? 'text-neo-text' : 'text-neo-text-muted'}`}>
+                          <span className={`text-xs font-medium ${isEnabled ? 'text-white' : 'text-[#666666]'}`}>
                             {doc}
                           </span>
                         </div>
@@ -383,28 +383,28 @@ export default function RolePermissionsPage() {
       {/* Sticky summary bar */}
       <div className="fixed bottom-0 left-0 right-0 z-40">
         <div className="max-w-5xl mx-auto px-4 pb-4">
-          <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-4 shadow-2xl shadow-black/40 backdrop-blur-sm">
+          <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-4 shadow-2xl shadow-black/40 backdrop-blur-sm">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div>
-                  <div className="text-sm font-medium text-neo-text">
-                    <span className="text-neo-primary font-bold text-lg">{enabledCount}</span>
-                    <span className="text-neo-text-muted"> / {totalSections} secciones</span>
+                  <div className="text-sm font-medium text-white">
+                    <span className="text-[#98283A] font-bold text-lg">{enabledCount}</span>
+                    <span className="text-[#666666]"> / {totalSections} secciones</span>
                   </div>
-                  <div className="text-neo-text-muted text-xs mt-0.5">
+                  <div className="text-[#666666] text-xs mt-0.5">
                     {totalDocsEnabled} documentos accesibles
                   </div>
                 </div>
 
                 {/* Progress indicator */}
                 <div className="hidden sm:flex items-center gap-2">
-                  <div className="w-32 bg-neo-dark-3/50 rounded-full h-2 overflow-hidden">
+                  <div className="w-32 bg-[#1A1A1A]/50 rounded-full h-2 overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-neo-primary to-neo-primary-light transition-all duration-500"
+                      className="h-full rounded-full bg-gradient-to-r from-[#98283A] to-[#B33347] transition-all duration-500"
                       style={{ width: `${(enabledCount / totalSections) * 100}%` }}
                     />
                   </div>
-                  <span className="text-xs text-neo-text-secondary font-medium">
+                  <span className="text-xs text-[#A0A0A0] font-medium">
                     {Math.round((enabledCount / totalSections) * 100)}%
                   </span>
                 </div>
@@ -412,14 +412,14 @@ export default function RolePermissionsPage() {
 
               <div className="flex gap-2 flex-wrap justify-end">
                 {role.sections.length === 0 ? (
-                  <span className="text-xs text-neo-text-muted">Ninguna seccion habilitada</span>
+                  <span className="text-xs text-[#666666]">Ninguna seccion habilitada</span>
                 ) : (
                   role.sections.slice(0, 5).map((sid) => {
                     const sec = ALL_SECTIONS.find((s) => s.id === sid);
                     return (
                       <span
                         key={sid}
-                        className="text-xs bg-neo-primary/10 text-neo-primary px-2.5 py-1 rounded-lg font-medium border border-neo-primary/15"
+                        className="text-xs bg-[#98283A]/10 text-[#98283A] px-2.5 py-1 rounded-lg font-medium border border-[#98283A]/15"
                       >
                         {sec?.nameEs || sid}
                       </span>
@@ -427,7 +427,7 @@ export default function RolePermissionsPage() {
                   })
                 )}
                 {role.sections.length > 5 && (
-                  <span className="text-xs bg-neo-dark-3/50 text-neo-text-muted px-2.5 py-1 rounded-lg font-medium">
+                  <span className="text-xs bg-[#1A1A1A]/50 text-[#666666] px-2.5 py-1 rounded-lg font-medium">
                     +{role.sections.length - 5} mas
                   </span>
                 )}

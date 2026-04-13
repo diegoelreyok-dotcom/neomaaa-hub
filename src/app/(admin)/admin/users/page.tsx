@@ -21,12 +21,12 @@ interface RoleData {
 }
 
 const AVATAR_GRADIENTS = [
-  'from-neo-primary to-neo-primary-light',
-  'from-blue-500 to-indigo-600',
-  'from-violet-500 to-purple-600',
-  'from-rose-500 to-pink-600',
-  'from-amber-500 to-orange-600',
-  'from-cyan-500 to-teal-600',
+  'from-slate-600 to-slate-700',
+  'from-zinc-600 to-zinc-700',
+  'from-gray-600 to-gray-700',
+  'from-neutral-600 to-neutral-700',
+  'from-stone-600 to-stone-700',
+  'from-slate-500 to-gray-700',
 ];
 
 export default function UsersPage() {
@@ -197,23 +197,23 @@ export default function UsersPage() {
       <div className="animate-pulse">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <div className="h-8 w-32 bg-neo-dark-3 rounded-lg mb-2" />
-            <div className="h-4 w-48 bg-neo-dark-3/60 rounded-lg" />
+            <div className="h-8 w-32 bg-[#1A1A1A] rounded-lg mb-2" />
+            <div className="h-4 w-48 bg-[#1A1A1A]/60 rounded-lg" />
           </div>
-          <div className="h-10 w-36 bg-neo-dark-3 rounded-lg" />
+          <div className="h-10 w-36 bg-[#1A1A1A] rounded-lg" />
         </div>
-        <div className="h-10 w-80 bg-neo-dark-3/50 rounded-lg mb-4" />
-        <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl overflow-hidden">
-          <div className="h-10 bg-neo-dark-3/50" />
+        <div className="h-10 w-80 bg-[#1A1A1A]/50 rounded-lg mb-4" />
+        <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl overflow-hidden">
+          <div className="h-10 bg-[#1A1A1A]/50" />
           {[1, 2, 3, 4, 5].map((i) => (
-            <div key={i} className="flex items-center gap-4 px-4 py-4 border-t border-neo-dark-3/30">
-              <div className="w-8 h-8 rounded-full bg-neo-dark-3/50" />
+            <div key={i} className="flex items-center gap-4 px-4 py-4 border-t border-[#1A1A1A]/30">
+              <div className="w-8 h-8 rounded-full bg-[#1A1A1A]/50" />
               <div className="flex-1 space-y-2">
-                <div className="h-4 w-32 bg-neo-dark-3/40 rounded" />
-                <div className="h-3 w-24 bg-neo-dark-3/30 rounded" />
+                <div className="h-4 w-32 bg-[#1A1A1A]/40 rounded" />
+                <div className="h-3 w-24 bg-[#1A1A1A]/30 rounded" />
               </div>
-              <div className="h-4 w-20 bg-neo-dark-3/40 rounded" />
-              <div className="h-5 w-14 bg-neo-dark-3/40 rounded-full" />
+              <div className="h-4 w-20 bg-[#1A1A1A]/40 rounded" />
+              <div className="h-5 w-14 bg-[#1A1A1A]/40 rounded-full" />
             </div>
           ))}
         </div>
@@ -226,14 +226,14 @@ export default function UsersPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-neo-text">Usuarios</h1>
-          <p className="text-neo-text-muted text-sm mt-1">
+          <h1 className="text-2xl font-bold text-white">Usuarios</h1>
+          <p className="text-[#666666] text-sm mt-1">
             {users.length} usuario{users.length !== 1 ? 's' : ''} registrado{users.length !== 1 ? 's' : ''}
           </p>
         </div>
         <button
           onClick={() => setShowModal(true)}
-          className="bg-neo-primary text-white font-semibold text-sm px-4 py-2.5 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200"
+          className="bg-[#98283A] text-white font-semibold text-sm px-4 py-2.5 rounded-lg hover:bg-[#B33347] transition-all duration-200"
         >
           Agregar Usuario
         </button>
@@ -242,7 +242,7 @@ export default function UsersPage() {
       {/* Search */}
       <div className="mb-4">
         <div className="relative max-w-md">
-          <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neo-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#666666]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
           </svg>
           <input
@@ -250,33 +250,33 @@ export default function UsersPage() {
             placeholder="Buscar por nombre, ID o rol..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-neo-dark-3/50 border border-neo-dark-4/50 text-neo-text rounded-lg pl-10 pr-4 py-2.5 text-sm placeholder:text-neo-text-muted/50 focus:outline-none focus:border-neo-primary/50 focus:ring-2 focus:ring-neo-primary/10 transition-all duration-200"
+            className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E] text-white rounded-lg pl-10 pr-4 py-2.5 text-sm placeholder:text-[#666666]/50 focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-all duration-200"
           />
         </div>
       </div>
 
       {/* Table */}
-      <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl overflow-hidden">
+      <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="bg-neo-dark-3/50">
-                <th className="text-left text-neo-text-muted text-xs font-semibold uppercase tracking-wider px-4 py-3">
+              <tr className="bg-[#0A0A0A]">
+                <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
                   Nombre
                 </th>
-                <th className="text-left text-neo-text-muted text-xs font-semibold uppercase tracking-wider px-4 py-3">
+                <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
                   Rol
                 </th>
-                <th className="text-left text-neo-text-muted text-xs font-semibold uppercase tracking-wider px-4 py-3">
+                <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
                   Idioma
                 </th>
-                <th className="text-left text-neo-text-muted text-xs font-semibold uppercase tracking-wider px-4 py-3">
+                <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
                   Ultimo Acceso
                 </th>
-                <th className="text-left text-neo-text-muted text-xs font-semibold uppercase tracking-wider px-4 py-3">
+                <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
                   Estado
                 </th>
-                <th className="text-right text-neo-text-muted text-xs font-semibold uppercase tracking-wider px-4 py-3">
+                <th className="text-right text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
                   Acciones
                 </th>
               </tr>
@@ -285,12 +285,12 @@ export default function UsersPage() {
               {filteredUsers.length === 0 ? (
                 <tr>
                   <td colSpan={6} className="px-4 py-12 text-center">
-                    <div className="w-12 h-12 rounded-full bg-neo-dark-3/50 flex items-center justify-center mx-auto mb-3">
-                      <svg className="w-6 h-6 text-neo-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <div className="w-12 h-12 rounded-full bg-[#1A1A1A] flex items-center justify-center mx-auto mb-3">
+                      <svg className="w-6 h-6 text-[#666666]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
                       </svg>
                     </div>
-                    <p className="text-neo-text-muted text-sm">
+                    <p className="text-[#666666] text-sm">
                       {search ? 'No se encontraron usuarios con ese criterio.' : 'No hay usuarios registrados.'}
                     </p>
                   </td>
@@ -303,48 +303,46 @@ export default function UsersPage() {
                   return (
                     <tr
                       key={user.id}
-                      className={`border-t border-neo-dark-3/40 ${
-                        idx % 2 === 0 ? 'bg-neo-dark-2' : 'bg-neo-dark-2/50'
-                      } hover:bg-neo-dark-3/30 transition-all duration-200`}
+                      className="border-t border-[#1A1A1A]/40 hover:bg-[#161616] transition-all duration-200"
                     >
                       <td className="px-4 py-3.5">
                         <div className="flex items-center gap-3">
-                          <div className={`w-9 h-9 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center text-white font-bold text-xs flex-shrink-0 shadow-lg`}>
+                          <div className={`w-9 h-9 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center text-white/90 font-bold text-xs flex-shrink-0`}>
                             {user.name.charAt(0).toUpperCase()}
                           </div>
                           <div>
-                            <div className="text-neo-text text-sm font-medium">{user.name}</div>
-                            <div className="text-neo-text-muted text-xs">{user.id}</div>
+                            <div className="text-white text-sm font-medium">{user.name}</div>
+                            <div className="text-[#666666] text-xs">{user.id}</div>
                           </div>
                         </div>
                       </td>
                       <td className="px-4 py-3.5">
-                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium ${
                           admin
-                            ? 'bg-neo-primary/15 text-neo-primary border border-neo-primary/20'
-                            : 'bg-neo-dark-3/50 text-neo-text-secondary border border-neo-dark-4/30'
+                            ? 'text-[#A0A0A0] border border-[#2A2A2A] bg-[#1A1A1A]'
+                            : 'text-[#A0A0A0] border border-[#1E1E1E] bg-transparent'
                         }`}>
                           {getRoleName(user.roleId)}
                         </span>
                       </td>
                       <td className="px-4 py-3.5">
-                        <span className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-neo-dark-3/40 text-neo-text-secondary uppercase">
+                        <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium text-[#A0A0A0] bg-[#1A1A1A]/40 uppercase">
                           {user.lang}
                         </span>
                       </td>
-                      <td className="px-4 py-3.5 text-neo-text-muted text-sm">
+                      <td className="px-4 py-3.5 text-[#666666] text-sm">
                         {formatDate(user.lastLogin)}
                       </td>
                       <td className="px-4 py-3.5">
                         <span
-                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-xs font-medium ${
                             user.isActive
-                              ? 'bg-neo-success/10 text-neo-success border border-neo-success/20'
-                              : 'bg-neo-danger/10 text-neo-danger border border-neo-danger/20'
+                              ? 'text-[#38CC97]'
+                              : 'text-[#666666]'
                           }`}
                         >
                           <span className={`w-1.5 h-1.5 rounded-full inline-block ${
-                            user.isActive ? 'bg-neo-success' : 'bg-neo-danger'
+                            user.isActive ? 'bg-[#38CC97]' : 'bg-[#666666]'
                           }`} />
                           {user.isActive ? 'Activo' : 'Inactivo'}
                         </span>
@@ -353,13 +351,13 @@ export default function UsersPage() {
                         <div className="flex items-center justify-end gap-2">
                           <button
                             onClick={() => toggleActive(user)}
-                            className="text-xs font-medium px-3 py-1.5 rounded-lg bg-neo-dark-3/50 text-neo-text-secondary hover:text-neo-text hover:bg-neo-dark-4/50 border border-neo-dark-4/30 hover:border-neo-dark-4/60 transition-all duration-200"
+                            className="text-xs font-medium px-3 py-1.5 rounded-lg text-[#A0A0A0] hover:text-white hover:bg-[#1A1A1A] border border-transparent hover:border-[#1E1E1E] transition-all duration-200"
                           >
                             {user.isActive ? 'Desactivar' : 'Activar'}
                           </button>
                           <button
                             onClick={() => handleDelete(user)}
-                            className="text-xs font-medium px-3 py-1.5 rounded-lg bg-neo-danger/10 text-neo-danger hover:bg-neo-danger/20 border border-neo-danger/20 hover:border-neo-danger/30 transition-all duration-200"
+                            className="text-xs font-medium px-3 py-1.5 rounded-lg text-[#C44545] hover:text-[#C44545] hover:bg-[#C44545]/10 border border-transparent hover:border-[#C44545]/20 transition-all duration-200"
                           >
                             Eliminar
                           </button>
@@ -377,44 +375,44 @@ export default function UsersPage() {
       {/* Create User Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-2xl w-full max-w-md shadow-2xl shadow-black/40">
+          <div className="bg-[#111111] border border-[#1E1E1E] rounded-2xl w-full max-w-md shadow-2xl shadow-black/40">
             {/* Modal header */}
             <div className="px-6 pt-6 pb-4">
-              <h2 className="text-lg font-semibold text-neo-text">Agregar Usuario</h2>
-              <p className="text-neo-text-muted text-sm mt-1">
+              <h2 className="text-lg font-semibold text-white">Agregar Usuario</h2>
+              <p className="text-[#666666] text-sm mt-1">
                 {generatedCode ? 'Usuario creado exitosamente' : 'Completa los datos del nuevo miembro'}
               </p>
             </div>
 
-            <div className="border-b border-neo-dark-3/40 mx-6" />
+            <div className="border-b border-[#1A1A1A] mx-6" />
 
             {generatedCode ? (
               /* Success view */
               <div className="p-6">
-                <div className="w-12 h-12 rounded-full bg-neo-success/10 flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-neo-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <div className="w-12 h-12 rounded-full bg-[#38CC97]/10 flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-6 h-6 text-[#38CC97]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
 
-                <p className="text-neo-text-body text-sm mb-4 text-center">
-                  Usuario <span className="text-neo-text font-semibold">{createdUserName}</span> creado correctamente.
+                <p className="text-[#A0A0A0] text-sm mb-4 text-center">
+                  Usuario <span className="text-white font-semibold">{createdUserName}</span> creado correctamente.
                 </p>
 
-                <div className="bg-neo-success/5 border border-neo-success/20 rounded-xl p-5">
-                  <label className="block text-xs uppercase tracking-wide text-neo-success/70 font-medium mb-2">
+                <div className="bg-[#38CC97]/5 border border-[#38CC97]/20 rounded-xl p-5">
+                  <label className="block text-xs uppercase tracking-wide text-[#38CC97]/70 font-medium mb-2">
                     Codigo de Acceso
                   </label>
                   <div className="flex items-center justify-between">
-                    <span className="text-neo-success font-mono text-3xl font-bold tracking-widest">
+                    <span className="text-[#38CC97] font-mono text-3xl font-bold tracking-widest">
                       {generatedCode}
                     </span>
                     <button
                       onClick={handleCopyCode}
                       className={`text-xs font-medium px-3 py-1.5 rounded-lg transition-all duration-200 ${
                         copied
-                          ? 'bg-neo-success/20 text-neo-success'
-                          : 'bg-neo-success/10 text-neo-success hover:bg-neo-success/20'
+                          ? 'bg-[#38CC97]/20 text-[#38CC97]'
+                          : 'bg-[#38CC97]/10 text-[#38CC97] hover:bg-[#38CC97]/20'
                       }`}
                     >
                       {copied ? 'Copiado' : 'Copiar'}
@@ -422,14 +420,14 @@ export default function UsersPage() {
                   </div>
                 </div>
 
-                <p className="text-neo-text-muted text-xs mt-3 text-center">
+                <p className="text-[#666666] text-xs mt-3 text-center">
                   Este codigo solo se muestra una vez. Compartelo de forma segura con el usuario.
                 </p>
 
                 <div className="mt-6 flex justify-end">
                   <button
                     onClick={closeModal}
-                    className="bg-neo-dark-3 text-neo-text font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-neo-dark-4 transition-all duration-200"
+                    className="bg-[#1A1A1A] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#2A2A2A] transition-all duration-200"
                   >
                     Cerrar
                   </button>
@@ -440,7 +438,7 @@ export default function UsersPage() {
               <div className="p-6 space-y-5">
                 {/* Name */}
                 <div>
-                  <label className="block text-xs uppercase tracking-wide text-neo-text-muted font-medium mb-2">
+                  <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">
                     Nombre
                   </label>
                   <input
@@ -448,24 +446,24 @@ export default function UsersPage() {
                     value={formName}
                     onChange={(e) => setFormName(e.target.value)}
                     placeholder="Nombre completo"
-                    className="w-full bg-neo-dark-3/50 border border-neo-dark-4/50 text-neo-text rounded-lg px-4 py-2.5 text-sm placeholder:text-neo-text-muted/50 focus:outline-none focus:border-neo-primary/50 focus:ring-2 focus:ring-neo-primary/10 transition-all duration-200"
+                    className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E] text-white rounded-lg px-4 py-2.5 text-sm placeholder:text-[#666666]/50 focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-all duration-200"
                   />
                   {formName.trim() && (
-                    <p className="text-neo-text-muted text-xs mt-1.5">
-                      ID: <span className="font-mono text-neo-text-secondary">{generateIdFromName(formName)}</span>
+                    <p className="text-[#666666] text-xs mt-1.5">
+                      ID: <span className="font-mono text-[#A0A0A0]">{generateIdFromName(formName)}</span>
                     </p>
                   )}
                 </div>
 
                 {/* Role */}
                 <div>
-                  <label className="block text-xs uppercase tracking-wide text-neo-text-muted font-medium mb-2">
+                  <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">
                     Rol
                   </label>
                   <select
                     value={formRoleId}
                     onChange={(e) => setFormRoleId(e.target.value)}
-                    className="w-full bg-neo-dark-3/50 border border-neo-dark-4/50 text-neo-text rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-neo-primary/50 focus:ring-2 focus:ring-neo-primary/10 transition-all duration-200"
+                    className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E] text-white rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-all duration-200"
                   >
                     <option value="">Seleccionar rol...</option>
                     {roles.map((role) => (
@@ -478,7 +476,7 @@ export default function UsersPage() {
 
                 {/* Language */}
                 <div>
-                  <label className="block text-xs uppercase tracking-wide text-neo-text-muted font-medium mb-2">
+                  <label className="block text-xs uppercase tracking-wide text-[#666666] font-medium mb-2">
                     Idioma
                   </label>
                   <div className="flex gap-3">
@@ -487,8 +485,8 @@ export default function UsersPage() {
                       onClick={() => setFormLang('es')}
                       className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium border transition-all duration-200 ${
                         formLang === 'es'
-                          ? 'bg-neo-primary/10 border-neo-primary/30 text-neo-primary'
-                          : 'bg-neo-dark-3/50 border-neo-dark-4/50 text-neo-text-secondary hover:border-neo-dark-4 hover:text-neo-text'
+                          ? 'bg-[#98283A]/10 border-[#98283A]/30 text-[#98283A]'
+                          : 'bg-[#1A1A1A]/50 border-[#1E1E1E] text-[#A0A0A0] hover:border-[#2A2A2A] hover:text-white'
                       }`}
                     >
                       Espanol (ES)
@@ -498,8 +496,8 @@ export default function UsersPage() {
                       onClick={() => setFormLang('ru')}
                       className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium border transition-all duration-200 ${
                         formLang === 'ru'
-                          ? 'bg-neo-primary/10 border-neo-primary/30 text-neo-primary'
-                          : 'bg-neo-dark-3/50 border-neo-dark-4/50 text-neo-text-secondary hover:border-neo-dark-4 hover:text-neo-text'
+                          ? 'bg-[#98283A]/10 border-[#98283A]/30 text-[#98283A]'
+                          : 'bg-[#1A1A1A]/50 border-[#1E1E1E] text-[#A0A0A0] hover:border-[#2A2A2A] hover:text-white'
                       }`}
                     >
                       Ruso (RU)
@@ -511,14 +509,14 @@ export default function UsersPage() {
                 <div className="flex justify-end gap-3 pt-2">
                   <button
                     onClick={closeModal}
-                    className="bg-neo-dark-3 text-neo-text-secondary font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-neo-dark-4 hover:text-neo-text transition-all duration-200"
+                    className="bg-transparent text-[#A0A0A0] font-semibold text-sm px-5 py-2.5 rounded-lg border border-[#1E1E1E] hover:bg-[#1A1A1A] hover:text-white transition-all duration-200"
                   >
                     Cancelar
                   </button>
                   <button
                     onClick={handleCreate}
                     disabled={!formName.trim() || !formRoleId || creating}
-                    className="bg-neo-primary text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:shadow-lg hover:shadow-neo-primary/20 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none"
+                    className="bg-[#98283A] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#B33347] transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
                   >
                     {creating ? 'Creando...' : 'Crear Usuario'}
                   </button>
