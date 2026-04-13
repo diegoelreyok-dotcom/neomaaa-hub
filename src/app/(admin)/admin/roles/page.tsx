@@ -1,22 +1,11 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import type { Lang } from '@/lib/types';
-
-interface RoleData {
-  id: string;
-  name: string;
-  nameRu: string;
-  sections: string[];
-  isAdmin: boolean;
-}
-
-interface UserData {
-  id: string;
-  name: string;
-  roleId: string;
-}
+import { useAdminUsers, useAdminRoles } from '@/components/admin/useAdminData';
+import { useAdminLang } from '@/components/admin/AdminContext';
+import type { AdminRole as RoleData } from '@/components/admin/fetcher';
 
 const ROLE_GRADIENTS = [
   'from-slate-600 to-slate-700',
@@ -117,23 +106,13 @@ const labels: Record<Lang, {
 };
 
 export default function RolesPage() {
-  const [roles, setRoles] = useState<RoleData[]>([]);
-  const [users, setUsers] = useState<UserData[]>([]);
-  const [loading, setLoading] = useState(true);
+  const lang = useAdminLang();
+  const { roles, isLoading: loadingRoles, mutate: mutateRoles } = useAdminRoles();
+  const { users } = useAdminUsers();
+  const loading = loadingRoles;
   const [showModal, setShowModal] = useState(false);
   const [creating, setCreating] = useState(false);
-  const [lang, setLang] = useState<Lang>('es');
   const router = useRouter();
-
-  useEffect(() => {
-    fetch('/api/auth/session')
-      .then((r) => r.ok ? r.json() : null)
-      .then((data) => {
-        const l = data?.user?.lang;
-        if (l === 'ru' || l === 'es') setLang(l);
-      })
-      .catch(() => {});
-  }, []);
 
   const t = labels[lang];
 
@@ -142,26 +121,7 @@ export default function RolesPage() {
   const [formNameRu, setFormNameRu] = useState('');
   const [formIsAdmin, setFormIsAdmin] = useState(false);
 
-  const loadData = useCallback(async () => {
-    try {
-      const [rolesRes, usersRes] = await Promise.all([
-        fetch('/api/roles'),
-        fetch('/api/users'),
-      ]);
-      const rolesData = rolesRes.ok ? await rolesRes.json() : [];
-      const usersData = usersRes.ok ? await usersRes.json() : [];
-      setRoles(Array.isArray(rolesData) ? rolesData : []);
-      setUsers(Array.isArray(usersData) ? usersData : []);
-    } catch {
-      // Silent fail
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    loadData();
-  }, [loadData]);
+  const loadData = () => mutateRoles();
 
   function getUserCountForRole(roleId: string): number {
     return users.filter((u) => u.roleId === roleId).length;
@@ -224,7 +184,7 @@ export default function RolesPage() {
         method: 'DELETE',
       });
       if (res.ok) {
-        setRoles((prev) => prev.filter((r) => r.id !== role.id));
+        mutateRoles((prev) => prev?.filter((r) => r.id !== role.id), false);
       }
     } catch {
       // Silent fail

@@ -3,7 +3,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import Link from 'next/link';
 import type { Certificate } from '@/lib/quiz-types';
-import type { Lang } from '@/lib/types';
+import { useAdminLang } from '@/components/admin/AdminContext';
 
 interface Filters {
   user: string;
@@ -13,22 +13,14 @@ interface Filters {
 }
 
 export default function AdminCertificatesPage() {
+  const lang = useAdminLang();
   const [certs, setCerts] = useState<Certificate[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [lang, setLang] = useState<Lang>('es');
   const [filters, setFilters] = useState<Filters>({ user: '', doc: '', from: '', to: '' });
   const [revoking, setRevoking] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetch('/api/auth/session')
-      .then((r) => (r.ok ? r.json() : null))
-      .then((data) => {
-        const l = data?.user?.lang;
-        if (l === 'ru' || l === 'es') setLang(l);
-      })
-      .catch(() => {});
-  }, []);
+  const [page, setPage] = useState(1);
+  const pageSize = 25;
 
   useEffect(() => {
     let cancelled = false;
@@ -203,7 +195,7 @@ export default function AdminCertificatesPage() {
                 </tr>
               </thead>
               <tbody>
-                {filtered.map((cert) => (
+                {filtered.slice((page - 1) * pageSize, page * pageSize).map((cert) => (
                   <tr key={cert.id} className="border-b border-[#1E1E1E] last:border-0 hover:bg-[#161616]">
                     <td className="px-4 py-3 text-white">
                       <div className="font-medium">{cert.userName}</div>
@@ -244,6 +236,32 @@ export default function AdminCertificatesPage() {
                 ))}
               </tbody>
             </table>
+            {filtered.length > pageSize && (
+              <div className="flex items-center justify-between px-4 py-3 border-t border-[#1E1E1E] bg-[#0A0A0A]">
+                <div className="text-xs text-[#666666]">
+                  {(page - 1) * pageSize + 1}–{Math.min(page * pageSize, filtered.length)} / {filtered.length}
+                </div>
+                <div className="flex items-center gap-1">
+                  <button
+                    onClick={() => setPage((p) => Math.max(1, p - 1))}
+                    disabled={page === 1}
+                    className="px-2.5 py-1.5 text-xs text-[#A0A0A0] hover:text-white hover:bg-[#1A1A1A] rounded disabled:opacity-30 disabled:cursor-not-allowed"
+                  >
+                    ‹
+                  </button>
+                  <span className="text-xs text-[#A0A0A0] px-2">
+                    {page} / {Math.max(1, Math.ceil(filtered.length / pageSize))}
+                  </span>
+                  <button
+                    onClick={() => setPage((p) => Math.min(Math.ceil(filtered.length / pageSize), p + 1))}
+                    disabled={page >= Math.ceil(filtered.length / pageSize)}
+                    className="px-2.5 py-1.5 text-xs text-[#A0A0A0] hover:text-white hover:bg-[#1A1A1A] rounded disabled:opacity-30 disabled:cursor-not-allowed"
+                  >
+                    ›
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>

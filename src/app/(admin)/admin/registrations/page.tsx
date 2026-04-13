@@ -1,24 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import type { Lang } from '@/lib/types';
-
-interface Registration {
-  id: string;
-  name: string;
-  email: string;
-  lang: 'es' | 'ru';
-  message: string;
-  createdAt: string;
-  status: 'pending' | 'approved' | 'rejected';
-}
-
-interface Role {
-  id: string;
-  name: string;
-  nameRu: string;
-  isAdmin: boolean;
-}
+import { useAdminRegistrations, useAdminRoles } from '@/components/admin/useAdminData';
+import { useAdminLang } from '@/components/admin/AdminContext';
+import type {
+  AdminRegistration as Registration,
+  AdminRole as Role,
+} from '@/components/admin/fetcher';
 
 const labels: Record<Lang, {
   title: string;
@@ -119,37 +108,16 @@ const labels: Record<Lang, {
 };
 
 export default function RegistrationsPage() {
-  const [registrations, setRegistrations] = useState<Registration[]>([]);
-  const [roles, setRoles] = useState<Role[]>([]);
-  const [loading, setLoading] = useState(true);
+  const lang = useAdminLang();
+  const { registrations, isLoading: loadingRegs, mutate: mutateRegs } = useAdminRegistrations();
+  const { roles } = useAdminRoles();
+  const loading = loadingRegs;
   const [approvalModal, setApprovalModal] = useState<{ reg: Registration; roleId: string } | null>(null);
   const [generatedCode, setGeneratedCode] = useState<{ userId: string; code: string } | null>(null);
   const [processing, setProcessing] = useState(false);
   const [copiedCode, setCopiedCode] = useState(false);
-  const [lang, setLang] = useState<Lang>('es');
-
-  useEffect(() => {
-    fetch('/api/auth/session')
-      .then((r) => r.ok ? r.json() : null)
-      .then((data) => {
-        const l = data?.user?.lang;
-        if (l === 'ru' || l === 'es') setLang(l);
-      })
-      .catch(() => {});
-  }, []);
 
   const t = labels[lang];
-
-  useEffect(() => {
-    Promise.all([
-      fetch('/api/register').then(r => r.json()),
-      fetch('/api/roles').then(r => r.json()),
-    ]).then(([regs, rls]) => {
-      setRegistrations(Array.isArray(regs) ? regs : []);
-      setRoles(Array.isArray(rls) ? rls : []);
-      setLoading(false);
-    }).catch(() => setLoading(false));
-  }, []);
 
   const handleApprove = async () => {
     if (!approvalModal) return;
@@ -169,8 +137,9 @@ export default function RegistrationsPage() {
       const data = await res.json();
       if (res.ok && data.success) {
         setGeneratedCode({ userId: data.userId, code: data.code });
-        setRegistrations(prev =>
-          prev.map(r => r.id === approvalModal.reg.id ? { ...r, status: 'approved' } : r)
+        mutateRegs(
+          (prev) => prev?.map(r => r.id === approvalModal.reg.id ? { ...r, status: 'approved' } : r),
+          false,
         );
       }
     } catch {
@@ -191,8 +160,9 @@ export default function RegistrationsPage() {
       });
 
       if (res.ok) {
-        setRegistrations(prev =>
-          prev.map(r => r.id === id ? { ...r, status: 'rejected' } : r)
+        mutateRegs(
+          (prev) => prev?.map(r => r.id === id ? { ...r, status: 'rejected' } : r),
+          false,
         );
       }
     } catch {
@@ -206,7 +176,7 @@ export default function RegistrationsPage() {
     try {
       const res = await fetch(`/api/register?id=${id}`, { method: 'DELETE' });
       if (res.ok) {
-        setRegistrations(prev => prev.filter(r => r.id !== id));
+        mutateRegs((prev) => prev?.filter(r => r.id !== id), false);
       }
     } catch {
       alert(t.errorDelete);

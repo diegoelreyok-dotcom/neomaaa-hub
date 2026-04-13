@@ -1,7 +1,13 @@
 'use client';
 
-import { Fragment, useEffect, useState, useCallback } from 'react';
+import { Fragment, useState } from 'react';
 import type { Lang } from '@/lib/types';
+import {
+  useAdminUsers,
+  useAdminRoles,
+  useAdminProgress,
+} from '@/components/admin/useAdminData';
+import { useAdminLang } from '@/components/admin/AdminContext';
 
 const labels: Record<Lang, {
   title: string;
@@ -125,50 +131,16 @@ const AVATAR_GRADIENTS = [
 ];
 
 export default function ProgressPage() {
-  const [users, setUsers] = useState<UserData[]>([]);
-  const [roles, setRoles] = useState<RoleData[]>([]);
-  const [progress, setProgress] = useState<ProgressData[]>([]);
-  const [loading, setLoading] = useState(true);
+  const lang = useAdminLang();
+  const { users, isLoading: loadingUsers } = useAdminUsers();
+  const { roles } = useAdminRoles() as { roles: RoleData[] };
+  const { progress, isLoading: loadingProgress } = useAdminProgress();
+  const loading = loadingUsers || loadingProgress;
   const [expandedUser, setExpandedUser] = useState<string | null>(null);
-  const [lang, setLang] = useState<Lang>('es');
-
-  useEffect(() => {
-    fetch('/api/auth/session')
-      .then((r) => r.ok ? r.json() : null)
-      .then((data) => {
-        const l = data?.user?.lang;
-        if (l === 'ru' || l === 'es') setLang(l);
-      })
-      .catch(() => {});
-  }, []);
+  const [page, setPage] = useState(1);
+  const pageSize = 25;
 
   const t = labels[lang];
-
-  const loadData = useCallback(async () => {
-    try {
-      const [usersRes, rolesRes, progressRes] = await Promise.all([
-        fetch('/api/users'),
-        fetch('/api/roles'),
-        fetch('/api/progress'),
-      ]);
-
-      const usersData = usersRes.ok ? await usersRes.json() : [];
-      const rolesData = rolesRes.ok ? await rolesRes.json() : [];
-      const progressData = progressRes.ok ? await progressRes.json() : [];
-
-      setUsers(Array.isArray(usersData) ? usersData : []);
-      setRoles(Array.isArray(rolesData) ? rolesData : []);
-      setProgress(Array.isArray(progressData) ? progressData : []);
-    } catch {
-      // Silent fail
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    loadData();
-  }, [loadData]);
 
   function getRoleName(roleId: string): string {
     const role = roles.find((r) => r.id === roleId);
@@ -371,7 +343,7 @@ export default function ProgressPage() {
                   </td>
                 </tr>
               ) : (
-                users.map((user, idx) => {
+                users.slice((page - 1) * pageSize, page * pageSize).map((user, idx) => {
                   const userProg = getUserProgress(user.id);
                   const totalDocs = getTotalDocsForRole(user.roleId);
                   const readCount = userProg.length;
@@ -519,6 +491,32 @@ export default function ProgressPage() {
             </tbody>
           </table>
         </div>
+        {users.length > pageSize && (
+          <div className="flex items-center justify-between px-4 py-3 border-t border-[#1A1A1A]/40 bg-[#0A0A0A]">
+            <div className="text-xs text-[#666666]">
+              {(page - 1) * pageSize + 1}–{Math.min(page * pageSize, users.length)} / {users.length}
+            </div>
+            <div className="flex items-center gap-1">
+              <button
+                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                disabled={page === 1}
+                className="px-2.5 py-1.5 text-xs text-[#A0A0A0] hover:text-white hover:bg-[#1A1A1A] rounded disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+              >
+                ‹
+              </button>
+              <span className="text-xs text-[#A0A0A0] px-2">
+                {page} / {Math.max(1, Math.ceil(users.length / pageSize))}
+              </span>
+              <button
+                onClick={() => setPage((p) => Math.min(Math.ceil(users.length / pageSize), p + 1))}
+                disabled={page >= Math.ceil(users.length / pageSize)}
+                className="px-2.5 py-1.5 text-xs text-[#A0A0A0] hover:text-white hover:bg-[#1A1A1A] rounded disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+              >
+                ›
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,17 +1,12 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import type { Lang } from '@/lib/types';
-
-interface RoleData {
-  id: string;
-  name: string;
-  nameRu: string;
-  sections: string[];
-  isAdmin: boolean;
-}
+import { useAdminRoles } from '@/components/admin/useAdminData';
+import { useAdminLang } from '@/components/admin/AdminContext';
+import type { AdminRole as RoleData } from '@/components/admin/fetcher';
 
 interface SectionInfo {
   id: string;
@@ -142,50 +137,28 @@ export default function RolePermissionsPage() {
   const params = useParams();
   const router = useRouter();
   const roleId = params.id as string;
-
-  const [role, setRole] = useState<RoleData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [saving, setSaving] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
-  const [lang, setLang] = useState<Lang>('es');
-
-  useEffect(() => {
-    fetch('/api/auth/session')
-      .then((r) => r.ok ? r.json() : null)
-      .then((data) => {
-        const l = data?.user?.lang;
-        if (l === 'ru' || l === 'es') setLang(l);
-      })
-      .catch(() => {});
-  }, []);
+  const lang = useAdminLang();
+  const { roles, isLoading, error: rolesError, mutate: mutateRoles } = useAdminRoles();
 
   const t = labels[lang];
 
-  const loadRole = useCallback(async () => {
-    try {
-      const res = await fetch('/api/roles');
-      if (!res.ok) {
-        setError(t.errorLoading);
-        return;
-      }
-      const roles: RoleData[] = await res.json();
-      const found = roles.find((r) => r.id === roleId);
-      if (found) {
-        setRole(found);
-      } else {
-        setError(t.notFound);
-      }
-    } catch {
-      setError(t.connError);
-    } finally {
-      setLoading(false);
-    }
-  }, [roleId, t.errorLoading, t.notFound, t.connError]);
+  const foundRole = useMemo(
+    () => roles.find((r) => r.id === roleId) || null,
+    [roles, roleId],
+  );
 
+  const [localRole, setLocalRole] = useState<RoleData | null>(null);
   useEffect(() => {
-    loadRole();
-  }, [loadRole]);
+    if (foundRole) setLocalRole(foundRole);
+  }, [foundRole]);
+
+  const role = localRole;
+  const loading = isLoading;
+  const error = rolesError ? t.errorLoading : !isLoading && !foundRole ? t.notFound : null;
+  const setRole = setLocalRole;
+
+  const [saving, setSaving] = useState<string | null>(null);
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
   async function handleToggle(sectionId: string) {
     if (!role) return;
@@ -212,6 +185,8 @@ export default function RolePermissionsPage() {
       if (!res.ok) {
         // Revert on failure
         setRole({ ...role, sections: role.sections });
+      } else {
+        mutateRoles();
       }
     } catch {
       // Revert on failure
@@ -239,6 +214,8 @@ export default function RolePermissionsPage() {
 
       if (!res.ok) {
         setRole({ ...role, sections: role.sections });
+      } else {
+        mutateRoles();
       }
     } catch {
       setRole({ ...role, sections: role.sections });

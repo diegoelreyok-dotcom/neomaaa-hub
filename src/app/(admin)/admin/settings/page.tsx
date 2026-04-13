@@ -4,6 +4,8 @@ import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { SECTIONS } from '@/lib/sections';
 import type { Lang } from '@/lib/types';
+import { useAdminUsers, useAdminRoles } from '@/components/admin/useAdminData';
+import { useAdminLang } from '@/components/admin/AdminContext';
 
 const labels: Record<Lang, {
   // Page header
@@ -503,49 +505,33 @@ function SettingsCard({
 
 export default function SettingsPage() {
   const [activeSection, setActiveSection] = useState<CategoryId>('general');
-  const [roles, setRoles] = useState<RoleData[]>([]);
-  const [users, setUsers] = useState<UserData[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { roles, isLoading: loadingRoles, mutate: mutateRoles } = useAdminRoles() as {
+    roles: RoleData[];
+    isLoading: boolean;
+    mutate: () => void;
+  };
+  const { users, isLoading: loadingUsers, mutate: mutateUsers } = useAdminUsers() as {
+    users: UserData[];
+    isLoading: boolean;
+    mutate: () => void;
+  };
+  const loading = loadingRoles || loadingUsers;
+  const lang = useAdminLang();
   const [broker, setBroker] = useState<BrokerInfo>(DEFAULT_BROKER);
   const [originalBroker, setOriginalBroker] = useState<BrokerInfo>(DEFAULT_BROKER);
   const [seedStatus, setSeedStatus] = useState<string | null>(null);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
-  const [lang, setLang] = useState<Lang>('es');
-
-  useEffect(() => {
-    fetch('/api/auth/session')
-      .then((r) => r.ok ? r.json() : null)
-      .then((data) => {
-        const l = data?.user?.lang;
-        if (l === 'ru' || l === 'es') setLang(l);
-      })
-      .catch(() => {});
-  }, []);
 
   const t = labels[lang];
 
   const hasChanges = JSON.stringify(broker) !== JSON.stringify(originalBroker);
 
-  /* ── Fetch data ── */
-  const loadData = useCallback(async () => {
-    try {
-      const [rolesRes, usersRes] = await Promise.all([
-        fetch('/api/roles'),
-        fetch('/api/users'),
-      ]);
-      const rolesData = rolesRes.ok ? await rolesRes.json() : [];
-      const usersData = usersRes.ok ? await usersRes.json() : [];
-      setRoles(Array.isArray(rolesData) ? rolesData : []);
-      setUsers(Array.isArray(usersData) ? usersData : []);
-    } catch {
-      // silent
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+  const loadData = useCallback(() => {
+    mutateUsers();
+    mutateRoles();
+  }, [mutateUsers, mutateRoles]);
 
   useEffect(() => {
-    loadData();
     const stored = localStorage.getItem('neomaaa-broker-info');
     if (stored) {
       try {
@@ -554,7 +540,7 @@ export default function SettingsPage() {
         setOriginalBroker(parsed);
       } catch { /* ignore */ }
     }
-  }, [loadData]);
+  }, []);
 
   /* ── Save broker ── */
   function saveBroker() {
