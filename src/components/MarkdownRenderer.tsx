@@ -336,10 +336,14 @@ const components: Components = {
   ),
 
   code: ({ inline, className, children, ...rest }: any) => {
-    if (inline) {
+    // react-markdown v9+ removed the `inline` prop. Detect block code by the
+    // presence of a `language-*` className (added by remark for fenced blocks).
+    // Without that, treat as inline to avoid <div> inside <p> hydration errors.
+    const match = /language-(\w+)/.exec(className || '');
+    const isBlock = !!match || (typeof children === 'string' && children.includes('\n'));
+    if (inline || !isBlock) {
       return <code className="neo-code-inline" {...rest}>{children}</code>;
     }
-    const match = /language-(\w+)/.exec(className || '');
     const lang = match ? match[1] : null;
     const code = String(children).replace(/\n$/, '');
     return <CodeBlock lang={lang} code={code} />;
