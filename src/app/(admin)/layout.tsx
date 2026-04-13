@@ -11,6 +11,7 @@ const labels: Record<Lang, {
   registrations: string;
   progress: string;
   settings: string;
+  certificates: string;
   backToPortal: string;
 }> = {
   es: {
@@ -21,6 +22,7 @@ const labels: Record<Lang, {
     registrations: 'Solicitudes',
     progress: 'Progreso',
     settings: 'Settings',
+    certificates: 'Certificados',
     backToPortal: 'Volver al Portal',
   },
   ru: {
@@ -31,6 +33,7 @@ const labels: Record<Lang, {
     registrations: 'Заявки',
     progress: 'Прогресс',
     settings: 'Настройки',
+    certificates: 'Сертификаты',
     backToPortal: 'Вернуться в портал',
   },
 };
@@ -60,6 +63,7 @@ export default async function AdminLayout({
     { href: '/admin/roles', label: t.roles },
     { href: '/admin/registrations', label: t.registrations },
     { href: '/admin/progress', label: t.progress },
+    { href: '/admin/certificates', label: t.certificates },
     { href: '/admin/settings', label: t.settings },
   ];
 

@@ -80,7 +80,7 @@ export default function Sidebar({ sections, lang, isOpen, onClose, completedDocs
         </div>
 
         {/* Dashboard link */}
-        <div className="px-3 pt-4 pb-2">
+        <div className="px-3 pt-4 pb-2 space-y-1">
           <Link
             href="/dashboard"
             onClick={onClose}
@@ -98,6 +98,25 @@ export default function Sidebar({ sections, lang, isOpen, onClose, completedDocs
               <polyline points="9 22 9 12 15 12 15 22" />
             </svg>
             {lang === 'ru' ? 'Главная' : 'Inicio'}
+          </Link>
+
+          <Link
+            href="/certificates"
+            onClick={onClose}
+            className={`
+              flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium
+              transition-all duration-200
+              ${pathname.startsWith('/certificates')
+                ? 'bg-neo-primary/10 text-neo-primary shadow-sm shadow-neo-primary/5'
+                : 'text-neo-text-secondary hover:bg-neo-dark-3/50 hover:text-neo-text'
+              }
+            `}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="8" r="6" />
+              <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+            </svg>
+            {lang === 'ru' ? 'Сертификаты' : 'Mis Certificados'}
           </Link>
         </div>
 

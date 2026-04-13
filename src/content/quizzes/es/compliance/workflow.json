@@ -1,0 +1,481 @@
+{
+  "docPath": "compliance/workflow",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuál es la licencia regulatoria de NEOMAAA Broker?",
+      "options": [
+        "FCA UK-15968",
+        "CySEC 234-567",
+        "Anjouan L15968/N, regulador AOFA",
+        "BVI FSC 890"
+      ],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA opera bajo licencia Anjouan L15968/N, regulada por la AOFA (Anjouan Offshore Finance Authority)."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuál es la diferencia clave entre KYC de Prop Firm y Broker?",
+      "options": [
+        "Son idénticos",
+        "El broker solo pide ID, la propfirm pide más documentos",
+        "En broker es completo (ID + prueba domicilio + source of funds) y monitoreo obligatorio; en prop firm es básico",
+        "El broker no requiere KYC"
+      ],
+      "correctIndex": 2,
+      "explanation": "Broker: KYC completo + monitoreo obligatorio + PEP screening + sanciones + reporte AOFA. Prop firm: KYC básico, sin reportes, sin monitoreo AML obligatorio."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuáles son las 3 etapas clásicas del lavado de dinero?",
+      "options": [
+        "Deposito, trading, retiro",
+        "Colocación, estratificación, integración",
+        "Registro, KYC, aprobación",
+        "Entrada, intermedia, final"
+      ],
+      "correctIndex": 1,
+      "explanation": "Las 3 etapas AML: colocación (entrada de fondos al sistema), estratificación (capas para ocultar origen), integración (fondos ya 'limpios')."
+    },
+    {
+      "id": "q4",
+      "question": "Un cliente deposita y quiere retirar sin operar (pass-through). ¿Qué es esto y qué haces?",
+      "options": [
+        "Es normal, procesar el retiro",
+        "Es una red flag AML. Marcar cuenta para monitoreo; si repite, pedir explicación",
+        "Es un bonus feature",
+        "Es un error del sistema, ignorar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Depósito y retiro sin operar es una red flag AML (pass-through, posible lavado). Marcar para monitoreo; si repite, pedir explicación."
+    },
+    {
+      "id": "q5",
+      "question": "¿Qué pasa si alguien deposita con un nombre diferente al titular de la cuenta?",
+      "options": [
+        "Se acepta si el monto es bajo",
+        "Se pide autorización por email",
+        "BLOQUEAR depósito. Notificar al cliente. Devolver fondos al origen (depósito de tercero prohibido)",
+        "Se pregunta por qué"
+      ],
+      "correctIndex": 2,
+      "explanation": "Depósito de tercero = BLOQUEAR, notificar, devolver al origen. El depositante debe ser el titular de la cuenta — regla absoluta."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuándo se activa obligatoriamente el EDD (Enhanced Due Diligence)?",
+      "options": [
+        "Solo para cuentas Cent",
+        "Cliente PEP, depósito acumulado > $25K, país alto riesgo, actividad sospechosa, SoF inconsistente",
+        "Solo si el cliente lo pide",
+        "Nunca en NEOMAAA"
+      ],
+      "correctIndex": 1,
+      "explanation": "EDD se activa para: PEP o familiar/asociado, depósito acumulado >$25K, país alto riesgo (Venezuela, Nigeria, Pakistan, Bangladesh), actividad sospechosa, SoF no claro."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuáles son los 4 resultados posibles de Sumsub?",
+      "options": [
+        "PASS, FAIL, WAIT, ERROR",
+        "GREEN (aprobado), YELLOW (revisión manual), RED RETRY (reintento), RED FINAL (rechazo permanente)",
+        "APPROVED, PENDING, REJECTED, BLACKLISTED",
+        "ACTIVO, INACTIVO, SUSPENDIDO, CERRADO"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sumsub devuelve: GREEN (aprobado), YELLOW (revisión manual por Susana), RED RETRY (cliente puede corregir), RED FINAL (rechazo permanente)."
+    },
+    {
+      "id": "q8",
+      "question": "Sumsub dio RED FINAL a un cliente. ¿Qué NO debés hacer?",
+      "options": [
+        "Documentar la razón en el sistema interno",
+        "Usar el template de comunicación estándar",
+        "Revelar al cliente la razón específica (sanciones, fraude, PEP)",
+        "Devolver fondos pre-verificación al método original"
+      ],
+      "correctIndex": 2,
+      "explanation": "NUNCA revelar la razón específica de un rechazo final al cliente. Solo decir 'requisitos regulatorios'. Revelarlo es causa de sanción interna."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cuántos intentos tiene un cliente en RED RETRY antes de escalar?",
+      "options": ["1", "2", "3", "5"],
+      "correctIndex": 2,
+      "explanation": "El cliente tiene 3 intentos para corregir documentos en RED RETRY. Si falla 3 veces, se escala a Susana para revisión manual."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cuál es el SLA para resolver un caso YELLOW de Sumsub?",
+      "options": [
+        "2 horas",
+        "24 horas hábiles. Si no se resuelve, escalar a Diego",
+        "7 días",
+        "No hay SLA"
+      ],
+      "correctIndex": 1,
+      "explanation": "YELLOW: SLA 24 horas hábiles para resolver. Si no se puede, escalar a Diego. GREEN: 4h. RED RETRY: 2h revisión. RED FINAL: 4h documentar."
+    },
+    {
+      "id": "q11",
+      "question": "¿Qué países están en rechazo automático (restringidos)?",
+      "options": [
+        "Solo Irán y Corea del Norte",
+        "Solo USA",
+        "USA, Canadá, EEA (UE), UK, Australia, Cuba, Iraq, Myanmar, Corea del Norte, Sudan, jurisdicciones sancionadas OFAC/ONU/UE",
+        "Ninguno, somos offshore global"
+      ],
+      "correctIndex": 2,
+      "explanation": "Restringidos: USA, Canadá, EEA (toda la UE), UK, Australia, Cuba, Iraq, Myanmar, Corea del Norte, Sudan, y sancionados OFAC/ONU/UE."
+    },
+    {
+      "id": "q12",
+      "question": "Un cliente llega con pasaporte de país alto riesgo (ej: Venezuela). ¿Qué hacés?",
+      "options": [
+        "Rechazar automáticamente",
+        "Aceptar sin revisión",
+        "Escalar a Susana: solicita EDD completo (país no restringido pero alto riesgo)",
+        "Pedir que cambie de país"
+      ],
+      "correctIndex": 2,
+      "explanation": "Países alto riesgo (Venezuela, Nigeria, Pakistan, Bangladesh) no están restringidos pero activan EDD obligatorio. Escalar a Susana."
+    },
+    {
+      "id": "q13",
+      "question": "Un cliente solicita un retiro de $400. ¿Cómo se procesa?",
+      "options": [
+        "Susana aprueba manualmente",
+        "Diego aprueba",
+        "AUTOMÁTICO (sistema), tiempo máximo 24 horas",
+        "Se rechaza por ser muy bajo"
+      ],
+      "correctIndex": 2,
+      "explanation": "Retiros hasta $500 USD: automáticos por sistema, tiempo máx 24h. $501-$5K: Susana. $5K-$25K: Susana + Diego. >$25K: Susana + Diego + EDD (5 días)."
+    },
+    {
+      "id": "q14",
+      "question": "Un cliente quiere retirar $15,000. ¿Cuál es el flujo?",
+      "options": [
+        "Automático",
+        "Solo Susana revisa",
+        "Susana revisa + aprobación de Diego, tiempo máximo 72 horas hábiles",
+        "Se rechaza por monto alto"
+      ],
+      "correctIndex": 2,
+      "explanation": "$5,001-$25,000: Susana revisa + aprobación de Diego, 72h hábiles. Para >$25K: agrega documentación EDD."
+    },
+    {
+      "id": "q15",
+      "question": "¿Cuál es la regla fundamental del método de retiro?",
+      "options": [
+        "Siempre por crypto",
+        "Siempre por wire bancario",
+        "Debe ir al MISMO método y MISMA cuenta del depósito. Excepciones solo con aprobación de Susana y documentación",
+        "El cliente elige libremente"
+      ],
+      "correctIndex": 2,
+      "explanation": "Regla AML fundamental: retiro al mismo método/cuenta del depósito. PIX → PIX. Crypto → misma wallet. Excepciones solo con aprobación documentada de Susana."
+    },
+    {
+      "id": "q16",
+      "question": "¿Qué es una cuenta retiro fragmentado bajo umbral ($490, $490, $490...)?",
+      "options": [
+        "Normal para clientes pequeños",
+        "Una técnica de evasión (structuring). Red flag — bloquear e investigar",
+        "Un bug del sistema",
+        "Una promoción del broker"
+      ],
+      "correctIndex": 1,
+      "explanation": "Retiros fragmentados justo bajo umbral son 'structuring' — técnica de evasión de revisión. Red flag: bloquear e investigar."
+    },
+    {
+      "id": "q17",
+      "question": "¿Cuál es el canal de Slack para consultas diarias de KYC?",
+      "options": [
+        "#general",
+        "#compliance-kyc (SLA 2 horas hábiles)",
+        "#support",
+        "#principals"
+      ],
+      "correctIndex": 1,
+      "explanation": "Canales Slack compliance: #compliance-kyc (consultas diarias, SLA 2h) y #compliance-urgente (PEP, sanciones, fraude, SLA 30 min)."
+    },
+    {
+      "id": "q18",
+      "question": "Para PEP, sanciones, fraude sospechado: ¿qué canal usás y qué SLA tenés?",
+      "options": [
+        "Email con SLA 24h",
+        "#compliance-kyc con SLA 2h",
+        "#compliance-urgente con SLA 30 minutos hábiles",
+        "WhatsApp directo con Diego"
+      ],
+      "correctIndex": 2,
+      "explanation": "#compliance-urgente: PEP, sanciones, fraude sospechado, cliente enojado por bloqueo. SLA 30 minutos hábiles."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cuál de los siguientes casos NO debería escalar ventas a Susana?",
+      "options": [
+        "Cliente lleva más de 24h en KYC pendiente",
+        "Cliente quiere depositar $15,000",
+        "Cliente pregunta cuánto tarda la verificación (respuesta estándar: 24-48h)",
+        "Cliente dice que es PEP"
+      ],
+      "correctIndex": 2,
+      "explanation": "Preguntas estándar (documentos, tiempos) no se escalan — ventas las resuelve. SÍ escalar: KYC >24h, PEP, depósitos >$10K, país alto riesgo, retiros grandes rechazados."
+    },
+    {
+      "id": "q20",
+      "question": "¿Cuál es la regla de oro de la comunicación ventas-compliance?",
+      "options": [
+        "Todo por WhatsApp",
+        "TODO queda por escrito. Si hablan por llamada, hacer resumen escrito en Slack después",
+        "Solo llamadas, nunca texto",
+        "Susana decide y ventas solo obedece sin cuestionar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla de oro: TODO queda por escrito. Incluso si hablan por llamada, Susana hace resumen en Slack. Es trazabilidad de compliance."
+    },
+    {
+      "id": "q21",
+      "question": "¿Por qué ventas nunca debe decir 'te aprobamos la cuenta ya mismo'?",
+      "options": [
+        "Porque suena poco profesional",
+        "Porque ventas NO aprueba cuentas. La aprobación es de Susana/Sumsub. Decirlo crea falsa expectativa y viola los permisos",
+        "Porque es mentira siempre",
+        "Porque el sistema lo prohíbe técnicamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ventas NO aprueba cuentas. Decirlo es causal de advertencia. Alternativa: 'Una vez que pases la verificación, tu cuenta se activa rápidamente'."
+    },
+    {
+      "id": "q22",
+      "question": "¿Cuándo es obligatorio Source of Funds (SoF)?",
+      "options": [
+        "Nunca",
+        "Solo para cuentas Institutional",
+        "Depósito > $10,000 USD, cliente PEP, cuenta grande, EDD activado; obligatorio para Raw con depósito inicial > $5K e Institutional",
+        "Solo si el cliente lo ofrece"
+      ],
+      "correctIndex": 2,
+      "explanation": "SoF obligatorio: depósito > $10K, PEP, EDD, Raw con depósito inicial > $5K, Institutional siempre, acumulado > $10K en Cent/Standard."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuál es la frecuencia de reporte trimestral a AOFA?",
+      "options": [
+        "Cada 30 días del cierre",
+        "15 días después del cierre del trimestre",
+        "Anual",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reporte trimestral AML a AOFA: 15 días después del cierre del trimestre. Incluye estadísticas, revisión política AML, auditoría interna, SARs."
+    },
+    {
+      "id": "q24",
+      "question": "¿Qué es un SAR?",
+      "options": [
+        "Sales Acquisition Report",
+        "Suspicious Activity Report — reporte de actividad sospechosa a AOFA",
+        "Security Access Request",
+        "Standard Account Review"
+      ],
+      "correctIndex": 1,
+      "explanation": "SAR (Suspicious Activity Report) se presenta a AOFA cuando se detecta actividad sospechosa. Susana prepara, Diego firma y envía."
+    },
+    {
+      "id": "q25",
+      "question": "Ventas te dice 'ya le aprobé la cuenta al cliente antes de pasar por Susana'. ¿Qué nivel de sanción corresponde?",
+      "options": [
+        "Leve: advertencia verbal",
+        "Media: advertencia escrita",
+        "Grave: aprobar sin autorización es suspensión inmediata + revisión",
+        "Ninguno, es aceptable"
+      ],
+      "correctIndex": 2,
+      "explanation": "Aprobar algo sin autorización o revelar razones de rechazo al cliente = violación GRAVE. Consecuencia: suspensión inmediata + revisión."
+    },
+    {
+      "id": "q26",
+      "question": "Ignorar una alerta AML es violación de qué nivel?",
+      "options": [
+        "Leve",
+        "Media",
+        "Grave",
+        "Crítica: despido inmediato + reporte a AOFA"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ignorar alerta AML o ayudar a falsificar documentos es violación CRÍTICA: despido inmediato + reporte a AOFA."
+    },
+    {
+      "id": "q27",
+      "question": "¿Cuál de las siguientes NO es una prohibición absoluta para TODO el equipo?",
+      "options": [
+        "Ayudar a cliente a evadir KYC",
+        "Revelar que rechazo fue por sanciones/PEP",
+        "Ofrecer cuenta demo a un cliente registrado",
+        "Procesar retiro a nombre de otra persona"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ofrecer demo no es prohibición. Las 10 prohibiciones absolutas incluyen: evadir KYC, usar docs de otro, depósitos/retiros de terceros, revelar motivos de rechazo, ignorar alertas AML, etc."
+    },
+    {
+      "id": "q28",
+      "question": "¿Puede un empleado revelar que un cliente fue rechazado por figurar en listas de sanciones?",
+      "options": [
+        "Sí, si el cliente insiste",
+        "Solo si es PEP confirmado",
+        "NUNCA. Es prohibición absoluta. Solo decir 'requisitos regulatorios'",
+        "Solo por email formal"
+      ],
+      "correctIndex": 2,
+      "explanation": "Prohibición absoluta #4: NUNCA revelar que un cliente fue rechazado por sanciones/PEP. Tipping off es delito en AML."
+    },
+    {
+      "id": "q29",
+      "question": "¿Qué documentos NO se aceptan como prueba de domicilio?",
+      "options": [
+        "Recibo de luz, agua, gas, internet fijo",
+        "Estado de cuenta bancario",
+        "Capturas de pantalla, recibos de celular, contratos de alquiler, documentos sin fecha o > 3 meses",
+        "Certificado de residencia emitido por autoridad local"
+      ],
+      "correctIndex": 2,
+      "explanation": "NO se aceptan: screenshots, recibos de celular, contratos de alquiler, facturas online, documentos sin fecha, documentos > 3 meses."
+    },
+    {
+      "id": "q30",
+      "question": "¿Qué pasa si detectás un match de sanciones confirmado en un cliente?",
+      "options": [
+        "Activar la cuenta y monitorear",
+        "RECHAZAR cuenta. Reportar a AOFA en 24h. Nunca decir al cliente la razón",
+        "Preguntarle al cliente si quiere corregirlo",
+        "Pedir más documentos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Match confirmado de sanciones: rechazar cuenta, reportar a AOFA en 24h. NUNCA revelar la razón al cliente."
+    },
+    {
+      "id": "q31",
+      "question": "¿Puede un cliente depositar en nombre de un familiar/amigo?",
+      "options": [
+        "Sí si son del mismo país",
+        "Sí con autorización notariada",
+        "NUNCA. Los depósitos de terceros están PROHIBIDOS. El depósito debe venir de cuenta a nombre del titular",
+        "Solo para cuentas Cent"
+      ],
+      "correctIndex": 2,
+      "explanation": "Fondos de terceros PROHIBIDOS. El depositante debe ser el titular de la cuenta. Violación = bloqueo y devolución al origen."
+    },
+    {
+      "id": "q32",
+      "question": "¿Cuál es la horaria de Susana según el documento?",
+      "options": [
+        "24/7",
+        "Lunes a Viernes, 9:00 - 18:00 (hora local). Casos fuera de horario al día siguiente",
+        "Turno nocturno",
+        "Solo fines de semana"
+      ],
+      "correctIndex": 1,
+      "explanation": "Horario Susana: L-V, 9:00-18:00 hora local. Casos fuera de horario se procesan al día siguiente."
+    },
+    {
+      "id": "q33",
+      "question": "¿Quién puede firmar un SAR para enviar a AOFA?",
+      "options": [
+        "Cualquier empleado senior",
+        "Susana lo prepara, Diego firma y envía",
+        "Un abogado externo",
+        "El agente de ventas que detectó el caso"
+      ],
+      "correctIndex": 1,
+      "explanation": "SAR a AOFA: Susana prepara, Diego firma y envía. Ventas nunca presenta SARs."
+    },
+    {
+      "id": "q34",
+      "question": "¿Puede ventas ver los documentos KYC del cliente?",
+      "options": [
+        "Sí, si está asignado al lead",
+        "NO. Solo Susana y Diego ven los documentos KYC y acceden a Sumsub dashboard",
+        "Solo en modo lectura",
+        "Solo si el cliente lo autoriza"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ventas NO puede ver documentos KYC ni acceder a Sumsub. Solo Susana (Compliance) y Diego (Principal) tienen ese permiso."
+    },
+    {
+      "id": "q35",
+      "question": "¿Cuántas veces al año se revisa y actualiza este documento según el doc?",
+      "options": [
+        "Una vez al año",
+        "Trimestralmente o cuando haya cambios regulatorios de AOFA",
+        "Cada 5 años",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "El workflow debe ser revisado y actualizado trimestralmente o cuando haya cambios regulatorios de AOFA."
+    },
+    {
+      "id": "q36",
+      "question": "¿Qué debe hacer todo miembro del equipo antes de operar bajo este documento?",
+      "options": [
+        "Nada especial",
+        "Firmar acuse de recibo que ha leído, entendido y se compromete a cumplir",
+        "Pasar un examen online",
+        "Pedir acceso a Diego"
+      ],
+      "correctIndex": 1,
+      "explanation": "Todos los miembros del equipo deben firmar acuse de recibo confirmando que leyeron, entendieron y se comprometen a cumplir antes de comenzar a operar."
+    },
+    {
+      "id": "q37",
+      "question": "Cliente usa exclusivamente crypto sin convertir a fiat ni operar trading real. ¿Qué es?",
+      "options": [
+        "Cliente Raw típico",
+        "Red flag AML — patrón sospechoso de lavado con crypto",
+        "Cliente institucional",
+        "Trader profesional"
+      ],
+      "correctIndex": 1,
+      "explanation": "Uso exclusivo de crypto sin conversión ni trading real es red flag AML. Potencial lavado vía crypto. Escalar."
+    },
+    {
+      "id": "q38",
+      "question": "¿Qué hay que hacer diariamente según las tareas de Susana?",
+      "options": [
+        "Nada, solo revisar fin de mes",
+        "Revisar nuevos KYC GREEN pendientes, RED RETRY/YELLOW, retiros >$500, canal Slack, alertas del día",
+        "Solo atender tickets de soporte",
+        "Enviar reporte diario a AOFA"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tareas diarias: KYC GREEN a activar (9am), RED RETRY/YELLOW (9:30am), retiros >$500 (10:30am), Slack (11am), segunda ronda (2pm), alertas del día (4pm), tracker (5pm)."
+    },
+    {
+      "id": "q39",
+      "question": "¿Cuál de los siguientes umbrales activa revisión manual por Susana?",
+      "options": [
+        "Cualquier retiro",
+        "Retiros de $501 a $5,000 USD (48h hábiles)",
+        "Solo retiros mayores a $100,000",
+        "Solo retiros de cuentas Institutional"
+      ],
+      "correctIndex": 1,
+      "explanation": "Retiros $501-$5,000 requieren revisión y aprobación manual de Susana, SLA 48 horas hábiles."
+    },
+    {
+      "id": "q40",
+      "question": "El cliente pregunta por el tiempo exacto en que llegará su retiro. ¿Qué respondés?",
+      "options": [
+        "'Llega en 2 horas exactas'",
+        "'Mañana a las 10am'",
+        "NUNCA prometer tiempos exactos. Usar plazos estándar (24-72h según monto y método). Prometer tiempos específicos es violación leve",
+        "'Depende de Susana'"
+      ],
+      "correctIndex": 2,
+      "explanation": "Prohibido prometer tiempos específicos. Siempre usar plazos estándar según monto/método. Prometer tiempos = crea expectativa falsa, sanción interna."
+    }
+  ]
+}

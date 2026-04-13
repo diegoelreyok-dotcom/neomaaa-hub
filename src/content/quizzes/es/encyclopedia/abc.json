@@ -1,0 +1,441 @@
+{
+  "docPath": "encyclopedia/abc",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Qué es A-Book en el contexto de un broker?",
+      "options": [
+        "Modelo donde el broker envía las órdenes del cliente directamente al liquidity provider",
+        "Un libro contable que registra las ganancias del cliente",
+        "Una cuenta especial para clientes premium con spread 0",
+        "Un sistema interno de bonificaciones automáticas"
+      ],
+      "correctIndex": 0,
+      "explanation": "A-Book es el modelo donde el broker actúa como intermediario STP/ECN y envía la orden al LP. Gana vía spread markup o comisión, no con las pérdidas del cliente."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuál es el depósito mínimo de una cuenta Cent en NEOMAAA?",
+      "options": ["$50", "$5", "$500", "$100"],
+      "correctIndex": 1,
+      "explanation": "La cuenta Cent tiene el depósito mínimo más bajo ($5) y está pensada para principiantes que quieren probar la plataforma."
+    },
+    {
+      "id": "q3",
+      "question": "Un cliente te pregunta si NEOMAAA es A-Book o B-Book. ¿Qué debes hacer?",
+      "options": [
+        "Explicar en detalle cómo se clasifica cada cliente",
+        "Decir que somos 100% A-Book para generar confianza",
+        "Redirigir a 'ofrecemos ejecución ECN/STP híbrida' y no entrar en detalle",
+        "Decir que depende de la cuenta y mostrar las diferencias"
+      ],
+      "correctIndex": 2,
+      "explanation": "La política A-Book/B-Book es interna operativa y NO se menciona con clientes. Solo se comunica el modelo público: ECN/STP híbrido."
+    },
+    {
+      "id": "q4",
+      "question": "¿Quién es la responsable de compliance en NEOMAAA?",
+      "options": ["Yulia", "Angel", "Susana", "Pepe"],
+      "correctIndex": 2,
+      "explanation": "Susana es la Compliance Officer. Maneja KYC, AML, sanciones y reportes regulatorios."
+    },
+    {
+      "id": "q5",
+      "question": "¿Qué es AOFA?",
+      "options": [
+        "La plataforma de KYC que usamos",
+        "El regulador de NEOMAAA (Anjouan Offshore Finance Authority)",
+        "Un tipo de cuenta institucional",
+        "El sistema interno de alertas AML"
+      ],
+      "correctIndex": 1,
+      "explanation": "AOFA (Anjouan Offshore Finance Authority) es nuestro regulador. Emitió la licencia L15968/N a Neomaaa Ltd."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuál es la diferencia entre Balance y Equity?",
+      "options": [
+        "Balance es en USD y Equity en EUR",
+        "Balance es el dinero total sin contar posiciones abiertas; Equity es Balance +/- P&L flotante",
+        "Son sinónimos",
+        "Balance se refiere a la cuenta demo y Equity a la real"
+      ],
+      "correctIndex": 1,
+      "explanation": "Balance es el dinero total en la cuenta sin contar posiciones abiertas. Equity = Balance + ganancias/pérdidas flotantes de posiciones abiertas."
+    },
+    {
+      "id": "q7",
+      "question": "¿Qué es el Bid Price?",
+      "options": [
+        "El precio al que puedes COMPRAR un instrumento",
+        "El precio al que puedes VENDER un instrumento",
+        "El precio promedio del mercado",
+        "El precio de apertura del día"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bid es el precio al que el cliente puede VENDER. Es siempre el precio más bajo del par bid/ask."
+    },
+    {
+      "id": "q8",
+      "question": "¿Qué es un CFD?",
+      "options": [
+        "Certificado de Fondos Diarios",
+        "Cuenta Fondeada Directa",
+        "Contract for Difference: contrato derivado para especular sobre el precio sin poseer el activo",
+        "Comisión Fija por Depósito"
+      ],
+      "correctIndex": 2,
+      "explanation": "CFD (Contract for Difference) es un contrato derivado donde el cliente gana o pierde la diferencia entre precio de entrada y salida. La mayoría de nuestros instrumentos son CFDs."
+    },
+    {
+      "id": "q9",
+      "question": "¿En qué cuenta aplica la comisión por operación de $3/lote/lado?",
+      "options": ["Cent", "Standard", "Raw", "Institutional"],
+      "correctIndex": 2,
+      "explanation": "La cuenta Raw tiene spread desde 0.0 pips pero cobra $3/lote/lado ($6 round trip). Cent y Standard no tienen comisión porque el costo está en el spread."
+    },
+    {
+      "id": "q10",
+      "question": "¿Qué CRM usa NEOMAAA para gestionar leads y clientes?",
+      "options": ["HubSpot", "Salesforce", "Skale CRM", "Intercom"],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA usa Skale CRM para trackear estado del lead, KYC, depósitos, agente asignado y notas de llamadas."
+    },
+    {
+      "id": "q11",
+      "question": "¿Quién es el Head of Dealing en NEOMAAA?",
+      "options": ["Angel", "Pepe", "Diego", "Edward"],
+      "correctIndex": 1,
+      "explanation": "Pepe es el Head of Dealing con 20 años de experiencia. Decide qué va A-Book y qué queda B-Book, maneja el riesgo de mercado del broker."
+    },
+    {
+      "id": "q12",
+      "question": "¿Cuál es el apalancamiento máximo de la cuenta Raw?",
+      "options": ["1:1000", "1:500", "1:200", "1:100"],
+      "correctIndex": 1,
+      "explanation": "La cuenta Raw tiene apalancamiento máximo 1:500. Las cuentas Cent y Standard pueden llegar hasta 1:1000."
+    },
+    {
+      "id": "q13",
+      "question": "¿Qué significa FTD?",
+      "options": [
+        "Fixed Trading Deposit",
+        "First Time Deposit: el primer depósito de un cliente",
+        "Full Trade Disclosure",
+        "Forex Trading Department"
+      ],
+      "correctIndex": 1,
+      "explanation": "FTD (First Time Deposit) es la métrica MÁS importante para ventas. Un lead se convierte en cliente cuando hace su FTD."
+    },
+    {
+      "id": "q14",
+      "question": "Un trader principiante pregunta si debe usar apalancamiento 1:1000 porque 'multiplicará su capital'. ¿Qué debes responder?",
+      "options": [
+        "Sí, con 1:1000 multiplicas tu dinero por 1000",
+        "Depende del broker, nosotros no ofrecemos tanto",
+        "Apalancamiento es un reductor del margen requerido, NO un multiplicador del capital. Mayor leverage = menor colchón antes del stop out",
+        "Solo es útil para clientes institucionales"
+      ],
+      "correctIndex": 2,
+      "explanation": "El apalancamiento reduce el margen requerido para abrir posiciones, no multiplica el capital. Mayor leverage significa menor colchón antes del stop out y mayor riesgo de wipeout."
+    },
+    {
+      "id": "q15",
+      "question": "¿Qué es Sumsub?",
+      "options": [
+        "Nuestro proveedor de liquidez",
+        "La plataforma de KYC que usamos para verificar identidad de clientes",
+        "Una herramienta de marketing de afiliados",
+        "El sistema de retiros"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sumsub automatiza la verificación de documentos, detección de fraude, liveness check y screening de sanciones."
+    },
+    {
+      "id": "q16",
+      "question": "¿Cuáles son los 3 estados posibles del KYC?",
+      "options": [
+        "Pending, Active, Suspended",
+        "Approved, Retry, Rejected",
+        "New, Review, Closed",
+        "Verified, Unverified, Blocked"
+      ],
+      "correctIndex": 1,
+      "explanation": "Los estados son: Approved (puede operar), Retry (puede reintentar documentos), Rejected (rechazado definitivo, escalar a Susana)."
+    },
+    {
+      "id": "q17",
+      "question": "Si un cliente es de Estados Unidos, ¿qué debes hacer?",
+      "options": [
+        "Aprobarlo como cualquier otro cliente",
+        "Ofrecerle cuenta demo primero",
+        "NO continuar. Es país restringido. Escalar a Susana",
+        "Cobrar fee adicional por riesgo regulatorio"
+      ],
+      "correctIndex": 2,
+      "explanation": "USA es país restringido. NEOMAAA no puede aceptar clientes de USA, Canada, EEA, UK, Australia, Cuba, Iraq, Myanmar, Corea del Norte, Sudan, ni jurisdicciones sancionadas."
+    },
+    {
+      "id": "q18",
+      "question": "¿Qué es un Pip en la mayoría de pares forex?",
+      "options": [
+        "El primer decimal del precio",
+        "El 4to decimal del precio (0.0001)",
+        "El 6to decimal del precio",
+        "La diferencia bid-ask"
+      ],
+      "correctIndex": 1,
+      "explanation": "Para la mayoría de pares forex, el pip es el 4to decimal (0.0001). Excepción: pares con JPY, donde el pip es el 2do decimal (0.01)."
+    },
+    {
+      "id": "q19",
+      "question": "¿Qué es PIX?",
+      "options": [
+        "Un instrumento de trading de commodities",
+        "El sistema de pago instantáneo de Brasil",
+        "Nuestro proveedor de liquidez principal",
+        "Un tipo de orden de stop loss"
+      ],
+      "correctIndex": 1,
+      "explanation": "PIX es el sistema de pago instantáneo de Brasil. Es uno de los métodos de depósito principales para clientes brasileños."
+    },
+    {
+      "id": "q20",
+      "question": "Un cliente reclama que sufrió slippage severo. ¿Cuál es la acción correcta?",
+      "options": [
+        "Explicarle en detalle cómo funciona la ejecución interna",
+        "Ofrecerle compensar la pérdida",
+        "Documentar (hora, par, volumen, precio esperado vs ejecutado, captura) y escalar a Pepe. NO dar explicaciones técnicas de ejecución",
+        "Decirle que son condiciones normales del mercado y cerrar el ticket"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ventas/soporte NO da explicaciones técnicas de ejecución. Se documenta todo y se escala a Pepe (Head of Dealing)."
+    },
+    {
+      "id": "q21",
+      "question": "¿Qué es el Spread?",
+      "options": [
+        "La comisión de retiro",
+        "La diferencia entre Bid y Ask. Es el costo principal de operar",
+        "El apalancamiento máximo de la cuenta",
+        "La cantidad de lotes permitida por operación"
+      ],
+      "correctIndex": 1,
+      "explanation": "El spread es la diferencia entre el precio Bid y Ask, medida en pips. Es el costo principal de operar."
+    },
+    {
+      "id": "q22",
+      "question": "¿Qué significa STP?",
+      "options": [
+        "Stop Trading Position",
+        "Straight Through Processing: órdenes enviadas directamente al LP sin intervención del broker",
+        "Standard Trading Platform",
+        "Short Term Payment"
+      ],
+      "correctIndex": 1,
+      "explanation": "STP (Straight Through Processing) es el modelo donde las órdenes del cliente se envían directamente al LP sin intervención. Es parte del modelo ECN/STP híbrido de NEOMAAA."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuál de las siguientes frases está PROHIBIDA decirle a un cliente?",
+      "options": [
+        "El trading implica riesgo, los resultados varían",
+        "Invierte solo lo que puedas permitirte perder",
+        "Te garantizo ganancias en 30 días",
+        "Tenemos condiciones competitivas que puedes comparar"
+      ],
+      "correctIndex": 2,
+      "explanation": "Prometer ganancias garantizadas es una frase prohibida. Decirlo con testigo o grabación puede costar la licencia. La alternativa correcta es 'El trading implica riesgo, los resultados varían'."
+    },
+    {
+      "id": "q24",
+      "question": "¿Qué es Hedging y permite MT5 hacerlo?",
+      "options": [
+        "Cerrar posiciones automáticamente; MT5 no lo permite",
+        "Abrir una posición opuesta para reducir riesgo; sí, MT5 permite hedging",
+        "Copiar trades de otro trader; solo Raw lo permite",
+        "Multiplicar el apalancamiento; solo cuenta demo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hedging es abrir una posición opuesta para reducir riesgo (ej: long EUR/USD + short EUR/USD). MT5 permite hedging, relevante para LATAM."
+    },
+    {
+      "id": "q25",
+      "question": "¿Cuántos instrumentos ofrece NEOMAAA aproximadamente?",
+      "options": ["200+", "500+", "2,000+", "10,000+"],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA ofrece 2,000+ instrumentos: forex, índices, metales, crypto CFDs, commodities."
+    },
+    {
+      "id": "q26",
+      "question": "¿Qué es Margin Call?",
+      "options": [
+        "Una llamada de bienvenida al cliente",
+        "Una alerta cuando el equity cae a un nivel peligroso respecto al margen usado",
+        "El cierre automático de todas las posiciones",
+        "La solicitud de más documentos KYC"
+      ],
+      "correctIndex": 1,
+      "explanation": "Margin Call es la alerta cuando el equity cae a un nivel peligroso. El cliente debe depositar más o cerrar posiciones para evitar el Stop Out."
+    },
+    {
+      "id": "q27",
+      "question": "Un cliente pregunta cuándo se procesan los retiros. ¿Qué respondes?",
+      "options": [
+        "Inmediato, en menos de 1 hora",
+        "En 24 horas hábiles, al mismo método del depósito original",
+        "En 7 días hábiles siempre",
+        "Depende del humor del equipo de finance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Los retiros se procesan en 24h hábiles, al mismo método del depósito original (regla AML) hasta el monto depositado. Ganancias se pueden retirar por cualquier método. KYC debe estar aprobado."
+    },
+    {
+      "id": "q28",
+      "question": "¿Qué es un Standard Lot?",
+      "options": [
+        "10,000 unidades de la moneda base",
+        "1,000 unidades de la moneda base",
+        "100,000 unidades de la moneda base",
+        "500,000 unidades de la moneda base"
+      ],
+      "correctIndex": 2,
+      "explanation": "Un Standard Lot son 100,000 unidades de la moneda base. Mini Lot = 10,000 (0.1); Micro Lot = 1,000 (0.01)."
+    },
+    {
+      "id": "q29",
+      "question": "¿Qué son las cuentas segregadas y por qué importan?",
+      "options": [
+        "Cuentas para clientes de alto riesgo; importan para compliance",
+        "Fondos de clientes separados de los fondos operativos del broker. Es requisito regulatorio clave para comunicar seguridad",
+        "Cuentas swap-free; importan para clientes musulmanes",
+        "Cuentas de prueba sin depósito; importan para onboarding"
+      ],
+      "correctIndex": 1,
+      "explanation": "Segregated Accounts: los fondos de clientes se mantienen separados de los fondos operativos del broker. Es requisito regulatorio y se menciona cuando preguntan por seguridad."
+    },
+    {
+      "id": "q30",
+      "question": "¿Qué plataforma de trading usa NEOMAAA?",
+      "options": ["MT4", "cTrader", "MT5", "TradingView"],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA opera exclusivamente en MetaTrader 5 (MT5). No ofrecemos MT4."
+    },
+    {
+      "id": "q31",
+      "question": "¿Qué es USDT?",
+      "options": [
+        "Una cuenta tipo demo",
+        "Stablecoin vinculada al dólar USD, usada como método de depósito/retiro crypto",
+        "El spread mínimo garantizado",
+        "El código país del bróker"
+      ],
+      "correctIndex": 1,
+      "explanation": "USDT (Tether) es una stablecoin vinculada al USD. Es uno de los métodos principales de depósito/retiro crypto en NEOMAAA."
+    },
+    {
+      "id": "q32",
+      "question": "¿Qué es Swap/Rollover?",
+      "options": [
+        "El proceso de renovar el KYC cada año",
+        "Cargo o crédito por mantener una posición abierta de un día al siguiente. Triple swap los miércoles",
+        "Un tipo de orden de entrada",
+        "Una operación de arbitraje"
+      ],
+      "correctIndex": 1,
+      "explanation": "Swap/Rollover es el cargo/crédito por mantener una posición abierta overnight. Los miércoles se aplica triple swap por el fin de semana."
+    },
+    {
+      "id": "q33",
+      "question": "¿Qué significa IBC en 'Neomaaa Ltd IBC 15968'?",
+      "options": [
+        "International Brokerage Committee",
+        "International Business Company (tipo de entidad jurídica)",
+        "Investment Bank Certificate",
+        "Internal Business Control"
+      ],
+      "correctIndex": 1,
+      "explanation": "IBC es International Business Company, un tipo de entidad jurídica. Neomaaa Ltd está registrada como IBC 15968 en Anjouan."
+    },
+    {
+      "id": "q34",
+      "question": "¿Qué es el Vault Yield System de NEOMAAA?",
+      "options": [
+        "El sistema de cold storage para crypto del broker",
+        "Feature donde clientes pueden depositar fondos y ganar hasta 5% p.a. de rendimiento",
+        "Una bóveda física para custodia de activos",
+        "El sistema de seguridad 2FA del portal"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vault Yield System es un feature especial donde los clientes pueden depositar en el 'vault' y ganar hasta 5% p.a. de rendimiento."
+    },
+    {
+      "id": "q35",
+      "question": "Un cliente pregunta si puede aprobar su propio KYC como agente de ventas. ¿Qué haces?",
+      "options": [
+        "Sí, si tengo la evidencia correcta",
+        "Nunca. Ventas NO aprueba ni rechaza KYC. Solo Compliance/Susana puede",
+        "Solo si el monto es menor a $500",
+        "Solo para clientes institucionales"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ventas NUNCA aprueba ni rechaza KYC. Tampoco revela la razón específica de un rechazo final. Solo dice 'requisitos regulatorios' y escala."
+    },
+    {
+      "id": "q36",
+      "question": "¿Qué es Scalping y para qué cuenta es ideal?",
+      "options": [
+        "Estrategia de largo plazo; ideal para Cent",
+        "Estrategia de ganancias pequeñas con muchas operaciones rápidas; ideal para cuenta Raw (spreads bajos + comisión fija)",
+        "Arbitraje entre brokers; solo Institutional",
+        "Trading sin apalancamiento; solo Standard"
+      ],
+      "correctIndex": 1,
+      "explanation": "Scalping busca ganancias pequeñas con muchas operaciones rápidas. Ideal para Raw porque tiene spreads bajos (desde 0.0 pips) + comisión fija."
+    },
+    {
+      "id": "q37",
+      "question": "¿Qué hace el Dealing Desk?",
+      "options": [
+        "Atiende consultas de clientes por chat",
+        "Gestiona las órdenes y la exposición del broker. Decide qué va A-Book y qué B-Book",
+        "Procesa retiros y depósitos",
+        "Lleva las cuentas contables del broker"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dealing Desk es el área operativa que gestiona órdenes y exposición. Responsable: Pepe. Decide qué se envía al mercado (A-Book) y qué se queda interno (B-Book)."
+    },
+    {
+      "id": "q38",
+      "question": "¿Cuántos métodos de pago acepta NEOMAAA aproximadamente?",
+      "options": ["20+", "50+", "120+", "500+"],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA acepta 120+ métodos: Visa/MC, crypto (USDT), PIX, PSE, OXXO, Nequi, Yape, Mercado Pago, Western Union, transferencia bancaria."
+    },
+    {
+      "id": "q39",
+      "question": "¿Qué es Copy Trading en NEOMAAA?",
+      "options": [
+        "Copiar estrategias de YouTube manualmente",
+        "Función que permite a un cliente copiar automáticamente las operaciones de otro trader",
+        "Clonar cuentas entre brokers",
+        "Exportar histórico de trades"
+      ],
+      "correctIndex": 1,
+      "explanation": "Copy Trading permite que un cliente copie automáticamente las operaciones de otro trader. Es feature especial de NEOMAAA."
+    },
+    {
+      "id": "q40",
+      "question": "¿Qué son los Liquidity Providers (LPs)?",
+      "options": [
+        "Los afiliados que traen clientes nuevos",
+        "Instituciones financieras que nos proveen precios y liquidez. Nuestras órdenes A-Book se envían a los LPs",
+        "Los clientes VIP con alto volumen",
+        "Los procesadores de pago"
+      ],
+      "correctIndex": 1,
+      "explanation": "LPs son instituciones financieras que proveen precios y liquidez al broker. Las órdenes A-Book se envían a ellos."
+    }
+  ]
+}

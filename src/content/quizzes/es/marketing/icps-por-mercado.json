@@ -1,0 +1,461 @@
+{
+  "docPath": "marketing/icps-por-mercado",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Qué es un ICP operativo según el doc?",
+      "options": [
+        "'Hombre 25-45 interesado en mercados financieros'",
+        "Una descripción accionable del cliente que queremos atraer, cerrar y retener por mercado",
+        "Un listado genérico de todos los clientes posibles",
+        "Solo información demográfica"
+      ],
+      "correctIndex": 1,
+      "explanation": "ICP operativo es una descripción accionable del cliente por mercado, que se traduce en decisiones concretas: canal, hora del ad, método de pago prioritario, persona para soporte."
+    },
+    {
+      "id": "q2",
+      "question": "¿Por qué NEOMAAA necesita diferentes pitches por mercado?",
+      "options": [
+        "Por preferencia del marketing",
+        "Porque cada mercado tiene cultura trading, regulación, métodos de pago, canales y objeciones distintas",
+        "Solo porque son idiomas diferentes",
+        "Porque los competidores lo hacen"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cada mercado tiene cultura trading distinta (BR explotado, ES sofisticado, ARG desesperado, RU post-sanciones), regulación propia, métodos de pago locales, canales y objeciones específicas."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuáles son las 3 capas obligatorias de un ICP?",
+      "options": [
+        "Nombre, edad, dirección",
+        "Demografía, Psicografía, Conducta",
+        "Canal, método de pago, ticket",
+        "Hombres, mujeres, niños"
+      ],
+      "correctIndex": 1,
+      "explanation": "3 capas: Demografía (edad/género/ingresos/ubicación), Psicografía (motivación/sesgos/miedos), Conducta (canales/tiempos/pago/LTV)."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuál es el mercado de prioridad #1 según el doc?",
+      "options": ["España", "Argentina", "Brasil (BMP)", "México"],
+      "correctIndex": 2,
+      "explanation": "Brasil (BMP) es prioridad máxima. Es el mercado #1 en volumen potencial LATAM. Cultura trading retail se disparó 2020-2024."
+    },
+    {
+      "id": "q5",
+      "question": "¿Cuál es el idioma obligatorio para Brasil?",
+      "options": [
+        "Portugués de Portugal",
+        "Español neutro",
+        "Portugués brasileño (NO portugués de Portugal)",
+        "Inglés"
+      ],
+      "correctIndex": 2,
+      "explanation": "Portugués brasileño nativo — no portugués de Portugal, no español mal traducido, no inglés. Es no negociable en el pitch BR."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuál es el método de pago dominante en Brasil (80%+)?",
+      "options": ["Boleto", "Tarjeta de crédito", "PIX", "USDT"],
+      "correctIndex": 2,
+      "explanation": "PIX 80%+, Boleto 10%, USDT 7%, tarjeta 3% en Brasil. PIX destacado como medio primario en el pitch BR."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuál es el horario pico de conexión en Brasil?",
+      "options": [
+        "06:00-09:00 BRT",
+        "12:00-14:00 BRT",
+        "19:00-23:00 BRT (post-trabajo)",
+        "00:00-03:00 BRT"
+      ],
+      "correctIndex": 2,
+      "explanation": "Pico BR: 19:00-23:00 BRT post-trabajo. Lanzar campañas lunes-jueves. Viernes-domingo bajo engagement."
+    },
+    {
+      "id": "q8",
+      "question": "¿Por qué el cliente BR llega ya 'quemado' según el doc?",
+      "options": [
+        "Porque es emocional por naturaleza",
+        "Porque la mayoría ya compró y quemó challenges en FTMO, Topstep, MyForexFunds, FundedNext",
+        "Porque tienen problemas bancarios",
+        "Porque no hablan español"
+      ],
+      "correctIndex": 1,
+      "explanation": "El cliente BR viene con exposición previa a propfirms (FTMO, Topstep, MyForexFunds, FundedNext) y busca 'o próximo broker' ya quemado."
+    },
+    {
+      "id": "q9",
+      "question": "Respecto a compliance en Brasil, ¿qué términos NO deben usarse?",
+      "options": [
+        "'Trading' y 'operações'",
+        "'Investimento', 'fundo de investimento', 'previdência', 'captação pública' (son términos regulados CVM)",
+        "'Corretora internacional'",
+        "'Mercados internacionais'"
+      ],
+      "correctIndex": 1,
+      "explanation": "CVM está endureciendo: NO usar términos regulados ('investimento', 'fundo de investimento', 'previdência', 'captação pública'). SÍ usar 'trading', 'operações', 'corretora internacional'."
+    },
+    {
+      "id": "q10",
+      "question": "¿Quién es el closer primario para el ICP Brasil?",
+      "options": ["Edward Chestryp", "Franco", "Angel Ortega", "Yulia"],
+      "correctIndex": 1,
+      "explanation": "Franco es closer primario BR. Edward es backup (según el doc, el dato específico para backup BR está pendiente)."
+    },
+    {
+      "id": "q11",
+      "question": "¿Cuál es el rango de ticket inicial típico en Brasil?",
+      "options": [
+        "$10-50 USD",
+        "$50-300 USD equivalente (R$250-R$1.500)",
+        "$1,000-5,000 USD",
+        "$10,000+ USD"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ticket inicial BR: $50-300 USD equivalente (R$250-R$1.500). Frecuencia semanal a quincenal, montos chicos repetidos."
+    },
+    {
+      "id": "q12",
+      "question": "¿Cuál es el idioma obligatorio para España?",
+      "options": [
+        "Inglés",
+        "Español LATAM",
+        "Español peninsular (NO LATAM)",
+        "Catalán"
+      ],
+      "correctIndex": 2,
+      "explanation": "España requiere español peninsular (NO LATAM). El vocabulario delata origen y el cliente español es comparativo obsesivo."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuál es el rango de ticket inicial en España?",
+      "options": [
+        "EUR 50-100",
+        "EUR 300-1.000",
+        "EUR 5.000-10.000",
+        "EUR 20.000+"
+      ],
+      "correctIndex": 1,
+      "explanation": "España: ticket inicial EUR 300-1.000. LTV esperado 6-18 meses (más estable que BR). Frecuencia mensual con montos mayores."
+    },
+    {
+      "id": "q14",
+      "question": "¿Cuál es la objeción #1 típica en España?",
+      "options": [
+        "'¿Cuánto pagan?'",
+        "'¿Por qué no estáis en CNMV?'",
+        "'¿Aceptan crypto?'",
+        "'¿Hablan inglés?'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Objeción #1 ES: '¿Por qué no estáis en CNMV?'. Respuesta: transparencia Anjouan, comparativa con IC Markets offshore, costos/beneficios."
+    },
+    {
+      "id": "q15",
+      "question": "¿Qué tipo de pitch NO funciona en España?",
+      "options": [
+        "Transparencia regulatoria con número de licencia",
+        "Comparativa honesta vs competencia directa",
+        "Hard-sell ('deposita ya y empieza a ganar')",
+        "Cuenta demo gratis antes de depositar"
+      ],
+      "correctIndex": 2,
+      "explanation": "NO funciona en ES: hard-sell, promesas de rentabilidad, ocultar la regulación offshore, copy traducido mal de LATAM."
+    },
+    {
+      "id": "q16",
+      "question": "¿Cuál es el canal de adquisición priorizado #1 para España?",
+      "options": [
+        "Instagram Reels",
+        "TikTok",
+        "Google Search (SEO orgánico) con contenido largo en español peninsular",
+        "Telegram groups"
+      ],
+      "correctIndex": 2,
+      "explanation": "Canal #1 ES: SEO content largo en español peninsular (guías de trading, comparativas). Seguido de podcast partnerships, Forex Expo Madrid, email, YouTube largos."
+    },
+    {
+      "id": "q17",
+      "question": "Según ESMA (regulación UE), ¿cuál es el apalancamiento máximo retail en forex majors?",
+      "options": ["1:1000", "1:500", "1:100", "30:1 en majors FX, 20:1 minors, 10:1 commodities"],
+      "correctIndex": 3,
+      "explanation": "ESMA limita retail EU: 30:1 majors FX, 20:1 minors, 10:1 commodities. Debemos respetar aunque offshore para evitar denuncias CNMV."
+    },
+    {
+      "id": "q18",
+      "question": "¿Qué NO se puede ofrecer a clientes retail EU según ESMA?",
+      "options": [
+        "Servicios de trading",
+        "Bonos de depósito",
+        "Cuentas demo",
+        "Stop loss"
+      ],
+      "correctIndex": 1,
+      "explanation": "Post-ESMA 2018: prohibido ofrecer bonos de depósito a clientes retail EU. Obligatorio risk warning, sin marketing a menores/vulnerables."
+    },
+    {
+      "id": "q19",
+      "question": "¿Quién es el closer primario para España?",
+      "options": ["Franco", "Luis Espinoza", "Edward Chestryp (backup Angel Ortega)", "Diego"],
+      "correctIndex": 2,
+      "explanation": "Closer primario ES: Edward Chestryp. Backup: Angel Ortega."
+    },
+    {
+      "id": "q20",
+      "question": "¿Cuál es el método de pago preferido en Argentina?",
+      "options": [
+        "Pesos argentinos vía wire",
+        "Tarjeta de crédito",
+        "USDT (por el cepo cambiario), Astropay, PIX via stablecoin",
+        "Cheque"
+      ],
+      "correctIndex": 2,
+      "explanation": "ARG: USDT es preferido por el cepo cambiario que complica wires. Astropay, PIX via stablecoin. Alta tolerancia al riesgo por inflación cultural."
+    },
+    {
+      "id": "q21",
+      "question": "¿Cuál es la primera pregunta recomendada para abrir llamada con cliente argentino?",
+      "options": [
+        "'¿Qué broker usás?'",
+        "'¿Ya tentou propfirm antes?'",
+        "'¿Estás tradeando en pesos o ya buscás dolarizar?'",
+        "'¿Cuánto querés depositar?'"
+      ],
+      "correctIndex": 2,
+      "explanation": "Primera pregunta ARG: '¿Estás tradeando en pesos o ya buscás dolarizar?'. Apela a la motivación principal (escapar del peso)."
+    },
+    {
+      "id": "q22",
+      "question": "¿Cuál es el pitch core para México?",
+      "options": [
+        "'Operar en pesos reales'",
+        "'Más opciones que solo crypto, apalancamiento real, depósito OXXO y transferencia SPEI'",
+        "'Broker europeo con CNMV'",
+        "'Crypto exclusivo'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pitch MX: 'Más opciones que solo crypto, apalancamiento real, depósito OXXO y transferencia SPEI'. El mexicano entra vía crypto primero (Bitso, Binance MX)."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuál es un método de pago clave en Colombia?",
+      "options": [
+        "PIX",
+        "OXXO",
+        "Nequi y PSE",
+        "Yape"
+      ],
+      "correctIndex": 2,
+      "explanation": "Colombia: Nequi y PSE (nativos digitales). Muy digital (Nequi, Daviplata), receptivo a influencers y community."
+    },
+    {
+      "id": "q24",
+      "question": "¿Cuál es el perfil cliente típico de Chile?",
+      "options": [
+        "Más agresivo que BR/ARG",
+        "Más conservador que BR/ARG. Compara broker con banca local y AFP. Ticket mayor al promedio. Exige transparencia regulatoria",
+        "Solo cripto",
+        "Solo short-term"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chile: perfil más conservador que BR/ARG, compara con banca local y AFP, ingresos estables, ticket mayor al promedio, exige transparencia regulatoria."
+    },
+    {
+      "id": "q25",
+      "question": "¿Qué métodos de pago son relevantes en Perú?",
+      "options": [
+        "Solo SWIFT",
+        "Yape, Plin, transferencia",
+        "Solo crypto",
+        "PIX"
+      ],
+      "correctIndex": 1,
+      "explanation": "Perú: Yape, Plin, transferencia. Early market, menor volumen, menos educación trading pero creciente. Pitch similar a CO con menor ticket."
+    },
+    {
+      "id": "q26",
+      "question": "¿Cuál es el perfil de cliente en Rusia/CIS post-sanciones?",
+      "options": [
+        "Baja cultura crypto",
+        "Sofisticado en crypto (USDT normal, P2P), afectado por sanciones, busca broker que lo acepte, alta fidelidad si retiros funcionan",
+        "Prefiere SWIFT a todo",
+        "Hablan inglés nativo"
+      ],
+      "correctIndex": 1,
+      "explanation": "RU post-2022: sofisticado en crypto, afectado por sanciones, desconfía de occidentales, busca discreción. Alta fidelidad si retiros funcionan — se queda años."
+    },
+    {
+      "id": "q27",
+      "question": "¿Cuál es el método de pago casi exclusivo en Rusia (80%+)?",
+      "options": [
+        "Wire bancario",
+        "Tarjeta Visa",
+        "Crypto (USDT TRC20)",
+        "Rublos cash"
+      ],
+      "correctIndex": 2,
+      "explanation": "RU: crypto (USDT TRC20) casi exclusivamente 80%+, rara vez wire. Ticket inicial $200-1.000 USD. Pico 18:00-23:00 MSK."
+    },
+    {
+      "id": "q28",
+      "question": "¿Cuál es el canal #1 para adquisición en Rusia?",
+      "options": [
+        "Instagram",
+        "TikTok",
+        "Telegram (canal #1)",
+        "LinkedIn"
+      ],
+      "correctIndex": 2,
+      "explanation": "Canal #1 RU: Telegram. Seguido de VK groups, SEO RU nichos, partnerships con IBs rusos, YouTube RU (RuTube como alternativa)."
+    },
+    {
+      "id": "q29",
+      "question": "¿Qué residentes rusos NO se aceptan nunca?",
+      "options": [
+        "Ninguno, se aceptan todos",
+        "Crimea, Donetsk, Luhansk, Zaporizhzhia, Kherson (territorios sancionados)",
+        "Solo Moscú",
+        "Solo San Petersburgo"
+      ],
+      "correctIndex": 1,
+      "explanation": "NO aceptar residentes de Crimea, Donetsk, Luhansk, Zaporizhzhia, Kherson. Belarus caso por caso (generalmente NO). PEPs de RU: rechazo automático."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuál es el umbral de ticket que obliga documentación SoF para cliente ruso?",
+      "options": [
+        "Cualquier monto",
+        "Mayor a $5.000 USD",
+        "Mayor a $100,000",
+        "Solo PEPs"
+      ],
+      "correctIndex": 1,
+      "explanation": "RU: Source of Funds obligatorio para tickets > $5.000. Screening OFAC/UE/UK/ONU manual por Susana antes de onboarding."
+    },
+    {
+      "id": "q31",
+      "question": "¿Quiénes cierran mejor el ICP Rusia?",
+      "options": [
+        "Franco",
+        "Edward",
+        "Yulia / Gleb / Dimitri",
+        "Susana"
+      ],
+      "correctIndex": 2,
+      "explanation": "Closers RU: Yulia, Gleb, Dimitri (equipo nativo ruso)."
+    },
+    {
+      "id": "q32",
+      "question": "El ICP de Asia (Indonesia, Vietnam, Filipinas) está en qué fase según el doc?",
+      "options": [
+        "Activo en go-live",
+        "Fase 2 — no se activa en go-live. Documentado para planning. No se asigna budget ni equipo hasta Q3 2026",
+        "Cancelado",
+        "Live y con equipo completo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Asia es fase 2. Documentado para planning. Sin presupuesto ni equipo hasta Q3 2026. Necesita soporte local, IB local y métodos de pago locales."
+    },
+    {
+      "id": "q33",
+      "question": "¿Cuál es el tono de soporte recomendado para Brasil?",
+      "options": [
+        "Formal, profesional",
+        "Informal, cercano, con energía ('Fala, [nome]!')",
+        "Técnico y distante",
+        "Corporativo estricto"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tono BR: informal, cercano, energía. 'Fala, [nome]! Aqui é [agente] do NEOMAAA. Como posso ajudar?'"
+    },
+    {
+      "id": "q34",
+      "question": "¿Cuál es el tono de soporte recomendado para España?",
+      "options": [
+        "Informal y con memes",
+        "Formal, profesional, preciso ('Buenos días/tardes [nombre]...')",
+        "Agresivo",
+        "Familiar y caribeño"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tono ES: formal, profesional, preciso. 'Buenos días/tardes [nombre], soy [agente] del equipo NEOMAAA. ¿En qué puedo ayudarle?'"
+    },
+    {
+      "id": "q35",
+      "question": "¿Cuál es un anti-ICP (a quien NO buscamos)?",
+      "options": [
+        "Trader retail con ticket $500",
+        "'Challenger mentality' — solo propfirm hunters sin interés en broker real; mentalidad 'no arriesgo mío, solo ajeno'",
+        "Cliente español de Madrid",
+        "Cliente brasileño con PIX"
+      ],
+      "correctIndex": 1,
+      "explanation": "Anti-ICP: challenger mentality (solo propfirm hunters) es de Funded, no de Markets. Otros anti-ICPs: países sancionados, sin SoF, gambler profile, chargebacks, PEPs sin clearance, menores."
+    },
+    {
+      "id": "q36",
+      "question": "¿Tiene ventas autoridad para rechazar un lead que encaja en Anti-ICP?",
+      "options": [
+        "No, todo debe escalarse",
+        "SÍ. Puede rechazar sin escalar; compliance confirma post-rechazo. Es mejor perder el lead que sumar un caso riesgoso",
+        "Solo si Susana lo autoriza previamente",
+        "Solo para clientes rusos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ventas tiene autoridad de rechazar leads que encajen en Anti-ICP SIN escalar. Compliance confirma post-rechazo."
+    },
+    {
+      "id": "q37",
+      "question": "¿Qué NO hacer en marketing para Brasil?",
+      "options": [
+        "Destacar PIX",
+        "Soporte en portugués",
+        "Promesas explícitas de ganancia ('ganhe R$X por mes') — dispara alarma de scam y riesgo regulatorio",
+        "Partners locales"
+      ],
+      "correctIndex": 2,
+      "explanation": "NO hacer en BR: jargon en inglés sin traducir, pitch 'broker institucional' (suena lejano), promesas explícitas de ganancia, 'Regulados por Anjouan' sin contexto (nadie sabe qué es)."
+    },
+    {
+      "id": "q38",
+      "question": "¿Cuándo se revisa el documento ICPs?",
+      "options": [
+        "Nunca",
+        "Anual",
+        "Trimestralmente con data real post-launch, y ad-hoc si abre nuevo mercado o cambia regulación",
+        "Solo cuando Diego lo pide"
+      ],
+      "correctIndex": 2,
+      "explanation": "Revisión: trimestral con data real post-launch (corregir rangos estimados), ad-hoc si abre nuevo mercado. Owner: Diego (final), Edward (ES/LATAM), Yulia (RU), Franco (BR)."
+    },
+    {
+      "id": "q39",
+      "question": "¿Qué campo en el ICP Brasil aparece como pendiente de medir?",
+      "options": [
+        "Género",
+        "Edad",
+        "LTV esperado (DATO: medir post-launch)",
+        "Idioma nativo"
+      ],
+      "correctIndex": 2,
+      "explanation": "El LTV esperado está marcado 'DATO: medir post-launch' (3-6 meses promedio estimado). Los rangos se corrigen con medición real a 90 días post-launch."
+    },
+    {
+      "id": "q40",
+      "question": "Un cliente español pregunta por FOGAIN (fondo de garantía español). ¿Cómo respondés?",
+      "options": [
+        "Decir que sí tenemos cobertura",
+        "Comunicar honestamente que NO hay garantía FOGAIN (broker offshore)",
+        "Evadir la pregunta",
+        "Decir que es como CySEC"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sin garantía FOGAIN — comunicar honestamente. El cliente ES sofisticado y comparativo, va a investigar. Ocultar o minimizar regulación offshore no funciona en ES."
+    }
+  ]
+}

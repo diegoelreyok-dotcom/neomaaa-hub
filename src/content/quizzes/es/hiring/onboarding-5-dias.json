@@ -1,0 +1,426 @@
+{
+  "docPath": "hiring/onboarding-5-dias",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuáles son los dos negocios de NEOMAAA?",
+      "options": [
+        "NEOMAAA Funded (propfirm) y NEOMAAA Markets (broker forex/CFD)",
+        "NEOMAAA Trading y NEOMAAA Investments",
+        "NEOMAAA Retail y NEOMAAA Institutional",
+        "NEOMAAA LATAM y NEOMAAA Global"
+      ],
+      "correctIndex": 0,
+      "explanation": "NEOMAAA opera dos negocios: Funded (propfirm que hoy es el principal) y Markets (broker forex/CFD en pre-lanzamiento)."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuál es la diferencia entre NEOMAAA Funded y NEOMAAA Markets?",
+      "options": [
+        "Funded es regulado y Markets no",
+        "Funded: trader opera con capital nuestro y comparte profits. Markets: trader opera con su propio capital, nosotros somos la plataforma",
+        "Funded es solo para LATAM, Markets es global",
+        "Funded usa MT4 y Markets MT5"
+      ],
+      "correctIndex": 1,
+      "explanation": "Funded = propfirm (capital nuestro, profit split). Markets = broker (capital del cliente, nosotros somos la plataforma)."
+    },
+    {
+      "id": "q3",
+      "question": "¿Quiénes son los 4 principals de NEOMAAA?",
+      "options": [
+        "Diego, Angel, Pepe, Susana",
+        "Diego, Edward, Franco, Luis",
+        "Diego Loyola, Angel Ortega, Yulia, Stanislav",
+        "Diego, Yulia, Pepe, Angel"
+      ],
+      "correctIndex": 2,
+      "explanation": "Los principals (dueños) son: Diego Loyola (fundador), Angel Ortega (co-fundador), Yulia y Stanislav (equity partners)."
+    },
+    {
+      "id": "q4",
+      "question": "¿Quién es el Head of Dealing en NEOMAAA?",
+      "options": ["Angel Ortega", "Pepe (20 años de experiencia)", "Edward Chestryp", "Diego Loyola"],
+      "correctIndex": 1,
+      "explanation": "Pepe es Head of Dealing con 20 años de experiencia. Maneja flujo de órdenes, pricing y riesgo de mercado del broker."
+    },
+    {
+      "id": "q5",
+      "question": "¿Quién es la Compliance Officer?",
+      "options": ["Yulia", "Susana", "Angel", "Diego"],
+      "correctIndex": 1,
+      "explanation": "Susana es la Compliance Officer: KYC, AML, sanciones, reportes regulatorios. Si hay dudas legales/compliance, ella decide."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuál es el canal default de comunicación interna en NEOMAAA?",
+      "options": ["WhatsApp", "Gmail", "Telegram", "Slack"],
+      "correctIndex": 2,
+      "explanation": "Telegram es el canal default para comunicación diaria del equipo (canal general + canales por rol). WhatsApp es solo para urgencias 1:1."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuándo se usa WhatsApp en la comunicación interna?",
+      "options": [
+        "Para reuniones de equipo diarias",
+        "Para comunicación externa con proveedores",
+        "Solo para urgencias y comunicación 1:1 con principals, si Telegram no responde",
+        "Nunca se usa en NEOMAAA"
+      ],
+      "correctIndex": 2,
+      "explanation": "WhatsApp = urgencias + 1:1 con principals, solo si Telegram no responde. No es el canal default."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuántos registrados tiene NEOMAAA Funded aproximadamente?",
+      "options": ["5,000+", "10,000+", "40,000+", "100,000+"],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA Funded tiene 40K+ registrados y 1,200+ afiliados activos."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cuáles son las 4 fuentes principales de ingreso de NEOMAAA Markets?",
+      "options": [
+        "Spreads, comisiones (Raw), swaps, B-Book flow parcial",
+        "Fees de apertura, mantenimiento, retiro y conversión",
+        "Publicidad, afiliados, datos de mercado, API",
+        "Spread, leverage, depósito mínimo y withdrawal fee"
+      ],
+      "correctIndex": 0,
+      "explanation": "Las 4 fuentes: spread (más estable y grande), comisiones en cuentas Raw, swap/rollover, y B-Book flow parcial bajo política estricta."
+    },
+    {
+      "id": "q10",
+      "question": "Un cliente pregunta si NEOMAAA ofrece MT4. ¿Qué respondes?",
+      "options": [
+        "Sí, MT4 está disponible para cuentas Cent",
+        "Vamos a agregar MT4 pronto",
+        "Solo MT5. No prometas que vamos a agregar MT4 porque no es la dirección",
+        "MT4 está en beta, se puede solicitar"
+      ],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA opera exclusivamente MT5. No prometas que vamos a agregar MT4 porque no es la dirección estratégica."
+    },
+    {
+      "id": "q11",
+      "question": "Según el doc, ¿qué porcentaje del trader retail pierde dinero?",
+      "options": ["10-20%", "30-40%", "50-60%", "70-80%"],
+      "correctIndex": 3,
+      "explanation": "70-80% del trader retail pierde dinero. Es una estadística estructural de la industria, no opinión del broker."
+    },
+    {
+      "id": "q12",
+      "question": "¿Cuál es el depósito mínimo de una cuenta Institutional?",
+      "options": ["$5,000", "$10,000", "$50,000", "$100,000"],
+      "correctIndex": 2,
+      "explanation": "La cuenta Institutional tiene depósito mínimo de $50,000. Es para fondos, gestores y cuentas institucionales."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuáles son 3 de los competidores directos principales de NEOMAAA Markets?",
+      "options": [
+        "Robinhood, Interactive Brokers, E-Trade",
+        "IC Markets, Exness, Pepperstone",
+        "Binance, Coinbase, Kraken",
+        "Goldman Sachs, Morgan Stanley, JP Morgan"
+      ],
+      "correctIndex": 1,
+      "explanation": "Competidores directos: IC Markets (raw spread), Exness (volumen LATAM/Asia), FXPro, HF Markets y Pepperstone."
+    },
+    {
+      "id": "q14",
+      "question": "¿Cuál es nuestro regulador y bajo qué jurisdicción?",
+      "options": [
+        "CySEC bajo Chipre",
+        "FCA bajo Reino Unido",
+        "AOFA (Anjouan Offshore Finance Authority) bajo Unión de las Comoras, licencia L15968/N",
+        "ASIC bajo Australia"
+      ],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA Markets opera bajo licencia AOFA en Anjouan (Unión de las Comoras), licencia L15968/N de Neomaaa Ltd (IBC 15968)."
+    },
+    {
+      "id": "q15",
+      "question": "¿Por qué NEOMAAA eligió Anjouan y no FCA/CySEC?",
+      "options": [
+        "Porque FCA rechazó la licencia",
+        "Porque Anjouan permite escala rápida en LATAM; FCA/CySEC son objetivo de mediano plazo con costos más altos",
+        "Porque Anjouan tiene menos regulación AML",
+        "Porque era gratis"
+      ],
+      "correctIndex": 1,
+      "explanation": "Anjouan permite escala rápida con costos razonables para lanzamiento. FCA/CySEC son objetivo post-go-live, después de volumen y track record."
+    },
+    {
+      "id": "q16",
+      "question": "¿Qué herramienta usa NEOMAAA para KYC?",
+      "options": ["Onfido", "Jumio", "Sumsub", "Veriff"],
+      "correctIndex": 2,
+      "explanation": "Sumsub es la plataforma de KYC. Susana y el equipo compliance revisan los casos."
+    },
+    {
+      "id": "q17",
+      "question": "¿Cuáles de las siguientes frases están PROHIBIDAS en ventas?",
+      "options": [
+        "'Los resultados dependen del mercado'",
+        "'Ganancia garantizada', 'sin riesgo', 'te vas a hacer rico'",
+        "'Ofrecemos ejecución ECN/STP híbrida'",
+        "'Invierte solo lo que puedas permitirte perder'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Frases prohibidas ilegales: 'ganancia garantizada', 'sin riesgo', 'te vas a hacer rico', 'cero pérdidas', 'sistema infalible', 'devolución del capital garantizada'."
+    },
+    {
+      "id": "q18",
+      "question": "Detectás algo sospechoso en un cliente (posible lavado). ¿Qué hacés?",
+      "options": [
+        "Confrontar al cliente directamente",
+        "Rechazar la cuenta por tu cuenta",
+        "NO confrontes al cliente. Documentá lo que viste, escalá a Susana por canal interno, esperá decisión. NO actúes por tu cuenta",
+        "Publicarlo en el canal general del equipo"
+      ],
+      "correctIndex": 2,
+      "explanation": "El protocolo: no confrontar, documentar (screenshot, ticket ID), escalar a Susana, si urgente escalar a Diego/Yulia, esperar decisión. NO actúes por tu cuenta."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cuántas semanas aproximadamente dura el plan del primer mes post-onboarding?",
+      "options": [
+        "2 semanas",
+        "4 semanas con fases: ejecución supervisada, autonomía parcial, review de mes",
+        "8 semanas",
+        "12 semanas"
+      ],
+      "correctIndex": 1,
+      "explanation": "El primer mes: Sem 1 (onboarding), Sem 2 (ejecución supervisada), Sem 3 (autonomía parcial), Sem 4 (review de mes con lead + principal)."
+    },
+    {
+      "id": "q20",
+      "question": "¿Qué documentos pide KYC según el doc?",
+      "options": [
+        "Solo pasaporte",
+        "Pasaporte/DNI, comprobante de domicilio (no más de 3 meses), selfie con doc, origen de fondos (cuentas grandes)",
+        "Solo certificado bancario",
+        "Nada, somos offshore"
+      ],
+      "correctIndex": 1,
+      "explanation": "KYC requiere: ID (pasaporte/DNI), comprobante de domicilio (<3 meses), selfie (liveness), source of funds para cuentas grandes."
+    },
+    {
+      "id": "q21",
+      "question": "Diego Loyola es...",
+      "options": [
+        "Head of Dealing",
+        "Compliance Officer",
+        "Fundador, estrategia/producto/ventas/growth. Argentino basado en Dubai",
+        "CEO de marketing"
+      ],
+      "correctIndex": 2,
+      "explanation": "Diego Loyola es el fundador. Maneja estrategia, producto, ventas y growth. Argentino, basado en Dubai, night owl."
+    },
+    {
+      "id": "q22",
+      "question": "Angel Ortega es...",
+      "options": [
+        "Head of Trading",
+        "Compliance Officer",
+        "Co-fundador, cara CEO pública. Tech, CRM, eventos. Español",
+        "Dueño mayoritario"
+      ],
+      "correctIndex": 2,
+      "explanation": "Angel Ortega es co-fundador y cara CEO pública. Maneja tech, CRM y presencia en eventos. Español."
+    },
+    {
+      "id": "q23",
+      "question": "¿En qué país/zona horaria está Diego?",
+      "options": ["Madrid (CET)", "Argentina (UTC-3)", "Dubai (UTC+4, GST)", "Moscú (MSK)"],
+      "correctIndex": 2,
+      "explanation": "Diego está en Dubai (GST UTC+4). Angel y Pepe/Susana en España (CET). Yulia/Stanislav en Rusia (MSK). Edward/Franco/Luis en LATAM."
+    },
+    {
+      "id": "q24",
+      "question": "¿Quién es Edward Chestryp?",
+      "options": [
+        "Top closer y lead del equipo de ventas del broker",
+        "Co-fundador de NEOMAAA",
+        "Head of Dealing",
+        "Director de marketing"
+      ],
+      "correctIndex": 0,
+      "explanation": "Edward Chestryp es top closer y lead del equipo de ventas del broker. Franco es top closer Funded y podcast Argentina. Luis Espinoza es manager regional."
+    },
+    {
+      "id": "q25",
+      "question": "¿Qué pasa si un cliente pregunta 'ustedes son A-Book o B-Book'?",
+      "options": [
+        "Explicar el modelo híbrido en detalle",
+        "Decir 'operamos un modelo híbrido ECN/STP regulado'. Si insiste, escalá a Pepe",
+        "Decir que somos solo A-Book",
+        "Ignorar la pregunta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Respuesta corta: 'operamos un modelo híbrido ECN/STP regulado'. NO entrar en más detalle. Si insiste, escalar a Pepe."
+    },
+    {
+      "id": "q26",
+      "question": "¿Cuál es el día en que NO tocás ninguna herramienta operativa?",
+      "options": [
+        "Día 1 — El negocio y la gente",
+        "Día 3",
+        "Día 5",
+        "Ningún día"
+      ],
+      "correctIndex": 0,
+      "explanation": "Día 1 es para entender qué empresa es y quién hace qué. Sin herramientas operativas. Sin esto, el resto no tiene contexto."
+    },
+    {
+      "id": "q27",
+      "question": "¿Qué se hace en el Día 3 del onboarding?",
+      "options": [
+        "Compliance y regulación",
+        "El cliente y la operación: journey end-to-end, por qué pierde el trader retail, hands-on",
+        "El producto y el mercado",
+        "Rol específico y herramientas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Día 3 = cliente + operación: demografía/psicología del cliente, journey de 8 pasos (marketing → retención), por qué pierde el retail. 4h lectura + 1h hands-on."
+    },
+    {
+      "id": "q28",
+      "question": "¿Cuántos pasos tiene el journey del cliente según el doc?",
+      "options": ["4", "6", "8", "10"],
+      "correctIndex": 2,
+      "explanation": "8 pasos: Marketing → Lead → Welcome call → KYC → Depósito → Trading → Retiro → Retención."
+    },
+    {
+      "id": "q29",
+      "question": "¿Qué diferenciadores tiene NEOMAAA frente a competidores?",
+      "options": [
+        "Bonos más grandes y sin regulación",
+        "Foco LATAM + España real, expansión en Brasil, cross-sell con Funded, atención humana en español",
+        "Spreads negativos y apalancamiento infinito",
+        "Plataforma propia exclusiva"
+      ],
+      "correctIndex": 1,
+      "explanation": "Diferenciadores: foco LATAM + España real, atención española de verdad, expansión Brasil (BMP), cross-sell con 40K+ base de Funded, atención humana sin chatbots."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuántos instrumentos disponibles ofrece el broker?",
+      "options": ["100+", "500+", "2,000+", "5,000+"],
+      "correctIndex": 2,
+      "explanation": "Más de 2,000 instrumentos: forex, índices, metales, crypto CFDs, commodities."
+    },
+    {
+      "id": "q31",
+      "question": "Si sos VENTAS en el Día 5, ¿qué práctica hacés?",
+      "options": [
+        "Cerrar cuentas inmediatamente",
+        "Llamada con Edward: shadowing en 2-3 llamadas reales con leads. Tomás notas, no hablás todavía",
+        "Hacer cold calls sin supervisión",
+        "Escribir copy para ads"
+      ],
+      "correctIndex": 1,
+      "explanation": "Práctica de ventas Día 5: shadowing con Edward en 2-3 llamadas reales, tomar notas, sin hablar todavía."
+    },
+    {
+      "id": "q32",
+      "question": "Si sos SOPORTE en el Día 5, ¿qué práctica hacés?",
+      "options": [
+        "Responder tickets reales en vivo",
+        "Modo observador en Intercom. Leer 20 conversaciones reales cerradas e identificar 3 patrones repetidos",
+        "Configurar bots automatizados",
+        "Cambiar el tono de los templates"
+      ],
+      "correctIndex": 1,
+      "explanation": "Soporte Día 5: modo observador en Intercom, leer 20 conversaciones cerradas, identificar 3 patrones repetidos, discutir con el lead."
+    },
+    {
+      "id": "q33",
+      "question": "Si sos MARKETING en el Día 5, ¿qué práctica hacés?",
+      "options": [
+        "Lanzar campaña nueva",
+        "Auditar últimos 10 posts de @etradershub y 5 ads. Detectar frases prohibidas, reportar al lead",
+        "Diseñar el logo del broker",
+        "Contratar influencers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Marketing Día 5: auditar 10 posts Instagram @etradershub + 5 ads. Detectar frases prohibidas y reportar al lead."
+    },
+    {
+      "id": "q34",
+      "question": "¿Por qué compliance no es opcional según el doc?",
+      "options": [
+        "Porque es marketing",
+        "Porque si compliance falla: pueden congelar cuentas bancarias, multar, inhabilitar principals y perder clientes masivamente",
+        "Porque Susana lo exige por preferencia",
+        "Porque lo requiere el marketing manager"
+      ],
+      "correctIndex": 1,
+      "explanation": "Si compliance falla: congelan cuentas bancarias corporativas, multas que dejan sin caja, inhabilitación de principals, clientes pierden confianza y se van."
+    },
+    {
+      "id": "q35",
+      "question": "¿Qué son 'red flags' AML según el doc?",
+      "options": [
+        "Banderas rojas en el logo del broker",
+        "Alertas como: depósito+retiro sin operar, múltiples cuentas con misma IP, cliente sin poder explicar origen de fondos, PEP, transacciones desde países sancionados",
+        "Indicadores técnicos en MT5",
+        "Alertas de stop-loss"
+      ],
+      "correctIndex": 1,
+      "explanation": "Red flags AML: depósito-retiro sin operar, múltiples cuentas mismo IP/dirección/pago, sin explicar origen de fondos, docs alterados, PEP, transacciones desde países sancionados."
+    },
+    {
+      "id": "q36",
+      "question": "¿Cuánto tiempo aproximado dura el onboarding completo de 5 días?",
+      "options": ["~5 horas", "~25 horas", "~80 horas", "~160 horas"],
+      "correctIndex": 1,
+      "explanation": "~25 horas a lo largo de 5 días hábiles: lectura + práctica + onboarding 1:1 con el lead."
+    },
+    {
+      "id": "q37",
+      "question": "¿Cuándo es el go-live estimado del broker según el doc?",
+      "options": [
+        "Ya está live",
+        "2024",
+        "2026, a ~6 semanas del momento del documento",
+        "2028"
+      ],
+      "correctIndex": 2,
+      "explanation": "Go-live planificado para 2026, a ~6 semanas del momento del onboarding. La licencia se obtuvo en 2024."
+    },
+    {
+      "id": "q38",
+      "question": "¿Cómo hay que pensar el timing de reuniones según el doc?",
+      "options": [
+        "Siempre en horario Dubai",
+        "Siempre 9am LATAM",
+        "Pensando en la zona horaria del otro. Diego es night owl pero no asumas. Yulia/Stanislav prefieren mañana MSK",
+        "Ningún timing importa"
+      ],
+      "correctIndex": 2,
+      "explanation": "Coordinar pensando en la zona horaria del otro. Diego night owl pero no asumir. Yulia y Stanislav prefieren mañana MSK."
+    },
+    {
+      "id": "q39",
+      "question": "¿Qué se espera que un empleado haga si algo 'no cierra' o cree que está mal?",
+      "options": [
+        "Ejecutar callado y no plantear nada",
+        "Renunciar",
+        "Decirlo. Premiamos al que detecta y plantea, no al que ejecuta callado errores",
+        "Preguntar a otro empleado y nunca al lead"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cultura NEOMAAA: 'No premiamos al que ejecuta callado errores; premiamos al que detecta y plantea'. Decir si algo no cierra es obligatorio."
+    },
+    {
+      "id": "q40",
+      "question": "¿Cuántas personas aproximadamente tiene el equipo de NEOMAAA?",
+      "options": ["~5", "~16", "~50", "~100"],
+      "correctIndex": 1,
+      "explanation": "El equipo creció a ~16 personas y está en etapa de profesionalización: contratando finance, support, marketing."
+    }
+  ]
+}

@@ -1,0 +1,431 @@
+{
+  "docPath": "support/playbook",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Qué herramienta usa NEOMAAA para soporte al cliente?",
+      "options": ["Zendesk", "Freshdesk", "Intercom", "Drift"],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA usa Intercom para soporte. El CRM es Skale, KYC es Sumsub, plataforma de trading es MT5."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuántas horas de cobertura en vivo tiene el soporte diariamente?",
+      "options": ["8 horas", "15 horas", "24 horas", "12 horas"],
+      "correctIndex": 1,
+      "explanation": "Cobertura total en vivo: 15 horas/día (06:00 - 21:00 UTC). Sin cobertura 21:00-06:00 UTC, solo auto-respuestas."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuál es el SLA de primera respuesta para tickets URGENTES?",
+      "options": ["1 hora", "30 minutos", "15 minutos", "2 horas"],
+      "correctIndex": 2,
+      "explanation": "SLA Urgente (dinero en riesgo, plataforma caída): 15 minutos. Alta: 30 min. Media: 2h. Baja: 4h."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuál es el SLA de primera respuesta para tickets de prioridad ALTA?",
+      "options": ["15 minutos", "30 minutos", "1 hora", "4 horas"],
+      "correctIndex": 1,
+      "explanation": "Prioridad Alta (impide operar pero sin pérdida financiera inmediata, ej: KYC rechazado, MT5 no conecta): 30 minutos."
+    },
+    {
+      "id": "q5",
+      "question": "¿Cuándo un ticket es 'URGENTE'?",
+      "options": [
+        "Cuando el cliente dice que lo es",
+        "Dinero del cliente en riesgo o plataforma completamente inaccesible (ej: depósito no acreditado >24h, no puede cerrar posición)",
+        "Cuando el cliente amenaza con irse",
+        "Cuando tiene más de 24h sin respuesta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Urgente = dinero en riesgo o plataforma inaccesible. Ejemplos: depósito no acreditado >24h, no puede cerrar posición abierta."
+    },
+    {
+      "id": "q6",
+      "question": "Un cliente reporta problema con KYC rechazado. ¿A quién escalás si no podés resolver en L1?",
+      "options": ["Pepe", "Susana (Compliance)", "Franco", "Finance Manager"],
+      "correctIndex": 1,
+      "explanation": "KYC/compliance: siempre escalar a Susana. Max tiempo en L1: 15 min."
+    },
+    {
+      "id": "q7",
+      "question": "Un cliente reporta problema de ejecución/slippage en MT5. ¿A quién escalás?",
+      "options": ["Susana", "Finance Manager", "Pepe (Dealing Lead)", "Diego"],
+      "correctIndex": 2,
+      "explanation": "Problemas de ejecución, requote, slippage, margin: escalar a Pepe (Dealing Lead, 20 años exp). Documentar hora, par, volumen, precio esperado vs ejecutado."
+    },
+    {
+      "id": "q8",
+      "question": "Un cliente presenta una queja regulatoria o amenaza legal. ¿Qué hacés?",
+      "options": [
+        "Responder al fondo con argumentos técnicos",
+        "Documentar TODO. NO responder al fondo. Solo confirmar recepción y escalar a Susana inmediatamente",
+        "Ofrecer compensación financiera",
+        "Cerrar el ticket como inválido"
+      ],
+      "correctIndex": 1,
+      "explanation": "Queja regulatoria/amenaza legal: documentar TODO, NO responder al fondo. Solo confirmar recepción. Escalar inmediatamente a Susana y Principals."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cuánto tiempo tiene un agente máximo en Level 1 antes de escalar?",
+      "options": [
+        "No hay límite",
+        "Generalmente 15 minutos (menos para casos específicos)",
+        "60 minutos",
+        "2 horas"
+      ],
+      "correctIndex": 1,
+      "explanation": "La regla de oro: si no puede resolver en 15 minutos, escala. Para quejas regulatorias, PEP/AML, queja de ejecución: inmediato."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cuál es el problema más frecuente según el top 20?",
+      "options": [
+        "Problemas de MT5 login",
+        "'Mi depósito no aparece en mi cuenta'",
+        "KYC rechazado",
+        "Problemas con spreads"
+      ],
+      "correctIndex": 1,
+      "explanation": "Problema #1 top 20: 'Mi depósito no aparece en mi cuenta'. Frecuencia muy alta. Problema #2: 'No puedo hacer login en MT5'."
+    },
+    {
+      "id": "q11",
+      "question": "¿Cuál es el CSAT objetivo según el playbook?",
+      "options": ["60%+", "75%+", "85%+", "95%+"],
+      "correctIndex": 2,
+      "explanation": "El CSAT objetivo es 85%+. Hay 2 agentes actuales, 32 canned responses, cobertura 15h diaria."
+    },
+    {
+      "id": "q12",
+      "question": "Un ticket tiene custom attribute 'account_type' = Institutional o 'total_deposits' > $10,000. ¿Qué sucede?",
+      "options": [
+        "Nada especial",
+        "Tag 'vip', prioridad Alta, notificación push al agente",
+        "Se asigna a un agente junior",
+        "Se cierra automáticamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla VIP: account_type Institutional o total_deposits > $10K → tag 'vip', prioridad Alta, notificación push al agente."
+    },
+    {
+      "id": "q13",
+      "question": "Un cliente pregunta sobre tipo de cuenta y upgrade. ¿A quién se transfiere?",
+      "options": [
+        "Susana",
+        "Pepe",
+        "Sales (Franco/Edward/Luis)",
+        "Finance Manager"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tipo de cuenta, upgrade, IB/afiliados: se transfiere a Sales (Franco/Edward/Luis). Tiempo máx L1: 5 min."
+    },
+    {
+      "id": "q14",
+      "question": "Un cliente pide swap-free (cuenta islámica). ¿Cómo se maneja?",
+      "options": [
+        "Se aprueba en L1 directamente",
+        "Se rechaza",
+        "Informar requisitos, documentar. Escalar a Susana (aprobación) + Pepe (configuración)",
+        "Solo para cuentas Institutional"
+      ],
+      "correctIndex": 2,
+      "explanation": "Swap-free: informar requisitos, documentar solicitud, escalar a Susana para aprobación y Pepe para configuración."
+    },
+    {
+      "id": "q15",
+      "question": "Un cliente desde un país restringido escribe al soporte. ¿Qué hacés?",
+      "options": [
+        "Escalar a Susana",
+        "Informar educadamente que no podemos servir esa jurisdicción usando canned response (CR-26). NO escalar",
+        "Ofrecer workaround",
+        "Ignorar el mensaje"
+      ],
+      "correctIndex": 1,
+      "explanation": "País restringido: respuesta inmediata con canned response CR-26. No se escala a compliance — es política clara."
+    },
+    {
+      "id": "q16",
+      "question": "¿Qué pasa si el L2 no responde en 2 horas?",
+      "options": [
+        "Esperar al día siguiente",
+        "Cerrar el ticket",
+        "Agente hace follow-up por Slack + email",
+        "Escalar directamente al cliente"
+      ],
+      "correctIndex": 2,
+      "explanation": "L2 sin respuesta en 2h: follow-up por Slack + email. A las 4h: escalar a Principals via Susana."
+    },
+    {
+      "id": "q17",
+      "question": "¿Cuántas prioridades existen y cuáles son?",
+      "options": [
+        "2: Urgente y Normal",
+        "4: Urgente (15 min), Alta (30 min), Media (2h), Baja (4h)",
+        "3: Alta, Media, Baja",
+        "5 niveles de P0 a P4"
+      ],
+      "correctIndex": 1,
+      "explanation": "4 niveles de prioridad: Urgente (dinero en riesgo, 15 min), Alta (impide operar, 30 min), Media (fricción operativa, 2h), Baja (informativo, 4h)."
+    },
+    {
+      "id": "q18",
+      "question": "¿Qué tag lleva un ticket que se escaló a L2/L3?",
+      "options": ["`urgent`", "`escalated`", "`pending`", "`vip`"],
+      "correctIndex": 1,
+      "explanation": "Tags de estado: `escalated` (escalado a L2/L3), `waiting-client`, `waiting-internal`, `vip`, `restricted-country`."
+    },
+    {
+      "id": "q19",
+      "question": "Un agente de soporte NUNCA debe:",
+      "options": [
+        "Pedir el número de cuenta MT5",
+        "Dar consejos de trading o discutir la política A-Book/B-Book",
+        "Usar canned responses",
+        "Escalar a Pepe"
+      ],
+      "correctIndex": 1,
+      "explanation": "Soporte NUNCA: dar consejos de trading, prometer tiempos exactos de retiro, discutir A-Book/B-Book, aprobar/rechazar KYCs, compartir info entre clientes, modificar MT5 sin autorización de Pepe."
+    },
+    {
+      "id": "q20",
+      "question": "¿Cuántos minutos es el SLA para chat en vivo en Intercom Messenger?",
+      "options": ["1 minuto", "5 minutos durante horario", "15 minutos", "30 minutos"],
+      "correctIndex": 1,
+      "explanation": "Chat en vivo (Intercom Messenger): 5 minutos durante horario. Email/formulario: según prioridad. Redes sociales: 1 hora."
+    },
+    {
+      "id": "q21",
+      "question": "Un cliente pregunta si puede depositar con la cuenta de su amigo. ¿Qué decís?",
+      "options": [
+        "Sí, con autorización",
+        "NO. El depósito debe venir de una cuenta a nombre del titular — es política AML sin excepciones",
+        "Sí si son familia",
+        "Preguntar a Finance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fondos de terceros PROHIBIDOS. El depósito debe venir de cuenta a nombre del titular. Sugerir lo contrario es prohibición absoluta."
+    },
+    {
+      "id": "q22",
+      "question": "¿Qué es el Margin Call vs Stop Out?",
+      "options": [
+        "Son sinónimos",
+        "Margin Call es alerta cuando margen cae al nivel de aviso; Stop Out es cierre automático cuando cae al nivel mínimo",
+        "Margin Call es manual; Stop Out es opcional",
+        "Solo aplican en cuenta Institutional"
+      ],
+      "correctIndex": 1,
+      "explanation": "Margin Call = alerta cuando margin level cae al % de aviso. Stop Out = cierre automático de posiciones con más pérdida cuando cae al nivel mínimo. Es protección del sistema, no se revierte."
+    },
+    {
+      "id": "q23",
+      "question": "El cliente pide un retiro hoy mismo. ¿Qué NO hacer?",
+      "options": [
+        "Explicarle los plazos estándar",
+        "Verificar estado en el sistema",
+        "Prometer tiempos exactos de procesamiento",
+        "Informar que depende del método"
+      ],
+      "correctIndex": 2,
+      "explanation": "NUNCA prometer tiempos exactos de procesamiento de retiros. Es una de las cosas que soporte NUNCA debe hacer."
+    },
+    {
+      "id": "q24",
+      "question": "¿Qué canned response se usa para pago rechazado al depositar?",
+      "options": [
+        "CR-01 Saludo inicial",
+        "CR-31 Error al Depositar / Pago Rechazado",
+        "CR-11 Estado de Retiro",
+        "CR-26 Rechazo País Restringido"
+      ],
+      "correctIndex": 1,
+      "explanation": "CR-31 es para Error al Depositar / Pago Rechazado. Explica causas comunes (tarjeta bloqueada, límite excedido, método no disponible) y sugiere alternativas."
+    },
+    {
+      "id": "q25",
+      "question": "Cliente dice 'mi posición se cerró sola'. ¿Cuál es el diagnóstico primero?",
+      "options": [
+        "Escalar siempre a Pepe",
+        "Verificar si fue Stop Out, SL/TP activado, expiración, o ajuste de margen. Explicar con CR-27 si aplica",
+        "Ofrecer reembolso",
+        "Decir que es imposible"
+      ],
+      "correctIndex": 1,
+      "explanation": "Diagnóstico: Stop Out (margen insuficiente), SL/TP activado, expiración, ajuste de margen. Si ninguno aplica: documentar y escalar a Pepe."
+    },
+    {
+      "id": "q26",
+      "question": "¿Cuánto tiempo estándar tarda un retiro de crypto según CR-20?",
+      "options": [
+        "Minutos siempre",
+        "1-24 horas, generalmente en pocas horas",
+        "2-5 días hábiles",
+        "7 días"
+      ],
+      "correctIndex": 1,
+      "explanation": "Crypto: 1-24 horas (usualmente pocas). Transferencia bancaria: 2-5 días. Tarjeta: 3-5 días. E-wallets: 1-2 días. Métodos locales: 1-3 días."
+    },
+    {
+      "id": "q27",
+      "question": "¿Qué debe incluir MÍNIMO un ticket en tags?",
+      "options": [
+        "Nada obligatorio",
+        "Mínimo un tag de cada categoría: Tipo de Consulta, Idioma, Prioridad, Estado",
+        "Solo el tag de prioridad",
+        "Solo idioma"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cada ticket debe tener mínimo un tag de cada categoría: Tipo de consulta (kyc, deposit, withdrawal, mt5, etc.), Idioma, Prioridad, Estado."
+    },
+    {
+      "id": "q28",
+      "question": "Un cliente reclama que recibió slippage. ¿Qué documentar?",
+      "options": [
+        "Solo decirle que es normal",
+        "Hora exacta, par, volumen, precio esperado vs ejecutado, captura. Escalar a Pepe. NO dar explicaciones técnicas de ejecución",
+        "Revelar detalles del LP",
+        "Revertir la operación"
+      ],
+      "correctIndex": 1,
+      "explanation": "MT5 requote/slippage: documentar detalles completos (hora, par, volumen, precio esperado vs ejecutado, captura). Escalar a Pepe. NO explicar técnicamente la ejecución."
+    },
+    {
+      "id": "q29",
+      "question": "En el uso del solapamiento de 1 hora entre los 2 agentes (13:00-14:00 UTC), ¿qué se hace?",
+      "options": [
+        "Coffee break",
+        "Handoff de tickets, revisión de escalados, sync de 15 min sobre casos complejos, actualizar notas internas",
+        "Pedir permisos",
+        "Cerrar tickets sin revisar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Solapamiento 13:00-14:00 UTC: handoff del Agente 2 al Agente 1, revisión escalados, sync 15 min, actualizar notas internas."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cómo se maneja un chat entrante en español (browser language = Spanish)?",
+      "options": [
+        "Asignar a Agente 2 (inglés)",
+        "Regla 1: asignar a Agente 1, tag automático `lang:es`",
+        "Esperar que el cliente elija idioma",
+        "Enviar auto-respuesta siempre"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla 1 de routing: idioma español → Agente 1, tag automático `lang:es`. Países LATAM y España."
+    },
+    {
+      "id": "q31",
+      "question": "¿Cuántos canned responses tiene el playbook?",
+      "options": ["~10", "~20", "~32", "~50"],
+      "correctIndex": 2,
+      "explanation": "El playbook define 32 canned responses estandarizadas (saludos, KYC, depósitos por método, retiros, MT5, compliance, quejas, etc.)."
+    },
+    {
+      "id": "q32",
+      "question": "Un cliente quiere cerrar su cuenta. Según CR-30, ¿qué hay que confirmar antes?",
+      "options": [
+        "Solo cerrar inmediatamente",
+        "Confirmar posiciones cerradas, fondos retirados, solicitud formal por escrito, verificación de identidad",
+        "Solo su nombre",
+        "Pedir a Susana que la cierre"
+      ],
+      "correctIndex": 1,
+      "explanation": "CR-30 cierre de cuenta: confirmar posiciones cerradas, fondos retirados, solicitud formal por escrito, verificación de identidad. Procesamiento en 5 días hábiles."
+    },
+    {
+      "id": "q33",
+      "question": "¿Cuál es el tiempo de resolución de un ticket URGENTE?",
+      "options": [
+        "15 minutos",
+        "4 horas (si requiere L2, el L2 tiene 2h para responder)",
+        "48 horas",
+        "No hay SLA de resolución"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tiempo de resolución: Urgente 4h, Alta 12h hábiles, Media 24h hábiles, Baja 48h hábiles."
+    },
+    {
+      "id": "q34",
+      "question": "Un cliente del mercado BR escribe en portugués. ¿Cuál es el tag de idioma?",
+      "options": ["`lang:es`", "`lang:pt`", "`lang:en`", "`lang:br`"],
+      "correctIndex": 1,
+      "explanation": "Tags de idioma: `lang:es` (español), `lang:en` (inglés), `lang:pt` (portugués), `lang:ar` (árabe)."
+    },
+    {
+      "id": "q35",
+      "question": "¿Se pueden ofrecer descuentos o condiciones especiales desde soporte?",
+      "options": [
+        "Sí libremente",
+        "Solo VIP",
+        "NO sin aprobación de Sales/Principals",
+        "Solo si el cliente amenaza con irse"
+      ],
+      "correctIndex": 2,
+      "explanation": "Soporte NUNCA debe ofrecer descuentos o condiciones especiales sin aprobación de Sales/Principals. Es parte de la lista cero-tolerancia."
+    },
+    {
+      "id": "q36",
+      "question": "¿Cuándo un cliente escribe 3+ veces sin respuesta, qué pasa?",
+      "options": [
+        "Se cierra el ticket automáticamente",
+        "Se auto-tag `priority:urgent`",
+        "Se escala a Susana",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cliente que escribe 3+ veces sin respuesta: auto-tag `priority:urgent`. Es un trigger de escalamiento automático."
+    },
+    {
+      "id": "q37",
+      "question": "¿Cuáles son los 5 pasos del proceso de escalación?",
+      "options": [
+        "Cerrar, escalar, ignorar, esperar, reabrir",
+        "Nota interna → Avisar por Slack → Informar al cliente → Taggear `escalated` → Follow-up en 2h",
+        "Pedir KYC, validar, escalar, cerrar, reabrir",
+        "Llamar, escribir, esperar, escalar, cerrar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Proceso escalación: 1) Nota interna con resumen, 2) Avisar por Slack al L2, 3) Informar al cliente, 4) Tag `escalated`, 5) Follow-up en 2h si no hay respuesta."
+    },
+    {
+      "id": "q38",
+      "question": "Un cliente pregunta el tipo de servidor para MT5 live vs demo. ¿Qué canned response usás?",
+      "options": [
+        "CR-05 Depósito",
+        "CR-13 Problemas Login MT5 y/o CR-24 Links de descarga",
+        "CR-11 Estado Retiro",
+        "CR-17 Comparación de cuentas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Para login y servidores MT5: CR-13 Problemas Login MT5 explica servidor correcto (live vs demo), credenciales, conexión. CR-24 incluye instalación."
+    },
+    {
+      "id": "q39",
+      "question": "Cobertura fin de semana según el playbook:",
+      "options": [
+        "24/7 cobertura normal",
+        "SIN cobertura en vivo en fase de lanzamiento. Auto-respuestas 24/7 + agente on-call para tickets 'Urgente' (rotación semanal)",
+        "Cobertura completa pero con respuestas lentas",
+        "Solo 8 horas sábado"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fines de semana: SIN cobertura en vivo (fase lanzamiento). Auto-respuestas 24/7. Agente on-call por rotación semanal, solo responde tickets 'Urgente'. Revisión 15 min sábado/domingo."
+    },
+    {
+      "id": "q40",
+      "question": "¿Cuál es el primer paso del diagnóstico cuando un cliente dice 'mi depósito no aparece'?",
+      "options": [
+        "Acreditar el depósito manualmente",
+        "Pedir número de cuenta MT5, método de depósito, monto y hora aproximada. Verificar en panel PSP y Skale",
+        "Escalar inmediatamente a Finance",
+        "Decirle que espere 48 horas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Problema #1 diagnóstico: pedir cuenta MT5, método, monto, hora. Verificar en panel PSP (si transacción fue exitosa) y en Skale (si está registrado). Verificar si fue a otra cuenta del cliente."
+    }
+  ]
+}

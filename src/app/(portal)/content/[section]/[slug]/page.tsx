@@ -233,6 +233,8 @@ export default async function ContentPage({ params }: ContentPageProps) {
       {/* Completion button */}
       <CompletionButton
         documentPath={doc.filePath}
+        quizDocPath={`${sectionId}/${slug}`}
+        docTitle={docTitle}
         lang={lang}
         isCompleted={isCompleted}
       />
