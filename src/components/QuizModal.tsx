@@ -156,9 +156,15 @@ const i18n: Record<'es' | 'ru', QuizStrings> = {
   },
 };
 
+interface ClientQuestion {
+  id: string;
+  question: string;
+  options: string[];
+}
+
 interface StartResponse {
   sessionId: string;
-  questions: Array<Pick<QuizSessionQuestion, 'questionId' | 'question' | 'shuffledOptions'>>;
+  questions: ClientQuestion[];
   totalQuestions: number;
 }
 
@@ -581,7 +587,7 @@ function InProgressView({
   idx: number;
   total: number;
   progressPct: number;
-  question: { questionId: string; question: string; shuffledOptions: string[] };
+  question: { id: string; question: string; options: string[] };
   currentAnswer: number;
   isLast: boolean;
   canAdvance: boolean;
@@ -594,7 +600,7 @@ function InProgressView({
   const onKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
-      const nxt = currentAnswer < 0 ? 0 : Math.min(question.shuffledOptions.length - 1, currentAnswer + 1);
+      const nxt = currentAnswer < 0 ? 0 : Math.min(question.options.length - 1, currentAnswer + 1);
       onSelect(nxt);
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
@@ -648,7 +654,7 @@ function InProgressView({
 
       {/* Options */}
       <div className="px-6 sm:px-8 py-4 flex-1 space-y-2.5">
-        {question.shuffledOptions.map((opt, i) => {
+        {question.options.map((opt, i) => {
           const selected = currentAnswer === i;
           return (
             <button
@@ -824,7 +830,7 @@ function ResultView({
           <div className="space-y-3 max-h-64 overflow-y-auto pr-1">
             {wrongPerQ.map((pq, i) => {
               const qIdx = questions.findIndex(
-                (q) => q.questionId === pq.questionId
+                (q) => q.id === pq.questionId
               );
               const q = qIdx >= 0 ? questions[qIdx] : null;
               const userLabel =
@@ -850,7 +856,7 @@ function ResultView({
                       <span className="text-neo-text-body">
                         {userLabel}
                         {pq.userAnswer >= 0 && q
-                          ? `. ${q.shuffledOptions[pq.userAnswer]}`
+                          ? `. ${q.options[pq.userAnswer]}`
                           : ''}
                       </span>
                     </div>
@@ -861,7 +867,7 @@ function ResultView({
                       </span>{' '}
                       <span className="text-neo-text-body">
                         {correctLabel}
-                        {q ? `. ${q.shuffledOptions[pq.correctAnswer]}` : ''}
+                        {q ? `. ${q.options[pq.correctAnswer]}` : ''}
                       </span>
                     </div>
                     {pq.explanation && (
