@@ -9,6 +9,16 @@
 **KYC:** Sumsub
 **Plataforma de trading:** MetaTrader 5
 
+<div className="neo-stat-grid">
+<div className="neo-stat" data-value="15 hrs" data-label="Cobertura diaria en vivo"></div>
+<div className="neo-stat" data-value="2" data-label="Agentes actuales"></div>
+<div className="neo-stat" data-value="32" data-label="Canned responses"></div>
+<div className="neo-stat" data-value="85%+" data-label="CSAT objetivo"></div>
+</div>
+
+> [!INFO]
+> Este playbook es la biblia operativa del equipo de soporte. Incluye horarios, SLAs, canned responses, matriz de escalamiento y los 20 problemas mas comunes con su resolucion. Lectura obligatoria antes del primer turno.
+
 ---
 
 ## INDICE
@@ -193,6 +203,13 @@ Cada ticket debe tener MINIMO un tag de cada categoria:
 
 ### 2.4 Niveles de Prioridad
 
+<div className="neo-pyramid">
+<div className="neo-pyramid-level">Urgente — 15 min (dinero en riesgo, plataforma caida)</div>
+<div className="neo-pyramid-level">Alta — 30 min (impide operar, sin perdida inmediata)</div>
+<div className="neo-pyramid-level">Media — 2 horas (friccion operativa)</div>
+<div className="neo-pyramid-level">Baja — 4 horas (informativo, no bloquea)</div>
+</div>
+
 | Prioridad | Criterio | SLA Primera Respuesta | Ejemplo |
 |-----------|----------|----------------------|---------|
 | **Urgente** | Dinero del cliente en riesgo, plataforma completamente inaccesible | 15 minutos | Deposito no acreditado >24h, no puede cerrar posicion abierta |
@@ -220,7 +237,9 @@ Configurar estos campos para cada contacto:
 ## 3. Matriz de Escalacion
 
 ### Regla de Oro
-> **El agente de soporte resuelve lo que puede en Level 1. Si no puede resolver en 15 minutos o la consulta requiere acceso/autorizacion que no tiene, escala inmediatamente. NUNCA inventa respuestas.**
+
+> [!WARNING]
+> El agente de soporte resuelve lo que puede en Level 1. Si no puede resolver en 15 minutos o la consulta requiere acceso/autorizacion que no tiene, escala inmediatamente. NUNCA inventa respuestas.
 
 ### Matriz Completa
 
@@ -265,17 +284,18 @@ Configurar estos campos para cada contacto:
 
 ### Proceso de Escalacion
 
-1. **Agente agrega nota interna** en el ticket de Intercom con:
-   - Resumen del problema
-   - Que ya se intento
-   - Que informacion se tiene del cliente
-   - Por que se escala
-2. **Agente envia mensaje por Slack** al canal o persona correspondiente con el link al ticket
-3. **Agente informa al cliente** que su caso ha sido escalado al equipo especializado
-4. **Agente agrega tag** `escalated` al ticket
-5. **Agente hace seguimiento** a las 2 horas si no ha recibido respuesta del L2
+<div className="neo-step-list">
+<div className="neo-step" data-num="1" data-title="Nota interna"><div>Agente agrega nota interna en el ticket de Intercom con: resumen del problema, que ya se intento, que informacion se tiene del cliente, por que se escala.</div></div>
+<div className="neo-step" data-num="2" data-title="Avisar por Slack"><div>Agente envia mensaje por Slack al canal o persona correspondiente con el link al ticket.</div></div>
+<div className="neo-step" data-num="3" data-title="Informar al cliente"><div>Agente informa al cliente que su caso ha sido escalado al equipo especializado.</div></div>
+<div className="neo-step" data-num="4" data-title="Taggear"><div>Agente agrega tag <code>escalated</code> al ticket.</div></div>
+<div className="neo-step" data-num="5" data-title="Follow-up"><div>Agente hace seguimiento a las 2 horas si no ha recibido respuesta del L2.</div></div>
+</div>
 
 ### Lo que un agente de soporte NUNCA debe hacer
+
+> [!DANGER]
+> Lista cero-tolerancia. Cualquiera de estos items es motivo de revision inmediata del ticket.
 
 - Dar consejos de trading o recomendar operaciones
 - Prometer tiempos exactos de procesamiento de retiros
@@ -293,6 +313,13 @@ Configurar estos campos para cada contacto:
 ## 4. SLAs y Tiempos de Respuesta
 
 ### Primera Respuesta
+
+<div className="neo-stat-grid">
+<div className="neo-stat" data-value="15 min" data-label="SLA Urgente"></div>
+<div className="neo-stat" data-value="30 min" data-label="SLA Alta"></div>
+<div className="neo-stat" data-value="2 hrs" data-label="SLA Media"></div>
+<div className="neo-stat" data-value="4 hrs" data-label="SLA Baja"></div>
+</div>
 
 | Prioridad | SLA Primera Respuesta | Objetivo Interno |
 |-----------|----------------------|-----------------|
@@ -1961,7 +1988,8 @@ Please send the required documents and we'll process your request as soon as pos
 
 **Canned Response:** CR-21
 
-**REGLA: Un agente NUNCA responde al fondo de una queja formal. Solo documenta, confirma recepcion y escala.**
+> [!DANGER]
+> REGLA: Un agente NUNCA responde al fondo de una queja formal. Solo documenta, confirma recepcion y escala. Cualquier intento de argumentar puede usarse en contra de NEOMAAA en un proceso regulatorio.
 
 ---
 

@@ -4,6 +4,9 @@
 **Licencia Anjouan: L15968/N | Regulador: AOFA**
 **Version: 1.0 | Fecha: 8 de abril 2026**
 
+> [!DANGER]
+> Este documento es de lectura OBLIGATORIA para todo el equipo antes de empezar a operar. Cada uno firma el acuse de recibo al final. Violar estas reglas tiene consecuencias que escalan desde advertencia hasta despido + reporte a AOFA.
+
 ---
 
 ## INDICE
@@ -35,7 +38,7 @@
 
 ### 1.2 Modulos de Capacitacion
 
-**MODULO 1 - Semana 1: Marco Regulatorio (8 horas)**
+#### MÓDULO 1 — Marco Regulatorio (Semana 1, 8 horas)
 
 - Que es la licencia Anjouan L15968/N y que obliga
 - Estructura de la AOFA (Anjouan Offshore Finance Authority)
@@ -44,7 +47,7 @@
 - Lectura obligatoria: Anjouan International Business Companies Act
 - Lectura obligatoria: AOFA AML/CFT Guidelines
 
-**MODULO 2 - Semana 2: AML/CFT para Brokers (10 horas)**
+#### MÓDULO 2 — AML/CFT para Brokers (Semana 2, 10 horas)
 
 - Que es lavado de dinero y financiamiento del terrorismo
 - Las 3 etapas: colocacion, estratificacion, integracion
@@ -60,7 +63,7 @@
   - Cliente de pais de alto riesgo con documentos sospechosos
   - Uso exclusivo de crypto sin conversion a fiat ni trading real
 
-**MODULO 3 - Semana 3: KYC Operativo con Sumsub (8 horas)**
+#### MÓDULO 3 — KYC Operativo con Sumsub (Semana 3, 8 horas)
 
 - Dashboard de Sumsub: navegacion completa
 - Como interpretar cada resultado (GREEN, RED FINAL, RED RETRY, YELLOW)
@@ -70,7 +73,7 @@
 - Source of Funds: que documentos pedir segun monto
 - Practica: revisar 20 casos reales en sandbox de Sumsub
 
-**MODULO 4 - Semana 4: Monitoreo de Transacciones y Retiros (8 horas)**
+#### MÓDULO 4 — Monitoreo de Transacciones y Retiros (Semana 4, 8 horas)
 
 - Como monitorear depositos y retiros en el panel del broker
 - Umbrales de alerta (definidos en seccion 4 de este documento)
@@ -159,6 +162,13 @@ Numero de documento: _______________
 
 ### 2.1 Diagrama del Flujo Completo
 
+<div className="neo-step-list">
+<div className="neo-step" data-num="1" data-title="Registro"><div>Cliente se registra en web/app con datos basicos (nombre, email, pais, telefono).</div></div>
+<div className="neo-step" data-num="2" data-title="Filtro pais"><div>Si el pais es restringido → rechazo automatico. Si es permitido → pasa a Sumsub.</div></div>
+<div className="neo-step" data-num="3" data-title="Sumsub KYC"><div>Cliente sube ID + Selfie + Proof of Address en Sumsub.</div></div>
+<div className="neo-step" data-num="4" data-title="Resultado"><div>Sumsub devuelve uno de 4 resultados: GREEN (aprobado), YELLOW (revision manual), RED RETRY (reintento), RED FINAL (rechazo permanente).</div></div>
+</div>
+
 ```
 REGISTRO EN WEB/APP
         |
@@ -202,14 +212,18 @@ Estos paises NO pueden abrir cuenta bajo ninguna circunstancia:
 
 #### GREEN (Aprobado)
 
-**Significado:** Identidad verificada, documentos validos, no hay matches en listas de sanciones.
+> [!SUCCESS]
+> Identidad verificada, documentos validos, sin matches en listas de sanciones. Activacion lista despues de la revision final de Susana.
 
 **Acciones:**
-1. Susana revisa el resultado en el dashboard de Sumsub (no solo el color, tambien los detalles)
-2. Verifica manualmente que el pais no esta restringido
-3. Verifica que no haya PEP match (a veces Sumsub da GREEN con PEP flag aparte)
-4. Si todo esta bien: **ACTIVAR CUENTA**
-5. Tiempo maximo: **4 horas habiles** desde que Sumsub da GREEN
+
+<div className="neo-step-list">
+<div className="neo-step" data-num="1" data-title="Revisar detalle"><div>Susana revisa el resultado en el dashboard de Sumsub (no solo el color, tambien los detalles).</div></div>
+<div className="neo-step" data-num="2" data-title="Chequear pais"><div>Verifica manualmente que el pais no esta restringido.</div></div>
+<div className="neo-step" data-num="3" data-title="Chequear PEP"><div>Verifica que no haya PEP match (a veces Sumsub da GREEN con PEP flag aparte).</div></div>
+<div className="neo-step" data-num="4" data-title="Activar cuenta"><div>Si todo esta bien: ACTIVAR CUENTA.</div></div>
+<div className="neo-step" data-num="5" data-title="SLA"><div>Tiempo maximo: 4 horas habiles desde que Sumsub da GREEN.</div></div>
+</div>
 
 **Comunicacion al cliente (automatica via Intercom):**
 ```
@@ -278,7 +292,10 @@ Equipo NEOMAAA
 
 #### RED FINAL (Rechazado Permanentemente)
 
-**Significado:** El cliente NO puede abrir cuenta. Causas:
+> [!DANGER]
+> El cliente NO puede abrir cuenta bajo ninguna circunstancia. NUNCA revelar la razon especifica al cliente (no mencionar sanciones, fraude, ni listas). Solo "requisitos regulatorios".
+
+**Causas:**
 - Documento fraudulento detectado
 - Match confirmado en lista de sanciones
 - Pais restringido
@@ -307,7 +324,8 @@ compliance@neomaaa.com con documentacion adicional.
 Equipo NEOMAAA
 ```
 
-**IMPORTANTE: NUNCA decir la razon especifica del rechazo final al cliente. No mencionar sanciones, fraude, ni listas. Solo decir "requisitos regulatorios".**
+> [!DANGER]
+> NUNCA decir la razon especifica del rechazo final al cliente. No mencionar sanciones, fraude, ni listas. Solo decir "requisitos regulatorios".
 
 ### 2.4 SLAs de KYC
 
@@ -345,24 +363,31 @@ Equipo NEOMAAA
 
 ### 3.2 Cuando Ventas Contacta a Susana (y Cuando NO)
 
-**SI contactar a Susana:**
-
-- Cliente lleva mas de 24 horas en KYC pendiente
-- Cliente reporta que Sumsub no acepta su documento y no sabe por que
-- Cliente quiere depositar mas de $10,000
-- Cliente dice que es PEP o tiene cargo publico
-- Cliente quiere abrir cuenta corporativa/institucional
-- Cliente tiene pasaporte de pais de alto riesgo
-- Cliente quiere depositar con crypto y ventas no esta seguro si es aceptable
-- Retiro grande rechazado y cliente se queja
-
-**NO contactar a Susana (ventas lo resuelve solo):**
-
-- Cliente pregunta que documentos necesita (hay guia estandar)
-- Cliente pregunta cuanto tarda la verificacion (decir 24-48 horas)
-- RED RETRY por foto borrosa (ventas guia al cliente con templates de abajo)
-- Cliente pregunta sobre metodos de deposito (no es tema compliance)
-- Cliente pregunta sobre spreads, apalancamiento, plataforma (ventas/soporte)
+<div className="neo-compare">
+<div className="neo-compare-col neo-compare-col--pro">
+<div className="neo-compare-title">SI contactar a Susana</div>
+<ul>
+<li>Cliente lleva mas de 24 horas en KYC pendiente</li>
+<li>Cliente reporta que Sumsub no acepta su documento y no sabe por que</li>
+<li>Cliente quiere depositar mas de $10,000</li>
+<li>Cliente dice que es PEP o tiene cargo publico</li>
+<li>Cliente quiere abrir cuenta corporativa/institucional</li>
+<li>Cliente tiene pasaporte de pais de alto riesgo</li>
+<li>Cliente quiere depositar con crypto y ventas no esta seguro si es aceptable</li>
+<li>Retiro grande rechazado y cliente se queja</li>
+</ul>
+</div>
+<div className="neo-compare-col neo-compare-col--con">
+<div className="neo-compare-title">NO contactar (ventas lo resuelve solo)</div>
+<ul>
+<li>Cliente pregunta que documentos necesita (hay guia estandar)</li>
+<li>Cliente pregunta cuanto tarda la verificacion (decir 24-48 horas)</li>
+<li>RED RETRY por foto borrosa (ventas guia con templates de abajo)</li>
+<li>Cliente pregunta sobre metodos de deposito (no es tema compliance)</li>
+<li>Cliente pregunta sobre spreads, apalancamiento, plataforma (ventas/soporte)</li>
+</ul>
+</div>
+</div>
 
 ### 3.3 Formato de Mensaje de Ventas a Susana (Slack)
 
@@ -529,6 +554,9 @@ Equipo NEOMAAA
 
 ### 3.6 Lo Que Ventas NUNCA Debe Decir
 
+> [!DANGER]
+> Cada frase de la columna izquierda es causal de advertencia escrita o suspension. Usar siempre la alternativa de la derecha.
+
 | NUNCA decir | Por que | En su lugar decir |
 |---|---|---|
 | "Te aprobamos la cuenta ya mismo" | Ventas NO aprueba cuentas | "Una vez que pases la verificacion, tu cuenta se activa rapidamente" |
@@ -547,9 +575,8 @@ Equipo NEOMAAA
 
 ### 4.1 Regla Fundamental
 
-**El retiro debe ir al MISMO metodo y MISMA cuenta desde donde se deposito.** Si el cliente deposito por PIX, el retiro va por PIX a la misma cuenta. Si deposito por crypto, el retiro va a la misma wallet.
-
-Excepciones solo con aprobacion de Susana y documentacion de la razon.
+> [!WARNING]
+> El retiro debe ir al MISMO metodo y MISMA cuenta desde donde se deposito. Si el cliente deposito por PIX, el retiro va por PIX a la misma cuenta. Si deposito por crypto, el retiro va a la misma wallet. Excepciones solo con aprobacion de Susana y documentacion de la razon.
 
 ### 4.2 Umbrales de Aprobacion
 
@@ -589,7 +616,8 @@ Fecha: _______________
 
 ### 4.4 Red Flags en Retiros
 
-**BLOQUEAR Y INVESTIGAR inmediatamente:**
+> [!DANGER]
+> BLOQUEAR Y INVESTIGAR inmediatamente los siguientes casos:
 
 1. **Retiro a tercero:** El nombre del destinatario no coincide con el titular de la cuenta
 2. **Retiro total inmediato:** Cliente deposita y retira todo en menos de 48 horas sin operar
@@ -840,6 +868,9 @@ Fecha: _______________
 | Critica | Ayudar a cliente a falsificar documentos, ignorar alerta AML | Despido inmediato + reporte a AOFA |
 
 ### 6.3 Prohibiciones Absolutas (Para TODOS)
+
+> [!DANGER]
+> Estas 10 reglas NO admiten excepcion — ni Diego ni Susana ni nadie las puede autorizar. Violarlas es despido inmediato y, segun el caso, reporte a AOFA.
 
 1. **NUNCA** ayudar a un cliente a evadir controles KYC
 2. **NUNCA** sugerir que use documentos de otra persona

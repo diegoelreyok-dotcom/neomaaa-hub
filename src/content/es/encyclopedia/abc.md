@@ -2,6 +2,16 @@
 
 > Todo lo que el equipo necesita saber para operar como broker. Si tienes una duda, busca aqui primero.
 
+<div className="neo-stat-grid">
+<div className="neo-stat" data-value="2,000+" data-label="Instrumentos"></div>
+<div className="neo-stat" data-value="120+" data-label="Metodos de pago"></div>
+<div className="neo-stat" data-value="4" data-label="Tipos de cuenta"></div>
+<div className="neo-stat" data-value="1:1000" data-label="Leverage max"></div>
+</div>
+
+> [!INFO]
+> Este glosario esta organizado alfabeticamente. Los terminos criticos para compliance (KYC, AML, B-Book, frases prohibidas) estan marcados con callouts. Si lo que buscas no esta aqui, pregunta al supervisor antes de improvisar.
+
 ---
 
 ## A
@@ -22,6 +32,9 @@ NEOMAAA ofrece 4 tipos:
 ### AML (Anti-Money Laundering)
 Politicas contra lavado de dinero. Obligatorio por regulacion. Susana es responsable. Incluye: verificacion de origen de fondos, monitoreo de transacciones sospechosas, reportes a la AOFA.
 
+> [!WARNING]
+> AML no es formalismo. Ignorar una alerta o ayudar a un cliente a evadir controles es causal de despido inmediato + reporte a AOFA. Ante la duda, escalar a Susana.
+
 ### AOFA (Anjouan Offshore Finance Authority)
 Nuestro regulador. Emitio la licencia L15968/N a Neomaaa Ltd. Supervisa cumplimiento de regulaciones financieras offshore.
 
@@ -34,6 +47,9 @@ Precio al que puedes COMPRAR un instrumento. Siempre es el precio mas alto del p
 
 ### B-Book
 Modelo donde el broker actua como contraparte del cliente. El broker "absorbe" la orden internamente sin enviarla al mercado. El broker gana cuando el cliente pierde y viceversa. Se usa para ordenes pequenas o flow predecible.
+
+> [!DANGER]
+> Cero discusion publica de A-Book/B-Book con clientes. Es politica interna operativa y NO se menciona en llamadas, WhatsApp, ni materiales de marketing. Si un cliente pregunta, redirigir a "ofrecemos ejecucion ECN/STP hibrida".
 
 ### Balance
 Dinero total en la cuenta del cliente, sin contar posiciones abiertas. Diferente al Equity.
@@ -158,6 +174,9 @@ Proceso de verificacion de identidad del cliente. Obligatorio antes de permitir 
 - **Retry** — documentos rechazados, puede reintentar
 - **Rejected** — rechazado definitivamente, escalar a Susana
 
+> [!WARNING]
+> Ventas NUNCA aprueba ni rechaza KYC. Tampoco revela la razon especifica de un rechazo final (sanciones, fraude, PEP). Solo dice "requisitos regulatorios" y escala.
+
 ---
 
 ## L
@@ -278,6 +297,9 @@ Nuestro CRM. Se usa para:
 ### Slippage
 Diferencia entre el precio esperado y el precio real de ejecucion. Puede ser positivo o negativo. Comun en mercados volatiles o durante noticias.
 
+> [!WARNING]
+> Si un cliente reclama slippage o requote, ventas/soporte NO da explicaciones tecnicas de ejecucion. Documenta (hora exacta, par, volumen, precio esperado vs ejecutado, captura) y escala a Pepe.
+
 ### Spread
 Diferencia entre el precio Bid y Ask. Es el costo principal de operar. Se mide en pips.
 - Cuenta Cent/Standard: desde 1.0 pip (sin comision adicional)
@@ -358,7 +380,8 @@ Proceso de retirar fondos de la cuenta de trading. Reglas:
 
 ## Frases PROHIBIDAS (Compliance)
 
-> **Ninguno en el equipo puede decir esto a un cliente — NUNCA:**
+> [!DANGER]
+> Ninguno en el equipo puede decir esto a un cliente — NUNCA. Decirlo una vez es causal de advertencia escrita; decirlo con testigo (cliente que lo graba, compliance audit) puede costar la licencia.
 
 | PROHIBIDO | ALTERNATIVA |
 |-------------|---------------|

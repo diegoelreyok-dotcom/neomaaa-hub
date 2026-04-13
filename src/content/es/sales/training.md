@@ -6,11 +6,21 @@
 **Formato:** 2 horas diarias (10am-12pm), lunes a viernes
 **Evaluacion:** Examen escrito + simulacion de llamada al final de cada semana
 
+<div className="neo-stat-grid">
+<div className="neo-stat" data-value="6" data-label="Semanas"></div>
+<div className="neo-stat" data-value="30" data-label="Dias habiles"></div>
+<div className="neo-stat" data-value="60h" data-label="Total capacitacion"></div>
+<div className="neo-stat" data-value="85%+" data-label="Nota minima"></div>
+</div>
+
 ---
 
 ## Por que esto es critico
 
-Vender broker NO es vender propfirm. Las diferencias clave:
+> [!INFO]
+> Vender broker NO es vender propfirm. Cambia el producto, cambia el cliente, cambia el riesgo regulatorio. Este programa existe para que el equipo haga la transicion mental completa antes del go-live.
+
+Diferencias clave:
 
 | Propfirm | Broker |
 |----------|--------|
@@ -22,11 +32,17 @@ Vender broker NO es vender propfirm. Las diferencias clave:
 | KPI: challenges vendidos | KPI: FTDs + retencion + depositos recurrentes |
 | Objeciones: "es muy dificil pasar" | Objeciones: "no confio en brokers", "como se que no me roban" |
 
+> [!WARNING]
+> Si los agents salen a vender broker con mentalidad de propfirm, los 4 riesgos de abajo se materializan en las primeras 48 horas. Esto es lo que venimos a evitar.
+
 **Si los agents salen a vender broker con mentalidad de propfirm, van a:**
-1. Prometer cosas que no pueden prometer (rendimientos, ganancias)
-2. No saber explicar spreads, swap, margin call
-3. Ignorar compliance y meter a NEOMAAA en problemas regulatorios
-4. Perder clientes por no saber manejar objeciones de confianza
+
+<div className="neo-step-list">
+<div className="neo-step" data-num="1" data-title="Promesas ilegales"><div>Prometer cosas que no pueden prometer (rendimientos, ganancias).</div></div>
+<div className="neo-step" data-num="2" data-title="Falta de producto"><div>No saber explicar spreads, swap, margin call.</div></div>
+<div className="neo-step" data-num="3" data-title="Riesgo regulatorio"><div>Ignorar compliance y meter a NEOMAAA en problemas regulatorios.</div></div>
+<div className="neo-step" data-num="4" data-title="Perdida de clientes"><div>Perder clientes por no saber manejar objeciones de confianza.</div></div>
+</div>
 
 ---
 
@@ -35,28 +51,32 @@ Vender broker NO es vender propfirm. Las diferencias clave:
 **Instructor principal:** Pepe
 **Objetivo:** Que cada agent entienda el producto que vende como si fuera trader
 
-### Dia 1 (Lunes) - Que es un broker y como gana dinero
+### DÍA 1 — Que es un broker y como gana dinero
+*Lunes*
 - Que es un broker forex/CFD y como funciona el modelo de negocio
 - Diferencia entre broker y propfirm (modelo mental)
 - Spreads: que son, como se cobran, por que varian
 - NEOMAAA: 4 tipos de cuenta (Cent, Standard, Raw, Institutional)
 - Ejercicio: calcular cuanto paga un cliente en spreads por 1 lote de EURUSD en cada tipo de cuenta
 
-### Dia 2 (Martes) - Leverage, Margin y Risk
+### DÍA 2 — Leverage, Margin y Risk
+*Martes*
 - Que es leverage y como funciona (1:100, 1:500, 1:1000)
 - Margin, free margin, margin level - con ejemplos numericos
 - Margin call y stop out - que pasa cuando el cliente pierde demasiado
 - Negative balance protection - como protege al cliente
 - Ejercicio: simular una operacion con $500 a 1:500 leverage, calcular margin requerido y punto de stop out
 
-### Dia 3 (Miercoles) - Swaps, Comisiones y Costos
+### DÍA 3 — Swaps, Comisiones y Costos
+*Miercoles*
 - Que es swap y por que se cobra (rollover overnight)
 - Swap-free: como funciona en NEOMAAA (hasta 2 meses post-apertura)
 - Comisiones por lote (Raw: $3/lot/side, Standard: incluido en spread)
 - Costos ocultos que los clientes preguntan y como responder
 - Ejercicio: cliente pregunta "cuanto me cuesta mantener una posicion de 1 lote EURUSD abierta 1 semana?" - calcular
 
-### Dia 4 (Jueves) - Instrumentos y Mercados
+### DÍA 4 — Instrumentos y Mercados
+*Jueves*
 - Overview de los 2,000+ instrumentos disponibles
 - Forex: majors, minors, exotics - cuales son los mas populares en LATAM
 - Indices: US30, NAS100, JPN225 - por que importan
@@ -64,7 +84,8 @@ Vender broker NO es vender propfirm. Las diferencias clave:
 - Crypto: BTCUSD - como se tradea en MT5
 - Ejercicio: armar una "cartera recomendada" para un cliente LATAM tipico
 
-### Dia 5 (Viernes) - NEOMAAA vs La Competencia
+### DÍA 5 — NEOMAAA vs La Competencia
+*Viernes*
 - Ventajas competitivas reales de NEOMAAA (spreads, leverage, metodos de pago LATAM)
 - Comparacion honesta con 3 competidores principales en LATAM
 - Que NUNCA decir sobre la competencia
@@ -78,35 +99,40 @@ Vender broker NO es vender propfirm. Las diferencias clave:
 **Instructor principal:** Pepe
 **Objetivo:** Que cada agent pueda navegar MT5, abrir/cerrar operaciones, y dar soporte basico de plataforma
 
-### Dia 1 (Lunes) - Setup e Interfaz
+### DÍA 1 — Setup e Interfaz
+*Lunes*
 - Descargar e instalar MT5 (desktop + mobile)
 - Crear cuenta demo
 - Navegacion: Market Watch, Chart, Navigator, Terminal, Toolbox
 - Personalizar el workspace
 - Ejercicio: cada agent configura MT5 con su layout preferido
 
-### Dia 2 (Martes) - Operaciones Basicas
+### DÍA 2 — Operaciones Basicas
+*Martes*
 - Abrir una orden de mercado (buy/sell)
 - Ordenes pendientes: buy limit, sell limit, buy stop, sell stop
 - Modificar ordenes: mover SL/TP
 - Cerrar posiciones parcial y totalmente
 - Ejercicio: abrir 5 operaciones de distintos tipos, modificar, cerrar
 
-### Dia 3 (Miercoles) - Charts y Herramientas
+### DÍA 3 — Charts y Herramientas
+*Miercoles*
 - Timeframes y como cambiarlos
 - Indicadores basicos que los clientes usan (MA, RSI, MACD, Bollinger)
 - Dibujar lineas de tendencia y niveles
 - Templates y profiles
 - Ejercicio: preparar un chart "presentable" para mostrar a un prospecto
 
-### Dia 4 (Jueves) - Account Management
+### DÍA 4 — Account Management
+*Jueves*
 - Historial de operaciones: como leerlo
 - Balance, equity, margin, free margin - donde verlo en MT5
 - Statement: como generar y leer
 - Depositos y retiros desde la perspectiva del trader
 - Ejercicio: generar un statement de la cuenta demo y explicar cada linea
 
-### Dia 5 (Viernes) - Troubleshooting Comun
+### DÍA 5 — Troubleshooting Comun
+*Viernes*
 - "No me deja abrir una operacion" - razones y soluciones
 - "Mi operacion se cerro sola" - margin call/stop out
 - "Los precios no se mueven" - mercado cerrado, conexion
@@ -121,15 +147,18 @@ Vender broker NO es vender propfirm. Las diferencias clave:
 **Instructor principal:** Susana
 **Objetivo:** Cero riesgo regulatorio por parte del equipo de ventas
 
-### Dia 1 (Lunes) - Regulacion Basica
+### DÍA 1 — Regulacion Basica
+*Lunes*
 - Que es la licencia AOFA y que implica
 - Paises restringidos - MEMORIZAR la lista
 - Por que compliance existe (proteger a NEOMAAA Y al cliente)
 - Consecuencias reales de violar compliance: multas, perdida de licencia, demandas
 
-### Dia 2 (Martes) - FRASES PROHIBIDAS (memorizar)
+### DÍA 2 — FRASES PROHIBIDAS (memorizar)
+*Martes*
 
-**NUNCA se puede decir:**
+> [!DANGER]
+> NUNCA se puede decir lo de la columna izquierda. Cada frase prohibida tiene su alternativa legal a la derecha. Memorizarlas es requisito para pasar el examen.
 | Prohibido | Por que | Alternativa correcta |
 |-----------|---------|---------------------|
 | "Te garantizo que vas a ganar dinero" | Promesa de rendimiento = ilegal | "Nuestros clientes tienen acceso a herramientas profesionales para operar los mercados" |
@@ -141,14 +170,16 @@ Vender broker NO es vender propfirm. Las diferencias clave:
 | "No te preocupes por el KYC, es solo un tramite" | Minimizar compliance | "El KYC protege tu cuenta y tus fondos - es un proceso de seguridad estandar" |
 | Cualquier consejo fiscal | No somos asesores fiscales | "Te recomendamos consultar con un asesor fiscal en tu pais" |
 
-### Dia 3 (Miercoles) - Risk Disclaimers Obligatorios
+### DÍA 3 — Risk Disclaimers Obligatorios
+*Miercoles*
 - Cada conversacion comercial debe incluir al menos UNA vez: "El trading de CFDs conlleva un alto riesgo de perder dinero"
 - Nunca minimizar el riesgo cuando el cliente lo pregunta
 - Como responder a "que tan riesgoso es esto?" de forma honesta y comercial
 - Disclaimers escritos que deben ir en emails, WhatsApp, materiales
 - Practica: roleplay de 5 escenarios donde el cliente pide garantias
 
-### Dia 4 (Jueves) - KYC: El Rol del Sales Agent
+### DÍA 4 — KYC: El Rol del Sales Agent
+*Jueves*
 - Que es KYC y por que el sales agent tiene un rol en el proceso
 - Flujo completo: cliente se registra > sube docs > Sumsub verifica > Susana aprueba/rechaza
 - **Escenarios de Sumsub y como actuar:**
@@ -161,7 +192,8 @@ Vender broker NO es vender propfirm. Las diferencias clave:
 | RED (rechazado final) | Cuenta NO se activa | Escalar a Susana. NO prometer al cliente que se va a resolver. Decir: "Nuestro equipo de verificacion esta revisando tu caso, te contactaremos con una actualizacion" |
 | PEP/Sanctions hit | Cuenta bloqueada | Escalar a Susana INMEDIATAMENTE. No dar ninguna explicacion al cliente. Solo: "Tu solicitud esta en revision por nuestro equipo de compliance" |
 
-### Dia 5 (Viernes) - Practica y Examen
+### DÍA 5 — Practica y Examen
+*Viernes*
 - Roleplay: 10 situaciones donde el cliente pide garantias o dice cosas que requieren respuesta de compliance
 - **EXAMEN SEMANA 3:** Examen escrito de 25 preguntas + 3 roleplays evaluados por Susana
 - **REQUISITO:** 90%+ para pasar. Fallar = repetir la semana.
@@ -173,7 +205,8 @@ Vender broker NO es vender propfirm. Las diferencias clave:
 **Instructor principal:** Diego
 **Objetivo:** Pitch, objeciones, y cierre especificos para broker
 
-### Dia 1 (Lunes) - El Pitch de NEOMAAA (estructura)
+### DÍA 1 — El Pitch de NEOMAAA (estructura)
+*Lunes*
 
 **Estructura del pitch (max 3 minutos):**
 
@@ -187,7 +220,8 @@ Vender broker NO es vender propfirm. Las diferencias clave:
 
 5. **CTA** (30 seg): "Lo que te propongo es que abras una cuenta, que puede ser desde $5 con la cuenta Cent para probar, y veas por vos mismo. Te puedo guiar en el proceso ahora mismo si tenes 5 minutos."
 
-### Dia 2 (Martes) - Objeciones de Broker (las 15 mas comunes)
+### DÍA 2 — Objeciones de Broker (las 15 mas comunes)
+*Martes*
 
 | # | Objecion | Respuesta |
 |---|----------|-----------|
@@ -207,14 +241,16 @@ Vender broker NO es vender propfirm. Las diferencias clave:
 | 14 | "Prefiero crypto, no forex" | "Tambien tenemos crypto - BTCUSD, ETHUSD y mas. Y con la cuenta broker podes operar crypto con leverage, algo que los exchanges no ofrecen. Ademas, podes diversificar entre crypto, forex, oro e indices desde la misma cuenta." |
 | 15 | "Voy a hablar con [amigo/familiar]" | "Me parece bien. Si queres, te mando un resumen por WhatsApp con los puntos clave para que lo compartas. Y si tu [amigo/familiar] tambien se interesa, tenemos programas para traders que refieren." |
 
-### Dia 3 (Miercoles) - Tecnicas de Cierre
+### DÍA 3 — Tecnicas de Cierre
+*Miercoles*
 - El cierre asumido: "Te creo la cuenta ahora y te mando el link por WhatsApp?"
 - El cierre por alternativa: "Preferis empezar con la cuenta Cent o la Standard?"
 - El cierre por tiempo: "Hoy tenemos spreads especiales para cuentas nuevas"
 - El cierre por compromiso menor: "Empezamos con la demo y despues vemos?"
 - Practica: cada agent cierra 5 llamadas simuladas
 
-### Dia 4 (Jueves) - Canales de Comunicacion
+### DÍA 4 — Canales de Comunicacion
+*Jueves*
 - WhatsApp: templates aprobados, frecuencia, horarios
 - Llamada telefonica: estructura, duracion ideal (8-12 min)
 - Email: templates para follow-up, onboarding, reactivacion
@@ -222,7 +258,8 @@ Vender broker NO es vender propfirm. Las diferencias clave:
 - **REGLA:** Maximo 3 intentos de contacto antes de mover a "cold"
 - **REGLA:** Responder a un lead caliente en menos de 5 minutos
 
-### Dia 5 (Viernes) - CRM y Follow-Up
+### DÍA 5 — CRM y Follow-Up
+*Viernes*
 - Como registrar cada interaccion en Skale CRM
 - Pipeline stages: New Lead > Contacted > Qualified > KYC Started > KYC Approved > FTD > Active
 - Follow-up cadence:
@@ -240,7 +277,8 @@ Vender broker NO es vender propfirm. Las diferencias clave:
 **Instructor principal:** Diego + Pepe
 **Objetivo:** Que cada agent ejecute el flujo completo sin supervision
 
-### Dia 1 (Lunes) - El Dia a Dia del Sales Agent
+### DÍA 1 — El Dia a Dia del Sales Agent
+*Lunes*
 - Rutina diaria:
   - 8:00-8:30 - Revisar CRM: leads nuevos, follow-ups pendientes, KYCs en proceso
   - 8:30-12:00 - Bloque de contactos (minimo 15 contactos)
@@ -249,28 +287,32 @@ Vender broker NO es vender propfirm. Las diferencias clave:
   - 16:30-17:00 - Actualizar CRM, reportar dia a Diego
 - KPIs diarios: 30+ contactos, 5+ conversaciones significativas, 1+ KYC iniciado
 
-### Dia 2 (Martes) - Acompanamiento de KYC en Vivo
+### DÍA 2 — Acompanamiento de KYC en Vivo
+*Martes*
 - Cuando un prospecto dice "si, quiero abrir cuenta" - que pasa paso a paso
 - Guiar al cliente por WhatsApp/llamada durante el registro
 - Tips para que el KYC salga bien a la primera (fotos claras, docs correctos)
 - Que hacer cuando Sumsub pide retry
 - Coordinacion con Susana en tiempo real
 
-### Dia 3 (Miercoles) - Del KYC al FTD
+### DÍA 3 — Del KYC al FTD
+*Miercoles*
 - KYC aprobado: llamar al cliente en los siguientes 30 minutos
 - Guiar el primer deposito: "Cual metodo de pago preferis?"
 - Ayudar a navegar el client portal para depositar
 - Primer trade: ofrecer guiar al cliente en su primera operacion
 - Ejercicio: simular el flujo completo con un companero haciendo de cliente
 
-### Dia 4 (Jueves) - Post-FTD y Retencion Basica
+### DÍA 4 — Post-FTD y Retencion Basica
+*Jueves*
 - El FTD no es el final, es el INICIO
 - Contactar al cliente 24h despues del FTD: "Como te fue? Necesitas ayuda con algo?"
 - Contactar a los 7 dias: "Vi que [abriste/no abriste] operaciones. Puedo ayudarte con...?"
 - Contactar a los 30 dias: check-in de relacion
 - Identificar senales de abandono: sin login en 7+ dias, sin operaciones, retiro total
 
-### Dia 5 (Viernes) - KPIs y Reportes
+### DÍA 5 — KPIs y Reportes
+*Viernes*
 - KPIs individuales: contactos/dia, KYCs iniciados, KYCs aprobados, FTDs, $ depositado
 - KPIs del equipo: FTDs totales, conversion rate lead>FTD, deposito promedio
 - Como leer el reporte semanal
@@ -284,7 +326,8 @@ Vender broker NO es vender propfirm. Las diferencias clave:
 **Instructor principal:** Diego + Susana + Pepe
 **Objetivo:** Evaluacion final - solo pasa quien demuestra dominio
 
-### Dia 1-2 (Lunes-Martes) - Simulaciones Intensivas
+### DÍA 1-2 — Simulaciones Intensivas
+*Lunes-Martes*
 - Cada agent hace 10 llamadas simuladas con distintos perfiles de cliente:
   - Cliente principiante que nunca opero
   - Trader experimentado que compara brokers
@@ -297,7 +340,8 @@ Vender broker NO es vender propfirm. Las diferencias clave:
   - Cliente VIP potencial ($10K+ deposito)
   - Cliente que viene referido por un amigo
 
-### Dia 3 (Miercoles) - Examen Final Escrito
+### DÍA 3 — Examen Final Escrito
+*Miercoles*
 - 50 preguntas que cubren:
   - Producto (15 preguntas)
   - MT5 (10 preguntas)
@@ -305,7 +349,8 @@ Vender broker NO es vender propfirm. Las diferencias clave:
   - Ventas y objeciones (10 preguntas)
 - **Aprobacion: 85% general, 95% en la seccion de compliance**
 
-### Dia 4 (Jueves) - Examen Practico Final
+### DÍA 4 — Examen Practico Final
+*Jueves*
 - Llamada grabada de 15 minutos con evaluador externo (alguien que no sea del equipo)
 - Se evalua: presentacion, manejo de objeciones, compliance, cierre, uso de CRM
 - Scoring:
@@ -318,7 +363,8 @@ Vender broker NO es vender propfirm. Las diferencias clave:
 | Tecnica de cierre | 15% | Intenta cerrar al menos 2x | No intenta cerrar |
 | Profesionalismo general | 10% | Cortes, claro, seguro | Informal, inseguro |
 
-### Dia 5 (Viernes) - Certificacion + Kickoff
+### DÍA 5 — Certificacion + Kickoff
+*Viernes*
 - Resultados de examenes
 - Quien no pasa: 1 semana extra de refuerzo en las areas debiles
 - Quien pasa: recibe su "certificacion interna NEOMAAA"
@@ -340,6 +386,9 @@ Vender broker NO es vender propfirm. Las diferencias clave:
 | Base de leads dia 1 | Diego/Marketing | Semana 6 |
 
 ---
+
+> [!SUCCESS]
+> Al completar las 6 semanas, cada agent debe dominar producto, MT5, compliance, pitch, objeciones, flujo operativo completo y CRM. Solo los que pasen los examenes con 85%+ (y 95%+ en compliance) reciben la certificacion interna NEOMAAA y empiezan a tomar leads el dia 1 del go-live.
 
 *Documento generado: 2026-04-08*
 *Este programa debe completarse ANTES del go-live del broker.*
