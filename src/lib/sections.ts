@@ -63,8 +63,10 @@ export const SECTIONS: Section[] = [
     order: 4,
     documents: [
       { slug: 'deposits', titleEs: 'Depositos y Retiros', titleRu: 'Депозиты и выводы', filePath: 'operations/deposits.md', pdfSlug: 'operations-deposits' },
+      { slug: 'psps-explicados', titleEs: 'PSPs Explicados', titleRu: 'PSP объяснение', filePath: 'operations/psps-explicados.md', pdfSlug: 'operations-psps-explicados' },
       { slug: 'go-live-runbook', titleEs: 'Go-Live Runbook', titleRu: 'Go-Live Runbook', filePath: 'operations/go-live-runbook.md', pdfSlug: 'operations-go-live-runbook' },
       { slug: 'faq-interno', titleEs: 'FAQ Interno', titleRu: 'Внутренний FAQ', filePath: 'operations/faq-interno.md', pdfSlug: 'operations-faq-interno' },
+      { slug: 'manual-crisis', titleEs: 'Manual de Crisis', titleRu: 'Руководство по кризисам', filePath: 'operations/manual-crisis.md', pdfSlug: 'operations-manual-crisis' },
     ],
   },
   {
@@ -77,6 +79,7 @@ export const SECTIONS: Section[] = [
       { slug: 'funnel-broker', titleEs: 'Funnel de Conversion', titleRu: 'Воронка конверсии', filePath: 'marketing/funnel-broker.md', pdfSlug: 'marketing-funnel-broker' },
       { slug: 'copy-broker', titleEs: 'Copy y Mensajes', titleRu: 'Копирайтинг', filePath: 'marketing/copy-broker.md', pdfSlug: 'marketing-copy-broker' },
       { slug: 'competidores-broker', titleEs: 'Analisis Competidores', titleRu: 'Конкурентный анализ', filePath: 'marketing/competidores-broker.md', pdfSlug: 'marketing-competidores-broker' },
+      { slug: 'icps-por-mercado', titleEs: 'ICPs por Mercado', titleRu: 'ICP по рынкам', filePath: 'marketing/icps-por-mercado.md', pdfSlug: 'marketing-icps-por-mercado' },
     ],
   },
   {
@@ -85,6 +88,7 @@ export const SECTIONS: Section[] = [
     nameRu: 'Найм персонала',
     order: 6,
     documents: [
+      { slug: 'onboarding-5-dias', titleEs: 'Onboarding NEOMAAA — 5 dias', titleRu: 'Онбординг NEOMAAA — 5 дней', filePath: 'hiring/onboarding-5-dias.md', pdfSlug: 'hiring-onboarding-5-dias' },
       { slug: 'finance-manager', titleEs: 'Finance Manager', titleRu: 'Финансовый менеджер', filePath: 'hiring/finance-manager.md', pdfSlug: 'hiring-finance-manager' },
       { slug: 'support-es', titleEs: 'Support Agent ES', titleRu: 'Агент поддержки (ES)', filePath: 'hiring/support-es.md', pdfSlug: 'hiring-support-es' },
       { slug: 'support-en', titleEs: 'Support Agent EN', titleRu: 'Агент поддержки (EN)', filePath: 'hiring/support-en.md', pdfSlug: 'hiring-support-en' },
