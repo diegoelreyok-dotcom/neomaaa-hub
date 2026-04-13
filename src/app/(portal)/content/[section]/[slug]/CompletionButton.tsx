@@ -16,6 +16,7 @@ const i18n = {
   es: {
     markComplete: 'Marcar como completado',
     markCompleteQuiz: 'Marcar como completado (tomar quiz)',
+    takeQuizForCert: 'Tomar quiz para obtener certificado',
     completed: 'Completado',
     completing: 'Registrando...',
     docCompleted: 'Documento completado',
@@ -27,6 +28,7 @@ const i18n = {
     markCompleteQuiz: '\u041E\u0442\u043C\u0435\u0442\u0438\u0442\u044C \u043A\u0430\u043A \u0437\u0430\u0432\u0435\u0440\u0448\u0451\u043D\u043D\u043E\u0435 (\u043F\u0440\u043E\u0439\u0442\u0438 \u0442\u0435\u0441\u0442)',
     completed: '\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E',
     completing: '\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F...',
+    takeQuizForCert: '\u041F\u0440\u043E\u0439\u0442\u0438 \u0442\u0435\u0441\u0442 \u0434\u043B\u044F \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u044F \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u0430',
     docCompleted: '\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442 \u0437\u0430\u0432\u0435\u0440\u0448\u0451\u043D',
     keepStudying: '\u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0432\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u043A \u0438\u0437\u0443\u0447\u0435\u043D\u0438\u044E \u044D\u0442\u043E\u0433\u043E \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430 \u0432 \u043B\u044E\u0431\u043E\u0435 \u0432\u0440\u0435\u043C\u044F.',
     error: '\u041E\u0448\u0438\u0431\u043A\u0430 \u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u0438. \u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u0441\u043D\u043E\u0432\u0430.',
@@ -53,12 +55,14 @@ export default function CompletionButton({
     let cancelled = false;
     fetch(`/api/quiz/available?docPath=${encodeURIComponent(quizDocPath)}&language=${lang}`)
       .then(async (r) => {
-        if (!r.ok) return { available: false };
-        return r.json().catch(() => ({ available: false }));
+        if (!r.ok) return { exists: false };
+        return r.json().catch(() => ({ exists: false }));
       })
       .then((data) => {
         if (cancelled) return;
-        setQuizAvailable(Boolean(data?.available));
+        // Backend returns { exists, language, es, ru } — quiz available if exists in current lang or "both"
+        const inLang = lang === 'es' ? data?.es : data?.ru;
+        setQuizAvailable(Boolean(data?.exists && inLang));
       })
       .catch(() => {
         if (!cancelled) setQuizAvailable(false);
@@ -115,16 +119,40 @@ export default function CompletionButton({
   // Already completed (loaded from server or just marked)
   if (completed && !justCompleted) {
     return (
-      <div className="mt-10 mb-4">
-        <div className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-xl border-2 border-neo-success/30 bg-neo-success/5">
-          <span className="w-6 h-6 rounded-full bg-neo-success/20 flex items-center justify-center flex-shrink-0">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-neo-success">
-              <polyline points="20 6 9 17 4 12" />
-            </svg>
-          </span>
-          <span className="text-sm font-semibold text-neo-success">{t.completed}</span>
+      <>
+        <div className="mt-10 mb-4 space-y-3">
+          <div className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-xl border-2 border-neo-success/30 bg-neo-success/5">
+            <span className="w-6 h-6 rounded-full bg-neo-success/20 flex items-center justify-center flex-shrink-0">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-neo-success">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
+            <span className="text-sm font-semibold text-neo-success">{t.completed}</span>
+          </div>
+          {quizAvailable && (
+            <button
+              onClick={() => setModalOpen(true)}
+              className="w-full py-3 px-6 rounded-xl border border-neo-primary/40 bg-neo-primary/5 text-sm font-semibold text-neo-primary hover:bg-neo-primary/10 transition-colors"
+            >
+              <span className="flex items-center justify-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 11l3 3L22 4" />
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                </svg>
+                {t.takeQuizForCert}
+              </span>
+            </button>
+          )}
         </div>
-      </div>
+        <QuizModal
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+          onSuccess={handleQuizSuccess}
+          docPath={quizDocPath}
+          docTitle={docTitle}
+          language={lang}
+        />
+      </>
     );
   }
 
