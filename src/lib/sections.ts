@@ -23,6 +23,7 @@ export const SECTIONS: Section[] = [
       { slug: 'objections-broker', titleEs: 'Objeciones Broker', titleRu: 'Возражения клиентов', filePath: 'sales/objections-broker.md', pdfSlug: 'sales-objections-broker' },
       { slug: 'faq-ventas', titleEs: 'FAQ Ventas', titleRu: 'FAQ отдела продаж', filePath: 'sales/faq-ventas.md', pdfSlug: 'sales-faq-ventas' },
       { slug: 'primer-contacto', titleEs: 'Primer Contacto', titleRu: 'Первый контакт', filePath: 'sales/primer-contacto.md', pdfSlug: 'sales-primer-contacto' },
+      { slug: 'guia-copytrading-mql5', titleEs: 'Guia Copy Trading MQL5 (paso a paso)', titleRu: 'Руководство Copy Trading MQL5 (пошагово)', filePath: 'sales/guia-copytrading-mql5.md', pdfSlug: 'sales-guia-copytrading-mql5' },
     ],
   },
   {
