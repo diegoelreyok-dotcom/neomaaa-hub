@@ -165,9 +165,10 @@
 **Por que lo dice:** Ha leido sobre riesgos de apalancamiento o no lo entiende bien.
 
 **Respuesta:**
-"El apalancamiento es una herramienta, no una obligacion. Que ofrezcamos hasta 1:1000 no significa que debas usarlo al maximo. Tu eliges cuanto apalancamiento aplicar a cada operacion segun tu gestion de riesgo. Muchos traders profesionales usan 1:100 o menos. Lo importante es que tengas la flexibilidad de elegir. En MT5 puedes configurar tu apalancamiento maximo y usar herramientas de gestion de riesgo como stop loss y take profit en cada operacion."
+"Tenes razon en ser cauteloso. Primero, aclaremos el concepto: el leverage no multiplica tu capital — reduce el margen requerido por operacion por un factor de 1/N. Con 1:500, 1 lote EUR/USD que vale ~USD 115,000 nocionales pide solo ~USD 230 de margen. Pero la exposicion sigue siendo el nocional completo. Segundo, que ofrezcamos hasta 1:1000 no significa que debas usarlo al maximo. Vos elegis el leverage de tu cuenta y el tamaño de cada operacion. Muchos traders experimentados operan con 1:100 o menos. En MT5 tenes stop loss, take profit y podes cambiar el leverage cuando no hay posiciones abiertas. Si queres, empezamos con leverage conservador y lo ajustamos segun tu experiencia."
 
 **Puntos clave:**
+- Leverage = reductor de margen, no multiplicador de capital (desmitificar)
 - Apalancamiento es opcional, no obligatorio
 - El cliente elige cuanto usar
 - Stop loss y take profit disponibles
@@ -197,7 +198,7 @@
 **Por que lo dice:** Compara con brokers establecidos. Puede ser real o puede estar usando como palanca de negociacion.
 
 **Respuesta:**
-"Respeto esos brokers, son solidos. Pero te invito a comparar punto por punto: nuestra cuenta Raw tiene spreads desde 0.0 pips con $3/lote/lado. Ofrecemos 2,000+ instrumentos, 120+ metodos de deposito incluyendo opciones locales como PIX, OXXO, Nequi y Yape. Apalancamiento hasta 1:1000. Vault con hasta 5% anual. Copy Trading integrado. Y soporte en espanol nativo, no traducido. Abre una cuenta demo o Cent y compara en vivo, en las mismas condiciones de mercado."
+"Respeto esos brokers, son solidos. Pero te invito a comparar punto por punto: nuestra cuenta Raw tiene spreads desde 0.0 pips con $3/lote/lado. Ofrecemos 2,000+ instrumentos, 120+ metodos de deposito incluyendo opciones locales como PIX, OXXO, Nequi y Yape. Apalancamiento hasta 1:1000. Vault con hasta 5% anual. Copy trading disponible via MQL5 Signals (sistema nativo MT5). Y soporte en espanol nativo, no traducido. Abre una cuenta demo o Cent y compara en vivo, en las mismas condiciones de mercado."
 
 **Puntos clave:**
 - Comparacion factual, no emocional
@@ -416,7 +417,7 @@
 **Por que lo dice:** Interesado pero cree que trading requiere estar pegado a la pantalla.
 
 **Respuesta:**
-"Entiendo. Por eso ofrecemos Copy Trading: replicas automaticamente las operaciones de traders experimentados sin tener que analizar el mercado tu mismo. Solo eliges a quien copiar, asignas un monto, y el sistema hace el resto. Tambien puedes usar Expert Advisors en MT5 que operan automaticamente segun parametros que definas. Y el Vault te genera hasta 5% anual sin necesidad de operar activamente."
+"Entiendo. En MT5 tenes el sistema de copy trading nativo (MQL5 Signals): te suscribis a un trader experimentado y sus operaciones se copian proporcionalmente en tu cuenta, sin que tengas que analizar el mercado. Link oficial: mql5.com/en/signals. Tambien podes usar Expert Advisors en MT5 que operan automaticamente segun parametros que definas. Y el Vault te genera hasta 5% anual sin necesidad de operar activamente."
 
 **Puntos clave:**
 - Copy Trading como solucion

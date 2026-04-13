@@ -18,7 +18,7 @@
 | **Apalancamiento max** | 1:1000 | 1:2000 (sin limite para algunos) [VERIFICAR] | 1:1000 | 1:3000 | 1:2000 | 1:1000 [VERIFICAR] | 1:500 |
 | **Instrumentos** | 2,000+ | 200+ [VERIFICAR] | 1,000+ | 550+ [VERIFICAR] | 12,000+ [VERIFICAR] | 230+ [VERIFICAR] | 2,000+ |
 | **Plataformas** | MT5 | MT4, MT5, Propia | MT4, MT5 | MT4, MT5 | MT4, MT5, cTrader, Propia | MT5, Propia | MT4, MT5, cTrader |
-| **Copy Trading** | Si (integrado) | Si (Social Trading) | Si (limitado) | Si (CopyTrade) | Si (CopyFX) | Si (OctaCopy) | No nativo |
+| **Copy Trading** | Si (MQL5 Signals nativo MT5) | Si (Social Trading) | Si (limitado) | Si (CopyTrade) | Si (CopyFX) | Si (OctaCopy) | No nativo |
 | **Vault/Yield** | Si (hasta 5% p.a.) | No | No | No | No | No | No |
 | **Swap-Free** | Si | Si | Si | Si | Si | Si | Si (limitado) |
 | **VPS Hosting** | Si | Si (gratis desde cierto volumen) | Si (gratis con volumen) | Si | Si | No [VERIFICAR] | Si |

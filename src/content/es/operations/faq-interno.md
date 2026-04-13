@@ -260,6 +260,8 @@ El apalancamiento maximo depende del tipo de cuenta:
 
 El apalancamiento efectivo tambien depende del instrumento: forex majors tienen el apalancamiento maximo; exoticos, indices, commodities, y cripto pueden tener apalancamiento menor.
 
+**Importante conceptual (Pepe):** el leverage **no multiplica capital**, reduce el margen requerido por 1/N. Con 1:500 el margen para 1 lote EUR/USD (~USD 115,000 nocionales) es ~USD 230. El cliente sigue asumiendo toda la exposicion nocional; lo unico que cambia es cuanto inmoviliza en margen. Reguladores Tier 1 (FCA/ESMA) limitan el leverage retail a 1:30 en forex major precisamente por eso.
+
 ### 8.2 Puedo cambiar mi apalancamiento?
 
 Si. El cliente puede solicitar un cambio de apalancamiento desde el portal del cliente o contactando a soporte. El cambio se aplica cuando no hay posiciones abiertas. No se puede cambiar el apalancamiento con posiciones abiertas.
@@ -278,7 +280,7 @@ El stop-out se ejecuta cuando el nivel de margen cae al 20% (puede variar por ti
 
 ### 9.1 Ofrecen copy trading?
 
-Si. Los clientes pueden usar el sistema de Signals de MetaTrader 5 para copiar operaciones de otros traders. Tambien es compatible con plataformas de copy trading de terceros que se integran con MT5.
+Si, vía **MQL5 Signals** — el sistema nativo de copy trading de MT5 operado por MetaQuotes. NEOMAAA no opera un sistema propio de copy trading ni MAM/PAMM actualmente. Link oficial: https://www.mql5.com/en/signals
 
 ### 9.2 Como me suscribo a un proveedor de senales?
 

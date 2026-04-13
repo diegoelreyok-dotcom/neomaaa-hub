@@ -1032,52 +1032,48 @@ Please confirm you'd like to proceed and our team will process your request with
 
 **ES:**
 ```
-Hola {{nombre}}, para configurar el copy trading en NEOMAAA:
+Hola {{nombre}}, el copy trading en NEOMAAA funciona via MQL5 Signals, el sistema nativo de MT5 operado por MetaQuotes. Link oficial: https://www.mql5.com/en/signals
 
 Como Seguidor (copiar a otro trader):
-1. Inicia sesion en tu portal del cliente
-2. Ve a la seccion "Copy Trading"
-3. Explora los proveedores de senales disponibles
-4. Selecciona al trader que deseas copiar
-5. Configura los parametros:
-   - Monto a asignar
-   - Porcentaje de copia (ej: copiar el 50% del volumen)
-   - Stop loss general (recomendado)
-6. Activa la copia
+1. Abri tu MT5 (desktop, web o movil) logueado con tu cuenta NEOMAAA.
+2. En MT5 ir a la pestaña "Signals" (o entrar desde mql5.com/en/signals).
+3. Explora los proveedores disponibles, revisa su historial, drawdown y fee de suscripcion.
+4. Selecciona al trader que queres copiar y suscribite (puede haber fee mensual que cobra MetaQuotes en nombre del proveedor).
+5. Configura parametros de copia en MT5 (porcentaje del balance, riesgo maximo, etc.).
+6. Las operaciones del proveedor se copiaran proporcionalmente en tu cuenta.
 
 Como Proveedor de Senales:
-1. Contacta a nuestro equipo para activar tu perfil como proveedor
-2. Se requiere un historial minimo de trading
-3. Definiras tu comision por rendimiento
+1. Abri tu cuenta NEOMAAA y opera un historial minimo verificable.
+2. Publica tu señal directamente en https://www.mql5.com/en/signals desde tu MT5.
+3. Defini tu precio de suscripcion mensual (MetaQuotes se queda con una parte).
+4. Los suscriptores te encuentran en el marketplace de MQL5.
 
-NOTA: El copy trading implica riesgos. Rendimientos pasados no garantizan resultados futuros. Asegurate de entender los riesgos antes de copiar a otro trader.
+NOTA IMPORTANTE: NEOMAAA no opera un sistema propio de copy trading ni MAM/PAMM. Todo el copy trading corre sobre MQL5 Signals, gestionado por MetaQuotes. El copy trading implica riesgos; rendimientos pasados no garantizan resultados futuros.
 
 Si necesitas ayuda con la configuracion tecnica, estamos aqui para guiarte.
 ```
 
 **EN:**
 ```
-Hello {{name}}, to set up copy trading at NEOMAAA:
+Hello {{name}}, copy trading at NEOMAAA works via MQL5 Signals, MT5's native system operated by MetaQuotes. Official link: https://www.mql5.com/en/signals
 
 As a Follower (copy another trader):
-1. Log in to your client portal
-2. Go to the "Copy Trading" section
-3. Browse available signal providers
-4. Select the trader you want to copy
-5. Configure parameters:
-   - Amount to allocate
-   - Copy ratio (e.g., copy 50% of volume)
-   - Overall stop loss (recommended)
-6. Activate copying
+1. Open your MT5 (desktop, web or mobile) logged in with your NEOMAAA account.
+2. In MT5 go to the "Signals" tab (or visit mql5.com/en/signals).
+3. Browse available providers; review their history, drawdown and subscription fee.
+4. Select the trader you want to copy and subscribe (there may be a monthly fee charged by MetaQuotes on behalf of the provider).
+5. Configure copy parameters in MT5 (balance percentage, max risk, etc.).
+6. The provider's trades will be copied proportionally to your account.
 
 As a Signal Provider:
-1. Contact our team to activate your provider profile
-2. A minimum trading history is required
-3. You'll set your performance fee
+1. Open your NEOMAAA account and build a verifiable trading history.
+2. Publish your signal directly at https://www.mql5.com/en/signals from your MT5.
+3. Set your monthly subscription price (MetaQuotes takes a cut).
+4. Subscribers find you in the MQL5 marketplace.
 
-NOTE: Copy trading involves risks. Past performance does not guarantee future results. Make sure you understand the risks before copying another trader.
+IMPORTANT NOTE: NEOMAAA does not operate a proprietary copy trading system or MAM/PAMM. All copy trading runs on MQL5 Signals, managed by MetaQuotes. Copy trading involves risks; past performance does not guarantee future results.
 
-If you need help with the technical setup, we're here to guide you.
+If you need help with technical setup, we're here to guide you.
 ```
 
 ---
@@ -2157,7 +2153,7 @@ Si un cliente de estos paises contacta soporte, usar CR-26 (rechazo por pais res
 | **Margen** | Cantidad de dinero requerida como garantia para abrir una posicion |
 | **Margin Call** | Alerta cuando el margen disponible cae por debajo del nivel minimo |
 | **Stop Out** | Cierre automatico de posiciones cuando el margen es insuficiente |
-| **Apalancamiento** | Multiplicador que permite operar con mas dinero del depositado |
+| **Apalancamiento** | Reductor del margen requerido (1/N), NO multiplicador de capital. Con 1:500, 1 lote EUR/USD (~USD 115K nocionales) pide ~USD 230 de margen |
 | **Swap** | Interes que se cobra o paga por mantener una posicion abierta de un dia a otro |
 | **Stop Loss (SL)** | Orden automatica para cerrar una posicion con perdida a un precio predefinido |
 | **Take Profit (TP)** | Orden automatica para cerrar una posicion con ganancia a un precio predefinido |

@@ -17,7 +17,7 @@
 | 5 | Estan regulados? | Neomaaa Ltd (IBC 15968), Licencia L15968/N, AOFA de Anjouan. |
 | 6 | Que spreads ofrecen? | Standard: spreads competitivos incluidos. Raw: desde 0.0 pips + $3/lote/lado. |
 | 7 | Que apalancamiento tienen? | Hasta 1:1000 retail. Personalizado para institucional. |
-| 8 | Que es Copy Trading? | Replica automatica de operaciones de traders experimentados. |
+| 8 | Que es Copy Trading? | Replica automatica de operaciones vía MQL5 Signals (sistema nativo MT5). NEOMAAA no ofrece MAM/PAMM. |
 | 9 | Ofrecen cuenta demo? | Si, cuenta demo gratuita en MT5. |
 | 10 | En que paises operan? | LATAM, Asia, Africa y mas. Restringidos: USA, Canada, EEA, UK, Australia, sancionados. |
 
@@ -142,7 +142,9 @@ Mas de 2,000 instrumentos: pares de forex (60+), criptomonedas, metales precioso
 
 ### P17: Que apalancamiento ofrecen?
 
-Hasta 1:1000 para cuentas retail. Para cuentas institucionales, el apalancamiento es personalizado segun el perfil y volumen del cliente. El cliente puede elegir un apalancamiento menor al maximo si lo prefiere. Recordar siempre que el apalancamiento amplifica tanto ganancias como perdidas.
+Hasta 1:1000 para cuentas retail (depende de cuenta e instrumento). Institucional: personalizado. El cliente puede elegir un leverage menor al maximo si lo prefiere.
+
+**Concepto correcto (importante para no confundir al cliente):** el leverage **no multiplica tu capital**. Reduce el margen requerido por 1/N. Con 1:500, 1 lote EUR/USD (~USD 115,000 nocionales) requiere ~USD 230 de margen. El cliente sigue asumiendo la exposicion nocional completa; lo unico que cambia es cuanto queda inmovilizado. Mayor leverage = menor margen libre = menor colchon antes del stop out. Por eso el leverage amplifica tanto ganancias como perdidas.
 
 ---
 
@@ -258,7 +260,14 @@ Las razones comunes de rechazo son: foto borrosa, documento expirado, datos no l
 
 ### P35: Que es Copy Trading y como funciona?
 
-Copy Trading permite al cliente replicar automaticamente las operaciones de traders experimentados. El cliente selecciona un trader, asigna un monto, y el sistema copia las operaciones proporcionalmente en su cuenta. El cliente mantiene control total y puede detener la copia en cualquier momento.
+Copy trading en NEOMAAA corre sobre el sistema nativo de MT5: **MQL5 Signals** (marketplace de MetaQuotes, https://www.mql5.com/en/signals). Como funciona:
+
+1. Un trader abre una cuenta NEOMAAA y la habilita como proveedor de señal.
+2. Publica la señal en MQL5 Signals (puede cobrar suscripcion mensual; MetaQuotes se queda con una parte).
+3. Otros clientes NEOMAAA se suscriben desde su propio MT5 a esa señal.
+4. Las ordenes del proveedor se copian proporcionalmente al balance de cada suscriptor.
+
+NEOMAAA **no opera** un sistema centralizado propio de copy trading ni ofrece **MAM/PAMM** actualmente. El cliente mantiene control total: puede desuscribirse o pausar desde su MT5 en cualquier momento.
 
 ---
 
@@ -270,7 +279,7 @@ No se requiere experiencia en trading. Sin embargo, el cliente debe entender que
 
 ### P37: Hay alguna comision por usar Copy Trading?
 
-[VERIFICAR CON COMPLIANCE: estructura de comisiones exacta del Copy Trading — si hay comision de rendimiento, comision de gestion, o comisiones adicionales al spread/comision normal de la cuenta]
+Las comisiones normales de la cuenta (spread / commission por lote) aplican a cada trade copiado como en cualquier operación. Además, **el proveedor de la señal puede cobrar suscripción mensual** (precio lo define el proveedor; MetaQuotes cobra una fee de procesamiento). NEOMAAA no agrega comisiones extra por el uso de MQL5 Signals.
 
 ---
 

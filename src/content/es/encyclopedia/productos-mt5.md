@@ -74,6 +74,44 @@ Acciones individuales vía CFD. El cliente no compra la acción real.
 - Trading en horario de la bolsa correspondiente.
 - [DATO: confirmar con Pepe/Dealing si NEOMAAA los ofrece en el tier inicial o son expansión futura].
 
+## Leverage — Cómo funciona realmente
+
+> [!WARNING]
+> **Desmitificación.** El leverage NO multiplica tu capital. No te da "poder de compra extra". Lo que hace el leverage es **reducir el requisito de margen** por un factor de 1/leverage. Es un concepto de margen, no de multiplicación.
+
+La frase "con $250 y leverage 1:500 controlás $125,000" es engañosa. Lo correcto: con $250 de margen libre podés abrir una posición cuyo tamaño nocional no exceda el margen × leverage disponible.
+
+### Ejemplo real — 1 lote EUR/USD
+
+- 1 lote EUR/USD = 100,000 EUR nocionales.
+- Si EUR/USD cotiza a 1.15 → valor nocional ≈ **USD 115,000**.
+- **Sin leverage:** necesitás USD 115,000 para abrir esa posición.
+- **Con leverage 1:500:** margen requerido = 115,000 / 500 = **USD 230**.
+- Con USD 230 de margen libre inmovilizado podés abrir ese lote. El "poder de compra" de la posición sigue siendo USD 115,000 (notional) — lo que cambia es lo que inmovilizás de tu cuenta.
+
+Fórmula general: `Margen requerido = Tamaño nocional / Leverage`
+
+### Leverage típico por tipo de instrumento
+
+| Instrumento | Leverage máximo típico (offshore) | Leverage Tier 1 retail (FCA/ESMA) |
+|-------------|-----------------------------------|-----------------------------------|
+| Forex majors | 1:500 | 1:30 |
+| Forex minors / exóticos | 1:200 | 1:20 |
+| Metales (oro, plata) | 1:200 | 1:20 |
+| Índices mayores | 1:100 | 1:20 |
+| Índices menores | 1:50 | 1:10 |
+| Commodities (oil, gas) | 1:100 | 1:10 |
+| Crypto CFDs | 1:20 | 1:2 |
+| Stocks CFDs | 1:10 | 1:5 |
+
+### Por qué al broker le importa el leverage
+
+- El broker **provee el leverage que recibe de su LP** (liquidity provider). No lo inventa.
+- **Leverage alto → cliente abre con menos depósito → broker recibe menos capital.** Menos float, menos cushion.
+- **Leverage alto → cliente pierde más rápido** (menor margen libre frente al mismo movimiento adverso) → aumenta el churn y el riesgo operativo/reputacional del broker.
+- Por eso los reguladores **Tier 1 (FCA, ESMA, ASIC)** limitan el leverage retail a **1:30** en forex major — no para proteger al broker, sino al cliente retail del wipeout rápido.
+- Offshore (Anjouan, SVG, Vanuatu) el leverage alto es legal y comercialmente atractivo para retail. NEOMAAA opera bajo este modelo.
+
 ## Tipos de órdenes en MT5
 
 ### Órdenes a mercado
@@ -160,21 +198,38 @@ El forex opera 24/5. Se divide en 4 sesiones que se solapan parcialmente.
 
 Tras el cierre de NY y antes de Tokio (21:00–00:00 GMT): **valle de liquidez**. Spreads se abren. No es buen momento para entrar a mercado.
 
-## Copy Trading
+## Copy Trading vía MQL5 Signals
 
-[DATO: confirmar con Pepe/Dealing si NEOMAAA ofrecerá copy trading en go-live o en fase posterior.]
+> [!INFO]
+> NEOMAAA **no opera un sistema propio de copy trading**. El copy trading disponible para nuestros clientes es el sistema nativo de MT5: **MQL5 Signals**, el marketplace oficial de MetaQuotes. Link oficial: https://www.mql5.com/en/signals
 
-Si se ofrece, el producto típico funciona así:
+### Cómo funciona (pasos)
 
-1. El **proveedor de señales** (strategy provider) opera en su propia cuenta.
-2. El **seguidor** (copier) elige uno o varios proveedores y asigna una parte de su capital a copiarlos.
-3. Cada trade que el proveedor abre se replica proporcionalmente en la cuenta del copier.
-4. El proveedor cobra una comisión (performance fee típico: 20–30% de las ganancias) + a veces fee fijo.
+1. Un trader abre su cuenta NEOMAAA real y opera en MT5.
+2. Habilita la cuenta como **proveedor de señal** y la publica en [MQL5 Signals](https://www.mql5.com/en/signals). Puede cobrar una **suscripción mensual** (el precio lo pone el proveedor; MetaQuotes se queda con una parte).
+3. Otros clientes NEOMAAA (u otros brokers que usan MT5) se **suscriben** a esa señal desde su propio MT5.
+4. Las órdenes del proveedor se **copian proporcionalmente al balance** de cada suscriptor.
 
-Ventajas para el cliente novato: se beneficia del know-how de traders experimentados sin tener que aprender a operar.
-Riesgos: si el proveedor tiene una mala racha, el copier también pierde. El copier no controla la estrategia.
+El proveedor no ve las cuentas de los suscriptores; los suscriptores no ven la estrategia ni el sizing absoluto del proveedor. Todo lo maneja MetaQuotes via su infraestructura MQL5.
 
-MT5 tiene un sistema nativo llamado **MQL5 Signals** que facilita este setup.
+### Para comunidades e influencers
+
+Patrón frecuente: un influencer quiere "setupar su cuenta en NEOMAAA y que su audiencia deposite y copie sus trades".
+
+- **Forma correcta (lo que se puede hacer hoy):**
+  1. El influencer crea su cuenta NEOMAAA.
+  2. Publica su señal en MQL5 Signals.
+  3. Su audiencia se registra en NEOMAAA (funnel de IB si está afiliado) y **se suscribe desde su propio MT5** a la señal del influencer.
+  4. Cada follower controla su propia cuenta, su propio riesgo, su propia suscripción.
+
+- **Forma incorrecta (lo que NEOMAAA NO hace):**
+  - Un sistema centralizado donde NEOMAAA gestiona automáticamente el copy de un influencer hacia sus followers — eso sería **MAM o PAMM**, y **NEOMAAA no ofrece MAM/PAMM actualmente**.
+
+### Riesgos del modelo
+
+- Si el proveedor tiene una mala racha, cada suscriptor pierde proporcionalmente.
+- El suscriptor **no controla** la estrategia — solo decide cuánto capital asignar y si desuscribirse.
+- Las comisiones de NEOMAAA se aplican normalmente sobre cada trade copiado (cada follower paga su propio spread/commission en su cuenta).
 
 ## Features avanzadas de MT5
 
@@ -230,5 +285,10 @@ Todas las plataformas usan el mismo login (número de cuenta + server + password
 > - Margen = (tamaño × precio) / leverage. Con 1:500, 0.1 lote EUR/USD requiere ~USD 22.
 > - Sesión de máxima liquidez: solapamiento Londres–NY (13:00–17:00 GMT).
 > - Swap = costo overnight. Miércoles es triple swap.
-> - EAs, VPS, copy trading, indicadores: features de MT5 que el cliente avanzado pregunta.
+> - EAs, VPS, copy trading (MQL5 Signals), indicadores: features de MT5 que el cliente avanzado pregunta.
+> - Leverage = reductor de margen (1/N), no multiplicador de capital. Con 1:500, 1 lote EUR/USD pide ~USD 230 de margen.
+> - Copy trading = vía MQL5 Signals (sistema nativo MetaQuotes). NEOMAAA NO ofrece MAM/PAMM actualmente.
 > - Si soporte recibe una queja de ejecución: primero revisar timestamp, precio, spread en ese momento, tipo de orden. Los datos objetivos resuelven el 80% de las quejas.
+
+> [!INFO]
+> Información técnica verificada con Pepe (Head of Dealing NEOMAAA).

@@ -87,9 +87,9 @@ No es marketing — es un diferencial operacional. Pepe viene de brokers grandes
 
 Esto es un diferencial que NO vendemos publicamente (es interno) pero es el motivo por el cual un trader serio nos va a preferir despues de 1-2 meses operando.
 
-**6. Copy trading y Vault integrados**
+**6. Vault + copy trading via MQL5 Signals**
 
-Vault hasta 5% p.a. sobre balance no invertido. Copy trading nativo. Competidores grandes o no lo tienen o lo tienen via app externa (OctaCopy, CopyFX de Robo).
+Vault hasta 5% p.a. sobre balance no invertido. Copy trading disponible via **MQL5 Signals** (sistema nativo MT5, marketplace MetaQuotes). NEOMAAA **no opera sistema propio** de copy trading ni MAM/PAMM — usamos la infra oficial de MetaQuotes, que es la misma que usan IC Markets, Pepperstone y otros brokers MT5 serios. Competidores como Octa (OctaCopy) y Roboforex (CopyFX) tienen sistema propio; eso puede ser ventaja de UX pero tambien lock-in. Nuestro approach = cliente puede usar cualquier señal publicada en el marketplace global.
 
 ### Donde perdemos
 
@@ -255,7 +255,7 @@ Content marketing tecnico (blog de alta calidad), SEO orientado a "best ECN brok
 
 - Reconocemos: IC Markets es un broker tecnicamente excelente para profesionales.
 - Segmentamos: Si sos trader profesional que vive del cTrader y quiere ASIC, IC es para vos. Si sos trader retail LATAM que quiere bonos, leverage alto y soporte local, no.
-- Diferenciamos: Producto. Vault, Copy Trading integrados. IC no.
+- Diferenciamos: Producto. Vault propio. Copy trading via MQL5 Signals (IC tambien tiene MQL5 disponible, pero sin el stack de rails locales + Vault).
 - Diferenciamos: Mercados locales. PIX, Astropay, rails LATAM. IC no tiene.
 
 **Frases aprobadas de contrataque**
@@ -419,7 +419,7 @@ Bonos + leverage extremo + afiliados agresivos con comisiones altas. Marketing e
 
 - Diferenciamos: Leverage 1:3000 suena bien pero es suicida para el 99% de traders retail. No es un diferencial real, es una trampa de marketing.
 - Diferenciamos: Estructura. Nosotros somos el broker donde te quedas cuando empezas a operar en serio. FBS es donde vas cuando recien empezas con $50.
-- Diferenciamos: Producto completo. Vault, Copy Trading, rails LATAM.
+- Diferenciamos: Producto completo. Vault, copy trading via MQL5 Signals, rails LATAM.
 
 **Frases aprobadas de contrataque**
 
@@ -643,7 +643,7 @@ IBs + CopyFX masters (sistema donde traders expertos se hacen IBs via performanc
 
 **Como respondemos**
 
-- Diferenciamos: Nosotros tenemos copy trading nativo sin friccion ni fees escondidos.
+- Diferenciamos: Copy trading via MQL5 Signals (marketplace global de MetaQuotes, cualquier señal publicada es accesible). CopyFX es sistema cerrado de Roboforex.
 - Diferenciamos: 12,000 instrumentos suena bien pero el 99% de traders retail opera 5-10 pares. Calidad > cantidad.
 - Diferenciamos: Anjouan > Belize para estabilidad actual regulatoria.
 
@@ -788,7 +788,7 @@ Broker brasileno lider, regulado CVM, full stack (fondos, acciones, cripto, rent
 
 1. "Exness es un buen broker, no lo voy a negar. ¿Por que estas evaluando un cambio?" — deja que el hable, casi siempre hay un dolor (soporte no respondio, cuenta suspendida por random, queria bono y no hay).
 2. "Nosotros no competimos en ser el mas grande. Competimos en ser el mejor para vos. Te voy a dar mi telefono directo. Lo que con Exness es un ticket, conmigo es una llamada."
-3. "Ademas tenes producto que ellos no: Vault que te paga 5% en balance no invertido, Copy Trading nativo, bonos."
+3. "Ademas tenes producto que ellos no: Vault que te paga 5% en balance no invertido, copy trading via MQL5 Signals disponible, bonos."
 4. Cerrar: "Probalo con $500, deja tu cuenta Exness abierta, compara 1 mes. Si Exness gana, te vuelves. Si no, traes el resto."
 
 **NO hacer:** Pelear en tecnologia o spreads puros — Exness gana esa.
@@ -1027,7 +1027,7 @@ El mercado forex/CFD offshore tiene practicas cuestionables frecuentes. Como cli
 <li>Foco LATAM + Espana real</li>
 <li>Equipo con nombre y cara</li>
 <li>Rails locales (PIX, Astropay, PSE, OXXO)</li>
-<li>Vault + Copy Trading + MT5 integrados</li>
+<li>Vault propio + MT5 con MQL5 Signals</li>
 <li>Head of Dealing 20 anos experiencia</li>
 <li>SLAs publicos, transparencia operativa</li>
 <li>Leverage 1:1000, bonos con T&C claros</li>

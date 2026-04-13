@@ -36,7 +36,7 @@ Términos de mercado, órdenes, precios, análisis técnico y gestión del riesg
 
 | Término ES | Término EN | Término RU | Definición breve | Ejemplo de uso |
 |---|---|---|---|---|
-| Apalancamiento | Leverage | Кредитное плечо | Relación entre el capital propio y la posición abierta; permite operar volúmenes mayores al margen depositado. | "El apalancamiento máximo en EURUSD es 1:500." |
+| Apalancamiento | Leverage | Кредитное плечо | Reductor del margen requerido (1/N), NO multiplicador de capital. Con 1:500 el margen requerido para 1 lote EUR/USD (~USD 115K nocionales) es ~USD 230. El broker provee el leverage recibido de su LP. | "El apalancamiento máximo en EURUSD es 1:500 — el margen requerido es el nocional dividido 500." |
 | Análisis fundamental | Fundamental analysis | Фундаментальный анализ | Estudio de datos macro (tipos, empleo, PIB) y noticias para anticipar movimiento de precio. | "Hoy priorizamos análisis fundamental por el dato de NFP." |
 | Análisis técnico | Technical analysis | Технический анализ | Estudio del gráfico de precios y volumen mediante indicadores y patrones. | "El análisis técnico muestra resistencia clara en 1,0950." |
 | Ask | Ask | Аск | Precio al que el cliente **compra** el activo; precio de oferta del broker. | "El Ask de EURUSD está en 1,0843." |
@@ -106,7 +106,7 @@ Tipos de cuenta, plataformas, condiciones comerciales. Lo que el cliente ve al r
 
 | Término ES | Término EN | Término RU | Definición breve | Ejemplo de uso |
 |---|---|---|---|---|
-| Apalancamiento máximo | Maximum leverage | Максимальное кредитное плечо | Ratio de apalancamiento más alto disponible en la cuenta/instrumento. | "El apalancamiento máximo en forex mayor es 1:500." |
+| Apalancamiento máximo | Maximum leverage | Максимальное кредитное плечо | Ratio más alto disponible en la cuenta/instrumento. Define el margen mínimo por posición (margen = nocional / leverage). Tier 1 retail lo limita a 1:30 en forex major. | "El apalancamiento máximo en forex mayor es 1:500." |
 | Apertura de cuenta | Account opening | Открытие счёта | Proceso de registro y creación de una cuenta de trading. | "La apertura de cuenta tarda menos de 5 minutos." |
 | Balance | Balance | Баланс | Capital de la cuenta sin considerar operaciones abiertas. | "Balance 10.000 €, equity 10.250 €." |
 | Broker | Broker | Брокер | Intermediario que ejecuta órdenes del cliente en los mercados. | "NEOMAAA Markets es un broker ECN/STP híbrido." |
@@ -239,7 +239,7 @@ Términos técnicos que aparecen en ejecución, MT5 y soporte avanzado.
 | Aplicación móvil | Mobile app | Мобильное приложение | Versión de la plataforma para smartphone. | "MT5 tiene app iOS y Android." |
 | Asesor experto (EA) | Expert Advisor (EA) | Советник (Expert Advisor) | Robot de trading automatizado en MT5. | "Permitimos EAs sin restricciones en todas las cuentas." |
 | Backend | Backend | Бэкенд | Parte servidora del sistema (lógica, base de datos). | "El backend corre en AWS eu-west-1." |
-| Copy trading | Copy trading | Копи-трейдинг | Funcionalidad que replica operaciones de otros traders. | "Lanzamos copy trading en Q2 con 15 estrategias top." |
+| Copy trading | Copy trading | Копи-трейдинг | Replicación automática de operaciones de otro trader. En NEOMAAA se hace vía **MQL5 Signals** (marketplace nativo de MetaQuotes en MT5). NEOMAAA no opera MAM/PAMM propio. | "Nuestro copy trading corre sobre MQL5 Signals — cada follower se suscribe desde su propio MT5." |
 | Dashboard | Dashboard | Панель управления | Panel de control con métricas e información. | "El dashboard del cliente muestra balance, equity e historial." |
 | Ejecución | Execution | Исполнение | Procesamiento de una orden en el mercado. | "Nuestra ejecución promedio es <50 ms." |
 | Frontend | Frontend | Фронтенд | Parte visible/cliente del sistema (web, app). | "El frontend del portal está en Next.js." |

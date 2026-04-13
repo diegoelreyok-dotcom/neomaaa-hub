@@ -163,7 +163,7 @@ Proceso de verificacion de identidad del cliente. Obligatorio antes de permitir 
 ## L
 
 ### Leverage (Apalancamiento)
-Multiplicador que permite operar con mas dinero del que tienes. Ejemplo: con 1:500 de apalancamiento, $100 te permiten controlar $50,000.
+**Reductor del requisito de margen** por un factor de 1/N. **NO es un multiplicador de tu capital.** Con leverage 1:500, el margen requerido para abrir una posicion = valor nocional / 500. Ejemplo correcto: 1 lote EUR/USD representa ~USD 115,000 nocionales; con 1:500 necesitas solo **USD 230 de margen libre** para abrirlo. El "poder de compra" de la posicion sigue siendo el nocional (USD 115,000), lo que cambia es cuanto de tu cuenta queda inmovilizado. Mayor leverage = menor margen requerido = menor colchon antes del stop out. El broker provee el leverage que recibe de su LP. Reguladores Tier 1 (FCA, ESMA) limitan el leverage retail a 1:30 en forex major para proteger al cliente del wipeout rapido.
 
 | Cuenta | Apalancamiento maximo |
 |--------|----------------------|

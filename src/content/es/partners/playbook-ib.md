@@ -554,7 +554,9 @@ No. Cualquier incentivo adicional al cliente (cashback de tu parte, promesa de r
 
 ### 5. ¿Puedo hacer copy trading con mis clientes?
 
-No. Vos sos IB, no money manager. Si un cliente te pide que le operes, rechazás y le explicás que es gestión discrecional no autorizada. Si querés ofrecer signals, tenés que usar la plataforma oficial de signals del broker (próximamente).
+No. Vos sos IB, no money manager. Si un cliente te pide que le operes, rechazás y le explicás que es gestión discrecional no autorizada.
+
+Si querés ofrecer signals de forma legítima, el canal correcto es **MQL5 Signals** (https://www.mql5.com/en/signals), el sistema nativo de MT5 operado por MetaQuotes. Publicás tu señal ahí, tus clientes NEOMAAA se suscriben desde su propio MT5 a tu señal, y cobrás la suscripción mensual que vos definís (MetaQuotes se queda con una parte). Cada follower mantiene su propia cuenta y su propio riesgo. NEOMAAA **no ofrece MAM/PAMM** actualmente — no intentes operarles la cuenta vos.
 
 ### 6. ¿Qué pasa si el cliente pierde y se enoja conmigo?
 
