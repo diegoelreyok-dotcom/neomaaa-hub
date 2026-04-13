@@ -1,0 +1,416 @@
+{
+  "docPath": "hiring/roles-broker-completo",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuántas capas verticales tiene la estructura de un broker según el doc?",
+      "options": [
+        "2 capas",
+        "3 capas (Governance, Heads, Operativos) + 1 capa externa",
+        "5 capas",
+        "Ninguna, es estructura plana"
+      ],
+      "correctIndex": 1,
+      "explanation": "El broker se estructura en 3 capas verticales (Governance/C-Level, Heads departamentales, Operativos) + 1 capa horizontal de servicios externos (Legal, Auditor, Accountants, IT Security)."
+    },
+    {
+      "id": "q2",
+      "question": "¿Quién ocupa el rol de CEO en NEOMAAA?",
+      "options": ["Angel", "Yulia", "Diego", "Edward"],
+      "correctIndex": 2,
+      "explanation": "Diego ocupa el rol de CEO como founder. No hay plan de reemplazo ni backup en los próximos 24 meses."
+    },
+    {
+      "id": "q3",
+      "question": "¿Quién es el Head of Dealing en NEOMAAA?",
+      "options": ["Diego", "Pepe (20 años de experiencia)", "Angel", "Susana"],
+      "correctIndex": 1,
+      "explanation": "Pepe ocupa el rol de Head of Dealing con 20 años de experiencia. Rol crítico cubierto. Plan: sumar 1-2 Dealing Operators para cubrir turnos."
+    },
+    {
+      "id": "q4",
+      "question": "¿Quién es la CCO (Chief Compliance Officer) en NEOMAAA?",
+      "options": ["Yulia", "Susana", "Angel", "Rocio"],
+      "correctIndex": 1,
+      "explanation": "Susana ocupa el rol de CCO. Rol crítico cubierto. Prioridad: sumar 1 junior cuando volumen supere 500 KYC/mes."
+    },
+    {
+      "id": "q5",
+      "question": "¿A quién reporta el CCO (Chief Compliance Officer)?",
+      "options": [
+        "Solo al CEO",
+        "Al COO únicamente",
+        "Al CEO + Board directamente (por independencia regulatoria)",
+        "Al Head of Sales"
+      ],
+      "correctIndex": 2,
+      "explanation": "El CCO reporta al CEO + Board directamente por independencia regulatoria. Esto protege al compliance de presiones operativas."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuál es el KPI crítico del CEO sobre runway?",
+      "options": [
+        "3 meses mínimo",
+        "Mínimo 12 meses, ideal 18+ meses",
+        "6 meses exactos",
+        "24 meses siempre"
+      ],
+      "correctIndex": 1,
+      "explanation": "KPI CEO: runway mínimo 12 meses, ideal 18+. Medido semanalmente. Revenue growth 15-25% MoM en etapa 1, EBITDA >25% en etapa 2."
+    },
+    {
+      "id": "q7",
+      "question": "¿Quién cubre parcialmente el rol de COO en NEOMAAA hoy?",
+      "options": [
+        "Diego",
+        "Yulia (combinado con rol de Principal)",
+        "Angel",
+        "No hay nadie"
+      ],
+      "correctIndex": 1,
+      "explanation": "Yulia cubre parte de la función COO hoy combinada con rol de Principal. Se formalizará cuando el headcount supere 30 personas."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuándo se recomienda contratar un COO formal?",
+      "options": [
+        "Día 1 post-launch",
+        "Etapa 2 (6-18 meses post-launch), cuando haya 25-30 empleados",
+        "Solo cuando haya 100+ empleados",
+        "Nunca, el CEO puede cubrirlo siempre"
+      ],
+      "correctIndex": 1,
+      "explanation": "Contratar COO formal en etapa 2 (6-18 meses post-launch) cuando haya 25-30 empleados. Antes, el CEO asume la función sin perder foco."
+    },
+    {
+      "id": "q9",
+      "question": "¿Qué rol está VACANTE en NEOMAAA y es crítico #1 según el doc?",
+      "options": [
+        "CEO",
+        "CCO",
+        "Finance Manager (sin este rol, retiros se retrasan y reconciliación se rompe)",
+        "Head of Dealing"
+      ],
+      "correctIndex": 2,
+      "explanation": "Finance Manager: vacante, hiring crítico #1. Sin este rol, retiros se retrasan y reconciliación se rompe. Contratar etapa 1 día 1."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cuál es el KPI crítico de reconciliation accuracy para el Finance Manager?",
+      "options": ["95%", "98%", "100% (cero tolerancia a errores)", "Mejor esfuerzo"],
+      "correctIndex": 2,
+      "explanation": "Finance Manager: reconciliation accuracy 100%. Cero tolerancia a errores. También: payments on-time 100%, days-to-close mensual <5."
+    },
+    {
+      "id": "q11",
+      "question": "¿Qué rol es el 'dueño del número' de FTDs y revenue mensual?",
+      "options": ["CEO", "CFO", "Head of Sales", "Head of Marketing"],
+      "correctIndex": 2,
+      "explanation": "Head of Sales es dueño del número. Cumple meta FTDs y revenue mensual. Diseña pitch, entrena equipo, asigna territorios, cierra deals VIP personalmente."
+    },
+    {
+      "id": "q12",
+      "question": "¿Cuál es el FTD/mes objetivo realista para etapa 1 del Head of Sales?",
+      "options": ["1-5 FTDs/mes", "50-150 FTDs/mes", "500 FTDs/mes", "1000+ FTDs/mes"],
+      "correctIndex": 1,
+      "explanation": "Head of Sales KPI etapa 1: 50-150 FTDs/mes según stage y mercado. Deposit volume mensual $200K-800K. Conversion lead → FTD >15%."
+    },
+    {
+      "id": "q13",
+      "question": "¿Quién funciona informalmente como top closer + lead en NEOMAAA?",
+      "options": [
+        "Franco",
+        "Edward (falta formalizar el rol)",
+        "Luis",
+        "Angel"
+      ],
+      "correctIndex": 1,
+      "explanation": "Edward funciona como top closer + lead informal. Falta formalizar el rol de Head of Sales con plan de backup. Franco y Luis son candidatos internos."
+    },
+    {
+      "id": "q14",
+      "question": "¿A quién reporta el Head of Support?",
+      "options": ["CEO directamente", "COO", "CFO", "Head of Sales"],
+      "correctIndex": 1,
+      "explanation": "Head of Support reporta al COO. Tiene a cargo Support Agents ES + EN (4-8 personas en etapa 2)."
+    },
+    {
+      "id": "q15",
+      "question": "¿Cuál es el FRT (First Response Time) objetivo del chat para Head of Support?",
+      "options": ["<1 min", "<5 min", "<30 min", "<2h"],
+      "correctIndex": 1,
+      "explanation": "Head of Support KPI: FRT chat <5 min, FRT email <2h, CSAT >85%, resolution time mediana <4h, escalation rate a L2 <5%."
+    },
+    {
+      "id": "q16",
+      "question": "¿A quién reporta el Head of Dealing?",
+      "options": ["CCO", "CEO o COO", "CFO", "Al board directamente"],
+      "correctIndex": 1,
+      "explanation": "Head of Dealing reporta al CEO o COO. Tiene a cargo Dealing Operators (turnos 24/5) y Risk Analysts en etapa 3."
+    },
+    {
+      "id": "q17",
+      "question": "¿Cuál es el B-Book hit ratio objetivo en el KPI del Head of Dealing?",
+      "options": ["10-20%", "40-50%", "70-80%", "100%"],
+      "correctIndex": 2,
+      "explanation": "Head of Dealing: B-Book hit ratio 70-80%. Muy alto = riesgo concentrado; muy bajo = no aprovecha el modelo. Execution speed mediana <150ms, slippage <0.3 pips."
+    },
+    {
+      "id": "q18",
+      "question": "¿Cuándo se recomienda contratar un CTO formal?",
+      "options": [
+        "Día 1",
+        "Etapa 2 (6 meses post-launch)",
+        "Etapa 3 (18+ meses). Antes, Tech Lead senior o fractional CTO cubre con costo menor",
+        "Solo cuando haya 100+ devs"
+      ],
+      "correctIndex": 2,
+      "explanation": "CTO formal: etapa 3 (18+ meses). Se justifica cuando haya 5+ ingenieros y roadmap que coordinar. Antes, Tech Lead senior o fractional CTO con costo significativamente menor."
+    },
+    {
+      "id": "q19",
+      "question": "¿Quién cubre las funciones de tech en NEOMAAA hoy?",
+      "options": [
+        "Solo Angel",
+        "Alex A, Alex B, Gleb, Dimitri (distribuido, sin CTO formal)",
+        "Diego",
+        "Un CTO externo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tech en NEOMAAA: roles distribuidos entre Alex A, Alex B, Gleb, Dimitri. No hay CTO formal aún. Rol se justifica cuando haya 5+ ingenieros."
+    },
+    {
+      "id": "q20",
+      "question": "¿Cuál es el CAC objetivo que mide el Head of Marketing en etapa 1?",
+      "options": ["<$50", "<$150 en etapa 1, <$250 en etapa 2", "<$500", "<$1000 siempre"],
+      "correctIndex": 1,
+      "explanation": "Head of Marketing KPI: CAC <$150 etapa 1, <$250 etapa 2. Lead → FTD >15%. Retention 30/60/90: 55%/45%/35%."
+    },
+    {
+      "id": "q21",
+      "question": "¿Cuál es el KPI de calls dial/día para un Sales Agent?",
+      "options": [">20", ">80 (leads contactados efectivos >30)", ">200", ">500"],
+      "correctIndex": 1,
+      "explanation": "Sales Agent KPI: calls dial/día >80, contactos efectivos/día >30, FTDs/mes 5-15 según nivel, conversion rate >15%, retention 30d >50%."
+    },
+    {
+      "id": "q22",
+      "question": "¿Quiénes son los Sales Agents actuales en NEOMAAA?",
+      "options": [
+        "Solo Franco",
+        "Franco, Luis, Rocio, Marilyn (plan: escalar a 6-8 agents en primeros 6 meses)",
+        "Solo Edward",
+        "No hay ninguno aún"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sales Agents actuales: Franco, Luis, Rocio, Marilyn. Plan: escalar a 6-8 agents en primeros 6 meses post-launch."
+    },
+    {
+      "id": "q23",
+      "question": "¿A quién reporta un Support Agent?",
+      "options": ["CEO", "COO", "Head of Support (o Team Lead)", "CCO"],
+      "correctIndex": 2,
+      "explanation": "Support Agent reporta al Head of Support (o Team Lead en etapa 3). Tickets resueltos/día >40, FRT chat <5 min, CSAT >85%, escalation rate <8%."
+    },
+    {
+      "id": "q24",
+      "question": "¿Cuál es la regla general de escalamiento de Support Agents según volumen de clientes?",
+      "options": [
+        "1 agent por cada 100 clientes",
+        "1 agent por cada 500 clientes activos",
+        "1 agent por cada 5000 clientes",
+        "No hay regla"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla general: 1 Support Agent por cada 500 clientes activos. Etapa 1 mínimo 2 agents (ES + EN). Escalar según volumen."
+    },
+    {
+      "id": "q25",
+      "question": "¿A quién reporta el Compliance Officer Junior?",
+      "options": ["CEO", "COO", "CCO (Susana)", "Head of Sales"],
+      "correctIndex": 2,
+      "explanation": "Compliance Officer Junior reporta al CCO (Susana). KYC backlog <24h, KYC decisions accuracy >98%, AML alerts cleared >95%, zero casos sancionados aprobados."
+    },
+    {
+      "id": "q26",
+      "question": "¿Cuándo se recomienda sumar un Compliance Officer Junior en NEOMAAA?",
+      "options": [
+        "Día 1",
+        "Cuando volumen KYC supere 500/mes sostenido",
+        "Nunca",
+        "Cuando haya 10000 clientes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sumar Compliance Junior cuando volumen KYC supere 500/mes sostenido. Susana cubre hoy, pero el backlog crece con el volumen."
+    },
+    {
+      "id": "q27",
+      "question": "¿Cuándo se recomienda contratar Dealing Operators en NEOMAAA?",
+      "options": [
+        "Día 1",
+        "Cuando volumen requiera cobertura 3 turnos (aproximadamente etapa 2, 6-12 meses post-launch)",
+        "Nunca, Pepe cubre siempre",
+        "Etapa 3 exclusivamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pepe cubre solo. Contratar Dealing Operators cuando volumen requiera cobertura 3 turnos (etapa 2, 6-12 meses post-launch) para cubrir turnos nocturnos/fin-de-semana Asia."
+    },
+    {
+      "id": "q28",
+      "question": "¿Cuál es el rol del CSM (Customer Success Manager) en NEOMAAA?",
+      "options": [
+        "Resolver tickets de soporte",
+        "Gestionar portfolio de clientes VIP/institucionales (depósitos >$10K), calls proactivos, detectar churn",
+        "Vender a leads nuevos",
+        "Hacer KYC"
+      ],
+      "correctIndex": 1,
+      "explanation": "CSM gestiona portfolio VIPs (depósitos >$10K). Calls proactivos mensuales, reviews trimestrales, detecta early signals de churn. Coordina privilegios especiales."
+    },
+    {
+      "id": "q29",
+      "question": "¿Cuándo crear un rol formal de CSM en NEOMAAA?",
+      "options": [
+        "Día 1",
+        "Cuando VIPs activos >50",
+        "Cuando haya 100K clientes",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pepe cubre CSM informalmente hoy. Crear rol formal cuando VIPs activos >50. VIP retention 12m >85%, VIP NPS >60."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuál es el error más común de hiring según el doc?",
+      "options": [
+        "Contratar demasiado pocos Sales Agents",
+        "Contratar un CTO o Head of Marketing demasiado pronto (antes de tener 2-3 ingenieros o specialists a gestionar)",
+        "Contratar CEO full-time",
+        "Contratar Compliance tarde"
+      ],
+      "correctIndex": 1,
+      "explanation": "Error más común: contratar CTO o Head of Marketing demasiado pronto. Hasta que no haya 2-3 ingenieros o 2-3 marketing specialists a gestionar, el rol no tiene a quien liderar — se convierte en doer senior con sueldo de manager."
+    },
+    {
+      "id": "q31",
+      "question": "¿Qué roles son MUST-HAVE en etapa 1 (Pre-launch + 6 meses)?",
+      "options": [
+        "Solo CEO",
+        "CEO, COO, Compliance, Dealing, Finance Manager, Head of Sales, 3-4 Sales agents, 2 Support agents",
+        "CTO + HR Manager",
+        "Solo Sales y Marketing"
+      ],
+      "correctIndex": 1,
+      "explanation": "Etapa 1 must-have (10-15 personas): CEO, COO, Compliance, Dealing, Finance Manager, Head of Sales, 3-4 Sales agents, 2 Support agents. Evitar: CTO (devs seniors alcanzan), HR Manager."
+    },
+    {
+      "id": "q32",
+      "question": "¿Cuál es el payroll estimado de etapa 1 (10-15 personas)?",
+      "options": [
+        "$10K-20K/mes",
+        "$50K-80K/mes (~$720K/año)",
+        "$200K-400K/mes",
+        "$1M/mes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Etapa 1: $50K-80K/mes (~$720K/año). Etapa 2: $100K-180K/mes (~$1.7M/año). Etapa 3: $200K-400K/mes (~$3.6M/año)."
+    },
+    {
+      "id": "q33",
+      "question": "¿Cuál es la regla de oro sobre payroll vs revenue en un broker maduro?",
+      "options": [
+        "Payroll puede ser 90% del revenue indefinidamente",
+        "Payroll no debe exceder 40-50% del revenue en broker maduro (en etapa 1 puede ser 80-120% de inversión)",
+        "Payroll debe ser exactamente 70% del revenue",
+        "No hay regla"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla de oro: payroll no debe exceder 40-50% del revenue en broker maduro. Etapa 1 puede ser 80-120% (fase inversión). Si supera 150% por más de 6 meses, recortar o recapitalizar."
+    },
+    {
+      "id": "q34",
+      "question": "¿Qué se rompe si queda vacante el rol de CCO?",
+      "options": [
+        "Nada urgente",
+        "Pérdida de licencia en 90-180 días, multas regulatorias, imposible operar broker regulado sin CCO",
+        "Solo aumenta el churn",
+        "Solo baja el CSAT"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sin CCO: pérdida de licencia en 90-180 días, multas regulatorias, congelamiento de cuentas corporativas por bancos. Imposible operar un broker regulado sin CCO."
+    },
+    {
+      "id": "q35",
+      "question": "¿Qué roles son de CAPA 4 (externos/outsourceables)?",
+      "options": [
+        "Sales Agents y Support Agents",
+        "Legal Counsel, Auditor Externo, Accountant multi-jurisdicción, IT Security Consultant",
+        "CEO y CFO",
+        "Dealing Operator"
+      ],
+      "correctIndex": 1,
+      "explanation": "Capa 4 (externos): Legal Counsel, Auditor Externo, Accountant multi-jurisdicción, IT Security Consultant. Se contratan por retainer mensual o proyecto, no full-time."
+    },
+    {
+      "id": "q36",
+      "question": "¿Cuál es la frecuencia recomendada del Legal Counsel en NEOMAAA?",
+      "options": [
+        "Solo cuando hay problema",
+        "Retainer desde día 1 con firma legal especializada offshore, mínimo 5 horas/mes",
+        "Una vez al año",
+        "Full-time in-house"
+      ],
+      "correctIndex": 1,
+      "explanation": "Recomendación NEOMAAA: tener retainer con firma legal especializada en offshore jurisdictions desde día 1. Mínimo 5 horas/mes retainer. Costo: $2K-8K/mes."
+    },
+    {
+      "id": "q37",
+      "question": "¿Cuándo contratar primer pen test (IT Security)?",
+      "options": [
+        "Día 1",
+        "Primer año 2 de operación, anual después",
+        "Solo si hay breach",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Recomendación NEOMAAA: contratar pen test primer año 2 de operación, anual después. Retainer de incident response definido desde día 1. Costo: $5K-20K por proyecto."
+    },
+    {
+      "id": "q38",
+      "question": "¿Qué roles se agregan en etapa 3 (18+ meses, 40-80 personas)?",
+      "options": [
+        "Solo más Sales Agents",
+        "CTO formal, COO formal, CSM team, HR Manager, Office Manager por hub, Data Analyst, Product Manager, CRO separado",
+        "Solo Dealing Operators",
+        "Ninguno nuevo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Etapa 3 agrega: CTO formal, COO formal, CSM team (3-5), Marketing especializado por canal, devs mobile/DevOps/security, HR Manager, Office Manager por hub, Data Analyst, Product Manager, CRO separado de Dealing."
+    },
+    {
+      "id": "q39",
+      "question": "¿A quién reporta el CFO?",
+      "options": [
+        "Al board directamente",
+        "Al CEO",
+        "Al COO",
+        "Al Head of Sales"
+      ],
+      "correctIndex": 1,
+      "explanation": "CFO reporta al CEO. Tiene a cargo Finance Manager, Finance Junior y Accountants externos. Dependencias: CEO (estrategia capital), Compliance (regulatory capital), COO (presupuesto operativo)."
+    },
+    {
+      "id": "q40",
+      "question": "¿Cuál es el rango de costo mercado de un Sales Agent (base + comisión) en LATAM?",
+      "options": [
+        "$500-$1K/mes total",
+        "$1.5K-4K/mes base + comisión 5-15% del net revenue; top agents OTE $6K-12K",
+        "$20K/mes fijo",
+        "Solo comisión, sin base"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sales Agent LATAM: $1.5K-4K/mes base + comisión 5-15% del net revenue generado. Top agents hacen $6K-12K OTE (on-target earnings)."
+    }
+  ]
+}

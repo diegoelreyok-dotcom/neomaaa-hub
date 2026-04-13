@@ -1,0 +1,446 @@
+{
+  "docPath": "marketing/competidores-deep-dive",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuál es la Ley #1 sobre comunicación con competidores en NEOMAAA?",
+      "options": [
+        "Atacar siempre al competidor para ganar el lead",
+        "Nunca hablar mal públicamente de un competidor",
+        "Comparar precios abiertamente en ads",
+        "Publicar rankings comparativos en redes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ley #1: nunca hablar mal públicamente de un competidor. El doc es interno. Un broker que habla mal de otro broker pierde credibilidad inmediatamente. Público = hechos comparables; interno = honestidad brutal."
+    },
+    {
+      "id": "q2",
+      "question": "¿Quién debe aprobar cualquier contenido público que mencione competidores?",
+      "options": ["Diego", "Angel", "Susana (compliance)", "Franco"],
+      "correctIndex": 2,
+      "explanation": "Cualquier contenido público (ads, posts, emails, materiales) que mencione competidores DEBE pasar por Susana (compliance) antes de publicar. Sin excepciones."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuál es la licencia principal de Exness que NO tiene NEOMAAA?",
+      "options": [
+        "Anjouan AOFA",
+        "FSA Seychelles, CySEC, FCA, FSCA, JSC, CMA",
+        "IFSC Belize solamente",
+        "Ninguna — ambos tienen las mismas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Exness tiene 6 regulaciones: FSA Seychelles, CySEC, FCA, FSCA Sudáfrica, JSC Jordania, CMA Kenya. NEOMAAA solo tiene AOFA Anjouan."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuál es uno de los diferenciadores tecnológicos clave de Exness que es difícil de igualar?",
+      "options": [
+        "Retiros instantáneos automatizados",
+        "Plataforma propietaria exclusiva",
+        "Leverage 1:5000",
+        "Educación presencial en LATAM"
+      ],
+      "correctIndex": 0,
+      "explanation": "Los retiros instantáneos automatizados de Exness son un diferencial gigantesco que muy pocos brokers hacen. Es una de sus fortalezas reales reconocidas."
+    },
+    {
+      "id": "q5",
+      "question": "¿En qué mercado es Exness #1 globalmente?",
+      "options": ["LATAM", "Europa", "África subsahariana", "Australia"],
+      "correctIndex": 2,
+      "explanation": "Exness tiene dominancia absoluta en África subsahariana (Nigeria, Kenya, Sudáfrica) y fuerte presencia en Asia (Tailandia, Vietnam, Indonesia)."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuál es una frase aprobada de contraataque contra Exness?",
+      "options": [
+        "Exness te estafa con retiros",
+        "Exness es un broker establecido, lo respetamos. La diferencia es el nivel de atención",
+        "Exness tiene licencia basura de Seychelles",
+        "Exness oculta requotes sistemáticamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Frase compliance-safe: reconocer que Exness es establecido y diferenciarse por atención personalizada. Nunca difamar."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuándo conviene mandar un cliente a Exness en vez de intentar cerrarlo?",
+      "options": [
+        "Nunca — siempre cerramos",
+        "Cuando mueve 50+ lotes/día en forex mayor y solo le importa spread",
+        "Cuando tiene menos de $100 de capital",
+        "Cuando es brasileño que usa PIX"
+      ],
+      "correctIndex": 1,
+      "explanation": "Clientes HFT industriales o que solo priorizan spread puro en forex mayor, o que están en África/Asia sin necesitar soporte español, van mejor a Exness. No todos son nuestros."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuáles son las licencias principales de IC Markets?",
+      "options": [
+        "FCA + BaFin solamente",
+        "ASIC, CySEC, FSA Seychelles, SCB Bahamas",
+        "Anjouan AOFA + CySEC",
+        "Solo ASIC Australia"
+      ],
+      "correctIndex": 1,
+      "explanation": "IC Markets tiene ASIC Australia, CySEC Chipre, FSA Seychelles y SCB Bahamas. Reputación Tier 1 fuerte."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cuál es el depósito mínimo de IC Markets?",
+      "options": ["$1", "$5", "$100", "$200"],
+      "correctIndex": 3,
+      "explanation": "IC Markets tiene depósito mínimo $200, lo cual excluye ticket bajo. Ese es uno de sus puntos débiles para captar clientes retail chicos."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cuál es la plataforma 'nativa' que distingue a IC Markets y atrae al trader algorítmico?",
+      "options": ["MT4", "cTrader", "TradingView", "Plataforma propia IC"],
+      "correctIndex": 1,
+      "explanation": "cTrader nativo es la plataforma preferida por traders profesionales y algorítmicos. Es un diferencial clave de IC Markets."
+    },
+    {
+      "id": "q11",
+      "question": "Contra un cliente profesional que viene de IC Markets, ¿cuál es la estrategia correcta?",
+      "options": [
+        "Atacar la regulación ASIC como restrictiva",
+        "Pelear en spreads puros",
+        "Segmentar: IC Markets es excelente para profesional europeo/australiano — nosotros somos complementarios para LATAM",
+        "Prometer spreads todavía más bajos"
+      ],
+      "correctIndex": 2,
+      "explanation": "Segmentación: IC es para trader profesional europeo/australiano. NEOMAAA para retail LATAM/España con rails locales. No competimos en la misma franja."
+    },
+    {
+      "id": "q12",
+      "question": "¿Cuál es el bono de bienvenida más famoso de XM?",
+      "options": [
+        "$5 sin depósito",
+        "$30-$50 sin depósito + bono depósito hasta 50%",
+        "$500 sin depósito",
+        "XM no ofrece bonos"
+      ],
+      "correctIndex": 1,
+      "explanation": "XM ofrece bono de bienvenida $30-$50 sin depósito + bono depósito hasta 50%. Su hook principal para adquisición."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuál es la queja más frecuente documentada sobre los bonos de XM?",
+      "options": [
+        "Son muy pequeños",
+        "Bonos con condiciones de volumen alto que la mayoría no cumple para retirar",
+        "Llegan tarde al cliente",
+        "Se cobra impuesto sobre el bono"
+      ],
+      "correctIndex": 1,
+      "explanation": "Los bonos XM tienen requerimientos de volumen altos que la mayoría no cumple. Causa quejas frecuentes ('no puedo retirar mi bono') — es letra chica legal pero genera frustración."
+    },
+    {
+      "id": "q14",
+      "question": "¿Cuál es el spread Standard de XM en EUR/USD?",
+      "options": [
+        "0.0 pips siempre",
+        "Desde 1.6 pips (uno de los más caros del mercado offshore)",
+        "0.3 pips garantizado",
+        "5 pips"
+      ],
+      "correctIndex": 1,
+      "explanation": "XM Standard EUR/USD desde 1.6 pips — uno de los spreads más altos del mercado offshore. Ultra Low desde 0.6."
+    },
+    {
+      "id": "q15",
+      "question": "¿Qué frase está PROHIBIDA al hablar de XM con un lead?",
+      "options": [
+        "Los bonos tienen letra chica, conviene revisarla",
+        "Nuestro spread raw es más bajo que Standard de XM",
+        "XM es una estafa con bonos falsos",
+        "XM tiene más años en el mercado"
+      ],
+      "correctIndex": 2,
+      "explanation": "Decir que XM 'es una estafa con bonos falsos' es difamación. No es estafa, es letra chica legal. Nunca atacar directamente al broker ni al cliente que lo eligió."
+    },
+    {
+      "id": "q16",
+      "question": "¿Cuál es el leverage máximo de FBS en cuentas offshore?",
+      "options": ["1:100", "1:500", "1:1000", "1:3000"],
+      "correctIndex": 3,
+      "explanation": "FBS ofrece leverage 1:3000 — literalmente el más alto del mercado. NEOMAAA lo considera 'trampa de marketing' porque es suicida para el 99% de traders retail."
+    },
+    {
+      "id": "q17",
+      "question": "¿Cuál es el bono de bienvenida sin depósito de FBS?",
+      "options": ["$30", "$50", "$100", "$140"],
+      "correctIndex": 3,
+      "explanation": "FBS da bono $140 sin depósito — agresivo, convierte en mercados de bajo poder adquisitivo."
+    },
+    {
+      "id": "q18",
+      "question": "¿Cómo responder cuando un lead dice 'FBS me da leverage 1:3000'?",
+      "options": [
+        "Se lo igualamos",
+        "Leverage 1:3000 es atractivo pero estadísticamente destruye cuentas; 1:1000 es suficiente para cualquier estrategia retail responsable",
+        "FBS es una estafa",
+        "Decirle que Anjouan también tiene 1:3000"
+      ],
+      "correctIndex": 1,
+      "explanation": "Frase aprobada: leverage extremo estadísticamente destruye cuentas. NEOMAAA ofrece hasta 1:1000 suficiente para cualquier estrategia responsable."
+    },
+    {
+      "id": "q19",
+      "question": "¿Dónde es OctaFX particularmente fuerte en LATAM?",
+      "options": ["Brasil", "Argentina", "México", "Chile"],
+      "correctIndex": 2,
+      "explanation": "OctaFX es fuerte principalmente en México y algo en Colombia — es uno de los pocos offshore con penetración real LATAM. En España presencia mínima."
+    },
+    {
+      "id": "q20",
+      "question": "¿Cuál es una debilidad documentada de OctaFX respecto a NEOMAAA?",
+      "options": [
+        "Sin leverage alto",
+        "Producto básico: sin vault, sin yield, catálogo limitado a 230 instrumentos",
+        "No tiene MT5",
+        "No acepta tarjetas"
+      ],
+      "correctIndex": 1,
+      "explanation": "OctaFX tiene producto básico (230 instrumentos, sin Vault ni yield) vs NEOMAAA con 2000+ instrumentos, Vault 5% p.a. y copy trading."
+    },
+    {
+      "id": "q21",
+      "question": "¿Qué frase está prohibida sobre OctaFX?",
+      "options": [
+        "OctaFX tiene foco en México",
+        "OctaFX es para pobres",
+        "OctaFX tiene menos instrumentos",
+        "OctaFX usa plataforma propia"
+      ],
+      "correctIndex": 1,
+      "explanation": "Decir 'Octa es para pobres' es clasista y prohibido. Tampoco 'Octa te hace trampas'. Solo hechos comparables."
+    },
+    {
+      "id": "q22",
+      "question": "¿Cuál es la regulación diferencial de HF Markets?",
+      "options": [
+        "Solo Anjouan",
+        "FCA UK + CySEC + FSA + FSCA + DFSA + CMA (multi-jurisdicción fuerte)",
+        "Solo Belize",
+        "Ninguna — es no-regulado"
+      ],
+      "correctIndex": 1,
+      "explanation": "HF Markets tiene FCA UK + CySEC + FSA Seychelles + FSCA Sudáfrica + DFSA Dubai + CMA Kenya. Multi-jurisdicción fuerte cubre todo."
+    },
+    {
+      "id": "q23",
+      "question": "¿Dónde es HF Markets más fuerte?",
+      "options": [
+        "LATAM",
+        "Medio Oriente, África (Nigeria/Kenya/Sudáfrica), sur de Asia",
+        "Europa occidental",
+        "Australia"
+      ],
+      "correctIndex": 1,
+      "explanation": "HF Markets es muy fuerte en Medio Oriente, África (Nigeria, Kenya, Sudáfrica) y sur de Asia (Pakistán, India). Presencia LATAM marginal."
+    },
+    {
+      "id": "q24",
+      "question": "¿Cuál es el diferencial de catálogo de RoboForex?",
+      "options": [
+        "10 instrumentos exclusivos",
+        "12,000+ instrumentos (principalmente stocks CFD)",
+        "Solo forex mayor",
+        "Solo crypto"
+      ],
+      "correctIndex": 1,
+      "explanation": "RoboForex tiene catálogo gigante de 12,000+ instrumentos, principalmente stocks CFD. Es su diferencial aunque el 99% de retail opera 5-10 pares."
+    },
+    {
+      "id": "q25",
+      "question": "¿Cómo se diferencia NEOMAAA de RoboForex en copy trading?",
+      "options": [
+        "NEOMAAA usa sistema propio cerrado",
+        "NEOMAAA usa MQL5 Signals (marketplace global MetaQuotes); CopyFX de Roboforex es sistema cerrado",
+        "NEOMAAA no tiene copy trading",
+        "Son idénticos"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA usa MQL5 Signals (marketplace global MetaQuotes) — cualquier señal publicada es accesible. Roboforex CopyFX es sistema cerrado propio."
+    },
+    {
+      "id": "q26",
+      "question": "¿Cuáles son las licencias Tier 1 de Pepperstone?",
+      "options": [
+        "Solo ASIC",
+        "ASIC, FCA, CySEC, BaFin, DFSA, SCB, CMA",
+        "Solo Belize",
+        "Solo Anjouan"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pepperstone tiene ASIC Australia, FCA UK, CySEC, BaFin Alemania, DFSA Dubai, SCB Bahamas, CMA Kenya. Reputación top Tier 1."
+    },
+    {
+      "id": "q27",
+      "question": "¿Por qué Pepperstone casi no compite directamente con NEOMAAA?",
+      "options": [
+        "Porque es un broker chico",
+        "Porque sirve trader profesional Europa/Australia, ticket $200+, no tiene rails LATAM ni foco LATAM",
+        "Porque no tiene MT5",
+        "Porque no acepta retail"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pepperstone sirve trader profesional Europa/Australia con ticket $200+ y Tier 1 regulation. Presencia LATAM baja, sin rails locales. Servimos mercados distintos."
+    },
+    {
+      "id": "q28",
+      "question": "¿Cuál es la postura oficial NEOMAAA sobre Pepperstone en cuanto a frases de ataque?",
+      "options": [
+        "Se puede atacar con libertad",
+        "Ninguna frase de ataque — Pepperstone es de los más respetables, zero ataque",
+        "Solo atacar su leverage bajo",
+        "Decir que no paga"
+      ],
+      "correctIndex": 1,
+      "explanation": "Frases prohibidas contra Pepperstone: Ninguna. Pepperstone es de los más respetables. Zero ataque."
+    },
+    {
+      "id": "q29",
+      "question": "¿Qué es Avenue Securities y cómo se relaciona con NEOMAAA?",
+      "options": [
+        "Competidor directo de forex",
+        "Broker brasileño regulado CVM con foco renta variable USA — competencia indirecta, no es broker forex/CFD",
+        "Procesador de pagos",
+        "Proveedor de liquidez"
+      ],
+      "correctIndex": 1,
+      "explanation": "Avenue Securities: broker brasileño regulado CVM con foco en renta variable USA para brasileños. NO es broker forex/CFD. Competencia indirecta porque captura budget del cliente brasileño."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuál es el leverage límite de XP Investimentos en forex local?",
+      "options": ["1:20", "1:100", "1:500", "1:1000"],
+      "correctIndex": 0,
+      "explanation": "XP Investimentos tiene límite 1:20 en forex local brasileño. Por eso se cruza con NEOMAAA: cliente brasileño premium que quiere leverage offshore real no lo encuentra en XP."
+    },
+    {
+      "id": "q31",
+      "question": "¿Cómo posicionar NEOMAAA frente a Avenue / XP al hablar con un cliente brasileño?",
+      "options": [
+        "Decir que Avenue/XP son inferiores",
+        "No atacamos: 'Avenue/XP son excelentes para renta variable USA, nosotros complementamos para forex/CFD con PIX'",
+        "Convencer al cliente de cerrar su cuenta XP",
+        "Prometer leverage 1:3000"
+      ],
+      "correctIndex": 1,
+      "explanation": "Respeto total. Avenue/XP son excelentes para renta variable; NEOMAAA complementa para forex/CFD con rails PIX. 'No elijas uno u otro, usa cada uno para lo que sirve.'"
+    },
+    {
+      "id": "q32",
+      "question": "¿Cuál es el ICP (cliente ideal) declarado de NEOMAAA?",
+      "options": [
+        "Institucional mueve 1M lotes/mes",
+        "Trader retail LATAM/España activo, tickets $100-$10,000, que quiere leverage alto + soporte humano + métodos locales",
+        "Principiante de USA con $50",
+        "Family office Europeo"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA es el broker ideal para el trader retail LATAM/España activo, con tickets $100-$10,000, que quiere leverage alto + soporte humano + métodos locales + producto moderno."
+    },
+    {
+      "id": "q33",
+      "question": "¿Cuál es una debilidad interna reconocida de NEOMAAA (honestidad brutal)?",
+      "options": [
+        "Leverage muy bajo",
+        "Brand awareness cero — necesitamos 12-24 meses construyendo marca",
+        "No tenemos MT5",
+        "No aceptamos pagos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Donde perdemos: brand awareness cero, no somos Tier 1 regulatorio, somos nuevos, volumen bajo, sin historial de payouts masivos documentados."
+    },
+    {
+      "id": "q34",
+      "question": "¿Cuál es uno de los diferenciadores reales de NEOMAAA según el doc?",
+      "options": [
+        "Bot de IA para trading automático",
+        "Foco real en Brasil y LATAM con métodos locales (PIX, Astropay, PSE, OXXO, Nequi, Yape, Mercado Pago)",
+        "Oficina en Wall Street",
+        "Licencia FCA UK"
+      ],
+      "correctIndex": 1,
+      "explanation": "Diferenciador #2: foco real en Brasil y LATAM con 120+ métodos locales. PIX instantáneo, retiros en el día. Offshore flexible + rails locales reales = sweet spot."
+    },
+    {
+      "id": "q35",
+      "question": "¿Por qué Pepe es un diferencial operacional no público?",
+      "options": [
+        "Es famoso en TikTok",
+        "Head of Dealing con 20 años; sabe hacer A-Book/B-Book híbrido correctamente, maneja riesgo en noticias",
+        "Es el único con MT5",
+        "Tiene relación con la SEC"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pepe es diferencial operacional — 20 años, viene de brokers grandes, hace A-Book/B-Book híbrido correctamente, maneja riesgo en NFP/FOMC. Brokers chicos con dealers juniors se rompen en volatilidad."
+    },
+    {
+      "id": "q36",
+      "question": "Frente a un cliente que viene de Exness, ¿cuál es el primer paso del pitch ganador?",
+      "options": [
+        "Atacar spreads de Exness",
+        "Preguntar '¿por qué estás evaluando un cambio?' y dejar que hable — casi siempre hay un dolor",
+        "Ofrecer bono inmediato",
+        "Prometer tecnología superior"
+      ],
+      "correctIndex": 1,
+      "explanation": "Paso 1 del pitch contra Exness: 'Exness es un buen broker, no lo voy a negar. ¿Por qué estás evaluando un cambio?' Dejar que hable — casi siempre hay un dolor."
+    },
+    {
+      "id": "q37",
+      "question": "¿Cuál es el pitch numérico clave contra XM Standard?",
+      "options": [
+        "No hacer cálculos",
+        "100 lotes a 1.6 pips XM Standard = $1600 en spread; a 0.0 + $3 comisión nuestro = $300; diferencia $1300",
+        "Ofrecer el mismo spread",
+        "Prometer 0 comisión siempre"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pitch ganador vs XM: hacer el cálculo real. 100 lotes × 1.6 pips XM Standard = $1600 en spread. Raw NEOMAAA = $300. Diferencia $1300 que vuelven al bolsillo del cliente."
+    },
+    {
+      "id": "q38",
+      "question": "¿Qué NO hacer al pitch contra un cliente XM?",
+      "options": [
+        "Atacar XM directamente — el cliente eligió XM, atacarlo = atacar al cliente",
+        "Mostrar la letra chica del bono",
+        "Ofrecer comparación de spreads",
+        "Pedir que pruebe con $500"
+      ],
+      "correctIndex": 0,
+      "explanation": "NO atacar XM directamente. El cliente eligió XM, si lo atacas estás atacando al cliente. Mostrar letra chica del bono + cálculo real de spreads."
+    },
+    {
+      "id": "q39",
+      "question": "¿Qué hacer con un cliente FBS ticket <$50 que quiere 'hacerse rico rápido' con leverage 1:3000?",
+      "options": [
+        "Venderle cuenta Premium inmediatamente",
+        "Filtrar lead — si tiene $50 y quiere hacerse rico en 1 semana, NO es nuestro cliente, derivar educadamente",
+        "Prometer 1:3000",
+        "Cerrar como sea"
+      ],
+      "correctIndex": 1,
+      "explanation": "Este cliente es riesgoso. Probable que queme cuenta. Alternativa: filtrar lead. Si tiene $50 y quiere hacerse rico en 1 semana, NO es nuestro cliente. Derivar educadamente."
+    },
+    {
+      "id": "q40",
+      "question": "Para un cliente NEW sin broker previo, ¿cuál es el enfoque correcto en la primera llamada?",
+      "options": [
+        "Vender forex agresivamente",
+        "No vender forex en la primera llamada — vender confianza, educar, luego recomendar",
+        "Cerrar con bono",
+        "Ofrecer leverage 1:1000 de entrada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cliente NEW: no vender forex en la primera llamada. Vender confianza. Preguntar por qué le interesa, compartir material educativo, explicar riesgo real. Este cliente tiene LTV alto si lo retenemos bien."
+    }
+  ]
+}

@@ -1,0 +1,431 @@
+{
+  "docPath": "partners/playbook-ib",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuál es el revenue share máximo que puede obtener un IB de NEOMAAA?",
+      "options": ["30%", "40%", "50%", "60% (hasta 60%+ en tier Diamond)"],
+      "correctIndex": 3,
+      "explanation": "El tier Diamond ofrece hasta 60%+ del neto broker + bonos. Es uno de los porcentajes más altos del mercado."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuál es la plataforma oficial de tracking que usan los IBs de NEOMAAA?",
+      "options": ["MyAffiliates", "Cellxpert", "Tapfiliate", "Post Affiliate Pro"],
+      "correctIndex": 1,
+      "explanation": "La plataforma oficial de tracking es Cellxpert. Todo pasa por ahí: clicks, registros, FTDs, volumen, comisiones, pagos."
+    },
+    {
+      "id": "q3",
+      "question": "¿Qué tier corresponde a volumen mensual de 0–$50.000?",
+      "options": ["Bronze (30%)", "Silver (40%)", "Gold (50%)", "Diamond (60%)"],
+      "correctIndex": 0,
+      "explanation": "Bronze: volumen 0–$50.000/mes, revenue share 30%. Acceso estándar a materiales y dashboard."
+    },
+    {
+      "id": "q4",
+      "question": "¿Qué tier corresponde a volumen mensual de $50.001–$250.000?",
+      "options": ["Bronze (30%)", "Silver (40%)", "Gold (50%)", "Diamond (60%)"],
+      "correctIndex": 1,
+      "explanation": "Silver: volumen $50.001–$250.000/mes, revenue share 40% + Partner Manager asignado."
+    },
+    {
+      "id": "q5",
+      "question": "¿Qué tier corresponde a volumen mensual de $250.001–$1.000.000?",
+      "options": ["Bronze", "Silver", "Gold (50% + co-branding permitido)", "Diamond"],
+      "correctIndex": 2,
+      "explanation": "Gold: volumen $250.001–$1M/mes, revenue share 50%, co-branding permitido + marketing co-funding."
+    },
+    {
+      "id": "q6",
+      "question": "¿Sobre qué base se calcula el revenue share del IB?",
+      "options": [
+        "Sobre el depósito del cliente",
+        "Sobre el P&L del cliente",
+        "Sobre el neto broker (markup de spread + comisiones Raw/ECN)",
+        "Sobre el volumen bruto de todas las operaciones"
+      ],
+      "correctIndex": 2,
+      "explanation": "El revenue share se calcula sobre el neto broker: markup de spread + comisiones cobradas en cuentas Raw/ECN. No sobre depósito ni P&L del cliente."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuál es el ciclo de pago de comisiones IB?",
+      "options": [
+        "Semanal los viernes",
+        "Cierre último día del mes, pago día 15 del mes siguiente",
+        "Diario en USDT",
+        "Trimestral"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ciclo: último día del mes calendario (23:59 UTC) cierra. Cálculo días 1-10. Pago día 15 de cada mes. Si cae fin de semana/feriado, siguiente día hábil."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuál es el mínimo de payout mensual para un IB?",
+      "options": ["$10", "$50", "$100 USD (si no llega, rollea al mes siguiente)", "$500"],
+      "correctIndex": 2,
+      "explanation": "Mínimo de payout: $100 USD. Si el ciclo cierra con menos, el balance rollea automáticamente al mes siguiente. No se pierde."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cuál es el método de pago más rápido y barato recomendado para IBs con volumen >$500/mes?",
+      "options": ["Wire SWIFT", "USDT TRC20", "Skrill", "Cheque internacional"],
+      "correctIndex": 1,
+      "explanation": "USDT TRC20 es el método más rápido (10 min – 2h) y barato (solo red fee). Es lo que usa el 80% de los IBs para volúmenes > $500/mes."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cómo funciona el split con un sub-IB en NEOMAAA?",
+      "options": [
+        "Master 50% / Sub-IB 50%",
+        "Master 70% / Sub-IB 30% (del revenue share total)",
+        "Solo master cobra",
+        "Solo sub-IB cobra"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sub-IBs: cuando un sub-IB trae cliente, el revenue share se divide 70% para el master / 30% para el sub-IB. Pagos separados el día 15."
+    },
+    {
+      "id": "q11",
+      "question": "¿Cuántos niveles de estructura multinivel permite NEOMAAA?",
+      "options": ["1 nivel", "2 niveles (master + sub-IB)", "3 niveles", "Ilimitado"],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA permite estructuras de 2 niveles: IB master + sub-IBs debajo. No hay tercer nivel."
+    },
+    {
+      "id": "q12",
+      "question": "¿Qué pasa si un sub-IB del master usa frases prohibidas o trae leads fake?",
+      "options": [
+        "Solo el sub-IB es penalizado",
+        "Sos responsable del compliance de tu red — la penalidad te pega al master también",
+        "Nada, es problema del sub-IB",
+        "Se suspende el programa completo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sos responsable del compliance de tu red. Si un sub-IB usa frases prohibidas o trae leads fake, la penalidad pega al master también. Obligación: capacitar y revisar copy."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuál de las siguientes frases está APROBADA para usar como IB?",
+      "options": [
+        "Duplicá tu cuenta en 30 días",
+        "Somos regulados por FCA",
+        "NEOMAAA Markets — Broker internacional con licencia Anjouan L15968/N",
+        "Rentabilidad asegurada con nuestras señales"
+      ],
+      "correctIndex": 2,
+      "explanation": "Frase aprobada: 'NEOMAAA Markets — Broker internacional con licencia Anjouan L15968/N'. Las otras 3 son frases prohibidas (promesa de rentabilidad, regulación falsa, garantía)."
+    },
+    {
+      "id": "q14",
+      "question": "¿Cuál es la consecuencia de la PRIMERA violación de frases prohibidas?",
+      "options": [
+        "Cese inmediato",
+        "Warning formal por email + obligación de corregir el material en 48h",
+        "Suspensión 30 días",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Primera violación: warning formal por email + corregir material en 48h. Segunda: suspensión 30 días. Tercera: cese definitivo + forfeit de comisiones pendientes."
+    },
+    {
+      "id": "q15",
+      "question": "¿Cuál es la consecuencia de la TERCERA violación de frases prohibidas?",
+      "options": [
+        "Warning formal",
+        "Suspensión 30 días",
+        "Cese definitivo del contrato IB + forfeit de comisiones pendientes",
+        "Multa de $1000"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tercera violación = cese definitivo del contrato IB + forfeit de comisiones pendientes. Fraude/mentira regulatoria = cese inmediato sin warnings + posible acción legal."
+    },
+    {
+      "id": "q16",
+      "question": "¿Qué mencionar OBLIGATORIAMENTE sobre regulación?",
+      "options": [
+        "Licencia Anjouan L15968/N",
+        "FCA UK",
+        "CySEC",
+        "ASIC"
+      ],
+      "correctIndex": 0,
+      "explanation": "NEOMAAA opera bajo licencia Anjouan L15968/N. Mencionar FCA/CySEC/ASIC es frase prohibida (afirmación regulatoria falsa)."
+    },
+    {
+      "id": "q17",
+      "question": "¿Qué % de clientes retail pierden dinero según el disclaimer estándar obligatorio?",
+      "options": ["30-40%", "50-60%", "70-80%", "90-95%"],
+      "correctIndex": 2,
+      "explanation": "Disclaimer obligatorio menciona que entre 70% y 80% de los clientes retail pierden dinero operando CFDs."
+    },
+    {
+      "id": "q18",
+      "question": "¿Dónde debe aparecer el disclaimer en un video de YouTube?",
+      "options": [
+        "Solo en la descripción",
+        "Solo al final del video",
+        "Primeros 15 segundos + descripción completa",
+        "En los comentarios"
+      ],
+      "correctIndex": 2,
+      "explanation": "Video YouTube: disclaimer en primeros 15 segundos + descripción completa. En reels IG/TikTok: texto overlay + caption."
+    },
+    {
+      "id": "q19",
+      "question": "¿Qué elementos son obligatorios en el disclaimer de todo material público?",
+      "options": [
+        "Solo aviso de riesgo",
+        "Aviso de riesgo, % clientes que pierden, licencia Anjouan, link T&Cs, ID de afiliado único",
+        "Solo nombre del broker",
+        "Solo foto del IB"
+      ],
+      "correctIndex": 1,
+      "explanation": "Elementos obligatorios: 1) Aviso de riesgo CFDs, 2) % retail que pierden (70-80%), 3) Licencia Anjouan L15968/N, 4) Link T&Cs, 5) ID de afiliado único (ej: NM-IB-00245)."
+    },
+    {
+      "id": "q20",
+      "question": "¿Qué requieren los paid ads (Meta, Google, TikTok)?",
+      "options": [
+        "Solo avisar después de lanzar",
+        "Pre-aprobación de compliance (48-72h) con landing, creativos y copy",
+        "Nada, es libre",
+        "Aviso al Partner Manager semanal"
+      ],
+      "correctIndex": 1,
+      "explanation": "Paid ads requieren pre-aprobación de compliance. Submitir: landing URL, creativos, copy completo. Compliance aprueba o pide cambios en 48-72h."
+    },
+    {
+      "id": "q21",
+      "question": "¿Cuáles son los 5 mercados prioritarios con boost +10% revenue share?",
+      "options": [
+        "USA, Canadá, UK, Australia, Europa",
+        "Brasil, México, España, Argentina, Colombia",
+        "China, India, Japón, Corea, Tailandia",
+        "Rusia, Ucrania, Kazajstán, Bielorrusia, Georgia"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mercados prioritarios 2026: Brasil, México, España, Argentina, Colombia — cada uno con boost +10% sobre revenue share del tier vigente."
+    },
+    {
+      "id": "q22",
+      "question": "Si sos Silver (40%) y traés un cliente brasileño, ¿cuál es tu revenue share efectivo?",
+      "options": ["40%", "44% (40% + boost 10% del 40%)", "50%", "60%"],
+      "correctIndex": 1,
+      "explanation": "Silver 40% + boost +10% sobre el tier = 44% efectivo sobre ese cliente brasileño de por vida. El boost se suma al % base."
+    },
+    {
+      "id": "q23",
+      "question": "¿Un IB puede traer clientes de USA?",
+      "options": [
+        "Sí, cobra comisión completa",
+        "No — USA es país restringido, KYC los rechaza automáticamente, no cobra comisión",
+        "Sí, si el cliente declara ingresos altos",
+        "Sí, pero con fee adicional"
+      ],
+      "correctIndex": 1,
+      "explanation": "USA está en lista de países restringidos. KYC los rechaza automáticamente. No se cobra comisión por esos leads. Mismo para Irán, Corea del Norte, Cuba, Siria, Sudán, Crimea, Myanmar."
+    },
+    {
+      "id": "q24",
+      "question": "¿Puede el IB ofrecer bonos extra de su bolsillo al cliente (ej: 'te doy $50 si abrís cuenta')?",
+      "options": [
+        "Sí, libremente",
+        "No — es rebating informal y compromete el compliance del broker; prohibido",
+        "Sí, hasta $100",
+        "Sí, solo para tier Gold+"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cualquier incentivo adicional al cliente de parte del IB (cashback, promesa reembolso, bonos extra) está prohibido. Es rebating informal y compromete el compliance del broker."
+    },
+    {
+      "id": "q25",
+      "question": "Si un cliente le pide al IB que le opere la cuenta, ¿qué debe hacer?",
+      "options": [
+        "Aceptar si el ticket es alto",
+        "Rechazo absoluto — es gestión discrecional no autorizada, causal de cancelación del IB",
+        "Pedir contrato escrito",
+        "Cobrar fee por el servicio"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rechazo absoluto. Operar cuenta del cliente = gestión discrecional no autorizada. Si el IB lo hace, cancelación del contrato IB."
+    },
+    {
+      "id": "q26",
+      "question": "¿Cuál es el canal LEGÍTIMO para ofrecer señales a clientes NEOMAAA?",
+      "options": [
+        "MAM/PAMM interno de NEOMAAA",
+        "MQL5 Signals (sistema nativo de MT5 operado por MetaQuotes)",
+        "Grupo privado de WhatsApp con ticker fee",
+        "Operar directo la cuenta del cliente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Canal legítimo: MQL5 Signals (https://www.mql5.com/en/signals), sistema nativo MT5 de MetaQuotes. Publicás señal ahí, clientes se suscriben desde su MT5. NEOMAAA no ofrece MAM/PAMM."
+    },
+    {
+      "id": "q27",
+      "question": "Si un cliente retira todo, ¿qué pasa con la relación IB-cliente?",
+      "options": [
+        "Se pierde el cliente",
+        "Nada — el cliente sigue siendo tuyo lifetime; si vuelve a depositar, volvés a cobrar",
+        "Hay que registrarlo de nuevo",
+        "El broker se queda con el cliente"
+      ],
+      "correctIndex": 1,
+      "explanation": "El cliente es tuyo lifetime. Si retira todo y vuelve a depositar en cualquier momento, volvés a cobrar sobre su volumen."
+    },
+    {
+      "id": "q28",
+      "question": "¿Qué regla se aplica si dos IBs reclaman el mismo cliente?",
+      "options": [
+        "Se divide 50/50",
+        "Last-click con ventana de 90 días — el IB cuyo cookie se registró primero en el signup",
+        "Decide el cliente",
+        "Gana el tier más alto"
+      ],
+      "correctIndex": 1,
+      "explanation": "Conflicto entre IBs: se atribuye al IB cuyo cookie de tracking se registró primero en el signup (last-click con ventana 90 días). Compliance revisa logs si hay ambigüedad. Decisión final."
+    },
+    {
+      "id": "q29",
+      "question": "¿Cómo sube de tier un IB?",
+      "options": [
+        "Pidiendo upgrade al Partner Manager",
+        "Automático — cada mes se recalcula el volumen; si pasa umbral, sube al mes siguiente",
+        "Comprando el upgrade",
+        "Mínimo 1 año en el programa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tier automático. Cada mes se recalcula el volumen. Si pasás el umbral, sube al mes siguiente. Para bajar: 2 meses consecutivos bajo el umbral."
+    },
+    {
+      "id": "q30",
+      "question": "¿NEOMAAA paga con retención de impuestos?",
+      "options": [
+        "Sí, retiene 30%",
+        "No — paga sin retención; el IB es responsable de declarar y tributar en su país de residencia fiscal",
+        "Depende del país",
+        "Solo para tier Diamond"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA paga sin retención. El IB es responsable de declarar y tributar en su país de residencia fiscal. NEOMAAA puede emitir comprobante de pago mensual."
+    },
+    {
+      "id": "q31",
+      "question": "¿Puede un IB competir con NEOMAAA vendiendo afiliados de otros brokers simultáneamente?",
+      "options": [
+        "No, hay cláusula de exclusividad",
+        "Sí — no hay exclusividad, PERO bait-and-switch (llevar leads NEOMAAA a otro broker después del signup) = cese inmediato",
+        "Solo brokers con licencia Tier 1",
+        "Solo con aprobación de Susana"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sí, no hay cláusula de exclusividad. Pero bait-and-switch (llevar leads NEOMAAA a otro broker después del signup) es causal de cese inmediato."
+    },
+    {
+      "id": "q32",
+      "question": "Si NEOMAAA cambia el % de comisión, ¿cómo se comunica?",
+      "options": [
+        "De un día para otro",
+        "Con 60 días de anticipación + clientes ya traídos grandfathered 6 meses más",
+        "Con 7 días de aviso",
+        "Solo si el IB acepta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cambios se comunican con 60 días de anticipación por email oficial. Los clientes ya traídos mantienen el % grandfathered por 6 meses más después del cambio."
+    },
+    {
+      "id": "q33",
+      "question": "¿Cuáles son los 4 contactos oficiales para escalar issues?",
+      "options": [
+        "Todo a support@neomaaa.com",
+        "support@neomaaa.com, withdrawals@neomaaa.com, compliance@neomaaa.com, partners@neomaaa.com",
+        "Solo WhatsApp del CEO",
+        "Solo un email genérico"
+      ],
+      "correctIndex": 1,
+      "explanation": "Contactos oficiales: soporte general, withdrawals, compliance, partners. Cada uno maneja su área. Partners escalan también al Partner Manager por Telegram."
+    },
+    {
+      "id": "q34",
+      "question": "Si un cliente te reclama directamente a vos IB por una pérdida, ¿qué hacés?",
+      "options": [
+        "Compensar de tu bolsillo",
+        "Le recordás el disclaimer de riesgo que firmó — vos no garantizaste nada; nunca compensás de tu bolsillo",
+        "Llamar al CEO",
+        "Devolver su comisión"
+      ],
+      "correctIndex": 1,
+      "explanation": "Le recordás el disclaimer de riesgo que firmó al abrir cuenta. Vos no garantizaste nada. Nunca compensás de tu bolsillo. Seguís cobrando comisiones pasadas sin problema."
+    },
+    {
+      "id": "q35",
+      "question": "¿Cuál es una causal de terminación por INACTIVIDAD?",
+      "options": [
+        "1 mes sin volumen",
+        "3 meses sin volumen",
+        "6 meses consecutivos sin generar volumen",
+        "12 meses sin volumen"
+      ],
+      "correctIndex": 2,
+      "explanation": "Inactividad: 6 meses consecutivos sin generar volumen = causal de terminación. La cuenta entra en revisión."
+    },
+    {
+      "id": "q36",
+      "question": "¿Cuál de las siguientes ES causal de cese INMEDIATO sin warnings?",
+      "options": [
+        "Primera frase prohibida",
+        "Fraude comprobado (tráfico bots, leads fake, self-referral) o mentira regulatoria",
+        "Inactividad de 2 meses",
+        "Copy no aprobado"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fraude/mentira regulatoria = cese inmediato sin warnings + posible acción legal. Otras violaciones siguen escalamiento: warning, suspensión, cese."
+    },
+    {
+      "id": "q37",
+      "question": "¿Cuándo se realiza el evento anual presencial de partners?",
+      "options": [
+        "Siempre en Europa",
+        "Dubai años pares, LATAM años impares (2026: Dubai octubre tentativo)",
+        "Solo online",
+        "Cada 2 años"
+      ],
+      "correctIndex": 1,
+      "explanation": "Evento anual: Dubai años pares (2026 octubre tentativo), LATAM años impares (2027 ciudad por confirmar). Tier Diamond: vuelo + hotel pagados. Gold: entrada gratis. Silver/Bronze: entrada paga."
+    },
+    {
+      "id": "q38",
+      "question": "¿Puede un IB crear cuentas demo a nombre de sus clientes?",
+      "options": [
+        "Sí, libremente",
+        "No — el cliente abre su propia demo a través del link del IB; la demo es gratis e ilimitada",
+        "Sí, solo tier Gold+",
+        "Sí, con fee"
+      ],
+      "correctIndex": 1,
+      "explanation": "El cliente abre su propia demo a través del link del IB. El IB no puede crear cuentas a nombre del cliente. La demo es gratis e ilimitada."
+    },
+    {
+      "id": "q39",
+      "question": "¿Cuál es el tracking ID típico que se asigna a cada IB?",
+      "options": [
+        "Un número aleatorio sin formato",
+        "Formato NM-IB-00245 (ID único)",
+        "Solo el email del IB",
+        "El nombre completo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cada IB recibe un ID único formato NM-IB-00245 que se agrega a todos los links de tracking. Permite campañas custom y tests A/B."
+    },
+    {
+      "id": "q40",
+      "question": "En el checklist del primer mes, ¿cuál es la meta mínima de registros la primera semana?",
+      "options": ["1 registro", "5 registros", "20 registros", "50 registros"],
+      "correctIndex": 1,
+      "explanation": "Checklist primer mes: meta primera semana = 5 registros mínimo. Primer FTD esperado en los primeros 14 días. IBs que completan los 10 pasos tienen 3x más probabilidades de llegar a Silver en 6 meses."
+    }
+  ]
+}
