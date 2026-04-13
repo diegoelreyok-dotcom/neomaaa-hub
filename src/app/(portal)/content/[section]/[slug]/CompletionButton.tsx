@@ -10,6 +10,7 @@ interface CompletionButtonProps {
   docTitle: string;
   lang: Lang;
   isCompleted: boolean;
+  userName?: string;
 }
 
 const i18n = {
@@ -41,6 +42,7 @@ export default function CompletionButton({
   docTitle,
   lang,
   isCompleted: initialCompleted,
+  userName,
 }: CompletionButtonProps) {
   const [completed, setCompleted] = useState(initialCompleted);
   const [loading, setLoading] = useState(false);
@@ -151,6 +153,7 @@ export default function CompletionButton({
           docPath={quizDocPath}
           docTitle={docTitle}
           language={lang}
+          userName={userName}
         />
       </>
     );

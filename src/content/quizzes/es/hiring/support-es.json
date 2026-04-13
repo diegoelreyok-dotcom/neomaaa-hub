@@ -1,0 +1,361 @@
+{
+  "docPath": "hiring/support-es",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Compensación del Support Agent ES:",
+      "options": ["$200/mes", "$400 USD/mes", "$800/mes", "$1,500/mes"],
+      "correctIndex": 1,
+      "explanation": "Support Agent ES: $400 USD/mes. Remoto. Horario: L-V 9:00-18:00 COL/MEX."
+    },
+    {
+      "id": "q2",
+      "question": "Horario del Support Agent ES:",
+      "options": [
+        "24/7",
+        "L-V 9:00 AM - 6:00 PM hora Colombia/México",
+        "Sólo fines de semana",
+        "Por turnos rotativos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Horario: Lunes a Viernes, 9:00 AM - 6:00 PM hora Colombia/México."
+    },
+    {
+      "id": "q3",
+      "question": "Idioma obligatorio:",
+      "options": [
+        "Inglés nativo",
+        "Español nativo (sin negociación — debe comunicarse de forma impecable en español escrito)",
+        "Portugués",
+        "Sólo francés"
+      ],
+      "correctIndex": 1,
+      "explanation": "Español nativo sin negociación. Debe comunicarse impecablemente en español escrito. Deseable: inglés básico."
+    },
+    {
+      "id": "q4",
+      "question": "Experiencia mínima obligatoria:",
+      "options": [
+        "Sin experiencia",
+        "1 año en atención al cliente (cualquier industria)",
+        "5 años en broker",
+        "3 años en fintech"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mínimo 1 año en atención al cliente (cualquier industria). Deseable: experiencia en broker forex, fintech o plataforma trading."
+    },
+    {
+      "id": "q5",
+      "question": "Canales de atención del Support Agent ES:",
+      "options": [
+        "Sólo chat",
+        "Intercom (chat en vivo), correo electrónico y WhatsApp",
+        "Sólo teléfono",
+        "Redes sociales"
+      ],
+      "correctIndex": 1,
+      "explanation": "Canales: Intercom (chat en vivo), correo electrónico y WhatsApp. Es la voz del broker para mercado LATAM."
+    },
+    {
+      "id": "q6",
+      "question": "KPI de tiempo de primera respuesta en chat:",
+      "options": ["< 30 segundos", "< 2 minutos", "< 10 minutos", "< 1 hora"],
+      "correctIndex": 1,
+      "explanation": "FRT chat: <2 minutos. FRT email: <1 hora en horario laboral. FRT WhatsApp: <5 minutos."
+    },
+    {
+      "id": "q7",
+      "question": "KPI de tiempo de primera respuesta en email:",
+      "options": ["< 15 min", "< 1 hora durante horario laboral", "< 24 horas", "< 1 semana"],
+      "correctIndex": 1,
+      "explanation": "FRT email: <1 hora durante horario laboral."
+    },
+    {
+      "id": "q8",
+      "question": "KPI de tiempo de primera respuesta en WhatsApp:",
+      "options": ["< 1 min", "< 5 minutos durante horario laboral", "< 30 min", "< 1 hora"],
+      "correctIndex": 1,
+      "explanation": "FRT WhatsApp: <5 minutos durante horario laboral."
+    },
+    {
+      "id": "q9",
+      "question": "KPI tasa de resolución en primer contacto:",
+      "options": ["> 50%", "> 80%", "100%", "> 95%"],
+      "correctIndex": 1,
+      "explanation": "Resolución en primer contacto: >80%."
+    },
+    {
+      "id": "q10",
+      "question": "KPI CSAT (satisfacción del cliente):",
+      "options": ["> 3.5/5.0", "> 4.0/5.0", "> 4.5/5.0", "5.0 exacto"],
+      "correctIndex": 2,
+      "explanation": "CSAT: >4.5/5.0."
+    },
+    {
+      "id": "q11",
+      "question": "KPI tickets atendidos por día:",
+      "options": ["10", "Mínimo 40 interacciones", "100", "200"],
+      "correctIndex": 1,
+      "explanation": "Mínimo 40 interacciones por día."
+    },
+    {
+      "id": "q12",
+      "question": "KPI escalaciones incorrectas:",
+      "options": ["< 20%", "< 5% del total de escalaciones", "100%", "< 50%"],
+      "correctIndex": 1,
+      "explanation": "Escalaciones incorrectas: <5% del total de escalaciones. KPI crítico — saber cuándo escalar bien."
+    },
+    {
+      "id": "q13",
+      "question": "KPI disponibilidad en horario:",
+      "options": ["70%", "95%+ (ausencias justificadas excluidas)", "100% siempre", "80%"],
+      "correctIndex": 1,
+      "explanation": "Disponibilidad: 95%+ (ausencias justificadas excluidas)."
+    },
+    {
+      "id": "q14",
+      "question": "Herramientas que utilizará:",
+      "options": [
+        "Sólo email",
+        "Intercom, WhatsApp Business, Skale CRM, Sumsub, MT5, Google Docs/Sheets, Slack/Discord",
+        "Sólo Slack",
+        "CRM propio"
+      ],
+      "correctIndex": 1,
+      "explanation": "Herramientas: Intercom (chat/email/tickets), WhatsApp Business, Skale CRM, Sumsub (KYC), MT5 (referencia tech básico), Docs/Sheets, Slack/Discord."
+    },
+    {
+      "id": "q15",
+      "question": "¿Qué tipos de cuenta debe conocer el Support Agent?",
+      "options": [
+        "Sólo una",
+        "Cent, Standard, Raw, Institutional",
+        "Sólo Cent",
+        "Demo únicamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Debe conocer los 4 tipos: Cent, Standard, Raw, Institutional. Condiciones trading, spreads, comisiones, apalancamiento."
+    },
+    {
+      "id": "q16",
+      "question": "¿A qué plataforma KYC debe guiar al cliente?",
+      "options": ["Onfido", "Jumio", "Sumsub", "Veriff"],
+      "correctIndex": 2,
+      "explanation": "Sumsub es el sistema KYC. Support guía al cliente en el proceso, explica requisitos, resuelve dudas sobre rechazos."
+    },
+    {
+      "id": "q17",
+      "question": "¿Qué escala al Compliance Officer?",
+      "options": [
+        "Todos los tickets",
+        "Casos de compliance cuando sea necesario",
+        "Dudas sobre spreads",
+        "Problemas de MT5"
+      ],
+      "correctIndex": 1,
+      "explanation": "Escala casos de compliance al Compliance Officer cuando sea necesario. Casos financieros al Finance Manager. Tech avanzado al equipo técnico."
+    },
+    {
+      "id": "q18",
+      "question": "¿Qué hace con problemas técnicos avanzados de MT5?",
+      "options": [
+        "Los resuelve él",
+        "Escala problemas técnicos avanzados (ejecución, conectividad servidor, errores plataforma) al equipo técnico",
+        "Los ignora",
+        "Llama al cliente"
+      ],
+      "correctIndex": 1,
+      "explanation": "L1 Support asiste problemas básicos MT5 (descarga, instalación, login, gráficos). Avanzados (ejecución, conectividad, errores) escalan a tech."
+    },
+    {
+      "id": "q19",
+      "question": "Deseable — residencia:",
+      "options": [
+        "Estados Unidos",
+        "Colombia, México, Argentina, Chile o Perú (zonas horarias compatibles)",
+        "Europa",
+        "Asia"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deseable: residencia en Colombia, México, Argentina, Chile o Perú — zonas horarias compatibles con 9-18 COL/MEX."
+    },
+    {
+      "id": "q20",
+      "question": "Capacitación proporcionada incluye:",
+      "options": [
+        "Nada, se aprende haciendo",
+        "Productos NEOMAAA, MT5, Skale CRM, Sumsub, Intercom, FAQ Interno (50+ preguntas), protocolo de escalación",
+        "Sólo MT5",
+        "Sólo soft skills"
+      ],
+      "correctIndex": 1,
+      "explanation": "Capacitación: productos NEOMAAA, MT5 básico, Skale CRM, Sumsub, Intercom, FAQ Interno con 50+ preguntas estandarizadas, protocolo de escalación."
+    },
+    {
+      "id": "q21",
+      "question": "¿A quién reporta el Support Agent ES?",
+      "options": ["Diego", "Yulia", "Head of Support / Principals", "Marketing"],
+      "correctIndex": 2,
+      "explanation": "Reporta a Head of Support / Principals."
+    },
+    {
+      "id": "q22",
+      "question": "Modalidad:",
+      "options": [
+        "Presencial",
+        "Remoto (debe residir en zona horaria LATAM)",
+        "Híbrido",
+        "Sólo oficina Dubai"
+      ],
+      "correctIndex": 1,
+      "explanation": "Modalidad: remoto, debe residir en zona horaria LATAM."
+    },
+    {
+      "id": "q23",
+      "question": "Responsabilidad de registro:",
+      "options": [
+        "No registra nada",
+        "Registrar cada interacción en sistema (Intercom/CRM) con notas claras sobre problema y resolución",
+        "Solo email",
+        "Sólo en excel"
+      ],
+      "correctIndex": 1,
+      "explanation": "Registra cada interacción en Intercom/CRM con notas claras: problema y resolución. Para trazabilidad y mejora continua."
+    },
+    {
+      "id": "q24",
+      "question": "Responsabilidad sobre FAQ:",
+      "options": [
+        "No aplica",
+        "Identificar preguntas frecuentes y sugerir mejoras al FAQ interno y materiales de ayuda. Reportar patrones de quejas recurrentes al supervisor",
+        "Escribir el FAQ completo",
+        "Sólo leer el FAQ"
+      ],
+      "correctIndex": 1,
+      "explanation": "Identificar FAQs recurrentes, sugerir mejoras al FAQ interno y materiales de ayuda. Reportar patrones de quejas al supervisor."
+    },
+    {
+      "id": "q25",
+      "question": "Deseable con Intercom:",
+      "options": [
+        "No aplica",
+        "Experiencia con Intercom o herramientas de chat en vivo similares",
+        "Solo Zendesk",
+        "Sólo WhatsApp"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deseable: experiencia con Intercom o chat en vivo similares."
+    },
+    {
+      "id": "q26",
+      "question": "Deseable conocimiento de MT:",
+      "options": [
+        "MT4 solamente",
+        "Familiaridad con MetaTrader 4 o MetaTrader 5",
+        "NinjaTrader",
+        "cTrader"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deseable: familiaridad con MT4 o MT5."
+    },
+    {
+      "id": "q27",
+      "question": "Prueba escrita en proceso de selección:",
+      "options": [
+        "Sólo CV",
+        "5 escenarios simulados de soporte al cliente en español (20 min)",
+        "Test lógica",
+        "Entrevista grupal"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prueba escrita: 5 escenarios simulados de soporte al cliente en español (20 min). Entrevista videollamada 20 min. Decisión en 48h."
+    },
+    {
+      "id": "q28",
+      "question": "Duración de la entrevista final:",
+      "options": ["10 min", "20 min — videollamada", "1 hora", "2 horas"],
+      "correctIndex": 1,
+      "explanation": "Entrevista videollamada 20 min — evaluación comunicación y actitud de servicio."
+    },
+    {
+      "id": "q29",
+      "question": "Decisión tras entrevista:",
+      "options": ["1 semana", "48 horas post-entrevista", "1 mes", "Sin plazo"],
+      "correctIndex": 1,
+      "explanation": "Decisión en 48 horas post-entrevista."
+    },
+    {
+      "id": "q30",
+      "question": "Soft skills requeridos:",
+      "options": [
+        "Sólo técnica",
+        "Actitud de servicio, paciencia, comunicación clara",
+        "Agresividad",
+        "Experiencia ventas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Actitud de servicio, paciencia y comunicación clara. Capacidad de aprender rápido herramientas nuevas."
+    },
+    {
+      "id": "q31",
+      "question": "¿Qué guía al cliente sobre MT5?",
+      "options": [
+        "Nada",
+        "Descarga, instalación, login, configuración de gráficos (problemas básicos)",
+        "Trading estrategias",
+        "Código MQL5"
+      ],
+      "correctIndex": 1,
+      "explanation": "Support L1 asiste con problemas básicos MT5: descarga, instalación, login, configuración de gráficos. No trading ni código MQL5."
+    },
+    {
+      "id": "q32",
+      "question": "Depósitos — responsabilidad:",
+      "options": [
+        "Procesar retiros directamente",
+        "Informar sobre 120+ métodos de depósito, guiar proceso paso a paso, verificar estado en Skale, escalar problemas de pago a Finance Manager o PSP",
+        "Aprobar retiros",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Support informa sobre métodos (120+), guía proceso, verifica estado en Skale CRM, escala problemas a Finance Manager o PSP correspondiente."
+    },
+    {
+      "id": "q33",
+      "question": "Sobre NEOMAAA Markets (contexto):",
+      "options": [
+        "Exchange crypto",
+        "Broker forex/CFDs bajo licencia AOFA Anjouan, MT5 ECN/STP híbrido, 2K+ instrumentos, cuentas desde $5, apalancamiento hasta 1:1000, foco LATAM",
+        "Prop firm",
+        "Banco"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA Markets: broker forex/CFDs con licencia Anjouan (AOFA), MT5 híbrido ECN/STP, 2K+ instrumentos, cuentas desde $5, apalancamiento 1:1000, mercado principal LATAM."
+    },
+    {
+      "id": "q34",
+      "question": "Requisito técnico obligatorio:",
+      "options": [
+        "Nothing",
+        "Conexión a internet estable y equipo de cómputo funcional",
+        "iMac Pro",
+        "Dos monitores"
+      ],
+      "correctIndex": 1,
+      "explanation": "Obligatorio: conexión a internet estable y equipo de cómputo funcional."
+    },
+    {
+      "id": "q35",
+      "question": "Cultura del equipo NEOMAAA:",
+      "options": [
+        "Burocrática",
+        "Remoto en crecimiento, mentalidad startup: rápidos, directos, enfocados en resultados",
+        "Jerárquica tradicional",
+        "Lenta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Equipo remoto en crecimiento, mentalidad startup: rápidos, directos, enfocados en resultados."
+    }
+  ]
+}

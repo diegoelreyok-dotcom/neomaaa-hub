@@ -1,0 +1,396 @@
+{
+  "docPath": "launch/post-launch-playbook",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Qué período cubre el Post-Launch Playbook?",
+      "options": [
+        "Primeras 24 horas",
+        "Las primeras 4 semanas (30 días) después del go-live",
+        "Primer trimestre",
+        "Primer año"
+      ],
+      "correctIndex": 1,
+      "explanation": "Primeras 4 semanas (30 días) post-launch. 'Las primeras 4 semanas después de abrir un broker son las que definen si el lanzamiento fue un éxito, un experimento caro, o un desastre.'"
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuánto dura aproximadamente la 'inercia' natural de un lanzamiento?",
+      "options": [
+        "1-2 días",
+        "20-40 días",
+        "6 meses",
+        "1 año"
+      ],
+      "correctIndex": 1,
+      "explanation": "La inercia dura entre 20 y 40 días. En ese período se define casi todo: CAC real, retention temprano, reputación en la red, moral del equipo, confianza de principals."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuáles son los 3 principios no negociables del post-launch?",
+      "options": [
+        "Vender más, vender más, vender más",
+        "Medir todo desde el día 1, No cambiar estrategia en la primera semana, Revisión semanal obligatoria con todos los principals",
+        "Ahorrar, ahorrar, ahorrar",
+        "Improvisar"
+      ],
+      "correctIndex": 1,
+      "explanation": "3 principios: (1) Medir todo desde día 1 (sin data decisiones son emocionales), (2) NO cambiar estrategia en primera semana (1 semana = ruido), (3) Revisión semanal obligatoria viernes 16:00 UAE, 90 min, principals + heads."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuál es la 'tentación más peligrosa del launch'?",
+      "options": [
+        "No contratar suficiente",
+        "Actuar rápido sin datos",
+        "No vender",
+        "Esperar demasiado"
+      ],
+      "correctIndex": 1,
+      "explanation": "La tentación más peligrosa: actuar rápido sin datos. Un ajuste de pricing día 3, una campaña pausada día 5, un rol contratado día 7 'porque parece que lo necesitamos' — cada decisión sin data puede destruir el plan."
+    },
+    {
+      "id": "q5",
+      "question": "¿A qué hora se envía el daily snapshot al Telegram #launch-principals?",
+      "options": ["09:00 UAE", "12:00 UAE", "19:00 UAE", "24:00 UAE"],
+      "correctIndex": 2,
+      "explanation": "Todos los días del mes 1, a las 19:00 UAE, el Finance Manager manda el daily snapshot al Telegram #launch-principals. Formato tabla, sin narrativa."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuál es la meta 'ideal' de registros nuevos por día?",
+      "options": ["5/día", "15/día", "30/día", "100/día"],
+      "correctIndex": 2,
+      "explanation": "Registros nuevos: meta ideal 30/día, aceptable 15/día, red flag <5/día."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuál es la meta ideal de FTD rate (de KYC aprobados)?",
+      "options": [">10%", ">25%", ">40%", ">80%"],
+      "correctIndex": 2,
+      "explanation": "FTD rate de KYC aprobados: ideal >40%, aceptable >25%, red flag <15%."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuál es la meta de FTD promedio en USD?",
+      "options": ["<$50 ideal", ">$80 aceptable, >$150 ideal", "$1,000+", "No importa"],
+      "correctIndex": 1,
+      "explanation": "FTD promedio: ideal >$150, aceptable >$80, red flag <$50."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cuál es la meta de tiempo primera respuesta a un ticket de soporte?",
+      "options": ["<5 min ideal, <30 min aceptable, red flag >2h", ">1 día", "1 semana", "No hay meta"],
+      "correctIndex": 0,
+      "explanation": "Tiempo primera respuesta ticket: ideal <5 min, aceptable <30 min, red flag >2h."
+    },
+    {
+      "id": "q10",
+      "question": "¿Qué es CAC en este contexto?",
+      "options": [
+        "Cash Against Collection",
+        "Customer Acquisition Cost — costo total para adquirir un cliente",
+        "Call Accumulation Count",
+        "No tiene significado"
+      ],
+      "correctIndex": 1,
+      "explanation": "CAC = Customer Acquisition Cost. Se trackea por canal (SEM, paid social Meta/TikTok, orgánico, IB, referidos). Sin esto, el presupuesto de ads se asigna a ciegas."
+    },
+    {
+      "id": "q11",
+      "question": "¿Cuál es el ratio LTV:CAC mínimo objetivo?",
+      "options": [
+        "1:1",
+        "Mínimo 3:1",
+        "10:1",
+        "No se mide"
+      ],
+      "correctIndex": 1,
+      "explanation": "LTV:CAC objetivo mínimo 3:1. Si al cierre del mes 1 está en 1.5:1 o peor, el problema es ESTRUCTURAL."
+    },
+    {
+      "id": "q12",
+      "question": "Si LTV:CAC está <1:1 sostenido por 4 semanas, ¿qué significa?",
+      "options": [
+        "Todo bien, seguir igual",
+        "Cada cliente nuevo hace perder dinero. NO se escalan ads — se pausa y se rearma la strategy antes de quemar cash",
+        "Escalar ads 10x",
+        "Despedir al equipo"
+      ],
+      "correctIndex": 1,
+      "explanation": "LTV:CAC <1:1 sostenido = cada cliente nuevo hace perder dinero. NO escalar ads. Pausar y rearmar strategy antes de quemar cash."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuándo es la reunión de retrospectiva semanal?",
+      "options": [
+        "Lunes 9:00 UAE",
+        "Miércoles 12:00",
+        "Viernes 16:00 UAE (90 min, sin excepciones)",
+        "Domingos"
+      ],
+      "correctIndex": 2,
+      "explanation": "Retrospectiva semanal: Viernes 16:00 UAE, 90 minutos, sin excepciones. Participantes: Diego, Angel, Yulia, Stanislav + Heads de Dealing, Sales, Support, Marketing, Compliance, Finance."
+    },
+    {
+      "id": "q14",
+      "question": "¿Qué dura el standup de los lunes durante el mes 1?",
+      "options": ["15 min", "45 minutos (9:00 UAE)", "2 horas", "No existe"],
+      "correctIndex": 1,
+      "explanation": "Lunes 9:00 UAE, stand-up 45 minutos. No reemplaza la retro del viernes. Es para arrancar la semana con el mismo mapa: números, top 3 wins+problemas, decisiones pendientes, recursos, OKRs."
+    },
+    {
+      "id": "q15",
+      "question": "¿Qué herramienta recomienda el playbook para dashboards en el Mes 1?",
+      "options": [
+        "Mixpanel o Amplitude obligatorio",
+        "Notion dashboard + Google Sheets agregado manual (no vale montar Mixpanel en primera semana)",
+        "Power BI",
+        "Excel en papel"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mes 1: Notion + Google Sheets manual. NO Mixpanel/Amplitude en primera semana (data poca y cambiante). Mes 2+: migrar a Mixpanel o Amplitude cuando el volumen justifique."
+    },
+    {
+      "id": "q16",
+      "question": "¿Cuál es el objetivo de la Semana 1 post-launch?",
+      "options": [
+        "Escalar ads agresivamente",
+        "Que TODO FUNCIONE. NO escalar nada. Defensa pura",
+        "Contratar 5 personas",
+        "Hacer ventas masivas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Semana 1 = Supervivencia. Defensa pura. Que todo funcione. NO escalar nada. El sistema se estresa por primera vez con tráfico real. Intentar optimizar = pelearse con el fuego mientras se construye la casa."
+    },
+    {
+      "id": "q17",
+      "question": "¿Qué regla absoluta hay el día 1?",
+      "options": [
+        "Cambiar todo lo que se vea mal",
+        "Decisión de cambiar algo = NO",
+        "Contratar más gente",
+        "Pausar todo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Día 1: todos hands on deck. War room en Telegram #launch activo 48h consecutivas. Regla absoluta: decisión de cambiar algo = NO."
+    },
+    {
+      "id": "q18",
+      "question": "¿Qué NO se debe hacer en la Semana 1?",
+      "options": [
+        "Arreglar bugs bloqueantes",
+        "Dar soporte",
+        "Lanzar nuevas campañas de ads, contratar gente nueva, cambiar pricing/comisiones/spreads, prometer features nuevas, matar un canal",
+        "Medir KPIs"
+      ],
+      "correctIndex": 2,
+      "explanation": "NO hacer en Semana 1: lanzar nuevas campañas de ads, contratar gente nueva, cambiar pricing/comisiones/spreads/producto, prometer features nuevas a clientes, matar un canal (es demasiado pronto)."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cuál es el objetivo de la Semana 2?",
+      "options": [
+        "Lanzar nuevo producto",
+        "Estabilización: arreglar fuegos críticos identificados en Semana 1, empezar a escalar lo que funcionó",
+        "Despedir personal",
+        "Aumentar precios"
+      ],
+      "correctIndex": 1,
+      "explanation": "Semana 2 = Estabilización. Arreglar fuegos críticos de la retro del viernes. Consolidar lo que funciona. Primera reunión 1:1 con top 5 clientes por volumen."
+    },
+    {
+      "id": "q20",
+      "question": "Si un canal de ads mostró CAC aceptable, ¿cuánto se escala en Semana 2?",
+      "options": [
+        "100%",
+        "50%",
+        "20% (no 100%, no 50% — pasos cortos)",
+        "No se escala"
+      ],
+      "correctIndex": 2,
+      "explanation": "Canal con CAC aceptable + volumen calificado → escalar 20%. No 100%, no 50% — pasos cortos. Probar con incrementos controlados."
+    },
+    {
+      "id": "q21",
+      "question": "Si un canal NO funciona en Semana 2, ¿qué hacer?",
+      "options": [
+        "Matarlo",
+        "Escalar presupuesto",
+        "PAUSAR, no matar. Se mata al día 30 si sigue mal",
+        "Ignorarlo"
+      ],
+      "correctIndex": 2,
+      "explanation": "Canal que no funciona → PAUSAR (no matar). Se mata al día 30 si sigue mal. No tomar decisión definitiva con solo 2 semanas de data."
+    },
+    {
+      "id": "q22",
+      "question": "¿Cuál es el objetivo de la Semana 3?",
+      "options": [
+        "Defensa",
+        "Optimización: mover la aguja en los KPIs. Empezar a optimizar en serio con 2 semanas de data",
+        "Lanzar otro broker",
+        "Descansar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Semana 3 = Optimización. Con 2 semanas de data real, hacer cambios informados: A/B testing de landings (min 500 visitas/variante), refinar ICPs, revisar commission scheme, iniciar referidos, contenido educativo retention."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuáles son las 4 decisiones críticas de la retro de Semana 3?",
+      "options": [
+        "Solo contratar",
+        "Qué canal matar definitivamente, qué canal 2x en inversión, contratar 1 support más, abrir mercado nuevo",
+        "Cambiar producto",
+        "No hay decisiones"
+      ],
+      "correctIndex": 1,
+      "explanation": "4 decisiones críticas Semana 3: (1) qué canal matar (CAC >2x del mejor + volumen insuficiente), (2) qué canal 2x (CAC aceptable + capacidad escalar), (3) contratar 1 support más (tickets/cliente >1), (4) abrir mercado nuevo (retention >40% + FTD estable)."
+    },
+    {
+      "id": "q24",
+      "question": "¿Cuál es el objetivo de la Semana 4?",
+      "options": [
+        "Celebrar",
+        "'Month in review' y plan de Mes 2. Reporte completo, KPIs vs meta, lecciones aprendidas, plan con OKRs, presupuesto re-asignado",
+        "Empezar de cero",
+        "Cerrar el broker"
+      ],
+      "correctIndex": 1,
+      "explanation": "Semana 4 = Reset. Month in review + plan de Mes 2. Viernes 10:00 UAE, 4 horas, todos los principals + heads. Entregables: reporte 20-30 slides, KPIs finales vs meta, decisiones tomadas/pendientes, lecciones sin diplomacia, plan Mes 2 con OKRs, presupuesto re-asignado."
+    },
+    {
+      "id": "q25",
+      "question": "Trigger: FTD rate <10% día 5 ¿qué se hace?",
+      "options": [
+        "Esperar al viernes",
+        "Pausar ads del canal peor performance. Reunión urgente: dealing + ventas + marketing. Review messaging",
+        "Ignorar",
+        "Contratar más"
+      ],
+      "correctIndex": 1,
+      "explanation": "FTD rate <10% día 5 = trigger inmediato (NO esperar a retro viernes). Pausar ads del peor canal + reunión urgente dealing + ventas + marketing + review messaging del funnel."
+    },
+    {
+      "id": "q26",
+      "question": "Trigger: cliente VIP ($10k+ depósitos) amenaza irse. ¿Qué hacer?",
+      "options": [
+        "Dejarlo ir",
+        "Pepe + Diego hacen call personal en <24h. Retención priority #1",
+        "Enviarle email",
+        "Esperar 1 semana"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cliente VIP ($10K+) amenaza irse: Pepe + Diego hacen call personal en <24h. Retención = priority #1."
+    },
+    {
+      "id": "q27",
+      "question": "Trigger: regulador contacta por cualquier motivo. ¿Qué hacer?",
+      "options": [
+        "Ignorar",
+        "Susana toma control exclusivo. Pausar actividades relacionadas. Principals informados en <4h",
+        "Esperar al lunes",
+        "Contestar con excusas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regulador contacta: Susana toma control exclusivo. Pausar actividades relacionadas. Principals informados en <4h. No improvisar."
+    },
+    {
+      "id": "q28",
+      "question": "Trigger: contenido negativo viral en Telegram/Twitter/Instagram. ¿Qué hacer?",
+      "options": [
+        "Responder inmediatamente en caliente",
+        "Marketing Manager + Diego arman plan de comunicación en <12h. NO se responde en caliente",
+        "Borrar las redes",
+        "Ignorar todo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Contenido negativo viral: Marketing Manager + Diego arman plan en <12h. NO responder en caliente. Plan coordinado."
+    },
+    {
+      "id": "q29",
+      "question": "¿Qué significa 'si se activan 3+ triggers en la misma semana'?",
+      "options": [
+        "Todo normal",
+        "Crisis meeting de principals en <24h. No es mala suerte — señal de problema estructural",
+        "Buena suerte",
+        "Descansar"
+      ],
+      "correctIndex": 1,
+      "explanation": "3+ triggers misma semana = crisis meeting de principals en <24h. Señal de problema ESTRUCTURAL, no mala suerte."
+    },
+    {
+      "id": "q30",
+      "question": "¿Qué condiciones deben cumplirse para abrir un nuevo mercado geográfico en el Mes 1?",
+      "options": [
+        "Si aparece la oportunidad",
+        "Mercado actual con retention >40% + FTD rate estable 2+ semanas, support agent nativo, PSP local testeado, plan de ads con budget y landing localizada, compliance review",
+        "Abrir siempre que se pueda",
+        "Solo aprobación del CEO"
+      ],
+      "correctIndex": 1,
+      "explanation": "Abrir mercado nuevo requiere TODAS las condiciones: retention >40% + FTD estable 2+ semanas consecutivas, language support nativo, PSP local testeado (PIX Brasil, SPEI México, PSE Colombia), plan ads definido con budget + landing localizada, compliance review del mercado."
+    },
+    {
+      "id": "q31",
+      "question": "¿Cuántos red flags debe ver para 'replantear el launch completo'?",
+      "options": [
+        "1 red flag",
+        "3 en una semana = crisis meeting",
+        "CINCO o más red flags simultáneos",
+        "Nunca se replantea"
+      ],
+      "correctIndex": 2,
+      "explanation": "3+ red flags al cierre de una semana = crisis meeting. CINCO o más = replantear el launch completo. Revisar approach: posicionamiento, mercado, producto, unit economics. Mejor reset honesto que arrastrar launch roto 3 meses más."
+    },
+    {
+      "id": "q32",
+      "question": "¿Cuál es el 'peor resultado posible' del mes 1?",
+      "options": [
+        "Un fracaso claro",
+        "Un mediocre que pase desapercibido (genera 'sigamos probando' 4 meses quemando cash). Peor que fracaso claro — que fuerza a revisar",
+        "Éxito total",
+        "Sin clientes"
+      ],
+      "correctIndex": 1,
+      "explanation": "'El peor resultado posible del mes 1 no es un fracaso claro — es un mediocre que pase desapercibido. Un fracaso claro fuerza a revisar. Un mediocre genera sigamos probando por 4 meses quemando cash.'"
+    },
+    {
+      "id": "q33",
+      "question": "¿Qué hito da 'regalo al equipo (merchandising premium + bonus simbólico)'?",
+      "options": [
+        "10 FTDs",
+        "100 FTDs acumulados",
+        "10,000 FTDs",
+        "No hay celebración"
+      ],
+      "correctIndex": 1,
+      "explanation": "Milestones: 100 FTDs acumulados = regalo equipo + bonus simbólico. $100K volumen = bonus monetario. $250K = segundo bonus mayor. $1M = viaje de team. Primer cliente VIP ($50K+ vol mensual) = reconocimiento público al agent."
+    },
+    {
+      "id": "q34",
+      "question": "¿Qué 4 condiciones deben cumplirse al cierre del mes 1?",
+      "options": [
+        "Solo tener clientes",
+        "Data real de 30 días + plan de mes 2 documentado con OKRs/budget/hiring + equipo alineado + principals con visión unificada",
+        "Solo sobrevivir",
+        "Ninguna"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cierre mes 1: (1) data real de 30 días completos, (2) plan mes 2 documentado con OKRs/budget/hiring/expansion, (3) equipo alineado con claridad de prioridades, (4) principals con visión unificada del estado del broker."
+    },
+    {
+      "id": "q35",
+      "question": "¿Cuál es la agenda fija de 90 minutos de la retro del viernes?",
+      "options": [
+        "Solo hablar",
+        "Review KPIs (15 min), What went well (15 min), What went wrong (20 min), What we'll change (15 min), Decisiones pendientes (15 min), Resource asks (10 min)",
+        "Presentación PPT",
+        "Almuerzo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Agenda retro 90 min: Review KPIs vs meta (15 min, Finance), What went well (15 min), What went wrong (20 min), What we'll change next week (15 min, facilitador), Decisiones pendientes (15 min, Principals), Resource asks (10 min, cada Head)."
+    }
+  ]
+}

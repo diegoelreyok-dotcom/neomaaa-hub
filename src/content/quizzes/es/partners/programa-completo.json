@@ -1,0 +1,346 @@
+{
+  "docPath": "partners/programa-completo",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuántos programas de partnership opera NEOMAAA?",
+      "options": ["1", "2", "3 (Affiliate Partner, Digital Affiliate, IB Program)", "5"],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA opera tres programas complementarios: Affiliate Partner, Digital Affiliate, IB Program."
+    },
+    {
+      "id": "q2",
+      "question": "¿Qué plataforma comparten los tres programas?",
+      "options": ["Post Affiliate Pro", "Cellxpert + Creator Rewards Lab", "Tapfiliate", "Propia"],
+      "correctIndex": 1,
+      "explanation": "Los tres programas comparten la plataforma de tracking Cellxpert y el ecosistema Creator Rewards Lab."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuál es el perfil objetivo del Affiliate Partner?",
+      "options": [
+        "Media buyers",
+        "Creadores de contenido, bloggers, educadores, sitios de reseñas",
+        "Oficinas regionales",
+        "Corporaciones"
+      ],
+      "correctIndex": 1,
+      "explanation": "Affiliate Partner: creadores de contenido (YouTube, TikTok, IG), bloggers, educadores financieros, sitios de reseñas, influencers forex/crypto."
+    },
+    {
+      "id": "q4",
+      "question": "¿Qué modelo de comisión tiene Affiliate Partner?",
+      "options": [
+        "CPA puro",
+        "Revenue Share puro (lifetime)",
+        "Rebate por lote",
+        "Fijo mensual"
+      ],
+      "correctIndex": 1,
+      "explanation": "Affiliate Partner: Revenue Share puro, lifetime."
+    },
+    {
+      "id": "q5",
+      "question": "¿Cuál es el rev share del tier Partner en Affiliate?",
+      "options": ["15%", "25%", "35%", "50%"],
+      "correctIndex": 1,
+      "explanation": "Affiliate Partner tier Partner: 25% rev share. Requisitos: 5 clientes, $5,000 depósitos, 2 FTDs."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuál es el rev share del tier Senior?",
+      "options": ["25%", "30%", "33%", "40%"],
+      "correctIndex": 1,
+      "explanation": "Affiliate Senior: 30% rev share. Requisitos: 50 clientes, $100,000 depósitos, 15 FTDs."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuál es el rev share máximo en Affiliate tier Elite?",
+      "options": ["25%", "30%", "35%", "50%"],
+      "correctIndex": 2,
+      "explanation": "Affiliate Elite: 35% rev share. Requisitos: 150 clientes, $500,000 depósitos, 40 FTDs."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuántos niveles de sub-afiliados tiene Affiliate Partner?",
+      "options": ["1", "2", "Hasta 3 niveles", "10"],
+      "correctIndex": 2,
+      "explanation": "Affiliate Partner tiene hasta 3 niveles de sub-afiliados: Nivel 1 (5%), Nivel 2 (7%), Nivel 3 (10%)."
+    },
+    {
+      "id": "q9",
+      "question": "¿Qué es Passive from Passive?",
+      "options": [
+        "Comisión extra",
+        "Comisión adicional sobre actividad generada por red de sub-afiliados (Partner 3%, Senior 5%, Elite 8%)",
+        "Pago sin hacer nada",
+        "Bonus anual"
+      ],
+      "correctIndex": 1,
+      "explanation": "Passive from Passive (Línea 1): comisión adicional sobre actividad de sub-afiliados. Partner 3%, Senior 5%, Elite 8%."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cuál es el rango de Content Bounties?",
+      "options": ["$5 - $50", "$50 - $500", "$1,000 - $10,000", "Sin bounties"],
+      "correctIndex": 1,
+      "explanation": "Content Bounties: $50 - $500 por pieza de contenido aprobada."
+    },
+    {
+      "id": "q11",
+      "question": "¿Qué es Marketing Co-funding y para quién?",
+      "options": [
+        "Solo para Partner",
+        "$200-$500/mes para campañas conjuntas, disponible para Senior+",
+        "Gratuito sin requisitos",
+        "No existe"
+      ],
+      "correctIndex": 1,
+      "explanation": "Marketing Co-funding: $200-$500/mes para campañas conjuntas, disponible desde tier Senior+."
+    },
+    {
+      "id": "q12",
+      "question": "¿Cuál es la frecuencia de pago para Affiliate Partner tier Partner?",
+      "options": ["Diario", "Semanal", "Mensual", "Trimestral"],
+      "correctIndex": 2,
+      "explanation": "Affiliate Partner tier Partner: pago mensual. Senior y Elite: semanal."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuál es el perfil objetivo del Digital Affiliate?",
+      "options": [
+        "YouTubers",
+        "Media buyers, especialistas PPC/SEO, arbitrajistas, redes de afiliados",
+        "Podcasters",
+        "Educadores"
+      ],
+      "correctIndex": 1,
+      "explanation": "Digital Affiliate: media buyers (Facebook, Google, TikTok Ads), especialistas PPC/SEO, arbitrajistas, redes de afiliados."
+    },
+    {
+      "id": "q14",
+      "question": "¿Por qué NEOMAAA descartó el modelo CPA puro standalone?",
+      "options": [
+        "Porque es ilegal",
+        "Porque destruye el cash flow de un broker nuevo",
+        "Porque no funciona",
+        "Por regulación"
+      ],
+      "correctIndex": 1,
+      "explanation": "CPA puro destruye el cash flow de un broker nuevo. El híbrido (Mini-CPA + Rev Share) mantiene cash flow saludable durante 12 meses."
+    },
+    {
+      "id": "q15",
+      "question": "¿Cuál es el ratio LTV/CPA en Digital Affiliate híbrido?",
+      "options": ["1x-2x", "3x-5x", "8x - 14x", "100x"],
+      "correctIndex": 2,
+      "explanation": "Modelo híbrido Digital Affiliate: ratio LTV vs CPA 8x - 14x. Payback aproximadamente 1 mes."
+    },
+    {
+      "id": "q16",
+      "question": "¿Cuál es el depósito mínimo para FTD calificado en LATAM?",
+      "options": ["$5", "$50", "$100 FTD", "$500"],
+      "correctIndex": 2,
+      "explanation": "Calificación FTD LATAM: depósito mínimo $100 + volumen mínimo 1.5 lotes en primeros 30 días."
+    },
+    {
+      "id": "q17",
+      "question": "¿Cuál es el volumen mínimo en primeros 30 días para FTD calificado?",
+      "options": ["0.5 lotes", "1.5 lotes", "10 lotes", "100 lotes"],
+      "correctIndex": 1,
+      "explanation": "Volumen mínimo: 1.5 lotes en los primeros 30 días para que el FTD cuente como calificado."
+    },
+    {
+      "id": "q18",
+      "question": "¿Cuál es el rev share del tier Starter en Digital Affiliate?",
+      "options": ["5%", "10%", "20%", "35%"],
+      "correctIndex": 1,
+      "explanation": "Digital Affiliate Starter: 10% rev share (entrada)."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cuál es el rev share máximo en Digital Affiliate tier Pro?",
+      "options": ["10%", "15%", "20%", "35%"],
+      "correctIndex": 2,
+      "explanation": "Digital Affiliate Pro: 20% rev share. Requiere alto volumen sostenido."
+    },
+    {
+      "id": "q20",
+      "question": "¿Cuántos niveles de sub-afiliados tiene Digital Affiliate?",
+      "options": ["Hasta 3", "1 nivel únicamente (override 5%)", "5", "10"],
+      "correctIndex": 1,
+      "explanation": "Digital Affiliate: 1 nivel únicamente de sub-afiliados, override 5% sobre producción del sub-afiliado."
+    },
+    {
+      "id": "q21",
+      "question": "¿Qué bounty tiene un post de blog/artículo?",
+      "options": ["$5", "$50 - $150", "$500", "$5,000"],
+      "correctIndex": 1,
+      "explanation": "Post de blog/artículo: bounty $50 - $150 en Creator Rewards Lab."
+    },
+    {
+      "id": "q22",
+      "question": "¿Qué bounty tiene una guía educativa completa?",
+      "options": ["$50", "$150", "$300 - $800", "$10,000"],
+      "correctIndex": 2,
+      "explanation": "Guía educativa completa: bounty $300 - $800."
+    },
+    {
+      "id": "q23",
+      "question": "¿Qué Equipment Milestone se otorga con 50 FTDs?",
+      "options": [
+        "Kit básico $250",
+        "Kit de iluminación/audio ($750)",
+        "Cámara pro $2,000",
+        "Estudio completo"
+      ],
+      "correctIndex": 1,
+      "explanation": "50 FTDs: Kit de iluminación/audio ($750). 10 FTDs=$250, 100 FTDs=Cámara $2,000, 250 FTDs=Setup $4,000, 500 FTDs=$6,500, 1,000 FTDs=$10,000 estudio."
+    },
+    {
+      "id": "q24",
+      "question": "¿Qué recompensa se obtiene con 1,000 FTDs?",
+      "options": [
+        "Kit básico",
+        "Cámara",
+        "Estudio completo ($10,000)",
+        "Nada"
+      ],
+      "correctIndex": 2,
+      "explanation": "1,000 FTDs: Estudio completo ($10,000). Máximo Equipment Milestone."
+    },
+    {
+      "id": "q25",
+      "question": "¿Qué perfil tiene el IB Program?",
+      "options": [
+        "Solo influencers",
+        "IBs profesionales con cartera existente, oficinas regionales, academias, money managers",
+        "Principiantes",
+        "Sin criterios"
+      ],
+      "correctIndex": 1,
+      "explanation": "IB Program: IBs profesionales con cartera de clientes existente, oficinas regionales, academias de trading, money managers con red de seguidores."
+    },
+    {
+      "id": "q26",
+      "question": "¿Qué dual option ofrece el IB Program?",
+      "options": [
+        "Rev Share y CPA",
+        "Revenue Share O Rebate por lote (a elegir)",
+        "Solo CPA",
+        "Solo rebate"
+      ],
+      "correctIndex": 1,
+      "explanation": "IB Program ofrece Opción A (Rev Share) u Opción B (Rebate por lote), el IB elige."
+    },
+    {
+      "id": "q27",
+      "question": "¿Cuál es el rebate Forex en IB tier Bronze?",
+      "options": ["$1.00", "$2.50", "$4.50", "$10.00"],
+      "correctIndex": 1,
+      "explanation": "IB Bronze rebate Forex: $2.50/lote. Gold: $4.00, Crypto: $4.50."
+    },
+    {
+      "id": "q28",
+      "question": "¿Cuál es el rebate Crypto en IB Platinum?",
+      "options": ["$4.50", "$5.50", "$7.00", "$8.00"],
+      "correctIndex": 3,
+      "explanation": "IB Platinum rebate Crypto: $8.00/lote. Forex $4.50, Gold $7.00."
+    },
+    {
+      "id": "q29",
+      "question": "¿A partir de qué tier el IB puede activar Auto-Rebate a clientes?",
+      "options": ["Bronze", "Silver (hasta 50%)", "Gold", "Platinum únicamente"],
+      "correctIndex": 1,
+      "explanation": "Auto-Rebate a clientes disponible desde Silver (hasta 50%). Bronze no disponible."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuál es el Swap Share en IB Gold?",
+      "options": ["0%", "5%", "10%", "15%"],
+      "correctIndex": 2,
+      "explanation": "IB Gold Swap Share: 10%. Bronze 0%, Silver 5%, Platinum 15%."
+    },
+    {
+      "id": "q31",
+      "question": "¿Cuál es el Monthly Milestone de Platinum?",
+      "options": ["$500", "$5,000", "$15,000", "$40,000"],
+      "correctIndex": 2,
+      "explanation": "Monthly Achievement Milestone Platinum: $15,000. Diamond $40,000, Legend $120,000."
+    },
+    {
+      "id": "q32",
+      "question": "¿Cuál es el Monthly Milestone de Diamond?",
+      "options": ["$5,000", "$15,000", "$40,000", "$120,000"],
+      "correctIndex": 2,
+      "explanation": "Monthly Milestone Diamond: $40,000. Legend $120,000."
+    },
+    {
+      "id": "q33",
+      "question": "¿Cuál es el 12-Month Super-Bonus a 12 meses consecutivos?",
+      "options": [
+        "$3,000",
+        "$10,000",
+        "$25,000",
+        "$50,000 + consideración de equity"
+      ],
+      "correctIndex": 3,
+      "explanation": "12 meses consecutivos: $50,000 + consideración de equity (evaluada caso por caso por Principals)."
+    },
+    {
+      "id": "q34",
+      "question": "¿Cuál es el 12-Month Super-Bonus a 6 meses consecutivos?",
+      "options": ["$3,000", "$10,000", "$25,000", "$50,000"],
+      "correctIndex": 1,
+      "explanation": "6 meses consecutivos: $10,000. A 3m=$3K, 9m=$25K, 12m=$50K + equity."
+    },
+    {
+      "id": "q35",
+      "question": "¿Cómo funciona el diferencial de sub-IBs?",
+      "options": [
+        "No existe",
+        "IB principal recibe la diferencia entre su tasa y la asignada al sub-IB",
+        "50% fijo",
+        "Sin comisión"
+      ],
+      "correctIndex": 1,
+      "explanation": "Diferencial sub-IBs: IB Gold (33%) asigna 25% a sub-IB Bronze → retiene 8% como override."
+    },
+    {
+      "id": "q36",
+      "question": "¿Cuál es la frecuencia de pago de IB Platinum?",
+      "options": ["Mensual", "Semanal", "Diario", "Trimestral"],
+      "correctIndex": 2,
+      "explanation": "IB Platinum: pago diario. Bronze, Silver, Gold: semanal."
+    },
+    {
+      "id": "q37",
+      "question": "¿Cuál es el margen NEOMAAA en IB Program?",
+      "options": ["25% - 35%", "50% - 60%", "63% - 74%", "85% - 95%"],
+      "correctIndex": 2,
+      "explanation": "Margen NEOMAAA IB Program: 63% - 74%. El programa más rentable."
+    },
+    {
+      "id": "q38",
+      "question": "¿Cuál es el rev share máximo de Exness según la comparación?",
+      "options": ["25%", "35%", "Hasta 40%", "50%"],
+      "correctIndex": 2,
+      "explanation": "Exness ofrece rev share hasta 40%. NEOMAAA máximo 35%."
+    },
+    {
+      "id": "q39",
+      "question": "¿Cuántas mecánicas de bonificación únicas tiene NEOMAAA?",
+      "options": ["5", "10", "12 mecánicas únicas", "50"],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA cuenta con 12 mecánicas de bonificación únicas que ningún competidor ofrece en conjunto."
+    },
+    {
+      "id": "q40",
+      "question": "¿Cuál es el margen del modelo híbrido como oferta default?",
+      "options": ["25%", "50% - 60%", "77% - 83%", "95%"],
+      "correctIndex": 2,
+      "explanation": "Modelo híbrido (oferta por defecto): margen 77% - 83%. Maximiza margen combinando CPA reducido + rev share menor."
+    }
+  ]
+}

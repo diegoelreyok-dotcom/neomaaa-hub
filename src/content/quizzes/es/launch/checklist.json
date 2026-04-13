@@ -1,0 +1,391 @@
+{
+  "docPath": "launch/checklist",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuántas semanas tiene el cronograma pre-launch?",
+      "options": ["2 semanas", "4 semanas", "6 semanas al go-live", "12 semanas"],
+      "correctIndex": 2,
+      "explanation": "6 semanas al Go-Live. El cronograma visual muestra: Semana 1-2 Fundamentos + Hiring + Sales Training, Semana 3 Docs Ops, Semana 5-6 Testing, Semana 6 Go-Live."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuántos bloques tiene el Master Checklist Pre Go-Live?",
+      "options": ["3 bloques", "5 bloques", "6 bloques", "10 bloques"],
+      "correctIndex": 2,
+      "explanation": "6 bloques: (1) Fundamentos, (2) Capacitación, (3) Documentos Operativos, (4) Hiring Crítico, (5) Testing Pre-Live, (6) Go-Live Checklist (Día D)."
+    },
+    {
+      "id": "q3",
+      "question": "¿En qué bloque se define la política A-Book / B-Book?",
+      "options": [
+        "Bloque 2 Capacitación",
+        "Bloque 1 Fundamentos (Semanas 1-2) — la escribe Pepe",
+        "Bloque 6 Go-Live",
+        "No se define"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bloque 1 Fundamentos: 'Política A-Book / B-Book documentada' — Pepe escribe el documento interno (define % B-Book, umbrales A-Book, tratamiento de toxic flow, hedging). Los scripts de ventas y compliance DEPENDEN de esto."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuál es el mínimo de PSPs (Payment Service Providers) que deben estar live el día 1?",
+      "options": [
+        "Ninguno",
+        "1 solo",
+        "Mínimo: 1 crypto (USDT), 1 tarjeta, 1 transferencia local LATAM (PIX/PSE/SPEI)",
+        "10+ PSPs"
+      ],
+      "correctIndex": 2,
+      "explanation": "PSPs mínimos: 1 crypto (USDT), 1 tarjeta, 1 transferencia local LATAM (PIX Brasil, PSE Colombia, o SPEI México)."
+    },
+    {
+      "id": "q5",
+      "question": "¿Qué campos custom se configuran en Skale CRM para broker?",
+      "options": [
+        "Solo nombre",
+        "Tipo de cuenta, FTD date, FTD amount, depósitos totales, último depósito, status KYC, assigned agent, lead source",
+        "Solo email",
+        "Ningún campo custom"
+      ],
+      "correctIndex": 1,
+      "explanation": "Campos custom Skale CRM para broker: tipo de cuenta, FTD date, FTD amount, depósitos totales, último depósito, status KYC, assigned agent, lead source."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuándo ocurre el Bloque 2 (Capacitación)?",
+      "options": [
+        "Antes del Bloque 1",
+        "Semanas 2-6, en paralelo con el Bloque 1",
+        "Solo Semana 6",
+        "Después del go-live"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bloque 2 Capacitación (Semanas 2-6) se ejecuta en paralelo con el Bloque 1 Fundamentos."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuántas semanas de Sales Training tiene el programa?",
+      "options": ["3", "4", "6 semanas (S1 a S6)", "12"],
+      "correctIndex": 2,
+      "explanation": "Sales Training 6 semanas: S1 Producto broker básico, S2 MT5 hands-on, S3 Compliance, S4 Pitch+objeciones, S5 CRM+flujo operativo, S6 Simulaciones+examen."
+    },
+    {
+      "id": "q8",
+      "question": "¿Qué contrataciones son CRÍTICAS en el Bloque 4?",
+      "options": [
+        "Solo más sales",
+        "Finance Manager (PRIORIDAD #1), Support Agent #1 (LATAM/español), Support Agent #2 (Europa/inglés), Marketing Manager",
+        "Solo CEO",
+        "Ninguna"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hiring crítico: Finance Manager PRIORIDAD #1 (sin él, el broker opera a ciegas), Support Agent #1 LATAM español, Support Agent #2 Europa/ME inglés, Marketing Manager (decisión hire vs freelance)."
+    },
+    {
+      "id": "q9",
+      "question": "¿Por qué Finance Manager es prioridad #1?",
+      "options": [
+        "Es el más caro",
+        "Sin él, el broker opera a ciegas",
+        "Manda el CEO",
+        "No es prioridad"
+      ],
+      "correctIndex": 1,
+      "explanation": "Finance Manager = PRIORIDAD #1. 'Sin él, el broker opera a ciegas' — no se puede reconciliar PSPs, revisar unit economics, ni tener datos reales."
+    },
+    {
+      "id": "q10",
+      "question": "¿Qué es el test end-to-end del Bloque 5?",
+      "options": [
+        "Solo probar el login",
+        "Flujo completo: Registro > KYC > Depósito > Abrir trade > Cerrar trade > Retiro",
+        "Solo spam testing",
+        "Solo UI testing"
+      ],
+      "correctIndex": 1,
+      "explanation": "Test end-to-end: Registro → KYC → Depósito → Abrir trade → Cerrar trade → Retiro. Probar el flujo completo del cliente."
+    },
+    {
+      "id": "q11",
+      "question": "¿Cuántos KYCs de prueba debe procesar Susana en testing?",
+      "options": ["1", "5", "10 con distintos escenarios (aprobado, retry, rechazado)", "100"],
+      "correctIndex": 2,
+      "explanation": "Simulación de KYC: Susana procesa 10 KYCs de prueba con distintos escenarios: aprobado, retry, rechazado."
+    },
+    {
+      "id": "q12",
+      "question": "¿Cuántas llamadas mock evaluadas hace cada agent en Simulación de ventas?",
+      "options": ["1", "3 llamadas mock evaluadas", "10", "50"],
+      "correctIndex": 1,
+      "explanation": "Simulación de llamada de ventas: cada agent hace 3 llamadas mock evaluadas."
+    },
+    {
+      "id": "q13",
+      "question": "En Bloque 6 (Go-Live), ¿qué debe estar en el footer de todo el sitio?",
+      "options": [
+        "Publicidad",
+        "Legal disclaimers",
+        "Solo logo",
+        "Nada especial"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bloque 6 Go-Live checklist: 'Legal disclaimers en el footer de todo el sitio'. También: 'Landing pages con risk disclaimers visibles'."
+    },
+    {
+      "id": "q14",
+      "question": "¿Qué métricas del día 1 deben estar definidas antes del go-live?",
+      "options": [
+        "Ninguna",
+        "# registros, # KYC completados, # FTDs, $ depositado",
+        "Solo revenue",
+        "Solo NPS"
+      ],
+      "correctIndex": 1,
+      "explanation": "Métricas día 1 pre-definidas: # registros, # KYC completados, # FTDs, $ depositado."
+    },
+    {
+      "id": "q15",
+      "question": "¿Qué rol debe estar disponible para aprobar KYCs en tiempo real el día D?",
+      "options": [
+        "Edward",
+        "Susana",
+        "Pepe",
+        "Diego"
+      ],
+      "correctIndex": 1,
+      "explanation": "Susana disponible para aprobar KYCs en tiempo real. Pepe monitorea dealing desk. Franco/Edward/Luis listos con listas de contactos día 1."
+    },
+    {
+      "id": "q16",
+      "question": "¿Quién monitorea el dealing desk el día D?",
+      "options": ["Diego", "Angel", "Pepe", "Edward"],
+      "correctIndex": 2,
+      "explanation": "Pepe (Head of Dealing, 20 años experiencia) monitorea el dealing desk. Susana aprueba KYCs. Diego coordina."
+    },
+    {
+      "id": "q17",
+      "question": "¿Qué workflows se configuran en Intercom?",
+      "options": [
+        "Solo chat directo",
+        "Workflows de soporte, respuestas automáticas, horarios, routing ES/EN",
+        "Solo email",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "Intercom configurado: workflows de soporte, respuestas automáticas, horarios, routing ES/EN (español/inglés)."
+    },
+    {
+      "id": "q18",
+      "question": "¿Qué diferencia hay en el KYC broker vs prop?",
+      "options": [
+        "Son iguales",
+        "KYC broker es DIFERENTE al de prop — flows distintos, documentos aceptados por país, thresholds específicos",
+        "El broker no hace KYC",
+        "Solo cambia el logo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sumsub flows broker DIFERENTES al de prop. Documentos aceptados por país, thresholds de verificación específicos para broker."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cuántas preguntas mínimo debe tener el FAQ interno de support + sales?",
+      "options": ["10", "25", "50+ con respuestas aprobadas", "500"],
+      "correctIndex": 2,
+      "explanation": "FAQ interno: 50+ preguntas frecuentes con respuestas aprobadas, para uso de Support + Sales."
+    },
+    {
+      "id": "q20",
+      "question": "Documento complementario 'Sales Training Program' — ¿cuál es el archivo referenciado?",
+      "options": [
+        "NEOMAAA-SALES.pdf",
+        "NEOMAAA-SALES-TRAINING.md",
+        "sales.txt",
+        "No hay archivo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Documentos complementarios: Sales Training → NEOMAAA-SALES-TRAINING.md. Compliance → NEOMAAA-COMPLIANCE-WORKFLOW.md. Client Onboarding → NEOMAAA-CLIENT-ONBOARDING.md. Support → NEOMAAA-SUPPORT-PLAYBOOK.md. Commissions → NEOMAAA-COMMISSION-SCHEME.md."
+    },
+    {
+      "id": "q21",
+      "question": "¿Cuándo se hace el load test básico?",
+      "options": [
+        "Día 1 del broker",
+        "Bloque 5 (Semana 5-6) Testing Pre-Live, antes del go-live",
+        "Mes 2",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bloque 5 Testing (Semana 5-6): load test básico de plataforma MT5 + client portal ANTES del go-live."
+    },
+    {
+      "id": "q22",
+      "question": "¿Qué se incluye en el test de cada PSP?",
+      "options": [
+        "Solo depósito",
+        "Transacción real: depósito + retiro",
+        "Solo UI",
+        "Solo API"
+      ],
+      "correctIndex": 1,
+      "explanation": "Test de cada PSP: transacción real de depósito + retiro. Sin esto, no se sabe si funciona el ciclo completo."
+    },
+    {
+      "id": "q23",
+      "question": "¿Qué significa la regla 'nada sale a producción sin testear'?",
+      "options": [
+        "Opcional",
+        "Bloque 5 (Testing Pre-Live) es obligatorio: end-to-end, PSPs, Intercom, CRM, ventas mock, KYC Susana, load test MT5",
+        "Solo testing UI",
+        "Testing solo si hay tiempo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla: nada sale a producción sin testear. Bloque 5 incluye: test end-to-end, test cada PSP, test Intercom, test CRM, 3 llamadas mock por agent, 10 KYCs prueba Susana, load test MT5+portal."
+    },
+    {
+      "id": "q24",
+      "question": "¿Qué deben estar haciendo Franco, Edward y Luis el día D?",
+      "options": [
+        "Vacaciones",
+        "Listos con sus listas de contactos día 1",
+        "Aprender MT5",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Día D: 'Franco, Edward, Luis listos con sus listas de contactos día 1'. La capacitación debe estar completa antes."
+    },
+    {
+      "id": "q25",
+      "question": "¿Por qué el Sales Playbook (Bloque 3) no es opcional?",
+      "options": [
+        "Es decoración",
+        "Scripts, objeciones, pitch, KPIs — el equipo necesita playbook para ejecutar consistentemente",
+        "Solo para auditoría",
+        "Es opcional"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sales Playbook finalizado: scripts, objeciones, pitch, KPIs. Es la guía de ejecución del equipo. Sin playbook, cada agent improvisa y la calidad varía."
+    },
+    {
+      "id": "q26",
+      "question": "¿Qué característica tiene el cronograma visual del Bloque 1?",
+      "options": [
+        "Funciona secuencial",
+        "Fundamentos (Semanas 1-2) corren en paralelo con Hiring (Semanas 1-4) y Sales Training S1",
+        "Solo una tarea a la vez",
+        "No hay cronograma"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cronograma paralelo: Semana 1 tiene Fundamentos + Hiring + Sales Training S1. Semana 2 agrega Susana Training. Bloques se superponen para cumplir 6 semanas."
+    },
+    {
+      "id": "q27",
+      "question": "¿Qué referencia se hace al commission scheme?",
+      "options": [
+        "No hay",
+        "Documento separado: NEOMAAA-COMMISSION-SCHEME.md",
+        "Solo verbal",
+        "En el CRM"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Esquema de comisiones cerrado - Principals aprueban. Ver documento separado: NEOMAAA-COMMISSION-SCHEME.md'."
+    },
+    {
+      "id": "q28",
+      "question": "¿Qué tiene que estar funcionando en el Bloque 6 Día D (además de MT5)?",
+      "options": [
+        "Solo MT5",
+        "PSPs, MT5 con LP, Client Portal (registro/KYC/depósitos/retiros), Intercom logueado, CRM recibiendo leads, compliance activo, dealing monitoreando, sales con listas",
+        "Nada específico",
+        "Solo la web"
+      ],
+      "correctIndex": 1,
+      "explanation": "Día D checklist: PSPs activos y probados, MT5 conectado al LP, Client Portal completo, Intercom live con agents logueados, CRM recibiendo leads, Susana (KYCs), Pepe (dealing), agents listos, disclaimers visibles, métricas definidas."
+    },
+    {
+      "id": "q29",
+      "question": "¿Para qué sirve el playbook 'Client Onboarding Flow'?",
+      "options": [
+        "Para vender",
+        "Documentar el paso a paso del cliente: registro, KYC, depósito, trade",
+        "Solo marketing",
+        "No sirve"
+      ],
+      "correctIndex": 1,
+      "explanation": "Client Onboarding Flow documenta paso a paso del cliente: registro → KYC → depósito → primer trade. Archivo: NEOMAAA-CLIENT-ONBOARDING.md."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuándo comienza el Bloque 3 (Documentos Operativos)?",
+      "options": [
+        "Antes del Bloque 1",
+        "Semanas 3-5, mientras corre la capacitación",
+        "Después del go-live",
+        "Solo Semana 6"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bloque 3 Documentos Operativos (Semanas 3-5): se arman mientras corre la capacitación."
+    },
+    {
+      "id": "q31",
+      "question": "¿Qué implica 'Marketing Manager - decisión hire vs freelance'?",
+      "options": [
+        "Contratación fija obligatoria",
+        "Decisión abierta entre hire (empleado) y freelance, tomada y ejecutada antes del go-live",
+        "Solo freelance",
+        "No hay Marketing Manager"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Marketing Manager - decisión hire vs freelance tomada y ejecutada'. Abierto a cualquiera de los dos modelos pero debe resolverse antes del go-live."
+    },
+    {
+      "id": "q32",
+      "question": "¿Qué es lo primero que hay que tener antes de avanzar con nada más?",
+      "options": [
+        "Campañas de ads",
+        "Bloque 1 Fundamentos (Semanas 1-2): A-Book/B-Book policy, commission scheme, PSPs, Skale CRM, Intercom, Sumsub flows",
+        "Contratar marketing",
+        "Landing page"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bloque 1 Fundamentos: 'Sin esto no se puede avanzar con nada más'. A-Book/B-Book documentada, commission scheme, PSPs confirmados, Skale configurado, Intercom configurado, Sumsub finalizado."
+    },
+    {
+      "id": "q33",
+      "question": "¿Cuáles son los 6 documentos complementarios referenciados?",
+      "options": [
+        "1 solo documento",
+        "Sales Training, Compliance Workflow, Client Onboarding, Support Playbook, Commission Scheme, Deposits & Withdrawals",
+        "Solo Sales",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "6 docs: Sales Training, Compliance Workflow (Susana + Sales sync + Sumsub), Client Onboarding (registro → trade), Support Playbook (Intercom, SLAs), Commission Scheme (comisiones sales), Deposits & Withdrawals."
+    },
+    {
+      "id": "q34",
+      "question": "¿Qué debe pasar en la Semana 5-6 con MT5 y portal del cliente?",
+      "options": [
+        "Nada",
+        "Load test básico para validar que aguantan carga",
+        "Deploy en producción sin testear",
+        "Demos en vivo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Semana 5-6 Testing: load test básico de plataforma MT5 + client portal. Validar rendimiento antes del go-live."
+    },
+    {
+      "id": "q35",
+      "question": "¿Cuál es el 'siguiente paso' explícito en el cierre del documento?",
+      "options": [
+        "Empezar a vender",
+        "Revisar cada documento complementario en detalle",
+        "Contratar más gente",
+        "Hacer ads"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Siguiente paso: revisar cada documento complementario en detalle' — el checklist es el index maestro que refiere a los 6 docs complementarios."
+    }
+  ]
+}

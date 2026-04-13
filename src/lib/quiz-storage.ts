@@ -91,6 +91,10 @@ function certIndexKey(certId: string): string {
   return `cert_index:${certId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
 }
 
+function cooldownKey(userId: string, docPath: string): string {
+  return `quiz_cooldown:${sanitizeUserId(userId)}:${sanitizeDocPath(docPath)}`;
+}
+
 // ---------------------------------------------------------------------------
 // Sessions (TTL 30 min)
 // ---------------------------------------------------------------------------
@@ -156,4 +160,35 @@ export async function getCertificateById(certId: string): Promise<Certificate | 
   const docPath = rest.join(':'); // docPath has '/', never ':'
   if (!userId || !docPath) return null;
   return await getCertificate(userId, docPath);
+}
+
+// ---------------------------------------------------------------------------
+// Cooldowns (set when a user fails a quiz; blocks re-attempts for N seconds)
+// ---------------------------------------------------------------------------
+
+export async function setCooldown(
+  userId: string,
+  docPath: string,
+  seconds: number
+): Promise<void> {
+  const expiresAt = Date.now() + seconds * 1000;
+  await kvSet(cooldownKey(userId, docPath), { expiresAt }, seconds);
+}
+
+export async function getCooldown(
+  userId: string,
+  docPath: string
+): Promise<{ expiresAt: number } | null> {
+  const entry = await kvGet<{ expiresAt: number }>(cooldownKey(userId, docPath));
+  if (!entry || typeof entry.expiresAt !== 'number') return null;
+  if (entry.expiresAt <= Date.now()) {
+    // expired: best-effort cleanup
+    await kvDel(cooldownKey(userId, docPath));
+    return null;
+  }
+  return entry;
+}
+
+export async function clearCooldown(userId: string, docPath: string): Promise<void> {
+  await kvDel(cooldownKey(userId, docPath));
 }

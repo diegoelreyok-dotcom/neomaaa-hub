@@ -1,0 +1,416 @@
+{
+  "docPath": "compliance/screening-sanciones",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Que es screening de sanciones?",
+      "options": [
+        "Revisar documentos al azar",
+        "Proceso de verificar que un cliente no aparece en listas de personas, entidades u organizaciones sancionadas internacionalmente",
+        "Un examen tecnico",
+        "Un filtro de email"
+      ],
+      "correctIndex": 1,
+      "explanation": "Screening de sanciones: verificar que el cliente no esta en listas de sanciones. Obligacion legal para cualquier entidad financiera, incluyendo brokers."
+    },
+    {
+      "id": "q2",
+      "question": "Cual es el riesgo principal de operar con persona sancionada?",
+      "options": [
+        "Ninguno",
+        "Sanciones regulatorias + multas + posible revocacion de licencia + delito penal para directores y CO + perdida de bancos/PSPs",
+        "Solo perder tiempo",
+        "Reputacion positiva"
+      ],
+      "correctIndex": 1,
+      "explanation": "Riesgos: sanciones regulatorias, multas, revocacion licencia, delito penal para directores y CO, perdida de relaciones bancarias/PSP."
+    },
+    {
+      "id": "q3",
+      "question": "Listas principales que verifica Sumsub?",
+      "options": [
+        "Solo OFAC",
+        "OFAC SDN (EE.UU.), ONU (UN Security Council), UE (EU Sanctions List), UK (OFSI/HMT), FATF High-Risk Jurisdictions",
+        "Solo Google",
+        "Solo rumores"
+      ],
+      "correctIndex": 1,
+      "explanation": "5 listas principales: OFAC SDN (USA), ONU, UE, UK OFSI/HMT, FATF High-Risk Jurisdictions. Mas databases adicionales: PEP, adverse media, Interpol Red Notices, FBI Most Wanted, listas de terrorismo."
+    },
+    {
+      "id": "q4",
+      "question": "Por que OFAC es critico aun sin operar en USA?",
+      "options": [
+        "No es critico",
+        "Cualquier transaccion en USD o con nexo a EE.UU. esta sujeta a OFAC",
+        "Por moda",
+        "Solo para bancos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Aunque NEOMAAA no opera en USA, cualquier transaccion en USD o con nexo a EE.UU. (tocar sistema bancario USA) esta sujeta a OFAC."
+    },
+    {
+      "id": "q5",
+      "question": "Tipos de match en sanctions hit?",
+      "options": [
+        "Solo un tipo",
+        "Exact match, Fuzzy match (similar pero no identico), Partial match (parcial)",
+        "Infinito",
+        "Numerico"
+      ],
+      "correctIndex": 1,
+      "explanation": "3 tipos: Exact match (alta probabilidad true), Fuzzy match (requiere analisis - transliteraciones, variaciones), Partial match (generalmente false positive pero requiere revision)."
+    },
+    {
+      "id": "q6",
+      "question": "Gravedad de un sanctions hit?",
+      "options": ["Baja", "Media", "CRITICA - accion inmediata", "Ninguna"],
+      "correctIndex": 2,
+      "explanation": "Sanctions hit: gravedad CRITICA. Requiere accion inmediata: bloquear apertura de cuenta, no procesar depositos, no habilitar trading."
+    },
+    {
+      "id": "q7",
+      "question": "Es PEP rechazo automatico?",
+      "options": [
+        "Si",
+        "NO. Gravedad ALTA pero no es rechazo automatico. Requiere EDD y decision informada",
+        "Depende del pais",
+        "Solo si es alcalde"
+      ],
+      "correctIndex": 1,
+      "explanation": "PEP match: gravedad ALTA pero NO rechazo automatico. Requiere revision manual y EDD. Puede abrirse cuenta con aprobacion de Principals."
+    },
+    {
+      "id": "q8",
+      "question": "Tipos de PEP?",
+      "options": [
+        "Uno solo",
+        "PEP directo, RCA (Relative or Close Associate), Ex-PEP (dejo cargo hace >12 meses)",
+        "5 tipos",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "3 tipos PEP: directo (persona misma), RCA (familiar/asociado cercano), Ex-PEP (dejo cargo hace >12 meses, riesgo reducido pero no eliminado)."
+    },
+    {
+      "id": "q9",
+      "question": "Categorias de adverse media?",
+      "options": [
+        "Cualquier medio",
+        "Financiera (fraude/lavado), Violencia/Terrorismo (critico), Corrupcion, Otro (delitos menores)",
+        "Solo politica",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "4 categorias: Financiera (alto), Violencia/Terrorismo (critico, tratar como sanction), Corrupcion (alto, como PEP nivel 1), Otro (bajo-medio, caso por caso)."
+    },
+    {
+      "id": "q10",
+      "question": "SLA de revision de sanctions hit?",
+      "options": [
+        "1 semana",
+        "Mismo dia",
+        "24 horas para PEP, 48h adverse media",
+        "No hay SLA"
+      ],
+      "correctIndex": 1,
+      "explanation": "SLA: Sanctions hit mismo dia. PEP match 24h. Adverse media 48h. Todos requieren revision manual."
+    },
+    {
+      "id": "q11",
+      "question": "Screening clean (sin alertas): accion?",
+      "options": [
+        "Revisar todo",
+        "Continuar con proceso KYC normal. Sumsub guarda automaticamente, no se requiere accion adicional",
+        "Escalar",
+        "Documentar como match"
+      ],
+      "correctIndex": 1,
+      "explanation": "Screening sin matches: continuar KYC normal. Sumsub guarda resultado automaticamente. Se registra en KYC_Decisions (no en Sanctions_Screening)."
+    },
+    {
+      "id": "q12",
+      "question": "Accion inmediata ante sanctions hit (true match confirmado)?",
+      "options": [
+        "Aprobar",
+        "Bloquear cuenta permanentemente + documentar analisis + notificar Principals mismo dia + reportar a AOFA + retener min 5 anos + NO notificar razon al cliente",
+        "Advertencia",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "True match: bloquear permanente, documentar analisis completo, notificar Principals mismo dia, reportar a AOFA [VERIFICAR CON ABOGADO plazo], retener min 5 anos, NO decir razon especifica al cliente."
+    },
+    {
+      "id": "q13",
+      "question": "PEP Nivel 1 (jefe de estado, ministro): que accion?",
+      "options": [
+        "Auto-rechazar",
+        "EDD completo + ESCALACION OBLIGATORIA A PRINCIPALS - ellos deciden aceptar o rechazar",
+        "Auto-aprobar",
+        "Ignorar"
+      ],
+      "correctIndex": 1,
+      "explanation": "PEP Nivel 1 (jefe estado, ministro, etc.): EDD completo + escalacion obligatoria a Principals. Decision final es de Principals, no de Susana."
+    },
+    {
+      "id": "q14",
+      "question": "PEP Nivel 2-4 o Ex-PEP: que accion?",
+      "options": [
+        "Rechazo automatico",
+        "EDD estandar. Susana evalua y decide (aprobar con EDD y monitoreo, o rechazar)",
+        "Auto-aprobar",
+        "Derivar"
+      ],
+      "correctIndex": 1,
+      "explanation": "PEP Nivel 2-4 o Ex-PEP: EDD estandar. Susana evalua. Aprobacion con EDD incluye monitoreo trimestral + limites conservadores + documentacion completa."
+    },
+    {
+      "id": "q15",
+      "question": "Factor que usualmente DISTINGUE true match vs false positive?",
+      "options": [
+        "Pais solamente",
+        "Fecha de nacimiento: si difiere, en la gran mayoria de casos es false positive",
+        "Color de pelo",
+        "Hora de registro"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla practica: si la fecha de nacimiento es diferente, casi siempre es false positive. Si nombre Y fecha coinciden, requiere analisis mas profundo."
+    },
+    {
+      "id": "q16",
+      "question": "Ejemplo de false positive?",
+      "options": [
+        "Cliente sancionado",
+        "Nombre comun (Mohammed Ali, Juan Garcia), transliteraciones multiples de arabe/chino/ruso, homonimos (mismo nombre pero persona distinta)",
+        "Direccion falsa",
+        "No existen"
+      ],
+      "correctIndex": 1,
+      "explanation": "False positives comunes: nombres muy comunes (Mohammed Ali, Juan Garcia), transliteraciones del arabe/chino/ruso, coincidencias parciales, homonimos."
+    },
+    {
+      "id": "q17",
+      "question": "Datos a comparar para determinar true vs false positive?",
+      "options": [
+        "Solo nombre",
+        "Nombre completo, fecha de nacimiento, pais de nacimiento/nacionalidad, numero de documento, foto si disponible, aliases",
+        "Solo pais",
+        "Fecha de registro"
+      ],
+      "correctIndex": 1,
+      "explanation": "Datos a comparar: nombre, DOB, pais, numero de documento, foto (definitivo si hay), aliases en la lista. Combinacion de datos determina probabilidad."
+    },
+    {
+      "id": "q18",
+      "question": "Manejo de fondos en true match de sanciones?",
+      "options": [
+        "Devolver al cliente inmediatamente",
+        "Los fondos quedan CONGELADOS. No devolver sin autorizacion legal explicita. Documentar monto, fecha y razon",
+        "Regalar",
+        "Usar para pagos"
+      ],
+      "correctIndex": 1,
+      "explanation": "True match: fondos pre-existentes CONGELADOS. No devolver sin autorizacion legal explicita. [VERIFICAR CON ABOGADO] manejo de fondos congelados."
+    },
+    {
+      "id": "q19",
+      "question": "Que NO decir al equipo interno sobre un true match de sanciones?",
+      "options": [
+        "Los detalles especificos (solo Susana y Principals deben conocerlos)",
+        "Pedir consejo",
+        "Documentar",
+        "Nada"
+      ],
+      "correctIndex": 0,
+      "explanation": "Al equipo interno: solo Susana y Principals conocen detalles. Ventas/soporte reciben instruccion generica: 'cuenta bajo revision de compliance', sin mas info."
+    },
+    {
+      "id": "q20",
+      "question": "Documentacion obligatoria para false positives?",
+      "options": [
+        "Ninguna",
+        "Evidencia del match, analisis detallado de por que es FP, datos comparados, fecha y responsable, registro en Sanctions_Screening",
+        "Solo firma",
+        "Un post-it"
+      ],
+      "correctIndex": 1,
+      "explanation": "Documentar cada false positive: evidencia original del match, analisis detallado, datos comparados, fecha, responsable. Registro en hoja Sanctions_Screening (marcado gris claro)."
+    },
+    {
+      "id": "q21",
+      "question": "Que es ongoing monitoring?",
+      "options": [
+        "Nada especial",
+        "Re-screening periodico automatico de toda la base de clientes existentes contra listas de sanciones actualizadas",
+        "Una vez al ano",
+        "Espionaje"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ongoing monitoring: Sumsub re-escanea periodicamente a clientes existentes contra listas actualizadas. Si nuevo match: alerta para revision."
+    },
+    {
+      "id": "q22",
+      "question": "Frecuencia actualizacion OFAC/ONU/UE/UK en Sumsub?",
+      "options": ["Anual", "Diaria o mas frecuente", "Cada hora", "Mensual"],
+      "correctIndex": 1,
+      "explanation": "OFAC, ONU, UE, UK: diaria o mas frecuente. PEPs: semanal/mensual segun pais. Adverse media: continua."
+    },
+    {
+      "id": "q23",
+      "question": "Cuando escalar a Principals?",
+      "options": [
+        "Todos los casos",
+        "Sanctions true match (siempre), PEP Nivel 1, Adverse media gravedad alta, casos ambiguos de alto riesgo",
+        "Solo fines de mes",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Escalar a Principals: true match (siempre), PEP Nivel 1 (obligatorio), adverse media alta, casos ambiguos alto riesgo. Casos medios: Susana decide."
+    },
+    {
+      "id": "q24",
+      "question": "Bases de datos adicionales de Sumsub?",
+      "options": [
+        "Ninguna",
+        "PEP databases, Adverse media, Watchlists de paises (Rusia, China), Interpol Red Notices, FBI Most Wanted, listas de terrorismo",
+        "Redes sociales",
+        "LinkedIn"
+      ],
+      "correctIndex": 1,
+      "explanation": "Adicionales: PEP de 200+ paises, adverse media, watchlists nacionales, Interpol Red Notices, FBI Most Wanted, terrorismo. [VERIFICAR CON SUMSUB] cuales estan activas en el plan."
+    },
+    {
+      "id": "q25",
+      "question": "Protocolo de adverse media gravedad VIOLENCIA/TERRORISMO?",
+      "options": [
+        "Aprobar",
+        "Riesgo CRITICO - tratar como potencial sanctions hit - bloquear hasta completar analisis",
+        "Ignorar",
+        "Notificar al cliente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Violencia/terrorismo en adverse media: tratar como potencial sanctions hit. Bloquear hasta completar analisis. Riesgo critico igual que sancion."
+    },
+    {
+      "id": "q26",
+      "question": "Comunicacion al cliente en true match de sanciones?",
+      "options": [
+        "Revelar la razon",
+        "NO revelar razon especifica. Decir: 'Su cuenta ha sido restringida por razones de cumplimiento regulatorio. Sera contactado si se requiere informacion adicional.'",
+        "Insultar",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "NUNCA revelar razon de sanciones al cliente (tipping off). Solo: 'restringida por razones de cumplimiento regulatorio'. Sin detalles."
+    },
+    {
+      "id": "q27",
+      "question": "Donde se guardan las capturas de screening?",
+      "options": [
+        "Email",
+        "Google Drive - carpeta Compliance - organizadas por fecha y ID de cliente. Retencion 7 anos",
+        "No se guardan",
+        "En papel"
+      ],
+      "correctIndex": 1,
+      "explanation": "Capturas de screening: Google Drive (carpeta Compliance), organizadas por fecha + ID cliente. Retencion 7 anos."
+    },
+    {
+      "id": "q28",
+      "question": "Trigger 'deposito significativo' para screening manual?",
+      "options": [
+        "Cualquier deposito",
+        "Deposito > $5,000 en una transaccion",
+        "$100",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Screening manual o semi-automatico: deposito >$5,000 en una transaccion. Upgrade de tier tambien dispara re-check."
+    },
+    {
+      "id": "q29",
+      "question": "Score_Match en el registro: que mide?",
+      "options": [
+        "La edad del cliente",
+        "Porcentaje de coincidencia de Sumsub (0-100)",
+        "Antiguedad",
+        "Credito"
+      ],
+      "correctIndex": 1,
+      "explanation": "Score_Match 0-100: porcentaje de coincidencia que reporta Sumsub al detectar el match. Scores altos = mayor probabilidad de true match."
+    },
+    {
+      "id": "q30",
+      "question": "Ex-PEP se sigue considerando riesgo?",
+      "options": [
+        "No, cero riesgo",
+        "Riesgo reducido pero no eliminado (dejo cargo hace >12 meses)",
+        "Solo alto riesgo",
+        "Depende del humor"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ex-PEP: persona que dejo cargo publico hace mas de 12 meses. Riesgo reducido pero NO eliminado. Sigue requiriendo EDD."
+    },
+    {
+      "id": "q31",
+      "question": "Por que bancos y PSPs evaluan screening de sanciones del broker?",
+      "options": [
+        "Curiosidad",
+        "Si NEOMAAA no tiene screening robusto, los PSPs/bancos pierden relaciones correspondentes y cierran la cuenta de NEOMAAA. Requisito para mantener rails bancarios",
+        "Politica",
+        "No lo hacen"
+      ],
+      "correctIndex": 1,
+      "explanation": "Los bancos corresponsales y PSPs exigen screening robusto del broker. Sin ello, perderemos relaciones bancarias, que son existenciales para un broker."
+    },
+    {
+      "id": "q32",
+      "question": "Decision_Match posibles en registro?",
+      "options": [
+        "Aprobar/rechazar",
+        "Bloquear, Aprobar con EDD, Aprobar, Escalar",
+        "Solo una",
+        "Numericas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Columna Decision en Sanctions_Screening: Bloquear (true match), Aprobar con EDD (PEP aprobado), Aprobar (false positive resuelto), Escalar."
+    },
+    {
+      "id": "q33",
+      "question": "Conclusion_Match en el registro?",
+      "options": [
+        "Si o no",
+        "True Match / False Positive / Inconcluso",
+        "Aprobado/Rechazado",
+        "No existe"
+      ],
+      "correctIndex": 1,
+      "explanation": "Conclusion posibles: True Match, False Positive, Inconcluso. Campo obligatorio en cada fila de Sanctions_Screening."
+    },
+    {
+      "id": "q34",
+      "question": "Leccion de los mejores brokers sobre screening?",
+      "options": [
+        "Solo minimo",
+        "Equipo dedicado de screening (Exness: 15-20 analistas), tuning de reglas durante anos para reducir FP rate a <5%, screening en tiempo real (no solo onboarding)",
+        "Todo manual",
+        "Ignorar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mejores practicas: equipo dedicado (Exness 15-20), tuning de reglas durante anos (FP rate <5%), screening en tiempo real (cada transaccion, no solo onboarding)."
+    },
+    {
+      "id": "q35",
+      "question": "Tipo de screening 'Onboarding' vs 'Ad-hoc' en el log?",
+      "options": [
+        "Da lo mismo",
+        "Onboarding = registro inicial. Upgrade = cambio tier. Periodico = ongoing monitoring. Ad-hoc = por trigger/sospecha manual",
+        "Solo onboarding",
+        "Variables"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tipo_Screening en Sanctions_Screening: Onboarding (registro), Upgrade (cambio tier), Periodico (ongoing monitoring), Ad-hoc (trigger/sospecha manual)."
+    }
+  ]
+}

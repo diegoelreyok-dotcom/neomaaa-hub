@@ -1,0 +1,426 @@
+{
+  "docPath": "sales/objections-broker",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Un cliente dice: 'Nunca escuché de NEOMAAA, no confío en brokers nuevos'. ¿Cuál es el mejor enfoque de respuesta?",
+      "options": [
+        "Minimizar la preocupación",
+        "Validar la precaución + presentar licencia L15968/N (AOFA), cuentas segregadas, MT5, KYC con Sumsub, e invitar a verificar",
+        "Ofrecer un bonus para convencer",
+        "Hablar mal de otros brokers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Validar precaución del cliente (es correcto). Presentar: licencia L15968/N AOFA, cuentas segregadas, MT5 (plataforma global de confianza), KYC Sumsub (mismo proveedor que eToro/Binance), invitar a verificar todo."
+    },
+    {
+      "id": "q2",
+      "question": "Ante la objeción 'he visto brokers con licencia que resultaron ser scam', ¿qué estrategia práctica se recomienda?",
+      "options": [
+        "Negar que existan brokers fraudulentos",
+        "Admitir que una licencia no lo es todo + ofrecer cuenta Cent desde $5 para que el cliente verifique depósitos, operaciones Y retiros con su propia experiencia",
+        "Prometer garantías imposibles",
+        "Pedirle que deposite más dinero"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reconocer que licencia sola no basta. Destacar ejecución ECN/STP (sin conflicto interés), MT5 para auditar, cuenta Cent $5 como prueba real: verificar depósitos, operaciones Y RETIROS antes de comprometer más capital."
+    },
+    {
+      "id": "q3",
+      "question": "Cliente dice: 'prefiero tener mi dinero en un banco, no en un broker'. ¿Qué destacar?",
+      "options": [
+        "Que el broker es mejor que el banco",
+        "Explicar que banco y broker cumplen funciones diferentes. Cuentas segregadas = seguridad. Vault hasta 5% p.a. Retiros disponibles en cualquier momento",
+        "Prometer que las ganancias son seguras",
+        "Presionar para que deposite"
+      ],
+      "correctIndex": 1,
+      "explanation": "Banco y broker = funciones distintas. Banco guarda, broker da acceso a mercados. Cuentas segregadas = seguridad bancaria. Vault hasta 5% p.a. sobre fondos no activos. Retiros disponibles cuando quiera. NUNCA decir 'mejor que un banco' (prohibido compliance)."
+    },
+    {
+      "id": "q4",
+      "question": "Cliente sospecha: '¿si apuestan contra mis operaciones?'. ¿Cómo se responde?",
+      "options": [
+        "Asegurar que es imposible",
+        "NEOMAAA opera con modelo ECN/STP híbrido: órdenes enrutadas directamente a proveedores de liquidez. No ejecutamos internamente contra el cliente. Sin conflicto de interés. MT5 permite auditar",
+        "Admitir que sí pero es pequeño",
+        "Desviar el tema"
+      ],
+      "correctIndex": 1,
+      "explanation": "Modelo ECN/STP híbrido. Órdenes enrutadas a proveedores de liquidez, sin intervención interna. No hay incentivo para que pierda el cliente (más operar y más capital = más beneficio mutuo). MT5 permite verificar tiempos de llenado y slippage."
+    },
+    {
+      "id": "q5",
+      "question": "'Sus spreads son muy altos'. ¿Qué cuenta recomendar y cómo responder?",
+      "options": [
+        "Ofrecer descuentos falsos",
+        "Distinguir: Standard incluye comisión en spread pero competitivo. Cuenta Raw: spreads desde 0.0 pips con $3/lote/lado. Invitar a comparar EN VIVO con su broker actual — los spreads de competencia son muchas veces condicionales/promedios",
+        "Decirle que está exagerando",
+        "Regalarle spread 0 por tiempo limitado"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cuenta Raw: desde 0.0 pips + $3/lote/lado (de las más competitivas). Standard incluye comisión en spread. Invitar a comparar en vivo (mismo par, misma hora). Spreads publicados por competidores muchas veces son promedios/condicionales."
+    },
+    {
+      "id": "q6",
+      "question": "Cliente dice: 'otro broker me ofrece bonus de depósito'. ¿Cuál es el frame correcto?",
+      "options": [
+        "Ofrecer un bonus más grande",
+        "Explicar que los bonos de depósito vienen con condiciones restrictivas (volúmenes, plazos) que los hacen casi imposibles de retirar. Preferir valor real: spreads competitivos, ejecución rápida, 120+ métodos, Vault 5% p.a.",
+        "Prometer crear un bonus especial para él",
+        "Mentirle diciendo que sí hay bonus"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bonos de depósito suelen tener condiciones que los hacen casi imposibles de retirar (volumen trading mínimo, plazos, restricciones). NEOMAAA prefiere valor real sostenible: spreads, ejecución, 120+ métodos, Vault 5% p.a."
+    },
+    {
+      "id": "q7",
+      "question": "Cliente dice: 'el apalancamiento 1:1000 suena peligroso'. ¿Cómo educar?",
+      "options": [
+        "Afirmar que es una ventaja enorme",
+        "Validar la cautela + aclarar concepto (leverage NO multiplica capital, reduce margen por 1/N). 1:1000 es opcional, no obligatorio. Muchos traders experimentados usan 1:100 o menos. Stop loss y take profit disponibles",
+        "Decirle que con 1:1000 se hace millonario",
+        "Minimizar el riesgo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Validar cautela (correcta). Desmitificar: leverage reduce margen requerido por 1/N, no multiplica capital. Ofrecer hasta 1:1000 no obliga a usarlo al máximo. Cliente elige leverage. SL/TP disponibles. NO promover alto leverage como ventaja principal."
+    },
+    {
+      "id": "q8",
+      "question": "'Ya tengo broker, estoy contento'. ¿Qué hacer?",
+      "options": [
+        "Insistir que cierre el otro",
+        "NO pedir cerrar el otro broker. Muchos traders pro usan 2-3 brokers. Proponer abrir cuenta Cent con $5 y probar ejecución + spreads en paralelo, sin compromiso",
+        "Criticar al otro broker",
+        "Dejarlo ir"
+      ],
+      "correctIndex": 1,
+      "explanation": "NO pedir cerrar el otro. Diversificación es concepto profesional. Cuenta Cent $5 para prueba paralela sin riesgo. Dejar que la experiencia hable. Sin presión."
+    },
+    {
+      "id": "q9",
+      "question": "'IC Markets / Pepperstone / XM me ofrece mejores condiciones'. ¿Enfoque?",
+      "options": [
+        "Hablar mal de esos brokers",
+        "Respetar esos brokers + comparación factual: Raw desde 0.0 + $3/lote/lado, 2,000+ instrumentos, 120+ métodos con opciones locales (PIX, OXXO, Nequi, Yape), hasta 1:1000, Vault 5% p.a., Copy Trading MQL5, español nativo. Invitar a comparar en vivo",
+        "Ofrecer pagar la diferencia",
+        "Inventar condiciones que no tenemos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Respetar competencia. Comparación factual, no emocional. Destacar: métodos de pago locales LATAM, soporte español NATIVO (no traducido), 2,000+ instrumentos, Vault. Invitar a demo o Cent para comparar en mismas condiciones de mercado."
+    },
+    {
+      "id": "q10",
+      "question": "'Son muy chicos comparados con los grandes'. ¿Cómo voltear la objeción?",
+      "options": [
+        "Admitir que somos peores",
+        "Ser operación más enfocada = atención personalizada, soporte que te conoce, flexibilidad. Brokers grandes te tratan como número. NEOMAAA: acceso directo a soporte humano vía Intercom, gestor dedicado para institucionales. Misma infraestructura: MT5, Sumsub, Skale CRM",
+        "Mentir sobre el tamaño",
+        "Prometer ser más grandes en 6 meses"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tamaño = ventaja. Atención personalizada, soporte que conoce al cliente, flexibilidad. Grandes = cliente es número. Misma infraestructura tecnológica (MT5, Sumsub, Skale). Institucional: gestor dedicado."
+    },
+    {
+      "id": "q11",
+      "question": "'Leí reviews negativas de ustedes en internet'. ¿Qué NO hacer?",
+      "options": [
+        "Pedir al cliente que comparta la review específica",
+        "Invitar a verificar hechos (licencia pública, probar con $5, retiros)",
+        "Negar o minimizar + atacar a quien publicó la review",
+        "Ofrecer respuesta transparente a la crítica específica"
+      ],
+      "correctIndex": 2,
+      "explanation": "NO negar ni minimizar. Cualquier broker activo tiene reviews mixtas. Invitar a verificar hechos. Pedir al cliente compartir la review para dar respuesta específica. Prueba real > discurso."
+    },
+    {
+      "id": "q12",
+      "question": "Cliente dice: 'solo usan MT5, prefiero cTrader/TradingView'. ¿Respuesta?",
+      "options": [
+        "Decirle que cambie de plataforma es obligatorio",
+        "MT5 = plataforma más usada del mundo. Multi-activo, EAs, copy trading nativo, desktop/web/móvil, ECN. Compatible con TradingView para análisis, ejecuta en MT5. NEOMAAA enfocado en una plataforma bien vs varias mediocres",
+        "Criticar TradingView",
+        "Decirle que cTrader es peor"
+      ],
+      "correctIndex": 1,
+      "explanation": "MT5 = estándar industria. Multi-activo, EAs, copy trading nativo. Compatible con TradingView para análisis (ejecución en MT5). MT5 es evolución de MT4. Estrategia: una plataforma excelente > varias a medias."
+    },
+    {
+      "id": "q13",
+      "question": "'No sé usar MetaTrader 5'. ¿Cómo tranquilizar?",
+      "options": [
+        "Decirle que es muy complicado",
+        "Tutoriales paso a paso, soporte Intercom en vivo, versión web sin descarga, app móvil intuitiva. No te preocupes, es más fácil de lo que parece",
+        "Sugerir que use otra plataforma",
+        "Decirle que hay cursos pagos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tranquilizar: MT5 es más fácil de lo que parece. Tutoriales paso a paso disponibles, soporte Intercom en vivo, MT5 web (sin descarga), app móvil intuitiva (Play Store / App Store)."
+    },
+    {
+      "id": "q14",
+      "question": "'La ejecución es lenta / hay mucho slippage'. ¿Qué explicar?",
+      "options": [
+        "Negar que exista slippage",
+        "Ejecución ECN/STP conecta directamente con proveedores de liquidez — minimiza latencia y slippage. Slippage es parte natural del mercado (noticias, baja liquidez). Invitar a probar con Cent durante noticias y fuera. MT5 permite auditar tiempo exacto de ejecución",
+        "Prometer ejecución perfecta",
+        "Echarle la culpa al internet del cliente"
+      ],
+      "correctIndex": 1,
+      "explanation": "ECN/STP = ejecución directa, mínima latencia/slippage. Pero slippage es normal en momentos específicos (noticias alto impacto, baja liquidez). Verificable en historial MT5 — cada operación tiene tiempo exacto y diferencia de precio."
+    },
+    {
+      "id": "q15",
+      "question": "'¿cómo sé que voy a poder retirar mi dinero?'. ¿Cuál es la técnica recomendada?",
+      "options": [
+        "Prometer que siempre se puede retirar inmediatamente",
+        "Estrategia 'deposita poco, opera, retira, verifica': política de retiros clara, recomendar empezar con cantidad pequeña, operar, y retirar — verificar con su propia experiencia que el proceso funciona",
+        "Ignorar la pregunta",
+        "Desviar hacia otro tema"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pregunta #1 de cualquier trader. NO bloquear nunca esta conversación. Técnica: deposita poco → opera → retira → verifica con experiencia propia. Cliente tiene control total. Estrategia recomendada por muchos clientes antes de mover cantidades mayores."
+    },
+    {
+      "id": "q16",
+      "question": "'No aceptan mi método de pago'. ¿Qué hacer primero?",
+      "options": [
+        "Decir que no se puede ayudar",
+        "Preguntar de qué país opera para confirmar opciones específicas. Tenemos 120+ métodos: Visa/MC, transferencia, crypto (USDT/BTC/ETH), métodos locales LATAM (PIX, PSE, OXXO, Nequi, Yape, etc.)",
+        "Ofrecer pagar por él",
+        "Sugerir que cree una cuenta en otro país"
+      ],
+      "correctIndex": 1,
+      "explanation": "Preguntar país primero para dar info específica. 120+ métodos disponibles. Crypto (USDT) como alternativa universal. Métodos locales LATAM son diferenciador clave."
+    },
+    {
+      "id": "q17",
+      "question": "'Anjouan no es una regulación seria'. ¿Cómo manejar con honestidad?",
+      "options": [
+        "Mentir diciendo que es tier-1",
+        "Reconocer que cada jurisdicción tiene marco distinto. Licencia L15968/N AOFA exige capital, segregación, KYC/AML. Brokers tier-1 (FCA/ASIC) no pueden ofrecer leverage >1:30 ni muchos instrumentos/condiciones. Balance: más regulación = más limitaciones. Nosotros combinamos marco válido + condiciones superiores",
+        "Atacar a FCA/ASIC",
+        "Negar que haya diferencias"
+      ],
+      "correctIndex": 1,
+      "explanation": "Honestidad. Cada jurisdicción distinta. Licencia L15968/N válida con requisitos reales (capital, segregación, KYC/AML). Tier-1 (FCA/CySEC/ASIC) limitan leverage a 1:30 y productos. Balance: más regulación = menos flexibilidad para el trader."
+    },
+    {
+      "id": "q18",
+      "question": "'¿Qué pasa con mis fondos si la empresa cierra?'. ¿Cómo responder?",
+      "options": [
+        "Prometer que eso nunca pasará",
+        "Cuentas segregadas — fondos separados de operativos de la empresa. Obligación regulatoria. En eventualidad, fondos identificados como propiedad del cliente. No minimizar la pregunta, es completamente válida",
+        "Evitar la pregunta",
+        "Decir que tienen seguro infinito"
+      ],
+      "correctIndex": 1,
+      "explanation": "No minimizar la pregunta (es legítima). Cuentas segregadas protegen fondos. Fondos de clientes separados de operativos. En caso hipotético, fondos identificados como propiedad del cliente. Ser honesto y directo."
+    },
+    {
+      "id": "q19",
+      "question": "'No tengo tiempo para hacer trading'. ¿Qué soluciones ofrecer?",
+      "options": [
+        "Decirle que de todas formas debe invertir tiempo",
+        "Copy Trading MQL5 Signals (suscribirse a trader experimentado, operaciones se copian proporcionalmente), Expert Advisors automáticos, Vault hasta 5% p.a. — sin monitoreo constante",
+        "Sugerir que deje su trabajo",
+        "Prometer trading sin riesgo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Soluciones para poco tiempo: (1) Copy Trading via MQL5 Signals — mql5.com/en/signals; (2) EAs en MT5 automáticos; (3) Vault hasta 5% p.a. sin operar activamente. No requiere monitoreo constante."
+    },
+    {
+      "id": "q20",
+      "question": "'Necesito pensarlo'. ¿Qué hacer?",
+      "options": [
+        "Presionar con urgencia falsa",
+        "NO presionar. Ofrecer acción de bajo compromiso: cuenta demo gratuita o Cent $5. Dejar puerta abierta, programar seguimiento",
+        "Ofrecer descuento por cerrar hoy",
+        "Hacerlo sentir culpable"
+      ],
+      "correctIndex": 1,
+      "explanation": "NO presionar. Ofrecer acción de bajo compromiso: demo gratuita o Cent $5 para familiarizarse sin compromiso. Cuando decida, ya tendrá experiencia. Dejar puerta abierta + seguimiento."
+    },
+    {
+      "id": "q21",
+      "question": "'El trading es una estafa / es como apostar'. ¿Enfoque correcto?",
+      "options": [
+        "Prometer ganancias fáciles",
+        "Reconocer la percepción. Mercados financieros = base del sistema económico global, mueven trillones diarios. Trading es alto riesgo y NO es para todos. Requiere educación, disciplina, risk management. No prometer ganancias fáciles. Posicionar como actividad seria, no juego",
+        "Decirle que está equivocado",
+        "Minimizar los riesgos"
+      ],
+      "correctIndex": 1,
+      "explanation": "No prometer ganancias. Reconocer riesgo abiertamente. Posicionar trading como actividad seria (no juego). Mercados financieros = base del sistema económico. Requiere educación y disciplina. Si elige educarse, NEOMAAA da base sólida."
+    },
+    {
+      "id": "q22",
+      "question": "'Mandé mensaje a soporte y nadie me contestó'. ¿Cómo responder?",
+      "options": [
+        "Excusar al equipo",
+        "Minimizar la queja",
+        "NO minimizar ni excusar. Lamentar la experiencia, tomar acción inmediata: 'Déjame escalar tu caso ahora mismo. Dame tu email o número de cuenta para verificar'. Dar seguimiento personal",
+        "Culpar al cliente"
+      ],
+      "correctIndex": 2,
+      "explanation": "NO minimizar. Tomar acción inmediata. Pedir email/número de cuenta para verificar. Escalar si es necesario. Asegurar resolución hoy. Dar seguimiento personal."
+    },
+    {
+      "id": "q23",
+      "question": "'¿cuánto puedo ganar con ustedes?'. ¿Qué hacer?",
+      "options": [
+        "Dar cifras concretas de rendimientos",
+        "NUNCA prometer rendimientos — es prueba de cumplimiento. Redirigir a herramientas y condiciones: ejecución rápida, spreads competitivos, 2,000+ instrumentos, Copy Trading, VPS. Resultado depende del cliente como trader",
+        "Prometer 10% mensual",
+        "Ofrecer garantía de ganancias"
+      ],
+      "correctIndex": 1,
+      "explanation": "NUNCA prometer rendimientos. Es PRUEBA de compliance. Redirigir a herramientas y condiciones. Reconocer riesgo. Resultado final depende del trader (estrategia, experiencia, capital, mercado)."
+    },
+    {
+      "id": "q24",
+      "question": "¿Cuál de estas frases está PROHIBIDA por compliance?",
+      "options": [
+        "'El trading conlleva riesgo'",
+        "'Te garantizo que vas a ganar dinero'",
+        "'Resultados pasados no garantizan resultados futuros'",
+        "'Te invito a probar con la cuenta Cent de $5'"
+      ],
+      "correctIndex": 1,
+      "explanation": "PROHIBIDA: 'Te garantizo que vas a ganar dinero' — promesa de rendimiento, viola regulación. Las otras tres frases SÍ se pueden usar."
+    },
+    {
+      "id": "q25",
+      "question": "¿Cuál de estas frases está PROHIBIDA?",
+      "options": [
+        "'Consulta con un asesor financiero independiente'",
+        "'Nuestro Vault es como un depósito a plazo fijo'",
+        "'Solo opera con capital que puedas permitirte perder'",
+        "'Ofrecemos herramientas; los resultados dependen de tu estrategia'"
+      ],
+      "correctIndex": 1,
+      "explanation": "PROHIBIDA: 'Nuestro Vault es como un depósito a plazo fijo' — comparación con producto bancario regulado. Vault NO es depósito a plazo fijo, es funcionalidad interna."
+    },
+    {
+      "id": "q26",
+      "question": "¿Cuál de estas frases está PROHIBIDA?",
+      "options": [
+        "'Deposita ahora o pierdes la oportunidad'",
+        "'El trading conlleva riesgo y no es adecuado para todos'",
+        "'Los resultados pasados no garantizan resultados futuros'",
+        "'Te invito a probar con nuestra cuenta Cent'"
+      ],
+      "correctIndex": 0,
+      "explanation": "PROHIBIDA: 'Deposita ahora o pierdes la oportunidad' — urgencia artificial / presión indebida."
+    },
+    {
+      "id": "q27",
+      "question": "¿Cuál de estas frases está PROHIBIDA?",
+      "options": [
+        "'Esto es mejor que un banco'",
+        "'Cuentas segregadas protegen tus fondos'",
+        "'Puedes empezar con la cuenta Cent desde $5'",
+        "'Soporte en español nativo'"
+      ],
+      "correctIndex": 0,
+      "explanation": "PROHIBIDA: 'Esto es mejor que un banco' — comparación regulatoria inapropiada. No se puede comparar con productos bancarios regulados."
+    },
+    {
+      "id": "q28",
+      "question": "Red Flag: el cliente menciona que va a usar dinero prestado o de emergencia para depositar. ¿Qué hacer?",
+      "options": [
+        "Aceptar el depósito",
+        "DETENTE y asesora sobre riesgo. No permitir que alguien deposite dinero que no puede perder",
+        "Pedirle más información del préstamo",
+        "Ofrecerle un bonus"
+      ],
+      "correctIndex": 1,
+      "explanation": "Red flag crítico. Detener inmediatamente. NO permitir depósito con dinero prestado/emergencia. Asesorar sobre riesgo."
+    },
+    {
+      "id": "q29",
+      "question": "Red Flag: el cliente es residente de Estados Unidos. ¿Qué hacer?",
+      "options": [
+        "Ayudarle igualmente con VPN",
+        "Detenerse inmediatamente. NO continuar proceso de registro bajo ninguna circunstancia. País restringido (USA, Canadá, EEA, UK, Australia, sancionados)",
+        "Ofrecerle cuenta institucional",
+        "Pedirle que mienta sobre su país"
+      ],
+      "correctIndex": 1,
+      "explanation": "País restringido. Detener inmediatamente. NO continuar registro. Restringidos: USA, Canadá, EEA, UK, Australia, países sancionados. Sin excepciones."
+    },
+    {
+      "id": "q30",
+      "question": "Red Flag: el cliente muestra signos de adicción al trading (pérdidas repetidas, depósitos frecuentes 'para recuperar', lenguaje obsesivo). ¿Qué hacer?",
+      "options": [
+        "Venderle más cuentas",
+        "Escalar a compliance",
+        "Ofrecerle bonus",
+        "Ignorar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Adicción al trading = red flag compliance. Escalar a Susana/compliance. No seguir vendiendo."
+    },
+    {
+      "id": "q31",
+      "question": "Red Flag: el cliente quiere depositar cantidad desproporcionada a su perfil (nunca operó pero quiere $50,000). ¿Qué hacer?",
+      "options": [
+        "Aceptar por ser cuenta grande",
+        "Señal de alerta. Escalar a compliance",
+        "Ofrecerle cuenta institucional automáticamente",
+        "Pedirle referencias"
+      ],
+      "correctIndex": 1,
+      "explanation": "Red flag: monto desproporcionado al perfil. Alguien sin experiencia depositando $50K = alerta. Escalar a compliance."
+    },
+    {
+      "id": "q32",
+      "question": "El cliente se pone agresivo o amenazante. ¿Protocolo?",
+      "options": [
+        "Responder con firmeza agresiva",
+        "NO continuar la conversación. Documentar y escalar a Edward",
+        "Ofrecerle un descuento para calmarlo",
+        "Seguir vendiendo normalmente"
+      ],
+      "correctIndex": 1,
+      "explanation": "NO continuar conversación. Documentar. Escalar a Edward (Sales Lead)."
+    },
+    {
+      "id": "q33",
+      "question": "Cliente menciona que otro 'asesor' le dijo que depositara. ¿Qué sospechar?",
+      "options": [
+        "Aceptarlo como validación",
+        "Posible esquema de terceros. Verificar que el cliente está tomando decisiones propias",
+        "Pedirle referencia del asesor",
+        "Ignorar el comentario"
+      ],
+      "correctIndex": 1,
+      "explanation": "Posible esquema de terceros (pump and dump, fraude, coaching scam). Verificar que el cliente decide por sí mismo. Escalar si parece sospechoso."
+    },
+    {
+      "id": "q34",
+      "question": "Protocolo de escalamiento cuando se detecta red flag:",
+      "options": [
+        "Ignorar y seguir con el siguiente lead",
+        "Agradecer interés → indicar que consultarás con especialista → documentar conversación completa → enviar a Edward con resumen → NO prometer resolución ni timeline → NO seguir vendiendo hasta respuesta compliance",
+        "Cerrar la venta rápido antes de que se arrepienta",
+        "Borrar el registro del CRM"
+      ],
+      "correctIndex": 1,
+      "explanation": "Protocolo: agradecer interés → consultar con especialista → documentar → enviar a Edward con resumen → NO prometer resolución ni timeline → NO seguir vendiendo hasta respuesta compliance."
+    },
+    {
+      "id": "q35",
+      "question": "'NEOMAAA comparte mis datos con terceros?' — ¿qué responder?",
+      "options": [
+        "Prometer que nunca pasa nada nunca",
+        "Info personal se maneja según política de privacidad. KYC procesado por Sumsub de forma segura. No compartimos datos personales con terceros para fines de marketing",
+        "Decir 'no, nunca'",
+        "Evadir la pregunta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Info personal según política de privacidad. KYC por Sumsub (seguro). NO compartimos datos con terceros para marketing. [VERIFICAR CON COMPLIANCE: política exacta y excepciones legales]."
+    }
+  ]
+}

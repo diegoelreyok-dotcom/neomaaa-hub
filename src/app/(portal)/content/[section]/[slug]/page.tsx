@@ -237,6 +237,7 @@ export default async function ContentPage({ params }: ContentPageProps) {
         docTitle={docTitle}
         lang={lang}
         isCompleted={isCompleted}
+        userName={user?.name || ''}
       />
 
       {/* Previous / Next navigation */}

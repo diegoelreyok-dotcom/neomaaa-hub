@@ -1,0 +1,426 @@
+{
+  "docPath": "operations/manual-crisis",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuál es el objetivo principal del manual de crisis?",
+      "options": [
+        "Prevenir toda crisis",
+        "Responder bien cuando pasan. Brokers que sobreviven 20 años no evitaron crisis — las manejaron con protocolo claro",
+        "Evitar que el equipo se entere",
+        "Minimizar siempre públicamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "No es prevenir (imposible) — es responder bien. Brokers que sobreviven 20 años no evitaron crisis, las manejaron con protocolo claro."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuál es el Principio 1 de respuesta a crisis?",
+      "options": [
+        "Esconderlo del equipo",
+        "Transparencia interna absoluta — NUNCA ocultar crisis al equipo",
+        "Comunicar primero al público",
+        "Solo los principals se enteran"
+      ],
+      "correctIndex": 1,
+      "explanation": "Principio 1: transparencia interna absoluta. En el momento que se detecta, al canal #crisis-neomaaa. Esconder retrasa soluciones y amplifica daño legal si hay investigación."
+    },
+    {
+      "id": "q3",
+      "question": "¿Qué es el Incident Commander (IC)?",
+      "options": [
+        "Un comité que vota",
+        "Una persona que durante la ventana de crisis tiene autoridad de decisión total sobre ese incidente. El equipo ejecuta sin debate",
+        "Sólo Diego",
+        "El más antiguo del equipo"
+      ],
+      "correctIndex": 1,
+      "explanation": "IC tiene autoridad total durante la crisis. Puede delegar/consultar pero decisión final es suya. Equipo ejecuta sin debate. Post-mortem es el momento de cuestionar."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuál es el orden estricto de respuesta a crisis?",
+      "options": [
+        "Comunicar público → investigar → contener → decidir",
+        "Contener la hemorragia → investigar causa raíz → decidir acción correctiva → comunicar público",
+        "Investigar → comunicar → decidir → contener",
+        "Cualquier orden funciona"
+      ],
+      "correctIndex": 1,
+      "explanation": "Orden estricto: contener hemorragia → investigar causa → decidir acción correctiva → comunicar público (sólo cuando hay mensaje claro y acción concreta)."
+    },
+    {
+      "id": "q5",
+      "question": "¿Cuál es el Principio 4 del manual?",
+      "options": [
+        "Documentar todo desde minuto 1 (Google Doc o Notion con timestamps)",
+        "Borrar evidencia",
+        "No escribir nada",
+        "Delegar a un abogado"
+      ],
+      "correctIndex": 0,
+      "explanation": "Principio 4: documentar todo desde minuto 1 con timestamps (UTC + Dubai). 'Si no está documentado, no pasó'. Sirve para post-mortem, regulador, defensa legal, aprendizaje."
+    },
+    {
+      "id": "q6",
+      "question": "¿Quién es el Incident Commander para una crisis técnica (MT5, portal, CRM)?",
+      "options": [
+        "Diego",
+        "Susana",
+        "Dev Lead (Alex A / Gleb)",
+        "Pepe"
+      ],
+      "correctIndex": 2,
+      "explanation": "Crisis técnica: IC = Dev Lead (Alex A / Gleb). Operational Lead: Dev team. Communications: Diego + Yulia."
+    },
+    {
+      "id": "q7",
+      "question": "¿Quién es IC para una crisis regulatoria (AOFA, sanción)?",
+      "options": [
+        "Diego",
+        "Susana (Compliance)",
+        "Pepe",
+        "Stanislav"
+      ],
+      "correctIndex": 1,
+      "explanation": "Crisis regulatoria: IC = Susana (Compliance). Operational Lead: Diego. Communications: Diego (público) + Susana (regulador)."
+    },
+    {
+      "id": "q8",
+      "question": "¿Quién es IC para una crisis financiera (PSP, fondos)?",
+      "options": [
+        "Diego",
+        "Finance Manager (o Diego si no hay)",
+        "Susana",
+        "Angel"
+      ],
+      "correctIndex": 1,
+      "explanation": "Crisis financiera: IC = Finance Manager (o Diego si aún no está contratado el rol). Operational Lead: Pepe + Susana. Communications: Diego."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cuál es el canal de Telegram específico para crisis?",
+      "options": [
+        "#general",
+        "#crisis-neomaaa con notificaciones 24/7 prendidas",
+        "WhatsApp",
+        "Email"
+      ],
+      "correctIndex": 1,
+      "explanation": "#crisis-neomaaa con notificaciones 24/7 prendidas. Todos los principals, dev leads, leads operativos. Único canal donde el silencio no es opción."
+    },
+    {
+      "id": "q10",
+      "question": "¿Quién puede aprobar comunicación externa durante una crisis?",
+      "options": [
+        "Cualquier agente",
+        "IC + Diego siempre antes de publicarse",
+        "Sólo Marketing",
+        "El que detectó primero"
+      ],
+      "correctIndex": 1,
+      "explanation": "DANGER: comunicación externa SIEMPRE pasa por IC + Diego antes de publicarse. Un tweet impulsivo puede costar 6 meses de trabajo de brand."
+    },
+    {
+      "id": "q11",
+      "question": "Para MT5 caído, primera acción 0-15 min:",
+      "options": [
+        "Comunicar al cliente todo el detalle",
+        "Verificar estado real (ping, Manager Terminal, procesos) para confirmar caída real y no percepción",
+        "Enviar email masivo",
+        "Llamar a todos los clientes"
+      ],
+      "correctIndex": 1,
+      "explanation": "MT5 caído 0-15 min: verificar estado real (ping, Manager Terminal, procesos). Status message público inmediato, centralizar soporte, escalar a MetaQuotes/hosting."
+    },
+    {
+      "id": "q12",
+      "question": "Si MT5 está caído, ¿se pausan los nuevos registros?",
+      "options": [
+        "Nunca",
+        "Sí, mejor pausar el formulario web que generar 200 cuentas zombie",
+        "Solo al final",
+        "No importa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pausar nuevos registros si MT5 está caído. Mejor que generar 200 cuentas zombie que no pueden operar."
+    },
+    {
+      "id": "q13",
+      "question": "Causas típicas de bloqueo de fondos por un PSP:",
+      "options": [
+        "Sólo fraude",
+        "Chargeback rate >1%, cambio brusco de volumen, KYC del PSP disputa info, 10+ clientes dispute con banco, regulatorio, re-clasificación",
+        "Sólo problemas técnicos",
+        "Clima"
+      ],
+      "correctIndex": 1,
+      "explanation": "Causas PSP bloqueo: chargeback rate >1%, cambio brusco volumen, KYC disputado, dispute masivo de clientes, regulatorio, re-clasificación de sector."
+    },
+    {
+      "id": "q14",
+      "question": "Ante PSP que bloquea fondos, ¿cuántos PSPs minimo debería tener NEOMAAA por categoría?",
+      "options": [
+        "1",
+        "Mínimo 2 PSPs por categoría (card/crypto/bank/local); ideal 3",
+        "5",
+        "10"
+      ],
+      "correctIndex": 1,
+      "explanation": "Redundancia: minimo 2 PSPs por categoría (card/crypto/bank/local). Si uno falla, reroutear inmediato. Ideal escalar a 3 post-incidente."
+    },
+    {
+      "id": "q15",
+      "question": "¿Cuál es el peor escenario PSP?",
+      "options": [
+        "Que corten el servicio",
+        "Que holdeen $500k-1M durante 180 días. Sin ese cashflow, muchos brokers no sobreviven 6 meses",
+        "Una queja",
+        "Un chargeback"
+      ],
+      "correctIndex": 1,
+      "explanation": "Peor escenario PSP: hold de $500k-1M durante 180 días. Por eso es crítico cash reserve corporativo de 3-6 meses de opex independiente de PSPs."
+    },
+    {
+      "id": "q16",
+      "question": "Ante un ataque de phishing confirmado, ¿qué hacer con cuentas afectadas?",
+      "options": [
+        "Esperar a ver",
+        "Freezar cuentas afectadas inmediatamente — suspender trading + retiros. Mejor freeze temporal injusto que plata robada",
+        "Responder por email",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Phishing: freezar cuentas afectadas inmediatamente (trading + retiros). Mejor freeze temporal injusto que plata robada. Luego revisar logs, aislar vector, password reset forzado."
+    },
+    {
+      "id": "q17",
+      "question": "En caso de data breach confirmado, ¿cuál es el plazo de notificación a AOFA?",
+      "options": [
+        "Al día siguiente",
+        "Dentro de 72h típicamente",
+        "1 mes",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Breach notification: reportar a AOFA dentro del plazo regulatorio (72h típico). Notificar a clientes afectados individualmente. GDPR aplica a clientes europeos."
+    },
+    {
+      "id": "q18",
+      "question": "Feed corrupto / precios absurdos — primera acción (0-5 min):",
+      "options": [
+        "Esperar a ver si se arregla",
+        "PAUSAR TRADING INMEDIATAMENTE. Emergency stop MT5. Pepe o Stanislav decide sin consultar. Mejor 30 min sin trading que perder millones",
+        "Contactar clientes primero",
+        "Publicar en redes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Feed corrupto: PAUSAR TRADING INMEDIATAMENTE. Pepe o Stanislav sin consultar. Mejor 30 min sin trading que perder millones. Es el escenario más peligroso financieramente."
+    },
+    {
+      "id": "q19",
+      "question": "¿Qué hacer con trades ejecutados a precios absurdos durante feed corrupto?",
+      "options": [
+        "Todos se honorean",
+        "Todos se reversan",
+        "Los deliberadamente explotados (ej. oro a $100/oz con 100 lotes) se reversan por clausula 'clearly erroneous trades'. Trades legítimos con precios normales se mantienen",
+        "Sólo los pequeños"
+      ],
+      "correctIndex": 2,
+      "explanation": "Explotación deliberada del error → reversión (clausula 'clearly erroneous trades'). Trades legítimos con precios normales → se mantienen. Pepe decide borderline cases."
+    },
+    {
+      "id": "q20",
+      "question": "Cliente VIP enojado. ¿Qué clasificación usar?",
+      "options": [
+        "Siempre compensar",
+        "3 casos: (A) cliente perdió por su decisión, (B) hubo error del broker, (C) zona gris",
+        "Rechazar",
+        "Sólo escalar a Diego"
+      ],
+      "correctIndex": 1,
+      "explanation": "3 casos: A (cliente perdió por decisión — no compensar), B (error del broker — reconocer y compensar), C (zona gris — Pepe + Diego deciden, goodwill parcial)."
+    },
+    {
+      "id": "q21",
+      "question": "Cliente VIP caso A (perdió por su decisión), ¿se compensa?",
+      "options": [
+        "Sí, para evitar escándalo",
+        "NO ofrecer compensación. Sentar precedente de 'si amenazas públicamente te pago' destruye el negocio",
+        "Sólo 50%",
+        "Depende del monto"
+      ],
+      "correctIndex": 1,
+      "explanation": "Caso A: NO compensación. Empatía + datos claros (logs, execution, spreads). Compensar ante amenaza sienta precedente destructivo."
+    },
+    {
+      "id": "q22",
+      "question": "Ante reseña viral negativa, primera acción:",
+      "options": [
+        "Responder impulsivamente desde cuenta oficial",
+        "NO responder impulsivamente. Pausa mínimo 2 horas antes de respuesta pública. Un tweet emocional multiplica viralidad 10x",
+        "Amenazar legalmente",
+        "Borrar cuenta"
+      ],
+      "correctIndex": 1,
+      "explanation": "NO responder impulsivamente. Pausa mínimo 2h. Evaluar: ¿es real? ¿es FUD competidor? ¿es bot? Investigar antes de responder."
+    },
+    {
+      "id": "q23",
+      "question": "Ante notificación regulatoria (AOFA), regla crítica:",
+      "options": [
+        "Responder inmediato",
+        "NO responder antes de consultar abogado regulatorio. Una respuesta mal redactada puede empeorar posición",
+        "Ignorar",
+        "Denunciar públicamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "NO responder al regulador sin abogado regulatorio. Leer completo y calmo, identificar plazo, clasificar (rutinario vs investigación), clarificar con abogado externo."
+    },
+    {
+      "id": "q24",
+      "question": "Ante una filtración interna confirmada de data de clientes:",
+      "options": [
+        "No comunicar",
+        "Breach notification a AOFA + notificación individual a clientes afectados + comunicación pública reconociendo ('Un ex-empleado filtró data, tomamos acciones, contactamos afectados')",
+        "Sólo informar a Dirección",
+        "Callar y esperar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Data sensible filtrada: AQUÍ no se puede ocultar. Breach notification AOFA, notificación clientes afectados, legal agresivo, comunicación pública reconociendo y detallando acciones."
+    },
+    {
+      "id": "q25",
+      "question": "¿Cuál es la mejor defensa contra filtración interna?",
+      "options": [
+        "Más abogados",
+        "Cultura antes. Empleados tratados con dignidad no se van en malos términos. Invertir en people ops es más barato que litigar leaks",
+        "Monitoreo masivo",
+        "Contratos más estrictos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mejor defensa: cultura. Empleados valorados no se van en malos términos. Despidos humillantes, salarios impagos y conflictos mal manejados generan la mayoría de leaks."
+    },
+    {
+      "id": "q26",
+      "question": "¿Cuánto tiempo después de una crisis se hace el post-mortem?",
+      "options": [
+        "1 mes después",
+        "48h después — sesión de 1h minimo",
+        "Una semana",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Post-mortem 48h después, mínimo 1h. Participantes: IC + Operational Lead + Communications + afectados directos. Facilitador neutral si aplica."
+    },
+    {
+      "id": "q27",
+      "question": "Regla blameless del post-mortem:",
+      "options": [
+        "Culpar al responsable",
+        "No se culpa personas, se culpa sistemas. Si una persona falló, probablemente el sistema permitía fallar",
+        "Despedir al culpable",
+        "No discutir"
+      ],
+      "correctIndex": 1,
+      "explanation": "Blameless: no se culpa personas, se culpa sistemas. Action items con owner + deadline. Review trimestral de que los changes se implementaron."
+    },
+    {
+      "id": "q28",
+      "question": "¿Cuántas personas mínimo deben estar en el canal #crisis-neomaaa?",
+      "options": [
+        "Sólo Diego",
+        "Todos los principals, dev leads, leads operativos (Head Support, Head Sales, Marketing, Finance Manager)",
+        "Todo el equipo",
+        "Sólo los agentes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Canal #crisis-neomaaa: todos principals (Diego, Yulia, Stanislav, Pepe, Susana, Edward), dev leads (Alex A, Gleb), leads operativos. Notif 24/7."
+    },
+    {
+      "id": "q29",
+      "question": "Ante feed corrupto, ¿se debe culpar públicamente al liquidity provider?",
+      "options": [
+        "Sí, siempre",
+        "NO. Discusión privada. Culpar públicamente = legal risk",
+        "Solo si es verdad",
+        "Para calmar al cliente"
+      ],
+      "correctIndex": 1,
+      "explanation": "NO culpar LP públicamente. Discusión privada. Legal risk + daño a relación comercial. Post-mortem con LP para compensación y ajuste de contrato."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuál es la cadena de mando por tiempo (tabla) en crisis?",
+      "options": [
+        "Detección T+0, reconocimiento T+5min, asunción IC T+10min, war room abierto T+15min, contención T+15 a T+60min, comunicación interna T+30min, externa sólo cuando hay plan",
+        "Todo inmediato",
+        "Esperar 24h",
+        "Sin estructura"
+      ],
+      "correctIndex": 0,
+      "explanation": "Timeline: T+0 detección, T+5 reconocimiento al menos un principal, T+10 IC asume formalmente, T+15 war room, T+15-60 contención, T+30 update interno, externo sólo con plan."
+    },
+    {
+      "id": "q31",
+      "question": "Si el cliente VIP amenaza 'voy a hacer chargeback masivo':",
+      "options": [
+        "Aceptar",
+        "'Cada transacción tiene evidencia de ejecución correcta. Chargeback fraudulento tiene consecuencias legales y bancarias. Preferimos resolver directo'",
+        "Rogar",
+        "Bloquear cuenta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chargeback masivo fraudulento tiene consecuencias legales para el cliente. Respuesta firme pero profesional. Preferir resolver directo."
+    },
+    {
+      "id": "q32",
+      "question": "En el escenario de ataque phishing generalizado, ¿qué acción considerar?",
+      "options": [
+        "Esperar",
+        "Reset forzado de password para toda la base de clientes + bloqueo de retiros 24h. Forzar 2FA app (no SMS)",
+        "Sólo informar",
+        "Cancelar cuentas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ataque generalizado: reset forzado masivo + bloqueo de retiros 24h + forzar 2FA via app TOTP (no SMS para evitar sim swap). Warning público inmediato."
+    },
+    {
+      "id": "q33",
+      "question": "Filtración de data sensible — ¿se puede ocultar?",
+      "options": [
+        "Sí, siempre",
+        "NO. Aquí no se puede ocultar. Reconocer: 'Un ex-empleado filtró data interna. Tomamos [acciones]. Contactamos clientes afectados directamente'",
+        "Depende del tamaño",
+        "Solo si el regulador no se entera"
+      ],
+      "correctIndex": 1,
+      "explanation": "Filtración data sensible: NO se puede ocultar. Reconocer públicamente + breach notification a AOFA + notificación individual + legal action agresivo."
+    },
+    {
+      "id": "q34",
+      "question": "Herramientas críticas pre-crisis que deben existir:",
+      "options": [
+        "Ninguna",
+        "Canal Telegram #crisis-neomaaa, Google Doc template, Intercom status templates 3 idiomas, carpeta /comunicacion-crisis/ con templates, monitoring Pingdom/UptimeRobot, social listening",
+        "Sólo Slack",
+        "Sólo un Google Doc"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pre-crisis: canal Telegram, Google Doc con template timestamped, Intercom status ES/EN/RU, carpeta templates, monitoring uptime, social listening."
+    },
+    {
+      "id": "q35",
+      "question": "Post-mortem sin changes concretos:",
+      "options": [
+        "Es útil",
+        "Es peor que no hacerlo. Sin owner + fecha específica no pasa nada. Conclusión 'la próxima vez mejor' sin especificar qué cambia = crisis se repite casi idéntica",
+        "No importa",
+        "Sólo es para archivar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Post-mortem sin action items con owner + fecha es peor que no hacerlo. Si no especifica qué cambia, la crisis se repetirá casi idéntica."
+    }
+  ]
+}

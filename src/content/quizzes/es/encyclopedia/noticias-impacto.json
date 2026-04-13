@@ -1,0 +1,406 @@
+{
+  "docPath": "encyclopedia/noticias-impacto",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Por qué se mueve el precio cuando sale una noticia económica?",
+      "options": [
+        "Por el dato absoluto publicado",
+        "Por la sorpresa frente a la expectativa previa (consenso)",
+        "Porque el broker mueve el precio manualmente",
+        "Porque los retiros aumentan"
+      ],
+      "correctIndex": 1,
+      "explanation": "El precio no se mueve por el dato absoluto, se mueve por la sorpresa vs expectativa. Si consenso y dato son iguales, impacto es mínimo."
+    },
+    {
+      "id": "q2",
+      "question": "Si el consenso NFP era 180k y salieron 250k empleos creados, ¿qué pasa con EUR/USD típicamente?",
+      "options": [
+        "Sube porque es dato positivo",
+        "Baja porque USD se fortalece (sorpresa positiva USD)",
+        "No se mueve",
+        "Depende del humor del mercado"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sorpresa positiva USD → USD se fortalece → EUR/USD baja. Lo que importa es la sorpresa vs lo esperado."
+    },
+    {
+      "id": "q3",
+      "question": "¿Qué es NFP?",
+      "options": [
+        "Net Forex Position",
+        "Non-Farm Payrolls: empleos no agrícolas creados en EEUU en el último mes",
+        "National Financial Plan",
+        "New Forex Protocol"
+      ],
+      "correctIndex": 1,
+      "explanation": "NFP = Non-Farm Payrolls. Cantidad de empleos no agrícolas creados en EEUU. Sale primer viernes de cada mes, 13:30 GMT."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuándo se publica el NFP?",
+      "options": [
+        "Último lunes del mes",
+        "Primer viernes de cada mes, 13:30 GMT",
+        "Todos los miércoles",
+        "El 15 de cada mes"
+      ],
+      "correctIndex": 1,
+      "explanation": "NFP sale el primer viernes de cada mes a las 13:30 GMT."
+    },
+    {
+      "id": "q5",
+      "question": "¿Qué es el CPI?",
+      "options": [
+        "Consumer Price Index: inflación de precios al consumidor",
+        "Central Processing Indicator",
+        "Commercial Price Input",
+        "Country Performance Index"
+      ],
+      "correctIndex": 0,
+      "explanation": "CPI = Consumer Price Index. La Fed decide las tasas en función (entre otras cosas) de la inflación."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuál variante de CPI es la favorita de la Fed?",
+      "options": ["CPI general", "Core CPI", "PCE", "Headline CPI"],
+      "correctIndex": 2,
+      "explanation": "PCE (Personal Consumption Expenditures) es el indicador favorito de la Fed. Core CPI (sin alimentos ni energía) es el más mirado por el mercado."
+    },
+    {
+      "id": "q7",
+      "question": "¿Qué es FOMC?",
+      "options": [
+        "Federal Options Market Commission",
+        "Reunión del comité de política monetaria de EEUU que define la tasa de interés de referencia",
+        "Foreign Monetary Control",
+        "Federal Operations Maximum Committee"
+      ],
+      "correctIndex": 1,
+      "explanation": "FOMC es la reunión del comité de política monetaria de la Fed. 8 veces al año, miércoles 18:00 GMT."
+    },
+    {
+      "id": "q8",
+      "question": "¿Qué mueve más el mercado en una reunión FOMC?",
+      "options": [
+        "Solo la decisión de tasa",
+        "El comunicado y la rueda de prensa de Powell (el tono hawkish/dovish)",
+        "El horario del anuncio",
+        "El clima de Washington"
+      ],
+      "correctIndex": 1,
+      "explanation": "El comunicado y conferencia de Powell mueven MÁS que la decisión en sí. El tono marca expectativas de los próximos 6 meses."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cuál NO es una de las 7 noticias de mayor impacto según el doc?",
+      "options": ["NFP", "FOMC", "ECB", "Datos de crypto de Binance"],
+      "correctIndex": 3,
+      "explanation": "Las 7 son: NFP, CPI, FOMC, ECB, GDP, ISM Manufacturing PMI y Retail Sales."
+    },
+    {
+      "id": "q10",
+      "question": "El ECB anuncia tasas los jueves a las 12:15 GMT. ¿Qué otra cosa pasa después?",
+      "options": [
+        "Nada más",
+        "Conferencia a las 13:00. El discurso de Lagarde puede mover EUR/USD 60-100 pips en minutos",
+        "Cierre automático de mercados europeos",
+        "Reunión privada con brokers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hay conferencia a las 13:00 con Lagarde. Su discurso puede mover EUR/USD 60-100 pips en minutos."
+    },
+    {
+      "id": "q11",
+      "question": "¿Qué indica un ISM Manufacturing PMI mayor a 50?",
+      "options": ["Recesión", "Expansión económica en manufactura", "Deflación", "Crisis bancaria"],
+      "correctIndex": 1,
+      "explanation": "PMI > 50 = expansión; < 50 = contracción. Es leading indicator (adelanta recesiones)."
+    },
+    {
+      "id": "q12",
+      "question": "¿Por qué importan las Retail Sales?",
+      "options": [
+        "Miden salud del consumidor, que es el 70% del PBI americano",
+        "Porque afectan solo al retail chico",
+        "Son solo ruido estadístico",
+        "Miden exportaciones"
+      ],
+      "correctIndex": 0,
+      "explanation": "Retail Sales mide la salud del consumidor americano, que representa ~70% del PBI. Impacto medio-alto."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuáles son los dos calendarios económicos más usados?",
+      "options": [
+        "Bloomberg Pro e Reuters Eikon",
+        "Forex Factory e Investing.com",
+        "Yahoo Finance y Wall Street Journal",
+        "Calendly y Notion"
+      ],
+      "correctIndex": 1,
+      "explanation": "Forex Factory e Investing.com son los calendarios económicos más usados por traders retail."
+    },
+    {
+      "id": "q14",
+      "question": "En un calendario económico, ¿qué es 'Forecast'?",
+      "options": [
+        "Dato que salió publicado",
+        "Consenso de analistas (expectativa previa)",
+        "Dato del mes anterior",
+        "Pronóstico del clima"
+      ],
+      "correctIndex": 1,
+      "explanation": "Forecast = consenso de analistas. Es la expectativa previa contra la que se compara el dato publicado."
+    },
+    {
+      "id": "q15",
+      "question": "Regla general de precauciones antes de eventos económicos, ¿qué impacto justifica precauciones fuertes?",
+      "options": [
+        "Cualquier evento",
+        "Solo los de impacto alto (rojo)",
+        "Solo los medianos",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "Solo los eventos de impacto alto (rojo) justifican precauciones fuertes. Medianos afectan sobre todo intradía; bajos son ruido."
+    },
+    {
+      "id": "q16",
+      "question": "¿Qué pasa con los spreads 30-60 minutos antes de una noticia de alto impacto?",
+      "options": [
+        "Se mantienen iguales",
+        "Bajan",
+        "Empiezan a abrirse levemente; volumen baja; aparecen movimientos en falso",
+        "Se congelan por política del broker"
+      ],
+      "correctIndex": 2,
+      "explanation": "Pre-noticia: volumen baja, spreads se abren levemente, posiciones grandes se recortan, aparecen movimientos en falso."
+    },
+    {
+      "id": "q17",
+      "question": "¿Qué es el 'whipsaw' durante una publicación?",
+      "options": [
+        "Un tipo de orden pendiente",
+        "Precio que se mueve 30-80 pips arriba y abajo en segundos antes de encontrar dirección",
+        "Una pausa automática del broker",
+        "Un bug de MT5"
+      ],
+      "correctIndex": 1,
+      "explanation": "Whipsaw = el precio se mueve violentamente arriba y abajo en segundos (30-80 pips) durante la publicación, antes de encontrar dirección."
+    },
+    {
+      "id": "q18",
+      "question": "Durante una noticia high-impact, los spreads en majors pueden pasar de 0.3 a ¿cuánto típicamente?",
+      "options": ["0.5 pips", "5-15 pips en majors y 20+ en cross exóticos", "100 pips siempre", "No cambian"],
+      "correctIndex": 1,
+      "explanation": "Los spreads explotan de 0.3 a 5-15 pips en majors, y a 20+ en cross exóticos durante publicaciones high-impact."
+    },
+    {
+      "id": "q19",
+      "question": "Si un cliente tenía stop loss cerca del precio en el momento de un evento high-impact, ¿qué pasa?",
+      "options": [
+        "Se cancela automáticamente",
+        "Slippage negativo es casi garantizado",
+        "Se ejecuta siempre al precio exacto",
+        "El broker absorbe la pérdida"
+      ],
+      "correctIndex": 1,
+      "explanation": "Con stop cerca del precio en momento de evento high-impact, el slippage negativo es casi garantizado."
+    },
+    {
+      "id": "q20",
+      "question": "En el ejemplo del NFP con EUR/USD en 1.0850, tras el dato 250k vs 180k esperados, ¿qué movimiento ocurre en el minuto 1?",
+      "options": [
+        "Subida a 1.0900",
+        "Bajada violenta a 1.0810 (-40 pips) con spread abierto de 5 pips",
+        "Lateralización",
+        "Cierre del mercado"
+      ],
+      "correctIndex": 1,
+      "explanation": "Minuto 1: bajada violenta a 1.0810 (-40 pips) con spread abierto de 5 pips. Es el shock inicial."
+    },
+    {
+      "id": "q21",
+      "question": "¿Qué pasó con el EUR/CHF en enero 2015 (SNB)?",
+      "options": [
+        "Subió 50% en un día",
+        "El Swiss National Bank removió el piso de 1.20 y cayó de 1.2000 a 0.8500 en minutos sin liquidez",
+        "Se detuvo por 3 días",
+        "Nada extraordinario"
+      ],
+      "correctIndex": 1,
+      "explanation": "El SNB removió el piso de 1.20 del EUR/CHF. Cayó de 1.2000 a 0.8500 en minutos. Cuentas quedaron en negativo, brokers quebraron (Alpari UK)."
+    },
+    {
+      "id": "q22",
+      "question": "¿Qué es NBP (Negative Balance Protection)?",
+      "options": [
+        "New Broker Protocol",
+        "El broker se compromete a resetear a cero cualquier saldo negativo del cliente",
+        "National Banking Policy",
+        "No Bonus Policy"
+      ],
+      "correctIndex": 1,
+      "explanation": "NBP = Negative Balance Protection. El broker resetea a cero saldos negativos. NEOMAAA ofrece NBP en cuentas retail estándar."
+    },
+    {
+      "id": "q23",
+      "question": "¿Qué es la segregación de fondos?",
+      "options": [
+        "Separar clientes por país",
+        "El capital del cliente está en cuentas separadas del capital operativo del broker; si el broker quiebra, el cliente recupera sus fondos",
+        "Separar cuentas por tipo de instrumento",
+        "Política de offshore"
+      ],
+      "correctIndex": 1,
+      "explanation": "Segregación de fondos: el capital del cliente está separado del operativo del broker. Si el broker quiebra, el cliente recupera sus fondos."
+    },
+    {
+      "id": "q24",
+      "question": "Cliente pregunta '¿por qué mi stop saltó más lejos del nivel?'. ¿Qué NO debe decir soporte?",
+      "options": [
+        "'Fue culpa nuestra'",
+        "'Fue culpa tuya'",
+        "Explicar empáticamente el mecanismo de slippage",
+        "Ninguna de las anteriores — soporte NUNCA dice 'fue culpa nuestra' ni 'fue culpa tuya'. Ambas son incorrectas"
+      ],
+      "correctIndex": 3,
+      "explanation": "Soporte NUNCA debe decir 'fue culpa nuestra' ni 'fue culpa tuya'. Ambas son incorrectas. Explica mecanismo con empatía."
+    },
+    {
+      "id": "q25",
+      "question": "¿Cuál de estas frases es PROHIBIDA en soporte cuando un cliente pierde?",
+      "options": [
+        "'Entiendo la frustración'",
+        "'Así funciona el mercado' (suena desdeñoso)",
+        "'Revisemos los datos del trade'",
+        "'Esto se llama slippage'"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Así funciona el mercado' suena desdeñoso. Tampoco decir 'deberías haber puesto un stop más amplio' (juicio) ni 'el broker no tiene nada que ver' (defensivo)."
+    },
+    {
+      "id": "q26",
+      "question": "Si el consenso CPI era 3.2% y salió 3.2%, ¿qué pasa con el precio típicamente?",
+      "options": [
+        "Movimiento violento",
+        "Impacto mínimo — el precio ya lo tenía puesto",
+        "Sube 100 pips automático",
+        "Se cierra el mercado"
+      ],
+      "correctIndex": 1,
+      "explanation": "Si consenso y dato coinciden, impacto es mínimo porque el precio ya lo tenía incorporado en la expectativa."
+    },
+    {
+      "id": "q27",
+      "question": "Post-noticia (minutos 3-30), ¿qué pasa?",
+      "options": [
+        "Continúa el whipsaw de forma eterna",
+        "Mercado digiere el dato, elige dirección, spreads se normalizan progresivamente",
+        "Se duplican los spreads",
+        "Se cierran posiciones automáticamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Post-noticia (3-30 min): mercado digiere, elige dirección (continuación o retroceso), spreads se normalizan progresivamente."
+    },
+    {
+      "id": "q28",
+      "question": "¿Qué pasó con oil futures en marzo 2020?",
+      "options": [
+        "Subieron 100%",
+        "Cotizaron en negativo (-37 USD) por primera vez en la historia",
+        "Se detuvieron por semanas",
+        "Nada relevante"
+      ],
+      "correctIndex": 1,
+      "explanation": "En COVID marzo 2020 el oil futures cotizó en negativo (-37 USD) por primera vez en la historia. Ejemplo clásico de black swan."
+    },
+    {
+      "id": "q29",
+      "question": "¿Qué es un flash crash?",
+      "options": [
+        "Evento como GBP/USD 7 oct 2016: cayó 6% en 2 minutos por algoritmo mal calibrado",
+        "Un apagón de servidores",
+        "Una orden stop",
+        "El cierre diario de mercado"
+      ],
+      "correctIndex": 0,
+      "explanation": "Flash crash: caída brusca por falla algorítmica. Ej: GBP/USD 7 oct 2016, cayó 6% en 2 minutos a las 4 AM GMT."
+    },
+    {
+      "id": "q30",
+      "question": "Recomendación de riesgo antes de eventos high-impact:",
+      "options": [
+        "Duplicar el tamaño de posición",
+        "Cerrar posiciones de corto plazo / reducir apalancamiento / dar holgura a stops",
+        "Ignorar el evento",
+        "Solo operar pares exóticos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Antes de eventos high-impact: cerrar corto plazo para evitar whipsaw, reducir apalancamiento, dar holgura a stops o usar mental stops."
+    },
+    {
+      "id": "q31",
+      "question": "¿Por qué el trader debe saber que el spread se va a abrir durante una noticia?",
+      "options": [
+        "Para demandar al broker",
+        "Para no alarmarse al ver un spread de 10 pips — es normal",
+        "Para cancelar su cuenta",
+        "Para llamar a soporte al instante"
+      ],
+      "correctIndex": 1,
+      "explanation": "El trader debe saber que el spread se abre para no alarmarse. Un spread de 10 pips durante NFP es normal, no un error."
+    },
+    {
+      "id": "q32",
+      "question": "Cuando un cliente pregunta sobre su stop ejecutado lejos, ¿qué propone el modelo de respuesta?",
+      "options": [
+        "Cerrar el ticket rápido",
+        "Validar frustración, explicar slippage como mecanismo normal, ofrecer revisar timestamp del trade",
+        "Compensar la pérdida",
+        "Derivar a compliance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Respuesta modelo: validar frustración ('entiendo'), explicar mecanismo (slippage durante alta volatilidad), ofrecer revisar timestamp objetivo."
+    },
+    {
+      "id": "q33",
+      "question": "En segundos 0-3 de publicación NFP, un cliente ve su orden pendiente muy cercana ejecutarse con slippage importante. ¿Es normal?",
+      "options": [
+        "No, es bug",
+        "Sí, órdenes pendientes muy cercanas al precio pueden ejecutarse con slippage importante durante la publicación",
+        "Solo pasa en cuentas demo",
+        "Solo en cripto"
+      ],
+      "correctIndex": 1,
+      "explanation": "Órdenes pendientes cercanas al precio durante publicación high-impact pueden ejecutarse con slippage importante. Es normal."
+    },
+    {
+      "id": "q34",
+      "question": "¿Por qué GDP tiene impacto menor que NFP o CPI?",
+      "options": [
+        "Porque el dato es mensual",
+        "Porque es trimestral, menos inmediato que empleo o inflación, aunque afecta la visión de largo plazo",
+        "Porque no mueve USD",
+        "Porque el mercado lo ignora"
+      ],
+      "correctIndex": 1,
+      "explanation": "GDP es trimestral (con revisiones), menos inmediato que empleo/inflación mensual. Afecta visión de largo plazo, impacto medio-alto."
+    },
+    {
+      "id": "q35",
+      "question": "Resumen: ¿cuál es la regla de oro de soporte ante cliente enojado por ejecución durante noticia?",
+      "options": [
+        "Defender siempre al broker",
+        "Culpar al cliente por no saber",
+        "No defender ni culpar: explicar cómo funciona el mercado con empatía",
+        "Ofrecer compensación inmediata"
+      ],
+      "correctIndex": 2,
+      "explanation": "Soporte no defiende ni culpa: explica cómo funciona el mercado con empatía. Es la regla de oro."
+    }
+  ]
+}

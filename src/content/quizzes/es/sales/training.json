@@ -1,0 +1,391 @@
+{
+  "docPath": "sales/training",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuánto dura el programa de capacitación Sales?",
+      "options": ["2 semanas", "4 semanas", "6 semanas (60h total)", "12 semanas"],
+      "correctIndex": 2,
+      "explanation": "6 semanas, 30 días hábiles, 60h total. Formato: 2 horas diarias (10am-12pm), lunes a viernes."
+    },
+    {
+      "id": "q2",
+      "question": "¿Quiénes son los participantes del programa?",
+      "options": [
+        "Toda la empresa",
+        "Franco, Edward, Luis",
+        "Solo el CEO",
+        "Equipo técnico"
+      ],
+      "correctIndex": 1,
+      "explanation": "Participantes: Franco, Edward, Luis. Responsables de módulos: Pepe (producto), Susana (compliance), Diego (ventas/CRM)."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuál es la nota mínima para aprobar el programa?",
+      "options": ["50%", "70%", "85% general (95% en compliance)", "100%"],
+      "correctIndex": 2,
+      "explanation": "85% general, y 95%+ EN LA SECCIÓN DE COMPLIANCE. Compliance = tolerancia 0 a errores."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuál es la DIFERENCIA CLAVE entre vender propfirm y vender broker?",
+      "options": [
+        "Son iguales",
+        "Propfirm: cliente paga challenge (fee único). Broker: cliente deposita su propio dinero real",
+        "Solo cambia el idioma",
+        "El broker es más barato"
+      ],
+      "correctIndex": 1,
+      "explanation": "Propfirm: cliente paga challenge (fee único), riesgo de la propfirm. Broker: cliente deposita dinero real, riesgo del cliente. Cambia producto, cliente, riesgo regulatorio, KPIs."
+    },
+    {
+      "id": "q5",
+      "question": "¿Por qué es crítico que los agents no salgan con mentalidad de propfirm?",
+      "options": [
+        "Preferencia del CEO",
+        "4 riesgos: promesas ilegales de rendimiento, falta de producto, riesgo regulatorio, pérdida de clientes por no manejar objeciones de confianza",
+        "Solo por tradición",
+        "No es crítico"
+      ],
+      "correctIndex": 1,
+      "explanation": "4 riesgos que se materializan en 48h: (1) promesas ilegales, (2) no saber explicar spreads/swap/margin, (3) ignorar compliance, (4) perder clientes por no manejar objeciones de confianza."
+    },
+    {
+      "id": "q6",
+      "question": "En Semana 1, ¿quién es el instructor principal?",
+      "options": ["Diego", "Susana", "Pepe", "Angel"],
+      "correctIndex": 2,
+      "explanation": "Semana 1 (Producto Broker): Pepe. Semana 2 (MT5): Pepe. Semana 3 (Compliance): Susana. Semana 4 (Arte de Vender): Diego. Semana 5 (Flujo Operativo): Diego + Pepe. Semana 6 (Simulaciones Finales): Diego + Susana + Pepe."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuál es el objetivo de la Semana 1?",
+      "options": [
+        "Aprender CRM",
+        "Que cada agent entienda el producto broker como si fuera trader",
+        "Hacer llamadas reales",
+        "Cerrar ventas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Semana 1 objetivo: que cada agent entienda el producto broker como si fuera trader. Fundamentales: broker vs propfirm, spreads, leverage, margin, swaps, instrumentos, NEOMAAA vs competencia."
+    },
+    {
+      "id": "q8",
+      "question": "¿Qué se aprende en la Semana 2?",
+      "options": [
+        "Compliance",
+        "MetaTrader 5 hands-on: setup, operaciones básicas, charts, account management, troubleshooting",
+        "Contabilidad",
+        "Copywriting"
+      ],
+      "correctIndex": 1,
+      "explanation": "Semana 2 MT5 hands-on: setup e interfaz, operaciones básicas (buy/sell, pending, SL/TP), charts y herramientas, account management (statement), troubleshooting común."
+    },
+    {
+      "id": "q9",
+      "question": "¿Qué pasa si un agent no aprueba la Semana 3 (Compliance)?",
+      "options": [
+        "Pasa igual a la siguiente",
+        "Repite la semana (fallar = repetir)",
+        "Recibe un bonus",
+        "Despido inmediato"
+      ],
+      "correctIndex": 1,
+      "explanation": "Semana 3 Compliance requiere 90%+ para pasar. Fallar = repetir la semana."
+    },
+    {
+      "id": "q10",
+      "question": "La frase 'Te garantizo que vas a ganar dinero' está PROHIBIDA. ¿Cuál es la alternativa correcta?",
+      "options": [
+        "'Con nosotros ganás seguro'",
+        "'Nuestros clientes tienen acceso a herramientas profesionales para operar los mercados'",
+        "'Confía en mí'",
+        "'Siempre se gana en NEOMAAA'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prohibido: 'Te garantizo que vas a ganar dinero'. Alternativa: 'Nuestros clientes tienen acceso a herramientas profesionales para operar los mercados.'"
+    },
+    {
+      "id": "q11",
+      "question": "'Pedí plata prestada para invertir' está prohibido. ¿Alternativa correcta?",
+      "options": [
+        "'Depositá lo que puedas conseguir'",
+        "'Solo opera con dinero que puedas permitirte perder'",
+        "'Invertí todos tus ahorros'",
+        "'Apalancate con crédito'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prohibido: 'pedir plata prestada' (inducción a endeudamiento). Alternativa: 'Solo opera con dinero que puedas permitirte perder.'"
+    },
+    {
+      "id": "q12",
+      "question": "'Esto es mejor que un banco / inversión segura' está prohibido porque...",
+      "options": [
+        "Es verdad",
+        "Comparación engañosa con productos regulados",
+        "Suena mal",
+        "Los bancos se quejan"
+      ],
+      "correctIndex": 1,
+      "explanation": "Comparación con banco es engañosa y regulatoriamente prohibida. Alternativa: 'El trading de CFDs es diferente a inversiones tradicionales — tiene riesgos y oportunidades distintas.'"
+    },
+    {
+      "id": "q13",
+      "question": "En el proceso KYC, ¿qué hace el sales agent si Sumsub devuelve 'YELLOW - Doc borroso'?",
+      "options": [
+        "Ignorar el caso",
+        "Contactar al cliente por WhatsApp: 'necesitamos que vuelvas a subir tu documento, la imagen no se ve clara, aquí los tips para que salga a la primera...'",
+        "Escalar inmediatamente a Susana",
+        "Rechazar al cliente"
+      ],
+      "correctIndex": 1,
+      "explanation": "YELLOW (retry) Doc borroso: contactar al cliente por WhatsApp pidiéndole re-subir con tips para que salga bien. Solo YELLOW por domicilio requiere otro documento. RED (rechazado final) y PEP/Sanctions van a Susana."
+    },
+    {
+      "id": "q14",
+      "question": "¿Qué hace el sales agent si Sumsub marca PEP/Sanctions hit?",
+      "options": [
+        "Pedir más documentación al cliente",
+        "Escalar a Susana INMEDIATAMENTE. No dar explicación al cliente. Decir: 'Tu solicitud está en revisión por nuestro equipo de compliance'",
+        "Aprobar manualmente",
+        "Devolver el depósito"
+      ],
+      "correctIndex": 1,
+      "explanation": "PEP/Sanctions hit: cuenta bloqueada. Escalar a Susana INMEDIATAMENTE. No dar explicación al cliente. Solo: 'Tu solicitud está en revisión por nuestro equipo de compliance.'"
+    },
+    {
+      "id": "q15",
+      "question": "¿Cuáles son las 5 partes del Pitch NEOMAAA (Semana 4 Día 1)?",
+      "options": [
+        "Solo introducción",
+        "Hook (15s), Dolor (30s), Solución (45s), Prueba social (30s), CTA (30s) — máx 3 minutos total",
+        "Solo el precio",
+        "Una hora de explicación"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pitch 3 minutos máx: Hook (15s), Dolor (30s), Solución (45s), Prueba social (30s), CTA (30s)."
+    },
+    {
+      "id": "q16",
+      "question": "¿Cuáles son las 4 técnicas de cierre enseñadas?",
+      "options": [
+        "Solo una técnica",
+        "Cierre asumido, cierre por alternativa, cierre por tiempo, cierre por compromiso menor",
+        "Solo cierre agresivo",
+        "No se enseña"
+      ],
+      "correctIndex": 1,
+      "explanation": "4 técnicas: (1) Asumido ('¿Te creo la cuenta ahora?'), (2) Alternativa ('¿Cent o Standard?'), (3) Tiempo ('hoy spreads especiales'), (4) Compromiso menor ('empezamos con demo')."
+    },
+    {
+      "id": "q17",
+      "question": "¿Cuál es el tiempo MÁXIMO de respuesta para un lead caliente?",
+      "options": [
+        "24 horas",
+        "1 hora",
+        "Menos de 5 minutos",
+        "1 semana"
+      ],
+      "correctIndex": 2,
+      "explanation": "Regla: responder a lead caliente en <5 minutos. Máximo 3 intentos de contacto antes de mover a 'cold'."
+    },
+    {
+      "id": "q18",
+      "question": "¿Cuál es la duración ideal de una llamada comercial?",
+      "options": ["2 minutos", "8-12 minutos", "30 minutos", "1 hora"],
+      "correctIndex": 1,
+      "explanation": "Llamada telefónica: duración ideal 8-12 minutos."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cuál es la cadencia de follow-up recomendada?",
+      "options": [
+        "Solo primer contacto",
+        "Día 0 primer contacto, Día 1 follow-up, Día 3 segundo con valor agregado, Día 7 último intento + demo, Día 14 mover a nurture",
+        "Diariamente durante 30 días",
+        "Cada mes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cadencia: Día 0 primer contacto <5min, Día 1 follow-up, Día 3 segundo con valor agregado (artículo, chart, tip), Día 7 último intento + demo, Día 14 mover a nurture sequence."
+    },
+    {
+      "id": "q20",
+      "question": "¿Cuál es el KPI de contactos diarios por sales agent?",
+      "options": ["5", "15", "30+ (5+ conversaciones significativas, 1+ KYC iniciado)", "100+"],
+      "correctIndex": 2,
+      "explanation": "KPIs diarios: 30+ contactos, 5+ conversaciones significativas, 1+ KYC iniciado. Rutina: 15 contactos antes del almuerzo + 15 después."
+    },
+    {
+      "id": "q21",
+      "question": "¿Cuáles son los stages del pipeline en Skale CRM?",
+      "options": [
+        "New/Closed",
+        "New Lead → Contacted → Qualified → KYC Started → KYC Approved → FTD → Active",
+        "Lead/Customer",
+        "No hay stages"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pipeline: New Lead → Contacted → Qualified → KYC Started → KYC Approved → FTD → Active."
+    },
+    {
+      "id": "q22",
+      "question": "En Semana 5, ¿qué hace el agent cuando el KYC es aprobado?",
+      "options": [
+        "Nada, espera al cliente",
+        "Llamar al cliente en los siguientes 30 minutos",
+        "Esperar 1 semana",
+        "Enviar solo email"
+      ],
+      "correctIndex": 1,
+      "explanation": "KYC aprobado → llamar al cliente en los siguientes 30 minutos. Guiar primer depósito, ayudar a navegar el portal, ofrecer guiar el primer trade."
+    },
+    {
+      "id": "q23",
+      "question": "Después del FTD, ¿cuándo se contacta al cliente?",
+      "options": [
+        "Solo si paga más",
+        "24h: '¿cómo te fue?'. 7 días: '¿abriste operaciones?'. 30 días: check-in relación",
+        "Nunca",
+        "Solo al año"
+      ],
+      "correctIndex": 1,
+      "explanation": "Post-FTD es el INICIO, no el final: 24h después ('¿cómo te fue?'), 7 días ('¿operaciones?'), 30 días (check-in). Identificar señales de abandono: sin login 7+ días, sin operaciones."
+    },
+    {
+      "id": "q24",
+      "question": "¿Cuál es la duración del examen final escrito (Semana 6)?",
+      "options": ["10 preguntas", "25 preguntas", "50 preguntas", "100 preguntas"],
+      "correctIndex": 2,
+      "explanation": "Examen final escrito: 50 preguntas — Producto (15), MT5 (10), Compliance (15, tolerancia 0), Ventas y objeciones (10)."
+    },
+    {
+      "id": "q25",
+      "question": "¿Cuánto dura la llamada grabada del examen práctico final?",
+      "options": ["5 minutos", "15 minutos", "30 minutos", "1 hora"],
+      "correctIndex": 1,
+      "explanation": "Examen práctico Semana 6 Día 4: llamada grabada de 15 minutos con evaluador externo. Se evalúa: compliance (30%), producto (25%), objeciones (20%), cierre (15%), profesionalismo (10%)."
+    },
+    {
+      "id": "q26",
+      "question": "¿Cuántas simulaciones intensivas se hacen por agent en Semana 6?",
+      "options": [
+        "3",
+        "5",
+        "10 llamadas simuladas con distintos perfiles (principiante, experimentado, desconfiado, país restringido, KYC rechazado, VIP, etc.)",
+        "50"
+      ],
+      "correctIndex": 2,
+      "explanation": "Día 1-2 Semana 6: cada agent hace 10 llamadas simuladas con 10 perfiles distintos de cliente (principiante, experimentado, desconfiado, VIP, referido, KYC rechazado, país restringido, etc.)."
+    },
+    {
+      "id": "q27",
+      "question": "¿Qué obligatoriedad tiene mencionar el risk disclaimer en conversaciones?",
+      "options": [
+        "Opcional",
+        "Cada conversación comercial debe incluir al menos UNA vez: 'El trading de CFDs conlleva un alto riesgo de perder dinero'",
+        "Solo en emails",
+        "Solo con institucionales"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cada conversación comercial debe incluir al menos UNA vez: 'El trading de CFDs conlleva un alto riesgo de perder dinero'. Nunca minimizar el riesgo cuando el cliente pregunta."
+    },
+    {
+      "id": "q28",
+      "question": "Objeción 'Anjouan no es un regulador serio'. ¿Respuesta correcta?",
+      "options": [
+        "Mentir que es tier-1",
+        "'La licencia AOFA nos permite operar legalmente y nos obliga a cumplir con KYC/AML, fondos segregados, y reportes regulatorios. Lo que importa es cómo nos comportamos: retiros rápidos, transparencia, soporte real'",
+        "Negar Anjouan",
+        "Cambiar de tema"
+      ],
+      "correctIndex": 1,
+      "explanation": "Respuesta: Licencia AOFA permite operar legalmente, obliga KYC/AML, fondos segregados, reportes regulatorios. Muchos brokers LATAM operan bajo licencias similares. Lo que importa es cómo nos comportamos: retiros rápidos, transparencia, soporte real."
+    },
+    {
+      "id": "q29",
+      "question": "Objeción '¿qué pasa si pierdo todo?'. ¿Respuesta correcta?",
+      "options": [
+        "Prometer que nunca va a pasar",
+        "'El trading de CFDs tiene riesgo real de perder dinero. NEOMAAA ofrece protección de balance negativo — nunca vas a deber más de lo que depositaste. Siempre recomendamos stop loss y gestión de riesgo'",
+        "Evitar el tema",
+        "Culparlo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Respuesta compliance: trading CFDs tiene riesgo real de perder dinero (IMPORTANTE que lo sepa). Protección balance negativo: nunca deberá más de lo depositado. Recomendar SL + risk management."
+    },
+    {
+      "id": "q30",
+      "question": "Objeción 'no quiero hacer KYC'. ¿Respuesta?",
+      "options": [
+        "Saltarse el KYC",
+        "'El KYC es un proceso de seguridad estándar que protege tu cuenta. Es la misma verificación que hace cualquier banco o fintech seria. Tus datos están encriptados y nunca se comparten con terceros'",
+        "Ofrecer cuenta sin KYC",
+        "Abandonar"
+      ],
+      "correctIndex": 1,
+      "explanation": "KYC es seguridad estándar. Misma verificación que banco/fintech. Datos encriptados, no se comparten con terceros. NO minimizar el proceso (eso viola compliance)."
+    },
+    {
+      "id": "q31",
+      "question": "Objeción 'el leverage 1:1000 es muy alto, es peligroso'. ¿Respuesta?",
+      "options": [
+        "Insistir que use 1:1000",
+        "'Tenés razón en ser cauteloso. En NEOMAAA podés elegir tu leverage — no es obligatorio usar 1:1000. Muchos traders experimentados usan 1:100 o menos. Recomendamos empezar conservador'",
+        "Ofrecer 1:5000",
+        "Decirle que es mentira"
+      ],
+      "correctIndex": 1,
+      "explanation": "Respuesta correcta: validar cautela. El cliente ELIGE su leverage. No obligatorio 1:1000. Muchos experimentados usan 1:100 o menos. Recomendar empezar conservador."
+    },
+    {
+      "id": "q32",
+      "question": "¿Qué materiales entrega Susana en Semana 3?",
+      "options": [
+        "Manual de precios",
+        "Lista de frases prohibidas (laminated)",
+        "Brochure de marketing",
+        "Video de YouTube"
+      ],
+      "correctIndex": 1,
+      "explanation": "Susana entrega 'Lista de frases prohibidas (laminated)' en Semana 3. Diego entrega scripts y templates en Semana 4."
+    },
+    {
+      "id": "q33",
+      "question": "Objeción '¿cuánto voy a ganar?'. ¿Qué hacer?",
+      "options": [
+        "Prometer 10% mensual",
+        "'No puedo decirte cuanto vas a ganar porque depende de tu estrategia, experiencia y gestión de riesgo. Lo que sí puedo garantizarte son las mejores condiciones para operar: spreads bajos, ejecución rápida, herramientas'",
+        "Darle un número bajo",
+        "Ignorar"
+      ],
+      "correctIndex": 1,
+      "explanation": "NUNCA prometer ganancias. 'No puedo decirte cuánto vas a ganar — depende de estrategia, experiencia, risk management. Lo que sí puedo garantizar: mejores condiciones para operar.'"
+    },
+    {
+      "id": "q34",
+      "question": "¿Qué pasa con un agent que no aprueba el examen final?",
+      "options": [
+        "Despido inmediato",
+        "1 semana extra de refuerzo en áreas débiles",
+        "Pasa automáticamente",
+        "Cambia de rol"
+      ],
+      "correctIndex": 1,
+      "explanation": "Quien no pasa: 1 semana extra de refuerzo en las áreas débiles. Quien pasa: recibe 'certificación interna NEOMAAA', asignación de leads día 1, kickoff meeting."
+    },
+    {
+      "id": "q35",
+      "question": "¿Cuándo debe completarse TODO el programa de capacitación?",
+      "options": [
+        "Después del go-live",
+        "ANTES del go-live del broker",
+        "Paralelo al lanzamiento",
+        "En el mes 3 del broker"
+      ],
+      "correctIndex": 1,
+      "explanation": "CRÍTICO: este programa debe completarse ANTES del go-live del broker. Solo los que aprueban con 85%+ (95%+ compliance) reciben certificación y toman leads el día 1 del go-live."
+    }
+  ]
+}

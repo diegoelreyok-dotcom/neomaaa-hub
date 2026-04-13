@@ -1,0 +1,396 @@
+{
+  "docPath": "marketing/retencion-broker",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuáles son las etapas del ciclo de vida del cliente NEOMAAA?",
+      "options": [
+        "Registro → Cliente",
+        "Lead → Venta",
+        "Registro → KYC → FTD → Trading Activo → Leal/VIP",
+        "Signup → Depósito → VIP"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ciclo: Registro (Lead) → KYC (Verificado) → FTD (Funded) → Trading Activo (Engaged) → Leal/VIP (Retenido)."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuál es el objetivo principal post-Registro?",
+      "options": [
+        "Esperar que deposite",
+        "Avanzar a KYC en <24h",
+        "Llamar después de 1 mes",
+        "Ignorar hasta que pregunte"
+      ],
+      "correctIndex": 1,
+      "explanation": "Objetivo post-registro: avanzar a KYC en <24h. Tasa típica Registro → KYC: 40-60%."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuál es el objetivo post-KYC?",
+      "options": [
+        "Esperar 1 semana",
+        "Avanzar a FTD en <72h",
+        "Avanzar a FTD en <30 días",
+        "No hacer nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Objetivo post-KYC: avanzar a FTD en <72h. Este es el gap crítico."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuál es el objetivo post-FTD?",
+      "options": [
+        "Ignorar",
+        "Que ejecute al menos 1 operación en <48h",
+        "Esperar a que pida ayuda",
+        "Cerrar cuenta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Post-FTD: que ejecute al menos 1 operación en <48h. Si no lo hace, sugerir Copy Trading."
+    },
+    {
+      "id": "q5",
+      "question": "¿Cuál es la definición de Leal/VIP?",
+      "options": [
+        "1 mes activo",
+        "3+ meses activo, volumen alto o depósitos recurrentes",
+        "1 operación",
+        "$5 depositado"
+      ],
+      "correctIndex": 1,
+      "explanation": "Leal/VIP: 3+ meses activo, volumen alto o depósitos recurrentes. Objetivo: maximizar LTV, convertir en referidor."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuál es la tasa típica Registro → KYC?",
+      "options": ["10-20%", "40-60%", "70-90%", "95%+"],
+      "correctIndex": 1,
+      "explanation": "Tasa típica Registro → KYC: 40-60%. Objetivo NEOMAAA: 55%."
+    },
+    {
+      "id": "q7",
+      "question": "¿Qué timing tiene el recordatorio WhatsApp + Email post-registro?",
+      "options": ["+1 hora", "+6 horas", "+24 horas", "+7 días"],
+      "correctIndex": 1,
+      "explanation": "Secuencia KYC: recordatorio WhatsApp + Email a las +6 horas post-registro."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuál es el GAP MÁS CRÍTICO del funnel?",
+      "options": [
+        "Registro → KYC",
+        "KYC → FTD (tasa típica 20-35%)",
+        "FTD → Activo",
+        "Activo → VIP"
+      ],
+      "correctIndex": 1,
+      "explanation": "KYC → FTD es el GAP MÁS CRÍTICO. Cliente verificado que no deposita. Tasa típica 20-35%."
+    },
+    {
+      "id": "q9",
+      "question": "¿Qué diferenciador se usa como incentivo Vault Yield en FTD?",
+      "options": [
+        "'Sin riesgo'",
+        "'Tu dinero genera hasta 5% anual incluso sin operar'",
+        "'Retornos garantizados'",
+        "'Copy a traders de élite'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vault Yield como incentivo KYC → FTD: 'Tu dinero genera hasta 5% anual incluso sin operar'."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cuál es la tasa de churn mensual típica en trading activo?",
+      "options": ["1-3%", "8-15%", "30-50%", "80%+"],
+      "correctIndex": 1,
+      "explanation": "Tasa de churn mensual típica de cliente activo: 8-15%. Objetivo NEOMAAA: <10%."
+    },
+    {
+      "id": "q11",
+      "question": "¿Qué umbral desbloquea account manager dedicado?",
+      "options": ["$100", "$500", "$5,000+", "$50,000"],
+      "correctIndex": 2,
+      "explanation": "Account manager dedicado se asigna para cuentas >$5,000."
+    },
+    {
+      "id": "q12",
+      "question": "¿Cuántos días sin login indican riesgo MEDIO?",
+      "options": ["3 días", "7 días", "14 días", "30 días"],
+      "correctIndex": 2,
+      "explanation": "14 días sin login = riesgo MEDIO. 7 días = BAJO, 30 días = ALTO."
+    },
+    {
+      "id": "q13",
+      "question": "¿Qué indica un retiro de >50% del balance?",
+      "options": [
+        "Riesgo BAJO",
+        "Riesgo ALTO — llamada inmediata del manager + encuesta",
+        "Nada",
+        "Cliente VIP"
+      ],
+      "correctIndex": 1,
+      "explanation": "Retiro >50% del balance = riesgo ALTO. Email satisfacción + encuesta automático, llamada inmediata del manager."
+    },
+    {
+      "id": "q14",
+      "question": "¿Cuál es el peso de 'frecuencia de operaciones' en el scoring de riesgo?",
+      "options": ["10%", "15%", "25%", "50%"],
+      "correctIndex": 2,
+      "explanation": "Scoring de riesgo: frecuencia operaciones (25%), login (20%), tendencia balance (20%), depósitos (20%), interacción com (15%)."
+    },
+    {
+      "id": "q15",
+      "question": "¿A partir de qué puntuación se considera Riesgo Crítico?",
+      "options": ["70-100", "40-69", "0-39", "50-70"],
+      "correctIndex": 2,
+      "explanation": "Umbrales: 70-100 saludable, 40-69 riesgo moderado, 0-39 riesgo crítico con intervención inmediata."
+    },
+    {
+      "id": "q16",
+      "question": "¿Cuál es el criterio de entrada al tier Silver?",
+      "options": [
+        "Depósito $100",
+        "Depósito acumulado $500+ O volumen mensual 5+ lotes",
+        "Depósito $10,000",
+        "1 operación"
+      ],
+      "correctIndex": 1,
+      "explanation": "Silver: depósito acumulado $500+ O volumen mensual 5+ lotes. Spreads -10%, soporte prioritario."
+    },
+    {
+      "id": "q17",
+      "question": "¿Cuál es el criterio del tier Gold?",
+      "options": [
+        "$500+",
+        "Depósito acumulado $2,500+ O volumen mensual 25+ lotes",
+        "$100,000",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "Gold: $2,500+ acumulado O 25+ lotes/mes. Spreads -20%, account manager, VPS, Vault +0.5%."
+    },
+    {
+      "id": "q18",
+      "question": "¿Cuál es el criterio del tier Platinum?",
+      "options": [
+        "$1,000",
+        "$2,500",
+        "Depósito acumulado $10,000+ O volumen mensual 100+ lotes",
+        "$1,000,000"
+      ],
+      "correctIndex": 2,
+      "explanation": "Platinum: $10,000+ acumulado O 100+ lotes/mes. Spreads -30%, comisiones Raw rebajadas, retiros mismo día."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cuál es el criterio del tier Black?",
+      "options": [
+        "$10,000",
+        "Depósito acumulado $50,000+ O volumen mensual 500+ lotes",
+        "$100",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "Black: $50,000+ acumulado O 500+ lotes/mes. Cuenta Institucional, apalancamiento custom, dealing desk directo."
+    },
+    {
+      "id": "q20",
+      "question": "¿Cómo se revisan los tiers VIP?",
+      "options": [
+        "Anual",
+        "Mensualmente, con gracia de 1 mes antes de downgrade",
+        "Semanalmente",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tiers se revisan mensualmente. Downgrade aplica tras 2 meses consecutivos sin cumplir (gracia de 1 mes)."
+    },
+    {
+      "id": "q21",
+      "question": "¿Cuál es el mensaje principal del Vault Yield?",
+      "options": [
+        "'Retornos garantizados'",
+        "'Tu capital trabaja por ti incluso cuando no operas'",
+        "'Depósito sin riesgo'",
+        "'Solo para VIPs'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mensaje principal Vault Yield: 'Tu capital trabaja por ti incluso cuando no operas'."
+    },
+    {
+      "id": "q22",
+      "question": "¿Con qué frecuencia se paga el rendimiento del Vault?",
+      "options": [
+        "Diariamente",
+        "Rendimiento calculado diariamente, pagado mensualmente",
+        "Anualmente",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vault: rendimiento calculado diariamente, pagado mensualmente (genera expectativa)."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuándo se inicia la campaña de reactivación agresiva?",
+      "options": ["7 días", "14 días", "30+ días sin actividad", "1 año"],
+      "correctIndex": 2,
+      "explanation": "Clientes dormidos 30+ días sin actividad reciben secuencia de 4 toques en 14 días."
+    },
+    {
+      "id": "q24",
+      "question": "¿Cuántos toques componen la secuencia de reactivación de dormidos?",
+      "options": ["1", "4 toques en 14 días (email, WhatsApp, email, SMS)", "10", "50"],
+      "correctIndex": 1,
+      "explanation": "Secuencia reactivación: día 1 email, día 3 WhatsApp, día 7 email oferta, día 14 SMS último aviso."
+    },
+    {
+      "id": "q25",
+      "question": "¿Cuál es el objetivo LTV promedio?",
+      "options": ["$50", "$300", "$500+", "$10,000"],
+      "correctIndex": 2,
+      "explanation": "Objetivo LTV promedio NEOMAAA: $500+. Benchmark industria offshore: $300-800."
+    },
+    {
+      "id": "q26",
+      "question": "¿Cuál es el objetivo de churn rate mensual NEOMAAA?",
+      "options": ["20%", "<10%", "25%", "50%"],
+      "correctIndex": 1,
+      "explanation": "Objetivo churn rate mensual NEOMAAA: <10%. Benchmark industria: 8-15%."
+    },
+    {
+      "id": "q27",
+      "question": "¿Cuál es el objetivo de retention rate a 90 días?",
+      "options": ["5%", "30%", "50%", "80%"],
+      "correctIndex": 1,
+      "explanation": "Objetivo retention 90 días: 30%. Benchmark: 25-35%."
+    },
+    {
+      "id": "q28",
+      "question": "¿Cuál es el objetivo frecuencia de depósito?",
+      "options": ["0.5/mes", "2.0+/mes", "5.0/mes", "10/mes"],
+      "correctIndex": 1,
+      "explanation": "Objetivo frecuencia depósito por cliente activo: 2.0+/mes. Benchmark 1.5-2.5."
+    },
+    {
+      "id": "q29",
+      "question": "¿Cuál es el tiempo promedio objetivo de KYC?",
+      "options": ["<1 minuto", "<2 horas", "<24 horas", "<1 semana"],
+      "correctIndex": 1,
+      "explanation": "Objetivo tiempo KYC: <2 horas."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuál es el objetivo de Copy Trading adoption rate?",
+      "options": ["5%", "25% de novatos", "50%", "95%"],
+      "correctIndex": 1,
+      "explanation": "Objetivo Copy Trading adoption: 25% de novatos que activan copy."
+    },
+    {
+      "id": "q31",
+      "question": "¿Qué retention comparativa hay entre Copy Trading y Manual?",
+      "options": [
+        "Iguales",
+        "Copy 40% vs Manual 25% (a 90d)",
+        "Copy 10% vs Manual 50%",
+        "Copy 95% vs Manual 5%"
+      ],
+      "correctIndex": 1,
+      "explanation": "Retention 90d: usuarios Copy 40% vs Manual 25%. Copy Trading retiene mejor."
+    },
+    {
+      "id": "q32",
+      "question": "¿Qué % del budget de marketing se asigna a retención?",
+      "options": ["5%", "15%", "30-40%", "80%"],
+      "correctIndex": 2,
+      "explanation": "Asignar 30-40% del budget de marketing a retención. El costo de retener es 5-7x menor que adquirir."
+    },
+    {
+      "id": "q33",
+      "question": "¿Qué % del budget de retención va al Programa VIP?",
+      "options": ["5%", "15%", "25%", "50%"],
+      "correctIndex": 2,
+      "explanation": "Programa VIP / Beneficios: 25% del budget de retención (spreads reducidos, VPS, bonificaciones Vault)."
+    },
+    {
+      "id": "q34",
+      "question": "¿Cuál es el impacto esperado en LTV con la estrategia de retención?",
+      "options": [
+        "Sin cambio",
+        "+57% (de $350 a $550)",
+        "-20%",
+        "+500%"
+      ],
+      "correctIndex": 1,
+      "explanation": "Con estrategia: LTV sube +57% (de $350 a $550). Churn baja -33% (15% a 10%)."
+    },
+    {
+      "id": "q35",
+      "question": "¿Qué herramientas ya tiene NEOMAAA para retención?",
+      "options": [
+        "Ninguna",
+        "Skale CRM, Intercom, Sumsub, MT5 Manager API",
+        "Solo email",
+        "Solo Excel"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ya disponible: Skale CRM, Intercom, Sumsub, MT5 Manager API. A implementar: WhatsApp Business API, Metabase/Looker."
+    },
+    {
+      "id": "q36",
+      "question": "¿Qué actividad del Jueves Semana 1 va a clientes con balance >$100?",
+      "options": [
+        "Alerta de mercado",
+        "Notificación Vault Yield: rendimiento acumulado",
+        "Campaña de reactivación",
+        "Retiro sugerido"
+      ],
+      "correctIndex": 1,
+      "explanation": "Jueves Semana 1: notificación Vault Yield con rendimiento acumulado para clientes con balance >$100."
+    },
+    {
+      "id": "q37",
+      "question": "¿Qué sucede en el día 2 (martes) Semana 4?",
+      "options": [
+        "Cerrar cuentas",
+        "Reactivación agresiva (dormidos 30d) con oferta vía teléfono + email + WhatsApp",
+        "Retiros masivos",
+        "Suspender servicios"
+      ],
+      "correctIndex": 1,
+      "explanation": "Martes Semana 4: reactivación agresiva (dormidos 30d+) con oferta. Canales: teléfono + email + WhatsApp."
+    },
+    {
+      "id": "q38",
+      "question": "¿Qué se hace en Mes 1 del rollout de retención?",
+      "options": [
+        "Escala global",
+        "Fundamentos: secuencias Intercom, templates WhatsApp, alertas churn Skale, lanzar VIP Silver/Gold",
+        "Cerrar operaciones",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mes 1 fundamentos: secuencias Intercom, WhatsApp templates, alertas churn Skale, VIP Silver/Gold (Platinum/Black en mes 2)."
+    },
+    {
+      "id": "q39",
+      "question": "¿Qué se activa en Mes 2?",
+      "options": [
+        "Solo WhatsApp",
+        "Campañas de reactivación para dormidos, scoring de riesgo, VIP completo (4 tiers), contenido educativo",
+        "Suspender retención",
+        "Migrar plataforma"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mes 2 optimización: campañas reactivación, scoring de riesgo churn, VIP completo (4 tiers), contenido educativo, optimizar Copy Trading onboarding."
+    },
+    {
+      "id": "q40",
+      "question": "¿Cuál es el NPS trimestral objetivo?",
+      "options": ["0", "10", "40+", "90"],
+      "correctIndex": 2,
+      "explanation": "Objetivo NPS trimestral: 40+. Indicador secundario clave."
+    }
+  ]
+}

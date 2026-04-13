@@ -72,6 +72,8 @@ export interface QuizResult {
   passThreshold: number; // 7 of 10
   perQuestion: QuizResultQuestion[];
   certificateId?: string;
+  /** Seconds the user must wait before retrying. Only present when !passed. */
+  retryAfter?: number;
 }
 
 /** Emitted + persisted on passing. Overwritten only if new score is higher. */
@@ -92,3 +94,5 @@ export interface Certificate {
 export const QUIZ_QUESTIONS_PER_ATTEMPT = 10;
 export const QUIZ_PASS_THRESHOLD = 7;
 export const QUIZ_SESSION_TTL_SECONDS = 30 * 60;
+/** How long to block re-attempts after a failed quiz (1 hour). */
+export const QUIZ_COOLDOWN_SECONDS = 60 * 60;

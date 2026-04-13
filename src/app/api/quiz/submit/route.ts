@@ -2,10 +2,12 @@ import { NextResponse } from 'next/server';
 import crypto from 'crypto';
 import { auth } from '@/lib/auth';
 import {
+  clearCooldown,
   deleteQuizSession,
   getCertificate,
   getQuizSession,
   saveCertificate,
+  setCooldown,
 } from '@/lib/quiz-storage';
 import { loadQuizPool } from '@/lib/quiz-pools';
 import { getDocByPath } from '@/lib/sections';
@@ -13,6 +15,7 @@ import {
   Certificate,
   QuizResult,
   QuizResultQuestion,
+  QUIZ_COOLDOWN_SECONDS,
   QUIZ_PASS_THRESHOLD,
 } from '@/lib/quiz-types';
 
@@ -105,6 +108,15 @@ export async function POST(req: Request) {
   const passed = score >= QUIZ_PASS_THRESHOLD;
 
   let certificateId: string | undefined;
+  let retryAfter: number | undefined;
+
+  if (passed) {
+    // Clean up any stale cooldown from previous failures.
+    await clearCooldown(userId, quizSession.docPath);
+  } else {
+    await setCooldown(userId, quizSession.docPath, QUIZ_COOLDOWN_SECONDS);
+    retryAfter = QUIZ_COOLDOWN_SECONDS;
+  }
 
   if (passed) {
     // Resolve doc title (defensive: docPath = "section/slug").
@@ -159,6 +171,7 @@ export async function POST(req: Request) {
     passThreshold: QUIZ_PASS_THRESHOLD,
     perQuestion,
     certificateId,
+    retryAfter,
   };
 
   return NextResponse.json(result);

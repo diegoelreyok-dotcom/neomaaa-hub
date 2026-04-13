@@ -1,0 +1,433 @@
+{
+  "docPath": "compliance/registro-compliance",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Cual es la regla de oro del registro de compliance?",
+      "options": [
+        "Si no es importante no se registra",
+        "Si no esta documentado, no paso. Cada decision debe tener registro con que/quien/cuando/por que/evidencia",
+        "Solo registrar los rechazos",
+        "Documentar al final del mes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Principio fundamental: 'Si no esta documentado, no paso'. Cada decision debe incluir que se decidio, quien, cuando, por que y con que evidencia."
+    },
+    {
+      "id": "q2",
+      "question": "Cual es el nombre del archivo del Registro Maestro?",
+      "options": [
+        "compliance_log.xlsx",
+        "NEOMAAA_Compliance_Register_2026.xlsx (o Google Sheets equivalente)",
+        "susana.xls",
+        "kyc.pdf"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nombre estandar: NEOMAAA_Compliance_Register_2026.xlsx. Un archivo anual, se crea nuevo cada diciembre para el ano siguiente."
+    },
+    {
+      "id": "q3",
+      "question": "Cuantos tabs/hojas tiene el Registro Maestro?",
+      "options": [
+        "3",
+        "8 (Dashboard, KYC_Decisions, Sanctions_Screening, Suspicious_Activity, Training_Log, Complaints, Audit_Trail, Config)",
+        "15",
+        "1"
+      ],
+      "correctIndex": 1,
+      "explanation": "8 hojas: Dashboard (resumen), KYC_Decisions, Sanctions_Screening, Suspicious_Activity, Training_Log, Complaints, Audit_Trail, Config (listas de validacion)."
+    },
+    {
+      "id": "q4",
+      "question": "Plataforma recomendada para el Registro?",
+      "options": [
+        "Excel local",
+        "Google Sheets (acceso compartido, historial automatico, acceso desde cualquier dispositivo)",
+        "Word",
+        "PDF"
+      ],
+      "correctIndex": 1,
+      "explanation": "Recomendado: Google Sheets. Alternativa: Excel en OneDrive/SharePoint. Ventajas de Google Sheets: acceso compartido, historial de versiones automatico, movilidad."
+    },
+    {
+      "id": "q5",
+      "question": "Quien tiene acceso de Editor al Registro Maestro?",
+      "options": [
+        "Todo el equipo",
+        "Solo Susana y Principals",
+        "Solo ventas",
+        "Publico"
+      ],
+      "correctIndex": 1,
+      "explanation": "Editor: Susana y Principals. Ventas: solo lectura de Dashboard (si se comparte). Soporte: sin acceso. Auditores externos: solo lectura temporal cuando se otorgue."
+    },
+    {
+      "id": "q6",
+      "question": "Cual es el formato del ID para decision KYC?",
+      "options": [
+        "1, 2, 3",
+        "KYC-2026-0001 (auto-incremento)",
+        "XYZ",
+        "Aleatorio"
+      ],
+      "correctIndex": 1,
+      "explanation": "IDs auto-incremento: KYC-2026-0001 (decisiones KYC), SCR-2026-0001 (screening), SAR-2026-0001 (actividad sospechosa), TRN-2026-0001 (capacitacion), CMP- (quejas), AUD- (audit trail)."
+    },
+    {
+      "id": "q7",
+      "question": "Que campo es obligatorio en Razon_Decision?",
+      "options": [
+        "Solo 'OK'",
+        "Minimo 20 caracteres con explicacion detallada (incluso para aprobaciones automaticas)",
+        "Opcional",
+        "Solo numeros"
+      ],
+      "correctIndex": 1,
+      "explanation": "Razon_Decision: minimo 20 caracteres. Incluso para aprobaciones: 'Verificacion automatica exitosa. ID [tipo], liveness OK, screening limpio.'"
+    },
+    {
+      "id": "q8",
+      "question": "Se pueden borrar filas del Registro?",
+      "options": [
+        "Si, si hay error",
+        "NO. Si hay error, se agrega nota correctiva pero no se elimina el registro original",
+        "Solo Susana puede",
+        "Cada fin de mes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nunca borrar filas. Si hay error, agregar nota correctiva en campo Notas_Adicionales. Mantener trazabilidad para auditoria."
+    },
+    {
+      "id": "q9",
+      "question": "Color de fila para Rechazado?",
+      "options": [
+        "Verde",
+        "Rojo claro (#FFC7CE)",
+        "Amarillo",
+        "Azul"
+      ],
+      "correctIndex": 1,
+      "explanation": "Codigos de color KYC: Verde claro = Aprobado, Amarillo = En revision/Retry, Naranja = En EDD/Escalado, Rojo claro = Rechazado, Rojo oscuro = Match de sanciones confirmado."
+    },
+    {
+      "id": "q10",
+      "question": "Que registra la hoja Sanctions_Screening?",
+      "options": [
+        "Todo el screening",
+        "SOLO screenings con match/alerta (sanciones, PEP, adverse media). Los limpios estan en KYC_Decisions",
+        "Solo false positives",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sanctions_Screening registra solo alertas. Los screenings limpios se registran unicamente en KYC_Decisions. Por cada match, una fila."
+    },
+    {
+      "id": "q11",
+      "question": "Ejemplo correcto de campo 'Analisis' en un false positive?",
+      "options": [
+        "'False positive'",
+        "'False positive. Nombre coincide parcialmente pero fecha de nacimiento difiere (cliente: 1985-03-15, lista: 1962-08-22). Pais diferente (Colombia vs Libia). Conclusion: homonimo.'",
+        "'OK'",
+        "Solo fecha"
+      ],
+      "correctIndex": 1,
+      "explanation": "Analisis minimo 50 caracteres. Debe incluir comparacion detallada de datos y conclusion. No basta con 'false positive'."
+    },
+    {
+      "id": "q12",
+      "question": "Cuando se presenta un SAR segun el documento?",
+      "options": [
+        "Nunca",
+        "Sospecha razonable de fondos de actividad criminal, lavado, financiamiento terrorismo, evasion de controles (structuring), info falsa en KYC",
+        "Solo si el cliente confiesa",
+        "Cada mes"
+      ],
+      "correctIndex": 1,
+      "explanation": "SAR cuando: fondos de actividad criminal, lavado, financiamiento terrorismo, structuring/evasion de controles, informacion falsa en KYC. Decision de Susana con consulta a Principals."
+    },
+    {
+      "id": "q13",
+      "question": "Tipos de Actividad Sospechosa con riesgo Alto?",
+      "options": [
+        "Registro rapido",
+        "Structuring, deposito-retiro rapido, terceros, documentos sospechosos",
+        "Cliente nuevo",
+        "Todos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Riesgo Alto: structuring, deposito-retiro rapido (lavado), terceros, documentos sospechosos, pais alto riesgo. Medio-Alto: volumen incoherente, multiples cuentas."
+    },
+    {
+      "id": "q14",
+      "question": "Capacitacion AML para equipo de ventas es?",
+      "options": [
+        "Anual",
+        "Semestral (que NO decir, banderas rojas, cuando escalar)",
+        "Solo al inicio",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ventas: capacitacion semestral (frases prohibidas, KYC/AML basico). Soporte: semestral. Susana+Principals: actualizacion regulatoria trimestral. SAR simulacro: anual."
+    },
+    {
+      "id": "q15",
+      "question": "Respuesta correcta para queja 'Mi KYC tarda mucho'?",
+      "options": [
+        "'Estan revisando tus sanciones'",
+        "'Estamos revisando tu documentacion. Te informaremos en un maximo de [SLA]'",
+        "'No sabemos'",
+        "'Espere'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Respuesta correcta respeta el SLA. NUNCA revelar razones internas (sanciones, PEP, sospecha). Siempre dar timeframe claro."
+    },
+    {
+      "id": "q16",
+      "question": "Respuesta incorrecta para 'Me bloquearon la cuenta sin razon'?",
+      "options": [
+        "'Tu cuenta esta bajo revision por cumplimiento regulatorio'",
+        "'Sospechamos de lavado de dinero' (es tipping off, prohibido)",
+        "'Te contactaremos con mas informacion'",
+        "'Verifique su email'"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Sospechamos de lavado' es tipping off: prohibido. La respuesta correcta es 'bajo revision por cumplimiento regulatorio, te contactaremos'."
+    },
+    {
+      "id": "q17",
+      "question": "Acciones que se registran en Audit_Trail?",
+      "options": [
+        "Todo",
+        "Modificacion de registros, cambio de decisiones, acceso a datos sensibles, exportacion de datos, cambio de configuracion, escalacion, comunicacion con regulador, cambio de politica",
+        "Solo logins",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Audit_Trail registra: modificaciones, cambios de decision, accesos sensibles, exportaciones, cambios de config, escalaciones, comunicaciones con AOFA, cambios de politica."
+    },
+    {
+      "id": "q18",
+      "question": "Por que el audit trail es critico?",
+      "options": [
+        "No es critico",
+        "Ante auditoria: demuestra que las decisiones fueron correctas Y que nadie manipulo los registros despues del hecho",
+        "Para ventas",
+        "Solo para impresion"
+      ],
+      "correctIndex": 1,
+      "explanation": "Audit trail demuestra que los registros no fueron manipulados post-hoc. Registro sin audit trail pierde credibilidad ante auditor."
+    },
+    {
+      "id": "q19",
+      "question": "Frecuencia de backup del archivo?",
+      "options": [
+        "Anual",
+        "Semanal (exportar a Excel en Drive)",
+        "Cada 5 anos",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Backup semanal: exportar a Excel en Drive. Anual: crear archivo nuevo del ano siguiente. Google Sheets ya mantiene historial automatico."
+    },
+    {
+      "id": "q20",
+      "question": "Hoja protegida para que solo Susana modifique?",
+      "options": [
+        "KYC_Decisions",
+        "Config (listas de validacion)",
+        "Dashboard",
+        "Todas"
+      ],
+      "correctIndex": 1,
+      "explanation": "La hoja Config (listas de validacion, paises, tiers, etc.) debe estar protegida: solo Susana puede modificar. Principals acceden pero no deberian cambiar listas."
+    },
+    {
+      "id": "q21",
+      "question": "Deadline del reporte trimestral para AOFA?",
+      "options": [
+        "1 mes despues",
+        "15 dias despues del cierre del trimestre",
+        "90 dias",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reporte trimestral AOFA: 15 dias despues del cierre del trimestre. Reporte anual: 90 dias despues del cierre fiscal [VERIFICAR CON ABOGADO]."
+    },
+    {
+      "id": "q22",
+      "question": "Cuantas secciones tiene el reporte trimestral a AOFA?",
+      "options": [
+        "3",
+        "9 (resumen ejecutivo, estadisticas KYC, screening, actividad sospechosa, capacitaciones, quejas, incidentes, cambios politica, plan siguiente trimestre)",
+        "20",
+        "1"
+      ],
+      "correctIndex": 1,
+      "explanation": "9 secciones: resumen ejecutivo, estadisticas KYC, screening sanciones, actividad sospechosa, capacitaciones, quejas, incidentes, cambios de politica, plan siguiente trimestre."
+    },
+    {
+      "id": "q23",
+      "question": "Que reporte ad-hoc tiene plazo de 'Mismo dia' [VERIFICAR CON ABOGADO]?",
+      "options": [
+        "Cambio de directores",
+        "True match de sanciones / SAR alto riesgo (terrorismo)",
+        "Quejas normales",
+        "Capacitaciones"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mismo dia: True match de sanciones, SAR alto riesgo (terrorismo). Cambio directores: 14 dias. Cambio CO: 7 dias. Incidente seguridad: 72h."
+    },
+    {
+      "id": "q24",
+      "question": "Retencion minima de SARs?",
+      "options": ["1 ano", "5 anos", "10 anos (practica de industria)", "Nunca"],
+      "correctIndex": 2,
+      "explanation": "SARs: retencion minima 10 anos (practica de industria). Registros KYC: 5 anos post-cierre. Screening con match: 7 anos. Audit trail: 7 anos."
+    },
+    {
+      "id": "q25",
+      "question": "Como se almacenan los documentos KYC de clientes?",
+      "options": [
+        "Email",
+        "Sumsub (con su propio backup). Retencion 5 anos post cierre de cuenta",
+        "En papel",
+        "WhatsApp"
+      ],
+      "correctIndex": 1,
+      "explanation": "Documentos KYC: Sumsub (backup de Sumsub mismo). 5 anos post cierre cuenta. Capturas de screening: Google Drive compliance. SARs: copia digital en Drive protegido."
+    },
+    {
+      "id": "q26",
+      "question": "Medida de seguridad de 'pantalla limpia'?",
+      "options": [
+        "Limpieza fisica",
+        "Susana no debe dejar el Registro abierto cuando se aleja de su escritorio",
+        "Apagar la PC",
+        "Tirar papeles"
+      ],
+      "correctIndex": 1,
+      "explanation": "Politica de pantalla limpia: no dejar datos sensibles abiertos al alejarse. Autenticacion con 2FA. Solo dispositivos autorizados."
+    },
+    {
+      "id": "q27",
+      "question": "Tareas del checkpoint 9:00 AM?",
+      "options": [
+        "Ir a almorzar",
+        "Registrar decisiones pendientes del dia anterior que no se hayan registrado",
+        "Revisar MT5",
+        "Contactar IBs"
+      ],
+      "correctIndex": 1,
+      "explanation": "9:00 revision inicial: registrar decisiones pendientes del dia anterior. 17:00: registrar decisiones del dia, verificar campos obligatorios completos."
+    },
+    {
+      "id": "q28",
+      "question": "Revision Viernes (semanal) incluye?",
+      "options": [
+        "Solo descanso",
+        "Verificar decisiones KYC completas, matches en hoja sanciones, dashboard coherente, backup semanal, casos abiertos >7 dias sin update",
+        "Vacaciones",
+        "Solo aprobar KYC"
+      ],
+      "correctIndex": 1,
+      "explanation": "Revision semanal viernes: KYC registradas, matches en sanctions, dashboard coherente, backup a Excel, casos sin update >7 dias identificados."
+    },
+    {
+      "id": "q29",
+      "question": "Ultima revision mensual?",
+      "options": [
+        "Primer dia",
+        "Ultimo viernes del mes: compilar estadisticas, verificar integridad datos, reconciliar con Sumsub y Skale, preparar resumen para Principals",
+        "Cualquier dia",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ultimo viernes: estadisticas, integridad datos (no celdas vacias en obligatorias), reconciliar con Sumsub (cantidad decisiones) y Skale (estados clientes), resumen Principals."
+    },
+    {
+      "id": "q30",
+      "question": "Que hacer en diciembre (anual)?",
+      "options": [
+        "Nada",
+        "Crear archivo para siguiente ano, archivar archivo del ano que termina, preparar insumos reporte anual, evaluar si migrar a sistema dedicado segun volumen",
+        "Eliminar todo",
+        "Empezar de cero"
+      ],
+      "correctIndex": 1,
+      "explanation": "Diciembre: crear archivo proximo ano, archivar el actual (enero), preparar insumos reporte anual, evaluar migrar a sistema dedicado si volumen lo justifica (500+ clientes)."
+    },
+    {
+      "id": "q31",
+      "question": "Ejemplo de tipo de actividad 'Cambio de patron'?",
+      "options": [
+        "Siempre depositar $100",
+        "Cambio abrupto en comportamiento de trading (medio)",
+        "Operacion normal",
+        "Ganar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cambio abrupto de patron de trading: nivel de riesgo medio. Puede indicar cuenta comprometida, lavado u otro comportamiento anomalo."
+    },
+    {
+      "id": "q32",
+      "question": "'Solicitud inusual' es ejemplo de?",
+      "options": [
+        "Normal",
+        "Cliente solicita algo inusual (transferencia a tercero, etc.) - riesgo medio",
+        "Cliente nuevo",
+        "Vip"
+      ],
+      "correctIndex": 1,
+      "explanation": "Solicitud inusual: riesgo medio. Ejemplo: transferencia a tercero, cambio drastico de datos, destino de retiro diferente a deposito."
+    },
+    {
+      "id": "q33",
+      "question": "Formulas Dashboard: como se calcula 'Total Aprobados (mes actual)'?",
+      "options": [
+        "Conteo manual",
+        "=COUNTIFS(KYC_Decisions!L:L,\"Aprobado\",KYC_Decisions!B:B,\">=\"&DATE(YEAR(TODAY()),MONTH(TODAY()),1))",
+        "Funcion custom",
+        "No se calcula"
+      ],
+      "correctIndex": 1,
+      "explanation": "COUNTIFS con filtro 'Aprobado' y fecha >= primer dia del mes actual. Similar para Rechazados, Sanctions Hits, False Positives, Casos Pendientes >24h."
+    },
+    {
+      "id": "q34",
+      "question": "Comunicaciones con regulador: retencion?",
+      "options": [
+        "1 ano",
+        "10 anos (email + copia en Drive)",
+        "1 mes",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Comunicaciones con AOFA: 10 anos de retencion. Email + copia en Drive. Los reportes y notificaciones tienen la misma retencion extendida."
+    },
+    {
+      "id": "q35",
+      "question": "Que significa 'Si no esta documentado, no paso' para un auditor?",
+      "options": [
+        "Nada",
+        "La respuesta 'pasamos Sumsub' no alcanza. Se necesita explicacion estructurada: 'Aprobado el [fecha] por [persona] porque Sumsub confirmo ID [tipo], liveness OK, screening limpio, sin indicadores de riesgo. Registro en [ubicacion].'",
+        "Solo respuesta oral",
+        "Es informal"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ante auditoria: no alcanza 'paso Sumsub'. Debe ser: 'Aprobado el X por Y porque Sumsub confirmo ID [tipo], liveness OK, screening limpio, sin indicadores. Registro completo en [ubicacion].'"
+    },
+    {
+      "id": "q36",
+      "question": "La hoja Complaints cubre que tipo de quejas?",
+      "options": [
+        "Todas",
+        "Quejas relacionadas con compliance (KYC demora, KYC rechazo, cuenta bloqueada, retiro bloqueado, etc.)",
+        "Solo quejas positivas",
+        "Ninguna"
+      ],
+      "correctIndex": 1,
+      "explanation": "Complaints registra quejas de compliance: demora KYC, rechazo KYC, cuenta bloqueada, retiro bloqueado, escaladas a AOFA. Campo 'Justificacion_Compliance' documenta por que se tomo la accion."
+    }
+  ]
+}

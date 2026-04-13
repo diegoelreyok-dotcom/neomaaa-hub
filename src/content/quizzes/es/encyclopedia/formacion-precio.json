@@ -1,0 +1,401 @@
+{
+  "docPath": "encyclopedia/formacion-precio",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Qué es el Bid en una cotización?",
+      "options": [
+        "El precio al que el mercado está dispuesto a comprarte a vos (si vos querés vender)",
+        "El precio promedio entre compra y venta",
+        "El precio al que vos comprás",
+        "El precio de cierre del día anterior"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bid es el precio al que el mercado está dispuesto a comprarte. Si querés vender, lo hacés al bid."
+    },
+    {
+      "id": "q2",
+      "question": "¿Qué es el Ask (u Offer)?",
+      "options": [
+        "El precio al que el mercado te vende el instrumento (donde comprás vos)",
+        "El precio al que el mercado te compra",
+        "Un tipo de orden pendiente",
+        "La comisión por operación"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ask es el precio al que el mercado está dispuesto a venderte. Si querés comprar, lo hacés al ask."
+    },
+    {
+      "id": "q3",
+      "question": "¿Qué es el spread?",
+      "options": [
+        "La diferencia entre bid y ask, medida en pips. Es el primer costo del trade",
+        "La comisión por retiro",
+        "El apalancamiento disponible",
+        "El margen requerido para abrir posición"
+      ],
+      "correctIndex": 0,
+      "explanation": "El spread es la diferencia entre bid y ask. Es la primera forma de costo que paga cualquier trader."
+    },
+    {
+      "id": "q4",
+      "question": "En EUR/USD con Bid 1.08542 y Ask 1.08545, ¿cuál es el spread?",
+      "options": ["3 pips", "0.3 pips", "30 pips", "0.03 pips"],
+      "correctIndex": 1,
+      "explanation": "El spread es 1.08545 - 1.08542 = 0.00003 = 0.3 pips (3 puntos)."
+    },
+    {
+      "id": "q5",
+      "question": "¿Por qué una posición de compra 'nace' en pérdida?",
+      "options": [
+        "Porque el broker cobra una comisión oculta",
+        "Porque entrás al ask y tu posición vale el bid, perdiendo el spread al entrar",
+        "Porque el mercado siempre baja al abrir",
+        "Por el swap overnight"
+      ],
+      "correctIndex": 1,
+      "explanation": "Al abrir una compra, entrás al ask pero la posición ya vale el bid. Estás en pérdida por el spread desde el momento cero."
+    },
+    {
+      "id": "q6",
+      "question": "¿Qué es la liquidez en un mercado?",
+      "options": [
+        "La cantidad de gente dispuesta a comprar y vender en un momento dado y con qué volumen",
+        "Un impuesto aplicado a los retiros",
+        "La velocidad de ejecución de órdenes",
+        "El capital mínimo del broker"
+      ],
+      "correctIndex": 0,
+      "explanation": "Liquidez es cuánta gente está dispuesta a comprar/vender en un momento dado y con qué volumen. Alta liquidez = spreads chicos; baja liquidez = spreads abiertos."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuál de estos NO es un momento típico de baja liquidez?",
+      "options": [
+        "Solapamiento Londres-NY",
+        "Cierre de NY (21:00 GMT)",
+        "Feriados bancarios de EEUU o UK",
+        "30 segundos antes de una noticia de alto impacto"
+      ],
+      "correctIndex": 0,
+      "explanation": "El solapamiento Londres-NY es de máxima liquidez. Los otros son momentos clásicos de baja liquidez y spreads abiertos."
+    },
+    {
+      "id": "q8",
+      "question": "En un modelo Market Maker (Dealing Desk), ¿qué problema ético existe?",
+      "options": [
+        "El spread es demasiado bajo",
+        "Conflicto de interés: el broker es la contraparte, gana con las pérdidas del cliente",
+        "Ejecución lenta por trámites bancarios",
+        "No puede ofrecer metales preciosos"
+      ],
+      "correctIndex": 1,
+      "explanation": "En Market Maker el broker es la contraparte. Si el cliente gana, el broker pierde. Si 80% pierde, el broker gana el 80% de las veces."
+    },
+    {
+      "id": "q9",
+      "question": "¿Qué es un modelo ECN (Electronic Communication Network)?",
+      "options": [
+        "Un tipo de orden automática",
+        "Un broker conectado a un pool de liquidez global, cobra comisión fija y no toma contraparte",
+        "Una plataforma de stockbroker",
+        "Un sistema de compensación al cliente"
+      ],
+      "correctIndex": 1,
+      "explanation": "ECN conecta al cliente con un pool de liquidez global (bancos, fondos). El broker cobra comisión fija por lote y no toma la otra punta."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cuál es la ventaja principal del modelo ECN?",
+      "options": [
+        "Sin comisión",
+        "Spreads ultra ajustados (0.0-0.2 pips) + sin conflicto de interés + transparencia",
+        "Leverage ilimitado",
+        "Bonos garantizados"
+      ],
+      "correctIndex": 1,
+      "explanation": "ECN ofrece spreads crudos y elimina el conflicto de interés porque el broker cobra solo comisión."
+    },
+    {
+      "id": "q11",
+      "question": "¿Qué significa STP?",
+      "options": [
+        "Straight-Through Processing: el broker reenvía órdenes directamente a LPs sin dealing desk",
+        "Standard Trading Platform",
+        "Stop Trading Protocol",
+        "Short Term Position"
+      ],
+      "correctIndex": 0,
+      "explanation": "STP (Straight-Through Processing) es el modelo donde las órdenes se reenvían automáticamente a uno o varios LPs, sin intervención manual."
+    },
+    {
+      "id": "q12",
+      "question": "¿Qué modelo de ejecución usa NEOMAAA?",
+      "options": [
+        "Market Maker puro",
+        "ECN/STP híbrido",
+        "Solo Dealing Desk",
+        "Intercambio directo con clientes"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA opera bajo modelo ECN/STP híbrido: agrega liquidez de múltiples LPs y la enruta automáticamente."
+    },
+    {
+      "id": "q13",
+      "question": "¿Qué es el slippage?",
+      "options": [
+        "Una comisión adicional por volumen",
+        "La diferencia entre el precio al que pediste ejecutar y el precio al que se ejecutó efectivamente",
+        "El tiempo que tarda un retiro",
+        "Un descuento por cuenta VIP"
+      ],
+      "correctIndex": 1,
+      "explanation": "Slippage es la diferencia entre precio solicitado y precio ejecutado. Puede ser negativo (contra el trader) o positivo (a favor)."
+    },
+    {
+      "id": "q14",
+      "question": "¿Cuándo es más común el slippage negativo?",
+      "options": [
+        "En órdenes limit en mercado tranquilo",
+        "Durante noticias de alto impacto, stops en movimientos violentos, gaps de fin de semana",
+        "Solo en cuentas Cent",
+        "Únicamente durante mantenimiento de servidores"
+      ],
+      "correctIndex": 1,
+      "explanation": "Slippage negativo ocurre típicamente en stops durante movimientos violentos, ejecuciones durante noticias high-impact y gaps de fin de semana."
+    },
+    {
+      "id": "q15",
+      "question": "¿Qué política tiene NEOMAAA sobre el slippage positivo?",
+      "options": [
+        "Se lo queda el broker",
+        "Slippage simétrico: el cliente recibe el slippage positivo cuando existe",
+        "Se comparte 50/50 con el cliente",
+        "Solo se pasa en cuentas Raw"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA tiene política de slippage simétrico: cuando el precio mejora entre envío y ejecución, se le pasa entero al cliente."
+    },
+    {
+      "id": "q16",
+      "question": "¿Qué es un gap de mercado en forex?",
+      "options": [
+        "Un error técnico de MT5",
+        "Salto de precio entre el cierre del viernes y la apertura del domingo/lunes por eventos durante el fin de semana",
+        "Un tipo de orden pendiente",
+        "Una pausa del broker"
+      ],
+      "correctIndex": 1,
+      "explanation": "El forex cierra de viernes 22:00 GMT a domingo 22:00 GMT. Eventos durante el fin de semana producen saltos de precio al abrir (gap)."
+    },
+    {
+      "id": "q17",
+      "question": "Un cliente tenía stop loss en 1.0830 y el lunes EUR/USD abrió en 1.0720 por un evento electoral. ¿A qué precio se ejecutó el stop?",
+      "options": [
+        "Exactamente en 1.0830",
+        "En 1.0720 — primer precio disponible del lunes, perdió 110 pips extra",
+        "El broker lo canceló automáticamente",
+        "A 1.0800 por política de protección"
+      ],
+      "correctIndex": 1,
+      "explanation": "Durante un gap, los stops se ejecutan al primer precio disponible al abrir, no al nivel original. Es un evento de mercado normal."
+    },
+    {
+      "id": "q18",
+      "question": "¿Qué es el DOM (Depth of Market)?",
+      "options": [
+        "Un indicador técnico de momentum",
+        "Vista que muestra cuánto volumen pendiente hay en cada nivel de precio por encima y por debajo del bid/ask",
+        "El número total de operaciones del día",
+        "El margen disponible"
+      ],
+      "correctIndex": 1,
+      "explanation": "DOM muestra la 'escalera' de volumen pendiente en cada nivel. Los traders institucionales lo usan para ver murallas de oferta/demanda."
+    },
+    {
+      "id": "q19",
+      "question": "Según el doc, ¿spread típico en EUR/USD para cuenta Standard?",
+      "options": ["desde 0.0 pips", "desde 1.2 pips", "desde 5 pips", "desde 0.3 pips"],
+      "correctIndex": 1,
+      "explanation": "En cuenta Standard el spread típico EUR/USD arranca desde 1.2 pips. El costo está dentro del spread (sin comisión)."
+    },
+    {
+      "id": "q20",
+      "question": "¿Para qué perfil es más barata una cuenta Raw según el ejemplo del doc?",
+      "options": [
+        "Traders swing que operan pocas veces al día",
+        "Scalpers y traders de alta frecuencia",
+        "Solo clientes institucionales",
+        "Principiantes con $50 de depósito"
+      ],
+      "correctIndex": 1,
+      "explanation": "Raw combina spread bajo + comisión fija. Para scalpers/alta frecuencia el costo total ida-vuelta es menor (~$8 vs ~$12 de Standard)."
+    },
+    {
+      "id": "q21",
+      "question": "En 1 lote EUR/USD ida y vuelta, ¿cuál es el costo aproximado en Standard?",
+      "options": ["~USD 1", "~USD 5", "~USD 12", "~USD 30"],
+      "correctIndex": 2,
+      "explanation": "Spread ~1.2 pips en 1 lote = ~USD 12, sin comisión. Costo total ida y vuelta: ~USD 12."
+    },
+    {
+      "id": "q22",
+      "question": "¿Cuál es la analogía del doc para entender liquidez?",
+      "options": [
+        "Una autopista con más o menos carriles",
+        "El agua en una pileta: si está llena, una piedra apenas hace ondas; si está vacía, salpica todo",
+        "Un ascensor lleno vs vacío",
+        "Un semáforo en rojo o verde"
+      ],
+      "correctIndex": 1,
+      "explanation": "La liquidez es como el agua en una pileta. Más agua (liquidez) = menor impacto del tamaño de la orden en el precio."
+    },
+    {
+      "id": "q23",
+      "question": "¿Qué hace un Market Maker con las órdenes del cliente?",
+      "options": [
+        "Las reenvía a 5 LPs por default",
+        "Las ejecuta tomando él mismo la contraparte, desde su propio libro",
+        "Las cruza con otros clientes automáticamente",
+        "Las cancela si el mercado se mueve"
+      ],
+      "correctIndex": 1,
+      "explanation": "El Market Maker es la contraparte del cliente: cuando vos comprás, él te vende desde su propio libro."
+    },
+    {
+      "id": "q24",
+      "question": "¿De dónde gana plata un broker STP?",
+      "options": [
+        "De las pérdidas del cliente",
+        "De un markup pequeño sobre el spread del LP",
+        "Solo de comisiones de retiro",
+        "De publicidad en la plataforma"
+      ],
+      "correctIndex": 1,
+      "explanation": "El STP gana con un markup sobre el spread del LP. Ej: LP ofrece 0.1 pips, broker muestra 0.5 pips al cliente."
+    },
+    {
+      "id": "q25",
+      "question": "En el ejemplo del doc con cuenta Raw, ¿costo aproximado ida y vuelta 1 lote EUR/USD?",
+      "options": ["~USD 1", "~USD 8", "~USD 15", "~USD 25"],
+      "correctIndex": 1,
+      "explanation": "Spread ~0.1 pips (~USD 1) + comisión ~USD 7 round trip = costo total ~USD 8 ida y vuelta."
+    },
+    {
+      "id": "q26",
+      "question": "¿Qué pasa con los spreads 30 segundos antes de una noticia de alto impacto?",
+      "options": [
+        "Se mantienen fijos por garantía del broker",
+        "Los market makers retiran órdenes y el spread se abre",
+        "Bajan drásticamente",
+        "Se congelan por compliance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Antes de noticias high-impact los market makers retiran órdenes para no quedar pisados. Eso abre los spreads."
+    },
+    {
+      "id": "q27",
+      "question": "Un cliente se queja de que el spread pasó de 0.3 a 8 pips durante el NFP. ¿Qué responderías?",
+      "options": [
+        "Es un bug del broker, vamos a compensar",
+        "Pedir disculpas y derivar al cliente a otro broker",
+        "Es mercado, no es el broker 'inventando': en baja liquidez o antes de noticias, el spread se abre. Es normal",
+        "Cerrarle la cuenta por quejarse"
+      ],
+      "correctIndex": 2,
+      "explanation": "Soporte debe explicar que en baja liquidez/noticias el spread se abre. Es comportamiento de mercado, no un error del broker."
+    },
+    {
+      "id": "q28",
+      "question": "¿Qué diferencia hay entre ECN puro y STP puro?",
+      "options": [
+        "ECN conecta al pool de liquidez global; STP reenvía a LPs específicos. En la práctica se mezclan en modelos híbridos",
+        "ECN es para cripto y STP para forex",
+        "ECN es gratis y STP es pago",
+        "No hay diferencia, son sinónimos"
+      ],
+      "correctIndex": 0,
+      "explanation": "ECN agrega pool de liquidez global; STP reenvía automáticamente a LPs. En la práctica muchos brokers son ECN/STP híbridos."
+    },
+    {
+      "id": "q29",
+      "question": "Si la cuenta Raw tiene spread ~0.1 pips y Standard ~1.2 pips, ¿por qué alguien elegiría Standard?",
+      "options": [
+        "Porque es más simple: sin comisión, el costo todo está en el spread. Apto para swing traders que operan poco",
+        "Porque la Standard tiene ejecución más rápida",
+        "Porque Raw no permite EAs",
+        "Porque Standard tiene leverage mayor"
+      ],
+      "correctIndex": 0,
+      "explanation": "Standard es más simple para swing traders: sin comisión separada, todo el costo en spread. Para quien opera pocas veces al día, es más práctico."
+    },
+    {
+      "id": "q30",
+      "question": "En una posición BUY de 1 lote EUR/USD a 1.08545 con spread 0.3 pips, ¿cuál es la pérdida inicial en USD?",
+      "options": ["USD 0", "USD 3", "USD 30", "USD 300"],
+      "correctIndex": 1,
+      "explanation": "Spread 0.3 pips = 3 puntos × USD 1/punto en 1 lote = USD 3 de pérdida inicial por spread."
+    },
+    {
+      "id": "q31",
+      "question": "¿Cuál de los siguientes instrumentos tiene típicamente spreads más abiertos en la sesión asiática?",
+      "options": [
+        "USD/JPY",
+        "EUR/GBP",
+        "XAU/USD durante Londres-NY",
+        "AUD/USD"
+      ],
+      "correctIndex": 1,
+      "explanation": "EUR/GBP casi no se opera de madrugada europea (sesión asiática), por eso los spreads se abren en ese horario."
+    },
+    {
+      "id": "q32",
+      "question": "¿Qué es una 'muralla de oferta' según el DOM?",
+      "options": [
+        "Un error de cotización",
+        "Un nivel de precio con un volumen muy grande pendiente, donde el precio suele frenarse",
+        "Una pausa de 5 minutos del broker",
+        "Una comisión extra para grandes volúmenes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Si el DOM muestra muchísimo volumen en un nivel, es una muralla donde probablemente el precio se frene o haya un barrido de stops."
+    },
+    {
+      "id": "q33",
+      "question": "¿Qué debe saber soporte SÍ o SÍ sobre formación de precio?",
+      "options": [
+        "Las fórmulas exactas de cálculo del broker interno",
+        "Spread = diferencia bid/ask, liquidez baja abre spread, slippage en noticias es normal, gap de FDS puede ejecutar stops lejos",
+        "Solo los horarios de mercado",
+        "Nada, es responsabilidad de compliance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Soporte necesita entender spread, liquidez, slippage y gaps para explicar al cliente sin defenderse ni mentir."
+    },
+    {
+      "id": "q34",
+      "question": "¿Qué es el Contract for Difference (CFD)?",
+      "options": [
+        "El contrato entre broker y LP",
+        "Instrumento derivado donde se especula sobre el precio sin poseer el activo",
+        "Un certificado bancario",
+        "Un tipo de cuenta demo"
+      ],
+      "correctIndex": 1,
+      "explanation": "CFD es un contrato derivado para especular sobre el precio sin poseer el activo. La mayoría de instrumentos del broker son CFDs."
+    },
+    {
+      "id": "q35",
+      "question": "Entre cierre de NY (21:00 GMT) y apertura fuerte de Asia, ¿qué pasa con los spreads?",
+      "options": [
+        "Se cierran más aún",
+        "Se mantienen iguales",
+        "Se abren porque termina la sesión americana y Asia todavía no entró con fuerza",
+        "Desaparece la cotización"
+      ],
+      "correctIndex": 2,
+      "explanation": "Es un valle de liquidez: americanos cerraron, asiáticos no entraron con fuerza. Spreads se abren."
+    }
+  ]
+}

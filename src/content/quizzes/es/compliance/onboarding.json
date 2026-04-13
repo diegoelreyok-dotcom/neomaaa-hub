@@ -1,0 +1,378 @@
+{
+  "docPath": "compliance/onboarding",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Cuantas etapas tiene el journey del cliente NEOMAAA?",
+      "options": ["3", "5", "8 (Descubrimiento, Registro, KYC, Aprobacion, Deposito, Setup MT5, Primer Trade, Relacion)", "15"],
+      "correctIndex": 2,
+      "explanation": "8 etapas: Descubrimiento -> Registro -> KYC -> Aprobacion -> Deposito -> Setup MT5 -> 1er Trade -> Relacion continua."
+    },
+    {
+      "id": "q2",
+      "question": "Meta global de registro a primer trade?",
+      "options": ["24 horas", "3 dias", "Menos de 1 hora para el 60% de los clientes", "1 semana"],
+      "correctIndex": 2,
+      "explanation": "Meta: de registro a primer trade en menos de 1 hora para el 60% de los clientes."
+    },
+    {
+      "id": "q3",
+      "question": "Tiempo objetivo para el registro?",
+      "options": ["2 minutos", "30 minutos", "2 horas", "1 dia"],
+      "correctIndex": 0,
+      "explanation": "Registro: 2 minutos objetivo, 5 minutos maximo. Proceso simple en formulario de Skale CRM."
+    },
+    {
+      "id": "q4",
+      "question": "SLA de respuesta en redes sociales?",
+      "options": ["1 hora", "15 minutos en horario laboral", "24 horas", "1 semana"],
+      "correctIndex": 1,
+      "explanation": "SLA de respuesta en redes: 15 minutos en horario laboral. Critico para no perder leads entrantes."
+    },
+    {
+      "id": "q5",
+      "question": "Paises que NO se onboardean?",
+      "options": [
+        "Solo Cuba",
+        "USA, Canada, EEA (UE), UK, Australia, Cuba, Iraq, Myanmar, Corea del Norte, Sudan, sancionados OFAC/ONU",
+        "Todos los latinoamericanos",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "Restringidos: USA, Canada, toda la UE, UK, Australia, Cuba, Iraq, Myanmar, Corea del Norte, Sudan + sancionados OFAC/ONU."
+    },
+    {
+      "id": "q6",
+      "question": "Quienes son los vendedores asignados a LATAM?",
+      "options": [
+        "Solo Franco",
+        "Franco, Edward, Luis (LATAM general / espanol / 9am-6pm CST)",
+        "Solo Diego",
+        "Solo externos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vendedores LATAM: Franco, Edward y Luis. Horario 9am-6pm CST. Espanol. Fundadores del equipo de ventas."
+    },
+    {
+      "id": "q7",
+      "question": "Deposito minimo para cuenta Cent?",
+      "options": ["$5 USD", "$50 USD", "$500 USD", "$50,000 USD"],
+      "correctIndex": 0,
+      "explanation": "Cent: $5 USD. Standard: $50. Raw: $500. Institutional: $50,000."
+    },
+    {
+      "id": "q8",
+      "question": "Apalancamiento maximo de cuenta Raw?",
+      "options": ["1:1000", "1:500", "1:200", "1:30"],
+      "correctIndex": 2,
+      "explanation": "Raw: apalancamiento hasta 1:200 (no 1:1000 como Cent/Standard). Spreads desde 0.0 con comision $3/lote/lado."
+    },
+    {
+      "id": "q9",
+      "question": "Cliente principiante que nunca opero forex. Que cuenta recomendar?",
+      "options": [
+        "Institutional",
+        "CENT (siempre para principiantes, sin importar monto)",
+        "Raw",
+        "Standard"
+      ],
+      "correctIndex": 1,
+      "explanation": "Principiante -> CENT siempre. $5 USD min, apalancamiento 1:1000, swap-free 2 meses. Frase: 'Empiezas con riesgo minimo, escalas cuando este listo.'"
+    },
+    {
+      "id": "q10",
+      "question": "Trader avanzado que usa EAs/robots de trading. Que cuenta?",
+      "options": [
+        "Cent",
+        "Standard",
+        "RAW + VPS (spreads desde 0.0, necesario para robots)",
+        "Solo demo"
+      ],
+      "correctIndex": 2,
+      "explanation": "EA/Robots -> RAW + VPS. Necesitan spreads bajos y conexion 24/7 sin PC encendida."
+    },
+    {
+      "id": "q11",
+      "question": "Scalper con alta frecuencia. Que cuenta?",
+      "options": ["Cent", "Standard", "RAW (spreads desde 0.0 + comision fija es mejor)", "Institutional"],
+      "correctIndex": 2,
+      "explanation": "Scalper -> RAW. Spreads desde 0.0 + comision fija $3/lado es mejor que spread incluido para trading de alta frecuencia."
+    },
+    {
+      "id": "q12",
+      "question": "Criterios de rechazo automatico en Sumsub (KYC)?",
+      "options": [
+        "Solo si el cliente lo pide",
+        "Documento vencido, foto borrosa, selfie no coincide, pais restringido, documento falso, PEP sin EDD",
+        "Cualquier dato",
+        "Nunca se rechaza"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rechazos comunes: documento vencido, foto borrosa/cortada, selfie no coincide, pais restringido, sospecha de falsificacion, PEP sin documentacion adicional."
+    },
+    {
+      "id": "q13",
+      "question": "Tiempo promedio de procesamiento KYC automatico en Sumsub?",
+      "options": ["1 semana", "1-5 minutos", "24 horas", "Instantaneo"],
+      "correctIndex": 1,
+      "explanation": "Sumsub procesa automaticamente en 1-5 minutos. Si requiere revision manual: max 2 horas via Susana."
+    },
+    {
+      "id": "q14",
+      "question": "En Argentina, CUIL/CUIT se acepta como documento de identidad?",
+      "options": ["Si", "DNI es aceptado. CUIL/CUIT no es documento de identidad", "Solo con autorizacion", "Depende"],
+      "correctIndex": 1,
+      "explanation": "Argentina: DNI aceptado. CUIL/CUIT son identificadores fiscales, no documento de identidad valido."
+    },
+    {
+      "id": "q15",
+      "question": "Metodos de pago sugeridos para LATAM?",
+      "options": [
+        "Solo wire internacional",
+        "PIX (Brasil), PSE (Colombia), OXXO (Mexico), Nequi, Yape (Peru), Mercado Pago, crypto, tarjeta",
+        "Solo crypto",
+        "Cheque"
+      ],
+      "correctIndex": 1,
+      "explanation": "LATAM: PIX Brasil, PSE Colombia, OXXO Mexico, Nequi, Yape Peru, Mercado Pago + global Visa/MC + crypto (USDT) + Western Union. 120+ metodos."
+    },
+    {
+      "id": "q16",
+      "question": "Tiempo de acreditacion de deposito con tarjeta?",
+      "options": ["24 horas", "Instantaneo", "5 dias", "1 hora"],
+      "correctIndex": 1,
+      "explanation": "Tarjeta: instantaneo. Crypto: 5-30 min. Pagos locales (OXXO, PIX, PSE): 5 min a 24h. Transferencia bancaria: 1-3 dias habiles."
+    },
+    {
+      "id": "q17",
+      "question": "Que NO puede hacer ventas en el proceso KYC?",
+      "options": [
+        "Guiar al cliente",
+        "Aprobar manualmente un KYC, aceptar documentos por WhatsApp para subirlos a Sumsub, sugerir usar documentos de otra persona, sugerir registrarse desde otro pais",
+        "Responder preguntas basicas",
+        "Contactar al cliente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ventas NO puede: aprobar KYC manual, prometer aprobacion rapida, aceptar docs por WhatsApp, sugerir fraude de documentos o pais, presionar a Susana."
+    },
+    {
+      "id": "q18",
+      "question": "Script correcto si cliente de pais restringido intenta registrarse?",
+      "options": [
+        "Sugerirle otro pais",
+        "Informar que NEOMAAA no puede ofrecer servicios en su jurisdiccion",
+        "Procesar igualmente",
+        "Ignorar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pais restringido: informar al cliente que no se pueden ofrecer servicios en su jurisdiccion. Sugerir que cambie de pais es evasion regulatoria y causa de terminacion."
+    },
+    {
+      "id": "q19",
+      "question": "Asignacion de leads en Skale se hace?",
+      "options": [
+        "Manual por Diego",
+        "Automatica al vendedor correspondiente segun region/idioma al crear el perfil",
+        "No se asigna",
+        "Por email"
+      ],
+      "correctIndex": 1,
+      "explanation": "Al crearse perfil en Skale CRM, lead se asigna automaticamente al vendedor correspondiente segun region/idioma."
+    },
+    {
+      "id": "q20",
+      "question": "Que email automatico se manda al registrar?",
+      "options": [
+        "Ninguno",
+        "Bienvenida con instruccion del siguiente paso (verificar identidad/KYC) + boton + vendedor asignado",
+        "Solo confirmacion",
+        "Factura"
+      ],
+      "correctIndex": 1,
+      "explanation": "Email de bienvenida automatico post-registro: agradecimiento + siguiente paso (KYC) + documentos requeridos + boton + datos de WhatsApp del vendedor asignado."
+    },
+    {
+      "id": "q21",
+      "question": "Que sucede si cliente abandona formulario a mitad?",
+      "options": [
+        "Se pierde",
+        "Trigger de email automatico a los 30 minutos: 'Tu registro esta incompleto'",
+        "Se le llama en 5 dias",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Email automatico a los 30 min si abandona formulario. Tambien seguimiento de Ventas si no completa registro: 2h, 24h, 72h."
+    },
+    {
+      "id": "q22",
+      "question": "Despues de 72 horas sin completar registro?",
+      "options": [
+        "Bloquear",
+        "Marcar como 'abandonado' en CRM; reactivar si el cliente contacta despues",
+        "Llamar cada hora",
+        "Pagar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sin respuesta en 72h: marcar como 'abandonado' en CRM. Reactivar proceso sin presion si vuelve a contactar."
+    },
+    {
+      "id": "q23",
+      "question": "Credenciales MT5 se generan?",
+      "options": [
+        "Manualmente siempre",
+        "Automaticamente al aprobarse KYC; se envian por email. Si no, soporte las genera en MT5 Admin",
+        "Solo si el cliente las pide",
+        "Solo previo pago"
+      ],
+      "correctIndex": 1,
+      "explanation": "Post-KYC aprobado: MT5 genera cuenta automaticamente. Credenciales se envian por email. Si falla, soporte las genera manualmente."
+    },
+    {
+      "id": "q24",
+      "question": "Tiempo objetivo para setup de MT5?",
+      "options": ["1 minuto", "10 minutos (con 1h max de soporte)", "24 horas", "1 semana"],
+      "correctIndex": 1,
+      "explanation": "Setup MT5: 10 minutos tiempo objetivo. 1 hora maximo con soporte activo si hay problemas."
+    },
+    {
+      "id": "q25",
+      "question": "Par recomendado para primer trade de principiante?",
+      "options": [
+        "USD/TRY",
+        "EUR/USD (mas liquido)",
+        "BTC/USD",
+        "Oro"
+      ],
+      "correctIndex": 1,
+      "explanation": "Recomendar EUR/USD por ser el par mas liquido. Cent: 0.01 de lote es seguro. Explicar compra vs venta antes."
+    },
+    {
+      "id": "q26",
+      "question": "Horario del mercado forex?",
+      "options": [
+        "9am-5pm cada dia",
+        "Domingo 5pm - Viernes 5pm EST",
+        "24/7 con fines de semana",
+        "Solo lunes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Forex: Domingo 5pm a Viernes 5pm EST (24/5). Fuera de sesion Londres/NY los spreads se amplian."
+    },
+    {
+      "id": "q27",
+      "question": "Si cliente dice 'margen insuficiente', que sucede?",
+      "options": [
+        "Se bloquea la cuenta",
+        "El lote es muy grande para su balance. Reducir tamano",
+        "Depositar mas",
+        "Es un bug"
+      ],
+      "correctIndex": 1,
+      "explanation": "Margen insuficiente = lote muy grande para el balance. Solucion: reducir tamano de lote. No depositar mas obligatoriamente."
+    },
+    {
+      "id": "q28",
+      "question": "Mensaje post-primer trade debe incluir?",
+      "options": [
+        "Solo felicitaciones",
+        "Felicitar + recordatorio de gestion de riesgo (nunca arriesgar >2%, usar stop loss) + funciones adicionales (Copy Trading, VPS, Vault Yield)",
+        "Solo spam",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mensaje post-primer trade: felicitacion + tips de gestion de riesgo (2% max, stop loss, lotes pequenos) + cross-selling (Copy Trading, VPS, Vault Yield)."
+    },
+    {
+      "id": "q29",
+      "question": "Priorizacion del backlog de KYC si Susana se congestiona?",
+      "options": [
+        "Aleatoria",
+        "Por tamano de deposito potencial: Institutional > Raw > Standard > Cent",
+        "Primero los nuevos",
+        "Por orden alfabetico"
+      ],
+      "correctIndex": 1,
+      "explanation": "Priorizar por tamano potencial de deposito: Institutional > Raw > Standard > Cent. Mas revenue potencial = mas prioridad."
+    },
+    {
+      "id": "q30",
+      "question": "Script correcto para KYC rechazado por foto borrosa?",
+      "options": [
+        "'Tu documento es falso'",
+        "'Tu verificacion necesita un pequeno ajuste. El problema fue [foto borrosa]. Puedes volver a intentarlo aqui. Tips: buena iluminacion sin flash, documento completo, selfie de frente'",
+        "'No tienes permiso'",
+        "'Contacta al gobierno'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tono amable + razon especifica + tips utiles. Nunca revelar razones de compliance. Solo razones tecnicas/documentales subsanables."
+    },
+    {
+      "id": "q31",
+      "question": "Post-primer deposito, que sucede con el vendedor?",
+      "options": [
+        "Se desentiende",
+        "Recibe notificacion en Skale y contacta al cliente dentro de 15 minutos",
+        "Cobra comision inmediata",
+        "Va a vacaciones"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vendedor recibe notificacion automatica al aprobarse KYC y contacta al cliente dentro de 15 minutos para guiarlo al deposito."
+    },
+    {
+      "id": "q32",
+      "question": "Para usuario de Apex o Topstep que quiere operar real, que cuenta sugerir?",
+      "options": [
+        "Institutional",
+        "CENT (para traders que vienen de prop firms y operan real por primera vez)",
+        "Nada",
+        "Raw"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cliente ideal Cent incluye 'cliente que viene de prop firms y quiere operar real por primera vez'. Permite probar con riesgo minimo."
+    },
+    {
+      "id": "q33",
+      "question": "Cliente Standard es perfil de?",
+      "options": [
+        "Principiante total",
+        "Trader intermedio/day trader/swing trader con $50-$500 que no quiere pensar en comisiones",
+        "Fondo institucional",
+        "Scalper"
+      ],
+      "correctIndex": 1,
+      "explanation": "Standard = trader intermedio, day/swing, $50-$500, prefiere simplicidad (spread todo incluido sin comision)."
+    },
+    {
+      "id": "q34",
+      "question": "Deposito minimo institucional?",
+      "options": ["$500", "$5,000", "$50,000", "$500,000"],
+      "correctIndex": 2,
+      "explanation": "Institutional: $50,000 USD minimo. Apalancamiento, spreads y comisiones personalizados/negociables. Para fondos, gestores, traders profesionales."
+    },
+    {
+      "id": "q35",
+      "question": "Frase recomendada para impulsar el FTD (primer deposito)?",
+      "options": [
+        "'Deposita ya'",
+        "'Tu cuenta ya esta lista! Que metodo prefieres? Tenemos [metodo local], tarjeta, crypto. Si es tu primera vez, Cent es perfecta: desde $5 sin riesgo real. Te guio paso a paso?'",
+        "'Sin ti no somos nada'",
+        "'Obligatorio depositar'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Script FTD: entusiasmo + opciones segun pais + mencion de Cent para principiantes ($5 sin riesgo real) + oferta de guia personalizada."
+    },
+    {
+      "id": "q36",
+      "question": "Si email de aprobacion va a spam, que hace el vendedor?",
+      "options": [
+        "Nada",
+        "Envia credenciales por WhatsApp directamente",
+        "Espera al cliente",
+        "Crea otra cuenta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Si email va a spam: vendedor envia credenciales por WhatsApp directo. No perder clientes por problemas de deliverability."
+    }
+  ]
+}

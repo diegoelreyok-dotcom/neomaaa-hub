@@ -1,0 +1,396 @@
+{
+  "docPath": "partners/guia-operativa",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuáles son las etapas del onboarding de partners?",
+      "options": [
+        "Aplicación → Aprobación",
+        "Aplicación → Revisión → Aprobación → Setup Cellxpert → Bienvenida → Primer Payout",
+        "Signup → Pago",
+        "Llamada → Contrato"
+      ],
+      "correctIndex": 1,
+      "explanation": "Las 6 etapas: Aplicación → Revisión → Aprobación → Setup Cellxpert → Bienvenida → Primer Payout."
+    },
+    {
+      "id": "q2",
+      "question": "¿Qué información se solicita en la aplicación?",
+      "options": [
+        "Solo nombre",
+        "Datos personales, tipo de programa, experiencia previa, canales, volumen estimado, países, referencias",
+        "Solo email",
+        "Ninguna"
+      ],
+      "correctIndex": 1,
+      "explanation": "Aplicación incluye: datos personales/empresa, tipo de programa, experiencia como afiliado/IB, canales, volumen estimado, países objetivo, referencias."
+    },
+    {
+      "id": "q3",
+      "question": "¿Quién revisa las aplicaciones?",
+      "options": [
+        "Diego",
+        "Edward y equipo de operaciones",
+        "Franco",
+        "Yulia"
+      ],
+      "correctIndex": 1,
+      "explanation": "Responsable de revisión: Edward y equipo de operaciones."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuál es el SLA para aprobar un Affiliate Partner?",
+      "options": [
+        "24 horas",
+        "48 horas desde aplicación completa",
+        "72 horas",
+        "1 semana"
+      ],
+      "correctIndex": 1,
+      "explanation": "Affiliate Partner (cualquier tier): 48 horas. Edward/equipo aprueba."
+    },
+    {
+      "id": "q5",
+      "question": "¿Quién aprueba un IB Gold o Platinum?",
+      "options": [
+        "Edward solo",
+        "Equipo de operaciones",
+        "Principals",
+        "Susana"
+      ],
+      "correctIndex": 2,
+      "explanation": "IB Gold y Platinum requieren aprobación de Principals. SLA: 72 horas."
+    },
+    {
+      "id": "q6",
+      "question": "¿Qué se requiere antes de aprobar un IB Gold+?",
+      "options": [
+        "Nada",
+        "Videollamada previa con al menos un Principal",
+        "Solo email",
+        "Pago inicial"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla: Toda aprobación IB Gold+ requiere videollamada previa con al menos un Principal."
+    },
+    {
+      "id": "q7",
+      "question": "¿Qué plataforma se usa para tracking de partners?",
+      "options": ["Propia", "Cellxpert", "Tapfiliate", "Post Affiliate Pro"],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA usa Cellxpert para tracking, la misma plataforma que usan Pepperstone, XTB, IG Group."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuál es el tiempo máximo post-aprobación para setup en Cellxpert?",
+      "options": ["1 hora", "24 horas", "1 semana", "1 mes"],
+      "correctIndex": 1,
+      "explanation": "Setup en Cellxpert: tiempo máximo 24 horas después de la aprobación."
+    },
+    {
+      "id": "q9",
+      "question": "¿Qué incluye el setup en Cellxpert?",
+      "options": [
+        "Solo crear la cuenta",
+        "Crear cuenta, asignar programa, tier, reglas comisión, links tracking, sub-afiliados, pixel/postback, integración MT5, credenciales",
+        "Solo email",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Setup completo: cuenta + tipo programa + tier + reglas comisión + links tracking + sub-afiliados + pixel/postback para Digital Affiliates + integración MT5 + credenciales."
+    },
+    {
+      "id": "q10",
+      "question": "¿Con qué frecuencia se revisan nuevas aplicaciones en Cellxpert?",
+      "options": ["Semanal", "Mensual", "Diario", "Trimestral"],
+      "correctIndex": 2,
+      "explanation": "Tareas diarias incluyen: revisar nuevas aplicaciones, verificar FTDs trackeados, revisar alertas de fraude, responder preguntas."
+    },
+    {
+      "id": "q11",
+      "question": "¿Qué día se procesan pagos semanales (Silver+, IB)?",
+      "options": ["Lunes", "Martes", "Viernes", "Domingo"],
+      "correctIndex": 1,
+      "explanation": "Pagos semanales (Silver+, IB): se procesan el Martes. Reporte de comisiones pendientes: Lunes."
+    },
+    {
+      "id": "q12",
+      "question": "¿Qué día del mes se procesan pagos mensuales (Affiliate Partner tier)?",
+      "options": ["Día 1", "Día 5 del mes", "Día 15", "Día 30"],
+      "correctIndex": 1,
+      "explanation": "Pagos mensuales Affiliate Partner tier: día 5 del mes. Revisión tiers: día 10."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuándo se evalúa elegibilidad del 12-Month Super-Bonus?",
+      "options": ["Mensual", "Trimestral", "Anual", "Nunca"],
+      "correctIndex": 1,
+      "explanation": "Elegibilidad 12-Month Super-Bonus: evaluación trimestral por Principals."
+    },
+    {
+      "id": "q14",
+      "question": "¿Cuál es el umbral de alerta para FTDs generados?",
+      "options": [
+        "<1 FTD en 60 días",
+        "<5 FTDs por mes",
+        "<100 FTDs por año",
+        "No hay umbral"
+      ],
+      "correctIndex": 0,
+      "explanation": "Umbral de alerta: menos de 1 FTD en 60 días indica bajo desempeño del partner."
+    },
+    {
+      "id": "q15",
+      "question": "¿Qué tasa de conversión (clics a FTD) dispara alerta?",
+      "options": ["<0.5%", "<2%", "<10%", "<50%"],
+      "correctIndex": 1,
+      "explanation": "Umbral de alerta: tasa de conversión clics a FTD menor a 2%."
+    },
+    {
+      "id": "q16",
+      "question": "¿Qué depósito promedio por cliente referido dispara alerta?",
+      "options": ["<$10", "<$150", "<$1,000", "<$10,000"],
+      "correctIndex": 1,
+      "explanation": "Alerta: depósito promedio de clientes referidos menor a $150."
+    },
+    {
+      "id": "q17",
+      "question": "¿Qué ratio de chargebacks dispara alerta?",
+      "options": [">1%", ">5%", ">20%", ">50%"],
+      "correctIndex": 1,
+      "explanation": "Alerta de riesgo de fraude: ratio de chargebacks/disputas mayor a 5%."
+    },
+    {
+      "id": "q18",
+      "question": "¿Cuántos meses consecutivos se necesitan para upgrade de tier?",
+      "options": ["1 mes", "Al menos 2 meses consecutivos", "12 meses", "Ningún requisito"],
+      "correctIndex": 1,
+      "explanation": "Upgrade: mantener requisitos al menos 2 meses consecutivos + cero infracciones compliance últimos 3 meses."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cuándo se activa el downgrade?",
+      "options": [
+        "Inmediatamente tras 1 mes bajo",
+        "Tras 3 meses consecutivos sin cumplir requisitos mínimos",
+        "Nunca",
+        "Cada mes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Downgrade se activa tras 3 meses consecutivos sin cumplir requisitos. Aviso 30 días antes con plan de acción."
+    },
+    {
+      "id": "q20",
+      "question": "¿Qué % de chargebacks supone downgrade automático?",
+      "options": ["2%", "5%", "10%", "25%"],
+      "correctIndex": 2,
+      "explanation": "Downgrade se activa si ratio de chargebacks supera el 10%."
+    },
+    {
+      "id": "q21",
+      "question": "¿Qué red flag es de nivel ALTO por FTDs masivos desde misma IP?",
+      "options": [
+        "Riesgo bajo",
+        "Alto — múltiples cuentas nuevas desde una sola ubicación",
+        "Medio",
+        "Sin riesgo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Red flag ALTO: FTDs masivos desde misma IP (múltiples cuentas nuevas desde una sola ubicación)."
+    },
+    {
+      "id": "q22",
+      "question": "¿Qué indica depósitos mínimos inmediatos sin trading?",
+      "options": [
+        "Cliente comprometido",
+        "Red flag ALTO — posible fraude",
+        "Normal",
+        "VIP"
+      ],
+      "correctIndex": 1,
+      "explanation": "Red flag ALTO: depósitos mínimos inmediatos sin trading. Clientes que depositan el mínimo y no operan."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuánto dura la suspensión preventiva máxima durante investigación?",
+      "options": ["1 día", "5 días hábiles", "15 días hábiles", "30 días"],
+      "correctIndex": 2,
+      "explanation": "Suspensión preventiva: máximo 15 días hábiles durante investigación de fraude."
+    },
+    {
+      "id": "q24",
+      "question": "¿Qué pasa si se confirma fraude?",
+      "options": [
+        "Advertencia",
+        "Terminación inmediata + retención de comisiones pendientes + reporte al equipo legal",
+        "Multa",
+        "Upgrade de tier"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fraude confirmado: terminación inmediata del acuerdo, retención de comisiones pendientes, reporte al equipo legal."
+    },
+    {
+      "id": "q25",
+      "question": "¿Qué NO pueden hacer los partners?",
+      "options": [
+        "Compartir info sobre spreads",
+        "Prometer ganancias específicas o retornos garantizados",
+        "Usar links de tracking",
+        "Mencionar la licencia"
+      ],
+      "correctIndex": 1,
+      "explanation": "Partners NO pueden: prometer ganancias específicas, declaraciones falsas sobre regulación, usar logo sin aprobación, spam, comprar tráfico prohibido, imitar sitio oficial, manejar fondos."
+    },
+    {
+      "id": "q26",
+      "question": "¿Pueden los partners usar el logo de NEOMAAA libremente?",
+      "options": [
+        "Sí, siempre",
+        "Solo con aprobación previa",
+        "Nunca",
+        "Solo en PDF"
+      ],
+      "correctIndex": 1,
+      "explanation": "Logo NEOMAAA: uso solo con aprobación previa."
+    },
+    {
+      "id": "q27",
+      "question": "¿Con qué frecuencia se hace check-in operativo con partners activos?",
+      "options": ["Diario", "Semanal (WhatsApp/Telegram)", "Mensual", "Anual"],
+      "correctIndex": 1,
+      "explanation": "Check-in operativo con partners activos: semanal vía WhatsApp/Telegram, responsable equipo de operaciones."
+    },
+    {
+      "id": "q28",
+      "question": "¿Quién hace llamada mensual de revisión a partners Silver+?",
+      "options": ["El partner", "Edward", "Diego", "Automated"],
+      "correctIndex": 1,
+      "explanation": "Llamada mensual de revisión (videollamada): Edward para Silver+, equipo para el resto."
+    },
+    {
+      "id": "q29",
+      "question": "¿A los cuántos días sin actividad se envía el primer recordatorio?",
+      "options": ["Día 7", "Día 30", "Día 60", "Día 120"],
+      "correctIndex": 1,
+      "explanation": "Partner inactivo: día 30 primer recordatorio (email), día 45 llamada, día 60 oferta soporte, día 90 aviso suspensión, día 120 suspensión."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuándo se suspende automáticamente la cuenta por inactividad?",
+      "options": ["Día 30", "Día 60", "Día 120 sin actividad", "Nunca"],
+      "correctIndex": 2,
+      "explanation": "Suspensión de cuenta partner: día 120 sin actividad (email formal + desactivación Cellxpert)."
+    },
+    {
+      "id": "q31",
+      "question": "¿Qué incluye el reporte mensual a partners?",
+      "options": [
+        "Solo FTDs",
+        "FTDs, clientes activos, volumen, comisiones desglosadas, progreso al siguiente tier, sub-afiliados",
+        "Solo depósitos",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reporte mensual: FTDs del periodo, clientes activos, volumen, comisiones desglosadas, progreso tier, rendimiento sub-afiliados."
+    },
+    {
+      "id": "q32",
+      "question": "¿Cuál es el tiempo de respuesta a pregunta sobre comisiones?",
+      "options": ["1 hora", "24 horas", "5 días", "Nunca"],
+      "correctIndex": 1,
+      "explanation": "Escalación quejas partners: pregunta sobre comisiones, tiempo respuesta 24 horas (equipo operaciones → Edward)."
+    },
+    {
+      "id": "q33",
+      "question": "¿Cuál es el tiempo de respuesta a disputa de payout?",
+      "options": ["Inmediato", "48 horas (Finanzas → Edward → Principals)", "1 mes", "Sin respuesta"],
+      "correctIndex": 1,
+      "explanation": "Disputa de payout (monto incorrecto): 48 horas, escalación Finanzas → Edward → Principals."
+    },
+    {
+      "id": "q34",
+      "question": "¿Cuál es la acción por violación leve (uso de logo sin aprobación)?",
+      "options": [
+        "Terminación inmediata",
+        "Advertencia por escrito + solicitud de corrección",
+        "Multa de $1,000",
+        "Sin acción"
+      ],
+      "correctIndex": 1,
+      "explanation": "Violación leve (uso logo sin aprobación): advertencia escrita + solicitud corrección, decisión por equipo de operaciones."
+    },
+    {
+      "id": "q35",
+      "question": "¿Qué acción aplica a violación grave (manejo de fondos)?",
+      "options": [
+        "Advertencia",
+        "Suspensión inmediata + investigación formal (decide Principals)",
+        "Nada",
+        "Upgrade tier"
+      ],
+      "correctIndex": 1,
+      "explanation": "Violación grave (manejo fondos, fraude confirmado): suspensión inmediata + investigación formal. Decisión: Principals."
+    },
+    {
+      "id": "q36",
+      "question": "¿Qué acción aplica a violación crítica (actividad ilegal)?",
+      "options": [
+        "Advertencia",
+        "Suspensión",
+        "Terminación inmediata del contrato (decide Principals)",
+        "Upgrade"
+      ],
+      "correctIndex": 2,
+      "explanation": "Violación crítica (actividad ilegal, daño reputacional): terminación inmediata del contrato. Decisión: Principals."
+    },
+    {
+      "id": "q37",
+      "question": "¿Cuál es la frecuencia de los reportes mensuales de rendimiento por partner en Cellxpert?",
+      "options": [
+        "Se generan manual",
+        "Cellxpert automatizado — día 1 del mes",
+        "Nunca",
+        "Solo a pedido"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reportes mensuales automatizados por Cellxpert: día 1 del mes."
+    },
+    {
+      "id": "q38",
+      "question": "¿Qué formato deben seguir videos de partners?",
+      "options": [
+        "Cualquier formato",
+        "Script debe ser revisado antes de publicación",
+        "Solo en inglés",
+        "Sin límites"
+      ],
+      "correctIndex": 1,
+      "explanation": "Videos: el script debe ser revisado antes de la publicación."
+    },
+    {
+      "id": "q39",
+      "question": "¿Cuándo se realiza el primer check-in post-onboarding?",
+      "options": [
+        "Inmediato",
+        "7 días después del onboarding",
+        "30 días",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Checklist: primer check-in programado 7 días después del onboarding."
+    },
+    {
+      "id": "q40",
+      "question": "¿Para partners >200 clientes existentes, quién aprueba?",
+      "options": [
+        "Equipo operaciones",
+        "Edward solo",
+        "Principals (SLA 72h)",
+        "Automático"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cualquier partner con más de 200 clientes existentes requiere aprobación de Principals. SLA 72 horas."
+    }
+  ]
+}

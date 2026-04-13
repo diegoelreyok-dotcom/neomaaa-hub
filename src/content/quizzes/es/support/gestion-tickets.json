@@ -1,0 +1,363 @@
+{
+  "docPath": "support/gestion-tickets",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuales son los estados del ciclo de vida de un ticket?",
+      "options": [
+        "Nuevo → Cerrado",
+        "Nuevo → En proceso → Esperando → Escalado → Resuelto → Cerrado",
+        "Abierto → Trabajando → Finalizado",
+        "Inicial → Activo → Pasivo"
+      ],
+      "correctIndex": 1,
+      "explanation": "6 estados: Nuevo, En proceso, Esperando (cliente/interno), Escalado, Resuelto, Cerrado."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuanto tiempo maximo puede estar un ticket en estado 'Esperando cliente' antes de recordatorio?",
+      "options": ["24 horas", "48 horas", "72 horas", "1 semana"],
+      "correctIndex": 1,
+      "explanation": "Esperando cliente: 48 horas antes de enviar recordatorio. Si no responde al recordatorio, se cierra 48h despues."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuanto tiempo maximo en estado 'Esperando interno' antes de follow-up?",
+      "options": ["1 hora", "4 horas", "12 horas", "24 horas"],
+      "correctIndex": 1,
+      "explanation": "Esperando interno (L2): 4 horas antes de follow-up al L2 por Slack."
+    },
+    {
+      "id": "q4",
+      "question": "¿Que debe hacer el agente en los primeros 2 minutos de abrir un ticket?",
+      "options": [
+        "Responder inmediatamente sin leer completo",
+        "Leer completo, taggear (tipo, prioridad, idioma), verificar VIP y revisar historial",
+        "Cerrar si es simple",
+        "Escalar a L2 preventivamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Clasificacion inmediata (2 min): leer completo, asignar tags obligatorios (tipo, prioridad, idioma), verificar atributo `vip`, revisar historial del cliente."
+    },
+    {
+      "id": "q5",
+      "question": "¿Que prioridad corresponde a 'Deposito >24h sin acreditar, no puede cerrar posicion'?",
+      "options": ["Baja", "Media", "Alta", "Urgente"],
+      "correctIndex": 3,
+      "explanation": "Urgente = dinero en riesgo AHORA. Ejemplos: deposito >24h sin acreditar, no puede cerrar posicion."
+    },
+    {
+      "id": "q6",
+      "question": "¿Que prioridad corresponde a KYC rechazado?",
+      "options": ["Baja", "Media", "Alta", "Urgente"],
+      "correctIndex": 2,
+      "explanation": "Alta = impide operar. Ejemplos: KYC rechazado, MT5 no conecta, retiro demorado >48h."
+    },
+    {
+      "id": "q7",
+      "question": "Un cliente VIP Gold envia chat en español. ¿A quien se asigna?",
+      "options": [
+        "Agente 1 por idioma",
+        "Agente 2 por idioma ingles",
+        "Account manager asignado (Rocio/Marilyn) directamente",
+        "Sin asignar hasta el supervisor"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cliente VIP Gold/Platinum: se asigna al account manager directamente (no sigue routing por idioma). Regla de asignacion automatica por VIP."
+    },
+    {
+      "id": "q8",
+      "question": "Al reasignar un ticket manualmente, ¿que paso NO se debe omitir?",
+      "options": [
+        "Agregar nota interna con resumen del caso",
+        "Cambiar agente asignado",
+        "Notificar al nuevo agente por Slack",
+        "Todas las anteriores son obligatorias"
+      ],
+      "correctIndex": 3,
+      "explanation": "Proceso completo: 1) Nota interna con resumen, 2) Cambiar agente asignado, 3) Notificar por Slack, 4) Informar al cliente ('te voy a transferir a X que es especialista en Y')."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cuantos tickets activos simultaneos puede tener un agente de soporte?",
+      "options": ["3", "5", "10", "15"],
+      "correctIndex": 1,
+      "explanation": "Agente soporte: 5 activos simultaneos, 15 en cola max. Account manager VIP: 3 activos, 10 en cola."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cual es el checklist obligatorio de primera respuesta?",
+      "options": [
+        "Solo saludar",
+        "Saludo con nombre + confirmar comprension + respuesta/investigando + tiempo estimado + preguntar si hay mas",
+        "Solo confirmar recepcion",
+        "Solo enviar canned response"
+      ],
+      "correctIndex": 1,
+      "explanation": "Checklist de primera respuesta: saludo con nombre, confirmar que entiendo (parafrasear si es compleja), dar respuesta o informar que estoy investigando, tiempo estimado, preguntar si hay algo adicional."
+    },
+    {
+      "id": "q11",
+      "question": "¿Con que frecuencia se actualiza al cliente en un ticket VIP que no se resuelve de inmediato?",
+      "options": ["Cada 24 horas", "Cada 12 horas", "Cada 4 horas", "Cada 2 horas minimo"],
+      "correctIndex": 3,
+      "explanation": "Ticket VIP: actualizacion mas frecuente, cada 2 horas minimo. Regular investigando: cada 2h. Esperando L2: cada 4h. Mas de 1 dia: cada 12h."
+    },
+    {
+      "id": "q12",
+      "question": "¿Que formato debe tener una nota interna en Intercom?",
+      "options": [
+        "Texto libre sin estructura",
+        "[FECHA] [AGENTE] / Accion / Resultado / Siguiente",
+        "Solo la hora",
+        "Emoji + nombre"
+      ],
+      "correctIndex": 1,
+      "explanation": "Formato nota interna: [FECHA] [AGENTE] / Accion: [que hice] / Resultado: [que encontre] / Siguiente: [que falta / que espero]."
+    },
+    {
+      "id": "q13",
+      "question": "En el proceso de escalamiento, ¿cuales son los tags obligatorios?",
+      "options": [
+        "Solo `urgent`",
+        "`escalated` + `waiting-internal`",
+        "`vip`",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "Al escalar agregar tags: `escalated` + `waiting-internal`. Seguir con follow-up en Slack si L2 no responde en 2h."
+    },
+    {
+      "id": "q14",
+      "question": "¿A quien se escala una queja regulatoria/legal?",
+      "options": ["Pepe", "Finance Manager", "Susana (Slack DM + email URGENTE)", "Edward"],
+      "correctIndex": 2,
+      "explanation": "Queja regulatoria/legal: escalar a Susana via Slack DM + email URGENTE. Nunca responder al fondo, solo confirmar recepcion."
+    },
+    {
+      "id": "q15",
+      "question": "¿A quien se escala un problema de ejecucion / MT5 tecnico?",
+      "options": ["Susana", "Finance Manager", "Pepe (Slack DM)", "Edward"],
+      "correctIndex": 2,
+      "explanation": "Ejecucion / MT5 tecnico: escalar a Pepe via Slack DM."
+    },
+    {
+      "id": "q16",
+      "question": "¿Que significa 'resuelto' en un ticket?",
+      "options": [
+        "El agente cerro el ticket por su cuenta",
+        "Pregunta respondida completa, problema solucionado con confirmacion, deposito/retiro procesado, queja investigada y comunicada, cliente tiene toda la info",
+        "48 horas pasaron sin respuesta",
+        "El cliente dejo de escribir"
+      ],
+      "correctIndex": 1,
+      "explanation": "Resuelto = pregunta respondida completa/correcta, problema tecnico solucionado con confirmacion del cliente, deposito/retiro procesado, queja investigada y comunicada, cliente tiene toda la informacion necesaria."
+    },
+    {
+      "id": "q17",
+      "question": "Proceso de cierre: ¿cuanto se espera la confirmacion del cliente antes del recordatorio?",
+      "options": ["24 horas", "48 horas", "72 horas", "1 semana"],
+      "correctIndex": 1,
+      "explanation": "Proceso de cierre: 1) Comunicar resolucion, 2) Esperar 48h la confirmacion, 3) Si no responde, enviar recordatorio, 4) Si no responde al recordatorio, cerrar automaticamente 48h despues."
+    },
+    {
+      "id": "q18",
+      "question": "¿Que tag se agrega cuando el cliente confirmo satisfaccion?",
+      "options": [
+        "`resolved-l1`",
+        "`resolved-client-confirmed`",
+        "`resolved-no-response`",
+        "`complaint-resolved`"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tags de cierre: `resolved-l1`, `resolved-l2`, `resolved-client-confirmed` (cliente confirmo), `resolved-no-response` (timeout), `unresolved-client-choice`, `complaint-resolved`."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cuanto tiempo despues del cierre se envia la encuesta CSAT?",
+      "options": ["Inmediatamente", "24 horas despues", "48 horas despues", "7 dias despues"],
+      "correctIndex": 1,
+      "explanation": "Encuesta CSAT: trigger automatico 24 horas despues de que el ticket se marca como cerrado."
+    },
+    {
+      "id": "q20",
+      "question": "¿Cual es la meta global de CSAT mensual?",
+      "options": ["3.5+", "4.0+", "4.2+", "5.0"],
+      "correctIndex": 2,
+      "explanation": "Meta CSAT global: 4.2+ promedio mensual. Meta por agente: 4.0+. Tasa de respuesta esperada: 30%+."
+    },
+    {
+      "id": "q21",
+      "question": "¿Que accion se toma con tickets de 1-2 estrellas?",
+      "options": [
+        "Nada",
+        "Edward contacta al cliente y se revisa el ticket internamente",
+        "Cerrar y marcar como cliente problematico",
+        "Pedir disculpas automaticas"
+      ],
+      "correctIndex": 1,
+      "explanation": "1-2 estrellas: Edward contacta al cliente para entender insatisfaccion + se revisa ticket internamente. 3 estrellas: Edward revisa para identificar mejora."
+    },
+    {
+      "id": "q22",
+      "question": "¿Cual es el orden de priorizacion de tickets?",
+      "options": [
+        "FIFO (primero en llegar, primero atendido)",
+        "Urgentes → VIP → Alta → Mayor tiempo espera → Media/Baja",
+        "Solo por fecha",
+        "Alfabetico por cliente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Priorizacion: 1) Urgentes, 2) VIP con cualquier prioridad, 3) Alta prioridad, 4) Mayor tiempo de espera (FIFO), 5) Media y baja."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuando se notifica a Edward por pico de tickets?",
+      "options": [
+        "Con 5+ sin respuesta",
+        "Con 10+ sin respuesta",
+        "Con 20+ sin respuesta",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Si hay mas de 10 tickets sin respuesta, notificar a Edward. Durante solapamiento, ambos agentes atacan la cola juntos."
+    },
+    {
+      "id": "q24",
+      "question": "En la limpieza semanal (viernes), ¿que ticket se cierra primero?",
+      "options": [
+        "Todos los urgentes",
+        "Tickets en 'Esperando cliente' sin respuesta >7 dias (tras template de cierre)",
+        "Tickets VIP activos",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "Limpieza semanal: cerrar tickets 'Esperando cliente' >7 dias (enviando template primero), follow-up a 'Esperando interno' >48h, revisar asignados sin actividad >72h, verificar tags, fusionar duplicados."
+    },
+    {
+      "id": "q25",
+      "question": "Cliente abre multiples tickets sobre el mismo tema. ¿Que se hace?",
+      "options": [
+        "Responder por separado",
+        "Identificar ticket principal, copiar info relevante, cerrar duplicados con nota 'Fusionado con #X', informar al cliente",
+        "Ignorar los duplicados",
+        "Escalar a Edward"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fusion: identificar ticket principal (mas completo), copiar info al principal, cerrar duplicado con nota 'Fusionado con ticket #[principal]', informar al cliente."
+    },
+    {
+      "id": "q26",
+      "question": "¿Que debe hacer el agente en los primeros 15 minutos al iniciar turno?",
+      "options": [
+        "Tomar un cafe",
+        "Revisar cola sin asignar, leer notas de handoff, asignarme tickets de mi idioma, responder urgentes primero (10 min), revisar 'Esperando interno' y VIP",
+        "Solo abrir Intercom",
+        "Revisar email personal"
+      ],
+      "correctIndex": 1,
+      "explanation": "Checklist inicio turno (15 min): cola sin asignar, leer handoff, asignarme mi idioma, responder urgentes primero (meta 10 min), revisar 'Esperando interno' que necesiten follow-up, verificar tickets VIP activos."
+    },
+    {
+      "id": "q27",
+      "question": "¿Que NO se debe dejar al terminar el turno?",
+      "options": [
+        "Tickets en estado 'Nuevo' (sin actualizar)",
+        "Tickets VIP con handoff",
+        "Tickets medios activos",
+        "Tickets ya resueltos"
+      ],
+      "correctIndex": 0,
+      "explanation": "Al terminar turno: revisar todos los tickets abiertos, nota de handoff, reasignar urgentes al siguiente turno, actualizar estado (no dejar ninguno en 'Nuevo'), verificar que no haya sin respuesta."
+    },
+    {
+      "id": "q28",
+      "question": "¿Cuando un agente debe escalar (regla de oro)?",
+      "options": [
+        "Cuando el cliente lo pide",
+        "Cuando no puede resolver en 15 min, requiere autorizacion no tiene, es compliance/legal, cliente pide supervisor, queja formal",
+        "Nunca",
+        "Al final del turno siempre"
+      ],
+      "correctIndex": 1,
+      "explanation": "Escalar cuando: no puedes resolver en 15 min, requiere acceso/autorizacion no tienes, es compliance/regulatorio/legal, cliente pidio supervisor, es queja formal."
+    },
+    {
+      "id": "q29",
+      "question": "Si L2 no responde en 2 horas, ¿que se hace?",
+      "options": [
+        "Esperar hasta el dia siguiente",
+        "Cerrar el ticket",
+        "Follow-up por Slack al L2",
+        "Escalar directamente al cliente"
+      ],
+      "correctIndex": 2,
+      "explanation": "L2 sin respuesta 2h: follow-up al L2 por Slack. Si no responde en 4h: escalar a Principals via Susana."
+    },
+    {
+      "id": "q30",
+      "question": "¿A quien se escala un problema de ventas / upgrade / IB?",
+      "options": [
+        "Susana",
+        "Pepe",
+        "Edward, Franco, Luis (Slack #sales)",
+        "Diego"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ventas/Upgrade/IB: escalar a Edward, Franco, Luis en Slack #sales. Finance en #finance, Compliance/Susana por Slack DM."
+    },
+    {
+      "id": "q31",
+      "question": "¿Que tag de idioma lleva un ticket de cliente portugues (BR)?",
+      "options": ["`lang:es`", "`lang:br`", "`lang:pt`", "`lang:en`"],
+      "correctIndex": 2,
+      "explanation": "Tag idioma: `lang:es`, `lang:en`, `lang:pt` (portugues), `lang:ar`. Estructura: `lang:[codigo]`."
+    },
+    {
+      "id": "q32",
+      "question": "¿Cual es el seguimiento post-cierre para tickets VIP?",
+      "options": [
+        "No hay seguimiento",
+        "Solo CSAT automatica",
+        "48h post-cierre + encuesta a los 7 dias",
+        "1 dia post-cierre"
+      ],
+      "correctIndex": 2,
+      "explanation": "Seguimiento post-cierre VIP/alta prioridad: primer seguimiento a 48h ('todo sigue bien con X?') + encuesta automatica a 7 dias."
+    },
+    {
+      "id": "q33",
+      "question": "Meta de tickets en cola sin respuesta al final del turno:",
+      "options": ["<5", "<10", "<20", "0"],
+      "correctIndex": 3,
+      "explanation": "Meta diaria: 0 tickets en cola sin respuesta al final del turno."
+    },
+    {
+      "id": "q34",
+      "question": "¿Cual es la meta de tickets escalados sobre el total?",
+      "options": ["<5%", "<20%", "<50%", "Sin meta"],
+      "correctIndex": 1,
+      "explanation": "Meta: tickets escalados <20% del total. Tickets resueltos: >80% de los recibidos. Tiempo promedio resolucion: <12h."
+    },
+    {
+      "id": "q35",
+      "question": "Si un cliente pide hablar con otra persona, ¿que se hace?",
+      "options": [
+        "Rechazar la peticion",
+        "Respetarlo siempre (reasignar con resumen)",
+        "Solo si es supervisor",
+        "Solo para VIP"
+      ],
+      "correctIndex": 1,
+      "explanation": "El cliente pide hablar con otra persona: respetarlo siempre. Reasignar con resumen previo para que el nuevo agente tenga contexto."
+    },
+    {
+      "id": "q36",
+      "question": "¿Cuantas categorias obligatorias de tags existen para cada ticket?",
+      "options": ["1 (solo prioridad)", "2 (tipo, idioma)", "3 (tipo, prioridad, idioma)", "4+"],
+      "correctIndex": 2,
+      "explanation": "Tags obligatorios: 3 categorias - tipo (kyc, deposit, withdrawal, mt5-platform, etc.), prioridad (urgent/high/medium/low), idioma (es/en/pt/ar)."
+    }
+  ]
+}

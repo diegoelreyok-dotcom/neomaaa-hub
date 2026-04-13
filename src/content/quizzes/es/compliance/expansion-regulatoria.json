@@ -1,0 +1,333 @@
+{
+  "docPath": "compliance/expansion-regulatoria",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Cual es la licencia actual con la que opera NEOMAAA hoy?",
+      "options": ["Seychelles FSA", "Mauritius FSC", "Anjouan AOFA (L15968/N)", "CySEC"],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA opera con licencia Anjouan (L15968/N) otorgada por la AOFA. Es el punto de entrada rapido al mercado."
+    },
+    {
+      "id": "q2",
+      "question": "Cual es la ruta de expansion propuesta desde Anjouan?",
+      "options": [
+        "Directamente a FCA UK",
+        "Anjouan -> Seychelles (FSA) o Mauritius (FSC) -> CySEC / FCA",
+        "Quedarse solo en Anjouan",
+        "Pasar a BVI"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fase actual: Anjouan. Fase 2: Seychelles o Mauritius. Fase 3: Mauritius o CySEC. Fase 4: CySEC/FCA (largo plazo)."
+    },
+    {
+      "id": "q3",
+      "question": "Cual es el capital minimo aproximado para una licencia de Mauritius (FSC)?",
+      "options": ["$50,000", "$100,000", "$300,000", "$1,000,000"],
+      "correctIndex": 2,
+      "explanation": "Mauritius FSC: USD 300,000 de capital minimo pagado. Significativamente mayor que Seychelles ($50K)."
+    },
+    {
+      "id": "q4",
+      "question": "Cual es el capital minimo aproximado para una licencia de Seychelles (FSA)?",
+      "options": ["$10,000", "$50,000", "$300,000", "$730,000"],
+      "correctIndex": 1,
+      "explanation": "Seychelles FSA: USD 50,000 de capital minimo pagado. Mucho menor que Mauritius."
+    },
+    {
+      "id": "q5",
+      "question": "Cual es la recomendacion del documento para la siguiente licencia?",
+      "options": ["Mauritius primero", "Seychelles primero por mejor balance costo/tiempo/beneficio", "CySEC directo", "Ninguna"],
+      "correctIndex": 1,
+      "explanation": "Recomendacion: Seychelles primero. Ofrece el mejor balance entre costo, tiempo y beneficio. Mauritius deberia ser la tercera jurisdiccion."
+    },
+    {
+      "id": "q6",
+      "question": "Cual es el regulador de Mauritius para brokers de forex/CFDs?",
+      "options": ["AOFA", "Financial Services Commission (FSC)", "FCA", "ASIC"],
+      "correctIndex": 1,
+      "explanation": "Mauritius: Financial Services Commission (FSC). Tipo de licencia necesaria: Investment Dealer Full Service."
+    },
+    {
+      "id": "q7",
+      "question": "Cual es el regulador de Seychelles?",
+      "options": ["FSA (Financial Services Authority)", "AOFA", "FSC", "CySEC"],
+      "correctIndex": 0,
+      "explanation": "Seychelles: Financial Services Authority (FSA). Licencia: Securities Dealer License (SD License)."
+    },
+    {
+      "id": "q8",
+      "question": "Tiempo estimado para obtener licencia de Seychelles?",
+      "options": ["1 mes", "3-6 meses", "6-12 meses", "2 anos"],
+      "correctIndex": 1,
+      "explanation": "Seychelles FSA: 3-6 meses estimados. Mauritius FSC: 6-12 meses. Anjouan AOFA: 1-3 meses."
+    },
+    {
+      "id": "q9",
+      "question": "Tiempo estimado para obtener licencia de Mauritius?",
+      "options": ["1-3 meses", "3-6 meses", "6-12 meses", "2-3 anos"],
+      "correctIndex": 2,
+      "explanation": "Mauritius FSC: 6-12 meses estimados, con fases de pre-solicitud, revision, aprobacion condicional y cumplimiento de condiciones."
+    },
+    {
+      "id": "q10",
+      "question": "Quien es el responsable del plan de expansion regulatoria?",
+      "options": ["Pepe", "Susana (Compliance) + Principals", "Angel", "Franco"],
+      "correctIndex": 1,
+      "explanation": "Responsable: Susana (Compliance Officer) + Principals. Aprobado por Principals."
+    },
+    {
+      "id": "q11",
+      "question": "Cuantos directores locales se requieren para Mauritius FSC?",
+      "options": ["Ninguno", "1", "Al menos 2 directores residentes en Mauritius", "5"],
+      "correctIndex": 2,
+      "explanation": "Mauritius FSC requiere al menos 2 directores residentes en Mauritius. Seychelles: al menos 1 (no estrictamente residente local)."
+    },
+    {
+      "id": "q12",
+      "question": "Algunos brokers conocidos con licencia Seychelles FSA?",
+      "options": [
+        "Solo JP Morgan",
+        "IC Markets, Exness, XM, Pepperstone",
+        "Solo locales africanos",
+        "Ninguno conocido"
+      ],
+      "correctIndex": 1,
+      "explanation": "Brokers con FSA Seychelles: IC Markets, Exness, XM, Pepperstone. Por eso es una jurisdiccion respetada en la industria."
+    },
+    {
+      "id": "q13",
+      "question": "Que es MLRO?",
+      "options": [
+        "Market Liquidity Risk Officer",
+        "Money Laundering Reporting Officer -- oficial formal ante el regulador",
+        "Main License Regulatory Officer",
+        "Mauritius Local Regulated Officer"
+      ],
+      "correctIndex": 1,
+      "explanation": "MLRO: Money Laundering Reporting Officer. Mauritius lo exige designado formalmente ante la FSC. En Anjouan Susana funciona como Compliance Officer."
+    },
+    {
+      "id": "q14",
+      "question": "Costo recurrente anual estimado para operar en Mauritius?",
+      "options": ["$5,000 - $10,000", "$14,000 - $33,000", "$50,000 - $120,000", "$500,000+"],
+      "correctIndex": 2,
+      "explanation": "Mauritius: $50K-$120K anual recurrente. Seychelles: $14K-$33K. Anjouan: bajo."
+    },
+    {
+      "id": "q15",
+      "question": "Que apalancamiento retail aplica CySEC/FCA?",
+      "options": ["1:1000", "1:500", "1:30", "Sin restriccion"],
+      "correctIndex": 2,
+      "explanation": "CySEC y FCA UK imponen 1:30 para clientes retail. Por eso Anjouan es atractivo: sin restriccion de apalancamiento."
+    },
+    {
+      "id": "q16",
+      "question": "Se puede hacer marketing directo en la Union Europea desde Anjouan?",
+      "options": [
+        "Si, sin restricciones",
+        "No, requiere licencia MiFID II local (CySEC, BaFin, etc.)",
+        "Solo en Chipre",
+        "Solo con permiso AOFA"
+      ],
+      "correctIndex": 1,
+      "explanation": "No se puede hacer marketing directo en EU, UK ni Australia desde Anjouan. Esas jurisdicciones requieren licencia local."
+    },
+    {
+      "id": "q17",
+      "question": "Que debe hacerse ahora con compliance para facilitar la expansion?",
+      "options": [
+        "Nada, resolver en el futuro",
+        "Documentar todo como si un regulador mas estricto lo revisara; usar estandares internacionales",
+        "Copiar el minimo de AOFA",
+        "Contratar consultora externa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Principio guia: cada accion de compliance hoy debe disenarse pensando que sera reutilizable en la siguiente jurisdiccion. Documentar como si un regulador mas estricto lo revisara."
+    },
+    {
+      "id": "q18",
+      "question": "Periodo de retencion de registros en Mauritius?",
+      "options": ["2 anos", "5 anos", "7 anos", "Permanente"],
+      "correctIndex": 2,
+      "explanation": "Mauritius y Seychelles: 7 anos minimo de retencion de registros. Anjouan: 5+ anos."
+    },
+    {
+      "id": "q19",
+      "question": "Cual es un requisito de compliance adicional en Mauritius vs Anjouan?",
+      "options": [
+        "No hay diferencias",
+        "Compliance audit adicional (anual), MLRO formal, risk assessment detallado",
+        "Se puede operar con menos documentacion",
+        "Solo se requiere KYC basico"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mauritius exige compliance audit anual ademas del audit financiero, MLRO formalmente designado, risk assessment detallado por negocio y cliente."
+    },
+    {
+      "id": "q20",
+      "question": "Cual es el presupuesto estimado de la Fase 1 (Consolidacion Anjouan 6 meses)?",
+      "options": ["$5,000 - $17,000", "$22,000 - $51,000", "$41,000 - $100,000", "$300,000"],
+      "correctIndex": 0,
+      "explanation": "Fase 1 (consolidacion Anjouan, 6 meses): $5K-$17K operativo. Fase 2 (solicitud Seychelles): $22K-$51K + $50K capital. Fase 3 (dual): $41K-$100K anual."
+    },
+    {
+      "id": "q21",
+      "question": "Cuando se sugiere iniciar la solicitud de Seychelles FSA en el roadmap?",
+      "options": ["Abril 2026", "Julio 2026", "Octubre 2026 (Q4)", "2028"],
+      "correctIndex": 2,
+      "explanation": "Roadmap: 2026 Q2-Q3 consolidar Anjouan. 2026 Q4 iniciar solicitud Seychelles. 2027 Q1-Q2 obtener licencia y operar dual."
+    },
+    {
+      "id": "q22",
+      "question": "Que NO se construye ahora por ser prematuro?",
+      "options": [
+        "Politicas AML escritas",
+        "Sistema de compliance dedicado (Hummingbird), Refinitiv World-Check, ICF",
+        "Sumsub KYC",
+        "Screening de sanciones"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prematuros: sistema dedicado (ej. Hummingbird) hasta 500+ clientes; World-Check hasta tier 1; ICF hasta CySEC; equipo compliance de 5+ hasta multiples jurisdicciones."
+    },
+    {
+      "id": "q23",
+      "question": "Cuantos clientes activos tiene Exness aprox. (segun documento)?",
+      "options": ["10,000", "100,000", "800,000+", "5 millones"],
+      "correctIndex": 2,
+      "explanation": "Exness: 800,000+ clientes activos estimados. Multi-jurisdiccional con 7 licencias (CySEC, FCA, FSA, FSCA, FSC Mauritius, FSC BVI, CBCS)."
+    },
+    {
+      "id": "q24",
+      "question": "Criterios para 'listo para Seychelles' despues de Fase 1?",
+      "options": [
+        "Nada especial",
+        "Compliance operando 6 meses sin incidentes, 2+ reportes trimestrales AOFA, 0 incidentes sanciones, capital $50K + $25-56K",
+        "1,000 clientes minimo",
+        "Contrato con banco tier 1"
+      ],
+      "correctIndex": 1,
+      "explanation": "Criterios: compliance framework 6 meses limpio, 2+ reportes trimestrales AOFA exitosos, 0 sanctions true matches no manejados, capital disponible ($50K + $25-56K costos), registered agent identificado."
+    },
+    {
+      "id": "q25",
+      "question": "Costo total primer ano de Seychelles (sin contar capital)?",
+      "options": ["$5,000 - $10,000", "$25,000 - $56,000", "$100,000+", "$500,000"],
+      "correctIndex": 1,
+      "explanation": "Seychelles primer ano sin capital: $25-56K. Incluye asesoria legal ($10-20K), tasas, registered office, auditor local, etc."
+    },
+    {
+      "id": "q26",
+      "question": "Que son bancos corresponsales y PSPs en la decision regulatoria?",
+      "options": [
+        "Irrelevante",
+        "Evaluan compliance del broker; mejores licencias abren mejores relaciones bancarias y tasas",
+        "Solo operan en EU",
+        "Son clientes"
+      ],
+      "correctIndex": 1,
+      "explanation": "PSPs y bancos evaluan compliance del broker. Licencias reconocidas (Seychelles, Mauritius) abren mejores relaciones bancarias y tasas. Anjouan tiene aceptacion limitada."
+    },
+    {
+      "id": "q27",
+      "question": "Para CySEC o FCA, el capital minimo es aproximadamente?",
+      "options": ["$50K", "$300K", "$730,000 (EUR/GBP)", "$10 millones"],
+      "correctIndex": 2,
+      "explanation": "CySEC: EUR 730,000. FCA UK: GBP 730,000. Son tier 1 con ICF (fondo de compensacion al inversor) y requerimientos muy estrictos."
+    },
+    {
+      "id": "q28",
+      "question": "Que debe confirmar con abogado aparte de los items [VERIFICAR CON ABOGADO]?",
+      "options": [
+        "Nada",
+        "Capital minimo real, segregacion de fondos, requisitos actualizados, formato exacto de reportes, plazos regulatorios",
+        "Solo lectura",
+        "Solo temas fiscales"
+      ],
+      "correctIndex": 1,
+      "explanation": "Todos los items marcados [VERIFICAR CON ABOGADO] deben confirmarse: capital, segregacion, apalancamiento, costos, directores, formato de reportes, etc."
+    },
+    {
+      "id": "q29",
+      "question": "Cual es el primer requisito legal estructural en Mauritius para oficina?",
+      "options": [
+        "Solo registered office (ficticio)",
+        "Oficina fisica en Mauritius",
+        "No se requiere oficina",
+        "Oficina en Africa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mauritius requiere oficina fisica en Mauritius (no solo registered office). Seychelles acepta registered office via agente."
+    },
+    {
+      "id": "q30",
+      "question": "Por que no se rechaza automaticamente la expansion a Mauritius?",
+      "options": [
+        "Siempre se rechaza",
+        "Se rechaza por ahora por capital ($300K), estructura compleja (oficina + directores), costos. Se evalua para fase 3",
+        "Es muy facil",
+        "Esta prohibido"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mauritius se difiere a fase 3: requiere capital significativo ($300K), infraestructura local (oficina + directores), track record. Antes se evalua Seychelles."
+    },
+    {
+      "id": "q31",
+      "question": "Cuando se evaluaria CySEC o FCA?",
+      "options": ["Inmediatamente", "2027", "2028", "2029+ si volumen y estrategia lo justifican"],
+      "correctIndex": 3,
+      "explanation": "2029+: evaluar CySEC/FCA si volumen y estrategia lo justifican. Es fase 4, largo plazo. Costo $300K+, tiempo 12-24 meses."
+    },
+    {
+      "id": "q32",
+      "question": "Cual de estos aspectos SI permite Anjouan que los tier 1 no?",
+      "options": [
+        "Fondo de compensacion al inversor",
+        "Sin restricciones de apalancamiento y sin requisitos de ICF",
+        "Marketing en UE",
+        "Atender clientes USA"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ventajas Anjouan: proceso rapido, costo bajo, flexibilidad, sin restriccion de apalancamiento (vs 1:30 en UE/AUS), sin ICF."
+    },
+    {
+      "id": "q33",
+      "question": "Frecuencia de reportes AML requerida por AOFA?",
+      "options": ["Anual solamente", "Trimestral (AML) + Anual (financiero)", "Mensual", "Nunca"],
+      "correctIndex": 1,
+      "explanation": "AOFA: Trimestral (reporte AML) + Anual (reporte financiero). Auditorias anuales."
+    },
+    {
+      "id": "q34",
+      "question": "Como se compara la reputacion de Mauritius vs Anjouan?",
+      "options": [
+        "Identica",
+        "Mauritius Media-Alta; Anjouan Baja-Media",
+        "Anjouan superior",
+        "Ambas irreconocibles"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reputacion: Mauritius Media-Alta. Seychelles Media. Anjouan Baja-Media. Por eso se expande."
+    },
+    {
+      "id": "q35",
+      "question": "Que brokers conocidos tienen licencia Mauritius FSC?",
+      "options": ["JP Morgan", "Exness, HF Markets", "Bank of America", "Ninguno"],
+      "correctIndex": 1,
+      "explanation": "Brokers con FSC Mauritius: Exness, HF Markets. Es una jurisdiccion respetada aunque menos comun que Seychelles."
+    },
+    {
+      "id": "q36",
+      "question": "Que sucede despues de obtener Seychelles en Fase 3 (operacion dual)?",
+      "options": [
+        "Se cierra Anjouan",
+        "Dos entidades: Neomaaa Ltd (Anjouan) + Neomaaa Seychelles Ltd; clientes nuevos que prefieran Seychelles se onboardean en la nueva entidad",
+        "Todo se migra a Seychelles",
+        "Solo se reporta a Seychelles"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fase 3 operacion dual: dos entidades (Anjouan + Seychelles), mismo compliance framework adaptado, reportes separados por regulador."
+    }
+  ]
+}

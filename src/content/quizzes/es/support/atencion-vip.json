@@ -1,0 +1,342 @@
+{
+  "docPath": "support/atencion-vip",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuál es el deposito minimo acumulado para clasificar como VIP?",
+      "options": ["$1,000 USD", "$3,000 USD", "$5,000 USD", "$10,000 USD"],
+      "correctIndex": 2,
+      "explanation": "Un cliente se clasifica como VIP cuando acumula $5,000 USD o mas en depositos, o cumple alguno de los otros criterios (Institucional, volumen 50+ lotes/mes, 5+ referidos activos, potencial estrategico)."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuantos niveles VIP existen?",
+      "options": ["2: Gold y Platinum", "3: Silver, Gold, Platinum", "4: Bronze, Silver, Gold, Platinum", "5 niveles"],
+      "correctIndex": 1,
+      "explanation": "Existen 3 niveles VIP: Silver ($5K-$15K), Gold ($15K-$50K) y Platinum ($50K+ Institucional)."
+    },
+    {
+      "id": "q3",
+      "question": "¿Que rango define a un cliente VIP Gold?",
+      "options": ["$5,000 - $14,999", "$15,000 - $49,999", "$50,000+", "$100,000+"],
+      "correctIndex": 1,
+      "explanation": "VIP Gold corresponde a $15,000 - $49,999 de deposito acumulado. Incluye account manager dedicado, linea WhatsApp directa y condiciones mejoradas."
+    },
+    {
+      "id": "q4",
+      "question": "¿Quien es account manager dedicado para clientes VIP?",
+      "options": ["Franco y Luis", "Edward", "Rocio o Marilyn", "Susana"],
+      "correctIndex": 2,
+      "explanation": "Rocio o Marilyn son los account managers dedicados para clientes VIP Gold y Platinum. Edward es el sales lead que supervisa."
+    },
+    {
+      "id": "q5",
+      "question": "¿Cual es el SLA de primera respuesta en chat para VIP Platinum?",
+      "options": ["5 minutos", "3 minutos", "2 minutos", "1 minuto"],
+      "correctIndex": 3,
+      "explanation": "VIP Platinum: 1 minuto en chat. Gold: 2 min. Silver: 3 min. Regular: 5 min."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuanto tiempo tiene el account manager para hacer el primer contacto VIP desde activacion?",
+      "options": ["1 hora", "24 horas", "48 horas", "1 semana"],
+      "correctIndex": 1,
+      "explanation": "El account manager debe realizar el primer contacto VIP dentro de 24 horas desde la activacion (cuando el cliente cruza el umbral)."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cual es el SLA de primera respuesta por email para VIP Gold?",
+      "options": ["2-4 horas", "1 hora", "30 minutos", "15 minutos"],
+      "correctIndex": 2,
+      "explanation": "VIP Gold email: 30 min. Platinum: 15 min. Silver: 1 hora. Regular: 2-4 horas."
+    },
+    {
+      "id": "q8",
+      "question": "¿Que procesamiento tienen los retiros para VIP Gold y Platinum?",
+      "options": [
+        "1-3 dias habiles estandar",
+        "Mismo dia habil con prioridad maxima",
+        "Instantaneo sin excepcion",
+        "24 horas fijas"
+      ],
+      "correctIndex": 1,
+      "explanation": "VIP Gold: mismo dia habil. Platinum: mismo dia habil con prioridad maxima. Silver: 1-2 dias. Regular: 1-3 dias."
+    },
+    {
+      "id": "q9",
+      "question": "¿Quien puede acceder a la linea directa con Pepe (Dealing)?",
+      "options": ["Todos los clientes", "VIP Silver y superior", "VIP Gold y superior", "Solo VIP Platinum"],
+      "correctIndex": 3,
+      "explanation": "Linea directa con Dealing (Pepe) es beneficio exclusivo de VIP Platinum, para consultas de ejecucion."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cuando un cliente VIP presenta una queja, quien toma control del caso?",
+      "options": [
+        "Agente de soporte regular",
+        "El account manager inmediatamente",
+        "Susana",
+        "Diego"
+      ],
+      "correctIndex": 1,
+      "explanation": "En queja VIP el account manager toma control del caso inmediatamente, contacta al cliente por su canal preferido y escala internamente con maxima prioridad."
+    },
+    {
+      "id": "q11",
+      "question": "¿Cada cuanto debe comunicar avances el account manager en una queja VIP?",
+      "options": ["Cada 24 horas", "Cada 8 horas", "Cada 2 horas como minimo", "Solo cuando haya novedad"],
+      "correctIndex": 2,
+      "explanation": "En queja VIP la comunicacion de avances es cada 2 horas minimo. En cliente regular es segun SLA de actualizacion."
+    },
+    {
+      "id": "q12",
+      "question": "¿Cuanto debe ser la retencion VIP a 90 dias segun los KPIs?",
+      "options": [">60%", ">75%", ">85%", "100%"],
+      "correctIndex": 2,
+      "explanation": "KPI de retencion VIP a 90 dias: >85%. Otros KPIs: SLA VIP >95%, CSAT VIP >4.5/5, desercion VIP mensual <5%."
+    },
+    {
+      "id": "q13",
+      "question": "Un cliente VIP Silver no opera en 7+ dias siendo activo diario. ¿Que nivel de alerta es?",
+      "options": ["Verde", "Amarilla", "Naranja", "Roja"],
+      "correctIndex": 1,
+      "explanation": "7+ dias sin operar = alerta Amarilla. 15+ dias = Naranja. Retiro 50%+ = Roja. Retiro total o cierre = Critica."
+    },
+    {
+      "id": "q14",
+      "question": "¿Con que frecuencia debe hacer contacto proactivo el account manager con VIP Gold?",
+      "options": ["Diario", "Semanal", "2x por semana", "Mensual"],
+      "correctIndex": 1,
+      "explanation": "Contacto proactivo: VIP Gold semanal, VIP Platinum 2x por semana. Silver tiene contacto mensual de verificacion."
+    },
+    {
+      "id": "q15",
+      "question": "¿Que porcentaje de depositos totales deberia venir de clientes VIP (meta KPI)?",
+      "options": [">25%", ">50%", ">75%", ">90%"],
+      "correctIndex": 1,
+      "explanation": "KPI: depositos de clientes VIP / total depositos >50%. Es una meta de concentracion de valor en la base VIP."
+    },
+    {
+      "id": "q16",
+      "question": "¿Que criterio de volumen mensual de trading activa clasificacion VIP?",
+      "options": ["10+ lotes/mes", "25+ lotes/mes", "50+ lotes estandar/mes", "100+ lotes/mes"],
+      "correctIndex": 2,
+      "explanation": "Criterio VIP por volumen: 50+ lotes estandar/mes (se verifica en MT5 Admin)."
+    },
+    {
+      "id": "q17",
+      "question": "Un cliente tiene 5+ referidos activos que depositaron. ¿Califica como VIP?",
+      "options": [
+        "No, solo por deposito acumulado",
+        "Si, ese es uno de los criterios VIP",
+        "Solo si son Institucionales",
+        "Solo con aprobacion de Diego"
+      ],
+      "correctIndex": 1,
+      "explanation": "5+ referidos activos que depositaron es uno de los 5 criterios de clasificacion VIP (se verifica en Programa IB en Skale)."
+    },
+    {
+      "id": "q18",
+      "question": "¿Cual es el tiempo de escalamiento en L1 para VIP Platinum?",
+      "options": ["15 minutos", "10 minutos", "5 minutos", "Inmediato a L2"],
+      "correctIndex": 3,
+      "explanation": "VIP Platinum: inmediato a L2. Gold: 5 min. Silver: 10 min. Regular: 15 min."
+    },
+    {
+      "id": "q19",
+      "question": "Si un SLA VIP no se cumple, ¿que es lo primero que debe hacer el agente?",
+      "options": [
+        "Llamar al cliente",
+        "Notificar a Edward inmediatamente",
+        "Escribir a Principals",
+        "Documentar en el registro mensual"
+      ],
+      "correctIndex": 1,
+      "explanation": "Protocolo de SLA incumplido: 1) Agente notifica a Edward inmediatamente, 2) Edward contacta al cliente con disculpa, 3) Se documenta, 4) Se analiza causa raiz en reunion semanal."
+    },
+    {
+      "id": "q20",
+      "question": "Un cliente abre cuenta directamente como Raw o Institucional (dia 1). ¿Cuando se presenta el account manager?",
+      "options": [
+        "Al dia 7",
+        "Dentro de 2 horas despues de aprobar KYC",
+        "Al realizar el primer deposito",
+        "Al mes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Onboarding VIP directo: una vez aprobado el KYC, el account manager se presenta dentro de 2 horas."
+    },
+    {
+      "id": "q21",
+      "question": "¿Cuantas veces se hace seguimiento post-resolucion de queja VIP?",
+      "options": [
+        "Solo 1 vez a las 48h",
+        "A las 24h y a los 7 dias",
+        "Cada semana por un mes",
+        "No hay seguimiento post-resolucion"
+      ],
+      "correctIndex": 1,
+      "explanation": "Seguimiento post-resolucion VIP: 24h despues + 7 dias despues. Cliente regular: solo 48h despues."
+    },
+    {
+      "id": "q22",
+      "question": "¿Que campo en Intercom se activa automaticamente por Skale sync para VIP?",
+      "options": ["tag", "atributo `vip` boolean", "nota interna", "prioridad numerica"],
+      "correctIndex": 1,
+      "explanation": "En Intercom el atributo `vip` es boolean activado automaticamente por Skale sync. Ademas se asignan `vip_level` y tags `vip-silver/gold/platinum`."
+    },
+    {
+      "id": "q23",
+      "question": "Cliente VIP realiza retiro de 50%+ del balance. ¿Que nivel de alerta?",
+      "options": ["Amarilla", "Naranja", "Roja", "Informativa"],
+      "correctIndex": 2,
+      "explanation": "Retiro de 50%+ del balance = alerta Roja. Accion: account manager contacta inmediatamente."
+    },
+    {
+      "id": "q24",
+      "question": "¿Quien evalua el criterio 'potencial estrategico' para clasificar a un cliente como VIP?",
+      "options": [
+        "El cliente solicita ser VIP",
+        "Edward/Principals realizan la evaluacion",
+        "Susana de compliance",
+        "Skale lo determina automaticamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "El criterio de 'potencial estrategico' (cliente con alto valor demostrable) lo evaluan Edward/Principals. Los otros 4 criterios son objetivos y automaticos."
+    },
+    {
+      "id": "q25",
+      "question": "¿Cada cuanto hay revision trimestral con cliente VIP Gold?",
+      "options": ["Mensual", "Bimestral", "Trimestral (15 min)", "Anual"],
+      "correctIndex": 2,
+      "explanation": "Revision trimestral con VIP Gold: llamada de 15 min para revisar experiencia y necesidades."
+    },
+    {
+      "id": "q26",
+      "question": "¿Cual es el beneficio de VPS y configuracion 1-a-1 de MT5?",
+      "options": ["Silver", "Gold", "Platinum (onboarding premium)", "Todos los VIP"],
+      "correctIndex": 2,
+      "explanation": "Onboarding premium (sesion 1-a-1 de MT5, VPS, herramientas) es beneficio exclusivo VIP Platinum."
+    },
+    {
+      "id": "q27",
+      "question": "En reporte semanal VIP, ¿que se debe reportar sobre inactividad?",
+      "options": [
+        "Nada",
+        "VIP inactivos (7+ dias)",
+        "Solo los que cerraron cuenta",
+        "Solo VIP Platinum inactivos"
+      ],
+      "correctIndex": 1,
+      "explanation": "El reporte semanal VIP incluye: VIP inactivos (7+ dias), nuevos VIP, contactos proactivos realizados/total, quejas abiertas, retiros procesados."
+    },
+    {
+      "id": "q28",
+      "question": "¿Que se hace si cliente VIP solicita cierre de cuenta?",
+      "options": [
+        "Procesar inmediatamente sin preguntar",
+        "Edward interviene + oferta de retencion",
+        "Rechazar el cierre",
+        "Transferir a Susana"
+      ],
+      "correctIndex": 1,
+      "explanation": "Solicitud de cierre de cuenta VIP = alerta Critica. Edward interviene + oferta de retencion. Account manager contacta antes de procesar."
+    },
+    {
+      "id": "q29",
+      "question": "¿Que se recomienda al cliente VIP que decide firmemente irse?",
+      "options": [
+        "Presionar con ofertas hasta que cambie",
+        "Procesar con profesionalismo y dejar puerta abierta",
+        "Bloquear la cuenta para evitarlo",
+        "Exigir documentacion legal"
+      ],
+      "correctIndex": 1,
+      "explanation": "Si decision es firme: procesar con profesionalismo y respeto, dejar puerta abierta ('si en el futuro quieres volver, estaremos encantados'), documentar motivo en Skale."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuando se considera que un deposito es grande para activar contacto proactivo post-deposito?",
+      "options": [">$1,000", ">$5,000", ">$10,000", ">$50,000"],
+      "correctIndex": 1,
+      "explanation": "Post-deposito grande (>$5K): account manager envia agradecimiento + verificacion de que todo funciona correctamente, por WhatsApp."
+    },
+    {
+      "id": "q31",
+      "question": "¿Que disculpa se entrega al hacer recuperacion de servicio VIP?",
+      "options": [
+        "Email automatico template",
+        "Llamada o mensaje personalizado del account manager (no template)",
+        "Formulario de quejas",
+        "No se ofrece disculpa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Recuperacion de servicio VIP: disculpa directa del account manager, llamada o mensaje personalizado, NO template."
+    },
+    {
+      "id": "q32",
+      "question": "¿Cual es la meta de CSAT para clientes VIP?",
+      "options": ["3.5/5", "4.0/5", ">4.5/5", ">4.8/5"],
+      "correctIndex": 2,
+      "explanation": "KPI CSAT VIP: >4.5/5. Quejas VIP resueltas en SLA: 100%. Tasa de desercion VIP mensual: <5%."
+    },
+    {
+      "id": "q33",
+      "question": "Revision reforzada post-queja VIP: ¿con que frecuencia es el contacto?",
+      "options": ["Cada dia", "Cada 3 dias por 2 semanas", "Cada semana por 1 mes", "Solo 1 vez"],
+      "correctIndex": 1,
+      "explanation": "Seguimiento reforzado post-queja VIP: contacto cada 3 dias durante las 2 semanas siguientes."
+    },
+    {
+      "id": "q34",
+      "question": "¿Que informacion del cliente debe mantener actualizada el account manager?",
+      "options": [
+        "Solo el nombre y balance",
+        "Perfil completo: tipo cuenta, instrumentos, estilo, horarios, canal preferido, historial, etc.",
+        "Solo el historial de retiros",
+        "Solo el tipo de cuenta"
+      ],
+      "correctIndex": 1,
+      "explanation": "El AM mantiene perfil completo en Skale/MT5 Admin/Intercom: nombre, pais, tipo de cuenta, balance, instrumentos, estilo de trading, horarios, canal preferido, historial de quejas, ultimo deposito, ultimo contacto proactivo, solicitudes especiales."
+    },
+    {
+      "id": "q35",
+      "question": "VIP queda dia 30 sin actividad. ¿Que accion corresponde?",
+      "options": [
+        "Cerrar la cuenta automaticamente",
+        "Llamada directa del account manager",
+        "Enviar mail generico",
+        "Esperar sin intervenir"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dia 30 sin actividad: llamada directa del AM. Objetivos: entender motivo, resolver si es problema de NEOMAAA, entender si opera en otro broker, ofrecer condiciones mejoradas si Principals autorizan, documentar feedback."
+    },
+    {
+      "id": "q36",
+      "question": "¿Cual es la tasa de desercion VIP mensual objetivo?",
+      "options": ["<15%", "<10%", "<5%", "0%"],
+      "correctIndex": 2,
+      "explanation": "KPI mensual: tasa de desercion VIP <5%."
+    },
+    {
+      "id": "q37",
+      "question": "¿Con que canal se hace la bienvenida VIP al cliente recien clasificado?",
+      "options": ["Solo email", "Solo WhatsApp", "WhatsApp + Email", "Llamada telefonica unicamente"],
+      "correctIndex": 2,
+      "explanation": "Bienvenida VIP: WhatsApp + Email. Incluye presentacion del account manager y datos de contacto directos."
+    },
+    {
+      "id": "q38",
+      "question": "¿Que condiciones personalizadas ofrece VIP Platinum?",
+      "options": [
+        "Solo spreads reducidos",
+        "Spreads, comisiones y apalancamiento negociados individualmente",
+        "Bonos de deposito",
+        "Solo apalancamiento especial"
+      ],
+      "correctIndex": 1,
+      "explanation": "VIP Platinum tiene condiciones personalizadas: spreads, comisiones y apalancamiento negociados individualmente."
+    }
+  ]
+}

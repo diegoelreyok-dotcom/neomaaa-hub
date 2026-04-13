@@ -1,0 +1,346 @@
+{
+  "docPath": "sales/plan-contacto",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuántos usuarios registrados tiene NEOMAAA Broker que hay que activar en la Etapa 1?",
+      "options": ["~100", "~250", "~500", "~1,000"],
+      "correctIndex": 1,
+      "explanation": "~250 personas ya registradas en neomaaa.com. El objetivo es llevarlos de 'registrado' a 'KYC completado + FTD'."
+    },
+    {
+      "id": "q2",
+      "question": "¿Quién lidera el contacto inicial con los ~250 usuarios?",
+      "options": ["Franco", "Luis", "Edward (Sales Lead)", "Diego directamente"],
+      "correctIndex": 2,
+      "explanation": "Edward lidera el contacto inicial. Una vez que domine el proceso, capacita a Franco y Luis para escalar."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cómo se clasifican los leads en Skale CRM?",
+      "options": [
+        "Por país",
+        "A (Hot), B (Warm), C (Cold), D (Prop Crossover)",
+        "Por monto de depósito",
+        "Por idioma"
+      ],
+      "correctIndex": 1,
+      "explanation": "Categorías: A (Hot - reciente, KYC o intento depósito - ALTA prioridad), B (Warm - 30-90 días, sin acción), C (Cold - 90+ días), D (Prop Crossover - vienen de NEOMAAA prop trading - ALTA prioridad)."
+    },
+    {
+      "id": "q4",
+      "question": "¿Qué leads son los de MÁS alta prioridad para llamar primero?",
+      "options": ["C (Cold)", "A (Hot) y D (Prop Crossover)", "B (Warm)", "Todos por igual"],
+      "correctIndex": 1,
+      "explanation": "Categorías A (Hot) y D (Prop Crossover) tienen prioridad ALTA. B es MEDIA. C es BAJA (contactar por email/WhatsApp primero)."
+    },
+    {
+      "id": "q5",
+      "question": "¿Cuál es la meta diaria de leads contactados por Edward?",
+      "options": ["10-15", "20-25", "30-40", "50-60"],
+      "correctIndex": 2,
+      "explanation": "Meta diaria de Edward: 30-40 contactos (llamadas + mensajes)."
+    },
+    {
+      "id": "q6",
+      "question": "¿Qué horario tiene el bloque de llamadas a leads A y D?",
+      "options": [
+        "09:00-09:30",
+        "09:30-12:30",
+        "13:30-16:00",
+        "16:00-16:30"
+      ],
+      "correctIndex": 1,
+      "explanation": "09:30-12:30 = bloque de llamadas/WhatsApp a leads A y D (15-20 contactos). 13:30-16:00 = leads B."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuál es la meta diaria de FTDs para Edward?",
+      "options": ["0-1", "1-2", "3-5", "5-10"],
+      "correctIndex": 1,
+      "explanation": "Meta diaria Edward: 30-40 contactos, 15-20 conversaciones efectivas, 3-5 KYCs iniciados, 1-2 FTDs."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuál es la meta semanal de KYCs completados?",
+      "options": ["5-10", "15-25", "50+", "100+"],
+      "correctIndex": 1,
+      "explanation": "Meta semanal: 150-200 contactos totales, 15-25 KYCs completados, 5-10 FTDs."
+    },
+    {
+      "id": "q9",
+      "question": "Antes de hacer la primera llamada, ¿qué accesos debe tener Edward?",
+      "options": [
+        "Solo acceso al CRM",
+        "Skale CRM con 250 leads, MT5 admin, script aprobado, Sumsub, FAQ broker, conocimiento tipos de cuenta, portal operaciones",
+        "Solo un teléfono",
+        "Solo acceso a WhatsApp"
+      ],
+      "correctIndex": 1,
+      "explanation": "Checklist antes de primera llamada: Skale CRM con leads, MT5 admin, script aprobado, Sumsub, FAQ broker, conocimiento 4 tipos cuenta, portal de operaciones."
+    },
+    {
+      "id": "q10",
+      "question": "¿Qué tipo de cuenta mencionan los scripts como entrada 'sin riesgo'?",
+      "options": [
+        "Standard",
+        "Raw",
+        "Cuenta Cent desde $5 ('sin riesgo')",
+        "Institutional"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cuenta Cent desde $5 es la entrada 'sin compromiso, sin riesgo' — usada en todos los scripts."
+    },
+    {
+      "id": "q11",
+      "question": "¿Cuál es la ventaja DESTACADA que Edward debe comunicar a leads tipo D (Prop Crossover)?",
+      "options": [
+        "Bonus de bienvenida",
+        "Ya tienen cuenta y conocen la marca; ahora pueden operar con su propio capital: spreads desde 0.0 en Raw, leverage 1:1000, 2,000+ instrumentos",
+        "Mejor horario de soporte",
+        "Cuenta demo exclusiva"
+      ],
+      "correctIndex": 1,
+      "explanation": "Script Lead D: '...ahora también lanzamos como broker directo con MT5. Ya tenés cuenta, ya conocés la marca, ahora podés operar con tu propio capital con spreads desde 0.0 en Raw, leverage hasta 1:1000, y más de 2,000 instrumentos.'"
+    },
+    {
+      "id": "q12",
+      "question": "¿Cuándo empieza Edward a capacitar a Franco y Luis?",
+      "options": ["Día 1", "Días 4-15", "Días 12-20", "Después del día 30"],
+      "correctIndex": 2,
+      "explanation": "Fase 3 (Días 12-20): Edward capacita a Franco y Luis mientras sigue contactando. Dedica 1-2 horas/día a capacitación sin parar su actividad."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuánto dura la semana de capacitación de Edward a Franco y Luis?",
+      "options": ["1 día", "3 días", "5 días (una semana)", "10 días"],
+      "correctIndex": 2,
+      "explanation": "5 días: Día 1 producto, Día 2 CRM, Día 3 scripts+objeciones, Día 4 compliance (Susana), Día 5 llamadas en vivo supervisadas."
+    },
+    {
+      "id": "q14",
+      "question": "En la capacitación Día 4 (compliance), ¿quién participa además de Edward?",
+      "options": ["Diego", "Angel", "Susana (30 min, luego práctica)", "Pepe"],
+      "correctIndex": 2,
+      "explanation": "Día 4 compliance: Susana participa 30 min explicando frases prohibidas y manejo de KYC, después práctica."
+    },
+    {
+      "id": "q15",
+      "question": "Después de la capacitación, ¿qué leads se distribuyen a Franco y Luis?",
+      "options": [
+        "Solo A y D (los más calientes)",
+        "B y C (más fáciles, menos riesgo). Edward conserva A y D",
+        "Solo D",
+        "Todos los leads"
+      ],
+      "correctIndex": 1,
+      "explanation": "Franco y Luis empiezan con B y C (más fáciles, menos riesgo). Edward conserva A y D (más calientes, necesitan experiencia)."
+    },
+    {
+      "id": "q16",
+      "question": "¿Cuánto dura la reunión diaria del equipo?",
+      "options": ["5 minutos", "15 minutos (a las 17:00)", "30 minutos", "1 hora"],
+      "correctIndex": 1,
+      "explanation": "Reunión diaria de 15 min a las 17:00: números, bloqueos, qué mejorar."
+    },
+    {
+      "id": "q17",
+      "question": "En Fase 4 (Día 20+), ¿cuál es la meta diaria de FTDs para Edward?",
+      "options": ["1-2", "2-3", "5-7", "10+"],
+      "correctIndex": 1,
+      "explanation": "Fase 4 con 3 agentes: Edward 2-3 FTDs/día (leads A+D), Franco 1-2 (B+nuevos), Luis 1-2 (B+C+nuevos)."
+    },
+    {
+      "id": "q18",
+      "question": "¿Cuándo es la reunión semanal del equipo?",
+      "options": ["Viernes", "Domingo", "Lunes 09:00", "Cualquier día"],
+      "correctIndex": 2,
+      "explanation": "Reunión semanal: Lunes 09:00. Agenda fija: números semana anterior, top 3 objeciones, leads bloqueados, plan semana, feedback Edward."
+    },
+    {
+      "id": "q19",
+      "question": "¿A quién envía Edward el reporte semanal?",
+      "options": ["Susana", "Angel", "Diego (cada viernes)", "Todo el equipo"],
+      "correctIndex": 2,
+      "explanation": "Edward envía reporte semanal a Diego cada viernes: contactos, conversaciones, KYCs iniciados/completados, FTDs, volumen, top objeciones, bloqueados, plan siguiente."
+    },
+    {
+      "id": "q20",
+      "question": "Objeción común 'Ya tengo otro broker'. ¿Respuesta recomendada?",
+      "options": [
+        "Presionar para que cierre el otro broker",
+        "Atacar al otro broker",
+        "'Muchos traders operan con 2-3 brokers. ¿Por qué no pruebas con una cuenta Cent de $5? Sin compromiso, comparar spreads y ejecución'",
+        "Regalarle un bonus"
+      ],
+      "correctIndex": 2,
+      "explanation": "'Perfecto — muchos traders operan con 2-3 brokers. Probar cuenta Cent $5. Sin compromiso, comparar spreads y ejecución.'"
+    },
+    {
+      "id": "q21",
+      "question": "Objeción: 'No tengo dinero ahora'. ¿Respuesta?",
+      "options": [
+        "Ofrecerle crédito",
+        "'La cuenta Cent arranca desde $5, literalmente el precio de un café. Es para probar, no para arriesgar'",
+        "Sugerirle que pida prestado",
+        "Abandonar el lead"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Entiendo. La cuenta Cent arranca desde $5, literalmente el precio de un café. Es para probar, no para arriesgar.'"
+    },
+    {
+      "id": "q22",
+      "question": "Objeción: 'No confío en brokers nuevos'. ¿Respuesta?",
+      "options": [
+        "'NEOMAAA no es nuevo — ya operamos prop trading con miles de traders. Ahora expandimos al brokerage con licencia regulada L15968/N. Fondos segregados'",
+        "Negar que sea nuevo",
+        "Ofrecer garantías imposibles",
+        "Despedirse"
+      ],
+      "correctIndex": 0,
+      "explanation": "Destacar: NEOMAAA no es nuevo (ya opera prop con miles de traders). Licencia regulada L15968/N. Fondos segregados. Reutilizar credibilidad de NEOMAAA Funded."
+    },
+    {
+      "id": "q23",
+      "question": "Objeción: '¿Qué pasa con mis retiros?'. ¿Respuesta clave?",
+      "options": [
+        "Prometer retiros instantáneos",
+        "'Retiros se procesan en 24h hábiles. Mismo método que usaste para depositar. Sin sorpresas'",
+        "Evitar la pregunta",
+        "Decir que depende del país"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Retiros se procesan en 24h hábiles. Mismo método que usaste para depositar. Sin sorpresas.'"
+    },
+    {
+      "id": "q24",
+      "question": "¿Cuántas herramientas se listan en la tabla de 'Herramientas Necesarias'?",
+      "options": ["3", "4", "6 (Skale, MT5 Admin, Sumsub, Intercom, WhatsApp Business, portal)", "10"],
+      "correctIndex": 2,
+      "explanation": "6 herramientas: Skale CRM, MT5 Admin, Sumsub, Intercom, WhatsApp Business, Portal de operaciones."
+    },
+    {
+      "id": "q25",
+      "question": "Meta 30 días: ¿qué porcentaje de los 250 leads deben estar contactados?",
+      "options": ["25%", "50%", "100% (250/250)", "70%"],
+      "correctIndex": 2,
+      "explanation": "Meta 30 días: 100% (250) leads contactados. KYCs completados 50-75 (20-30%). FTDs 25-40 (10-16%)."
+    },
+    {
+      "id": "q26",
+      "question": "¿Qué meta de depósitos tiene el mes 1?",
+      "options": ["$1K-5K", "$5K-15K", "$20K-30K", "$50K+"],
+      "correctIndex": 1,
+      "explanation": "Volumen depositado meta mes 1: $5K-$15K. Meta 60 días: $20K+."
+    },
+    {
+      "id": "q27",
+      "question": "El script de WhatsApp para Lead B (Warm) destaca qué features?",
+      "options": [
+        "Solo regulación",
+        "MT5 con 2,000+ instrumentos, depósito desde $5, 120+ métodos de depósito, spreads desde 0.0 pips",
+        "Solo spreads bajos",
+        "Solo los bonuses"
+      ],
+      "correctIndex": 1,
+      "explanation": "Script WhatsApp Lead B destaca: MT5 con 2,000+ instrumentos, depósito desde $5, 120+ métodos, spreads desde 0.0. Ofrecer ayuda con verificación (5 min)."
+    },
+    {
+      "id": "q28",
+      "question": "¿Qué tag de cierre usa Edward en los emails?",
+      "options": [
+        "'Saludos'",
+        "'Atentamente'",
+        "'NEOMAAA Broker — Tu broker, tus reglas.'",
+        "Solo la firma"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tagline: 'NEOMAAA Broker — Tu broker, tus reglas.'"
+    },
+    {
+      "id": "q29",
+      "question": "En la agenda fija de la reunión semanal, ¿qué NO forma parte de la agenda?",
+      "options": [
+        "Números de la semana pasada",
+        "Top 3 objeciones escuchadas",
+        "Leads bloqueados (KYC rechazado, depósito fallido)",
+        "Discusión sobre películas del fin de semana"
+      ],
+      "correctIndex": 3,
+      "explanation": "Agenda fija: (1) Números, (2) Top 3 objeciones + manejo, (3) Leads bloqueados, (4) Plan semana, (5) Feedback Edward a Franco/Luis."
+    },
+    {
+      "id": "q30",
+      "question": "¿Qué dato clave debe validar Edward en las primeras 10 notas de CRM de cada uno (Franco/Luis)?",
+      "options": [
+        "La velocidad de escritura",
+        "La calidad de las notas",
+        "El color del texto",
+        "La longitud de las notas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Edward revisa primeras 10 notas de CRM de cada uno (Franco y Luis) para validar CALIDAD — no solo que existan, sino que sean útiles para el próximo contacto."
+    },
+    {
+      "id": "q31",
+      "question": "Una lead B ('Warm') típica tiene cuándo se registró?",
+      "options": [
+        "Últimos 7 días",
+        "Últimos 30 días",
+        "Registro hace 30-90 días, KYC incompleto o no depósito",
+        "Más de 1 año"
+      ],
+      "correctIndex": 2,
+      "explanation": "Categoría B (Warm): registro hace 30-90 días, KYC incompleto o no depósito. Prioridad MEDIA (llamar semana 1-2)."
+    },
+    {
+      "id": "q32",
+      "question": "¿Por qué los leads D (Prop Crossover) son prioridad ALTA?",
+      "options": [
+        "Depositan más",
+        "Ya conocen la marca NEOMAAA (vienen del lado prop trading), mensaje personalizado",
+        "Viven en Dubai",
+        "Pagan en crypto"
+      ],
+      "correctIndex": 1,
+      "explanation": "Leads D = ya conocen NEOMAAA del lado prop trading. Confianza pre-existente. Mensaje personalizado aprovechando la marca."
+    },
+    {
+      "id": "q33",
+      "question": "¿Qué comisión/spreads destaca el script a lead Raw?",
+      "options": [
+        "Spread incluido",
+        "Raw: spreads desde 0.0 pips + $3/lote/lado",
+        "Sin comisión",
+        "1 pip fijo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Raw: spreads desde 0.0 pips + $3/lote/lado. Standard: desde 1.0 pip sin comisión."
+    },
+    {
+      "id": "q34",
+      "question": "En la rutina diaria de Edward, ¿qué pasa de 16:00 a 16:30?",
+      "options": [
+        "Llamadas adicionales",
+        "Almuerzo",
+        "Actualizar CRM: notas, estados, follow-ups programados",
+        "Meditación"
+      ],
+      "correctIndex": 2,
+      "explanation": "16:00-16:30: Actualizar CRM (admin). 16:30-17:00: enviar emails/WhatsApp a leads C. 17:00-17:30: reporte diario a Diego."
+    },
+    {
+      "id": "q35",
+      "question": "¿Cuántos agentes activos y productivos se esperan a los 60 días?",
+      "options": [
+        "Solo Edward",
+        "Solo Edward + Franco",
+        "Edward + Franco + Luis (los 3 activos)",
+        "10 agentes nuevos"
+      ],
+      "correctIndex": 2,
+      "explanation": "Meta 60 días: los 3 agentes (Edward + Franco + Luis) activos y productivos. Meta 30 días: solo Edward productivo."
+    }
+  ]
+}

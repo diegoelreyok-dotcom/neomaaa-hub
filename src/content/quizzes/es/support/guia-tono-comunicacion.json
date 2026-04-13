@@ -1,0 +1,450 @@
+{
+  "docPath": "support/guia-tono-comunicacion",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuales son los 5 principios fundamentales de comunicacion?",
+      "options": [
+        "Rapidez, brevedad, tecnicismo, distancia, control",
+        "Claridad, empatia, honestidad, proactividad, profesionalismo",
+        "Formalidad, precision, simpatia, velocidad, urgencia",
+        "Venta, cierre, presion, persuasion, insistencia"
+      ],
+      "correctIndex": 1,
+      "explanation": "Los 5 principios son: Claridad, Empatia, Honestidad, Proactividad, Profesionalismo. Son no negociables, independientemente del canal o situacion."
+    },
+    {
+      "id": "q2",
+      "question": "Un cliente dice 'mi retiro se procesara pronto'. ¿Por que falla en el principio de Claridad?",
+      "options": [
+        "Porque 'pronto' es ambiguo — mejor 'en 1-3 dias habiles'",
+        "Porque no saluda",
+        "Porque es demasiado tecnico",
+        "No falla"
+      ],
+      "correctIndex": 0,
+      "explanation": "Claridad = el cliente entiende exactamente lo que decimos sin ambiguedad. 'Pronto' es ambiguo, 'en 1-3 dias habiles' es claro."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cual es la regla de oro de comunicacion?",
+      "options": [
+        "Ser rapido siempre",
+        "Cada persona esta confiando su dinero — la confianza se gana y pierde con una sola experiencia",
+        "Usar siempre canned responses",
+        "Escalar todo a L2"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla de oro: cada persona que contacta confia su dinero en nosotros. Esa confianza se gana con cada interaccion y se pierde con una sola experiencia negativa."
+    },
+    {
+      "id": "q4",
+      "question": "¿Como se describe la identidad de marca de NEOMAAA en comunicacion?",
+      "options": [
+        "Corporativo, frio, legal",
+        "Accesibles, competentes, confiables, directos",
+        "Agresivo, vendedor",
+        "Formal y distante"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA es: Accesibles (hablamos como personas, no robots), Competentes (damos respuestas precisas), Confiables (cumplimos lo prometido), Directos (vamos al punto con respeto)."
+    },
+    {
+      "id": "q5",
+      "question": "Tono en Intercom (chat en vivo):",
+      "options": [
+        "Formal, texto extenso, jerga legal",
+        "Conversacional pero profesional, parrafos cortos (3-4 lineas)",
+        "Solo emojis",
+        "Respuestas de 1 palabra"
+      ],
+      "correctIndex": 1,
+      "explanation": "Intercom: conversacional pero profesional, saludo con nombre, maximo 3-4 lineas por mensaje, listas numeradas para instrucciones, confirmar comprension."
+    },
+    {
+      "id": "q6",
+      "question": "En WhatsApp, ¿que no se debe hacer?",
+      "options": [
+        "Identificarse como NEOMAAA",
+        "Enviar multiples mensajes seguidos sin esperar respuesta",
+        "Usar saltos de linea",
+        "Ser amigable"
+      ],
+      "correctIndex": 1,
+      "explanation": "WhatsApp: mensajes mas cortos (1-3 lineas), uso de saltos de linea, se puede tutear si el cliente tutea primero, NO enviar multiples mensajes seguidos sin esperar respuesta, siempre identificarse."
+    },
+    {
+      "id": "q7",
+      "question": "En email, ¿que incluye el disclaimer cuando se habla de trading?",
+      "options": [
+        "Nada especial",
+        "'El trading de forex y CFDs conlleva riesgo de perdida. Opera solo con capital que puedas permitirte perder.'",
+        "Avisos de marketing",
+        "Solo el logo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Disclaimer en email (firma) cuando se habla de trading: 'El trading de forex y CFDs conlleva riesgo de perdida. Opera solo con capital que puedas permitirte perder.'"
+    },
+    {
+      "id": "q8",
+      "question": "En llamada telefonica, ¿que se debe hacer despues de la llamada?",
+      "options": [
+        "Nada, la llamada es suficiente",
+        "Enviar email de confirmacion con lo acordado",
+        "Esperar que llame de nuevo",
+        "Mandar WhatsApp con emojis"
+      ],
+      "correctIndex": 1,
+      "explanation": "Telefono: presentacion completa, escuchar completo, resumir lo que el cliente dijo, cerrar con proximos pasos, y ENVIAR EMAIL DE CONFIRMACION despues de la llamada con lo acordado."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cual de las siguientes es una frase PROHIBIDA?",
+      "options": [
+        "'Dejame revisar'",
+        "'No es mi area'",
+        "'Entiendo tu preocupacion'",
+        "'Lamento informarte'"
+      ],
+      "correctIndex": 1,
+      "explanation": "'No es mi area' suena a evasion. Alternativa: 'Dejame transferirte al especialista que puede ayudarte mejor con esto'."
+    },
+    {
+      "id": "q10",
+      "question": "Un cliente esta molesto. ¿Que NO decir nunca?",
+      "options": [
+        "'Entiendo tu frustracion'",
+        "'Calmate' o 'Tranquilo'",
+        "'Voy a resolverlo'",
+        "'Lamento esta situacion'"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Calmate'/'Tranquilo' invalida las emociones del cliente. Alternativa: 'Entiendo que esta situacion es frustrante. Vamos a resolverlo juntos'."
+    },
+    {
+      "id": "q11",
+      "question": "¿Como manejar absolutismos como 'siempre' y 'nunca'?",
+      "options": [
+        "Usarlos para dar enfasis",
+        "Evitarlos — generan confrontacion. Usar 'generalmente', 'en la mayoria de los casos'",
+        "Solo con VIP",
+        "Solo en emails"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Siempre'/'Nunca' son absolutismos que generan confrontacion. Usar 'generalmente', 'en la mayoria de los casos'."
+    },
+    {
+      "id": "q12",
+      "question": "¿Como decidir entre tutear o ustedear?",
+      "options": [
+        "Siempre tutear",
+        "Siempre ustedear",
+        "Seguir la pauta del cliente; en duda, empezar con 'usted' y adaptarse",
+        "Pedirle al cliente que elija"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tutear/ustedear: seguir la pauta del cliente. Si tutea, puedes tutear. Si ustedea, ustedear. En duda, empezar con 'usted' y adaptarse."
+    },
+    {
+      "id": "q13",
+      "question": "¿Como escribir siglas la primera vez que se mencionan?",
+      "options": [
+        "Solo la sigla",
+        "Completo la primera vez: 'MetaTrader 5 (MT5)', 'Know Your Customer (KYC)'",
+        "Todo en mayusculas",
+        "En ingles solamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Siglas: siempre escribir completo la primera vez. Ej: 'MetaTrader 5 (MT5)', 'Know Your Customer (KYC)'."
+    },
+    {
+      "id": "q14",
+      "question": "¿Como se debe escribir un monto en dolares?",
+      "options": [
+        "'$500'",
+        "'500'",
+        "'$500 USD' (siempre especificar moneda)",
+        "'500 dolares americanos'"
+      ],
+      "correctIndex": 2,
+      "explanation": "Numeros y monedas: siempre especificar moneda. '$500 USD', no '$500'. Formato con coma decimal para LATAM cuando sea necesario."
+    },
+    {
+      "id": "q15",
+      "question": "Un cliente nuevo contacta por primera vez. ¿Que tono usar?",
+      "options": [
+        "Calido, entusiasta (sin exagerar), orientado a guiar",
+        "Frio y corporativo",
+        "Directo y minimo",
+        "Agresivo para vender"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cliente nuevo: tono calido, entusiasta sin exagerar, orientado a guiar. Dar bienvenida por nombre, preguntar que necesita antes de asumir, guia proactiva sin abrumar."
+    },
+    {
+      "id": "q16",
+      "question": "¿Que significa el protocolo LEAR para cliente frustrado?",
+      "options": [
+        "Listen, Email, Ask, Respond",
+        "Listen, Empathize, Act, Resolve",
+        "Look, Evaluate, Answer, Respond",
+        "Leverage, Engage, Act, Return"
+      ],
+      "correctIndex": 1,
+      "explanation": "LEAR = Listen (escuchar completo sin interrumpir), Empathize (reconocer emocion), Act (describir accion), Resolve (ejecutar y confirmar satisfaccion)."
+    },
+    {
+      "id": "q17",
+      "question": "Cliente frustrado. ¿Que NUNCA hacer?",
+      "options": [
+        "Pedir que 'se calme'",
+        "Minimizar el problema",
+        "Culpar al cliente",
+        "Todas las anteriores"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cliente frustrado: nunca pedir que 'se calme', no minimizar, no culpar al cliente, no dar excusas genericas, no transferir sin resumen previo."
+    },
+    {
+      "id": "q18",
+      "question": "Cliente que perdio dinero trading. ¿Como responder?",
+      "options": [
+        "'Ya lo sabias, es normal'",
+        "Comprensivo, honesto, no paternalista; sin aconsejar ni minimizar",
+        "'Deposita mas para recuperar'",
+        "'Eso pasa siempre'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cliente perdio dinero: tono comprensivo, honesto, no paternalista. No decir 'ya lo sabias', no dar consejos de trading, no sugerir como recuperar, no minimizar."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cuando escalar a compliance por un cliente que perdio dinero?",
+      "options": [
+        "Siempre",
+        "Nunca, es parte del trading",
+        "Senales: 'Necesito recuperar para la renta', 'Voy a depositar mas', 'Me dijeron que ganaria seguro', 'Estoy desesperado'",
+        "Solo si el cliente lo pide"
+      ],
+      "correctIndex": 2,
+      "explanation": "Escalar a compliance: 'Necesito recuperar ese dinero, es para la renta', 'Voy a depositar mas para recuperar perdidas', 'Me dijeron que con esta estrategia iba a ganar seguro', 'Estoy desesperado/a'."
+    },
+    {
+      "id": "q20",
+      "question": "Cliente de pais restringido. ¿Se puede sugerir usar VPN?",
+      "options": [
+        "Si, como alternativa",
+        "No, nunca. Es sugerir violar politica",
+        "Solo si tiene familia en otro pais",
+        "Solo para VIP"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pais restringido: informar con respeto que no podemos atenderlo. NUNCA decir 'puedes usar VPN', 'si tienes alguien en otro pais', 'quizas mas adelante cambie'. Aplica a todos los residentes sin excepciones."
+    },
+    {
+      "id": "q21",
+      "question": "Cliente amenaza con ir a redes sociales / review negativa. ¿Como responder?",
+      "options": [
+        "Prometer cosas fuera de politica por miedo",
+        "Amenazar de vuelta",
+        "Sereno, enfocado en solucion, sin ceder a presion; documentar y escalar a Edward si persiste",
+        "Ignorar y esperar que se olvide"
+      ],
+      "correctIndex": 2,
+      "explanation": "Amenaza de redes/review: tono sereno, enfocado en solucion, sin ceder a presion. No amenazar de vuelta, no prometer fuera de politica, no ignorar. Documentar y escalar a Edward si persiste."
+    },
+    {
+      "id": "q22",
+      "question": "En vez de 'tu dinero esta seguro al 100%', ¿que decir?",
+      "options": [
+        "'No te preocupes'",
+        "'Confia en nosotros'",
+        "'Tus fondos estan en cuentas segregadas'",
+        "'Tenemos seguro bancario'"
+      ],
+      "correctIndex": 2,
+      "explanation": "'Tu dinero esta seguro al 100%' viola compliance. Correcto: 'tus fondos estan en cuentas segregadas'."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cual es la estructura estandar de respuesta?",
+      "options": [
+        "Solo la respuesta",
+        "Saludo personalizado → Reconocimiento → Respuesta/Accion → Siguiente paso → Cierre abierto",
+        "Saludo + despedida",
+        "Respuesta tecnica directa"
+      ],
+      "correctIndex": 1,
+      "explanation": "5 partes: 1) Saludo personalizado (nombre), 2) Reconocimiento, 3) Respuesta/Accion, 4) Siguiente paso (quien, que, cuando), 5) Cierre abierto (oferta de ayuda)."
+    },
+    {
+      "id": "q24",
+      "question": "Si no puedes responder de inmediato, ¿que nunca debes hacer?",
+      "options": [
+        "Dar acuse de recibo",
+        "Explicar que necesitas verificar",
+        "Dejar la consulta sin al menos un acuse de recibo dentro del SLA",
+        "Preguntar por informacion adicional"
+      ],
+      "correctIndex": 2,
+      "explanation": "Regla: nunca dejar una consulta sin al menos un acuse de recibo dentro del SLA de primera respuesta."
+    },
+    {
+      "id": "q25",
+      "question": "¿Cual es un error que destruye confianza?",
+      "options": [
+        "Personalizar respuestas",
+        "Copiar una respuesta predefinida sin personalizar",
+        "Dar seguimiento",
+        "Leer notas internas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Errores que destruyen confianza: copiar predefinida sin personalizar (el cliente siente que es un numero), no dar seguimiento prometido, contradecir a otro agente, prometer tiempos no cumplibles, responder con 'no' seco, usar jerga, ignorar emociones."
+    },
+    {
+      "id": "q26",
+      "question": "Error especifico de brokers: prometer tiempos exactos de retiro",
+      "options": [
+        "Esta bien si el cliente pide precision",
+        "Mejor dar rangos: '1-3 dias habiles'",
+        "Solo para VIP dar tiempo exacto",
+        "Siempre precision al minuto"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prometer tiempos exactos de retiro genera decepcion si no se cumple. Dar rangos: '1-3 dias habiles'."
+    },
+    {
+      "id": "q27",
+      "question": "¿Como hablar de la regulacion de NEOMAAA?",
+      "options": [
+        "Evasivo: 'estamos regulados'",
+        "Directo: 'Nuestra licencia es L15968/N de AOFA'",
+        "'Prefiero no hablar de eso'",
+        "Cambiar de tema"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hablar de regulacion evasivamente genera sospecha. Ser directo: 'Nuestra licencia es L15968/N de AOFA'."
+    },
+    {
+      "id": "q28",
+      "question": "Regla principal de consistencia multicanal:",
+      "options": [
+        "Cada canal tiene reglas totalmente diferentes",
+        "El cliente debe recibir misma calidad, tono e informacion por cualquier canal",
+        "Solo consistencia para VIP",
+        "Solo idioma constante"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla multicanal: el cliente debe recibir la misma calidad de respuesta, mismo tono, misma informacion independientemente de si contacta por Intercom, WhatsApp, email o telefono."
+    },
+    {
+      "id": "q29",
+      "question": "Cliente inicia por WhatsApp y luego escribe a Intercom. ¿Que NO hacer?",
+      "options": [
+        "Buscar historial en todos los canales",
+        "Hacer referencia a conversacion anterior",
+        "Pedir informacion que ya dio en otro canal",
+        "Consolidar en un solo ticket de Intercom"
+      ],
+      "correctIndex": 2,
+      "explanation": "Al traspasar canales: buscar historial, hacer referencia a conversacion anterior ('veo que hablaste con X por Y sobre Z'), consolidar en un ticket de Intercom. NUNCA pedir info que ya dio."
+    },
+    {
+      "id": "q30",
+      "question": "Antes de enviar cada respuesta, ¿que se debe revisar en la autorevision?",
+      "options": [
+        "Solo que no tenga errores ortograficos",
+        "Uso del nombre, reconocimiento de emocion, claridad, siguiente paso concreto, sin frases prohibidas, personalizada, tono apropiado, tiempos realistas",
+        "Que tenga emoji",
+        "Solo la firma"
+      ],
+      "correctIndex": 1,
+      "explanation": "Autorevision: use nombre del cliente? reconoci su emocion? claridad sin preguntas abiertas? siguiente paso concreto? sin frases prohibidas? personalice? tono apropiado? tiempos realistas y cumplibles?"
+    },
+    {
+      "id": "q31",
+      "question": "Cliente quiere cerrar la cuenta. Tono correcto:",
+      "options": [
+        "Rogarle que no se vaya",
+        "Respetuoso, sin presion, 'Respeto tu decision'",
+        "Culpar al cliente por irse",
+        "Amenazar con retenerle fondos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cierre de cuenta: tono respetuoso, sin presion. Verbo clave: 'Respeto tu decision'. Si la decision es firme, procesar con profesionalismo."
+    },
+    {
+      "id": "q32",
+      "question": "¿Que tono corresponde a una amenaza legal?",
+      "options": [
+        "Defensivo y argumentativo",
+        "Sereno, documental, 'Documento y escalo'",
+        "Disculpar y prometer compensacion",
+        "Ofrecer descuentos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Amenaza legal: tono sereno, documental. Verbo clave: 'Documento y escalo'. Prioridad: urgente. No defenderse ni argumentar."
+    },
+    {
+      "id": "q33",
+      "question": "Cliente pide consejo sobre que operar. ¿Que responder?",
+      "options": [
+        "Dar recomendacion de inversion",
+        "'Como broker de ejecucion no podemos dar recomendaciones ni asesoria financiera'",
+        "Sugerir par favorito del agente",
+        "Transferir a Diego"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cliente pide consejo: 'Como broker de ejecucion, no podemos dar recomendaciones de inversion ni asesoria financiera. Lo que si puedo mostrarte es Copy Trading...'."
+    },
+    {
+      "id": "q34",
+      "question": "Cliente con deposito no acreditado. Frase de empatia:",
+      "options": [
+        "'Es normal, espera mas'",
+        "'Se lo importante que es que tus fondos se reflejen rapidamente. Estoy verificando ahora mismo.'",
+        "'No es urgente'",
+        "'Otros clientes tambien esperan'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Frase empatia deposito no acreditado: 'Se lo importante que es que tus fondos se reflejen rapidamente. Estoy verificando ahora mismo.'"
+    },
+    {
+      "id": "q35",
+      "question": "Lo que NUNCA debemos hacer con un cliente que perdio operaciones consecutivas:",
+      "options": [
+        "Empatizar",
+        "Ofrecer verificacion tecnica",
+        "Sugerir que deposite mas para 'recuperar' o dar falsa esperanza",
+        "Ofrecer revisar ejecucion"
+      ],
+      "correctIndex": 2,
+      "explanation": "NUNCA: minimizar perdidas ('son solo $50'), dar falsa esperanza ('seguro la proxima sale bien'), culpar al mercado, sugerir depositar mas para recuperar, mostrar indiferencia ('todos pierden')."
+    },
+    {
+      "id": "q36",
+      "question": "Cliente operando activamente y satisfecho. Objetivo del tono:",
+      "options": [
+        "Evitar molestarlo",
+        "Reforzar la relacion, ofrecer valor adicional (Copy Trading, Vault, VPS)",
+        "Vender mas productos agresivamente",
+        "Pedirle que refiera amigos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cliente satisfecho: reforzar relacion, ofrecer valor adicional (Copy Trading, Vault, VPS). Tono amigable, profesional, enfoque optimizar experiencia. Agradecer lealtad si corresponde."
+    },
+    {
+      "id": "q37",
+      "question": "En el checklist semanal del supervisor, ¿que se verifica?",
+      "options": [
+        "Solo tiempo de respuesta",
+        "Cumplimiento 5 principios, SLA primera respuesta, seguimientos cumplidos, personalizacion, no contradicciones, notas internas completas en escalados",
+        "Solo encuestas CSAT",
+        "Solo volumen de tickets"
+      ],
+      "correctIndex": 1,
+      "explanation": "Revision semanal supervisor: respuestas cumplen 5 principios? SLA primera respuesta cumplido? seguimientos cumplidos? personalizacion adecuada? sin contradicciones entre agentes? casos escalados con notas internas completas?"
+    }
+  ]
+}

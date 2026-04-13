@@ -1,0 +1,461 @@
+{
+  "docPath": "marketing/copy-broker",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cómo se define la personalidad de marca de NEOMAAA Markets?",
+      "options": [
+        "Broker corporativo frío",
+        "Socio profesional, directo y accesible",
+        "Broker agresivo de hard-sell",
+        "Broker institucional lejano"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA se comunica como socio profesional, directo y accesible. No es el broker que vende humo ni el que intimida con jerga."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuál de estos NO es un atributo de voz de NEOMAAA?",
+      "options": ["Profesional", "Directo", "Agresivo/presionante", "LATAM-nativo"],
+      "correctIndex": 2,
+      "explanation": "Los atributos son: Profesional, Directo, Accesible, Confiable, LATAM-nativo. Agresivo/presionante es lo que NO es."
+    },
+    {
+      "id": "q3",
+      "question": "¿Qué significa 'Directo' en la voz de marca?",
+      "options": [
+        "Agresivo y presionante",
+        "Va al punto, sin rodeos, CTA claro",
+        "Condescendiente",
+        "Vendedor ambulante"
+      ],
+      "correctIndex": 1,
+      "explanation": "Directo = va al punto, sin rodeos, CTA claro. NO es agresivo ni presionante."
+    },
+    {
+      "id": "q4",
+      "question": "¿Qué significa 'LATAM-nativo' en la voz?",
+      "options": [
+        "Solo español literal",
+        "Traducción del inglés",
+        "Entiende la región, usa referencias locales, monedas locales",
+        "Solo portugués"
+      ],
+      "correctIndex": 2,
+      "explanation": "LATAM-nativo = entiende la región, usa referencias locales, monedas locales. NO es traducción literal del inglés."
+    },
+    {
+      "id": "q5",
+      "question": "¿Qué tono se usa en el sitio web / landing pages?",
+      "options": [
+        "Informal medio-bajo",
+        "Profesional, persuasivo, claro (formalidad alta)",
+        "Cercano conversacional",
+        "Formal muy alto (legal)"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sitio web y landings: profesional, persuasivo, claro, formalidad alta."
+    },
+    {
+      "id": "q6",
+      "question": "¿Qué tono se usa en WhatsApp/SMS?",
+      "options": [
+        "Formalidad muy alta",
+        "Cercano, directo, conversacional (formalidad media)",
+        "Formal técnico",
+        "Agresivo con urgencia"
+      ],
+      "correctIndex": 1,
+      "explanation": "WhatsApp/SMS: cercano, directo, conversacional. Formalidad media."
+    },
+    {
+      "id": "q7",
+      "question": "¿Qué tono se usa en TikTok / redes sociales?",
+      "options": [
+        "Formal alto",
+        "Educativo, visual, enganchante (formalidad media-baja)",
+        "Legal",
+        "Corporativo"
+      ],
+      "correctIndex": 1,
+      "explanation": "TikTok y redes sociales: educativo, visual, enganchante. Formalidad media-baja."
+    },
+    {
+      "id": "q8",
+      "question": "¿Se usa 'tú' o 'usted' en NEOMAAA?",
+      "options": [
+        "Siempre usted",
+        "Usar 'tú' (tutear), excepto en documentos legales",
+        "Depende del país",
+        "'Vos' siempre"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla: usar 'tú' (tutear), NO 'usted' — excepto en documentos legales."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cómo se escriben los números en copy?",
+      "options": [
+        "Escritos con letras",
+        "Siempre con cifras ($5, 2000+, 1:1000), no escritos",
+        "Cifras solo en inglés",
+        "Solo con puntos decimales"
+      ],
+      "correctIndex": 1,
+      "explanation": "Números siempre con cifras ($5, 2000+, 1:1000), no escritos con letras."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cuál es el mensaje clave para principiantes?",
+      "options": [
+        "'Hazte millonario rápido'",
+        "'Empieza a operar forex desde $5 — sin experiencia necesaria'",
+        "'Para expertos solamente'",
+        "'Retornos garantizados'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mensaje clave principiantes: 'Empieza a operar forex desde $5 — sin experiencia necesaria'."
+    },
+    {
+      "id": "q11",
+      "question": "¿Cuál es el insight principal de la audiencia principiantes?",
+      "options": [
+        "Buscan spreads bajos",
+        "Miedo de perder dinero, no entienden la plataforma, necesitan validación de seguridad",
+        "Son sofisticados",
+        "No usan móvil"
+      ],
+      "correctIndex": 1,
+      "explanation": "Principiantes: tienen miedo de perder dinero, no entienden la plataforma, necesitan validación de que es seguro y accesible."
+    },
+    {
+      "id": "q12",
+      "question": "¿Qué mensaje funciona para traders activos?",
+      "options": [
+        "'Empieza desde $5'",
+        "'Spreads desde 0.0 pips en cuenta Raw — ejecución ECN/STP real'",
+        "'Sin experiencia necesaria'",
+        "'Copy Trading incluido'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Traders activos buscan mejores condiciones. Mensaje: 'Spreads desde 0.0 pips en cuenta Raw — ejecución ECN/STP real'."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuál es el mensaje principal para prop crossover?",
+      "options": [
+        "'Primero entra a la prop'",
+        "'Ya nos conoces — ahora opera sin límites con tu propio capital'",
+        "'Empieza desde $5'",
+        "'Regulación tier-1'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prop crossover: 'Ya nos conoces — ahora opera sin límites con tu propio capital'. Status Silver automático, cuenta Raw desde $250."
+    },
+    {
+      "id": "q14",
+      "question": "¿Cuál es el beneficio exclusivo para usuarios de NEOMAAA Prop?",
+      "options": [
+        "Descuento 5%",
+        "Status Silver automático + acceso a cuenta Raw desde $250 (vs $500 estándar) + onboarding express",
+        "Nada extra",
+        "Cuenta demo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prop users: Status Silver automático, Raw desde $250 (vs $500), onboarding express, account manager dedicado."
+    },
+    {
+      "id": "q15",
+      "question": "¿Cuál es el depósito mínimo para cuenta Institucional?",
+      "options": ["$500", "$5,000", "$50,000", "$500,000"],
+      "correctIndex": 2,
+      "explanation": "Cuenta Institucional: depósito mínimo $50,000 para operadores que exigen lo mejor."
+    },
+    {
+      "id": "q16",
+      "question": "¿Cuál es el depósito mínimo de la Cuenta Raw?",
+      "options": ["$5", "$50", "$500", "$5,000"],
+      "correctIndex": 2,
+      "explanation": "Cuenta Raw: $500 depósito mínimo, spreads desde 0.0 pips, $3/lote/lado."
+    },
+    {
+      "id": "q17",
+      "question": "¿Qué elementos tiene el trust bar de la landing principal?",
+      "options": [
+        "Solo logos bancarios",
+        "Regulado por AOFA | 2,000+ Instrumentos | 120+ Métodos de Depósito | MT5",
+        "Solo el logo de Visa",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "Trust bar: 'Regulado por AOFA | 2,000+ Instrumentos | 120+ Métodos de Depósito | MT5'."
+    },
+    {
+      "id": "q18",
+      "question": "¿Cuántos pasos se comunican para la primera operación?",
+      "options": ["1 paso", "3 pasos (regístrate, verifica, deposita $5)", "5 pasos", "10 pasos"],
+      "correctIndex": 1,
+      "explanation": "3 pasos: 1) Regístrate gratis (2 min), 2) Verifica tu identidad (foto + documento), 3) Deposita desde $5 y empieza a operar."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cuál es el headline recomendado para traders experimentados?",
+      "options": [
+        "'Opera Forex Desde $5'",
+        "'Spreads Desde 0.0 Pips. 2,000+ Instrumentos. Ejecución ECN'",
+        "'Regulado por AOFA'",
+        "'Sin experiencia necesaria'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Headline para experimentados: 'Spreads Desde 0.0 Pips. 2,000+ Instrumentos. Ejecución ECN'."
+    },
+    {
+      "id": "q20",
+      "question": "¿Qué Google Ad corresponde a la Variante 4?",
+      "options": [
+        "Spreads 0.0",
+        "Copy Trading",
+        "País específico (Colombia) con PSE y Nequi",
+        "Institucional"
+      ],
+      "correctIndex": 2,
+      "explanation": "Variante 4: país específico. Ejemplo Colombia — 'Broker Forex en Colombia | Deposita con PSE y Nequi al Instante'."
+    },
+    {
+      "id": "q21",
+      "question": "En TikTok Script 1, ¿cuál es el hook (0-3s)?",
+      "options": [
+        "'No sé de trading'",
+        "'¿Cuánto dinero necesitas para empezar a operar forex?'",
+        "'Hazte rico'",
+        "'Compra ahora'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Script 1 hook: '¿Cuánto dinero necesitas para empezar a operar forex?'. Luego revela que con $5 se puede empezar."
+    },
+    {
+      "id": "q22",
+      "question": "¿Qué dice el template 1 de WhatsApp?",
+      "options": [
+        "Mensaje legal",
+        "Bienvenida post-registro: 'Hola [Nombre], soy [Agente] de NEOMAAA Markets. Vi que acabas de registrarte...'",
+        "Advertencia de riesgo",
+        "Cierre de cuenta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Template 1: bienvenida post-registro, ofrece ayuda con verificación y métodos de depósito."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuándo se envía el template 4 de WhatsApp (reactivación)?",
+      "options": [
+        "Inmediatamente al registro",
+        "Cliente dormido 14+ días",
+        "Al depósito",
+        "Al KYC"
+      ],
+      "correctIndex": 1,
+      "explanation": "Template 4 reactivación: cliente dormido 14+ días sin operar."
+    },
+    {
+      "id": "q24",
+      "question": "¿Cuál es la versión completa del disclaimer de riesgo?",
+      "options": [
+        "'Invertir es seguro'",
+        "'Los CFDs son instrumentos complejos... La gran mayoría de las cuentas de inversores minoristas pierden dinero... El rendimiento pasado no es indicativo de resultados futuros'",
+        "'Sin riesgo'",
+        "Sin disclaimer"
+      ],
+      "correctIndex": 1,
+      "explanation": "Disclaimer completo: CFDs son instrumentos complejos con alto riesgo, gran mayoría de minoristas pierden dinero, rendimiento pasado no garantiza futuro."
+    },
+    {
+      "id": "q25",
+      "question": "¿Cuál es el disclaimer corto para ads/social?",
+      "options": [
+        "Sin disclaimer necesario",
+        "'Advertencia: Operar CFDs conlleva un alto riesgo de perder su capital. No invierta dinero que no pueda permitirse perder'",
+        "'Ganancias garantizadas'",
+        "Solo en inglés"
+      ],
+      "correctIndex": 1,
+      "explanation": "Disclaimer corto: advertencia de alto riesgo de perder capital y no invertir más de lo que se pueda permitir perder."
+    },
+    {
+      "id": "q26",
+      "question": "¿Por qué 'Garantizado' está absolutamente prohibido?",
+      "options": [
+        "Por estilo",
+        "Ilegal en marketing financiero",
+        "Suena feo",
+        "Muy largo"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Garantizado/Garantía de ganancias' es ilegal en marketing financiero. Alternativa: 'Condiciones competitivas'."
+    },
+    {
+      "id": "q27",
+      "question": "¿Por qué no usar 'Sin riesgo'?",
+      "options": [
+        "Estilo",
+        "Falso — todos los CFDs tienen riesgo",
+        "Muy corto",
+        "No aplica"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Sin riesgo' es falso — todos los CFDs tienen riesgo. Alternativa: 'Riesgo controlado' o 'desde $5'."
+    },
+    {
+      "id": "q28",
+      "question": "¿Por qué evitar 'Regulado en [jurisdicción tier-1]'?",
+      "options": [
+        "Es muy largo",
+        "NEOMAAA tiene licencia AOFA, no FCA/CySEC. Alternativa: 'Regulado por AOFA, Anjouan'",
+        "Ilegal",
+        "No se entiende"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA está regulado por AOFA (Anjouan), no por FCA/CySEC. No inducir a confusión sobre el nivel regulatorio."
+    },
+    {
+      "id": "q29",
+      "question": "¿Qué uso de 'Rentabilidad' es permitido?",
+      "options": [
+        "'Alta rentabilidad garantizada'",
+        "'Oportunidades de rentabilidad' (general)",
+        "'Rentabilidad mensual del 30%'",
+        "Prohibido siempre"
+      ],
+      "correctIndex": 1,
+      "explanation": "Permitido: 'Oportunidades de rentabilidad' (general). Prohibido: 'Alta rentabilidad garantizada'."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuál es el Tagline Opción 1 recomendado?",
+      "options": [
+        "'El mejor broker'",
+        "'Tu mercado. Tus reglas.'",
+        "'Hazte rico'",
+        "'Opera sin limite'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tagline Opción 1: 'Tu mercado. Tus reglas.' Posiciona al trader como dueño de su experiencia, la opción más versátil."
+    },
+    {
+      "id": "q31",
+      "question": "¿Cuál es la recomendación de tagline para el lanzamiento?",
+      "options": [
+        "'Opera sin fronteras'",
+        "'Tu mercado. Tus reglas.' — la opción más versátil",
+        "'Donde LATAM opera'",
+        "'El broker que habla tu idioma'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Para fase de lanzamiento: 'Tu mercado. Tus reglas.' Funciona en todos los canales y comunica libertad y control."
+    },
+    {
+      "id": "q32",
+      "question": "¿Cuál es el tagline alternativo para enfatizar LATAM?",
+      "options": [
+        "'Trading real. Acceso real.'",
+        "'Donde LATAM opera.' — posicionamiento geográfico agresivo",
+        "'Tu mercado. Tus reglas.'",
+        "'Opera sin fronteras'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Alternativa para enfatizar LATAM: 'Donde LATAM opera.' Reclama la región como territorio propio."
+    },
+    {
+      "id": "q33",
+      "question": "En la tabla de cuentas, ¿cuál es la comisión de Raw?",
+      "options": ["$0", "$3/lote/lado", "$5/lote/lado", "Negociable"],
+      "correctIndex": 1,
+      "explanation": "Cuenta Raw: comisión $3/lote/lado, spreads desde 0.0 pip."
+    },
+    {
+      "id": "q34",
+      "question": "¿Cuál es el CTA sugerido para Google Ads principiantes?",
+      "options": [
+        "'Invierte ahora'",
+        "'Opera Forex Desde $5 | NEOMAAA Markets' con descripción de cuenta gratis en minutos",
+        "'Hazte rico'",
+        "'Retornos garantizados'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Google Ads principiantes: enfoque en depósito mínimo ($5), MT5, métodos locales, cuenta gratis."
+    },
+    {
+      "id": "q35",
+      "question": "¿Qué disclaimer se usa en el Vault Yield?",
+      "options": [
+        "Ninguno",
+        "Rendimiento hasta 5% p.a. NO garantizado, puede variar. No es depósito bancario ni está cubierto por garantía de depósitos",
+        "'Garantizado'",
+        "Solo en inglés"
+      ],
+      "correctIndex": 1,
+      "explanation": "Disclaimer Vault Yield: rendimiento no garantizado, puede variar, no es depósito bancario ni está cubierto por esquema de garantía."
+    },
+    {
+      "id": "q36",
+      "question": "Para materiales legales, ¿qué tono aplica?",
+      "options": [
+        "Informal",
+        "Formal, preciso, regulatorio (formalidad muy alta)",
+        "Medio conversacional",
+        "Social media style"
+      ],
+      "correctIndex": 1,
+      "explanation": "Documentos legales: formal, preciso, regulatorio. Formalidad muy alta."
+    },
+    {
+      "id": "q37",
+      "question": "¿Qué longitud máxima tienen los párrafos?",
+      "options": [
+        "1 línea",
+        "Máximo 3 líneas",
+        "1 página",
+        "Sin límite"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reglas de escritura: Frases cortas. Párrafos de máximo 3 líneas."
+    },
+    {
+      "id": "q38",
+      "question": "¿Se puede decir 'Todos nuestros clientes ganan'?",
+      "options": [
+        "Sí, es genérico",
+        "NO — falso y peligroso, no usar",
+        "Solo en LATAM",
+        "Solo con disclaimer"
+      ],
+      "correctIndex": 1,
+      "explanation": "Absolutamente prohibido: 'Todos nuestros clientes ganan' — falso y peligroso. No usar."
+    },
+    {
+      "id": "q39",
+      "question": "¿Cuál es el CTA del Template 5 WhatsApp (upgrade a Raw)?",
+      "options": [
+        "Cerrar cuenta",
+        "Ofrecer cambio a cuenta Raw con spreads desde 0.0 y comisión de $3/lote/lado por mejor costo operativo",
+        "Aumentar apalancamiento",
+        "Retirar fondos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Template 5: sugiere upgrade a Raw con explicación de que para volúmenes altos termina siendo más barato."
+    },
+    {
+      "id": "q40",
+      "question": "Para blog/SEO, ¿qué tipo de disclaimer aplica?",
+      "options": [
+        "Ninguno",
+        "Completo (6.1) en footer",
+        "Corto (6.2)",
+        "Solo en español"
+      ],
+      "correctIndex": 1,
+      "explanation": "Blog/SEO: disclaimer completo (6.1) en footer. CTA: 'Abre tu cuenta' contextual."
+    }
+  ]
+}

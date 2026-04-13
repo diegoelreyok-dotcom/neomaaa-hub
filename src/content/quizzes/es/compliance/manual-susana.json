@@ -1,0 +1,380 @@
+{
+  "docPath": "compliance/manual-susana",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Cual es el numero de licencia de NEOMAAA?",
+      "options": ["L12345/N", "L15968/N (AOFA, Anjouan)", "IBC 99999", "CySEC 234"],
+      "correctIndex": 1,
+      "explanation": "Neomaaa Ltd opera bajo licencia L15968/N otorgada por AOFA (Anjouan Offshore Finance Authority), IBC 15968."
+    },
+    {
+      "id": "q2",
+      "question": "Deadline para reporte trimestral de cumplimiento AML a AOFA?",
+      "options": ["El mismo dia", "15 dias despues del cierre del trimestre", "30 dias despues", "90 dias"],
+      "correctIndex": 1,
+      "explanation": "Reporte trimestral AML: 15 dias despues del cierre del trimestre. Anual financiero: 90 dias post cierre fiscal."
+    },
+    {
+      "id": "q3",
+      "question": "En cuantos dias debe notificarse cambio de Compliance Officer a AOFA?",
+      "options": ["14 dias", "7 dias", "30 dias", "Inmediato"],
+      "correctIndex": 1,
+      "explanation": "Cambio de Compliance Officer: notificar dentro de 7 dias. Directores/accionistas: 14 dias. Incidente seguridad: 72h. SAR alto riesgo: mismo dia."
+    },
+    {
+      "id": "q4",
+      "question": "Principio fundamental de KYC en NEOMAAA?",
+      "options": [
+        "Se puede operar sin KYC si el cliente insiste",
+        "NEOMAAA no acepta fondos de clientes cuya identidad no ha sido verificada. Ningun deposito sin KYC aprobado",
+        "KYC es opcional",
+        "Solo KYC para cuentas grandes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Principio fundamental: ningun deposito sin KYC aprobado. Ningun retiro a destino diferente a la fuente original."
+    },
+    {
+      "id": "q5",
+      "question": "Limite de deposito acumulado para Tier 1?",
+      "options": ["$500", "$1,000", "$10,000", "Sin limite"],
+      "correctIndex": 1,
+      "explanation": "Tier 1 Basico: $0-$1,000. Tier 2 Intermedio: $1,001-$10,000. Tier 3 Alto: $10,001-$50,000. Tier 4 Institucional: $50,001+."
+    },
+    {
+      "id": "q6",
+      "question": "Que se requiere en Tier 3 que no en Tier 2?",
+      "options": [
+        "ID adicional",
+        "Documento que respalde origen de fondos (extracto bancario, nomina, declaracion fiscal)",
+        "Otra prueba de domicilio",
+        "Cuenta demo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tier 3: requiere documento que respalde origen de fondos (extracto bancario, recibo de nomina, declaracion fiscal). Tier 2 solo una declaracion."
+    },
+    {
+      "id": "q7",
+      "question": "Depositos de terceros son?",
+      "options": [
+        "Aceptables con permiso",
+        "PROHIBIDOS. Deposito debe venir de cuenta a nombre del titular. Si se detecta, se congela y devuelve a fuente",
+        "Se aceptan si son familiares",
+        "Se cobran comision extra"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fondos de terceros absolutamente prohibidos. Si se detecta: congelar deposito, notificar, devolver a fuente original, evaluar SAR."
+    },
+    {
+      "id": "q8",
+      "question": "Cuantos dias habiles tiene el cliente para proporcionar documentacion adicional al subir de tier?",
+      "options": ["24 horas", "3 dias", "5 dias habiles", "30 dias"],
+      "correctIndex": 2,
+      "explanation": "5 dias habiles para proporcionar documentacion adicional. Si no cumple: deposito se devuelve y cuenta se congela para nuevos depositos."
+    },
+    {
+      "id": "q9",
+      "question": "Cuando se activa EDD obligatoriamente?",
+      "options": [
+        "Solo si el cliente lo pide",
+        "PEP detectado, pais alto riesgo, deposito > $10K (Tier 3/4), patron sospechoso, informacion adversa, inconsistencias",
+        "Nunca",
+        "Solo cuentas Cent"
+      ],
+      "correctIndex": 1,
+      "explanation": "Triggers EDD: PEP, pais alto riesgo GAFI, Tier 3/4, patron sospechoso, media adversa, inconsistencia documental, multiples cuentas, fuente de fondos inusual."
+    },
+    {
+      "id": "q10",
+      "question": "Que es un PEP?",
+      "options": [
+        "Professional Equity Person",
+        "Politically Exposed Person: funciones publicas destacadas (jefes de estado, ministros, jueces supremos, oficiales militares alto rango, etc.) y sus familiares/asociados",
+        "Private Equity Partner",
+        "Public Employee Program"
+      ],
+      "correctIndex": 1,
+      "explanation": "PEP: Politically Exposed Person. Funciones publicas destacadas en los ultimos 12 meses y sus familiares directos y asociados cercanos."
+    },
+    {
+      "id": "q11",
+      "question": "Politica de NEOMAAA ante un PEP?",
+      "options": [
+        "Rechazo automatico",
+        "Aceptar sin revisar",
+        "No rechazar automaticamente. Someter a EDD + aprobacion de Principals + documentacion completa de fuente de riqueza + monitoreo reforzado trimestral",
+        "Derivar a otro broker"
+      ],
+      "correctIndex": 2,
+      "explanation": "PEPs no se rechazan automaticamente. EDD obligatorio, aprobacion de Principals, SoF/SoW completo, monitoreo trimestral, expediente separado."
+    },
+    {
+      "id": "q12",
+      "question": "Que resultados devuelve Sumsub?",
+      "options": [
+        "Pass, Fail",
+        "APPROVED (Verde), RETRY (Amarillo), REJECTED (Rojo), PENDING REVIEW",
+        "OK, NO OK",
+        "Active, Inactive"
+      ],
+      "correctIndex": 1,
+      "explanation": "4 resultados Sumsub: APPROVED (auto, cliente puede depositar), RETRY (reintentar), REJECTED (rechazado), PENDING REVIEW (revision manual de Susana)."
+    },
+    {
+      "id": "q13",
+      "question": "SLA de Susana para revisar casos PENDING REVIEW?",
+      "options": ["2 horas", "24 horas", "48 horas", "1 semana"],
+      "correctIndex": 0,
+      "explanation": "PENDING REVIEW: Susana revisa manualmente dentro de 2 horas (horario laboral). Maximo 24 horas."
+    },
+    {
+      "id": "q14",
+      "question": "Lista de paises restringidos Categoria A (sanciones internacionales)?",
+      "options": [
+        "Solo Cuba",
+        "Solo Corea del Norte",
+        "Cuba, Iraq, Myanmar, Corea del Norte, Sudan, Siria, Iran, Crimea, Donetsk/Luhansk",
+        "Todos los paises LATAM"
+      ],
+      "correctIndex": 2,
+      "explanation": "Categoria A restringidos por sanciones: Cuba, Iraq, Myanmar, Corea del Norte, Sudan, Siria, Iran, Crimea, regiones de Donetsk/Luhansk."
+    },
+    {
+      "id": "q15",
+      "question": "Por que USA esta en Categoria B (restricciones regulatorias)?",
+      "options": [
+        "Esta sancionado",
+        "Requiere registro SEC/CFTC/NFA que NEOMAAA no tiene",
+        "Es muy lejano",
+        "No esta restringido"
+      ],
+      "correctIndex": 1,
+      "explanation": "Categoria B: USA requiere SEC/CFTC/NFA. Canada: IIROC. EEA: MiFID II. UK: FCA. Australia: ASIC. Japon: FSA. Israel: ISA. NEOMAAA no tiene estas licencias."
+    },
+    {
+      "id": "q16",
+      "question": "Cual frase esta prohibida para todo el equipo?",
+      "options": [
+        "'Necesita verificar su identidad'",
+        "'Te garantizo que vas a ganar dinero'",
+        "'Puede contactar a soporte'",
+        "'Sus fondos estan en cuentas segregadas'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prohibido garantizar ganancias. Es promesa de rendimiento ilegal en cualquier jurisdiccion. Alternativa: 'El trading implica riesgo. Los resultados dependen de su estrategia.'"
+    },
+    {
+      "id": "q17",
+      "question": "Cuantas frases prohibidas estan listadas en el manual?",
+      "options": ["5", "10", "20", "50"],
+      "correctIndex": 2,
+      "explanation": "20 frases prohibidas listadas con su razon y alternativa correcta. Aplican a todos los canales (WhatsApp, Telegram, email, redes, etc.)."
+    },
+    {
+      "id": "q18",
+      "question": "En que canales aplican las reglas de comunicacion?",
+      "options": [
+        "Solo WhatsApp",
+        "Solo emails formales",
+        "TODOS: WhatsApp, Telegram, llamadas, emails, chat, redes sociales, materiales impresos, videos, webinars",
+        "Solo interno"
+      ],
+      "correctIndex": 2,
+      "explanation": "Aplican en TODOS los canales sin excepcion. Las reglas no distinguen formalidad. Incluye materiales promocionales y mensajes internos que puedan llegar a clientes."
+    },
+    {
+      "id": "q19",
+      "question": "Cuando se presenta un SAR de financiamiento al terrorismo?",
+      "options": ["Fin de mes", "Critica - inmediato (mismo dia)", "Despues de 30 dias", "Solo si el cliente confiesa"],
+      "correctIndex": 1,
+      "explanation": "Financiamiento del terrorismo: urgencia CRITICA, reporte inmediato mismo dia. Coincidencia con sanciones post-onboarding: tambien critica inmediata."
+    },
+    {
+      "id": "q20",
+      "question": "Que es TIPPING OFF?",
+      "options": [
+        "Tipear rapido en el teclado",
+        "Informar al cliente (o a terceros) que se presento un SAR, que se investiga su cuenta o que se sospecha",
+        "Dar propinas al cliente",
+        "Una tecnica de trading"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tipping off: informar al sujeto investigado. Es DELITO en la mayoria de jurisdicciones. Despido inmediato + referencia a autoridades para el empleado que lo haga."
+    },
+    {
+      "id": "q21",
+      "question": "Que se dice al cliente si pregunta por que su cuenta esta congelada (caso SAR)?",
+      "options": [
+        "'Sospechamos lavado'",
+        "'Le presentamos un SAR'",
+        "'Su cuenta esta siendo sometida a una revision de seguridad de rutina. Le informaremos cuando el proceso se complete'",
+        "'Hable con el regulador'"
+      ],
+      "correctIndex": 2,
+      "explanation": "Frase estandar: 'revision de seguridad de rutina'. Nunca revelar detalles de compliance al cliente."
+    },
+    {
+      "id": "q22",
+      "question": "SLA de respuesta a queja critica (acusacion de fraude, amenaza legal)?",
+      "options": ["24 horas", "4 horas respuesta y 15 dias habiles resolucion", "1 semana", "30 dias"],
+      "correctIndex": 1,
+      "explanation": "Queja critica: 4h respuesta, 15 dias habiles resolucion. Alta: 12h/10 dias. Media: 24h/5 dias. Baja: 24h/3 dias."
+    },
+    {
+      "id": "q23",
+      "question": "Periodo de retencion de SARs?",
+      "options": ["2 anos", "5 anos", "7 anos desde presentacion", "1 ano"],
+      "correctIndex": 2,
+      "explanation": "SARs: 7 anos desde presentacion. Documentos KYC: 5 anos desde cierre. Historial transacciones: 5 anos. Reportes a AOFA: 7 anos."
+    },
+    {
+      "id": "q24",
+      "question": "Frecuencia de capacitacion AML de ventas?",
+      "options": ["Nunca", "Anual", "Trimestral (frases prohibidas, KYC/AML basico, actualizaciones)", "Semanal"],
+      "correctIndex": 2,
+      "explanation": "Ventas: capacitacion trimestral sobre frases prohibidas y KYC/AML basico. Todos los empleados: AML/CFT anual + proteccion de datos anual."
+    },
+    {
+      "id": "q25",
+      "question": "Nota aprobatoria del quiz de capacitacion?",
+      "options": ["50%", "70%", "80%+", "100%"],
+      "correctIndex": 2,
+      "explanation": "Quiz aprobatorio: 80%+. Si no aprueba: repetir capacitacion dentro de 7 dias. Infraccion: advertencia. Tercera: posible terminacion."
+    },
+    {
+      "id": "q26",
+      "question": "Que se debe hacer si AOFA anuncia auditoria?",
+      "options": [
+        "Ignorar",
+        "Notificar a Principals inmediato, ejecutar checklist pre-auditoria, remediar gaps, designar a Susana como punto de contacto unico",
+        "Contestar individualmente",
+        "Esperar el dia antes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pasos ante auditoria AOFA: notificar Principals, ejecutar checklist, remediar gaps, preparar sala, Susana como punto unico de contacto, equipo NO habla con auditores excepto via Susana."
+    },
+    {
+      "id": "q27",
+      "question": "Frecuencia recomendada de re-screening de toda la base de clientes?",
+      "options": ["Nunca", "Trimestral", "Anual", "Mensual"],
+      "correctIndex": 1,
+      "explanation": "Re-screening de sanciones de toda la base: trimestral. Sumsub lo hace automatico + Susana revisa resultados."
+    },
+    {
+      "id": "q28",
+      "question": "Que tipos de documentos NO se aceptan como POA?",
+      "options": [
+        "Factura de luz",
+        "Extracto bancario",
+        "Factura de celular, carta de empleador, screenshots",
+        "Factura de internet fijo"
+      ],
+      "correctIndex": 2,
+      "explanation": "NO se acepta POA: factura de celular, carta de empleador (no oficial), documentos sin fecha o > 3 meses, screenshots."
+    },
+    {
+      "id": "q29",
+      "question": "Clientes de alto riesgo (no restringidos pero EDD automatico)?",
+      "options": [
+        "USA",
+        "Paises GAFI gris/negra, Venezuela, Nigeria, Pakistan, Afganistan, RDC, Somalia, Yemen, Libia",
+        "Todos los latinoamericanos",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "Paises alto riesgo con EDD automatico: lista GAFI gris/negra, Venezuela, Nigeria, Pakistan, Afganistan (evaluar), RDC, Somalia, Yemen, Libia."
+    },
+    {
+      "id": "q30",
+      "question": "Horario de revision de depositos pendientes para Susana?",
+      "options": [
+        "Una vez al mes",
+        "Diaria (2x: manana y tarde)",
+        "Solo lunes",
+        "Bajo demanda"
+      ],
+      "correctIndex": 1,
+      "explanation": "Susana revisa depositos y retiros pendientes 2 veces al dia (manana y tarde), clientes alto riesgo semanal, PEPs trimestral."
+    },
+    {
+      "id": "q31",
+      "question": "Que debe incluir el formulario de declaracion de origen de fondos (Tier 2+)?",
+      "options": [
+        "Solo monto",
+        "Nombre, numero cuenta, monto, origen (empleo/negocio/inversion/herencia/venta propiedad/etc), descripcion, firma, fecha, documentacion respaldo (Tier 3+)",
+        "Solo firma",
+        "Pasaporte"
+      ],
+      "correctIndex": 1,
+      "explanation": "Formulario SoF incluye: datos del cliente, monto, origen (lista definida), descripcion, firma y fecha. Tier 3+ agrega documentacion de respaldo obligatoria."
+    },
+    {
+      "id": "q32",
+      "question": "Quien puede presentar un SAR a AOFA?",
+      "options": [
+        "Ventas",
+        "Susana prepara, decision con Principals, Susana presenta",
+        "Cualquier empleado",
+        "El abogado externo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Susana prepara el SAR con evidencia, consulta con Principals si hay duda, y presenta a AOFA/FIU segun urgencia. Nunca se informa al cliente."
+    },
+    {
+      "id": "q33",
+      "question": "Infracciones de compliance: proceso escalonado?",
+      "options": [
+        "Solo despido",
+        "1a: capacitacion inmediata. 2a: advertencia escrita. 3a: posible terminacion",
+        "Advertencia siempre",
+        "Multas economicas"
+      ],
+      "correctIndex": 1,
+      "explanation": "1a infraccion (ej. frase prohibida): capacitacion inmediata. 2a: advertencia escrita. 3a: posible terminacion. Aprobacion sin autorizacion o revelar rechazo es GRAVE: suspension inmediata."
+    },
+    {
+      "id": "q34",
+      "question": "Disclaimer obligatorio corto para WhatsApp/redes?",
+      "options": [
+        "No se necesita",
+        "'El trading de CFDs y forex conlleva un alto riesgo de perdida. Puede perder todo su capital. No invierta dinero que no pueda permitirse perder.'",
+        "'Contacte soporte'",
+        "'Todo es ganancia'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Disclaimer corto obligatorio para WhatsApp, redes, mensajes. El disclaimer largo para emails, landings, material promocional."
+    },
+    {
+      "id": "q35",
+      "question": "Cada cuanto se actualizan las listas de sanciones en Sumsub (OFAC, ONU, UE, UK)?",
+      "options": ["Mensual", "Diaria o mas frecuente", "Anual", "Nunca"],
+      "correctIndex": 1,
+      "explanation": "OFAC, ONU, UE, UK: actualizacion diaria o mas frecuente en Sumsub. PEPs: semanal/mensual. Adverse media: continua."
+    },
+    {
+      "id": "q36",
+      "question": "Principal fuente legal aplicable a Anjouan?",
+      "options": [
+        "Anjouan International Business Companies Act, AOFA AML/CFT Guidelines, regulaciones AOFA, listas OFAC/ONU/UE, recomendaciones GAFI",
+        "Solo codigo civil frances",
+        "Ley de Espana",
+        "Ninguna"
+      ],
+      "correctIndex": 0,
+      "explanation": "Legislacion aplicable: Anjouan IBC Act, AOFA AML/CFT Guidelines, regulaciones AOFA para brokers forex/CFDs, listas de sanciones (OFAC, ONU, UE), recomendaciones GAFI."
+    },
+    {
+      "id": "q37",
+      "question": "Principal riesgo de compartir el documento de politica interna con un cliente?",
+      "options": [
+        "Ninguno",
+        "Expone procesos internos, potencial falta grave y causal de terminacion, facilita evasion",
+        "Publicidad positiva",
+        "Educacion del cliente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Documentos internos son confidenciales. Compartirlos con clientes expone procesos, es falta grave, causa terminacion inmediata."
+    }
+  ]
+}

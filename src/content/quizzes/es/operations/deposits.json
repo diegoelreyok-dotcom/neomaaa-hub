@@ -1,0 +1,391 @@
+{
+  "docPath": "operations/deposits",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Qué plataformas usa NEOMAAA para procesamiento de pagos?",
+      "options": [
+        "Sólo PayPal",
+        "MetaTrader 5 para trading, Skale CRM para gestión, Intercom para soporte",
+        "Stripe exclusivamente",
+        "Sólo transferencias bancarias"
+      ],
+      "correctIndex": 1,
+      "explanation": "Stack: MT5 (trading), Skale CRM (gestión de depósitos/retiros), Intercom (soporte). Plus múltiples PSPs para procesar pagos."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuál es el tiempo típico de acreditación para depósitos con tarjeta Visa/Mastercard?",
+      "options": ["1-3 días hábiles", "Instantáneo (1-5 min)", "24 horas", "1 semana"],
+      "correctIndex": 1,
+      "explanation": "Tarjetas Visa/Mastercard: instantáneo (1-5 min). Monto mín $50, máx $10,000/tx."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuáles son los tiempos típicos para Wire Transfer (SWIFT)?",
+      "options": ["Instantáneo", "24 horas", "1-3 días hábiles", "1 semana"],
+      "correctIndex": 2,
+      "explanation": "Wire Transfer SWIFT: 1-3 días hábiles. SEPA: 1 día hábil. Monto mín $100, sin límite máximo."
+    },
+    {
+      "id": "q4",
+      "question": "¿Qué dato es CRÍTICO que el cliente incluya en una transferencia bancaria?",
+      "options": [
+        "Su fecha de nacimiento",
+        "Su número de cuenta MT5 como referencia",
+        "Una foto de su ID",
+        "El nombre del gerente del banco"
+      ],
+      "correctIndex": 1,
+      "explanation": "El cliente DEBE incluir su número de cuenta MT5 como referencia. Sin eso Finance tiene que cruzar por nombre + monto manualmente."
+    },
+    {
+      "id": "q5",
+      "question": "Para crypto USDT TRC-20, ¿cuál es el tiempo esperado y monto mínimo?",
+      "options": [
+        "1 hora, $100",
+        "5-30 min (confirmaciones), $20",
+        "24 horas, $500",
+        "Instantáneo, $1"
+      ],
+      "correctIndex": 1,
+      "explanation": "USDT TRC-20: 5-30 min por confirmaciones, monto mín $20. USDT ERC-20: mín $50. BTC: 10-60 min, mín $50."
+    },
+    {
+      "id": "q6",
+      "question": "Un cliente envió USDT ERC-20 a una dirección TRC-20. ¿Qué pasa?",
+      "options": [
+        "Se recuperan fácilmente",
+        "Los fondos se pierden. No hay solución. Informar al cliente con empatía",
+        "Se acredita igual",
+        "Esperar 48 horas y aparece"
+      ],
+      "correctIndex": 1,
+      "explanation": "Si envía a red equivocada los fondos se pierden. No hay solución. Informar al cliente con empatía — es irreversible en blockchain."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuál es el método local de Brasil y cuánto tarda?",
+      "options": [
+        "PSE, 1-2 días",
+        "PIX, instantáneo (1-5 min)",
+        "OXXO, 24 horas",
+        "Yape, instantáneo"
+      ],
+      "correctIndex": 1,
+      "explanation": "PIX (Brasil, BRL): instantáneo 1-5 min. Mín R$50, máx R$50,000/día."
+    },
+    {
+      "id": "q8",
+      "question": "¿Qué tiempo puede tardar un depósito OXXO en reflejarse?",
+      "options": [
+        "Instantáneo",
+        "5 minutos",
+        "1-24 horas (efectivo)",
+        "1 semana"
+      ],
+      "correctIndex": 2,
+      "explanation": "OXXO México: 1-24 horas. Es pago en efectivo. Si 'pagué pero no aparece', pedir ticket y verificar con PSP."
+    },
+    {
+      "id": "q9",
+      "question": "A partir de qué monto un depósito notifica automáticamente a Finance + Pepe?",
+      "options": ["$500", "$1,000", "$5,000", "$50,000"],
+      "correctIndex": 2,
+      "explanation": "> $5,000 notifica Finance + Pepe. > $10,000 suma Susana + EDD trigger. > $25,000 suma Dirección con aprobación explícita."
+    },
+    {
+      "id": "q10",
+      "question": "¿Qué gatilla un Enhanced Due Diligence (EDD)?",
+      "options": [
+        "Cualquier depósito",
+        "Sólo retiros",
+        "Depósito individual >$10K, acumulado mensual >$25K, retiro >$10K, cliente nuevo con >$5K primera semana, cambio repentino de patrón (3x promedio)",
+        "Sólo si el cliente lo pide"
+      ],
+      "correctIndex": 2,
+      "explanation": "Triggers EDD: >$10K individual, >$25K acumulado mensual, retiro >$10K, cliente nuevo >$5K primera semana, patrón 3x mayor al promedio."
+    },
+    {
+      "id": "q11",
+      "question": "¿En qué consiste la Regla de Mismo Método (Same-Method Rule)?",
+      "options": [
+        "El cliente usa siempre el mismo PSP",
+        "Por AML, retiros deben procesarse al mismo método de depósito hasta cubrir el monto depositado. Ganancias adicionales a otros métodos aprobados",
+        "Todos los métodos tienen la misma fee",
+        "Es una regla opcional"
+      ],
+      "correctIndex": 1,
+      "explanation": "Same-Method Rule AML obligatoria: retiro al mismo método hasta cubrir el depósito. Ganancias (profit) a otros métodos aprobados."
+    },
+    {
+      "id": "q12",
+      "question": "¿Qué niveles de aprobación requiere un retiro >$10,000?",
+      "options": [
+        "Sólo Finance",
+        "Auto-aprobado",
+        "Finance + Susana aprueban, Pepe es notificado",
+        "Sólo Compliance"
+      ],
+      "correctIndex": 2,
+      "explanation": "Retiros > $10,000: Finance + Susana aprueban + Pepe notificado. >$50K: todo lo anterior + Dirección."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuál es el cooling period para retirar fondos depositados con tarjeta?",
+      "options": [
+        "Inmediato",
+        "24 horas",
+        "5 días hábiles mínimo desde el depósito (previene chargebacks)",
+        "1 mes"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cooling period tarjetas: mínimo 5 días hábiles desde depósito antes de permitir retiro. Previene chargebacks."
+    },
+    {
+      "id": "q14",
+      "question": "¿Cuál es el volumen mínimo de trading requerido como check AML en retiros?",
+      "options": [
+        "Ningún mínimo",
+        "1 lote estándar por cada $5,000 depositados",
+        "10 lotes mínimo siempre",
+        "El doble del depósito"
+      ],
+      "correctIndex": 1,
+      "explanation": "Check AML: 1 lote estándar por cada $5,000 depositados. Evita el 'lavado simple' de depositar y retirar sin operar."
+    },
+    {
+      "id": "q15",
+      "question": "¿Cuál es la política de hot wallet para retiros crypto?",
+      "options": [
+        "Todos los fondos en hot wallet",
+        "Hot wallet con fondos limitados (máx $50K); resto en cold wallet con firma dual de Finance Manager + Susana",
+        "Cold wallet única",
+        "Exchange externo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hot wallet: máx $50K fondos. Cold wallet (hardware) para mayores, con firma dual Finance Manager + Susana."
+    },
+    {
+      "id": "q16",
+      "question": "¿Cuántas veces se debe verificar una dirección crypto antes de enviar?",
+      "options": ["1 vez", "2 veces", "3 veces siempre", "No hace falta"],
+      "correctIndex": 2,
+      "explanation": "Crítico: verificar dirección de wallet 3 veces antes de enviar. Transacciones crypto son irreversibles."
+    },
+    {
+      "id": "q17",
+      "question": "¿Cuál es el propósito de la reconciliación diaria?",
+      "options": [
+        "Sólo por requisito legal",
+        "Cruzar 3 fuentes (PSP + Skale CRM + MT5) para asegurar que cada centavo está contabilizado",
+        "Molestar a Finance",
+        "Generar un reporte interno"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reconciliación cruza PSP, Skale CRM y MT5. Si los 3 no coinciden: depósito no acreditado, retiro duplicado, fraude o error del sistema."
+    },
+    {
+      "id": "q18",
+      "question": "¿A qué hora se sugiere hacer la reconciliación diaria?",
+      "options": [
+        "3:00 AM",
+        "9:00 AM, antes de procesar retiros del día",
+        "Al cierre del día",
+        "Una vez por semana"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reconciliación diaria: 9:00 AM, antes de procesar retiros del día. Detecta discrepancias antes de ejecutar pagos."
+    },
+    {
+      "id": "q19",
+      "question": "¿Qué es structuring (smurfing)?",
+      "options": [
+        "Un patrón de trading",
+        "Dividir transacciones grandes en múltiples pequeñas para evadir umbrales de reporte",
+        "Multiplicar depósitos legítimos",
+        "Un método de pago"
+      ],
+      "correctIndex": 1,
+      "explanation": "Structuring = dividir transacciones grandes en múltiples pequeñas (ej: $9,999 x3) para evadir umbrales de reporte AML."
+    },
+    {
+      "id": "q20",
+      "question": "Señales de structuring a monitorear:",
+      "options": [
+        "Un depósito grande",
+        "Múltiples depósitos de $9,000-$9,999 (justo debajo de $10K), 3+ depósitos mismo día, montos redondos repetitivos, cliente que deposita mucho y no tradea",
+        "Depósitos desde la misma IP",
+        "Sólo depósitos en fin de semana"
+      ],
+      "correctIndex": 1,
+      "explanation": "Patrones structuring: múltiples depósitos cerca de umbral, 3+ mismo día, montos redondos repetitivos ($5K x5), depósito sin trading."
+    },
+    {
+      "id": "q21",
+      "question": "Si se detecta structuring, ¿es legal informar al cliente que está bajo investigación?",
+      "options": [
+        "Sí, hay que ser transparente",
+        "NO. Tipping off es ILEGAL. No informar",
+        "Sólo si lo pide Compliance",
+        "Sí, por email formal"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tipping off (informar al cliente de investigación AML) es ILEGAL. No se le dice. Se escala a Susana silenciosamente."
+    },
+    {
+      "id": "q22",
+      "question": "¿Cuándo se requiere 3D Secure en depósitos con tarjeta?",
+      "options": [
+        "Nunca",
+        "Sólo en depósitos >$5,000",
+        "Obligatorio en todos los depósitos con tarjeta",
+        "Sólo por request del cliente"
+      ],
+      "correctIndex": 2,
+      "explanation": "3D Secure obligatorio en todos los depósitos con tarjeta. Es la principal defensa contra chargebacks y fraude."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuál es el límite diario por tarjeta?",
+      "options": ["$1,000", "$5,000", "$10,000", "Sin límite"],
+      "correctIndex": 2,
+      "explanation": "Límite diario por tarjeta: $10,000. Máximo 3 tarjetas diferentes por cuenta. Selfie con tarjeta si depósito >$500."
+    },
+    {
+      "id": "q24",
+      "question": "Cuando se recibe un chargeback, ¿cuál es la primera acción de Finance?",
+      "options": [
+        "Ignorarlo",
+        "Congelar la cuenta del cliente (deshabilitar trading, retiros, depósitos)",
+        "Pagar sin disputar",
+        "Contactar al cliente directamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Primera acción en chargeback: congelar cuenta (trading + retiros + depósitos) y empezar a recopilar evidencia para representment."
+    },
+    {
+      "id": "q25",
+      "question": "¿En cuántos días hábiles se debe enviar el representment (disputa) al PSP?",
+      "options": ["1 día", "5 días hábiles", "30 días", "6 meses"],
+      "correctIndex": 1,
+      "explanation": "Representment al PSP dentro de 5 días hábiles desde recibir el chargeback. Incluir KYC, logs IP, historial de trading, 3DS proof."
+    },
+    {
+      "id": "q26",
+      "question": "Indicadores críticos de tarjeta robada:",
+      "options": [
+        "Cliente satisfecho",
+        "Nombre en tarjeta no coincide con cuenta, depósito seguido de retiro inmediato a crypto",
+        "Depósitos regulares pequeños",
+        "Cliente con KYC aprobado"
+      ],
+      "correctIndex": 1,
+      "explanation": "Críticos: nombre tarjeta ≠ cuenta (rechazar inmediato), depósito+retiro inmediato a crypto (congelar + escalar a Compliance)."
+    },
+    {
+      "id": "q27",
+      "question": "¿Qué hace el sistema si detecta mismo device fingerprint en múltiples cuentas?",
+      "options": [
+        "Nada, es normal",
+        "Congelar todas las cuentas sospechosas, investigar si es misma persona o bonus abuse",
+        "Solo enviar email informativo",
+        "Combinarlas automáticamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Abuso multi-cuenta: mismo device/IP/tarjeta/patrón → congelar, investigar, cerrar adicionales o banear si es fraude."
+    },
+    {
+      "id": "q28",
+      "question": "¿Cuántos días calendario tiene el cliente para proporcionar docs SOF antes de devolverle los fondos?",
+      "options": ["1 día", "3 días", "7 días calendario", "30 días"],
+      "correctIndex": 2,
+      "explanation": "SOF (Source of Funds): 7 días calendario. Si no entrega docs, fondos devueltos al método original."
+    },
+    {
+      "id": "q29",
+      "question": "¿Qué documentos pueden servir como Source of Funds (SOF)?",
+      "options": [
+        "Sólo recibo de nómina",
+        "Recibo nómina (últimos 3 meses), declaración impuestos, estado cuenta bancaria, escritura venta propiedad, doc herencia, contrato trabajo",
+        "Cualquier documento personal",
+        "Ninguno es válido"
+      ],
+      "correctIndex": 1,
+      "explanation": "SOF aceptables: nómina últimos 3 meses, declaración impuestos, estado cuenta bancaria, escritura venta, herencia, contrato trabajo, estado de inversiones."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cada cuánto se procesan los retiros en batch?",
+      "options": [
+        "Una vez por semana",
+        "2 veces al día: 10:00 AM y 4:00 PM (hora servidor)",
+        "Cada hora",
+        "En tiempo real"
+      ],
+      "correctIndex": 1,
+      "explanation": "Retiros en batch 2 veces al día: 10:00 AM y 4:00 PM hora del servidor. 'Tiempo de procesamiento' va desde aprobación hasta ejecución."
+    },
+    {
+      "id": "q31",
+      "question": "Red flag crítica: crédito en MT5 sin depósito correspondiente. ¿Acción?",
+      "options": [
+        "Esperar a ver si cuadra mañana",
+        "CONGELAR cuenta. Investigar acceso no autorizado",
+        "Debitar y listo",
+        "Consultar con soporte"
+      ],
+      "correctIndex": 1,
+      "explanation": "Crédito en MT5 sin depósito = potencial acceso no autorizado. CONGELAR cuenta inmediatamente e investigar."
+    },
+    {
+      "id": "q32",
+      "question": "¿Quién cubre Finance durante el plan interim (sin Finance Manager)?",
+      "options": [
+        "Sólo Dirección",
+        "Susana (Compliance) cubre gran parte, backup Dirección, auto-aprobaciones <$1,000, Support senior hace créditos manuales con aprobación",
+        "Pepe",
+        "Los agentes de soporte"
+      ],
+      "correctIndex": 1,
+      "explanation": "Plan interim: Susana cubre mucho (retiros $1K-5K), Dirección backup y retiros >$5K, auto-aprobación <$1K, Support senior hace créditos manuales con aprobación de Susana."
+    },
+    {
+      "id": "q33",
+      "question": "¿Cuál es la máxima prioridad de contratación de NEOMAAA?",
+      "options": [
+        "CTO",
+        "Head of Marketing",
+        "Finance Manager (el rol está VACANTE)",
+        "COO"
+      ],
+      "correctIndex": 2,
+      "explanation": "Finance Manager es la prioridad #1 de contratación. Su ausencia satura a Susana y genera riesgo de error de reconciliación."
+    },
+    {
+      "id": "q34",
+      "question": "¿A qué canal Slack se envían las notificaciones de depósitos >$5,000?",
+      "options": [
+        "#general",
+        "#deposits (Finance, Dealing/Pepe, Compliance/Susana)",
+        "#marketing",
+        "#random"
+      ],
+      "correctIndex": 1,
+      "explanation": "Slack #deposits para notificaciones >$5,000. Participantes: Finance, Dealing (Pepe), Compliance (Susana)."
+    },
+    {
+      "id": "q35",
+      "question": "Regla de oro de la comunicación con el cliente sobre su dinero:",
+      "options": [
+        "Responder sólo si pregunta",
+        "El cliente SIEMPRE debe saber el status de su dinero",
+        "Esperar a que se resuelva primero",
+        "Sólo comunicar lo positivo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla de oro: el cliente SIEMPRE debe saber el status de su dinero. Proactivo, transparente, con timeframes realistas."
+    }
+  ]
+}

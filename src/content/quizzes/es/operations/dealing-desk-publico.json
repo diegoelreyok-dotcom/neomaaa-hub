@@ -1,0 +1,416 @@
+{
+  "docPath": "operations/dealing-desk-publico",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Qué modelo de ejecución opera NEOMAAA Markets?",
+      "options": [
+        "100% A-Book puro",
+        "100% B-Book (market maker)",
+        "Híbrido ECN/STP con múltiples liquidity providers",
+        "Sólo internal matching"
+      ],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA opera un modelo híbrido ECN/STP con múltiples liquidity providers. Es la estructura estándar de cualquier broker moderno."
+    },
+    {
+      "id": "q2",
+      "question": "Según el doc, ¿qué broker retail opera 100% A-Book puro?",
+      "options": [
+        "Todos los brokers regulados por FCA",
+        "Ninguno. Todo broker retail moderno usa modelo híbrido",
+        "Los brokers de Anjouan",
+        "Los brokers institucionales"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ningún broker retail opera 100% A-Book puro. El que lo afirme miente — y es detectable regulatoriamente."
+    },
+    {
+      "id": "q3",
+      "question": "En modelo A-Book (STP/ECN), ¿cómo gana el broker?",
+      "options": [
+        "Tomando el otro lado del trade",
+        "Markup sobre el spread, comisión fija por lote, o combinación de ambos",
+        "Cobrando fees mensuales",
+        "Vendiendo datos de clientes"
+      ],
+      "correctIndex": 1,
+      "explanation": "En A-Book el broker gana por markup sobre el spread institucional (0.1-0.5 pips), comisión fija por lote (típico Raw/ECN), o combinación."
+    },
+    {
+      "id": "q4",
+      "question": "En modelo B-Book (Market Maker), ¿cuál es la relación de P&L entre broker y cliente?",
+      "options": [
+        "El broker gana cuando el cliente gana",
+        "El P&L del cliente es el P&L inverso del broker",
+        "El broker no tiene relación con el P&L del cliente",
+        "Ambos ganan por separado"
+      ],
+      "correctIndex": 1,
+      "explanation": "En B-Book el broker es contraparte. El P&L del cliente es el P&L inverso del broker — gana cuando el cliente pierde."
+    },
+    {
+      "id": "q5",
+      "question": "¿Qué reguladores aceptan el modelo híbrido?",
+      "options": [
+        "Ninguno",
+        "Sólo reguladores offshore",
+        "Todos los reguladores serios (FCA, ASIC, CySEC, MAS) con best execution documentada y disclosure",
+        "Sólo AOFA"
+      ],
+      "correctIndex": 2,
+      "explanation": "FCA, ASIC, CySEC, MAS aceptan el modelo híbrido si hay best execution policy documentada, precio justo vs mercado, y disclosure en T&Cs."
+    },
+    {
+      "id": "q6",
+      "question": "¿Qué podés decir al cliente sobre cómo opera NEOMAAA?",
+      "options": [
+        "Que somos 100% A-Book",
+        "Los porcentajes exactos de routing",
+        "Que operamos modelo híbrido ECN/STP con múltiples LPs, routing por defecto A-Book en Raw/majors, best execution supervisada por compliance",
+        "Los nombres de los liquidity providers específicos"
+      ],
+      "correctIndex": 2,
+      "explanation": "Se puede decir: modelo híbrido ECN/STP, múltiples LPs, routing por defecto A-Book en Raw/majors, best execution documentada, execution reports disponibles."
+    },
+    {
+      "id": "q7",
+      "question": "¿Qué información NO podés revelar al cliente?",
+      "options": [
+        "Que operamos con múltiples LPs",
+        "Porcentaje exacto de flow A-Book vs internalizado, nombres de LPs, umbrales de routing, categorización de clientes",
+        "Que hay slippage simétrico",
+        "Que las cuentas islámicas están disponibles"
+      ],
+      "correctIndex": 1,
+      "explanation": "No se divulgan: % exacto A-Book/B-Book, nombres de LPs, umbrales de routing, cómo se categoriza a cada cliente, márgenes por categoría."
+    },
+    {
+      "id": "q8",
+      "question": "¿Qué es el spread?",
+      "options": [
+        "Un indicador técnico",
+        "La diferencia entre el precio bid (venta) y ask (compra). Costo estructural de cada trade",
+        "La comisión del broker",
+        "El swap overnight"
+      ],
+      "correctIndex": 1,
+      "explanation": "Spread = diferencia entre bid y ask. Es el costo estructural de cada trade. Varía por liquidez, volatilidad, horario y tipo de cuenta."
+    },
+    {
+      "id": "q9",
+      "question": "¿En qué horario el spread tiende a ser mínimo?",
+      "options": [
+        "Madrugada asiática",
+        "Overlap Londres-Nueva York",
+        "Durante news events",
+        "Fines de semana"
+      ],
+      "correctIndex": 1,
+      "explanation": "Overlap Londres-Nueva York = mejor spread (mayor liquidez). Madrugada asiática = spread más amplio. Durante news = widening drástico."
+    },
+    {
+      "id": "q10",
+      "question": "¿Qué diferencia hay entre cuenta Raw y Standard en spreads?",
+      "options": [
+        "Raw: spread institucional desde 0.0 pips + comisión fija. Standard: spread con markup (0.8-1.5) sin comisión",
+        "Raw no tiene spread, Standard sí",
+        "Raw es más cara que Standard",
+        "No hay diferencia"
+      ],
+      "correctIndex": 0,
+      "explanation": "Raw/ECN: spread institucional desde 0.0 pips + comisión por lote. Standard: spread con markup (desde 0.8-1.5 pips) sin comisión."
+    },
+    {
+      "id": "q11",
+      "question": "¿Qué es slippage positivo?",
+      "options": [
+        "Ejecutaste peor de lo que pediste",
+        "Ejecutaste mejor de lo que pediste",
+        "La orden no se ejecutó",
+        "El broker te cobró extra"
+      ],
+      "correctIndex": 1,
+      "explanation": "Slippage positivo = ejecutaste mejor de lo que pediste. Pasa ~10-20% en condiciones normales según estadísticas públicas."
+    },
+    {
+      "id": "q12",
+      "question": "¿Qué es slippage simétrico?",
+      "options": [
+        "Sólo ejecutan slippage negativo",
+        "Se reporta positivo y negativo igual, cliente recibe mejor precio cuando mercado se mueve a su favor",
+        "Siempre hay cero slippage",
+        "El broker decide cuándo aplicarlo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Simétrico = reportar positivo y negativo igual. NEOMAAA opera con slippage simétrico, es estándar regulatorio."
+    },
+    {
+      "id": "q13",
+      "question": "¿Qué es slippage asimétrico y por qué es red flag?",
+      "options": [
+        "Es la mejor opción para el cliente",
+        "Sólo dan slippage negativo al cliente; si el precio mejora, ejecutan al precio pedido y se quedan con la diferencia",
+        "Es el estándar de la industria",
+        "Es requerido por reguladores"
+      ],
+      "correctIndex": 1,
+      "explanation": "Asimétrico: sólo dan slippage negativo. Si el precio mejora ejecutan al pedido y capturan la diferencia. Red flag para Compliance."
+    },
+    {
+      "id": "q14",
+      "question": "¿Qué es un requote?",
+      "options": [
+        "Un tipo de orden pendiente",
+        "Cuando el cliente intenta ejecutar a un precio y el broker responde que ese precio ya no está disponible",
+        "Una comisión extra",
+        "Un error de conexión"
+      ],
+      "correctIndex": 1,
+      "explanation": "Requote = el cliente manda orden a un precio, el LP no tiene ese precio disponible, el broker ofrece uno distinto para ejecutar."
+    },
+    {
+      "id": "q15",
+      "question": "¿A qué hora se procesa el rollover/swap en el servidor?",
+      "options": ["14:00 GMT", "22:00 GMT", "00:00 GMT", "06:00 GMT"],
+      "correctIndex": 1,
+      "explanation": "El rollover se procesa a las 22:00 GMT. Los miércoles se aplica triple swap para compensar el devengamiento del fin de semana."
+    },
+    {
+      "id": "q16",
+      "question": "¿Por qué se aplica triple swap los miércoles?",
+      "options": [
+        "Por castigo del broker",
+        "Para compensar que sábado y domingo no hay rollover pero sí se devenga interés",
+        "Porque es política interna",
+        "Es un error del sistema"
+      ],
+      "correctIndex": 1,
+      "explanation": "Triple swap miércoles compensa el fin de semana: sábado y domingo no hay rollover pero el interés se devenga de todas formas."
+    },
+    {
+      "id": "q17",
+      "question": "¿Qué son las cuentas islámicas (swap-free)?",
+      "options": [
+        "Cuentas sin spread",
+        "Cuentas gratis",
+        "Alternativa para clientes cuya religión prohíbe cobrar/pagar interés. En vez de swap se aplica comisión administrativa fija",
+        "Cuentas con apalancamiento infinito"
+      ],
+      "correctIndex": 2,
+      "explanation": "Swap-free: alternativa para clientes musulmanes. Bajo solicitud/verificación. En vez de swap, comisión administrativa fija si posición dura X días."
+    },
+    {
+      "id": "q18",
+      "question": "¿Qué pasa con un stop si el mercado abre el domingo con gap más allá del stop?",
+      "options": [
+        "El stop ejecuta al precio exacto del stop",
+        "El stop ejecuta al primer precio disponible, puede significar pérdida mayor",
+        "El broker compensa la diferencia",
+        "La orden se cancela"
+      ],
+      "correctIndex": 1,
+      "explanation": "En gap de fin de semana el stop ejecuta al primer precio disponible, no al precio del stop. Es cómo funciona el mercado, no slippage del broker."
+    },
+    {
+      "id": "q19",
+      "question": "¿Por qué se amplían los spreads durante news events?",
+      "options": [
+        "El broker hace trampa",
+        "Los LPs retiran liquidez temporalmente porque no saben dónde saltará el precio. Es risk management universal",
+        "Es una comisión escondida",
+        "Para cobrar más"
+      ],
+      "correctIndex": 1,
+      "explanation": "Los LPs retiran liquidez en news events por risk management propio. Es universal en la industria, no decisión del broker. Dura 5-60 segundos."
+    },
+    {
+      "id": "q20",
+      "question": "Cliente reclama 'mi stop saltó mal, me hicieron stop hunting'. ¿Qué hacés?",
+      "options": [
+        "Negar de plano y mandarlo a leer T&Cs",
+        "Tomar datos (instrumento, timestamp, precios), explicar técnicamente, ofrecer execution report generado por Pepe",
+        "Admitir que hicieron stop hunting",
+        "Darle compensación automática"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tomar datos exactos, explicar que en gaps/news el primer precio disponible puede estar más allá del stop, ofrecer execution report de Pepe, escalar si hay sospecha real."
+    },
+    {
+      "id": "q21",
+      "question": "Cliente pregunta 'son A-Book o B-Book'. ¿Qué respondés?",
+      "options": [
+        "Somos 100% A-Book",
+        "Somos 100% B-Book",
+        "Operamos modelo híbrido ECN/STP regulado. Si insiste, escalar a Pepe",
+        "No te puedo responder"
+      ],
+      "correctIndex": 2,
+      "explanation": "Respuesta corta: 'operamos modelo híbrido ECN/STP regulado'. No entrar en detalle. Si insiste, escalar a Pepe."
+    },
+    {
+      "id": "q22",
+      "question": "¿Cuál de estas frases está PROHIBIDA?",
+      "options": [
+        "'Operamos modelo híbrido ECN/STP'",
+        "'Somos 100% A-Book'",
+        "'El spread se amplía durante noticias'",
+        "'Aplicamos slippage simétrico'"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Somos 100% A-Book' es mentira prohibida. Ningún broker retail lo es. Causa directa de sanción regulatoria."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuál de estas frases está APROBADA por Compliance?",
+      "options": [
+        "'Nuestros spreads son siempre los más bajos del mercado'",
+        "'Podemos garantizar ejecución sin slippage'",
+        "'Nunca ganamos cuando el cliente pierde'",
+        "'NEOMAAA Markets opera con modelo híbrido ECN/STP usando múltiples liquidity providers para asegurar best execution'"
+      ],
+      "correctIndex": 3,
+      "explanation": "Frase aprobada explícita del doc. Las otras 3 son prohibidas por falsas o por ser claims medibles imposibles de cumplir."
+    },
+    {
+      "id": "q24",
+      "question": "¿Cuándo escalás un reclamo de ejecución a dealing desk (Pepe)?",
+      "options": [
+        "Nunca, soporte resuelve todo",
+        "Execution report con datos que no cuadran, reclamo >$500, cliente amenaza regulador o redes, patrón multicliente, posición no cerrable sin causa técnica",
+        "Sólo si el cliente lo pide 3 veces",
+        "Cuando Pepe lo pregunta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Triggers para escalar: datos de execution inconsistentes, reclamo >$500, amenaza pública/regulador, patrón de múltiples clientes, cierre imposible sin causa técnica."
+    },
+    {
+      "id": "q25",
+      "question": "¿Qué info tenés que mandar al escalar a dealing desk?",
+      "options": [
+        "Sólo el nombre del cliente",
+        "ID cliente, cuenta MT5, instrumento, timestamp con zona horaria, precio pedido vs ejecutado, screenshot de MT5, conversación completa, qué pide el cliente",
+        "Un resumen parafraseado",
+        "Sólo el monto"
+      ],
+      "correctIndex": 1,
+      "explanation": "Escalamiento completo: ID/cuenta, instrumento, timestamp con TZ, precio solicitado vs ejecutado, screenshot MT5, conversación completa sin parafrasear, pedido del cliente."
+    },
+    {
+      "id": "q26",
+      "question": "¿Cuál es el tiempo de respuesta esperado para urgencias (cliente en reclamo activo)?",
+      "options": [
+        "<2 horas en horario operativo",
+        "<24 horas",
+        "<72 horas",
+        "1 semana"
+      ],
+      "correctIndex": 0,
+      "explanation": "Urgencias: <2h en horario operativo. Rutinas (execution report, consulta técnica): <24h."
+    },
+    {
+      "id": "q27",
+      "question": "¿Cuál es la política de NEOMAAA frente a reclamos legítimos de ejecución?",
+      "options": [
+        "Negar siempre primero",
+        "Compensar el reclamo legítimo antes que generar reclamo público. Un cliente enojado cuesta más que cualquier compensación razonable",
+        "Sólo compensar si hay demanda legal",
+        "Mandarlo a Compliance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Política NEOMAAA: compensar reclamo legítimo. Un reclamo de $200 por error se compensa sin discusión — litigarlo cuesta más."
+    },
+    {
+      "id": "q28",
+      "question": "¿Qué puede pedir el cliente respecto a sus operaciones?",
+      "options": [
+        "Nada, son confidenciales",
+        "Sólo el balance actual",
+        "Execution report generado por Pepe desde MT5, copia de Order Execution Policy, explicación de spread en momento específico, cálculo detallado de swap, proceso de reclamo formal",
+        "Sólo el histórico de 30 días"
+      ],
+      "correctIndex": 2,
+      "explanation": "El cliente puede pedir: execution report, Order Execution Policy (pública), explicación de spread, cálculo de swap, proceso de reclamo formal."
+    },
+    {
+      "id": "q29",
+      "question": "¿Dónde vive el documento confidencial de A-Book/B-Book policy?",
+      "options": [
+        "Público en el sitio",
+        "En compliance/ab-book-policy.md, acceso restringido a Pepe, Susana, Angel, Diego y auditores regulatorios",
+        "En el portal del cliente",
+        "En el FAQ"
+      ],
+      "correctIndex": 1,
+      "explanation": "El doc confidencial vive en compliance/ab-book-policy.md. Acceso restringido: Pepe (Head Dealing), Susana (Compliance), Angel, Diego y auditores regulatorios."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuál es el principio central de transparencia con el cliente?",
+      "options": [
+        "Ocultar todo lo que se pueda",
+        "La honestidad técnica escala mejor que la creatividad. Cliente sofisticado premia la honestidad, principiante no distingue",
+        "Prometer lo que pida el cliente",
+        "Sólo lo público por ley"
+      ],
+      "correctIndex": 1,
+      "explanation": "Principio: la honestidad técnica escala. El sofisticado la premia, el principiante no distingue — así que es free upside y evita problemas 100% de los casos."
+    },
+    {
+      "id": "q31",
+      "question": "Si el cliente pregunta 'ustedes ganan cuando yo pierdo', ¿qué respondés?",
+      "options": [
+        "'Somos 100% A-Book'",
+        "'Nuestro modelo de negocio es que vos ganes'",
+        "'Operamos híbrido ECN/STP, en parte del flow somos contraparte, en parte ruteamos a LPs, política documentada y supervisada por compliance. El conflicto estructural existe en toda la industria retail'",
+        "'Nunca ganamos con los clientes'"
+      ],
+      "correctIndex": 2,
+      "explanation": "Respuesta honesta y técnica: modelo híbrido, en parte contraparte, política documentada, conflicto estructural universal, best execution supervisada."
+    },
+    {
+      "id": "q32",
+      "question": "Según el doc, ¿qué porcentaje del flow retail pierde dinero típicamente?",
+      "options": ["10%", "30%", "70%", "95%"],
+      "correctIndex": 2,
+      "explanation": "Alrededor del 70% del flow retail es perdedor consistente según estadísticas públicas de la industria."
+    },
+    {
+      "id": "q33",
+      "question": "¿Qué cuentas típicamente van a A-Book?",
+      "options": [
+        "Todas",
+        "Raw/ECN típicamente A-Book, majors líquidos más fácil A-Book",
+        "Sólo Standard",
+        "Ninguna"
+      ],
+      "correctIndex": 1,
+      "explanation": "Raw/ECN típicamente A-Book. Majors líquidos más fácil A-Book. Exóticos/CFDs OTC típicamente B-Book. Standard típicamente híbrido."
+    },
+    {
+      "id": "q34",
+      "question": "¿Cuál es la respuesta correcta si el cliente insiste en datos sensibles de liquidity?",
+      "options": [
+        "Darle los porcentajes exactos",
+        "Decirle que no puede saber nada",
+        "'Por políticas de confidencialidad comercial no divulgamos la estructura específica de liquidity. Lo que sí garantizamos: best execution documentada supervisada por compliance. Si querés execution report, te lo generamos'",
+        "Cortarle el chat"
+      ],
+      "correctIndex": 2,
+      "explanation": "Respuesta estándar: confidencialidad comercial + best execution documentada + ofrecer execution report. No es evasión, es la respuesta estándar en cualquier broker serio."
+    },
+    {
+      "id": "q35",
+      "question": "¿Qué ventaja real tiene NEOMAAA frente a competidores según el doc?",
+      "options": [
+        "No tener conflicto de interés",
+        "Bonos más altos",
+        "Compliance serio y best execution documentada (el conflicto existe en toda la industria retail)",
+        "Ejecución sin slippage"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ventaja real: compliance serio y best execution documentada. El conflicto estructural existe en toda la industria retail — pretender no tenerlo es falso."
+    }
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "docPath": "marketing/funnel-broker",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuáles son las etapas del funnel de NEOMAAA Markets?",
+      "options": [
+        "Registro → FTD → VIP",
+        "Awareness → Interés/Signup → Registro → KYC → FTD → Trading Activo → Leal/VIP",
+        "Lead → Cliente",
+        "Signup → Depósito"
+      ],
+      "correctIndex": 1,
+      "explanation": "El funnel completo: Awareness/Tráfico → Interés/Signup → Registro Completado → KYC Completado → FTD → Trading Activo → Leal/VIP."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuál es la tasa típica de Tráfico → Inicio Registro?",
+      "options": ["1-3%", "8-15%", "30-50%", "60-75%"],
+      "correctIndex": 1,
+      "explanation": "Tasa típica Tráfico → Signup: 8-15%. Objetivo NEOMAAA: 12%."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuál es el objetivo NEOMAAA para la tasa Trafico → FTD (end-to-end)?",
+      "options": ["0.3%", "1.0%", "1.5%", "2.5%"],
+      "correctIndex": 2,
+      "explanation": "Objetivo NEOMAAA Trafico → FTD: 1.5%. Benchmark bajo 0.3%, medio 1.0%, alto 2.5%."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuál es EL GAP CRÍTICO del funnel?",
+      "options": [
+        "Tráfico → Registro",
+        "Registro → KYC",
+        "KYC → FTD (tasa típica 20-35%)",
+        "FTD → Activo"
+      ],
+      "correctIndex": 2,
+      "explanation": "KYC → FTD es el GAP CRÍTICO donde la mayoría de brokers pierde más clientes. Tasa típica 20-35%."
+    },
+    {
+      "id": "q5",
+      "question": "¿Cuál es el objetivo NEOMAAA KYC → FTD?",
+      "options": ["10%", "20%", "30%", "50%"],
+      "correctIndex": 2,
+      "explanation": "Objetivo NEOMAAA KYC → FTD: 30%. Benchmark industria: 20-35%."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuál es el objetivo Registro → KYC?",
+      "options": ["25%", "40%", "55%", "80%"],
+      "correctIndex": 2,
+      "explanation": "Objetivo NEOMAAA Registro → KYC: 55%. Benchmark medio 50%."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuál es la fuente con mayor tasa Tráfico → Registro?",
+      "options": [
+        "Meta Ads (6-12%)",
+        "TikTok Ads (4-8%)",
+        "Prop-to-Broker Crossover (30-50%)",
+        "Google Display"
+      ],
+      "correctIndex": 2,
+      "explanation": "Prop-to-Broker tiene 30-50% tráfico→registro, 35-50% registro→FTD. Es el canal con mejor conversión y CPA más bajo ($5-20)."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuál es el CPA estimado del canal Prop Crossover?",
+      "options": ["$80-200", "$60-150", "$40-120", "$5-20 (ya adquiridos)"],
+      "correctIndex": 3,
+      "explanation": "Prop Crossover tiene CPA $5-20 porque los usuarios ya fueron adquiridos para la prop trading. Canal más barato."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cuál es el CPA estimado de Google Ads Search?",
+      "options": ["$5-20", "$40-120", "$80-200", "$1,000+"],
+      "correctIndex": 2,
+      "explanation": "Google Ads Search: CPA estimado $80-200. Google tiene alta intención pero costos elevados."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cuál es el presupuesto sugerido inicial para Google Ads?",
+      "options": ["$500/mes", "$3,000-5,000/mes", "$10,000/mes", "$50,000/mes"],
+      "correctIndex": 1,
+      "explanation": "Google Ads presupuesto inicial sugerido: $3,000-5,000/mes."
+    },
+    {
+      "id": "q11",
+      "question": "¿Qué se requiere para anuncios de CFDs en Google?",
+      "options": [
+        "Ningún requisito",
+        "Certificación de Google para anuncios de servicios financieros",
+        "Solo tarjeta de crédito",
+        "Licencia FCA"
+      ],
+      "correctIndex": 1,
+      "explanation": "Google tiene políticas estrictas para CFDs. Requiere certificación de Google para anuncios de servicios financieros."
+    },
+    {
+      "id": "q12",
+      "question": "¿Cuál es el presupuesto sugerido inicial para Meta Ads?",
+      "options": ["$500/mes", "$2,000-4,000/mes", "$10,000/mes", "$50,000/mes"],
+      "correctIndex": 1,
+      "explanation": "Meta Ads (FB + IG) presupuesto inicial: $2,000-4,000/mes."
+    },
+    {
+      "id": "q13",
+      "question": "¿Qué país de LATAM tiene restricciones adicionales en TikTok?",
+      "options": ["Colombia", "México", "Brasil", "Chile"],
+      "correctIndex": 2,
+      "explanation": "Colombia y México generalmente permiten trading en TikTok; Brasil tiene restricciones adicionales."
+    },
+    {
+      "id": "q14",
+      "question": "¿Cuál es el cluster SEO de mayor prioridad inicial?",
+      "options": [
+        "Forex para principiantes",
+        "Long-tail: métodos de depósito LATAM, tutoriales MT5, forex por país",
+        "Broker reviews",
+        "Análisis macro"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prioridad SEO: atacar long-tail primero (métodos de depósito LATAM, tutoriales MT5, forex por país). Menor dificultad."
+    },
+    {
+      "id": "q15",
+      "question": "¿Cuál es la conversión esperada del canal prop crossover para registros?",
+      "options": ["5-10%", "15-25%", "30-40%", "50-70%"],
+      "correctIndex": 2,
+      "explanation": "Prop Users (~250) → Registros Broker: conversión esperada 30-40%."
+    },
+    {
+      "id": "q16",
+      "question": "¿Cuántos prop users se estiman registrados?",
+      "options": ["50", "100", "250", "1,000"],
+      "correctIndex": 2,
+      "explanation": "~250 usuarios registrados en la prop trading, el canal con CPA más bajo y conversión más alta."
+    },
+    {
+      "id": "q17",
+      "question": "¿Qué % del tráfico LATAM es móvil?",
+      "options": ["30%", "50%", "70%+", "90%"],
+      "correctIndex": 2,
+      "explanation": "70%+ del tráfico LATAM es móvil. Landing pages deben ser 100% responsive."
+    },
+    {
+      "id": "q18",
+      "question": "¿Cuál es el tiempo de carga objetivo de landing pages?",
+      "options": ["<1 segundo", "<3 segundos (especialmente en móvil)", "<10 segundos", "Sin importancia"],
+      "correctIndex": 1,
+      "explanation": "Tiempo de carga <3 segundos, especialmente en móvil. LATAM tiene conexiones variables."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cuántos campos máximo debe tener el formulario de registro?",
+      "options": ["1", "4 (nombre, email, teléfono, país)", "10", "Sin límite"],
+      "correctIndex": 1,
+      "explanation": "Formulario de registro: máximo 4 campos iniciales (nombre, email, teléfono, país)."
+    },
+    {
+      "id": "q20",
+      "question": "¿Qué eventos de conversión se deben trackear?",
+      "options": [
+        "Solo PageView",
+        "PageView, InitiateRegistration, CompleteRegistration, KYC, FTD",
+        "Solo FTD",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Eventos a trackear: PageView, InitiateRegistration, CompleteRegistration, KYC, FTD."
+    },
+    {
+      "id": "q21",
+      "question": "¿Qué herramientas gratuitas se recomiendan para heatmaps?",
+      "options": [
+        "Solo Hotjar pago",
+        "Hotjar o Microsoft Clarity — ambos gratuitos",
+        "Solo Google Analytics",
+        "Ninguna"
+      ],
+      "correctIndex": 1,
+      "explanation": "Heatmaps: Hotjar o Microsoft Clarity, ambos tienen versiones gratuitas."
+    },
+    {
+      "id": "q22",
+      "question": "¿Cuál es el objetivo de conversión Trafico → Registro?",
+      "options": ["5%", "12%", "30%", "55%"],
+      "correctIndex": 1,
+      "explanation": "Objetivo NEOMAAA Tráfico → Registro: 12%."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuál táctica tiene el mayor impacto en KYC → FTD?",
+      "options": [
+        "Email genérico automatizado",
+        "Llamada telefónica a las 48h para clientes que no depositan (+20-30%)",
+        "Dejar que el cliente decida",
+        "Aumentar el depósito mínimo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Llamada telefónica a las 48h tiene impacto +20-30% en KYC → FTD. Es alta prioridad (P1)."
+    },
+    {
+      "id": "q24",
+      "question": "¿Qué se debe destacar en KYC → FTD?",
+      "options": [
+        "Cuenta Institucional",
+        "Cuenta Cent ($5) como opción sin riesgo + métodos de pago locales por país",
+        "Apalancamiento 1:1000",
+        "Solo spreads"
+      ],
+      "correctIndex": 1,
+      "explanation": "Destacar Cent ($5) como opción sin riesgo. Mostrar métodos de pago locales del país (autodetección)."
+    },
+    {
+      "id": "q25",
+      "question": "¿Cuántos FTDs estima el funnel prop para los ~250 prop users?",
+      "options": ["5-10", "22-40", "100-150", "200+"],
+      "correctIndex": 1,
+      "explanation": "Funnel prop: ~250 prop users → ~22-40 FTDs. Revenue estimado $6,000 en depósitos."
+    },
+    {
+      "id": "q26",
+      "question": "¿Cuál es el LTV estimado de usuarios prop crossover?",
+      "options": ["$50", "$100", "$500+", "$10,000"],
+      "correctIndex": 2,
+      "explanation": "Prop users tienden a depositar más. LTV $500+/cliente puede generar $10,000+ en revenue en primeros 6 meses."
+    },
+    {
+      "id": "q27",
+      "question": "¿Cuál es el objetivo FTD → Activo (mes 1)?",
+      "options": ["30%", "45%", "60%", "80%"],
+      "correctIndex": 2,
+      "explanation": "Objetivo FTD → Activo (5+ operaciones/mes): 60%. Benchmark medio: 58%."
+    },
+    {
+      "id": "q28",
+      "question": "¿Qué % de FTDs sin operar en 48h deben recibir qué acción?",
+      "options": [
+        "Cerrar cuenta",
+        "Sugerir Copy Trading (+20-25% FTD → Activo)",
+        "Aumentar apalancamiento",
+        "Retirar fondos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Si no operan en 48h: sugerir Copy Trading. Impacto +20-25% en conversión FTD → Activo."
+    },
+    {
+      "id": "q29",
+      "question": "¿Cuál es la mínima muestra por variante para declarar ganador en A/B test?",
+      "options": ["50 usuarios", "100 usuarios", "500 usuarios por variante", "10,000 usuarios"],
+      "correctIndex": 2,
+      "explanation": "Mínimo 500 usuarios por variante antes de declarar ganador. Significancia estadística 95% mínima."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuántos días mínimo deben correr los tests de ads?",
+      "options": ["1 día", "7 días", "14+ días por estabilidad de algoritmos", "30 días"],
+      "correctIndex": 2,
+      "explanation": "Los tests de ads deben correr 14+ días por estabilidad de algoritmos. Tests normales: 7 días mínimo."
+    },
+    {
+      "id": "q31",
+      "question": "¿Cuál es el budget total mensual recomendado para lanzamiento?",
+      "options": ["$1,000-2,000", "$8,000-12,000/mes", "$50,000", "$100,000"],
+      "correctIndex": 1,
+      "explanation": "Budget total sugerido para fase de lanzamiento: $8,000-12,000/mes."
+    },
+    {
+      "id": "q32",
+      "question": "¿Qué % del budget asigna a Google Ads?",
+      "options": ["10%", "25%", "30%", "50%"],
+      "correctIndex": 2,
+      "explanation": "Google Ads: 30% del budget ($2,400-3,600). Canal con mayor intención."
+    },
+    {
+      "id": "q33",
+      "question": "¿Cuál canal tiene el mejor CPA esperado?",
+      "options": [
+        "Google Ads ($120-180)",
+        "Meta ($100-150)",
+        "Prop Crossover ($20-40)",
+        "YouTube ($120-160)"
+      ],
+      "correctIndex": 2,
+      "explanation": "Prop Crossover tiene el mejor CPA ($20-40). Debe priorizarse aunque el budget asignado sea bajo porque el costo real es mínimo."
+    },
+    {
+      "id": "q34",
+      "question": "¿Dónde se alimentan datos para el dashboard en tiempo real?",
+      "options": [
+        "Solo Google Analytics",
+        "Skale CRM API + MT5 Manager API",
+        "Manual",
+        "Excel"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dashboard alimentado desde Skale CRM API + MT5 Manager API. Herramientas: Metabase, Looker Studio o Retool."
+    },
+    {
+      "id": "q35",
+      "question": "¿Qué chat tool se menciona para mercados dominantes LATAM?",
+      "options": [
+        "Solo email",
+        "WhatsApp flotante (Colombia, Brasil, México)",
+        "Telegram",
+        "Intercom desactivado"
+      ],
+      "correctIndex": 1,
+      "explanation": "WhatsApp flotante para mercados donde es canal dominante: Colombia, Brasil, México."
+    },
+    {
+      "id": "q36",
+      "question": "¿Qué impacto tiene simplificar formulario a 3-4 campos?",
+      "options": ["+1-2%", "+5-10%", "+30-50% conversión", "+80%"],
+      "correctIndex": 2,
+      "explanation": "Simplificar formulario a 3-4 campos: +30-50% conversión. Esfuerzo bajo, impacto alto."
+    },
+    {
+      "id": "q37",
+      "question": "¿Qué versión de LP se recomienda para Brasil?",
+      "options": [
+        "En español",
+        "En inglés",
+        "En portugués: 'Opere forex com PIX — depósito instantâneo'",
+        "Sin adaptación"
+      ],
+      "correctIndex": 2,
+      "explanation": "Brasil LP: portugués, headline 'Opere forex com PIX — depósito instantâneo', CTA 'Abra sua conta'."
+    },
+    {
+      "id": "q38",
+      "question": "¿Cuál es el depósito promedio FTD objetivo?",
+      "options": ["$5", "$50", "$200+", "$1,000"],
+      "correctIndex": 2,
+      "explanation": "Objetivo depósito promedio FTD: $200+."
+    },
+    {
+      "id": "q39",
+      "question": "¿Qué debe haber en el Above the fold según CRO?",
+      "options": [
+        "Solo una imagen",
+        "Headline con beneficio, depósito mínimo visible $5, CTA prominente, trust signals, idioma local",
+        "Solo el logo",
+        "Un video de 5 minutos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Above the fold: headline con beneficio (no features), $5 visible, CTA prominente, trust signals (regulación, instrumentos, métodos), idioma local."
+    },
+    {
+      "id": "q40",
+      "question": "¿Qué herramientas sirven para dashboards gratuitos?",
+      "options": [
+        "Solo Tableau pago",
+        "Metabase (open source) o Looker Studio (gratuito con Google)",
+        "Solo Excel",
+        "Retool gratis únicamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Herramientas recomendadas: Metabase (open source), Looker Studio (gratuito con Google), o Retool."
+    }
+  ]
+}

@@ -1,0 +1,381 @@
+{
+  "docPath": "sales/faq-ventas",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuál es el depósito mínimo de la cuenta Cent?",
+      "options": ["$1", "$5", "$50", "$100"],
+      "correctIndex": 1,
+      "explanation": "Cuenta Cent: $5. Standard: $50. Raw: $500. Institucional: $50,000."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuántos métodos de depósito acepta NEOMAAA Markets?",
+      "options": ["20+", "50+", "120+", "500+"],
+      "correctIndex": 2,
+      "explanation": "120+ métodos: Visa, MC, crypto, PIX, PSE, OXXO, Nequi, Yape, USDT, transferencia, etc."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuánto tardan los retiros en criptomonedas?",
+      "options": ["Minutos", "Horas (generalmente)", "1-5 días hábiles", "Una semana"],
+      "correctIndex": 1,
+      "explanation": "Retiros en crypto: horas. Retiros bancarios/tarjeta: 1-5 días hábiles."
+    },
+    {
+      "id": "q4",
+      "question": "¿Qué plataforma de trading usa NEOMAAA?",
+      "options": ["MetaTrader 4", "cTrader", "MetaTrader 5 (desktop, web, móvil)", "TradingView"],
+      "correctIndex": 2,
+      "explanation": "MetaTrader 5 en desktop (Windows/Mac), web, y app móvil (iOS/Android). Ejecución ECN."
+    },
+    {
+      "id": "q5",
+      "question": "¿Cuál es el número de licencia regulatoria de NEOMAAA?",
+      "options": ["FCA 1234", "CySEC 999", "L15968/N (AOFA de Anjouan, IBC 15968)", "ASIC 5000"],
+      "correctIndex": 2,
+      "explanation": "Neomaaa Ltd, IBC 15968, licencia L15968/N emitida por la Autoridad de Servicios Offshore de Anjouan (AOFA)."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuál es el apalancamiento máximo retail en NEOMAAA?",
+      "options": ["1:30", "1:100", "1:500", "Hasta 1:1000"],
+      "correctIndex": 3,
+      "explanation": "Hasta 1:1000 retail (depende de cuenta e instrumento). Institucional: personalizado."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuántos tipos de cuenta ofrece NEOMAAA?",
+      "options": ["2", "3", "4 (Cent, Standard, Raw, Institucional)", "6"],
+      "correctIndex": 2,
+      "explanation": "4 tipos: Cent ($5 min, principiantes), Standard ($50, popular), Raw ($500, spreads desde 0.0 + $3/lote/lado), Institucional ($50,000, personalizado)."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuál es la comisión de la cuenta Raw?",
+      "options": [
+        "Sin comisión, solo spread",
+        "$1 por lote por lado",
+        "$3 por lote por lado ($6 round trip)",
+        "$10 por lote"
+      ],
+      "correctIndex": 2,
+      "explanation": "Raw: spreads desde 0.0 pips + $3 por lote por lado ($6 round trip)."
+    },
+    {
+      "id": "q9",
+      "question": "¿Ofrece NEOMAAA cuenta demo?",
+      "options": [
+        "No",
+        "Sí, cuenta demo gratuita en MT5",
+        "Solo para institucionales",
+        "Sí, pero cuesta $10"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sí — cuenta demo gratuita en MT5, condiciones similares a las reales pero no idénticas. Complementar con Cent ($5) para experiencia con ejecución real."
+    },
+    {
+      "id": "q10",
+      "question": "¿En qué países NO se puede operar?",
+      "options": [
+        "Solo Rusia",
+        "Solo España",
+        "USA, Canadá, EEA, UK, Australia, y países sancionados",
+        "Todos los países de LATAM"
+      ],
+      "correctIndex": 2,
+      "explanation": "Restringidos: Estados Unidos, Canadá, Espacio Económico Europeo, Reino Unido, Australia, y países bajo sanciones internacionales."
+    },
+    {
+      "id": "q11",
+      "question": "¿Puede un cliente tener más de una cuenta?",
+      "options": [
+        "No, solo una",
+        "Sí, múltiples cuentas bajo un mismo perfil",
+        "Solo si paga un extra",
+        "Solo con aprobación manual"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sí. Multiples cuentas bajo un mismo perfil — útil para separar estrategias, monedas diferentes, o probar configuraciones de leverage distintas."
+    },
+    {
+      "id": "q12",
+      "question": "¿NEOMAAA ofrece cuenta Swap-Free (islámica)?",
+      "options": [
+        "No",
+        "Sí, se solicita activación después de crear la cuenta",
+        "Solo para ciertos países",
+        "Solo para institucionales"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sí, se ofrece Swap-Free por motivos religiosos. Cliente debe solicitar activación post-creación de cuenta."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuántos instrumentos se pueden operar en NEOMAAA?",
+      "options": ["100+", "500+", "2,000+", "10,000+"],
+      "correctIndex": 2,
+      "explanation": "2,000+ instrumentos: 60+ pares forex, crypto, metales, índices (S&P 500, NASDAQ, DAX), acciones, ETFs, futuros, energía."
+    },
+    {
+      "id": "q14",
+      "question": "¿Qué tipo de ejecución ofrece NEOMAAA?",
+      "options": [
+        "Market Maker puro",
+        "Dealing Desk",
+        "ECN/STP híbrida (órdenes enrutadas a proveedores de liquidez, sin intervención de dealing desk)",
+        "Solo institucional"
+      ],
+      "correctIndex": 2,
+      "explanation": "ECN/STP híbrida. Órdenes se enrutan directamente a proveedores de liquidez. NEOMAAA no opera contra el cliente."
+    },
+    {
+      "id": "q15",
+      "question": "¿Está permitido el scalping?",
+      "options": [
+        "No",
+        "Sí, pero con cargo extra",
+        "Sí, sin restricciones de estrategia (también hedging, news trading, EAs)",
+        "Solo en cuenta Raw"
+      ],
+      "correctIndex": 2,
+      "explanation": "Sí. No hay restricciones: scalping, hedging, trading de noticias y Expert Advisors permitidos en todas las cuentas."
+    },
+    {
+      "id": "q16",
+      "question": "¿Qué son los swaps?",
+      "options": [
+        "Una promoción del broker",
+        "Cargos o créditos aplicados al mantener posición abierta de un día para otro (dependen del diferencial de tasas entre las divisas del par)",
+        "Comisiones de retiro",
+        "Un tipo de orden"
+      ],
+      "correctIndex": 1,
+      "explanation": "Swaps: cargos o créditos por mantener posición abierta overnight. Estándar en la industria. Dependen del diferencial de tasas entre divisas. Si se quieren evitar, usar cuenta Swap-Free."
+    },
+    {
+      "id": "q17",
+      "question": "¿Qué proveedor maneja el KYC de NEOMAAA?",
+      "options": ["Onfido", "Jumio", "Sumsub (el mismo que eToro, Binance)", "Interno"],
+      "correctIndex": 2,
+      "explanation": "Sumsub — el mismo proveedor que usan eToro, Binance y otros brokers reconocidos. Proceso digital, <5 minutos típicamente."
+    },
+    {
+      "id": "q18",
+      "question": "¿Cuánto tarda típicamente la verificación KYC?",
+      "options": [
+        "Instantáneo",
+        "Minutos (mayoría), hasta 24 horas hábiles si requiere revisión manual",
+        "Una semana",
+        "30 días"
+      ],
+      "correctIndex": 1,
+      "explanation": "Proceso automatizado de Sumsub. Mayoría en minutos. Revisión manual: hasta 24 horas hábiles."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cómo funciona Copy Trading en NEOMAAA?",
+      "options": [
+        "Sistema centralizado propio de NEOMAAA",
+        "Via MQL5 Signals (sistema nativo MT5, marketplace de MetaQuotes)",
+        "Via MAM/PAMM propio",
+        "No existe"
+      ],
+      "correctIndex": 1,
+      "explanation": "Copy trading via MQL5 Signals (marketplace nativo MetaQuotes). NEOMAAA NO opera sistema centralizado propio ni MAM/PAMM actualmente."
+    },
+    {
+      "id": "q20",
+      "question": "Un cliente pregunta: ¿hay comisiones ocultas en NEOMAAA?",
+      "options": [
+        "Sí, varias",
+        "No. Estructura transparente: spread (todas), comisión por lote (solo Raw e Inst), swaps (estándar industria, visibles en MT5). Sin cargos de plataforma ni mantenimiento",
+        "Solo para cuenta Cent",
+        "Depende del país"
+      ],
+      "correctIndex": 1,
+      "explanation": "No hay comisiones ocultas. Solo spread, comisión por lote (Raw/Inst), y swaps (visibles en MT5 antes de operar). Sin fees de plataforma ni mantenimiento."
+    },
+    {
+      "id": "q21",
+      "question": "¿Ofrece NEOMAAA VPS Hosting?",
+      "options": [
+        "No",
+        "Sí, VPS para mantener MT5 ejecutándose 24/7 (crítico para Expert Advisors)",
+        "Solo para institucionales",
+        "Solo en Asia"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sí. VPS mantiene MT5 ejecutándose 24/7 — esencial para EAs/robots de trading que deben correr con PC del cliente apagada."
+    },
+    {
+      "id": "q22",
+      "question": "¿Qué es el Vault?",
+      "options": [
+        "Un producto bancario regulado",
+        "Una funcionalidad que permite depositar fondos no usados activamente para generar rendimiento de hasta 5% p.a. (NO es depósito a plazo fijo)",
+        "Un tipo de cuenta de trading",
+        "Un sistema de bonos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vault: funcionalidad de NEOMAAA que genera hasta 5% p.a. sobre fondos no usados activamente. NO es producto bancario ni depósito a plazo fijo."
+    },
+    {
+      "id": "q23",
+      "question": "Un cliente pregunta: ¿NEOMAAA es una prop trading firm?",
+      "options": [
+        "Sí",
+        "No. NEOMAAA Markets es un broker de forex y CFDs. Clientes depositan su propio capital y operan con su dinero. No hay cuentas fondeadas ni evaluaciones",
+        "Solo para traders avanzados",
+        "Depende del país"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA Markets es BROKER, no prop firm. Clientes operan con su propio capital bajo su propio riesgo. No ofrecemos cuentas fondeadas ni evaluaciones."
+    },
+    {
+      "id": "q24",
+      "question": "Un cliente pide recomendaciones de qué comprar. ¿Qué respondes?",
+      "options": [
+        "Recomiendo lo que yo compraría",
+        "No podemos dar asesoría financiera. NEOMAAA es broker de ejecución, no asesor. Sugerir consultar profesional independiente",
+        "Le envío un signal",
+        "Depende del tamaño de la cuenta"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA es broker de ejecución, NO asesor financiero. No damos recomendaciones ni asesoría personalizada. Si el cliente necesita asesoría, recomendar profesional independiente."
+    },
+    {
+      "id": "q25",
+      "question": "Cuando un cliente hace una pregunta que NO sabes responder, ¿qué debes hacer?",
+      "options": [
+        "Inventar una respuesta plausible",
+        "Ignorar el mensaje",
+        "No inventar. Decir: 'Déjame verificar con el equipo y te respondo'. Consultar con Edward/soporte. Responder en máx 24h",
+        "Enviarlo a ChatGPT"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nunca inventar. Decir al cliente: 'Déjame verificar esa información con el equipo'. Consultar con Edward o soporte. Responder en plazo máximo 24 horas."
+    },
+    {
+      "id": "q26",
+      "question": "Sobre retiros: ¿se puede retirar a un método diferente al de depósito?",
+      "options": [
+        "Sí, sin restricción",
+        "Por AML, los retiros deben procesarse al mismo método usado para el depósito hasta cubrir el monto depositado. Ganancias adicionales pueden ir por métodos alternativos",
+        "Nunca",
+        "Solo con aprobación del CEO"
+      ],
+      "correctIndex": 1,
+      "explanation": "Política AML: retiros al mismo método del depósito hasta cubrir el monto depositado. Ganancias adicionales pueden ir por métodos alternativos según políticas vigentes."
+    },
+    {
+      "id": "q27",
+      "question": "El cliente dice: 'IC Markets me ofrece mejores condiciones'. ¿Cómo respondes?",
+      "options": [
+        "Hablar mal de IC Markets",
+        "Respetar al competidor + presentar diferenciales (métodos locales LATAM, hasta 1:1000, 2,000+ instrumentos, español nativo, Vault 5% p.a., Copy Trading) + invitar a comparar en vivo con Cent o demo",
+        "Regalar un bonus",
+        "Ignorar la objeción"
+      ],
+      "correctIndex": 1,
+      "explanation": "Respetar al competidor. Destacar diferenciales: 120+ métodos, opciones locales LATAM, apalancamiento hasta 1:1000, 2,000+ instrumentos, soporte español nativo, Vault 5% p.a., Copy Trading via MQL5. Invitar a comparar con cuenta Cent o demo."
+    },
+    {
+      "id": "q28",
+      "question": "Un cliente dice: 'mi depósito no se refleja, ya pasaron 2 horas'. ¿Qué haces?",
+      "options": [
+        "Prometer que se resolverá en 30 minutos",
+        "Decirle que contacte soporte por Intercom con el comprobante. NO prometer tiempos de resolución específicos",
+        "Decirle que espere 3 días",
+        "Decirle que deposite de nuevo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cliente debe contactar soporte por Intercom con comprobante de transacción. Equipo investiga y resuelve en menor tiempo posible. NO prometer tiempos específicos."
+    },
+    {
+      "id": "q29",
+      "question": "¿Permite MT5 Expert Advisors (robots)?",
+      "options": [
+        "No",
+        "Sí, MT5 soporta EAs nativamente. Para ejecución 24/7 se recomienda VPS",
+        "Solo EAs de NEOMAAA",
+        "Solo cuenta institucional"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sí. MT5 soporta EAs nativamente. Clientes pueden usar EAs propios o de terceros. Para 24/7 se recomienda VPS."
+    },
+    {
+      "id": "q30",
+      "question": "Un cliente es menor de edad. ¿Qué haces?",
+      "options": [
+        "Abrir cuenta con documento del tutor",
+        "No se puede abrir cuenta. Sin excepciones — es una de las red flags de escalamiento inmediato",
+        "Esperar a que cumpla 18",
+        "Preguntarle a Diego"
+      ],
+      "correctIndex": 1,
+      "explanation": "Red flag compliance. Menor de edad = NO puede abrir cuenta. Sin excepciones."
+    },
+    {
+      "id": "q31",
+      "question": "Un cliente dice que NEOMAAA le 'tiene que garantizar que no va a perder'. ¿Qué respondes?",
+      "options": [
+        "Garantizarlo para cerrar la venta",
+        "No se puede garantizar. Explicar: el trading conlleva riesgo de pérdida (hasta el total del capital). Recomendar operar solo con capital que pueda permitirse perder, usar risk management",
+        "Prometer protección contra saldo negativo al 100%",
+        "Ofrecer bono para compensar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nunca garantizar. Trading conlleva riesgo de pérdida incluyendo totalidad del capital. NEOMAAA no es responsable de decisiones de trading del cliente."
+    },
+    {
+      "id": "q32",
+      "question": "El cliente pregunta: '¿mis fondos están seguros?'. ¿Qué destacas?",
+      "options": [
+        "Que NEOMAAA tiene seguro global",
+        "Cuentas segregadas (separadas de fondos operativos de la empresa), KYC con Sumsub, políticas AML",
+        "Que nada puede pasar",
+        "Que son más seguros que el banco"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fondos en cuentas segregadas, separados de fondos operativos. KYC con Sumsub. Políticas AML. Nunca comparar con banco (prohibido en compliance)."
+    },
+    {
+      "id": "q33",
+      "question": "Cuando un cliente se pone difícil, ¿qué NO debes hacer?",
+      "options": [
+        "Escuchar la queja completa",
+        "Mantener tono profesional",
+        "Discutir o ponerse a la defensiva",
+        "Escalar a Edward si no podés resolver"
+      ],
+      "correctIndex": 2,
+      "explanation": "NO discutir ni ponerse a la defensiva. Mantener calma, escuchar completa la queja antes de responder. Si no se puede resolver, escalar a Edward."
+    },
+    {
+      "id": "q34",
+      "question": "Cuando el cliente pide algo que NO podemos ofrecer, ¿qué haces?",
+      "options": [
+        "Prometer que saldrá en el futuro",
+        "Ser honesto: 'Eso no es algo que ofrezcamos actualmente'. Ofrecer alternativa más cercana. NO prometer features futuras a menos que estén confirmadas",
+        "Enviarlo a la competencia",
+        "Decirle que sí y luego improvisar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ser honesto sobre lo que no se ofrece. Ofrecer la alternativa más cercana. No prometer features futuras salvo confirmadas."
+    },
+    {
+      "id": "q35",
+      "question": "Un trader experimentado te pregunta: '¿1:500 significa que mi capital se multiplica por 500?'. ¿Qué respondes?",
+      "options": [
+        "Sí, exactamente",
+        "No. El leverage NO multiplica tu capital — reduce el margen requerido por 1/N. Con 1:500, 1 lote EURUSD (~USD 115K nocionales) pide solo ~USD 230 de margen. La exposición sigue siendo el nocional completo. Mayor leverage = menor colchón antes del stop out",
+        "Solo si operás crypto",
+        "Depende del broker"
+      ],
+      "correctIndex": 1,
+      "explanation": "Concepto correcto: leverage reduce margen requerido (no multiplica capital). Con 1:500, 1 lote EURUSD pide ~USD 230 de margen. Exposición = nocional completo. Mayor leverage = menor margen libre = menor colchón antes stop out."
+    }
+  ]
+}

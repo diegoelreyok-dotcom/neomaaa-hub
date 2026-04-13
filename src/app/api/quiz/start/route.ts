@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import crypto from 'crypto';
 import { auth } from '@/lib/auth';
 import { loadQuizPool } from '@/lib/quiz-pools';
-import { createQuizSession } from '@/lib/quiz-storage';
+import { createQuizSession, getCooldown } from '@/lib/quiz-storage';
 import {
   QuizLanguage,
   QuizSession,
@@ -50,6 +50,21 @@ export async function POST(req: Request) {
     );
   }
 
+  const userIdEarly = (session.user as any).userId as string;
+
+  // Block if user is on cooldown for this doc.
+  const cooldown = await getCooldown(userIdEarly, docPath);
+  if (cooldown) {
+    const secondsLeft = Math.max(
+      0,
+      Math.ceil((cooldown.expiresAt - Date.now()) / 1000)
+    );
+    return NextResponse.json(
+      { error: 'cooldown', retryAfter: secondsLeft },
+      { status: 409 }
+    );
+  }
+
   const pool = loadQuizPool(docPath, language);
   if (!pool) {
     return NextResponse.json(
@@ -81,7 +96,7 @@ export async function POST(req: Request) {
     };
   });
 
-  const userId = (session.user as any).userId as string;
+  const userId = userIdEarly;
 
   const sessionId = newSessionId();
   const fullSession: QuizSession = {

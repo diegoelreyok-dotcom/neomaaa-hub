@@ -1,0 +1,386 @@
+{
+  "docPath": "hiring/marketing-manager",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Compensación del Marketing Manager:",
+      "options": ["$1,000 USD/mes", "$1,500 USD/mes", "$2,500 USD/mes", "$5,000 USD/mes"],
+      "correctIndex": 1,
+      "explanation": "Marketing Manager: $1,500 USD/mes. Remoto. Inicio según decisión de modelo de contratación (full-time vs freelancers)."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuál es el objetivo principal del Marketing Manager?",
+      "options": [
+        "Diseñar el logo",
+        "Generar registros calificados, convertirlos en depósitos (FTDs) y construir la marca en LATAM (primario), Middle East, Africa y SE Asia",
+        "Contratar influencers",
+        "Administrar redes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Objetivo: generar registros calificados → FTDs → construir marca en mercados objetivo: LATAM (primario), Middle East, Africa, SE Asia."
+    },
+    {
+      "id": "q3",
+      "question": "Plataformas de paid media relevantes:",
+      "options": [
+        "Sólo Google Ads",
+        "Google Ads, Meta Ads, TikTok Ads, YouTube Ads, plataformas nativas",
+        "Sólo LinkedIn",
+        "Sólo TikTok"
+      ],
+      "correctIndex": 1,
+      "explanation": "Paid media: Google Ads, Meta Ads, TikTok Ads, YouTube Ads, plataformas nativas. Campañas por mercado (LATAM español, Middle East inglés/árabe)."
+    },
+    {
+      "id": "q4",
+      "question": "Redes sociales a gestionar:",
+      "options": [
+        "Sólo Instagram",
+        "Instagram, Twitter/X, YouTube, TikTok, Telegram, Facebook",
+        "Sólo LinkedIn",
+        "Sólo Discord"
+      ],
+      "correctIndex": 1,
+      "explanation": "Gestionar cuentas: Instagram, Twitter/X, YouTube, TikTok, Telegram, Facebook. Contenido diario/semanal en todas las plataformas."
+    },
+    {
+      "id": "q5",
+      "question": "Recomendación para Stage 1 (lanzamiento):",
+      "options": [
+        "Contratar Marketing Manager full-time",
+        "Freelancer de paid media enfocado en LATAM ($500-800/mes) + gestionar contenido/redes internamente",
+        "Agencia de $10K/mes",
+        "No hacer marketing"
+      ],
+      "correctIndex": 1,
+      "explanation": "Stage 1: 1 freelancer de paid media LATAM ($500-800/mes) + gestionar contenido/redes internamente. Valida canales/mensajes con menor riesgo."
+    },
+    {
+      "id": "q6",
+      "question": "Recomendación para Stage 2 (escalamiento):",
+      "options": [
+        "Sólo freelancers",
+        "Contratar Marketing Manager full-time que coordine freelancers especializados. El volumen justifica full-time",
+        "No hacer marketing",
+        "Sólo el CEO lo hace"
+      ],
+      "correctIndex": 1,
+      "explanation": "Stage 2: Marketing Manager full-time coordina freelancers especializados. Volumen de trabajo justifica posición full-time."
+    },
+    {
+      "id": "q7",
+      "question": "Desventaja central de Freelancers Especializados:",
+      "options": [
+        "Precio bajo",
+        "Requiere que un Principal (probablemente Diego) coordine, falta coherencia de marca, freelancers no priorizan NEOMAAA, pérdida de conocimiento institucional",
+        "Muy lentos",
+        "No tienen expertise"
+      ],
+      "correctIndex": 1,
+      "explanation": "Desventajas freelance: Diego coordina (consume tiempo ejecutivo), falta coherencia de marca, freelancers con múltiples clientes, pérdida de conocimiento institucional."
+    },
+    {
+      "id": "q8",
+      "question": "Experiencia mínima obligatoria:",
+      "options": [
+        "Sin experiencia",
+        "2 años mínimo en marketing digital con enfoque en forex, trading o fintech",
+        "10 años en retail",
+        "5 años en BigTech"
+      ],
+      "correctIndex": 1,
+      "explanation": "Obligatorio: 2 años mínimo en marketing digital con enfoque en forex, trading o fintech. Experiencia gestionando paid media con resultados medibles."
+    },
+    {
+      "id": "q9",
+      "question": "Idiomas requeridos:",
+      "options": [
+        "Sólo inglés",
+        "Español nativo + inglés profesional",
+        "Sólo español",
+        "Portugués"
+      ],
+      "correctIndex": 1,
+      "explanation": "Obligatorio: español nativo + inglés profesional. Deseable: conocimiento mercado LATAM (cultura, plataformas, comportamiento del trader)."
+    },
+    {
+      "id": "q10",
+      "question": "KPI de registros nuevos Stage 1 - mes 3:",
+      "options": ["100+", "300+", "500+", "1,000+"],
+      "correctIndex": 2,
+      "explanation": "500+ registros en mes 3. Tasa FTD >15%, CPR <$5, CPA <$35, ROAS >3x en mes 3."
+    },
+    {
+      "id": "q11",
+      "question": "KPI de Costo por Registro (CPR):",
+      "options": ["< $1", "< $5 USD", "< $20", "< $50"],
+      "correctIndex": 1,
+      "explanation": "CPR: <$5 USD. CPA (costo por FTD): <$35 USD. ROAS: >3x en mes 3."
+    },
+    {
+      "id": "q12",
+      "question": "KPI de Costo por FTD (CPA):",
+      "options": ["< $10", "< $35 USD", "< $100", "< $300"],
+      "correctIndex": 1,
+      "explanation": "CPA: <$35 USD. CPR: <$5. Tasa FTD sobre registros: >15%. ROAS: >3x."
+    },
+    {
+      "id": "q13",
+      "question": "KPI de Tasa de FTD (First Time Deposit):",
+      "options": ["< 5%", "> 15% de registros", "> 50%", "100%"],
+      "correctIndex": 1,
+      "explanation": "Tasa FTD: >15% de registros en Stage 1 primeros 3 meses."
+    },
+    {
+      "id": "q14",
+      "question": "KPI de afiliados activos mes 3:",
+      "options": ["1", "10+ afiliados generando tráfico", "50+", "100+"],
+      "correctIndex": 1,
+      "explanation": "10+ afiliados activos generando tráfico en mes 3."
+    },
+    {
+      "id": "q15",
+      "question": "Crecimiento mensual de seguidores en redes:",
+      "options": ["5%", "10%", "20% mensual", "50%"],
+      "correctIndex": 2,
+      "explanation": "Crecimiento seguidores: 20% mensual. Tráfico orgánico al sitio: 15% mensual."
+    },
+    {
+      "id": "q16",
+      "question": "Crecimiento mensual de tráfico orgánico:",
+      "options": ["5%", "10%", "15% mensual", "30%"],
+      "correctIndex": 2,
+      "explanation": "Tráfico orgánico al sitio: 15% crecimiento mensual. Seguidores redes: 20%."
+    },
+    {
+      "id": "q17",
+      "question": "Herramientas de paid media que utilizará:",
+      "options": [
+        "Sólo Facebook",
+        "Google Ads, Meta Ads, TikTok Ads",
+        "Sólo Google Analytics",
+        "Sólo email"
+      ],
+      "correctIndex": 1,
+      "explanation": "Paid media: Google Ads, Meta Ads, TikTok Ads. Analítica: Google Analytics, Search Console. Keywords: SEMrush o Ahrefs."
+    },
+    {
+      "id": "q18",
+      "question": "Herramientas de keywords/SEO:",
+      "options": [
+        "Sólo Google",
+        "SEMrush o Ahrefs",
+        "Moz",
+        "Ninguna"
+      ],
+      "correctIndex": 1,
+      "explanation": "SEO: SEMrush o Ahrefs para keyword research y competidores. Google Analytics y Search Console para análisis web."
+    },
+    {
+      "id": "q19",
+      "question": "¿Qué deseable es mencionado sobre brokers forex?",
+      "options": [
+        "No se requiere experiencia",
+        "Experiencia previa en marketing de un broker de forex (NO prop trading, NO educador — un broker real)",
+        "Cualquier fintech",
+        "Sólo crypto"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deseable específico: experiencia en broker forex real (NO prop trading, NO educador). Conocimiento de restricciones de ads en broker regulado."
+    },
+    {
+      "id": "q20",
+      "question": "Caso práctico del proceso de selección:",
+      "options": [
+        "Diseñar un logo",
+        "Diseñar plan de marketing de 30 días para lanzamiento NEOMAAA en LATAM con presupuesto de $2,000 USD",
+        "Análisis competitivo",
+        "Escribir copy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Caso práctico: plan de marketing 30 días para lanzamiento LATAM con $2,000 USD. Decisión en 72 horas post-entrevista."
+    },
+    {
+      "id": "q21",
+      "question": "¿Quién diseña y lanza el programa de afiliados/IBs?",
+      "options": [
+        "Ventas",
+        "Marketing Manager",
+        "Soporte",
+        "Externo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Marketing Manager diseña y lanza programa de afiliados/IBs. Recluta/gestiona afiliados, educadores, influencers, partners. Define comisiones + materiales + tracking."
+    },
+    {
+      "id": "q22",
+      "question": "Filosofía de toma de decisiones:",
+      "options": [
+        "Basada en intuición",
+        "Mentalidad data-driven: decisiones basadas en métricas, no intuición",
+        "Lo que diga Diego",
+        "Copia competencia"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mentalidad data-driven: decisiones basadas en métricas, no intuición. A/B testing continuo de creativos, copy, audiencias, landing pages."
+    },
+    {
+      "id": "q23",
+      "question": "¿Qué debe incluir la estrategia de contenido?",
+      "options": [
+        "Sólo memes",
+        "Artículos educativos, videos, infografías, webinars sobre forex y trading",
+        "Sólo ads",
+        "Sólo en inglés"
+      ],
+      "correctIndex": 1,
+      "explanation": "Contenido: artículos educativos, videos, infografías, webinars sobre forex y trading. Contenido diario/semanal para todas las plataformas."
+    },
+    {
+      "id": "q24",
+      "question": "Ventaja de Marketing Manager Full-Time:",
+      "options": [
+        "Es más barato",
+        "Dedicación exclusiva, coherencia marca/mensaje, disponibilidad constante para coordinar con Sales/Support/Principals, crecimiento del conocimiento institucional, ejecuta estrategia largo plazo",
+        "Sólo ejecuta ads",
+        "Sin desventajas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ventajas full-time: dedicación exclusiva, conocimiento profundo producto/mercado, coherencia marca, coordinación continua, conocimiento institucional, estrategia largo plazo."
+    },
+    {
+      "id": "q25",
+      "question": "Desventaja de Marketing Manager Full-Time:",
+      "options": [
+        "Sin desventajas",
+        "Costo fijo mensual, a $1,500 puede ser difícil atraer senior, una sola persona no domina todas las disciplinas (paid + contenido + SEO + afiliados)",
+        "Demasiado rápido",
+        "Ninguna"
+      ],
+      "correctIndex": 1,
+      "explanation": "Desventajas full-time: costo fijo, $1,500 difícil atraer senior, difícil dominar todas las disciplinas. Costo rotación alto si no funciona."
+    },
+    {
+      "id": "q26",
+      "question": "Responsabilidades de SEO:",
+      "options": [
+        "No aplica",
+        "Keyword research, optimización on-page, link building, contenido optimizado. Monitoreo mensual de posiciones, tráfico orgánico y oportunidades",
+        "Sólo on-page",
+        "Sólo reportar"
+      ],
+      "correctIndex": 1,
+      "explanation": "SEO: keyword research + optimización on-page + link building + contenido optimizado. Monitoreo mensual posiciones, tráfico orgánico, oportunidades."
+    },
+    {
+      "id": "q27",
+      "question": "Responsabilidad sobre conversion/funnel:",
+      "options": [
+        "No aplica",
+        "Optimizar funnel completo: desde impresión publicitaria hasta FTD. Trabajar con Sales para alinear leads calificados con proceso de ventas",
+        "Sólo landing",
+        "Sólo ads"
+      ],
+      "correctIndex": 1,
+      "explanation": "Optimiza funnel completo impresión → FTD. Alinea con Sales leads calificados. Implementa email marketing y automatizaciones nurturing."
+    },
+    {
+      "id": "q28",
+      "question": "Responsabilidad de reporte:",
+      "options": [
+        "Trimestral",
+        "Reportes semanales y mensuales con métricas clave. Analizar datos para identificar canales rentables, audiencias de mayor valor, oportunidades",
+        "Sólo anual",
+        "No reporta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reportes semanales + mensuales con métricas clave. Analizar canales rentables, audiencias de valor, oportunidades de optimización."
+    },
+    {
+      "id": "q29",
+      "question": "Creación de creativos:",
+      "options": [
+        "Sólo externa",
+        "Canva / Adobe Creative Suite",
+        "Sólo Figma",
+        "Sólo stock"
+      ],
+      "correctIndex": 1,
+      "explanation": "Herramientas creación: Canva / Adobe Creative Suite. Marketing Manager debe tener capacidad básica de crear contenido (copy + diseño básico + guiones video)."
+    },
+    {
+      "id": "q30",
+      "question": "CRM para tracking de leads:",
+      "options": [
+        "HubSpot",
+        "Skale CRM",
+        "Salesforce",
+        "Zoho"
+      ],
+      "correctIndex": 1,
+      "explanation": "Skale CRM — tracking de leads y conversión. Mailchimp o similar para email marketing. Hootsuite/Buffer para redes."
+    },
+    {
+      "id": "q31",
+      "question": "Proceso de selección Marketing Manager:",
+      "options": [
+        "Sólo CV",
+        "Revisión CV + portfolio + casos éxito demostrables. Entrevista Principals 30 min. Caso práctico (plan 30 días LATAM con $2K). Decisión 72h",
+        "Sólo entrevista",
+        "1 semana"
+      ],
+      "correctIndex": 1,
+      "explanation": "Proceso: CV + portfolio + casos éxito. Entrevista Principals 30 min. Caso práctico plan 30 días LATAM con $2K. Decisión 72h post-entrevista."
+    },
+    {
+      "id": "q32",
+      "question": "¿Qué NO debe hablarse en creativos/copy de ads?",
+      "options": [
+        "Datos reales",
+        "Conocimiento sobre regulated ads en broker (restricciones legales específicas)",
+        "Features del producto",
+        "Horarios"
+      ],
+      "correctIndex": 1,
+      "explanation": "Crítico: entender restricciones de ads en broker regulado. No cualquier marketer lo conoce — por eso es deseable experiencia específica en broker forex."
+    },
+    {
+      "id": "q33",
+      "question": "Responsabilidades de estrategia:",
+      "options": [
+        "Sólo ejecutar",
+        "Diseñar/ejecutar estrategia integral alineada con objetivos cada etapa. Calendario de marketing mensual. Gestionar presupuesto asignado optimizando ROI",
+        "Sólo reportar",
+        "Sólo creativos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Estrategia: diseñar/ejecutar estrategia integral alineada con stage 1/2/3. Calendario de marketing mensual. Gestionar presupuesto optimizando ROI por cada dólar."
+    },
+    {
+      "id": "q34",
+      "question": "Características del equipo NEOMAAA:",
+      "options": [
+        "Presencial Europa",
+        "Equipo remoto en crecimiento con mentalidad de startup: rápidos, directos, enfocados en resultados",
+        "Presencial Dubai",
+        "200 personas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Equipo remoto en crecimiento, mentalidad startup: rápidos, directos, enfocados en resultados."
+    },
+    {
+      "id": "q35",
+      "question": "¿Qué deseable sobre trading?",
+      "options": [
+        "Ser trader profesional",
+        "Conocimiento básico de trading (puede hablar con traders de forma creíble)",
+        "No necesario",
+        "Ser scalper"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deseable: conocimiento básico de trading (puede hablar con traders de forma creíble). No necesario ser trader profesional."
+    }
+  ]
+}

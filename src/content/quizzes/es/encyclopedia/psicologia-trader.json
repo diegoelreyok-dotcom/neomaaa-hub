@@ -1,0 +1,411 @@
+{
+  "docPath": "encyclopedia/psicologia-trader",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Según datos de ESMA 2018, ¿qué porcentaje de clientes retail pierde dinero en CFDs?",
+      "options": ["20-40%", "50-60%", "74-89% según broker", "95-100%"],
+      "correctIndex": 2,
+      "explanation": "ESMA 2018 reportó 74-89% según broker. FCA UK: 82% promedio. ASIC Australia: 72%. Es estructural."
+    },
+    {
+      "id": "q2",
+      "question": "¿Por qué la mayoría de traders retail pierde dinero?",
+      "options": [
+        "Por mala suerte",
+        "Por falta de estudio solamente",
+        "Es estructural: juego de suma negativa (spread, comisión, swap) contra profesionales con más información, velocidad y capital",
+        "Por culpa del broker"
+      ],
+      "correctIndex": 2,
+      "explanation": "Es estructural: mercado de suma negativa con costos (spread, comisión, swap) contra profesionales. No es mala suerte ni falta de estudio."
+    },
+    {
+      "id": "q3",
+      "question": "Según Kahneman & Tversky, ¿cuánto más fuerte sentimos una pérdida vs una ganancia equivalente?",
+      "options": ["1x", "1.5x", "2x más fuerte", "5x"],
+      "correctIndex": 2,
+      "explanation": "Aversión a la pérdida: sentimos una pérdida 2x más fuerte que disfrutamos una ganancia equivalente."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuál es la consecuencia práctica de la aversión a la pérdida en trading?",
+      "options": [
+        "El trader cierra ganadoras rápido y aguanta perdedoras. Muchas ganancias chicas + pérdidas grandes = cuenta rota",
+        "El trader gana siempre",
+        "Es neutral para el resultado",
+        "Aumenta el tamaño de posición"
+      ],
+      "correctIndex": 0,
+      "explanation": "La aversión produce el comportamiento opuesto al óptimo: cortar ganancias rápido y aguantar pérdidas, llevando a cuenta rota."
+    },
+    {
+      "id": "q5",
+      "question": "¿Qué es el sesgo de confirmación?",
+      "options": [
+        "Un tipo de orden pendiente",
+        "El trader solo lee/mira contenido que confirma su idea previa y descarta el que la contradice",
+        "Un indicador técnico",
+        "Una estrategia rentable"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sesgo de confirmación: buscar solo información que valida la hipótesis previa, ignorando señales contrarias del mercado."
+    },
+    {
+      "id": "q6",
+      "question": "¿Qué es el revenge trading?",
+      "options": [
+        "Una estrategia avanzada",
+        "Después de una pérdida, entrar inmediatamente en otra operación con más tamaño buscando recuperar. Casi siempre pierde más",
+        "Cerrar posiciones en ganancia",
+        "Operar contra el mercado"
+      ],
+      "correctIndex": 1,
+      "explanation": "Revenge trading: entrar en más operaciones después de perder para 'recuperar'. Es la reacción emocional que más cuentas funde."
+    },
+    {
+      "id": "q7",
+      "question": "¿Qué es el overtrading?",
+      "options": [
+        "Creencia de 'cuanto más opere, más gano'. Falso: más operaciones = más costos y más errores",
+        "Operar sin apalancamiento",
+        "Usar demasiados indicadores",
+        "Tradear en demo solamente"
+      ],
+      "correctIndex": 0,
+      "explanation": "Overtrading: la creencia falsa de que más operaciones = más ganancias. En realidad aumenta costos y errores. Los mejores operan poco."
+    },
+    {
+      "id": "q8",
+      "question": "¿Qué es la ilusión de control?",
+      "options": [
+        "Una estrategia cuantitativa",
+        "Creer que con más indicadores, el gurú o un EA mágico vas a controlar el mercado. El mercado es incontrolable a nivel individual",
+        "Controlar el riesgo con stops",
+        "Usar leverage bajo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ilusión de control: creer que algo externo va a hacer que controles el mercado. El mercado es incontrolable a nivel individual."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cuál es la primera fase del ciclo emocional del trader retail?",
+      "options": [
+        "Pánico",
+        "Euforia inicial — los primeros trades son ganadores por azar, se siente fácil",
+        "Desesperación",
+        "Capitulación"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ciclo empieza con euforia inicial: primeros trades 50/50 pueden salir ganadores por azar, crea falsa sensación de dominio."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cuál es la última fase del ciclo emocional del trader retail?",
+      "options": [
+        "Euforia",
+        "Confianza",
+        "Capitulación — pierde todo o casi todo. Se retira o deposita de nuevo para 'recuperar'",
+        "Codicia"
+      ],
+      "correctIndex": 2,
+      "explanation": "Capitulación: última fase. Pierde todo o casi todo. Se retira o deposita de nuevo en espiral adictiva."
+    },
+    {
+      "id": "q11",
+      "question": "Según el perfil del cliente NEOMAAA LATAM/España, ¿cuál es el rango de capital inicial típico?",
+      "options": [
+        "USD 20.000 - 100.000",
+        "USD 200 - 5.000 (mediana ~500)",
+        "USD 100.000+",
+        "USD 50 - 100"
+      ],
+      "correctIndex": 1,
+      "explanation": "Capital inicial típico: USD 200 - 5.000, mediana ~500 USD."
+    },
+    {
+      "id": "q12",
+      "question": "¿Qué % del cliente retail de NEOMAAA es masculino según perfil?",
+      "options": ["40%", "60%", "80%", "95%"],
+      "correctIndex": 2,
+      "explanation": "80% del cliente retail LATAM/España es masculino. Edad núcleo 28-38."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuál es una red flag de cliente problemático según el doc?",
+      "options": [
+        "Deposita con dinero prestado o tarjeta de crédito en dificultades",
+        "Hace una operación al día",
+        "Pregunta cómo funciona el spread",
+        "Opera pares majors únicamente"
+      ],
+      "correctIndex": 0,
+      "explanation": "Red flags: dinero prestado, dinero para 'gastos urgentes', depósitos crecientes tras pérdidas, mensajes erráticos a las 4 AM."
+    },
+    {
+      "id": "q14",
+      "question": "Cliente dice 'dame un préstamo para recuperar'. ¿Qué hacés?",
+      "options": [
+        "Se lo das si es VIP",
+        "Marcar en CRM y escalar a compliance/retention — es señal de adicción al juego",
+        "Ignorarlo",
+        "Reírte"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pedir préstamo dentro del soporte es señal grave de adicción al juego. Escalar a compliance/retention."
+    },
+    {
+      "id": "q15",
+      "question": "¿Cuál frase está PROHIBIDA decirle a un prospect en ventas?",
+      "options": [
+        "'El trading tiene riesgo real'",
+        "'Te garantizamos que vas a ser rentable'",
+        "'Nuestro trabajo es darte la mejor infraestructura'",
+        "'Invertí solo lo que puedas permitirte perder'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Garantías de rentabilidad son frases prohibidas. En email/WhatsApp grabado son contenido vinculante que un regulador puede usar contra nosotros."
+    },
+    {
+      "id": "q16",
+      "question": "Cliente quiere 'duplicar su cuenta en un mes'. ¿Qué dice el doc sobre su LTV?",
+      "options": [
+        "Excelente: 36 meses de retención",
+        "1-3 meses, fundea 2 veces, se va frustrado, deja reseñas negativas",
+        "Es el cliente ideal",
+        "LTV infinito"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cliente 'duplicar en un mes' tiene LTV corto: 1-3 meses, se va frustrado, deja reseñas negativas. Pérdida reputacional."
+    },
+    {
+      "id": "q17",
+      "question": "Cliente 'aprender y crecer' vs 'duplicar en un mes', ¿cuál mejor LTV?",
+      "options": [
+        "Duplicar gana 5x",
+        "Son iguales",
+        "Aprender y crecer: 12-36 meses, fundea regularmente, refiere amigos, escala tamaño. 10-30x más revenue",
+        "Ninguno paga"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cliente educado genera 10-30x más revenue y cero costos reputacionales. Es el target correcto de ventas."
+    },
+    {
+      "id": "q18",
+      "question": "Cuando un cliente está enojado, ¿con quién suele estar realmente enojado?",
+      "options": [
+        "Con el broker",
+        "Consigo mismo, por una decisión de trading que no salió bien. El broker es el objetivo disponible para descargar",
+        "Con otros traders",
+        "Con compliance"
+      ],
+      "correctIndex": 1,
+      "explanation": "El cliente está enojado consigo mismo. El broker es solo el target disponible. Entender esto es 50% del trabajo de soporte."
+    },
+    {
+      "id": "q19",
+      "question": "Primer paso al desescalar un cliente enojado:",
+      "options": [
+        "Explicarle el mercado",
+        "Culparlo rápido",
+        "Escuchar completo. Dejar que descargue, no interrumpir",
+        "Cerrar el ticket"
+      ],
+      "correctIndex": 2,
+      "explanation": "Paso 1: escuchar completo sin interrumpir. Dejar que el cliente descargue primero."
+    },
+    {
+      "id": "q20",
+      "question": "¿Qué significa 'validar la emoción, no el contenido'?",
+      "options": [
+        "Darle la razón en todo",
+        "'Entiendo que es frustrante perder dinero' (SI). NO validar 'tenés razón, el broker te robó' (NO)",
+        "Ignorar lo que dice",
+        "Pedirle pruebas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Validar emoción (frustración) sí. Validar contenido falso ('te robaron') no. Empatía sin confirmar narrativa errónea."
+    },
+    {
+      "id": "q21",
+      "question": "¿Qué baja la temperatura en una conversación caliente con cliente?",
+      "options": [
+        "Amenazas legales",
+        "Los datos objetivos: timestamp, precio de entrada, precio de ejecución, spread del momento",
+        "Culpar al cliente",
+        "Ofrecer bonus"
+      ],
+      "correctIndex": 1,
+      "explanation": "Los datos objetivos (timestamp, precios, spread) bajan la temperatura. Separan hecho de juicio."
+    },
+    {
+      "id": "q22",
+      "question": "¿Cuál es una frase PROHIBIDA en soporte?",
+      "options": [
+        "'Veamos los datos del trade'",
+        "'Deberías haberlo sabido'",
+        "'Entiendo tu frustración'",
+        "'Esto se llama slippage'"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Deberías haberlo sabido' es juicio al cliente y está prohibido. También 'es tu culpa por usar tanto leverage'."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuál de estas NO es una práctica de Responsible Trading en NEOMAAA?",
+      "options": [
+        "Negative Balance Protection en retail",
+        "Límites de apalancamiento configurables",
+        "Prometer ganancias garantizadas en todos los canales",
+        "Pausas voluntarias (self-exclusion)"
+      ],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA NO promete ganancias garantizadas. Sus prácticas Responsible Trading: NBP, límites leverage, self-exclusion, educación, detección proactiva."
+    },
+    {
+      "id": "q24",
+      "question": "¿Qué es Negative Balance Protection (NBP)?",
+      "options": [
+        "Una comisión por saldo negativo",
+        "Protección que asegura que el cliente no pueda perder más de lo depositado",
+        "Un bonus al depositar",
+        "Una política de KYC"
+      ],
+      "correctIndex": 1,
+      "explanation": "NBP: el cliente no pierde más de lo depositado. Protección obligatoria en retail Tier 1, opcional offshore — NEOMAAA la ofrece."
+    },
+    {
+      "id": "q25",
+      "question": "Fuente típica de conocimiento del cliente retail LATAM/España:",
+      "options": [
+        "Libros académicos universitarios",
+        "YouTube, Instagram, Telegram, cursos de USD 200-1.500",
+        "Mentores propietarios",
+        "Papers científicos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fuente típica: YouTube, Instagram, Telegram, cursos de USD 200-1.500. El cliente llega con conocimiento de estas fuentes."
+    },
+    {
+      "id": "q26",
+      "question": "¿Qué es overtrading en términos observables?",
+      "options": [
+        "Operar 20+ veces al día con cuentas chicas",
+        "Operar 1 vez por semana",
+        "Usar leverage 1:10",
+        "Usar un EA"
+      ],
+      "correctIndex": 0,
+      "explanation": "Overtrading observable: 20+ operaciones al día con cuentas chicas. Es red flag en el CRM."
+    },
+    {
+      "id": "q27",
+      "question": "¿Cuál es la mentira típica que el cliente llega creyendo y el vendedor no debe reforzar?",
+      "options": [
+        "'El broker ejecuta a mercado'",
+        "'Con tu broker voy a ganar el 90% del tiempo' / 'el trading es ingreso pasivo' / 'libertad financiera en 6 meses'",
+        "'El spread existe'",
+        "'Hay noticias que mueven el mercado'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vender ilusiones de 90% rentabilidad, ingreso pasivo o libertad rápida contradice datos regulatorios y genera churn."
+    },
+    {
+      "id": "q28",
+      "question": "Un cliente deposita por tercera vez después de perder todo dos veces seguidas. ¿Patrón?",
+      "options": [
+        "Cliente educado",
+        "Adicción al juego: depósitos crecientes tras pérdidas seguidas. Escalar",
+        "VIP en construcción",
+        "Normal, sin alarmas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Depósitos crecientes tras pérdidas seguidas es patrón clásico de adicción al juego. Escalar a compliance/retention."
+    },
+    {
+      "id": "q29",
+      "question": "¿Cuáles reguladores obligan a publicar '% of retail investor accounts lose money' en ads?",
+      "options": [
+        "AOFA",
+        "CySEC (y otros Tier 1 europeos)",
+        "SEC de EEUU",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "CySEC y otros Tier 1 UE obligan a publicar el % de retail accounts que pierden dinero en todos los ads."
+    },
+    {
+      "id": "q30",
+      "question": "Cliente dice 'cuánto se puede ganar en un mes' repetidamente, ¿qué indica?",
+      "options": [
+        "Curiosidad normal",
+        "Busca validación de expectativa irreal — red flag",
+        "Quiere ser VIP",
+        "Es un afiliado"
+      ],
+      "correctIndex": 1,
+      "explanation": "Preguntar repetidamente cuánto se gana al mes busca validación de expectativa irreal. Red flag."
+    },
+    {
+      "id": "q31",
+      "question": "¿Qué comunicar SÍ en ventas según el doc?",
+      "options": [
+        "'Te garantizamos éxito'",
+        "'El trading tiene riesgo real. 70-80% del retail pierde. Nuestro trabajo es darte la mejor infraestructura, el resultado depende de vos'",
+        "'Depositá todo lo que tengas'",
+        "'Con EAs ganás seguro'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Comunicar realidad: riesgo, estadísticas, responsabilidad compartida. El broker da infraestructura, el resultado depende del cliente."
+    },
+    {
+      "id": "q32",
+      "question": "¿Por qué Responsible Trading no es solo marketing?",
+      "options": [
+        "Porque es solo cosmético",
+        "Porque es lo que hace que este negocio dure 10 años: protege al cliente y protege la reputación del broker",
+        "Porque lo pide la ley únicamente",
+        "Porque aumenta las comisiones"
+      ],
+      "correctIndex": 1,
+      "explanation": "Responsible Trading protege al cliente y al broker. Es lo que diferencia a un broker serio de una operación predatoria y lo hace durable."
+    },
+    {
+      "id": "q33",
+      "question": "¿Qué ofrecer como 'camino hacia adelante' a cliente que viene de pérdida?",
+      "options": [
+        "Un bono del 100%",
+        "Material sobre manejo de stops durante noticias, opciones de reducir leverage o pausar la cuenta",
+        "Cerrar sus posiciones por él",
+        "Ofrecer compensación"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ofrecer camino constructivo: material educativo, opciones de reducir leverage, pausar cuenta. No compensaciones arbitrarias."
+    },
+    {
+      "id": "q34",
+      "question": "¿Cuál es el nivel real de la mayoría del cliente retail NEOMAAA según el perfil?",
+      "options": [
+        "Experto institucional",
+        "Principiante que se cree intermedio",
+        "Trader rentable",
+        "Nivel cero total"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nivel real típico: principiante que se cree intermedio. Viene de 3-12 meses en otro broker probablemente perdiendo."
+    },
+    {
+      "id": "q35",
+      "question": "Resumen: ¿cuál es la lección principal del documento?",
+      "options": [
+        "El broker debe presionar al cliente a depositar más",
+        "70-80% del retail pierde estructuralmente. Vender la ilusión opuesta es humo. Construir clientes de largo plazo con expectativas reales",
+        "El soporte debe discutir con el cliente",
+        "El leverage alto es siempre recomendable"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lección principal: 70-80% pierde por estructura. Vender humo genera churn. Construir clientes durables con expectativas reales y educación."
+    }
+  ]
+}

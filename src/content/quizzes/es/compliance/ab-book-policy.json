@@ -1,0 +1,367 @@
+{
+  "docPath": "compliance/ab-book-policy",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Quien es el responsable de la politica A-Book / B-Book en NEOMAAA?",
+      "options": ["Susana (Compliance)", "Pepe (Head of Dealing)", "Angel (Co-fundador)", "Diego (Principal)"],
+      "correctIndex": 1,
+      "explanation": "La politica A/B Book es responsabilidad de Pepe, Head of Dealing. El documento explicita su rol y los items [PEPE: DEFINIR] pendientes."
+    },
+    {
+      "id": "q2",
+      "question": "Con quien NO debe compartirse el documento de politica A/B Book?",
+      "options": ["Los Principals", "Pepe", "El equipo de ventas, soporte, clientes e IBs", "Susana"],
+      "correctIndex": 2,
+      "explanation": "Es de uso exclusivo del Dealing Desk y los Principals. Divulgacion a ventas, soporte, clientes o IBs constituye falta grave y causal de terminacion inmediata."
+    },
+    {
+      "id": "q3",
+      "question": "Que es A-Book (STP)?",
+      "options": [
+        "NEOMAAA toma la posicion contraria al cliente",
+        "Las ordenes se enrutan directamente al Proveedor de Liquidez (LP); NEOMAAA actua como intermediario puro",
+        "Solo aplica a cuentas Cent",
+        "Es un sistema de bonos"
+      ],
+      "correctIndex": 1,
+      "explanation": "En A-Book (Straight Through Processing), la orden del cliente se transmite al LP. NEOMAAA no toma posicion contraria; ingresos solo de spread markup y/o comisiones."
+    },
+    {
+      "id": "q4",
+      "question": "Que es B-Book (internalizacion)?",
+      "options": [
+        "NEOMAAA actua como contraparte de la orden del cliente",
+        "Las ordenes van al LP",
+        "Se rechaza la orden",
+        "Es una cuenta demo"
+      ],
+      "correctIndex": 0,
+      "explanation": "En B-Book, NEOMAAA internaliza la orden tomando la posicion opuesta; asume riesgo de mercado pero captura el P&L neto de las posiciones."
+    },
+    {
+      "id": "q5",
+      "question": "Cual es una ventaja clave del A-Book para NEOMAAA?",
+      "options": ["Mayor rentabilidad por cliente", "Cero riesgo de mercado y alineacion total con el cliente", "Control total de ejecucion", "Menos requisitos de capital"],
+      "correctIndex": 1,
+      "explanation": "A-Book: cero riesgo de mercado para NEOMAAA y alineacion de intereses con el cliente. Desventaja: ingresos limitados al spread/comision."
+    },
+    {
+      "id": "q6",
+      "question": "Cual es el principio de segregacion de informacion del modelo hibrido?",
+      "options": [
+        "Ventas decide que cliente va a A o B Book",
+        "El equipo de ventas NO sabe si un cliente es A-Book o B-Book; es informacion exclusiva del Dealing Desk",
+        "Todos en la empresa lo saben",
+        "Solo el cliente lo sabe"
+      ],
+      "correctIndex": 1,
+      "explanation": "Uno de los principios operativos fundamentales: el equipo de ventas NO sabe la clasificacion A/B de clientes. Solo el Dealing Desk."
+    },
+    {
+      "id": "q7",
+      "question": "Cual es el enrutamiento default para cuentas Cent ($5 minimo)?",
+      "options": ["A-Book 100%", "B-Book 100% (trades micro, no justifica costo de LP)", "Hibrido 50/50", "Depende del cliente"],
+      "correctIndex": 1,
+      "explanation": "Cuentas Cent: B-Book 100%. Los trades micro no justifican el costo de enrutar al LP."
+    },
+    {
+      "id": "q8",
+      "question": "Cual es el enrutamiento default para cuentas Institutional ($50,000 minimo)?",
+      "options": ["B-Book 100%", "Hibrido 70/30", "A-Book 100% (riesgo demasiado alto para internalizar)", "Sin enrutamiento"],
+      "correctIndex": 2,
+      "explanation": "Institutional va a A-Book 100%. El riesgo es demasiado alto para internalizar."
+    },
+    {
+      "id": "q9",
+      "question": "Un cliente con win rate > 65% y P&L > $5,000/mes consistente. Que clasificacion tiene?",
+      "options": ["Nuevo", "Perdedor consistente", "Neutral", "Altamente rentable - A-Book obligatorio"],
+      "correctIndex": 3,
+      "explanation": "Clientes altamente rentables (win rate > 65% o P&L > $5K/mes consistente) van a A-Book obligatorio."
+    },
+    {
+      "id": "q10",
+      "question": "Un cliente tiene win rate < 40% o P&L neto negativo 3 meses consecutivos. Clasificacion y enrutamiento?",
+      "options": ["Rentable - A-Book", "Perdedor consistente - B-Book", "Flujo toxico - rechazar", "Nuevo - A-Book"],
+      "correctIndex": 1,
+      "explanation": "Perdedor consistente (win rate <40% o 3 meses consecutivos negativos): se enruta B-Book."
+    },
+    {
+      "id": "q11",
+      "question": "Cual es el enrutamiento sugerido para acciones/ETFs (1,500+ CFDs)?",
+      "options": ["A-Book 100%", "B-Book 100% (trades pequenos, costo de LP no justifica)", "Hibrido", "No se ofrece"],
+      "correctIndex": 1,
+      "explanation": "Acciones y ETFs: B-Book 100%. Los trades son generalmente pequenos y el costo de LP no se justifica."
+    },
+    {
+      "id": "q12",
+      "question": "Cual es el enrutamiento para orden de tamano Muy grande (20+ lotes)?",
+      "options": ["B-Book", "Hibrido", "A-Book obligatorio", "Rechazar"],
+      "correctIndex": 2,
+      "explanation": "Ordenes muy grandes (20+ lotes estandar): A-Book obligatorio por el riesgo de exposicion."
+    },
+    {
+      "id": "q13",
+      "question": "Ordenes micro (0.01 - 0.09 lotes) se enrutan?",
+      "options": ["A-Book", "B-Book 100%", "Hibrido", "Se rechazan"],
+      "correctIndex": 1,
+      "explanation": "Ordenes micro: B-Book 100%. El tamano no justifica el costo de ejecucion con LP."
+    },
+    {
+      "id": "q14",
+      "question": "Ante un flash crash, cual es la accion?",
+      "options": [
+        "Seguir reglas normales",
+        "Cerrar el mercado",
+        "Override manual de Pepe: todo a A-Book hasta estabilizar",
+        "Aumentar exposicion B-Book"
+      ],
+      "correctIndex": 2,
+      "explanation": "Flash crash: override manual de Pepe, enrutar todo a A-Book hasta estabilizar el mercado."
+    },
+    {
+      "id": "q15",
+      "question": "Que score recibe cada cliente para tratamiento de dealing?",
+      "options": ["0-10", "1-5", "1-100", "A, B, C, D"],
+      "correctIndex": 2,
+      "explanation": "Cada cliente recibe un score de riesgo de 1-100 que determina su tratamiento (B-Book completo, hibrido, A-Book, etc.)."
+    },
+    {
+      "id": "q16",
+      "question": "Un cliente tiene score 86-100. Que clasificacion?",
+      "options": ["Bajo riesgo - B-Book completo", "Riesgo elevado - hibrido", "Flujo toxico - A-Book 100% + revision manual", "Sin riesgo"],
+      "correctIndex": 2,
+      "explanation": "Score 86-100 = flujo toxico. A-Book 100% con revision manual."
+    },
+    {
+      "id": "q17",
+      "question": "Factor con mayor peso en el calculo del score de riesgo?",
+      "options": ["Frecuencia de trading (10%)", "Historial de P&L (30%)", "Deposito total acumulado (5%)", "Tiempo de retencion (10%)"],
+      "correctIndex": 1,
+      "explanation": "Historial de P&L pesa 30% del score. Positivo = mayor score = mas riesgo para B-Book."
+    },
+    {
+      "id": "q18",
+      "question": "Que es flujo toxico?",
+      "options": [
+        "Cliente abusivo por telefono",
+        "Ordenes que consistentemente resultan en perdidas para el B-Book (traders con ventaja informacional, arbitraje, latency, etc.)",
+        "Clientes que pierden mucho",
+        "Cuentas hackeadas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Flujo toxico: ordenes que consistentemente generan perdidas al B-Book. Suele provenir de traders con ventaja informacional, latency arbitrage, news trading agresivo, etc."
+    },
+    {
+      "id": "q19",
+      "question": "Un cliente tiene > 70% de trades con MTM positivo a los 60 segundos. Que indica?",
+      "options": [
+        "Cliente con suerte",
+        "Indicador de flujo toxico (Mark-to-Market favorable sospechoso)",
+        "Normal en forex",
+        "Problema del broker"
+      ],
+      "correctIndex": 1,
+      "explanation": "MTM favorable > 70% en primeros 60 segundos es indicador clasico de flujo toxico (posible latency arbitrage o informacion privilegiada)."
+    },
+    {
+      "id": "q20",
+      "question": "Que accion NUNCA se toma con un cliente rentable/flujo toxico?",
+      "options": [
+        "Migrar a A-Book",
+        "Monitoreo continuo",
+        "Rechazar ordenes o cerrar cuenta por ser rentable",
+        "Documentar el caso"
+      ],
+      "correctIndex": 2,
+      "explanation": "NUNCA se rechazan ordenes ni se cierran cuentas por ser rentable. La UNICA accion es migrar a A-Book. Rechazar por rentabilidad genera denuncias y problemas regulatorios."
+    },
+    {
+      "id": "q21",
+      "question": "Que nivel de alerta es 'Exposicion > 90% de limites'?",
+      "options": ["Verde", "Amarillo", "Naranja", "Rojo - todas las ordenes nuevas a A-Book + reunion de emergencia"],
+      "correctIndex": 3,
+      "explanation": "Rojo: exposicion > 90% o perdida diaria alcanza limite. Accion: todas las nuevas ordenes a A-Book, cerrar hedges, reunion de emergencia con Principals."
+    },
+    {
+      "id": "q22",
+      "question": "Que accion toma nivel Amarillo (50-70% de limites)?",
+      "options": [
+        "Operacion normal",
+        "Monitoreo cada 2 horas, considerar hedging parcial",
+        "Cerrar todo",
+        "Llamar a AOFA"
+      ],
+      "correctIndex": 1,
+      "explanation": "Amarillo: exposicion 50-70% o perdida diaria > 50% del limite. Monitoreo cada 2 horas, considerar hedging parcial."
+    },
+    {
+      "id": "q23",
+      "question": "Cual es la primera opcion siempre en la ejecucion de hedges?",
+      "options": [
+        "LP directo",
+        "Netting interno (compensar posiciones opuestas entre clientes B-Book)",
+        "Cross-hedging",
+        "LP secundario"
+      ],
+      "correctIndex": 1,
+      "explanation": "Netting interno siempre es primera opcion: el sistema compensa posiciones opuestas dentro del libro B antes de hedgear externamente."
+    },
+    {
+      "id": "q24",
+      "question": "Cuando se hace hedge completo de toda la exposicion B-Book?",
+      "options": [
+        "Todos los dias",
+        "Nunca",
+        "Pre-evento de alto impacto (NFP, FOMC) o perdida diaria > 75% del limite",
+        "Solo fines de semana"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hedge completo o migracion A-Book: pre-NFP/FOMC, exposicion agregada >70%, o perdida diaria >75% del limite."
+    },
+    {
+      "id": "q25",
+      "question": "Reporte P&L Diario B-Book: a que hora se entrega?",
+      "options": ["9:00 AM mismo dia", "10:00 AM siguiente dia habil", "Fin de semana", "Al cierre del mercado"],
+      "correctIndex": 1,
+      "explanation": "Reporte P&L Diario B-Book: 10:00 AM siguiente dia habil. Destinatarios: Pepe + Principals."
+    },
+    {
+      "id": "q26",
+      "question": "Cuando debe Pepe escalar inmediatamente por llamada telefonica?",
+      "options": [
+        "Cuando un cliente pide demo",
+        "Perdida diaria B-Book alcanza el limite / LP primario desconectado > 5 min",
+        "Viernes por la tarde",
+        "Cada hora"
+      ],
+      "correctIndex": 1,
+      "explanation": "Escalamiento inmediato a Principals (llamada + mensaje): perdida diaria al limite, perdida mensual 80%, LP primario caido > 5min, incidencia tecnica que afecta ejecucion."
+    },
+    {
+      "id": "q27",
+      "question": "Pepe decide solo o requiere aprobacion de Principals para cambio de limites de exposicion?",
+      "options": ["Pepe decide solo", "Requiere aprobacion de Principals", "Decide Susana", "Lo decide el cliente"],
+      "correctIndex": 1,
+      "explanation": "Cambio de limites de exposicion: requiere aprobacion de Principals. Pepe decide solo enrutamiento A/B individual, hedging dentro de limites, suspension temporal <1h."
+    },
+    {
+      "id": "q28",
+      "question": "Cuando se genera alerta de 'Exposicion critica' (SMS + email inmediato a Pepe)?",
+      "options": ["A las 24h", "Cuando se alcanza el 50% de un limite", "Cuando se excede el 90% de cualquier limite", "Al final del mes"],
+      "correctIndex": 2,
+      "explanation": "Alerta de exposicion critica se dispara al superar el 90% de cualquier limite. Notificacion: SMS + email inmediato a Pepe."
+    },
+    {
+      "id": "q29",
+      "question": "Que alerta se genera por 'orden inusualmente grande'?",
+      "options": [
+        "Mas de 1 lote",
+        "Mas de 5 lotes",
+        "Mas de 20 lotes en cualquier instrumento",
+        "Mas de 100 lotes"
+      ],
+      "correctIndex": 2,
+      "explanation": "Orden > 20 lotes en cualquier instrumento genera alerta en dashboard para Pepe."
+    },
+    {
+      "id": "q30",
+      "question": "Frecuencia de revision de la politica A/B Book?",
+      "options": [
+        "Nunca",
+        "Semanal (umbrales menores), mensual (clasificacion), trimestral (completa), anual (auditoria mayor)",
+        "Cada 5 anos",
+        "Solo al inicio"
+      ],
+      "correctIndex": 1,
+      "explanation": "Calendario: semanal (umbrales/alertas menores), mensual (clasificacion), trimestral (completa), anual (auditoria mayor) y ad hoc tras incidentes."
+    },
+    {
+      "id": "q31",
+      "question": "Un LP tiene rejection rate > 1% consistente. Que indica?",
+      "options": [
+        "Excelente LP",
+        "Por debajo del aceptable (criterio: < 1%)",
+        "Normal",
+        "No importa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Criterio LP: rejection rate < 1% aceptable. Mas alto significa mala calidad de ejecucion."
+    },
+    {
+      "id": "q32",
+      "question": "Velocidad de ejecucion ideal de un LP segun los criterios?",
+      "options": ["< 500ms", "< 200ms", "< 50ms ideal", "< 1 segundo"],
+      "correctIndex": 2,
+      "explanation": "Velocidad ideal de LP: < 50ms. Uptime > 99.9%. Spreads competitivos con benchmarks."
+    },
+    {
+      "id": "q33",
+      "question": "Con que frecuencia se hace monitoreo diario del feed de LPs?",
+      "options": [
+        "Mensual",
+        "Diario (verificar que precios son competitivos vs benchmarks)",
+        "Semestral",
+        "Anual"
+      ],
+      "correctIndex": 1,
+      "explanation": "Diario: verificar feed de precios competitivo vs benchmarks. Semanal: stats de ejecucion. Mensual: costos totales. Trimestral: negociacion con LPs."
+    },
+    {
+      "id": "q34",
+      "question": "Cual es el limite de exposicion B-Book sugerido (no confirmado) por cliente Cent?",
+      "options": ["$500", "$5,000", "$25,000", "Sin limite"],
+      "correctIndex": 0,
+      "explanation": "Cent: $500 de exposicion maxima B-Book por cliente. Standard: $5,000 (por definir). Raw: $25,000 (por definir). Institutional: N/A (siempre A-Book)."
+    },
+    {
+      "id": "q35",
+      "question": "Cuando se activa la migracion inmediata a A-Book de un cliente?",
+      "options": [
+        "Cuando el cliente lo pide",
+        "Cuando se detecta flujo toxico (manual o automatico)",
+        "Solo al registrarse",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Paso 2 del protocolo de flujo toxico: migracion inmediata de TODAS las ordenes del cliente a A-Book + documentacion del caso."
+    },
+    {
+      "id": "q36",
+      "question": "Para acciones de ventas (suspension de trading de un instrumento permanente), quien decide?",
+      "options": [
+        "Pepe solo",
+        "Requiere aprobacion de Principals",
+        "Susana",
+        "Ventas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Suspension temporal (<1h) de trading: Pepe decide solo. Suspension permanente: requiere aprobacion de Principals."
+    },
+    {
+      "id": "q37",
+      "question": "Quien realiza auditoria anual + actualizacion mayor de la politica?",
+      "options": [
+        "Solo Pepe",
+        "Pepe + Principals + Compliance",
+        "Solo Diego",
+        "Equipo de ventas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Auditoria y actualizacion mayor anual: Pepe + Principals + Compliance juntos."
+    },
+    {
+      "id": "q38",
+      "question": "Instrumento recomendado como 'hibrido' en la tabla?",
+      "options": [
+        "Crypto BTC/USD",
+        "Forex majors (EUR/USD, GBP/USD, USD/JPY, etc.) por alta liquidez",
+        "Acciones individuales",
+        "Exotics forex"
+      ],
+      "correctIndex": 1,
+      "explanation": "Forex majors van en hibrido por su alta liquidez y spread competitivo con LPs. Exotics, crypto y acciones: B-Book preferente."
+    }
+  ]
+}

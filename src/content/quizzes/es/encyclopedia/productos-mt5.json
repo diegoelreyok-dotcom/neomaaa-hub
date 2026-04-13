@@ -1,0 +1,416 @@
+{
+  "docPath": "encyclopedia/productos-mt5",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Qué plataforma de trading usa NEOMAAA?",
+      "options": ["MT4", "MT5 (MetaTrader 5)", "cTrader", "TradingView"],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA usa MT5 al 100% por mejor soporte regulatorio, DOM nativo y compatibilidad multi-asset."
+    },
+    {
+      "id": "q2",
+      "question": "¿En qué año salió MT5?",
+      "options": ["2005", "2010", "2015", "2020"],
+      "correctIndex": 1,
+      "explanation": "MT5 salió en 2010. MT4 salió en 2005 y sigue en mantenimiento pero MetaQuotes ya no desarrolla nuevas funciones."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuántos tipos de órdenes tiene MT5 vs MT4?",
+      "options": [
+        "MT4 tiene 6, MT5 tiene 4",
+        "MT5 tiene 6 (agrega Buy Stop Limit y Sell Stop Limit), MT4 tiene 4",
+        "Ambas tienen 4",
+        "MT5 tiene 10, MT4 tiene 8"
+      ],
+      "correctIndex": 1,
+      "explanation": "MT5 tiene 6 tipos de órdenes (agrega Buy Stop Limit y Sell Stop Limit sobre MT4). MT4 tiene 4."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuántos timeframes ofrece MT5?",
+      "options": ["9", "12", "21", "30"],
+      "correctIndex": 2,
+      "explanation": "MT5 ofrece 21 timeframes vs 9 de MT4."
+    },
+    {
+      "id": "q5",
+      "question": "¿Cuántos instrumentos ofrece NEOMAAA aproximadamente?",
+      "options": ["500+", "1.000+", "2.000+", "10.000+"],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA ofrece 2.000+ instrumentos en 6 categorías: forex, metales, índices, commodities, crypto CFDs, stocks CFDs."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuál es el spread típico de majors como EUR/USD en NEOMAAA?",
+      "options": ["0.0-1.5 pips", "5-10 pips", "20+ pips", "Fijo en 2 pips"],
+      "correctIndex": 0,
+      "explanation": "Majors (EUR/USD, GBP/USD, USD/JPY, etc.) tienen spread típico 0.0-1.5 pips en NEOMAAA."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuál es el spread típico de pares exóticos?",
+      "options": ["0.1 pips", "0.8-3 pips", "10-50 pips", "Siempre 0"],
+      "correctIndex": 2,
+      "explanation": "Exóticos (USD/MXN, USD/TRY, USD/ZAR, etc.) tienen spread 10-50 pips típicamente."
+    },
+    {
+      "id": "q8",
+      "question": "¿Qué símbolo representa el oro vs dólar?",
+      "options": ["GOLD", "XAU/USD", "XAG/USD", "AU/USD"],
+      "correctIndex": 1,
+      "explanation": "XAU/USD = oro vs dólar, el instrumento más tradeado después de EUR/USD."
+    },
+    {
+      "id": "q9",
+      "question": "¿Qué mueve la MAYOR liquidez global del día?",
+      "options": [
+        "Sesión de Sídney",
+        "Sesión de Tokio",
+        "Solapamiento Londres-NY (13:00-17:00 GMT)",
+        "Cierre de Nueva York"
+      ],
+      "correctIndex": 2,
+      "explanation": "El solapamiento Londres-NY (13:00-17:00 GMT) es el momento de máxima liquidez, spreads más ajustados, mayor volumen."
+    },
+    {
+      "id": "q10",
+      "question": "¿Qué sesiones se solapan durante Londres-NY?",
+      "options": [
+        "Tokio y Londres",
+        "Londres (08:00-17:00) y Nueva York (13:00-22:00)",
+        "Sídney y Tokio",
+        "Tokio y Sídney"
+      ],
+      "correctIndex": 1,
+      "explanation": "Londres 08:00-17:00 GMT y Nueva York 13:00-22:00 GMT se solapan entre 13:00-17:00 GMT."
+    },
+    {
+      "id": "q11",
+      "question": "En un instrumento a 1 lote EUR/USD con precio 1.15 y leverage 1:500, ¿cuánto margen se requiere?",
+      "options": ["USD 1.150", "USD 230 (115.000 / 500)", "USD 115.000", "USD 2.300"],
+      "correctIndex": 1,
+      "explanation": "Margen = nocional / leverage = 115.000 / 500 = USD 230. El leverage es reductor de margen."
+    },
+    {
+      "id": "q12",
+      "question": "¿Qué hace el leverage según el doc?",
+      "options": [
+        "Multiplica tu capital por N veces",
+        "Reduce el requisito de margen por un factor de 1/leverage. Es concepto de margen, no de multiplicación",
+        "Garantiza ganancias mayores",
+        "Elimina el riesgo"
+      ],
+      "correctIndex": 1,
+      "explanation": "El leverage NO multiplica tu capital. Reduce el margen requerido por factor 1/leverage. Es concepto de margen."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuál es el leverage máximo típico offshore para forex majors?",
+      "options": ["1:30", "1:100", "1:500", "1:1000"],
+      "correctIndex": 3,
+      "explanation": "Offshore: hasta 1:1000 en majors en NEOMAAA. Tier 1 retail (FCA/ESMA): solo 1:30."
+    },
+    {
+      "id": "q14",
+      "question": "¿Cuál es el leverage máximo retail para forex majors en Tier 1 (FCA/ESMA)?",
+      "options": ["1:30", "1:100", "1:500", "1:1000"],
+      "correctIndex": 0,
+      "explanation": "Los reguladores Tier 1 (FCA, ESMA, ASIC) limitan el leverage retail a 1:30 en forex majors."
+    },
+    {
+      "id": "q15",
+      "question": "¿Cuál es el tamaño de 1 lote estándar en forex?",
+      "options": [
+        "10.000 unidades",
+        "100.000 unidades de la divisa base",
+        "1.000 unidades",
+        "1.000.000 unidades"
+      ],
+      "correctIndex": 1,
+      "explanation": "1 lote estándar = 100.000 unidades de la divisa base. 0.1 lote = 10.000 unidades. 0.01 lote = 1.000 unidades."
+    },
+    {
+      "id": "q16",
+      "question": "¿Cuál es un Buy Limit?",
+      "options": [
+        "Querés comprar por debajo del precio actual (pensás que va a bajar y rebotar)",
+        "Querés comprar por encima del precio actual",
+        "Orden a mercado con un límite",
+        "Una orden stop loss"
+      ],
+      "correctIndex": 0,
+      "explanation": "Buy Limit: comprás por debajo del precio actual, esperando rebote. Sell Limit: vendés por encima."
+    },
+    {
+      "id": "q17",
+      "question": "¿Cuál es un Buy Stop?",
+      "options": [
+        "Comprar por debajo del precio actual",
+        "Comprar por encima del precio actual (confirmación de breakout alcista)",
+        "Un stop loss de compra",
+        "Un tipo de orden automática"
+      ],
+      "correctIndex": 1,
+      "explanation": "Buy Stop: comprás por encima del precio actual, confirmación de breakout alcista. Sell Stop es el opuesto."
+    },
+    {
+      "id": "q18",
+      "question": "¿Qué tipo de orden es exclusivo de MT5 y no está en MT4?",
+      "options": [
+        "Buy Limit",
+        "Sell Stop",
+        "Buy Stop Limit y Sell Stop Limit",
+        "Market Order"
+      ],
+      "correctIndex": 2,
+      "explanation": "Buy Stop Limit y Sell Stop Limit son exclusivos de MT5. Combinan: cuando el precio toque X, coloca un Limit en Y."
+    },
+    {
+      "id": "q19",
+      "question": "¿Dónde vive un Stop Loss normal?",
+      "options": [
+        "En el lado del cliente (depende de MT5 abierto)",
+        "En el servidor del broker",
+        "En el LP",
+        "En la memoria del PC"
+      ],
+      "correctIndex": 1,
+      "explanation": "El SL vive en el servidor del broker (se ejecuta aunque el cliente cierre MT5). El Trailing Stop sí depende del lado del cliente."
+    },
+    {
+      "id": "q20",
+      "question": "¿Dónde se ejecuta el Trailing Stop en MT5?",
+      "options": [
+        "En el servidor del broker",
+        "En el lado del cliente — depende de que MT5 esté abierto",
+        "En el LP",
+        "En la nube de MetaQuotes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Importante: el trailing stop en MT5 se ejecuta en el lado del cliente. Si MT5 se cierra, deja de actualizar."
+    },
+    {
+      "id": "q21",
+      "question": "Para 0.1 lote EUR/USD, ¿cuánto vale cada pip?",
+      "options": ["USD 0.1", "USD 1", "USD 10", "USD 100"],
+      "correctIndex": 1,
+      "explanation": "Para 0.1 lote de EUR/USD: USD 1 por pip. Para 1 lote: USD 10 por pip."
+    },
+    {
+      "id": "q22",
+      "question": "¿Qué día se cobra triple swap?",
+      "options": ["Lunes", "Miércoles", "Viernes", "Domingo"],
+      "correctIndex": 1,
+      "explanation": "Miércoles es triple swap — se cobra 3x para cubrir el fin de semana (sábado y domingo)."
+    },
+    {
+      "id": "q23",
+      "question": "¿Qué es el swap/rollover?",
+      "options": [
+        "La comisión de retiro",
+        "Costo/beneficio por mantener posiciones abiertas overnight",
+        "Un bug del broker",
+        "El cierre de la cuenta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Swap = costo/beneficio por mantener posición abierta overnight. Refleja diferencial de tipos entre las dos divisas."
+    },
+    {
+      "id": "q24",
+      "question": "¿Qué son los Crypto CFDs en NEOMAAA?",
+      "options": [
+        "Cripto real que el cliente recibe",
+        "CFDs sobre cripto: el cliente NO recibe el activo, solo especula sobre el precio. 24/7",
+        "Wallets integrados con MT5",
+        "Tokens NEOMAAA"
+      ],
+      "correctIndex": 1,
+      "explanation": "Son CFDs sobre cripto, no cripto real. El cliente no recibe el activo. Operan 24/7 sin cerrar los fines de semana."
+    },
+    {
+      "id": "q25",
+      "question": "¿Qué sistema de copy trading usa NEOMAAA?",
+      "options": [
+        "MAM propio de NEOMAAA",
+        "PAMM interno",
+        "MQL5 Signals (marketplace nativo de MetaQuotes en MT5)",
+        "Sistema centralizado del broker"
+      ],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA NO opera MAM/PAMM. Copy trading es vía MQL5 Signals, marketplace nativo de MetaQuotes."
+    },
+    {
+      "id": "q26",
+      "question": "Un influencer quiere que su audiencia copie automáticamente sus trades en NEOMAAA. ¿Cómo se hace correctamente?",
+      "options": [
+        "NEOMAAA arma un MAM central para el influencer",
+        "El influencer publica su señal en MQL5 Signals y su audiencia se suscribe desde su propio MT5",
+        "Se conectan cuentas por API propio",
+        "No se puede hacer"
+      ],
+      "correctIndex": 1,
+      "explanation": "El influencer publica en MQL5 Signals. Los followers se suscriben desde sus propios MT5. Cada cuenta es independiente."
+    },
+    {
+      "id": "q27",
+      "question": "¿Qué es un Expert Advisor (EA)?",
+      "options": [
+        "Un asesor humano del broker",
+        "Programa automatizado que opera sin intervención humana, programado en MQL5",
+        "Un tipo de cuenta VIP",
+        "Un servicio de consultoría"
+      ],
+      "correctIndex": 1,
+      "explanation": "EA = Expert Advisor. Robot de trading programado en MQL5. NEOMAAA los permite sin restricciones."
+    },
+    {
+      "id": "q28",
+      "question": "¿Por qué un cliente con EA necesitaría VPS?",
+      "options": [
+        "Para jugar videojuegos mientras opera",
+        "Para que el EA corra 24/5 sin que dependa de que su PC esté prendida",
+        "Porque el broker lo exige",
+        "Por compliance AML"
+      ],
+      "correctIndex": 1,
+      "explanation": "El EA corre en la PC del cliente. Si MT5 se apaga, el EA deja de operar. El VPS (servidor virtual) permite que opere 24/5."
+    },
+    {
+      "id": "q29",
+      "question": "¿Qué significa el error 'Not enough money' en MT5?",
+      "options": [
+        "La cuenta está cerrada",
+        "No hay margen libre suficiente. Reducir tamaño o cerrar otras posiciones",
+        "El KYC no está aprobado",
+        "Compliance bloqueó la cuenta"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Not enough money' = margen libre insuficiente. Cliente debe reducir lotaje o cerrar posiciones abiertas."
+    },
+    {
+      "id": "q30",
+      "question": "¿Qué significa 'Invalid stops' en MT5?",
+      "options": [
+        "El broker canceló la orden",
+        "Stop loss o take profit demasiado cerca del precio (hay distancia mínima por instrumento)",
+        "La cuenta está bloqueada",
+        "No hay conexión a internet"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Invalid stops' = SL/TP muy cerca del precio. Cada instrumento tiene una distancia mínima permitida."
+    },
+    {
+      "id": "q31",
+      "question": "¿Qué significa 'Off quotes'?",
+      "options": [
+        "El precio se movió entre que pediste y el servidor procesó la orden. Reintentar",
+        "El broker está offline",
+        "Dato pendiente de compliance",
+        "Solo aparece en cuentas demo"
+      ],
+      "correctIndex": 0,
+      "explanation": "'Off quotes' = el precio se movió entre envío y procesamiento. Se reintenta la orden."
+    },
+    {
+      "id": "q32",
+      "question": "¿Qué es el Contract Size en la hoja técnica de un símbolo?",
+      "options": [
+        "El precio actual del activo",
+        "Tamaño nominal de 1 lote (ej: 100.000 EUR en EUR/USD)",
+        "La comisión por operación",
+        "El leverage máximo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Contract Size = tamaño nocional de 1 lote. Para EUR/USD: 100.000 EUR."
+    },
+    {
+      "id": "q33",
+      "question": "Un cliente pregunta cuál plataforma usar si no quiere instalar software, ¿qué recomendás?",
+      "options": [
+        "MT5 Desktop",
+        "MT5 WebTrader (navegador, sin instalar, pero sin EAs)",
+        "MT5 Mobile iOS",
+        "Nada — debe instalar MT5 Desktop siempre"
+      ],
+      "correctIndex": 1,
+      "explanation": "MT5 WebTrader corre en navegador sin instalar. Limitación: no permite correr EAs."
+    },
+    {
+      "id": "q34",
+      "question": "¿En qué versiones móviles está MT5 disponible?",
+      "options": [
+        "Solo iOS",
+        "Solo Android",
+        "iOS y Android",
+        "Solo Windows Phone"
+      ],
+      "correctIndex": 2,
+      "explanation": "MT5 está disponible en iOS y Android. Mismo login en todas las plataformas simultáneamente."
+    },
+    {
+      "id": "q35",
+      "question": "¿Qué pasa entre el cierre de NY (21:00 GMT) y antes de Tokio (00:00 GMT)?",
+      "options": [
+        "Máxima liquidez del día",
+        "Valle de liquidez — spreads se abren, mal momento para entrar a mercado",
+        "El broker cierra",
+        "Solo operan cuentas VIP"
+      ],
+      "correctIndex": 1,
+      "explanation": "21:00-00:00 GMT es valle de liquidez. Spreads se abren, no es buen momento para entrar a mercado."
+    },
+    {
+      "id": "q36",
+      "question": "¿Qué es 'Market closed' en MT5?",
+      "options": [
+        "El broker cerró definitivamente",
+        "Instrumento fuera de su sesión. Esperar a que abra",
+        "No hay margen",
+        "Error técnico"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Market closed' = el instrumento está fuera de su sesión de trading. Hay que esperar a que se abra."
+    },
+    {
+      "id": "q37",
+      "question": "¿Cuál es la diferencia entre Hedging y Netting en MT5?",
+      "options": [
+        "Son sinónimos",
+        "MT5 permite ambos: hedging (posiciones opuestas abiertas) y netting (una sola posición neta por símbolo)",
+        "Solo netting existe",
+        "Solo hedging existe"
+      ],
+      "correctIndex": 1,
+      "explanation": "MT5 permite hedging y netting. MT4 solo hedging. NEOMAAA (LATAM) típicamente hedging está permitido."
+    },
+    {
+      "id": "q38",
+      "question": "En el ejemplo 0.1 lote EUR/USD a 1.0850 con 1:500, ¿cuál es el margen requerido?",
+      "options": ["USD 10.85", "USD 21.70", "USD 108.50", "USD 1.085"],
+      "correctIndex": 1,
+      "explanation": "Margen = (10.000 × 1.0850) / 500 = USD 21.70. Permite controlar USD 10.850 de valor nocional."
+    },
+    {
+      "id": "q39",
+      "question": "Soporte recibe queja de ejecución. ¿Cuál es el primer paso?",
+      "options": [
+        "Ofrecer compensación",
+        "Revisar timestamp, precio, spread en ese momento y tipo de orden. Los datos objetivos resuelven el 80% de las quejas",
+        "Cerrar el ticket sin más",
+        "Escalar a Angel"
+      ],
+      "correctIndex": 1,
+      "explanation": "Primer paso: datos objetivos (timestamp, precio, spread, tipo de orden). Esto resuelve el 80% de las quejas de ejecución."
+    },
+    {
+      "id": "q40",
+      "question": "¿Con quién se verificó la información técnica de este documento?",
+      "options": ["Angel", "Yulia", "Pepe (Head of Dealing)", "Susana"],
+      "correctIndex": 2,
+      "explanation": "La información técnica del documento fue verificada con Pepe, Head of Dealing de NEOMAAA."
+    }
+  ]
+}

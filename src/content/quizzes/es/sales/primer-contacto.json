@@ -1,0 +1,416 @@
+{
+  "docPath": "sales/primer-contacto",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuál es el objetivo ÚNICO del primer contacto con un prospecto?",
+      "options": [
+        "Cerrar la venta inmediatamente",
+        "Presionar hasta que deposite",
+        "Generar confianza suficiente para que el prospecto avance al siguiente paso",
+        "Conseguir su número de tarjeta"
+      ],
+      "correctIndex": 2,
+      "explanation": "El primer contacto NO es vender ni presionar. Es generar confianza para que el prospecto avance al siguiente paso (registro, KYC, o depósito según dónde esté)."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuál es la 'mentalidad correcta' para el primer contacto?",
+      "options": [
+        "'Tengo que cerrar esta venta'",
+        "'Estoy aquí para ayudar a esta persona a tomar una decisión informada'",
+        "'Tengo cuota que cumplir'",
+        "'Cada lead es una comisión'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mentalidad correcta: 'Estoy aquí para ayudar a esta persona a tomar una decisión informada. Si NEOMAAA es para ella, perfecto. Si no lo es, también está bien.' La presión genera desconfianza."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuántos pasos tiene el proceso de Primer Contacto?",
+      "options": ["3 pasos", "5 pasos", "7 pasos", "10 pasos"],
+      "correctIndex": 2,
+      "explanation": "7 pasos: Saludo, Descubrimiento, Evaluación, Valor, Siguiente Paso, Cierre de Contacto, Registro en CRM."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuál es el tiempo total objetivo del primer contacto?",
+      "options": [
+        "30 segundos",
+        "5-7 minutos",
+        "10-15 minutos máximo",
+        "1 hora"
+      ],
+      "correctIndex": 2,
+      "explanation": "10-15 minutos máximo para el primer contacto completo (los 7 pasos)."
+    },
+    {
+      "id": "q5",
+      "question": "¿Cuáles son las 6 preguntas esenciales de descubrimiento?",
+      "options": [
+        "Nombre, apellido, edad, ciudad, email, teléfono",
+        "Experiencia, Instrumentos, Capital, Plataforma, Objetivo, Objeciones previas",
+        "Solo cuánto quiere depositar",
+        "Historial de trading solamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "6 preguntas esenciales: (1) Experiencia/broker actual, (2) Instrumentos que le interesan, (3) Capital cómodo para empezar, (4) Plataforma (MT5?), (5) Qué busca en un broker, (6) Malas experiencias previas."
+    },
+    {
+      "id": "q6",
+      "question": "Si el prospecto dice 'Soy nuevo, nunca operé', ¿qué se recomienda?",
+      "options": [
+        "Cuenta Raw con alto apalancamiento",
+        "Cuenta Institucional",
+        "Cuenta Cent ($5). Tono educativo. Ofrecer guía paso a paso",
+        "Cerrar la llamada"
+      ],
+      "correctIndex": 2,
+      "explanation": "Principiante → Cuenta Cent ($5). Tono educativo. Ofrecer guía paso a paso sin presión."
+    },
+    {
+      "id": "q7",
+      "question": "Si dice 'Tengo experiencia, uso IC Markets', ¿qué cuenta recomendar?",
+      "options": [
+        "Cent",
+        "Raw. Comparar condiciones. Invitar a probar en paralelo",
+        "Institucional obligatoriamente",
+        "Solo demo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Trader experimentado comparando → Cuenta Raw. Comparar condiciones técnicas. Invitar a probar en paralelo con el broker actual."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuáles son los 5 Pilares de Valor de NEOMAAA?",
+      "options": [
+        "Solo precios",
+        "Confianza, Condiciones, Accesibilidad, Tecnología, Rendimiento pasivo",
+        "Solo seguridad y regulación",
+        "Solo spreads y leverage"
+      ],
+      "correctIndex": 1,
+      "explanation": "5 Pilares: (1) Confianza (licencia, segregadas, Sumsub, MT5), (2) Condiciones (spreads, 1:1000, 2,000+ instrumentos), (3) Accesibilidad (120+ métodos, $5, español), (4) Tecnología (MT5, VPS, Copy Trading, EAs), (5) Rendimiento pasivo (Vault 5%, Copy Trading)."
+    },
+    {
+      "id": "q9",
+      "question": "Al presentar valor, ¿se presentan los 5 pilares juntos?",
+      "options": [
+        "Sí, siempre los 5",
+        "No — presentar solo los pilares relevantes para ESE prospecto específico",
+        "Solo los 2 primeros",
+        "Según el humor del prospecto"
+      ],
+      "correctIndex": 1,
+      "explanation": "NO presentar los 5 juntos — abruma. Presentar SOLO los pilares relevantes según lo descubierto en las 6 preguntas."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cuándo NO se debe guiar al registro?",
+      "options": [
+        "Cuando el prospecto dice 'quiero probar'",
+        "Cuando hizo preguntas y recibió respuestas satisfactorias",
+        "Cuando todavía tiene dudas fundamentales sin resolver, mostró desinterés, o es de país restringido",
+        "Cuando es referido"
+      ],
+      "correctIndex": 2,
+      "explanation": "NO guiar al registro si: (1) todavía tiene dudas fundamentales sin resolver, (2) mostró señales de desinterés, (3) es de país restringido (USA/Canadá/EEA/UK/Australia/sancionados)."
+    },
+    {
+      "id": "q11",
+      "question": "Al guiar al KYC, ¿qué se pide al prospecto?",
+      "options": [
+        "Un solo documento",
+        "Foto de documento de identidad (INE, cédula, pasaporte o licencia) + selfie en vivo",
+        "Solo selfie",
+        "Contrato notarial"
+      ],
+      "correctIndex": 1,
+      "explanation": "KYC requiere: (1) Foto de documento de identidad (INE, cédula, pasaporte, licencia), (2) Selfie en vivo. Todo desde celular. Menos de 5 minutos. Gestionado por Sumsub."
+    },
+    {
+      "id": "q12",
+      "question": "¿Cuándo se guía al primer depósito?",
+      "options": [
+        "Inmediatamente después del registro",
+        "Solo cuando: KYC aprobado + credenciales de MT5 + prospecto expresó intención de operar",
+        "Antes del registro",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Guiar al FTD SOLO cuando: (1) KYC aprobado, (2) prospecto tiene credenciales MT5, (3) expresó intención de operar."
+    },
+    {
+      "id": "q13",
+      "question": "Si el prospecto duda en depositar, ¿qué técnica usar?",
+      "options": [
+        "Presionar con urgencia",
+        "Bajo compromiso: cuenta Cent desde $5 para probar todo el proceso (depósito, trading, retiro) con monto mínimo antes de comprometer más",
+        "Ofrecer bonos falsos",
+        "Abandonar el lead"
+      ],
+      "correctIndex": 1,
+      "explanation": "Técnica de bajo compromiso: 'empezar con Cent desde $5 para probar TODO el proceso — depósito, trading, RETIRO — antes de comprometer más capital. Tú decides cuándo y cuánto.'"
+    },
+    {
+      "id": "q14",
+      "question": "Para un cliente de Brasil, ¿cuáles son los métodos de depósito más rápidos?",
+      "options": [
+        "Transferencia internacional",
+        "PIX (el más rápido), Tarjeta, Crypto",
+        "Solo crypto",
+        "Cheque"
+      ],
+      "correctIndex": 1,
+      "explanation": "Brasil: PIX (instantáneo, el más rápido), Tarjeta, Crypto (USDT). México: SPEI, OXXO. Colombia: PSE, Nequi. Perú: Yape. Argentina: Mercado Pago, USDT."
+    },
+    {
+      "id": "q15",
+      "question": "¿Cuál es la regla de seguimiento si el prospecto se registró pero no hizo KYC?",
+      "options": [
+        "No hacer nada",
+        "Recordatorio de KYC por WhatsApp +6 horas",
+        "Llamar en 1 semana",
+        "Email +30 días"
+      ],
+      "correctIndex": 1,
+      "explanation": "Se registró pero no KYC → Recordatorio por WhatsApp +6 horas. Hizo KYC pero no depósito → Guía depósito por WhatsApp +12 horas. Depositó pero no operó → Guía primer trade +24h."
+    },
+    {
+      "id": "q16",
+      "question": "Si no respondió al primer contacto, ¿cuándo es el segundo intento?",
+      "options": [
+        "Inmediatamente",
+        "+2 horas",
+        "+48 horas (WhatsApp + Email)",
+        "+1 mes"
+      ],
+      "correctIndex": 2,
+      "explanation": "No respondió al primer contacto → segundo intento +48h (WhatsApp + Email). Si no responde a 3 intentos → pasar a lista de email marketing +7 días."
+    },
+    {
+      "id": "q17",
+      "question": "¿Cuál es la regla 60/40 de las conversaciones?",
+      "options": [
+        "60% hablar, 40% escuchar",
+        "Escuchar 60%, hablar 40%",
+        "60% precio, 40% features",
+        "60% trader, 40% agente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla 60/40: escuchar 60%, hablar 40%. Hablar más que escuchar = no descubres necesidades reales."
+    },
+    {
+      "id": "q18",
+      "question": "Error común: 'presentar todos los beneficios a la vez'. ¿Por qué es grave?",
+      "options": [
+        "Es más eficiente",
+        "Abruma al prospecto",
+        "Es muy profesional",
+        "Es requerido por compliance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Error: abruma al prospecto. Corrección: solo presentar lo relevante para ESE prospecto específico."
+    },
+    {
+      "id": "q19",
+      "question": "Error 'prometer ganancias o rendimientos'. ¿Qué es la corrección?",
+      "options": [
+        "Prometer al menos 5% mensual",
+        "Nunca. 'Depende de tu estrategia y el mercado'",
+        "Prometer 10% anual",
+        "Sólo prometer al principio"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nunca prometer ganancias. Viola compliance y genera expectativas falsas. 'Depende de tu estrategia y el mercado.'"
+    },
+    {
+      "id": "q20",
+      "question": "Al hablar de la competencia, ¿qué se debe hacer?",
+      "options": [
+        "Criticar a los competidores",
+        "'Respetamos a ese broker. Te invito a comparar'",
+        "Mentir sobre sus condiciones",
+        "Negar que existan"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hablar mal de competencia = poco profesional. Correcto: 'Respetamos a ese broker. Te invito a comparar.'"
+    },
+    {
+      "id": "q21",
+      "question": "¿Cuál es la meta diaria de leads nuevos contactados por agente?",
+      "options": ["1-3", "10-15", "30-40", "100+"],
+      "correctIndex": 1,
+      "explanation": "Meta diaria por agente: 10-15 leads nuevos contactados. Semanal: 50-75."
+    },
+    {
+      "id": "q22",
+      "question": "¿Qué es una 'tasa de contacto efectivo'?",
+      "options": [
+        "Cualquier mensaje enviado",
+        "Conversación >2 min o respuesta. Meta: 40%+",
+        "Solo ventas cerradas",
+        "Cantidad de emails abiertos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Contacto efectivo = conversación >2 min o respuesta. Meta: 40%+ diaria y semanal."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuáles son los KPIs de equipo (tasa de conversión)?",
+      "options": [
+        "Solo FTDs",
+        "Lead → registro 30-40%, registro → KYC 50-60%, KYC → FTD 30-40%",
+        "100% en todo",
+        "Solo volumen depositado"
+      ],
+      "correctIndex": 1,
+      "explanation": "Conversiones objetivo: Lead → registro 30-40%, registro → KYC 50-60%, KYC → FTD 30-40%. Tiempo primer contacto post-registro: <30 min. Tiempo registro → FTD: <72h."
+    },
+    {
+      "id": "q24",
+      "question": "¿Qué debe registrarse en Skale CRM después de cada contacto?",
+      "options": [
+        "Solo si cerró",
+        "Fecha/hora, canal, resultado, notas (objeciones, tipo cuenta), próximo paso (fecha + acción)",
+        "Solo nombre del prospecto",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Registrar SIEMPRE: fecha/hora exacta, canal (llamada/WhatsApp/email/chat), resultado (registro/KYC/FTD/sin interés/follow-up), notas completas, próximo paso con fecha."
+    },
+    {
+      "id": "q25",
+      "question": "¿Cuál es el mejor canal para el descubrimiento (paso 2)?",
+      "options": [
+        "Email",
+        "Llamada idealmente (2-3 minutos)",
+        "WhatsApp texto",
+        "SMS"
+      ],
+      "correctIndex": 1,
+      "explanation": "Descubrimiento 2-3 min → canal preferido LLAMADA (mejor para profundizar). Evaluación, valor y siguiente paso también idealmente por llamada."
+    },
+    {
+      "id": "q26",
+      "question": "Si el prospecto dice 'Me estafaron antes', ¿qué enfoque?",
+      "options": [
+        "Prometer que eso no puede pasar",
+        "Priorizar confianza: licencia, cuentas segregadas, MT5, 'prueba con poco' antes de comprometer más",
+        "Ignorar la experiencia previa",
+        "Culpar al otro broker"
+      ],
+      "correctIndex": 1,
+      "explanation": "Me estafaron antes → priorizar confianza. Destacar licencia L15968/N, cuentas segregadas, MT5, KYC Sumsub. Estrategia 'prueba con poco' (Cent $5) como evidencia real de confianza."
+    },
+    {
+      "id": "q27",
+      "question": "Si el prospecto dice 'Quiero depositar $10K+', ¿qué ofrecer?",
+      "options": [
+        "Cuenta Cent",
+        "Cuenta Raw o Institucional + mencionar atención VIP (gestor dedicado)",
+        "Cualquier cuenta",
+        "Decirle que es demasiado"
+      ],
+      "correctIndex": 1,
+      "explanation": "$10K+ → Cuenta Raw o Institucional. Condiciones personalizadas. Atención VIP con gestor dedicado (Institucional tiene gestor directo)."
+    },
+    {
+      "id": "q28",
+      "question": "¿Qué nunca debe hacer en la evaluación de necesidades?",
+      "options": [
+        "Preguntar capital",
+        "Sugerir un monto de depósito MAYOR al que el prospecto mencionó",
+        "Recomendar cuenta según perfil",
+        "Escuchar"
+      ],
+      "correctIndex": 1,
+      "explanation": "NUNCA sugerir un monto mayor al que el prospecto mencionó. Si dice '$100', NO decir 'pero con $500 podrías...'. Respetar su capacidad."
+    },
+    {
+      "id": "q29",
+      "question": "Tips de KYC exitoso que se comparten con el prospecto:",
+      "options": [
+        "Tomar foto en la oscuridad",
+        "Buena luz, que se vean las 4 esquinas del documento sin cortar, para la selfie mirar directo a la cámara",
+        "Cortar el documento para que se vea solo parte",
+        "No importa la luz"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tips KYC: buena luz al tomar foto del documento, las 4 esquinas visibles sin cortar, selfie mirando directo a la cámara, documento en otro idioma se acepta."
+    },
+    {
+      "id": "q30",
+      "question": "Script de seguimiento 24h (no se registró). ¿Qué NO hacer?",
+      "options": [
+        "Preguntar si tuvo oportunidad de revisar",
+        "Ofrecer ayuda si tiene dudas",
+        "Insistir con urgencia y presión",
+        "Dejar un mensaje corto"
+      ],
+      "correctIndex": 2,
+      "explanation": "Seguimiento: NO presionar ni crear urgencia. Mensaje educado: 'queria saber si tuviste oportunidad de revisar. Si tienes dudas, estoy aqui.'"
+    },
+    {
+      "id": "q31",
+      "question": "¿Qué información previa debe buscar el agente antes de contactar al lead?",
+      "options": [
+        "Solo el nombre",
+        "Nombre, país, fuente del lead (UTM/CRM), si ya tiene cuenta, estado KYC, depósitos previos",
+        "Su horóscopo",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Datos previos: Nombre (personalizar), País (métodos pago locales, restricciones), Fuente (adaptar enfoque), Cuenta existente, Estado KYC (Sumsub), Depósitos previos."
+    },
+    {
+      "id": "q32",
+      "question": "Si el prospecto es de una fuente 'Referido de cliente', ¿qué enfoque?",
+      "options": [
+        "Tratarlo como desconocido",
+        "Personalizar + mencionar al referidor. Nivel de interés alto",
+        "Presionar más fuerte",
+        "Desconfiar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Referido de cliente = nivel interés alto. Personalizar. Mencionar al referidor. Confianza ya construida por la recomendación."
+    },
+    {
+      "id": "q33",
+      "question": "¿Qué origen de lead tiene generalmente nivel de interés MEDIO-BAJO?",
+      "options": [
+        "Prop trading crossover",
+        "Referido",
+        "Ads (Meta, Google, TikTok) — solo vio un anuncio por curiosidad",
+        "SEO/orgánico"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ads = interés medio-bajo. Solo vio anuncio por curiosidad. Enfoque educativo, NO presionar. Landing web/SEO = medio-alto."
+    },
+    {
+      "id": "q34",
+      "question": "¿Cuánto tiempo hay que tomar el Registro en CRM (paso 7)?",
+      "options": [
+        "No registrar nada",
+        "30 segundos",
+        "2-3 minutos (interno)",
+        "30 minutos"
+      ],
+      "correctIndex": 2,
+      "explanation": "Registro en CRM (paso 7): 2-3 minutos. Se hace inmediatamente después del contacto para no perder información."
+    },
+    {
+      "id": "q35",
+      "question": "Error grave: 'no tener respuesta a una objeción'. ¿Corrección?",
+      "options": [
+        "Inventar una respuesta",
+        "Estudiar el playbook de objeciones",
+        "Ignorar la objeción",
+        "Abandonar al prospecto"
+      ],
+      "correctIndex": 1,
+      "explanation": "No tener respuesta a objeción = inseguridad. Corrección: estudiar el playbook de objeciones (objections-broker.md) exhaustivamente antes de contactar."
+    }
+  ]
+}

@@ -1,0 +1,383 @@
+{
+  "docPath": "compliance/proceso-kyc-sumsub",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Cuantas funciones criticas cumple Sumsub para NEOMAAA?",
+      "options": ["1", "3 (Verificacion KYC, Screening sanciones/PEP, Monitoreo continuo)", "10", "0"],
+      "correctIndex": 1,
+      "explanation": "Sumsub cumple 3 funciones: (1) KYC via documentos, liveness, cruce de datos; (2) screening de sanciones OFAC/ONU/UE/UK y PEPs; (3) ongoing monitoring de listas actualizadas."
+    },
+    {
+      "id": "q2",
+      "question": "Cuantos tiers tiene configurado NEOMAAA en Sumsub?",
+      "options": ["1", "2", "3 (Tier 1, Tier 2, Tier 3)", "10"],
+      "correctIndex": 2,
+      "explanation": "3 tiers: Tier 1 (Basico hasta $1K), Tier 2 (Intermedio hasta $15K), Tier 3 (Completo sin limite con SoF/SoW)."
+    },
+    {
+      "id": "q3",
+      "question": "Deposito maximo acumulado Tier 1?",
+      "options": ["$100", "$1,000", "$15,000", "Sin limite"],
+      "correctIndex": 1,
+      "explanation": "Tier 1: hasta $1,000 acumulado. Solo ID + liveness check. Aprobacion automatica 1-3 min."
+    },
+    {
+      "id": "q4",
+      "question": "Deposito maximo acumulado Tier 2?",
+      "options": ["$1,000", "$15,000", "$50,000", "Sin limite"],
+      "correctIndex": 1,
+      "explanation": "Tier 2: hasta $15,000 acumulado. Agrega PoA (<3 meses). Aprobacion 5 min - 24h."
+    },
+    {
+      "id": "q5",
+      "question": "Tier 3 requiere?",
+      "options": [
+        "Solo ID",
+        "SoF (Source of Funds) + SoW (Source of Wealth) + revision manual Susana SIEMPRE",
+        "Solo email",
+        "Cuenta bancaria EU"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tier 3: >$15K, SoF (origen fondos especificos), SoW (patrimonio general), revision manual de Susana SIEMPRE. Aprobacion 1-5 dias habiles."
+    },
+    {
+      "id": "q6",
+      "question": "Documentos de identidad aceptados?",
+      "options": [
+        "Solo pasaporte",
+        "Pasaporte (preferido), DNI/Cedula, licencia de conducir, tarjeta de residencia",
+        "Tarjeta de estudiante",
+        "Cualquier papel"
+      ],
+      "correctIndex": 1,
+      "explanation": "Aceptados: pasaporte (preferido), DNI/cedula, licencia, tarjeta de residencia. ID militar caso por caso. No aceptados: tarjeta estudiante, documentos vencidos (<30 dias de vigencia restante)."
+    },
+    {
+      "id": "q7",
+      "question": "Antiguedad maxima de PoA (factura de servicios)?",
+      "options": ["1 mes", "3 meses", "12 meses", "Cualquiera"],
+      "correctIndex": 1,
+      "explanation": "PoA factura servicios, extracto bancario, carta de banco: max 3 meses. Documento fiscal gubernamental y contrato alquiler: max 12 meses."
+    },
+    {
+      "id": "q8",
+      "question": "Factura de celular se acepta como PoA?",
+      "options": ["Si", "No (solo factura de telefono fijo/servicios)", "Solo en Mexico", "Depende"],
+      "correctIndex": 1,
+      "explanation": "Factura de celular NO se acepta como PoA. Se acepta factura de telefono fijo, servicios publicos, extractos bancarios, carta de banco."
+    },
+    {
+      "id": "q9",
+      "question": "Una carta explicativa del cliente alcanza como SoF?",
+      "options": [
+        "Si sola",
+        "NO. Siempre debe acompanarse de documentacion de respaldo verificable",
+        "Depende del cliente",
+        "Solo en Tier 2"
+      ],
+      "correctIndex": 1,
+      "explanation": "Carta explicativa sola NO es suficiente para SoF ni SoW. Siempre debe acompanarse de documentacion de respaldo verificable (extractos, nomina, contratos, declaraciones)."
+    },
+    {
+      "id": "q10",
+      "question": "Resultado GREEN de Sumsub significa?",
+      "options": [
+        "Rechazado",
+        "Aprobado: identidad verificada, sin alertas; no requiere intervencion de Susana",
+        "Pendiente",
+        "Error"
+      ],
+      "correctIndex": 1,
+      "explanation": "GREEN: aprobado automaticamente. Skale actualiza a 'KYC Aprobado - Tier X'. Cliente recibe notificacion. MT5 habilitado. No requiere Susana (salvo auditoria aleatoria)."
+    },
+    {
+      "id": "q11",
+      "question": "Cuantos intentos de RETRY se permiten?",
+      "options": ["1", "3 (si falla 3 veces, Susana revisa manualmente)", "10", "Infinitos"],
+      "correctIndex": 1,
+      "explanation": "3 intentos de retry. Si falla 3 veces: Susana revisa manualmente para determinar si es fraude o documentos deficientes. Cliente tiene 7 dias para reintentar."
+    },
+    {
+      "id": "q12",
+      "question": "SLA de Susana para monitorear casos RETRY?",
+      "options": [
+        "Inmediato",
+        "48 horas sin respuesta -> Susana monitorea y contacta via ventas",
+        "1 semana",
+        "No se monitorea"
+      ],
+      "correctIndex": 1,
+      "explanation": "Susana monitorea casos RETRY que superen 48 horas sin respuesta del cliente. Puede contactar via ventas para ayudar al cliente."
+    },
+    {
+      "id": "q13",
+      "question": "Resultado RED en Sumsub significa rechazo automatico final?",
+      "options": [
+        "Si, automatico final",
+        "NO. Susana DEBE revisar cada RED antes de confirmar el rechazo. Puede revertir si es falso positivo",
+        "Depende del pais",
+        "Solo si es fin de mes"
+      ],
+      "correctIndex": 1,
+      "explanation": "RED no es rechazo final automatico. Susana debe revisar razon, imagenes, liveness, screening. Puede confirmar rechazo o revertir si es falso positivo."
+    },
+    {
+      "id": "q14",
+      "question": "Resultado PENDING en Sumsub, cual es el SLA?",
+      "options": [
+        "1 semana",
+        "24 horas SIN EXCEPCION. Susana revisa dashboard al menos 3 veces al dia (9:00, 13:00, 17:00)",
+        "30 dias",
+        "No hay"
+      ],
+      "correctIndex": 1,
+      "explanation": "SLA PENDING: 24h criticas. Susana debe revisar dashboard 3 veces al dia minimo (9am, 1pm, 5pm hora local). Ningun caso puede quedar sin revision >24h."
+    },
+    {
+      "id": "q15",
+      "question": "Cuando se ejecuta el screening de sanciones?",
+      "options": [
+        "Solo al inicio",
+        "Registro de nuevo cliente, upgrade de tier, deposito significativo (>$5K), periodico, trigger de riesgo, actualizacion de listas",
+        "Una vez al ano",
+        "Nunca"
+      ],
+      "correctIndex": 1,
+      "explanation": "Screening se ejecuta: onboarding, upgrade tier, deposito >$5K en una transaccion, ongoing monitoring automatico, trigger de riesgo, actualizacion de listas (re-scan base)."
+    },
+    {
+      "id": "q16",
+      "question": "Donde acceder al dashboard de Sumsub?",
+      "options": ["cockpit.sumsub.com", "sumsub-admin.neomaaa.com", "No tiene dashboard", "Dentro de MT5"],
+      "correctIndex": 0,
+      "explanation": "Dashboard de Sumsub: https://cockpit.sumsub.com. Solo Susana y Principals tienen acceso."
+    },
+    {
+      "id": "q17",
+      "question": "Que se revisa en el perfil de un applicant en Sumsub?",
+      "options": [
+        "Solo nombre",
+        "Datos personales, documento de identidad (imagen, manipulacion, vigencia), liveness video, screening sanciones/PEP, PoA si aplica",
+        "Solo email",
+        "Puntaje de credito"
+      ],
+      "correctIndex": 1,
+      "explanation": "Revision: datos personales vs registro, documento (imagen, autenticidad, vigencia, datos legibles), liveness video, screening sanciones/PEP, PoA si aplica."
+    },
+    {
+      "id": "q18",
+      "question": "NUNCA decir al cliente como razon de rechazo?",
+      "options": [
+        "'Foto borrosa'",
+        "'Documento vencido'",
+        "'Estas en una lista de sanciones', 'Tu documento parece falso', 'Sospechamos lavado'",
+        "'Necesitamos mas info'"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nunca revelar razones de compliance al cliente: sanciones, documento falso, sospecha de lavado. Requisito regulatorio [VERIFICAR CON ABOGADO]."
+    },
+    {
+      "id": "q19",
+      "question": "Paso final en documentacion de revision manual?",
+      "options": [
+        "Ignorar",
+        "En Sumsub: Approved/Rejected con comentario. En Registro Compliance: fecha, ID cliente, decision, razon, nombre del revisor",
+        "Solo marcar Approved",
+        "Contactar al cliente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Documentacion doble: (1) Sumsub con Approved/Rejected + comentario. (2) Registro Compliance con fecha, ID, decision, razon, revisor."
+    },
+    {
+      "id": "q20",
+      "question": "Que estado en Skale equivale a Tier 3 aprobado?",
+      "options": [
+        "Pendiente KYC",
+        "KYC Aprobado - Tier 3: puede depositar sin limite y operar",
+        "Rechazado",
+        "Suspendido"
+      ],
+      "correctIndex": 1,
+      "explanation": "KYC Aprobado - Tier 3: SoF/SoW verificado, puede depositar sin limite y operar en MT5."
+    },
+    {
+      "id": "q21",
+      "question": "Estado 'Bloqueado - Sanciones' en Skale significa?",
+      "options": [
+        "Temporal",
+        "Match de sanciones confirmado: no puede depositar ni operar",
+        "En espera",
+        "Demo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bloqueado - Sanciones: match confirmado. No puede depositar ni operar. Cuenta congelada. Fondos pre-existentes congelados hasta autorizacion legal."
+    },
+    {
+      "id": "q22",
+      "question": "Que hace Sumsub como 'Ongoing Monitoring'?",
+      "options": [
+        "Nada",
+        "Re-screening periodico para detectar si un cliente existente aparece en nuevas listas de sanciones",
+        "Solo visual",
+        "Espiar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ongoing monitoring: re-screening automatico periodico. Si un cliente existente aparece en una nueva lista de sanciones, genera alerta. [VERIFICAR CON SUMSUB] la frecuencia configurada."
+    },
+    {
+      "id": "q23",
+      "question": "Ejemplo de escalamiento obligatorio a Principals?",
+      "options": [
+        "Cliente normal",
+        "PEP match, sanctions true match, casos ambiguos de alto riesgo",
+        "Solo con depositos altos",
+        "Nunca se escala"
+      ],
+      "correctIndex": 1,
+      "explanation": "Escalar a Principals: PEP match, true match de sanciones, casos ambiguos/alto riesgo. Susana decide casos de complejidad media."
+    },
+    {
+      "id": "q24",
+      "question": "Webhook de Sumsub se integra con?",
+      "options": ["Email", "Skale CRM (actualiza estado automaticamente)", "WhatsApp", "Excel"],
+      "correctIndex": 1,
+      "explanation": "Webhook de Sumsub notifica automaticamente a Skale CRM. Skale actualiza estado del cliente (KYC Aprobado, Retry, Rechazado, Pendiente) segun el resultado."
+    },
+    {
+      "id": "q25",
+      "question": "Cual es una causa comun de RETRY?",
+      "options": [
+        "Cliente quiere depositar",
+        "Foto borrosa o cortada, documento ilegible, vencido, selfie no coincide (mala luz/angulo), datos no coinciden con formulario",
+        "Horario nocturno",
+        "Pais aprobado"
+      ],
+      "correctIndex": 1,
+      "explanation": "Causas comunes RETRY: foto borrosa, documento ilegible, vencido, selfie no coincide con documento (mala luz/angulo), datos no coinciden (error de tipeo)."
+    },
+    {
+      "id": "q26",
+      "question": "Checkpoints de revision de dashboard?",
+      "options": [
+        "Una vez al mes",
+        "9:00, 13:00 y 17:00 hora local (3 veces al dia minimo)",
+        "6am",
+        "Fin de semana"
+      ],
+      "correctIndex": 1,
+      "explanation": "3 checkpoints diarios: 9am (revision inicial + KYC GREEN + RETRY/YELLOW), 13:00 (segunda ronda + retiros), 17:00 (cierre, alertas, documentacion)."
+    },
+    {
+      "id": "q27",
+      "question": "Auditoria aleatoria que recomienda Susana?",
+      "options": [
+        "Nada",
+        "5% de aprobaciones automaticas revisadas semanalmente",
+        "Todas",
+        "100%"
+      ],
+      "correctIndex": 1,
+      "explanation": "Susana debe hacer auditoria aleatoria del 5% de aprobaciones automaticas semanalmente para validar que Sumsub funciona correctamente."
+    },
+    {
+      "id": "q28",
+      "question": "Liveness check, que es?",
+      "options": [
+        "Un video random",
+        "Verificacion en vivo del rostro para anti-fraude, verifica que es una persona real no una foto",
+        "Una prueba de IA",
+        "No existe"
+      ],
+      "correctIndex": 1,
+      "explanation": "Liveness check: Sumsub valida en vivo via video selfie que el cliente es una persona real (no foto, no mascara, no video pregrabado). Compara con foto del documento."
+    },
+    {
+      "id": "q29",
+      "question": "Problema comun: 'Cliente dice que ya subio documentos pero Sumsub no recibe'?",
+      "options": [
+        "Aprobar igual",
+        "Verificar en dashboard Sumsub. Si no aparece: reenviar link de verificacion al cliente",
+        "Rechazar",
+        "Dar dinero"
+      ],
+      "correctIndex": 1,
+      "explanation": "Verificar en dashboard Sumsub. Si no aparece: reenviar link, confirmar email del cliente, verificar que no esta en spam."
+    },
+    {
+      "id": "q30",
+      "question": "Un cliente PEP de nivel 1 (jefe de estado, ministro), que accion?",
+      "options": [
+        "Rechazar automatico",
+        "Aprobar instantaneo",
+        "EDD completo + escalacion obligatoria a Principals; ellos deciden aceptar o rechazar",
+        "Ignorar"
+      ],
+      "correctIndex": 2,
+      "explanation": "PEP Nivel 1: EDD completo + escalacion obligatoria a Principals. PEP Nivel 2-4 o ex-PEP: EDD estandar, Susana evalua."
+    },
+    {
+      "id": "q31",
+      "question": "Comparacion entre cliente y entrada de sanciones: dato que mas suele diferenciar true match vs false positive?",
+      "options": [
+        "El nombre",
+        "Fecha de nacimiento (si difiere, suele ser false positive)",
+        "El sexo",
+        "El color de pelo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla practica: si fecha de nacimiento difiere, casi siempre es false positive. Si nombre y fecha coinciden: analisis mas profundo requerido."
+    },
+    {
+      "id": "q32",
+      "question": "Tiempo tipico de procesamiento automatico Sumsub?",
+      "options": ["Horas", "30 segundos a 3 minutos", "1 dia", "1 semana"],
+      "correctIndex": 1,
+      "explanation": "Procesamiento automatico: 30 segundos a 3 minutos. Revision manual: hasta 24 horas (SLA interno)."
+    },
+    {
+      "id": "q33",
+      "question": "Razones tipicas de REJECTED?",
+      "options": [
+        "Documento perfecto",
+        "Documento falsificado/manipulado, cliente en sanciones (true match), pais restringido, multiples intentos fallidos inconsistentes, liveness detecta suplantacion",
+        "Cualquier motivo",
+        "Horario"
+      ],
+      "correctIndex": 1,
+      "explanation": "REJECTED tipico: documento falsificado, sanciones confirmadas, pais restringido, multiples intentos fallidos con docs inconsistentes, liveness detecta suplantacion."
+    },
+    {
+      "id": "q34",
+      "question": "Un cliente con screening PEP match nivel 2, aprobado con EDD. Que monitoreo adicional?",
+      "options": [
+        "Ninguno",
+        "Monitoreo reforzado (trimestral) + limites de deposito mas conservadores + documentacion completa de SoF/SoW",
+        "Solo al inicio",
+        "Solo anual"
+      ],
+      "correctIndex": 1,
+      "explanation": "PEP aprobado con EDD: monitoreo reforzado trimestral, limites de deposito conservadores, documentacion completa archivada."
+    },
+    {
+      "id": "q35",
+      "question": "Por que Tier 3 no se aprueba automaticamente?",
+      "options": [
+        "Porque es caro",
+        "Porque Susana debe revisar manualmente TODOS los casos Tier 3; evalua coherencia entre ingresos, patrimonio y volumen de deposito",
+        "Porque Sumsub no puede",
+        "Porque es ilegal"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tier 3 requiere revision humana: montos altos demandan evaluacion de coherencia entre ingresos declarados, patrimonio y volumen. Se documenta en Registro Compliance."
+    },
+    {
+      "id": "q36",
+      "question": "Tiempo objetivo maduro Tier 1 (meta avanzada)?",
+      "options": ["24h", "5 minutos", "<60 segundos automatico", "1 semana"],
+      "correctIndex": 2,
+      "explanation": "Meta industria: <60 segundos automatico. Meta NEOMAAA inicio: <5 min. Meta NEOMAAA maduro: <60 seg."
+    }
+  ]
+}

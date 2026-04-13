@@ -1,0 +1,431 @@
+{
+  "docPath": "encyclopedia/regulacion-jurisdicciones",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Bajo qué regulador opera NEOMAAA Markets?",
+      "options": ["FCA (UK)", "CySEC (Chipre)", "AOFA (Anjouan Offshore Finance Authority)", "ASIC (Australia)"],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA opera bajo AOFA, licencia L15968/N. Neomaaa Ltd IBC 15968, Anjouan (Unión de las Comoras)."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuál es el número de licencia de NEOMAAA?",
+      "options": ["L12345/A", "L15968/N", "CySEC 234", "FCA 00001"],
+      "correctIndex": 1,
+      "explanation": "La licencia es L15968/N emitida por la AOFA."
+    },
+    {
+      "id": "q3",
+      "question": "¿Qué 3 razones justifican la existencia de un regulador financiero?",
+      "options": [
+        "Recaudar impuestos, crear empleo, controlar precios",
+        "Proteger al cliente retail, proteger al sistema financiero, combatir lavado de dinero/financiamiento terrorismo (AML/CFT)",
+        "Imprimir moneda, fijar tasas, emitir bonos",
+        "Certificar brokers, publicar ads, cobrar multas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Razones: proteger cliente retail, proteger sistema financiero de riesgo sistémico, combatir lavado de dinero (AML/CFT)."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuál es un regulador Tier 1?",
+      "options": ["AOFA", "FCA (UK)", "VFSC (Vanuatu)", "FSC Mauricio"],
+      "correctIndex": 1,
+      "explanation": "Tier 1: FCA (UK), CySEC (UE), ASIC (AUS), FINMA (Suiza), BaFin (DE), CONSOB (IT), AMF (FR)."
+    },
+    {
+      "id": "q5",
+      "question": "Según Tier 1, ¿cuál es el leverage máximo retail en forex majors?",
+      "options": ["1:1000", "1:500", "1:100", "1:30"],
+      "correctIndex": 3,
+      "explanation": "Tier 1 (FCA/ESMA) limita a 1:30 en forex majors retail. 1:20 minors, 1:10 índices, 1:5 acciones, 1:2 cripto."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuál es un regulador Tier 2?",
+      "options": ["AOFA", "DFSA (Dubái), FSRA (Abu Dhabi), MAS (Singapur)", "SVG FSA", "FSC Mauricio"],
+      "correctIndex": 1,
+      "explanation": "Tier 2 incluye: DFSA (Dubai), FSRA (Abu Dhabi), MAS (Singapur), FSA Japón, FMA Nueva Zelanda, FSCA Sudáfrica, CFTC/NFA (US)."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuál es un regulador Tier 3?",
+      "options": [
+        "FCA",
+        "VFSC Vanuatu, FSC BVI, IFSC Belice, SCB Bahamas",
+        "AOFA",
+        "CySEC"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tier 3 (offshore con supervisión real): VFSC Vanuatu, FSC BVI, IFSC Belice, SCB Bahamas. Capital USD 50k-500k, leverage 1:500-1:1000."
+    },
+    {
+      "id": "q8",
+      "question": "¿En qué Tier está AOFA (Anjouan)?",
+      "options": ["Tier 1", "Tier 2", "Tier 3", "Tier 4 (offshore con supervisión mínima)"],
+      "correctIndex": 3,
+      "explanation": "AOFA es Tier 4: offshore con supervisión mínima pero existente. Junto con FSC Mauricio, Labuan FSA, St. Lucia FSRA."
+    },
+    {
+      "id": "q9",
+      "question": "¿Qué capital mínimo típico exige Tier 1?",
+      "options": ["USD 20k", "USD 100k", "USD 500k", "EUR 730k+"],
+      "correctIndex": 3,
+      "explanation": "Tier 1 exige capital mínimo EUR 730k+. Tier 4 (Anjouan): USD 20k-50k."
+    },
+    {
+      "id": "q10",
+      "question": "¿Qué fondo de compensación tiene el cliente bajo FCA UK?",
+      "options": [
+        "Ninguno",
+        "FSCS hasta GBP 85k",
+        "AOFA hasta EUR 20k",
+        "Fondo mundial ilimitado"
+      ],
+      "correctIndex": 1,
+      "explanation": "FCA UK ofrece FSCS hasta GBP 85k. CySEC ofrece ICF hasta EUR 20k."
+    },
+    {
+      "id": "q11",
+      "question": "¿NEOMAAA tiene fondo de compensación europeo?",
+      "options": [
+        "Sí, FSCS",
+        "Sí, ICF",
+        "No. Anjouan no tiene fondo europeo. El cliente no tiene fondo público que cubra quiebra",
+        "Solo para VIPs"
+      ],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA NO tiene fondo de compensación europeo. Es offshore. La protección es por segregación de fondos y NBP."
+    },
+    {
+      "id": "q12",
+      "question": "¿Cuál es el leverage máximo ofrecido por NEOMAAA en majors?",
+      "options": ["1:30", "1:100", "1:500", "1:1000"],
+      "correctIndex": 3,
+      "explanation": "NEOMAAA ofrece hasta 1:1000 en majors (offshore). Tier 1 solo permite 1:30 retail."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuál NO es un aspecto positivo de operar bajo AOFA según el doc?",
+      "options": [
+        "Leverage alto disponible (hasta 1:1000)",
+        "Bonos de depósito permitidos",
+        "Mercados globales (LATAM, UAE, Asia, África)",
+        "Fondo de compensación europeo de 85k GBP"
+      ],
+      "correctIndex": 3,
+      "explanation": "Anjouan NO tiene fondo europeo. Los aspectos positivos son leverage alto, bonos permitidos, sin restricciones ESMA, costos operativos menores, mercados globales."
+    },
+    {
+      "id": "q14",
+      "question": "Cliente pregunta '¿son regulados?'. ¿Cuál es la respuesta correcta?",
+      "options": [
+        "'Sí, somos FCA'",
+        "'Sí. Neomaaa Ltd licenciada por AOFA L15968/N. Somos offshore, con protección vía segregación y NBP, pero no tipo FCA/CySEC'",
+        "'Si, regulados en la UE'",
+        "'No hace falta licencia'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Respuesta correcta: admitir que es Anjouan, destacar licencia real, segregación y NBP. Ser transparente sobre no ser FCA/CySEC."
+    },
+    {
+      "id": "q15",
+      "question": "¿Qué frase NUNCA puede decir el equipo a un cliente?",
+      "options": [
+        "'Estamos licenciados por AOFA'",
+        "'Somos FCA' / 'Somos CySEC' / 'Tu dinero está asegurado por el gobierno' — MENTIRAS GRAVES",
+        "'Tenemos segregación de fondos'",
+        "'Ofrecemos NBP en cuentas retail'"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nunca decir 'Somos FCA', 'Somos CySEC', 'estamos regulados en UE' o 'asegurados por gobierno'. Son MENTIRAS GRAVES que pueden costar la licencia."
+    },
+    {
+      "id": "q16",
+      "question": "¿Qué país es prohibido absoluto para NEOMAAA?",
+      "options": [
+        "México",
+        "Estados Unidos — no tenemos licencia CFTC/NFA, aceptar cliente US sin licencia es delito federal en EEUU",
+        "España",
+        "Brasil"
+      ],
+      "correctIndex": 1,
+      "explanation": "EEUU es prohibido absoluto. Aceptar cliente con documento, dirección, IP o teléfono US sin licencia CFTC/NFA es delito federal."
+    },
+    {
+      "id": "q17",
+      "question": "¿Cuál de estos países está en la lista de sanciones prohibidas OFAC/UE/UN?",
+      "options": [
+        "España",
+        "Irán, Corea del Norte, Siria, Cuba (parcial), Myanmar, Sudán, Yemen",
+        "Francia",
+        "Argentina"
+      ],
+      "correctIndex": 1,
+      "explanation": "Países sancionados OFAC/UE/UN: Irán, Corea del Norte, Siria, Rusia (parcial), Cuba (parcial), Myanmar, Sudán, Yemen, Venezuela (personas)."
+    },
+    {
+      "id": "q18",
+      "question": "¿Cuál es la política de NEOMAAA con UE post-ESMA?",
+      "options": [
+        "Outreach activo agresivo",
+        "Passive onboarding: aceptamos si cliente viene a nosotros, no hacemos outreach activo",
+        "Prohibido absoluto",
+        "Solo cuentas VIP"
+      ],
+      "correctIndex": 1,
+      "explanation": "Política pasiva: aceptamos clientes UE si vienen a nosotros (con full disclosure), pero no hacemos outreach activo."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cuál NO es un país objetivo donde opera activamente NEOMAAA?",
+      "options": [
+        "México, Colombia, Argentina, Brasil",
+        "Emiratos Árabes Unidos",
+        "Sudeste Asiático (Vietnam, Tailandia, Filipinas)",
+        "Estados Unidos"
+      ],
+      "correctIndex": 3,
+      "explanation": "EEUU está prohibido absoluto. Países objetivo: LATAM completo, España (pasiva), UAE, Sudeste Asiático, Medio Oriente no-sancionado, partes de África."
+    },
+    {
+      "id": "q20",
+      "question": "¿Qué permite un broker offshore (Anjouan) vs Tier 1?",
+      "options": [
+        "Menos leverage",
+        "Más warnings obligatorios",
+        "Leverage alto, bonos de depósito permitidos, sin restricciones ESMA",
+        "Fondo de compensación mayor"
+      ],
+      "correctIndex": 2,
+      "explanation": "Offshore permite leverage 1:1000, bonos de depósito, sin restricciones ESMA, costos operativos menores, mercados globales."
+    },
+    {
+      "id": "q21",
+      "question": "¿Cuánto tiempo tarda típicamente una licencia Tier 4 (Anjouan)?",
+      "options": ["2-4 meses", "6-12 meses", "12-24 meses", "24+ meses"],
+      "correctIndex": 0,
+      "explanation": "Tier 4 (Anjouan): 2-4 meses para licencia. Tier 1: 6-24 meses. Tier 3: 2-6 meses."
+    },
+    {
+      "id": "q22",
+      "question": "¿Qué es MiFID II?",
+      "options": [
+        "El regulador de Dubai",
+        "La normativa europea bajo la que opera CySEC y otros Tier 1 UE",
+        "Un tipo de cuenta",
+        "Un impuesto UE"
+      ],
+      "correctIndex": 1,
+      "explanation": "MiFID II es la normativa europea que regula brokers bajo CySEC, BaFin, AMF, etc. Da pasaporte europeo y limita leverage."
+    },
+    {
+      "id": "q23",
+      "question": "¿Qué es 'segregación de fondos'?",
+      "options": [
+        "Separar clientes por país",
+        "Fondos del cliente en cuentas bancarias separadas de las operativas del broker. Si el broker quiebra, el cliente recupera sus fondos",
+        "Un tipo de bono",
+        "Política de marketing"
+      ],
+      "correctIndex": 1,
+      "explanation": "Segregación: fondos del cliente separados de los operativos del broker. Si quiebra, el cliente recupera. NEOMAAA SÍ tiene segregación."
+    },
+    {
+      "id": "q24",
+      "question": "¿Son los bonos de depósito permitidos bajo FCA/CySEC (Tier 1)?",
+      "options": [
+        "Sí, ilimitados",
+        "No, prohibidos",
+        "Solo en cuentas VIP",
+        "Solo en demo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tier 1 prohíbe bonos de depósito. NEOMAAA (offshore) sí puede ofrecerlos."
+    },
+    {
+      "id": "q25",
+      "question": "Según el doc, ¿NEOMAAA ofrece NBP (Negative Balance Protection)?",
+      "options": [
+        "No lo ofrece",
+        "Solo VIPs",
+        "Sí, en cuentas retail (opcional en Tier 4 pero NEOMAAA lo ofrece)",
+        "Solo en demo"
+      ],
+      "correctIndex": 2,
+      "explanation": "Aunque en Tier 4 NBP es opcional, NEOMAAA SÍ ofrece NBP en cuentas retail."
+    },
+    {
+      "id": "q26",
+      "question": "¿Qué regulador tenía SVG FSA y qué pasó?",
+      "options": [
+        "Sigue emitiendo licencias forex",
+        "Ya no da licencias forex",
+        "Es Tier 1",
+        "Fue absorbido por AOFA"
+      ],
+      "correctIndex": 1,
+      "explanation": "SVG FSA (San Vicente y Granadinas) ya no da licencias forex. Fue Tier 3."
+    },
+    {
+      "id": "q27",
+      "question": "¿Dónde está Anjouan geográficamente?",
+      "options": [
+        "Caribe",
+        "Pacífico Sur",
+        "Unión de las Comoras (África Oriental, océano Índico)",
+        "Mediterráneo"
+      ],
+      "correctIndex": 2,
+      "explanation": "Anjouan es una isla de la Unión de las Comoras, en África Oriental, océano Índico."
+    },
+    {
+      "id": "q28",
+      "question": "¿Qué es IBC en 'Neomaaa Ltd IBC 15968'?",
+      "options": [
+        "International Broker Committee",
+        "International Business Company (tipo de entidad jurídica)",
+        "Investment Bank Certificate",
+        "Internal Business Control"
+      ],
+      "correctIndex": 1,
+      "explanation": "IBC = International Business Company. Es el tipo de entidad jurídica. Neomaaa Ltd está registrada como IBC 15968."
+    },
+    {
+      "id": "q29",
+      "question": "¿Cuál es el warning de risk disclosure en Tier 1?",
+      "options": [
+        "Recomendado",
+        "Obligatorio: 'El X% de los clientes retail pierden dinero'",
+        "Prohibido",
+        "No existe"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tier 1 obliga el warning '% de clientes retail que pierden dinero' en ads. En Anjouan es recomendado/voluntario; NEOMAAA lo adopta."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuál es una frase de cierre correcta para un cliente indeciso por la regulación?",
+      "options": [
+        "'Si querés FSCS, andá con otro broker. Somos un broker offshore con licencia real: leverage alto, bonos, mercados globales. Protección vía segregación y NBP'",
+        "'Somos iguales a FCA'",
+        "'No importa la regulación'",
+        "'El cliente no tiene protección'"
+      ],
+      "correctIndex": 0,
+      "explanation": "Transparencia: admitir no FCA, explicar ventajas offshore (leverage, bonos) y protección real (segregación, NBP). El cliente decide qué prioriza."
+    },
+    {
+      "id": "q31",
+      "question": "Caso Canadá según el doc:",
+      "options": [
+        "Aceptamos sin restricción",
+        "Regulación provincial compleja — caso a caso",
+        "Prohibido absoluto",
+        "Solo VIPs"
+      ],
+      "correctIndex": 1,
+      "explanation": "Canadá tiene regulación provincial compleja. Se evalúa caso a caso, no prohibido absoluto pero con cuidados."
+    },
+    {
+      "id": "q32",
+      "question": "Caso Japón según el doc:",
+      "options": [
+        "Aceptamos libremente",
+        "Estrictamente JFSA. Sin licencia japonesa, no aceptamos",
+        "Solo leverage bajo",
+        "Solo cuentas demo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Japón requiere licencia JFSA. Sin licencia japonesa, NEOMAAA no acepta clientes japoneses."
+    },
+    {
+      "id": "q33",
+      "question": "¿Dónde se resuelven disputas bajo NEOMAAA?",
+      "options": [
+        "Ombudsman europeo",
+        "Internamente y vía AOFA (no ombudsman europeo)",
+        "Corte Internacional de La Haya",
+        "SEC americana"
+      ],
+      "correctIndex": 1,
+      "explanation": "Las disputas se resuelven internamente y vía AOFA. No hay ombudsman europeo para NEOMAAA."
+    },
+    {
+      "id": "q34",
+      "question": "¿Qué frecuencia tiene la auditoría externa en Tier 4?",
+      "options": ["Nunca", "Cada 5 años", "Sí, anual", "Solo a pedido"],
+      "correctIndex": 2,
+      "explanation": "Todos los tiers (incluido Anjouan Tier 4) tienen auditoría externa anual."
+    },
+    {
+      "id": "q35",
+      "question": "Capital mínimo típico de Tier 3 (VFSC, Belice):",
+      "options": ["USD 20k-50k", "USD 50k-500k", "EUR 730k+", "USD 2M+"],
+      "correctIndex": 1,
+      "explanation": "Tier 3: USD 50k-500k. Tier 2: USD 500k-2M. Tier 1: EUR 730k+. Tier 4: USD 20k-50k."
+    },
+    {
+      "id": "q36",
+      "question": "¿Qué se entiende por 'passive onboarding' en UE?",
+      "options": [
+        "Aceptar al cliente solo si viene a nosotros, sin outreach activo, con full disclosure de que no somos CySEC/MiFID",
+        "Rechazar todos los clientes UE",
+        "Aceptar todos sin distinción",
+        "Automatizar el KYC"
+      ],
+      "correctIndex": 0,
+      "explanation": "Passive onboarding UE: aceptamos si el cliente viene a nosotros. No hacemos outreach activo. Full disclosure sobre jurisdicción."
+    },
+    {
+      "id": "q37",
+      "question": "¿Qué significa CONSOB?",
+      "options": [
+        "Regulador de Dubai",
+        "Regulador Tier 1 de Italia (UE, MiFID II)",
+        "Regulador de Brasil",
+        "Regulador de España"
+      ],
+      "correctIndex": 1,
+      "explanation": "CONSOB es el regulador italiano Tier 1, bajo MiFID II."
+    },
+    {
+      "id": "q38",
+      "question": "¿Qué es BaFin?",
+      "options": [
+        "Regulador alemán Tier 1, equivalente a CySEC bajo MiFID",
+        "Regulador offshore",
+        "Una bolsa de valores",
+        "Un PSP europeo"
+      ],
+      "correctIndex": 0,
+      "explanation": "BaFin = regulador financiero alemán Tier 1, bajo MiFID II, equivalente a CySEC."
+    },
+    {
+      "id": "q39",
+      "question": "Resumen: ¿qué debe siempre recordar el equipo sobre la regulación de NEOMAAA?",
+      "options": [
+        "Que somos FCA",
+        "NEOMAAA = Anjouan (AOFA), L15968/N. Offshore real, no FCA. Pros: leverage 1:1000, bonos. Cons: no fondo europeo. Compensamos con NBP + segregación + soporte",
+        "Somos un broker sin licencia",
+        "Operamos en modo gris"
+      ],
+      "correctIndex": 1,
+      "explanation": "Recordar: Anjouan (AOFA) L15968/N. Offshore real. Pros leverage alto y bonos. Cons sin fondo UE. Compensación: NBP, segregación, soporte, educación."
+    },
+    {
+      "id": "q40",
+      "question": "¿Qué ofrece el regulador en comparación con Tier 1 en términos de proceso de licencia?",
+      "options": [
+        "Tier 4 tarda años; Tier 1 meses",
+        "Tier 4 es más rápido (2-4 meses); Tier 1 lleva 6-24 meses",
+        "Ambos igual",
+        "Tier 1 es inexistente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Licencia Tier 4 (Anjouan): 2-4 meses. Tier 1: 6-24 meses. Es diferencia operativa relevante para scaling."
+    }
+  ]
+}

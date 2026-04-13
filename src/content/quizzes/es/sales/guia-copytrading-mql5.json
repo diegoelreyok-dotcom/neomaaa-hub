@@ -1,0 +1,421 @@
+{
+  "docPath": "sales/guia-copytrading-mql5",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuál es la plataforma donde funciona el copy trading de NEOMAAA?",
+      "options": [
+        "Un sistema propio de NEOMAAA",
+        "MQL5 Signals (marketplace oficial de MetaQuotes, integrado nativamente en MT5)",
+        "TradingView",
+        "ZuluTrade"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA NO tiene sistema propio de copy trading. Todo corre sobre MQL5 Signals, el marketplace oficial de MetaQuotes (creadores de MT5)."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuáles son los 3 actores principales del copy trading?",
+      "options": [
+        "Broker, CEO, Trader",
+        "Signal Provider (trader/influencer), Follower (cliente), MQL5 Signals (marketplace)",
+        "NEOMAAA, MT5, Cliente",
+        "IB, Agente, Cliente"
+      ],
+      "correctIndex": 1,
+      "explanation": "3 actores: Signal Provider (publica estrategia), Follower (se suscribe y copia), MQL5 Signals (marketplace que los conecta). MT5 es la plataforma donde se ejecutan las operaciones."
+    },
+    {
+      "id": "q3",
+      "question": "¿Qué tipo de cuenta se requiere para ser signal provider?",
+      "options": [
+        "Demo",
+        "Cuenta real con historial de trading (MQL5 Signals no acepta cuentas demo)",
+        "Solo cuenta institucional",
+        "Cualquier cuenta recién creada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Requisito crítico: cuenta REAL con historial de trading. Las demo no sirven. Standard o Raw son las más comunes para signal providers profesionales."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuántas operaciones reales cerradas se recomienda tener antes de publicar la señal?",
+      "options": [
+        "1-2 operaciones",
+        "Al menos 10 operaciones reales cerradas",
+        "100+ operaciones",
+        "Ninguna, podés publicar desde el día 0"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mínimo 10 operaciones reales cerradas. MQL5 pide historial mínimo para verificar que sos trader activo. Idealmente 2-4 semanas de track record positivo antes de publicar."
+    },
+    {
+      "id": "q5",
+      "question": "¿Cuál es el depósito mínimo recomendado para darle credibilidad a una señal?",
+      "options": [
+        "$5",
+        "$50",
+        "$100 mínimo, $500+ recomendado (balances chicos generan desconfianza en followers)",
+        "$10,000"
+      ],
+      "correctIndex": 2,
+      "explanation": "Mínimo $100. Recomendado $500+ para credibilidad. Balances chicos generan desconfianza en followers."
+    },
+    {
+      "id": "q6",
+      "question": "Al registrar la cuenta MT5 en MQL5, ¿qué password se usa?",
+      "options": [
+        "Master password",
+        "INVESTOR password (solo permite lectura del historial, NO permite operar)",
+        "Admin password",
+        "Cualquiera de los dos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Se usa el INVESTOR password, NO el master. Investor solo permite lectura del historial — MQL5 verifica trades pero no puede operar. Si se usa master por error, cambiarlo inmediatamente."
+    },
+    {
+      "id": "q7",
+      "question": "¿Qué comisión retiene aproximadamente MQL5 del revenue del signal provider?",
+      "options": [
+        "0%",
+        "5%",
+        "~20-30% (varía según plan y antigüedad)",
+        "50%"
+      ],
+      "correctIndex": 2,
+      "explanation": "MQL5 retiene ~20-30% de comisión (varía según plan y antigüedad). Mínimo de payout: $10 USD."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuál es la estrategia de pricing recomendada para un signal provider nuevo?",
+      "options": [
+        "Empezar en $500/mes",
+        "Publicar GRATIS los primeros 30-60 días para acumular followers y reviews. Subir a $50-100/mes con 50+ subscribers y 4+ estrellas. $150-250 con 200+ subscribers",
+        "Siempre mantenerla gratis",
+        "Cobrar $1,000 desde el día 1"
+      ],
+      "correctIndex": 1,
+      "explanation": "Estrategia: gratis 30-60 días para ganar followers, subir a $50-100 con 50+ subs y 4+ estrellas, $150-250 con 200+ subs. Top providers cobran $300-500/mes."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cuáles son los estilos de trading que se pueden elegir al publicar una señal?",
+      "options": [
+        "Solo Scalping",
+        "Solo Day Trading",
+        "Scalping, Day Trading, Swing, Positional",
+        "Solo Long-term"
+      ],
+      "correctIndex": 2,
+      "explanation": "Estilos: Scalping, Day Trading, Swing, Positional. Ser honesto con el estilo real — si decís swing y hacés scalping, los followers cancelan."
+    },
+    {
+      "id": "q10",
+      "question": "¿Por qué MQL5 Signals es ventajoso vs un sistema propio de broker?",
+      "options": [
+        "Es más caro",
+        "Reputación global, track record público y verificable, ranking global, reviews públicas, pagos automáticos, portabilidad entre brokers MT5, sin comisión broker extra",
+        "Nunca falla",
+        "Solo funciona con NEOMAAA"
+      ],
+      "correctIndex": 1,
+      "explanation": "MQL5 Signals = estándar industria. Reputación, transparencia con track record público, ranking global, reviews, pagos automáticos (PayPal/Wire/WebMoney/tarjeta), portabilidad, sin fees extra del broker."
+    },
+    {
+      "id": "q11",
+      "question": "Para un follower, ¿cuál es el depósito mínimo recomendado para copy trading?",
+      "options": [
+        "$5",
+        "$50",
+        "Mínimo $500-1000 USD (con menos, la proporcionalidad con el balance del provider queda descompensada)",
+        "$10,000 obligatorio"
+      ],
+      "correctIndex": 2,
+      "explanation": "Mínimo $500-1000. Con menos, algunos trades no se pueden copiar por falta de margin. Si provider tiene $10K y vos $100, 1 lote suyo equivale a 0.01 — demasiado chico."
+    },
+    {
+      "id": "q12",
+      "question": "¿Qué tipo de cuenta NEOMAAA es ideal para copy trading general?",
+      "options": [
+        "Cent",
+        "Standard (spreads competitivos, mínimo $50)",
+        "Institucional",
+        "Cualquiera menos Standard"
+      ],
+      "correctIndex": 1,
+      "explanation": "Standard es ideal para copy trading — spreads competitivos, mínimo $50. Cent no recomendada para copy serio. Raw ideal si el provider es scalper."
+    },
+    {
+      "id": "q13",
+      "question": "Como follower, para conectar MT5 a MQL5 Community, ¿a dónde vas?",
+      "options": [
+        "File → New Account",
+        "Tools → Options → pestaña Community → ingresar Login y Password de MQL5",
+        "Charts → Subscribe",
+        "View → Connect"
+      ],
+      "correctIndex": 1,
+      "explanation": "En MT5: Tools → Options (Ctrl+O) → pestaña 'Community' → ingresar Login y Password de MQL5.community → OK."
+    },
+    {
+      "id": "q14",
+      "question": "¿Cuáles son las 6 métricas a revisar antes de suscribirse a una señal?",
+      "options": [
+        "Solo el growth %",
+        "Drawdown máximo histórico, Growth %, Age (antigüedad), Subscribers activos, Reviews, Trading style match",
+        "Precio, logo, descripción",
+        "Solo reviews"
+      ],
+      "correctIndex": 1,
+      "explanation": "6 métricas clave: Drawdown máximo, Growth %, Age (preferible 6+ meses), Subscribers activos (10+ validación, 50+ buena señal), Reviews (leer críticas), Trading style match."
+    },
+    {
+      "id": "q15",
+      "question": "¿Qué es un red flag respecto al growth de una señal?",
+      "options": [
+        "Growth del 10% anual",
+        "Growth muy alto con poca antigüedad (ej. 200% en 2 meses)",
+        "Growth estable del 5% mensual",
+        "Growth 50% en un año"
+      ],
+      "correctIndex": 1,
+      "explanation": "Growth 200% en 2 meses = red flag. Número alto con poca antigüedad es sospechoso. Preferible antigüedad 6+ meses."
+    },
+    {
+      "id": "q16",
+      "question": "Al suscribirse, ¿qué risk settings son importantes configurar?",
+      "options": [
+        "Solo el copy ratio",
+        "Copy ratio, Max risk (% equity), Deviation (slippage), SL/TP limits, Copy SL/TP",
+        "Solo máx risk",
+        "No se configuran, MQL5 lo hace automáticamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Risk settings: Copy ratio, Max risk % equity (default 95%, recomendado bajar a 50-70%), Deviation/slippage, SL/TP limits personalizados, Copy SL/TP del provider."
+    },
+    {
+      "id": "q17",
+      "question": "¿Qué risk level se recomienda las primeras 2-4 semanas como follower?",
+      "options": [
+        "100% del equity",
+        "Risk bajo (30-50% del equity máximo). Observar cómo se comporta la señal antes de subir a 50-70%. Nunca 100%",
+        "0% (no copiar nada)",
+        "Lo que diga el provider"
+      ],
+      "correctIndex": 1,
+      "explanation": "Empezar con risk bajo (30-50%) las primeras 2-4 semanas. Observar. Si resultados consistentes, subir a 50-70%. NUNCA poner 100% — siempre dejar margen libre para fluctuaciones."
+    },
+    {
+      "id": "q18",
+      "question": "Si un signal provider también es IB de NEOMAAA, ¿cuántas formas tiene de ganar por el mismo cliente?",
+      "options": [
+        "1 (solo el IB)",
+        "2 (comisión IB + suscripción MQL5)",
+        "3 (IB + MQL5 + bono del broker)",
+        "Ninguna, es conflicto de interés"
+      ],
+      "correctIndex": 1,
+      "explanation": "2 formas: (1) Comisión IB por cada cliente referido (30-60% revenue share del broker), (2) Suscripción mensual MQL5 Signals por cada follower. El combo 'influencer + IB + signal provider' es el más rentable."
+    },
+    {
+      "id": "q19",
+      "question": "¿Qué frecuencia tiene MQL5 para los pagos a los signal providers?",
+      "options": [
+        "Diario",
+        "Semanal",
+        "Mensualmente (entre el día 5 y 10 del mes siguiente)",
+        "Anual"
+      ],
+      "correctIndex": 2,
+      "explanation": "MQL5 paga mensualmente. Típicamente entre día 5-10 del mes siguiente. Métodos: PayPal, Wire, WebMoney, tarjeta. Mínimo payout: $10."
+    },
+    {
+      "id": "q20",
+      "question": "¿Qué KYC debe completar un signal provider antes de publicar señal?",
+      "options": [
+        "Ninguno",
+        "Subir ID + comprobante de domicilio en NEOMAAA. Esperar aprobación (24-72h típico)",
+        "Solo email verificado",
+        "KYC solo en MQL5, no en NEOMAAA"
+      ],
+      "correctIndex": 1,
+      "explanation": "Signal provider completa KYC de NEOMAAA: subir ID + comprobante de domicilio. Aprobación típica 24-72h."
+    },
+    {
+      "id": "q21",
+      "question": "¿Dónde aparece el status 'Connected' y balance correcto en MT5?",
+      "options": [
+        "En la parte superior central",
+        "En la esquina inferior derecha de la plataforma",
+        "En el chart principal",
+        "No aparece, solo en el portal web"
+      ],
+      "correctIndex": 1,
+      "explanation": "Al conectar cuenta MT5: verificar en esquina inferior derecha que dice 'Connected' y muestra el balance correcto."
+    },
+    {
+      "id": "q22",
+      "question": "¿Cómo se llega a la ventana de Signals dentro de MT5?",
+      "options": [
+        "File → Signals",
+        "View → Signals (o Ctrl+L)",
+        "Help → Signals",
+        "Tools → Signals"
+      ],
+      "correctIndex": 1,
+      "explanation": "En MT5: View → Signals (shortcut Ctrl+L). Se abre ventana con lista completa del marketplace."
+    },
+    {
+      "id": "q23",
+      "question": "¿Qué métodos de pago acepta MQL5 para pagar a los signal providers?",
+      "options": [
+        "Solo transferencia bancaria",
+        "PayPal, Wire Transfer, WebMoney, tarjeta bancaria",
+        "Solo crypto",
+        "Solo USD cash"
+      ],
+      "correctIndex": 1,
+      "explanation": "Métodos de payout MQL5: PayPal, Wire Transfer, WebMoney, tarjeta bancaria."
+    },
+    {
+      "id": "q24",
+      "question": "Para un agente de ventas NEOMAAA que onboardea a un influencer, ¿necesita ser trader?",
+      "options": [
+        "Sí, obligatorio",
+        "No. El agent usa la guía como manual de referencia para acompañar al influencer paso a paso",
+        "Solo si el influencer opera Forex",
+        "Solo para cuentas grandes"
+      ],
+      "correctIndex": 1,
+      "explanation": "No es requisito. El sales agent usa la guía como manual de referencia para acompañar el onboarding del influencer. Entiende el flujo sin necesidad de ser trader."
+    },
+    {
+      "id": "q25",
+      "question": "¿Qué canal de promoción NO menciona la guía para signal providers?",
+      "options": [
+        "Instagram (historias y bio)",
+        "YouTube, TikTok, Twitter/X (links en bio)",
+        "Correo postal",
+        "Telegram (canal con paso a paso) y podcast"
+      ],
+      "correctIndex": 2,
+      "explanation": "La guía menciona: Instagram, YouTube, TikTok, Twitter/X, Telegram, podcast (Traders Hub). No menciona correo postal."
+    },
+    {
+      "id": "q26",
+      "question": "¿Qué métodos de depósito se recomiendan para followers?",
+      "options": [
+        "Solo tarjeta",
+        "PIX (Brasil), Crypto USDT (TRC20/ERC20), tarjeta, transferencia bancaria internacional, transferencia local LATAM",
+        "Solo crypto",
+        "Solo transferencia bancaria"
+      ],
+      "correctIndex": 1,
+      "explanation": "Métodos disponibles: PIX instantáneo, Crypto USDT 15-30 min, tarjeta instantánea (con fees), transferencia bancaria 1-3 días, transferencias locales LATAM."
+    },
+    {
+      "id": "q27",
+      "question": "¿Cuántos caracteres máximo aproximadamente tiene el nombre de una señal?",
+      "options": ["10", "20", "~50 caracteres máximo", "200"],
+      "correctIndex": 2,
+      "explanation": "Signal Name: máximo ~50 caracteres. Nombre público y branding."
+    },
+    {
+      "id": "q28",
+      "question": "¿Qué estadísticas ve el signal provider en su dashboard de MQL5?",
+      "options": [
+        "Solo revenue",
+        "Subscribers activos, Revenue mensual, Reviews, Ranking global, Growth %, Max drawdown, Sharpe ratio",
+        "Solo número de seguidores",
+        "Solo profits del mes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dashboard MQL5 provider: Subscribers activos, Revenue mensual, Reviews (1-5 estrellas + comentarios), Ranking global, Growth %, Max drawdown, Sharpe ratio (risk-adjusted return)."
+    },
+    {
+      "id": "q29",
+      "question": "¿De dónde saca el investor password el signal provider?",
+      "options": [
+        "Es el mismo que el de login de NEOMAAA",
+        "En el portal del cliente NEOMAAA: 'Mis Cuentas' → click en la cuenta MT5 → 'Cambiar contraseña' → Investor password",
+        "Lo envía soporte por email",
+        "Se genera en MQL5"
+      ],
+      "correctIndex": 1,
+      "explanation": "Portal cliente NEOMAAA → Mis Cuentas → click cuenta MT5 → Cambiar contraseña → dos opciones: Master e Investor. Si nunca se configuró, se puede generar uno nuevo."
+    },
+    {
+      "id": "q30",
+      "question": "¿Qué documentos pide KYC de NEOMAAA al follower?",
+      "options": [
+        "Solo email",
+        "ID (DNI, pasaporte o licencia) + comprobante de domicilio (factura servicios, extracto bancario, no más de 3 meses)",
+        "Solo selfie",
+        "Pasaporte internacional obligatorio"
+      ],
+      "correctIndex": 1,
+      "explanation": "KYC follower: ID (DNI, pasaporte, licencia) + comprobante de domicilio (factura servicios o extracto bancario, no más de 3 meses)."
+    },
+    {
+      "id": "q31",
+      "question": "¿Qué % de traders retail típicamente pierde dinero en forex/CFDs según el warning de la guía?",
+      "options": [
+        "10-20%",
+        "30-40%",
+        "70-80%",
+        "95%"
+      ],
+      "correctIndex": 2,
+      "explanation": "Warning oficial: 70-80% de traders retail pierden dinero en forex/CFDs. Rentabilidades pasadas NO garantizan resultados futuros."
+    },
+    {
+      "id": "q32",
+      "question": "Si el signal provider es scalper, ¿qué cuenta NEOMAAA es más apropiada para el follower?",
+      "options": [
+        "Cent",
+        "Standard",
+        "Raw (spreads casi cero + comisión por lote)",
+        "Institucional obligatorio"
+      ],
+      "correctIndex": 2,
+      "explanation": "Raw es ideal para seguir scalpers: spreads casi cero + comisión por lote. Para swing/positional, Standard está bien."
+    },
+    {
+      "id": "q33",
+      "question": "¿Qué hay que hacer después de suscribirse a una señal?",
+      "options": [
+        "Nada, ya copia automáticamente",
+        "Monitorear: MT5 pestaña 'Trade' para ver operaciones copiándose. Revisar semanalmente performance (P&L, drawdown actual, trades abiertos)",
+        "Llamar al provider todos los días",
+        "Pausar y reactivar diariamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Monitoreo regular: MT5 pestaña 'Trade' muestra trades en tiempo real. Revisar semanalmente ganancia/pérdida, drawdown actual, trades abiertos."
+    },
+    {
+      "id": "q34",
+      "question": "El kit de onboarding recomendado para la comunidad de un influencer incluye:",
+      "options": [
+        "Solo link de MQL5",
+        "Link de registro NEOMAAA (con referral IB), link a la señal MQL5, video tutorial de 5 min, canal Telegram de soporte",
+        "Solo email del influencer",
+        "Solo screenshots"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kit onboarding: link registro NEOMAAA con referral IB (si aplica), link señal MQL5, video tutorial de 5 min o la guía, canal Telegram de soporte donde el influencer responde dudas."
+    },
+    {
+      "id": "q35",
+      "question": "¿Tiene NEOMAAA un 'botón de copy trading' en el portal del cliente?",
+      "options": [
+        "Sí, en la home",
+        "No. Todo el copy trading se hace a través de MQL5 Signals integrado nativamente en MT5",
+        "Solo en cuentas institucionales",
+        "Sí, pero se paga extra"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA NO tiene botón propio de copy trading. Todo el copy trading va por MQL5 Signals (marketplace oficial MetaQuotes integrado nativamente en MT5). Es ventaja, no limitación."
+    }
+  ]
+}

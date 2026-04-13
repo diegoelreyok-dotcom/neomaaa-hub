@@ -1,0 +1,386 @@
+{
+  "docPath": "hiring/finance-manager",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuál es la compensación mensual del Finance Manager?",
+      "options": ["$1,500 USD/mes", "$1,800 USD/mes", "$2,500 USD/mes", "$3,000 USD/mes"],
+      "correctIndex": 1,
+      "explanation": "Finance Manager: $1,800 USD/mes. Remoto, horario LATAM 9-18 COL/MEX."
+    },
+    {
+      "id": "q2",
+      "question": "¿Qué modalidad tiene la posición?",
+      "options": ["Presencial Dubai", "Remoto (debe coincidir con horario LATAM 9-18 COL/MEX)", "Híbrido", "Freelance"],
+      "correctIndex": 1,
+      "explanation": "Modalidad: remoto, debe coincidir con horario LATAM: 9:00-18:00 COL/MEX."
+    },
+    {
+      "id": "q3",
+      "question": "¿A quién reporta el Finance Manager?",
+      "options": ["CEO solamente", "CFO", "Principals (Diego, Yulia, Stanislav)", "Head of Support"],
+      "correctIndex": 2,
+      "explanation": "Reporta a los Principals: Diego, Yulia y Stanislav. Inicio: inmediato."
+    },
+    {
+      "id": "q4",
+      "question": "¿Por qué es prioridad #1 esta contratación?",
+      "options": [
+        "Es la más barata",
+        "Sin ella el broker no puede rastrear fondos, procesar retiros en tiempo, generar reportes confiables, detectar discrepancias ni mantener relaciones con PSPs",
+        "Por imagen",
+        "Requisito regulatorio"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prioridad #1: sin Finance Manager no se puede rastrear flujo, procesar retiros en tiempos competitivos, generar reportes, detectar discrepancias o mantener PSPs."
+    },
+    {
+      "id": "q5",
+      "question": "Sin Finance Manager, ¿qué pasa con los Principals?",
+      "options": [
+        "Nada",
+        "Absorben esas funciones y desvían atención del crecimiento del negocio",
+        "Despiden gente",
+        "Contratan externo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sin Finance Manager, los Principals absorben las funciones y se desvían del crecimiento. Este rol se paga solo evitando errores de reconciliación y optimizando costos PSP."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuántos métodos de depósito gestiona el Finance Manager?",
+      "options": ["50+", "80+", "120+", "200+"],
+      "correctIndex": 2,
+      "explanation": "Gestiona relaciones con todos los PSPs — actualmente 120+ métodos de depósito disponibles."
+    },
+    {
+      "id": "q7",
+      "question": "Experiencia mínima obligatoria:",
+      "options": [
+        "Sin experiencia",
+        "Mínimo 2 años en finanzas de broker forex/CFD, fintech, o empresa de servicios de pago",
+        "5 años en banca",
+        "10 años contabilidad"
+      ],
+      "correctIndex": 1,
+      "explanation": "Obligatorio: 2 años mínimo en finanzas de broker forex/CFD, fintech o servicios de pago."
+    },
+    {
+      "id": "q8",
+      "question": "¿Dominio de qué herramienta es obligatorio?",
+      "options": [
+        "Python",
+        "Excel/Google Sheets avanzado (tablas dinámicas, VLOOKUP, fórmulas financieras)",
+        "SQL",
+        "SAP"
+      ],
+      "correctIndex": 1,
+      "explanation": "Excel/Sheets avanzado obligatorio: tablas dinámicas, VLOOKUP, fórmulas financieras."
+    },
+    {
+      "id": "q9",
+      "question": "Idioma obligatorio:",
+      "options": [
+        "Sólo español",
+        "Inglés profesional (comunicación con PSPs y equipo internacional)",
+        "Sólo ruso",
+        "Árabe"
+      ],
+      "correctIndex": 1,
+      "explanation": "Obligatorio: inglés profesional para comunicación con PSPs y equipo internacional. Deseable: español para equipo LATAM y Principals."
+    },
+    {
+      "id": "q10",
+      "question": "KPI de tiempo de procesamiento de retiros estándar:",
+      "options": ["< 72 horas", "< 48 horas", "< 24 horas (día hábil)", "< 1 semana"],
+      "correctIndex": 2,
+      "explanation": "Retiros estándar: <24 horas (día hábil). KPI clave del rol."
+    },
+    {
+      "id": "q11",
+      "question": "Precisión de reconciliación objetivo:",
+      "options": ["95%", "99%", "99.9% (cero discrepancias no resueltas al cierre del día)", "80%"],
+      "correctIndex": 2,
+      "explanation": "Precisión: 99.9% — cero discrepancias no resueltas al cierre del día."
+    },
+    {
+      "id": "q12",
+      "question": "¿Cuándo debe entregarse el reporte semanal a Principals?",
+      "options": [
+        "Viernes PM",
+        "Antes de las 10:00 AM (COL) cada lunes",
+        "Cualquier día",
+        "Cada dos semanas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reporte semanal: antes de 10:00 AM COL cada lunes. Reporte mensual completo: antes del día 5 del mes siguiente."
+    },
+    {
+      "id": "q13",
+      "question": "Objetivo de disponibilidad de PSPs:",
+      "options": ["99.99%", "95%+ de uptime en métodos de pago principales por mercado", "90%", "80%"],
+      "correctIndex": 1,
+      "explanation": "Disponibilidad PSPs: 95%+ uptime en métodos de pago principales por mercado."
+    },
+    {
+      "id": "q14",
+      "question": "KPI de errores de nómina:",
+      "options": ["< 1 por mes", "Cero errores por período de pago", "< 5%", "No hay KPI"],
+      "correctIndex": 1,
+      "explanation": "Cero errores por período de pago. KPI crítico — errores de nómina destruyen la confianza del equipo."
+    },
+    {
+      "id": "q15",
+      "question": "¿Cuál es la nómina actual y proyectada Stage 1?",
+      "options": [
+        "$10K / $20K",
+        "~$21K actual, proyectado ~$34K en Stage 1 completo",
+        "$50K / $100K",
+        "$100K / $200K"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nómina actual ~$21K/mes, proyectada ~$34K/mes con equipo completo Stage 1."
+    },
+    {
+      "id": "q16",
+      "question": "¿Qué herramientas principales utilizará?",
+      "options": [
+        "Sólo Excel",
+        "Skale CRM, paneles PSPs, MT5 Manager, Google Sheets/Excel, Intercom, Slack/Discord",
+        "Sólo Google Sheets",
+        "SAP, Oracle, NetSuite"
+      ],
+      "correctIndex": 1,
+      "explanation": "Herramientas: Skale CRM, paneles PSPs múltiples, MT5 Manager, Sheets/Excel, Intercom (coordinación soporte), Slack/Discord."
+    },
+    {
+      "id": "q17",
+      "question": "Responsabilidades de reconciliación:",
+      "options": [
+        "Mensual",
+        "Diaria entre Skale CRM, paneles PSPs y cuentas bancarias corporativas. Identificar y resolver discrepancias inmediatamente, documentar caso y resolución",
+        "Anual",
+        "Semanal"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reconciliación diaria cruzada: Skale CRM + paneles PSPs + cuentas bancarias. Identificar + resolver discrepancias inmediatamente + documentar."
+    },
+    {
+      "id": "q18",
+      "question": "¿Qué incluyen los reportes financieros semanales/mensuales?",
+      "options": [
+        "Sólo P&L",
+        "P&L, flujo de caja, volumen depósitos/retiros, costos PSP, métricas clave. Dashboards actualizados <24h delay",
+        "Sólo volumen",
+        "Nada específico"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reportes: P&L, flujo caja, volumen depósitos/retiros, costos PSP, métricas clave. Dashboards en tiempo real o <24h delay."
+    },
+    {
+      "id": "q19",
+      "question": "Proceso de selección:",
+      "options": [
+        "Sólo CV",
+        "Revisión CV, entrevista Principals 30 min, caso práctico (reconciliación simulada + reporte), decisión en 48h post-entrevista",
+        "Sólo examen",
+        "3 entrevistas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Proceso: CV + entrevista Principals 30 min (experiencia y fit cultural) + caso práctico (reconciliación simulada + reporte) + decisión 48h."
+    },
+    {
+      "id": "q20",
+      "question": "Experiencia deseable en CRM:",
+      "options": [
+        "HubSpot",
+        "Skale CRM o CRMs similares de broker",
+        "Salesforce",
+        "Monday.com"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deseable: Skale CRM o CRMs similares de broker. NEOMAAA usa Skale."
+    },
+    {
+      "id": "q21",
+      "question": "Responsabilidad sobre nómina mensual:",
+      "options": [
+        "Solo de Principals",
+        "Procesar nómina mensual del equipo según calendario establecido",
+        "Solo externo",
+        "No aplica"
+      ],
+      "correctIndex": 1,
+      "explanation": "Procesa nómina mensual del equipo ($21K actual, $34K proyectado) según calendario. Rastrear y categorizar gastos operativos."
+    },
+    {
+      "id": "q22",
+      "question": "¿Cuándo escala retiros a Compliance y Principals?",
+      "options": [
+        "Nunca",
+        "Cuando excedan umbrales definidos o presenten irregularidades",
+        "Siempre todos",
+        "Sólo >$100K"
+      ],
+      "correctIndex": 1,
+      "explanation": "Escala retiros que excedan umbrales definidos o presenten irregularidades al equipo de Compliance y Principals."
+    },
+    {
+      "id": "q23",
+      "question": "Negociación con PSPs:",
+      "options": [
+        "Sólo Angel lo hace",
+        "Finance Manager negocia tarifas, resuelve disputas de transacciones, asegura disponibilidad continua de métodos clave por mercado (LATAM, Middle East, Africa, SE Asia)",
+        "No aplica",
+        "Externo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Finance Manager: negocia tarifas PSPs, resuelve disputas, asegura disponibilidad por mercado objetivo (LATAM, Middle East, Africa, SE Asia)."
+    },
+    {
+      "id": "q24",
+      "question": "Responsabilidad sobre cashflow:",
+      "options": [
+        "No aplica",
+        "Gestionar cashflow asegurando liquidez para retiros, nómina, costos operativos y reservas regulatorias. Alertar con anticipación sobre cuellos de botella",
+        "Sólo mensual",
+        "Sólo aprobar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Gestiona cashflow: liquidez para retiros + nómina + opex + reservas regulatorias. Alerta con anticipación sobre cuellos de botella."
+    },
+    {
+      "id": "q25",
+      "question": "Colaboración con Compliance:",
+      "options": [
+        "No colabora",
+        "Colabora con Compliance Officer en reportes STR (Suspicious Transaction Reports) y mantenimiento de registros",
+        "Sólo trimestral",
+        "Por email únicamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Colabora con Compliance Officer en STR (Suspicious Transaction Reports) y mantenimiento de registros regulatorios."
+    },
+    {
+      "id": "q26",
+      "question": "Deseable sobre regulaciones:",
+      "options": [
+        "FCA",
+        "Conocimiento de regulaciones offshore (Anjouan, Comoros, similar)",
+        "SEC",
+        "Sólo CySEC"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deseable: conocimiento de regulaciones offshore (Anjouan, Comoros, similar). NEOMAAA opera bajo AOFA."
+    },
+    {
+      "id": "q27",
+      "question": "Deseable sobre MetaTrader:",
+      "options": [
+        "No se usa",
+        "Experiencia con MT5 (entender el lado financiero de la plataforma)",
+        "Sólo MT4",
+        "cTrader"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deseable: experiencia con MetaTrader 5 para entender el lado financiero de la plataforma (balances, transacciones de trading)."
+    },
+    {
+      "id": "q28",
+      "question": "Responsabilidad sobre optimización:",
+      "options": [
+        "No aplica",
+        "Identificar oportunidades para reducir costos de procesamiento de pagos y mejorar tiempos de ejecución. Proponer y ejecutar mejoras",
+        "Sólo proponer",
+        "Sólo reportar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Identificar y ejecutar reducciones de costos de procesamiento y mejoras de tiempos. Proponer mejoras conforme el broker escale."
+    },
+    {
+      "id": "q29",
+      "question": "KPI de costo promedio de procesamiento:",
+      "options": [
+        "No se mide",
+        "Reducción trimestral medible vs baseline",
+        "Anual",
+        "Aumento 10%"
+      ],
+      "correctIndex": 1,
+      "explanation": "KPI: reducción trimestral medible del costo de procesamiento vs baseline."
+    },
+    {
+      "id": "q30",
+      "question": "Deseable sobre equipos remotos:",
+      "options": [
+        "Presencial",
+        "Experiencia gestionando nómina de equipos remotos internacionales",
+        "Sólo local",
+        "No aplica"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deseable: experiencia gestionando nómina de equipos remotos internacionales. NEOMAAA es 100% remoto multi-jurisdicción."
+    },
+    {
+      "id": "q31",
+      "question": "Sobre NEOMAAA Markets (contexto del rol):",
+      "options": [
+        "Broker USA",
+        "Broker forex/CFDs con licencia Anjouan (AOFA), MT5 ECN/STP híbrido, 2,000+ instrumentos, cuentas desde $5, apalancamiento hasta 1:1000, foco LATAM",
+        "Exchange crypto",
+        "Banco digital"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA Markets: broker forex/CFDs bajo AOFA Anjouan, MT5 híbrido ECN/STP, 2K+ instrumentos, desde $5, apalancamiento 1:1000, mercado principal LATAM."
+    },
+    {
+      "id": "q32",
+      "question": "Tamaño del equipo NEOMAAA:",
+      "options": [
+        "5 personas",
+        "16 personas (12 actuales + 4 vacantes) con mentalidad startup",
+        "50 personas",
+        "100 personas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Equipo remoto de 16 personas (12 actuales + 4 vacantes). Mentalidad startup: rápidos, directos, enfocados en resultados."
+    },
+    {
+      "id": "q33",
+      "question": "¿Qué compliance financiero debe asegurar?",
+      "options": [
+        "Ninguno",
+        "Todas las operaciones financieras cumplan con los requerimientos regulatorios de la licencia AOFA",
+        "Solo tax",
+        "GDPR"
+      ],
+      "correctIndex": 1,
+      "explanation": "Asegura cumplimiento AOFA de todas las operaciones financieras. Colabora con Compliance en STR y registros."
+    },
+    {
+      "id": "q34",
+      "question": "Deseable sobre Skale CRM:",
+      "options": [
+        "No importa",
+        "Experiencia con Skale CRM o CRMs similares de broker",
+        "Sólo HubSpot",
+        "Sólo excel"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deseable: experiencia con Skale CRM o CRMs similares de broker. Skale es el CRM central de NEOMAAA."
+    },
+    {
+      "id": "q35",
+      "question": "Alerta sobre liquidez:",
+      "options": [
+        "Sólo al final",
+        "Alertar a Principals con anticipación cuando se proyecten cuellos de botella de liquidez",
+        "Nunca alertar",
+        "Solo si preguntan"
+      ],
+      "correctIndex": 1,
+      "explanation": "Alerta proactiva a Principals con anticipación cuando se proyecten cuellos de botella de liquidez. No esperar a que exploten."
+    }
+  ]
+}

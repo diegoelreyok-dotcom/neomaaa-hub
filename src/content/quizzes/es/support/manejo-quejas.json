@@ -1,0 +1,417 @@
+{
+  "docPath": "support/manejo-quejas",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Que es una queja segun NEOMAAA?",
+      "options": [
+        "Cualquier comentario negativo",
+        "Expresion de insatisfaccion sobre un servicio, producto, proceso o trato que requiere respuesta o accion correctiva",
+        "Una amenaza legal",
+        "Un CSAT bajo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Una queja es cualquier expresion de insatisfaccion de un cliente sobre un servicio, producto, proceso o trato recibido, que requiere una respuesta o accion correctiva."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cual es la diferencia entre consulta y queja?",
+      "options": [
+        "Son lo mismo",
+        "Consulta = pregunta informativa; Queja = insatisfaccion que requiere accion",
+        "Consulta es escrita, queja es oral",
+        "No hay diferencia operativa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Consulta ('cuanto tardan los retiros?') = respuesta informativa, flujo normal. Queja ('mi retiro lleva 5 dias y no me responden') = protocolo de quejas."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuales son las 7 etapas del proceso formal de manejo de quejas?",
+      "options": [
+        "Recepcion, investigacion, cierre",
+        "Recepcion → Acuse → Clasificacion → Investigacion → Resolucion → Comunicacion → Seguimiento",
+        "Apertura → Escalada → Resolucion",
+        "Recibir, responder, cerrar"
+      ],
+      "correctIndex": 1,
+      "explanation": "7 etapas: 1) Recepcion, 2) Acuse, 3) Clasificacion, 4) Investigacion, 5) Resolucion, 6) Comunicacion, 7) Seguimiento."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuando se envia el acuse de recibo?",
+      "options": [
+        "Dentro de 24 horas",
+        "Dentro de los primeros 30 minutos desde la recepcion",
+        "Al final del dia",
+        "Solo si el cliente insiste"
+      ],
+      "correctIndex": 1,
+      "explanation": "Acuse de recibo: dentro de los primeros 30 minutos desde la recepcion. Debe incluir numero de caso, tiempo estimado de investigacion y canal de seguimiento."
+    },
+    {
+      "id": "q5",
+      "question": "¿Que tag obligatorio lleva toda queja en Intercom?",
+      "options": [
+        "`urgent`",
+        "`complaint`",
+        "`escalated`",
+        "`vip`"
+      ],
+      "correctIndex": 1,
+      "explanation": "Todo ticket de queja debe tener tag `complaint` + tag de categoria (ej: `complaint-withdrawal`) + tag de severidad (`severity-1` a `severity-4`)."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuantos niveles de severidad tienen las quejas?",
+      "options": ["2", "3", "4 (Baja, Media, Alta, Critica)", "5"],
+      "correctIndex": 2,
+      "explanation": "4 niveles: 1-Baja (inconveniencia menor sin dinero), 2-Media (impacta operatividad sin perdida), 3-Alta (perdida potencial/real, incumplimiento SLA), 4-Critica (amenaza legal, regulador, perdida significativa)."
+    },
+    {
+      "id": "q7",
+      "question": "'Voy a reportar al regulador'. ¿Que nivel de severidad?",
+      "options": ["Nivel 1", "Nivel 2", "Nivel 3", "Nivel 4 (Critica)"],
+      "correctIndex": 3,
+      "explanation": "Nivel 4 Critica: amenaza legal, mencion de regulador, 'Me prometieron ganancias', perdida >$5,000 por error de plataforma. Responsable: Susana + Principals."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cual es el SLA de acuse de recibo para queja nivel 4 (critica)?",
+      "options": ["15 minutos", "30 minutos", "1 hora", "Inmediato"],
+      "correctIndex": 3,
+      "explanation": "SLA acuse de recibo: Nivel 1-2: 30 min. Nivel 3: 15 min. Nivel 4: Inmediato."
+    },
+    {
+      "id": "q9",
+      "question": "Queja sin acuse en 30 minutos. ¿Que escalamiento automatico hay?",
+      "options": [
+        "No hay escalamiento",
+        "Auto-escalar a Edward",
+        "Cerrar el ticket",
+        "Avisar a Diego"
+      ],
+      "correctIndex": 1,
+      "explanation": "Escalamiento automatico: queja sin acuse en 30 min → auto-escalar a Edward. Queja sin actualizacion en doble del SLA → Principals via Susana. 3+ mensajes sin respuesta → reclasificar a nivel superior."
+    },
+    {
+      "id": "q10",
+      "question": "Queja de ejecucion — ¿quien es el investigador principal?",
+      "options": [
+        "Finance Manager",
+        "Susana",
+        "Pepe (Dealing)",
+        "Edward"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ejecucion/Plataforma/Comisiones/Spreads: investigador principal Pepe (Dealing). Consulta logs MT5, proveedor de liquidez, equipo tecnico."
+    },
+    {
+      "id": "q11",
+      "question": "¿Quien investiga una queja de KYC/Cuenta?",
+      "options": [
+        "Edward",
+        "Pepe",
+        "Susana (Compliance), consulta a Sumsub",
+        "Finance Manager"
+      ],
+      "correctIndex": 2,
+      "explanation": "Queja KYC/Cuenta: Susana investiga (consulta Sumsub). Compliance: Susana. Atencion al cliente: Edward. Depositos/Retiros: Finance Manager."
+    },
+    {
+      "id": "q12",
+      "question": "¿Cual es el SLA de resolucion final para queja nivel 3 (Alta)?",
+      "options": ["4 horas", "8 horas habiles", "12 horas habiles", "24 horas"],
+      "correctIndex": 1,
+      "explanation": "SLA resolucion final: Nivel 1 Baja: 24h habiles. Nivel 2 Media: 12h habiles. Nivel 3 Alta: 8h habiles. Nivel 4 Critica: 4h habiles (accion inicial)."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuales son las 4 posibles resoluciones de una queja?",
+      "options": [
+        "Ganar o perder",
+        "Procedente error NEOMAAA / Procedente error tercero / Parcialmente procedente / Improcedente",
+        "Resuelta o pendiente",
+        "Compensada o no"
+      ],
+      "correctIndex": 1,
+      "explanation": "4 tipos: queja procedente por error NEOMAAA (corregir + disculpa + compensacion), procedente por error de tercero (explicar + alternativas), parcialmente procedente (corregir lo que corresponde), improcedente (explicar con datos y evidencia)."
+    },
+    {
+      "id": "q14",
+      "question": "¿Cuando se hace el seguimiento post-resolucion?",
+      "options": [
+        "Solo al cerrar",
+        "48 horas despues + 7 dias despues",
+        "1 semana despues",
+        "1 mes despues"
+      ],
+      "correctIndex": 1,
+      "explanation": "Seguimiento etapa 7: 48 horas despues de comunicar resolucion + encuesta de satisfaccion breve a los 7 dias."
+    },
+    {
+      "id": "q15",
+      "question": "Cliente menciona al regulador AOFA. ¿Que es lo PRIMERO que debe hacer el agente?",
+      "options": [
+        "Argumentar que el caso no procede",
+        "Detener cualquier respuesta al fondo, solo confirmar recepcion",
+        "Ofrecer compensacion para que no reporte",
+        "Cerrar el ticket"
+      ],
+      "correctIndex": 1,
+      "explanation": "Queja regulatoria: 1) Detener cualquier respuesta al fondo, solo confirmar recepcion. 2) Documentar textualmente. 3) Escalar a Susana INMEDIATAMENTE (Slack + email, asunto 'QUEJA REGULATORIA'). 4) No discutir, argumentar ni prometer."
+    },
+    {
+      "id": "q16",
+      "question": "¿Que debe NO hacer el agente de soporte con quejas regulatorias?",
+      "options": [
+        "Escalar a Susana",
+        "Opinar sobre si la queja tiene fundamento, dar explicaciones legales, prometer compensaciones, pedir al cliente que 'no escale'",
+        "Confirmar recepcion",
+        "Documentar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Agente NO debe: opinar sobre fundamento, dar explicaciones legales/regulatorias, prometer compensaciones, pedir al cliente que 'no escale', minimizar la queja."
+    },
+    {
+      "id": "q17",
+      "question": "¿Cuanto tiempo tiene Susana para tomar control de una queja regulatoria?",
+      "options": ["30 minutos", "1 hora", "2 horas", "24 horas"],
+      "correctIndex": 2,
+      "explanation": "Susana toma control del caso dentro de las siguientes 2 horas de escalado."
+    },
+    {
+      "id": "q18",
+      "question": "¿Quien autoriza una disculpa formal sin compensacion economica?",
+      "options": [
+        "Agente L1 (hasta $0)",
+        "Edward",
+        "Susana",
+        "Principals"
+      ],
+      "correctIndex": 0,
+      "explanation": "Disculpa formal sin compensacion: Agente L1. Reversion de comision/swap hasta $50: Edward. Credito goodwill hasta $100: Edward + Susana. >$100: Principals. Ajuste por error comprobado: Finance Manager + Susana."
+    },
+    {
+      "id": "q19",
+      "question": "¿Quien autoriza un credito de goodwill mayor a $100 USD?",
+      "options": [
+        "Edward solo",
+        "Susana sola",
+        "Edward + Susana",
+        "Principals (sin limite)"
+      ],
+      "correctIndex": 3,
+      "explanation": "Credito goodwill >$100: Principals (sin limite especifico). Edward + Susana pueden autorizar hasta $100."
+    },
+    {
+      "id": "q20",
+      "question": "¿En que caso aplica compensacion?",
+      "options": [
+        "Error del cliente (envio a red incorrecta)",
+        "Condiciones normales de mercado (slippage, gap)",
+        "Error comprobado de NEOMAAA (deposito no acreditado, ejecucion erronea)",
+        "Nunca se compensa"
+      ],
+      "correctIndex": 2,
+      "explanation": "Aplica compensacion: error comprobado NEOMAAA (monto + goodwill), demora fuera de SLA sin comunicacion (goodwill proporcional), queja de trato de agente (disculpa + posible goodwill). NO aplica: error del cliente, condiciones normales de mercado."
+    },
+    {
+      "id": "q21",
+      "question": "¿Que NO se documenta obligatoriamente en una queja?",
+      "options": [
+        "Descripcion textual del cliente",
+        "Emociones del cliente durante la conversacion",
+        "Resultado de investigacion",
+        "Confirmacion de satisfaccion"
+      ],
+      "correctIndex": 1,
+      "explanation": "Datos obligatorios: tag complaint, tag categoria, tag severidad, numero cuenta MT5, descripcion TEXTUAL del cliente (no interpretar), fecha, agente asignado, estado, resultado investigacion, accion correctiva, fecha resolucion, confirmacion satisfaccion. Las emociones no son dato formal."
+    },
+    {
+      "id": "q22",
+      "question": "¿Con que frecuencia se hace la revision mensual de quejas?",
+      "options": [
+        "Cada viernes",
+        "Primer lunes de cada mes (30 min)",
+        "Trimestral",
+        "Cuando haya problemas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Revision mensual: primer lunes de cada mes, 30 minutos. Participantes: Edward, Susana, representante de soporte. Agenda: metricas, top 3 categorias, recurrentes, acciones preventivas, reconocer mejoras."
+    },
+    {
+      "id": "q23",
+      "question": "Queja recurrente de retiros demorados. ¿Accion preventiva?",
+      "options": [
+        "Ignorar",
+        "Revisar proceso con PSP, mejorar comunicacion proactiva",
+        "Aumentar SLA oficial",
+        "Cerrar quejas sin resolver"
+      ],
+      "correctIndex": 1,
+      "explanation": "Acciones preventivas comunes: Retiros demorados → revisar proceso PSP, mejorar comunicacion proactiva. Depositos no acreditados → mejorar guias, alertas. Mala ejecucion → revisar LP, auditar logs. Info incorrecta agentes → capacitacion."
+    },
+    {
+      "id": "q24",
+      "question": "Script para retiro demorado: ¿que frase empatica incluye?",
+      "options": [
+        "'Es problema del banco'",
+        "'Otros clientes tambien esperan'",
+        "'Entiendo que esperar por tu dinero genera ansiedad y quiero que sepas que es nuestra prioridad resolverlo'",
+        "'No se cuando se resuelva'"
+      ],
+      "correctIndex": 2,
+      "explanation": "Script retiro demorado incluye empatia: 'Entiendo que esperar por tu dinero genera ansiedad y quiero que sepas que es nuestra prioridad resolverlo.'"
+    },
+    {
+      "id": "q25",
+      "question": "Script para deposito no acreditado: ¿que 4 datos se piden?",
+      "options": [
+        "Solo numero de cuenta",
+        "Solo el monto",
+        "Metodo de pago, monto exacto, fecha/hora aproximada, comprobante (captura o TX hash)",
+        "Solo comprobante"
+      ],
+      "correctIndex": 2,
+      "explanation": "Script deposito no acreditado: pedir 1) metodo de pago, 2) monto exacto, 3) fecha y hora aproximada, 4) comprobante de transaccion (captura o TX hash si es crypto)."
+    },
+    {
+      "id": "q26",
+      "question": "Script para problema de ejecucion: ¿que 6 datos se piden?",
+      "options": [
+        "Solo MT5 #",
+        "Cuenta MT5, numero de orden/ticket, instrumento, hora exacta, que esperabas vs paso, captura",
+        "Solo la hora",
+        "Solo el instrumento"
+      ],
+      "correctIndex": 1,
+      "explanation": "Script ejecucion: Numero cuenta MT5, numero orden/ticket, instrumento, hora exacta, que esperabas vs que paso, captura si la tiene. Lo revisa equipo de dealing con acceso a logs."
+    },
+    {
+      "id": "q27",
+      "question": "¿Cuanto es la meta de tasa de resolucion dentro de SLA?",
+      "options": [">50%", ">75%", ">90%", "100%"],
+      "correctIndex": 2,
+      "explanation": "KPIs mensuales: tasa resolucion dentro de SLA >90%. Satisfaccion cliente >80%. Quejas nivel 4 <2 por mes. Recurrentes mismo cliente <5%."
+    },
+    {
+      "id": "q28",
+      "question": "¿Cual es la meta de quejas nivel 4 (criticas) por mes?",
+      "options": ["<5", "<3", "<2", "0"],
+      "correctIndex": 2,
+      "explanation": "Meta de quejas nivel 4 (criticas): <2 por mes. Indica control de riesgo regulatorio."
+    },
+    {
+      "id": "q29",
+      "question": "Si NEOMAAA recibe queja formal de AOFA, ¿quien coordina la respuesta?",
+      "options": [
+        "Edward",
+        "Susana con Principals",
+        "Agente L1",
+        "El mismo cliente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Queja formal de AOFA: Susana coordina respuesta con Principals. Plazo segun requerimientos AOFA. Toda comunicacion con regulador pasa por Susana. Se documenta en registro de compliance separado."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuando se reclasifica automaticamente una queja a nivel superior?",
+      "options": [
+        "Cuando el cliente grita",
+        "Cliente envio 3+ mensajes sin respuesta sobre una queja",
+        "Al cambiar de agente",
+        "Nunca se reclasifica"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reclasificar a nivel superior cuando el cliente envio 3+ mensajes sin respuesta sobre una queja. Tambien: menciona regulador/abogado/autoridades → Nivel 4 automatico."
+    },
+    {
+      "id": "q31",
+      "question": "¿Que toda compensacion debe registrar?",
+      "options": [
+        "Solo el monto",
+        "Numero ticket, monto, razon, quien autorizo, fecha",
+        "Solo el nombre del cliente",
+        "Solo la fecha"
+      ],
+      "correctIndex": 1,
+      "explanation": "Documentacion de compensaciones: numero de ticket, monto compensado, razon de la compensacion, quien lo autorizo, fecha."
+    },
+    {
+      "id": "q32",
+      "question": "¿Cuando se cierra definitivamente un ticket de queja?",
+      "options": [
+        "Al enviar la resolucion",
+        "A los 7 dias automaticamente",
+        "Cuando el cliente confirma satisfaccion (tag `complaint-resolved`). Si no esta conforme, se reabre investigacion o escala",
+        "Nunca"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cierre: si cliente confirma satisfaccion → tag `complaint-resolved`. Si no responde en 48h → recordatorio. Si sigue sin confirmar satisfaccion → reabrir investigacion o escalar a nivel superior."
+    },
+    {
+      "id": "q33",
+      "question": "Queja de categoria 'comisiones/spreads'. ¿Quien investiga?",
+      "options": [
+        "Susana",
+        "Edward",
+        "Pepe (Dealing)",
+        "Finance Manager"
+      ],
+      "correctIndex": 2,
+      "explanation": "Comisiones/Spreads: investigador principal Pepe (Dealing). Consulta logs MT5 para verificar cargos. Si es error de NEOMAAA, se corrige."
+    },
+    {
+      "id": "q34",
+      "question": "¿Que prohibe una queja regulatoria al agente?",
+      "options": [
+        "Documentarla",
+        "Confirmar recepcion",
+        "Responder al fondo / argumentar / prometer",
+        "Escalar a Susana"
+      ],
+      "correctIndex": 2,
+      "explanation": "Queja regulatoria: no responder al fondo, no argumentar, no prometer compensaciones, no opinar sobre si tiene fundamento, no pedir al cliente que no escale."
+    },
+    {
+      "id": "q35",
+      "question": "Reporte semanal de quejas: ¿quien lo mantiene?",
+      "options": ["Susana", "Pepe", "Edward", "Diego"],
+      "correctIndex": 2,
+      "explanation": "Reporte semanal de quejas: Edward lo mantiene. Incluye: nuevas, resueltas, pendientes, escaladas a 3-4, top categorias, fuera de SLA, compensaciones, acciones correctivas."
+    },
+    {
+      "id": "q36",
+      "question": "Queja repetida del mismo cliente (ya tuvo caso anterior #X). ¿Como abordarla?",
+      "options": [
+        "Cerrar diciendo que ya se resolvio",
+        "Reconocer que no quedo resuelto, revisar historial completo, comprometer respuesta definitiva en tiempo especifico",
+        "Ignorar",
+        "Escalar a Principals siempre"
+      ],
+      "correctIndex": 1,
+      "explanation": "Queja repetida: reconocer que no quedo resuelto a su satisfaccion en caso anterior #X, escuchar que falta, revisar historial completo, comprometer respuesta definitiva en tiempo. 'Tu satisfaccion es importante y no quiero que esto quede sin resolver'."
+    },
+    {
+      "id": "q37",
+      "question": "¿Que tiempo tiene el agente para pasar a clasificacion desde recepcion?",
+      "options": ["15 minutos", "30 minutos", "1 hora", "4 horas"],
+      "correctIndex": 2,
+      "explanation": "Etapa 3 Clasificacion: dentro de 1 hora desde la recepcion. Incluye: asignar categoria, severidad, determinar si requiere escalamiento, asignar responsable investigacion, actualizar tags."
+    },
+    {
+      "id": "q38",
+      "question": "¿Cual es la diferencia clave entre queja Nivel 2 y Nivel 3?",
+      "options": [
+        "No hay diferencia",
+        "Nivel 2 impacta operatividad SIN perdida; Nivel 3 hay perdida potencial/real o incumplimiento de SLA",
+        "Nivel 3 siempre es regulatorio",
+        "Nivel 2 dura mas que Nivel 3"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nivel 2 Media: impacta operatividad pero sin perdida (retiro demorado dentro de SLA, problema temporal). Nivel 3 Alta: perdida potencial o real, incumplimiento de SLA (retiro fuera de SLA, deposito no acreditado >48h, ejecucion erronea)."
+    }
+  ]
+}

@@ -1,0 +1,526 @@
+{
+  "docPath": "support/enciclopedia-soporte",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuales son los 4 tipos de cuenta NEOMAAA?",
+      "options": [
+        "Basic, Plus, Premium, VIP",
+        "Cent, Standard, Raw, Institucional",
+        "Demo, Live, Pro, Elite",
+        "Starter, Regular, Advanced, Expert"
+      ],
+      "correctIndex": 1,
+      "explanation": "4 tipos: Cent ($5 min, 1:1000, spreads desde 1.0 pips), Standard ($50, 1:500, 1.0 pips), Raw ($500, 1:200, 0.0 pips + $3/lote), Institucional (personalizado)."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cual es el deposito minimo de una cuenta Cent?",
+      "options": ["$5", "$10", "$50", "$100"],
+      "correctIndex": 0,
+      "explanation": "Cuenta Cent: deposito minimo $5, apalancamiento hasta 1:1000, ideal para principiantes. Moneda base CNT (centavos: $1 = 100 CNT)."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cual es la comision de la cuenta Raw?",
+      "options": [
+        "Ninguna",
+        "$3 por lote por lado ($6 round-turn)",
+        "1% del volumen",
+        "$10 fijo por trade"
+      ],
+      "correctIndex": 1,
+      "explanation": "Raw: spreads desde 0.0 pips + comision $3 por lote por lado ($6 round-turn por lote estandar). Cent y Standard no tienen comision."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuanto tarda tipicamente la verificacion KYC cuando los documentos son claros?",
+      "options": ["1 hora", "Hasta 24 horas", "1 semana", "1 mes"],
+      "correctIndex": 1,
+      "explanation": "KYC con documentos claros y completos: hasta 24 horas. Si se necesita info adicional: 1-3 dias habiles. Periodos de alto volumen: hasta 48 horas."
+    },
+    {
+      "id": "q5",
+      "question": "¿Que documentos se requieren para KYC?",
+      "options": [
+        "Solo pasaporte",
+        "Prueba de Identidad (POI) + Prueba de Domicilio (POA) de los ultimos 90 dias",
+        "Solo recibo de servicios",
+        "Solo selfie"
+      ],
+      "correctIndex": 1,
+      "explanation": "2 documentos: POI (pasaporte, licencia o cedula vigente) + POA (recibo servicios, extracto bancario o carta gubernamental, fechado dentro de los ultimos 3 meses / 90 dias)."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cual es el tamano maximo de archivo para subir documentos KYC?",
+      "options": ["1 MB", "5 MB", "10 MB", "50 MB"],
+      "correctIndex": 2,
+      "explanation": "Formatos aceptados: JPEG/JPG, PNG, PDF. Tamano maximo: 10 MB por documento."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cobra NEOMAAA comisiones por deposito?",
+      "options": [
+        "Si, 2% siempre",
+        "Solo en transferencias bancarias",
+        "No, todos los depositos son gratis (bancos o PSPs pueden cobrar)",
+        "Solo en crypto"
+      ],
+      "correctIndex": 2,
+      "explanation": "NEOMAAA no cobra comisiones de deposito en ningun metodo. Bancos o proveedores de pago pueden cobrar sus propias comisiones (transferencias internacionales, conversion de moneda), fuera del control de NEOMAAA."
+    },
+    {
+      "id": "q8",
+      "question": "Deposito con criptomonedas: ¿cuanto tarda en acreditarse?",
+      "options": [
+        "Instantaneo siempre",
+        "1-6 confirmaciones de red (10 min a 1 hora)",
+        "24 horas",
+        "1-3 dias habiles"
+      ],
+      "correctIndex": 1,
+      "explanation": "Crypto: 1-6 confirmaciones de red (10 min a 1 hora). Tarjetas: instantaneo. E-wallets: instantaneo. Transferencia internacional: 1-3 dias habiles."
+    },
+    {
+      "id": "q9",
+      "question": "Cliente envio USDT a red equivocada. ¿Que se puede hacer?",
+      "options": [
+        "Recuperamos el dinero siempre",
+        "Se convierte automaticamente",
+        "Generalmente irrecuperable — escalar a finanzas y documentar el caso",
+        "Se rembolsa al dia siguiente"
+      ],
+      "correctIndex": 2,
+      "explanation": "Enviar criptomonedas a red equivocada generalmente resulta en perdida permanente de fondos. Escalar a finanzas y documentar el caso. NEOMAAA no puede recuperarlos."
+    },
+    {
+      "id": "q10",
+      "question": "Primer retiro: ¿que regla AML aplica?",
+      "options": [
+        "Se puede retirar a cualquier metodo",
+        "Debe dirigirse al mismo metodo que se uso para el deposito",
+        "Solo por transferencia bancaria",
+        "Solo a crypto"
+      ],
+      "correctIndex": 1,
+      "explanation": "AML: el primer retiro DEBE dirigirse al mismo metodo usado para el deposito. Una vez devuelto el monto inicial del deposito, las ganancias pueden retirarse a cualquier metodo."
+    },
+    {
+      "id": "q11",
+      "question": "Comision de retiro con criptomonedas:",
+      "options": [
+        "Gratis siempre",
+        "1% (0.5% para cuentas Raw), minimo $10",
+        "2%, minimo $20",
+        "$5 fijo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Crypto withdrawal: 1% (0.5% para Raw), minimo $10. Tarjetas: gratis. Transferencia internacional: $25 (primer retiro del mes gratis Standard, primeros 3 gratis Raw)."
+    },
+    {
+      "id": "q12",
+      "question": "Cliente tiene posiciones abiertas que usan su margen. ¿Puede retirar monto completo?",
+      "options": [
+        "Si, siempre",
+        "No, si la mayor parte del saldo esta en uso por posiciones abiertas no se puede retirar completo",
+        "Solo VIP puede",
+        "Solo con autorizacion"
+      ],
+      "correctIndex": 1,
+      "explanation": "Margen libre insuficiente: si mayor parte del saldo esta en uso por posiciones abiertas, no se puede retirar monto completo. Cerrar posiciones o reducir tamanos para liberar fondos."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cual es el servidor MT5 para cuentas Live y Demo?",
+      "options": [
+        "live.neomaaa.com",
+        "mt5.neomaaa.com",
+        "Servidores diferentes para live y demo",
+        "neomaaa-live.com"
+      ],
+      "correctIndex": 1,
+      "explanation": "Servidor MT5 unico: mt5.neomaaa.com (usado para cuentas Live y Demo). Si no aparece en la lista, escribirlo manualmente."
+    },
+    {
+      "id": "q14",
+      "question": "¿Que es un EA en MT5?",
+      "options": [
+        "Error de ejecucion",
+        "Expert Advisor: script en MQL5 que automatiza estrategias de trading",
+        "Equity Adjustment",
+        "External Account"
+      ],
+      "correctIndex": 1,
+      "explanation": "EA (Expert Advisor): scripts en MQL5 que automatizan estrategias. Pueden analizar mercados, abrir/cerrar posiciones, gestionar riesgo sin intervencion manual. Permitidos en todos los tipos de cuenta."
+    },
+    {
+      "id": "q15",
+      "question": "¿Que extension tienen los archivos de EA para instalar en MT5?",
+      "options": [
+        ".exe",
+        ".ex5 o .mq5",
+        ".zip",
+        ".dll"
+      ],
+      "correctIndex": 1,
+      "explanation": "Archivos EA: .ex5 (compilado) o .mq5 (codigo fuente). Instalar en File > Open data folder > MQL5 > Experts. Reiniciar MT5 o Refresh en Navigator."
+    },
+    {
+      "id": "q16",
+      "question": "¿Cuales son los requisitos para VPS gratuito de NEOMAAA?",
+      "options": [
+        "Todos los clientes tienen VPS gratis",
+        "Cuenta Raw con saldo $5,000 O 100 lotes/mes",
+        "Solo cuentas Institucionales",
+        "Solo con 1,000 lotes/mes"
+      ],
+      "correctIndex": 1,
+      "explanation": "VPS gratuito: clientes cuenta Raw que mantengan saldo minimo $5,000 O negocien al menos 100 lotes por mes. Se habilita automaticamente."
+    },
+    {
+      "id": "q17",
+      "question": "¿Que diferencia Buy Limit y Buy Stop?",
+      "options": [
+        "Son lo mismo",
+        "Buy Limit: comprar POR DEBAJO del actual. Buy Stop: comprar POR ENCIMA del actual",
+        "Buy Stop es solo para Raw",
+        "Buy Limit es solo para scalping"
+      ],
+      "correctIndex": 1,
+      "explanation": "Buy Limit: comprar a precio POR DEBAJO del actual (esperas bajada y rebote). Buy Stop: comprar a precio POR ENCIMA del actual (esperas ruptura de resistencia)."
+    },
+    {
+      "id": "q18",
+      "question": "¿Cual es el ratio minimo riesgo-recompensa recomendado?",
+      "options": ["1:1", "1:2 (40 pips SL con 80 pips TP)", "2:1", "No hay recomendacion"],
+      "correctIndex": 1,
+      "explanation": "Mejor practica: objetivo minimo de ratio 1:2 (ej: 40 pips SL con 80 pips TP). Siempre usar Stop Loss, basado en estructura (soporte/resistencia), no mover SL mas lejos de la entrada."
+    },
+    {
+      "id": "q19",
+      "question": "¿Que tecla abre Nueva Orden en MT5?",
+      "options": ["F2", "F5", "F9", "F12"],
+      "correctIndex": 2,
+      "explanation": "F9 = Nueva Orden. Alt+T = activar One-Click Trading. Ctrl+T = Caja de Herramientas. Ctrl+M = Market Watch."
+    },
+    {
+      "id": "q20",
+      "question": "¿Cual es el nivel de Margin Call para cuenta Raw?",
+      "options": ["30%", "40%", "50%", "60%"],
+      "correctIndex": 3,
+      "explanation": "Margin Call: Cent/Standard 50%, Raw 60%. Stop Out: Cent/Standard 30%, Raw 40%. Nivel margen = (Equity / Margen Utilizado) x 100%."
+    },
+    {
+      "id": "q21",
+      "question": "¿Cual es el apalancamiento maximo en criptomonedas en cuenta Cent?",
+      "options": ["1:100", "1:50", "1:10", "1:1000"],
+      "correctIndex": 2,
+      "explanation": "Criptomonedas: 1:10 en Cent/Standard, 1:5 en Raw. Por la alta volatilidad se reduce el apalancamiento. Forex mayores: Cent 1:1000, Standard 1:500, Raw 1:200."
+    },
+    {
+      "id": "q22",
+      "question": "¿Tiene NEOMAAA proteccion de saldo negativo?",
+      "options": [
+        "No",
+        "Solo cuenta Raw",
+        "Si, en todos los tipos de cuenta — saldo se restablece a cero",
+        "Solo bajo solicitud"
+      ],
+      "correctIndex": 2,
+      "explanation": "Proteccion de Saldo Negativo en todos los tipos de cuenta. Si condiciones extremas causan saldo <0, se restablece a cero. El cliente nunca debe mas de lo que deposito."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuando son los dias de triple swap en forex?",
+      "options": ["Lunes", "Miercoles", "Viernes", "Domingo"],
+      "correctIndex": 1,
+      "explanation": "Triple swap: Miercoles para forex y metales. Viernes para algunos indices y materias primas. Las tasas swap comienzan desde 0.7% y se actualizan diariamente."
+    },
+    {
+      "id": "q24",
+      "question": "¿Que es una cuenta islamica?",
+      "options": [
+        "Cuenta solo para Medio Oriente",
+        "Cuenta swap-free para clientes cuyas creencias religiosas prohiben pago/recepcion de intereses",
+        "Cuenta premium",
+        "Cuenta sin comisiones"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cuentas sin swap (islamicas): para clientes con creencias religiosas que prohiben intereses. Se aplican comisiones administrativas en lugar de swaps. Disponible bajo solicitud."
+    },
+    {
+      "id": "q25",
+      "question": "¿Cual es el mejor horario para operar forex?",
+      "options": [
+        "Asiatica (00:00-09:00 UTC)",
+        "Superposicion Londres-Nueva York (12:00-16:00 UTC)",
+        "Solo en cierre de mercado",
+        "Domingos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mejor horario: superposicion Londres-Nueva York (12:00-16:00 UTC) — mayor liquidez y spreads mas ajustados. Forex abre domingo 22:00 UTC, cierra viernes 22:00 UTC."
+    },
+    {
+      "id": "q26",
+      "question": "¿Que horario tienen las criptomonedas en NEOMAAA?",
+      "options": [
+        "Solo horario de mercado",
+        "24/5",
+        "24/7 (posibles pausas de mantenimiento fines de semana)",
+        "Solo en horario de Europa"
+      ],
+      "correctIndex": 2,
+      "explanation": "Criptomonedas: 24/7 con posibles pausas de mantenimiento los fines de semana. Forex: domingo-viernes. Oro/Petroleo: pausa diaria 22:00-23:00 UTC."
+    },
+    {
+      "id": "q27",
+      "question": "¿Esta permitido el scalping en NEOMAAA?",
+      "options": [
+        "No",
+        "Solo en Raw",
+        "Si, en todos los tipos de cuenta — sin restricciones",
+        "Solo con permiso de compliance"
+      ],
+      "correctIndex": 2,
+      "explanation": "Scalping permitido en todos los tipos de cuenta (Cent, Standard, Raw). Sin restricciones de rapidez. PERO: operaciones <2 minutos no cuentan para requisitos de volumen de bonus o Vault Yield."
+    },
+    {
+      "id": "q28",
+      "question": "¿Esta permitido el hedging en NEOMAAA?",
+      "options": [
+        "No",
+        "Solo entre cuentas diferentes",
+        "Si, completamente — MT5 trata posiciones opuestas como separadas",
+        "Solo en cuentas Institucionales"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hedging permitido. MT5 trata posiciones opuestas como operaciones separadas (cada una con su SL, TP y swap). NEOMAAA puede ofrecer margen reducido para posiciones cubiertas."
+    },
+    {
+      "id": "q29",
+      "question": "¿Que significa 'Close By' en MT5?",
+      "options": [
+        "Cerrar sesion",
+        "Cerrar posiciones cubiertas simultaneamente, cobrando solo un spread en lugar de dos",
+        "Cerrar todas las posiciones",
+        "Eliminar cuenta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Close By: cierra ambas posiciones cubiertas (hedge) simultaneamente. Solo se cobra un spread en lugar de dos. Clic derecho en posicion > Close By > elegir posicion opuesta."
+    },
+    {
+      "id": "q30",
+      "question": "¿Que retorno ofrece el Vault Yield System?",
+      "options": [
+        "Hasta 2% anual",
+        "Hasta 5% anual sobre el saldo",
+        "Fijo 10%",
+        "Variable sin limite"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vault Yield: hasta 5% anual sobre el saldo. Disponible para cuentas Standard y Raw. Interes calculado diariamente, acreditado periodicamente. Independiente de ganancias/perdidas de trading."
+    },
+    {
+      "id": "q31",
+      "question": "Operaciones mantenidas <2 minutos: ¿cuentan para Vault Yield?",
+      "options": [
+        "Si, siempre",
+        "No, no contabilizan hacia los requisitos de actividad",
+        "Solo en Raw",
+        "Depende del volumen"
+      ],
+      "correctIndex": 1,
+      "explanation": "Operaciones <2 minutos NO cuentan para requisitos de volumen de bonus ni Vault Yield. Politica anti-abuso que asegura que los programas recompensan actividad genuina."
+    },
+    {
+      "id": "q32",
+      "question": "Cliente no puede iniciar sesion en MT5 (error 'Cuenta invalida'). ¿Primer paso?",
+      "options": [
+        "Escalar inmediatamente",
+        "Reinstalar MT5",
+        "Verificar login y contrasena, asegurarse de servidor mt5.neomaaa.com",
+        "Crear cuenta nueva"
+      ],
+      "correctIndex": 2,
+      "explanation": "Error 'Cuenta invalida': verificar numero de login (no email) y contrasena, asegurarse de usar servidor correcto mt5.neomaaa.com. Si persiste, la cuenta puede estar desactivada — escalar."
+    },
+    {
+      "id": "q33",
+      "question": "¿Cuantos confirmaciones de red requieren tipicamente los depositos crypto?",
+      "options": ["Instantaneo", "1-6 confirmaciones (10 min a 1 hora)", "100 confirmaciones", "24 horas"],
+      "correctIndex": 1,
+      "explanation": "Crypto: la mayoria requiere 1-6 confirmaciones de red (10 min a 1 hora). Verificar en explorador de blockchain si no aparece."
+    },
+    {
+      "id": "q34",
+      "question": "Error 'No Quotes' en MT5. ¿Que significa?",
+      "options": [
+        "Sin internet",
+        "La plataforma no puede obtener precio valido (alta volatilidad, apertura/cierre, noticias, baja liquidez)",
+        "Cuenta bloqueada",
+        "EA no instalado"
+      ],
+      "correctIndex": 1,
+      "explanation": "'No Quotes': la plataforma no puede obtener precio valido. Ocurre durante alta volatilidad, apertura/cierre de mercado, noticias importantes, baja liquidez. Solucion: esperar y reintentar o probar tipo de ejecucion diferente."
+    },
+    {
+      "id": "q35",
+      "question": "Error 'Insufficient Funds' en MT5. ¿Que hacer?",
+      "options": [
+        "Es un bug de NEOMAAA",
+        "Reducir tamano de lote, cerrar posiciones, depositar mas, verificar apalancamiento",
+        "Reinstalar MT5",
+        "Escalar a compliance"
+      ],
+      "correctIndex": 1,
+      "explanation": "'Insufficient Funds': falta margen libre. Soluciones: reducir tamano de lote, cerrar posiciones existentes, depositar mas fondos, verificar configuracion de apalancamiento."
+    },
+    {
+      "id": "q36",
+      "question": "¿Cual es la moneda base de la cuenta Cent?",
+      "options": ["USD", "EUR", "CNT (centavos — $1 = 100 CNT)", "BTC"],
+      "correctIndex": 2,
+      "explanation": "Moneda base: Cent = CNT (centavos, $1 = 100 CNT). Standard = USD. Raw = USD. Al depositar $50 en Cent se convierte a 5,000 centavos."
+    },
+    {
+      "id": "q37",
+      "question": "¿Cuanto tiempo tiene NEOMAAA para procesar internamente un retiro?",
+      "options": ["Inmediato", "Hasta 1 dia habil", "3-5 dias habiles", "1 semana"],
+      "correctIndex": 1,
+      "explanation": "Procesamiento interno NEOMAAA: hasta 1 dia habil. El tiempo total depende tambien del proveedor de pago: e-wallets y crypto 1-2 dias, tarjetas 1-5 dias, transferencia bancaria 3-5 dias."
+    },
+    {
+      "id": "q38",
+      "question": "Inactividad de cuenta: ¿despues de cuantos dias se considera inactiva?",
+      "options": ["7 dias", "15 dias", "30 dias consecutivos sin actividad de trading", "90 dias"],
+      "correctIndex": 2,
+      "explanation": "Inactividad: 30 dias consecutivos sin actividad de trading (apertura, cierre o modificacion). Se pueden aplicar comisiones por inactividad. Prevencion: una operacion cada 30 dias."
+    },
+    {
+      "id": "q39",
+      "question": "¿Que NUNCA hace NEOMAAA segun la seccion de prevencion de fraude?",
+      "options": [
+        "Procesar retiros",
+        "Solicitar contrasenas por email/telefono/chat, pedir transferir a cuentas personales, garantizar ganancias, pedir instalar acceso remoto",
+        "Verificar KYC",
+        "Ofrecer VPS"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA NUNCA: solicita contrasenas por email/telefono/chat, pide transferir fondos a cuentas personales, garantiza ganancias, solicita instalar software de acceso remoto."
+    },
+    {
+      "id": "q40",
+      "question": "Sospecha de acceso no autorizado a una cuenta. ¿A quien se escala?",
+      "options": [
+        "Finance",
+        "Compliance y Seguridad INMEDIATAMENTE",
+        "Soporte tecnico",
+        "Al cliente mismo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Acceso no autorizado: escalar INMEDIATAMENTE a compliance y seguridad. Tambien: comunicaciones fraudulentas con marca NEOMAAA → compliance/legal. Solicitud de transferencia a terceros → rechazar + compliance."
+    },
+    {
+      "id": "q41",
+      "question": "¿Como NEOMAAA protege los fondos de clientes?",
+      "options": [
+        "En la misma cuenta corporativa",
+        "Cuentas segregadas en bancos de primer nivel, separadas de fondos operacionales",
+        "En criptomonedas",
+        "En un seguro privado"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fondos en cuentas segregadas en bancos de primer nivel, completamente separados de fondos operacionales de NEOMAAA. El capital del cliente NO puede ser utilizado para gastos de la empresa."
+    },
+    {
+      "id": "q42",
+      "question": "¿Cual es el modelo de ejecucion de NEOMAAA?",
+      "options": [
+        "Market Maker puro",
+        "ECN/STP hibrido — ordenes dirigidas a proveedores de liquidez",
+        "Solo ECN",
+        "Dealing Desk"
+      ],
+      "correctIndex": 1,
+      "explanation": "Modelo ECN/STP hibrido: ordenes dirigidas directamente a proveedores de liquidez. Algoritmos de enrutamiento inteligente seleccionan ruta optima basandose en precios, velocidad, costos."
+    },
+    {
+      "id": "q43",
+      "question": "Raw Account — volumen mensual 1,000+ lotes. ¿Cual es el rebate?",
+      "options": ["0%", "10%", "20%", "30% (costo efectivo $4.20)"],
+      "correctIndex": 3,
+      "explanation": "Rebate Raw por volumen mensual: 0-99 lotes: 0% ($6). 100-499: 10% ($5.40). 500-999: 20% ($4.80). 1,000+: 30% ($4.20). Acreditado antes del dia 5 del mes siguiente."
+    },
+    {
+      "id": "q44",
+      "question": "¿Cual es el email oficial de soporte NEOMAAA?",
+      "options": ["support@neomaaa.com", "info@neomaaa.com", "[email protected]", "help@neomaaa.com"],
+      "correctIndex": 2,
+      "explanation": "Email oficial de soporte: [email protected]. Sitio: neomaaa.com. Portal: account.neomaaa.com. Centro de ayuda: help.neomaaa.com. Servidor MT5: mt5.neomaaa.com."
+    },
+    {
+      "id": "q45",
+      "question": "¿Los clientes Raw tienen soporte prioritario?",
+      "options": [
+        "No",
+        "Si — tiempos de respuesta mas rapidos + gestor de cuenta dedicado",
+        "Solo los Institucionales",
+        "Solo con saldo $10,000+"
+      ],
+      "correctIndex": 1,
+      "explanation": "Raw tiene acceso a: soporte prioritario con tiempos de respuesta mas rapidos + gestor de cuenta dedicado para asistencia personalizada."
+    },
+    {
+      "id": "q46",
+      "question": "¿Cuantos pares de divisas forex ofrece NEOMAAA?",
+      "options": ["10+", "25+", "50+", "200+"],
+      "correctIndex": 2,
+      "explanation": "Mas de 50 pares de divisas forex: mayores (EUR/USD, GBP/USD, USD/JPY, etc.), menores/cruces (EUR/GBP, GBP/JPY, etc.), exoticos (USD/TRY, EUR/ZAR, etc.)."
+    },
+    {
+      "id": "q47",
+      "question": "Acciones y ETFs (CFDs): ¿en que tipo de cuenta estan disponibles?",
+      "options": ["Todas", "Solo Cent", "Solo cuenta Raw", "Solo Institucional"],
+      "correctIndex": 2,
+      "explanation": "Acciones y ETFs (mas de 100 CFDs de acciones de mercados de EE.UU. y europeos): solo disponibles en cuenta Raw. Siguen horarios del mercado respectivo."
+    },
+    {
+      "id": "q48",
+      "question": "Transferencias internas entre cuentas del cliente:",
+      "options": [
+        "No se permiten",
+        "Solo entre cuentas del mismo perfil; instantaneas y sin costo",
+        "Con cargo del 1%",
+        "Requieren aprobacion de compliance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Transferencias internas: solo entre cuentas registradas bajo el mismo perfil. Transferencias a terceros PROHIBIDAS. Fondos deben estar disponibles como margen libre. Instantaneas y sin costo."
+    },
+    {
+      "id": "q49",
+      "question": "¿Cual es el monto que activa revision de seguridad adicional en retiros?",
+      "options": [
+        "$100+",
+        "$1,000+",
+        "Monto grande (>$10,000) puede desencadenar revision",
+        "$100,000+"
+      ],
+      "correctIndex": 2,
+      "explanation": "Retiros inusuales o grandes (>$10,000) pueden desencadenar revision de seguridad adicional (1-2 dias habiles extra). Informar al cliente del plazo adicional."
+    },
+    {
+      "id": "q50",
+      "question": "¿Cual es la diferencia entre Margin Call y Stop Out?",
+      "options": [
+        "Son lo mismo",
+        "Margin Call: advertencia. Stop Out: cierre automatico de posiciones con mayores perdidas",
+        "Margin Call es manual, Stop Out automatico",
+        "Stop Out aplica solo a Raw"
+      ],
+      "correctIndex": 1,
+      "explanation": "Margin Call: advertencia cuando nivel de margen cae al umbral critico — considerar cerrar posiciones, depositar mas, reducir exposicion. Stop Out: si sigue cayendo, cierre automatico de posiciones con mayores perdidas."
+    }
+  ]
+}

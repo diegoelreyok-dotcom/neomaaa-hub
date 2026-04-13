@@ -1,0 +1,416 @@
+{
+  "docPath": "operations/faq-interno",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuál es el depósito mínimo para una cuenta Cent?",
+      "options": ["$1 USD", "$5 USD", "$50 USD", "$500 USD"],
+      "correctIndex": 1,
+      "explanation": "Cuenta Cent: $5 USD. Standard: $50. Raw: $500. Institutional: $50,000."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuál es el apalancamiento máximo en cuenta Cent?",
+      "options": ["1:100", "1:200", "1:500", "1:1000"],
+      "correctIndex": 3,
+      "explanation": "Cent: 1:1000. Standard: 1:500. Raw: 1:200. Institutional: 1:100."
+    },
+    {
+      "id": "q3",
+      "question": "¿Qué comisión cobra la cuenta Raw por lote?",
+      "options": ["Sin comisión", "$1 USD/lote", "$3.5/lote/lado ($7 round-trip)", "$10/lote"],
+      "correctIndex": 2,
+      "explanation": "Raw cobra $3.5 USD por lote estándar por lado ($7 round-trip). Spread desde 0.0 pips."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuántos instrumentos ofrece NEOMAAA?",
+      "options": ["500+", "1,000+", "2,000+", "5,000+"],
+      "correctIndex": 2,
+      "explanation": "Más de 2,000 instrumentos: forex (majors/minors/exotics), índices, commodities, acciones CFDs, cripto CFDs."
+    },
+    {
+      "id": "q5",
+      "question": "¿Cuántos métodos de depósito ofrece NEOMAAA?",
+      "options": ["10+", "50+", "100+", "120+"],
+      "correctIndex": 3,
+      "explanation": "Más de 120 métodos de depósito: transferencia bancaria, tarjetas, e-wallets, criptomonedas, métodos locales por región."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuál es el teléfono de soporte de NEOMAAA?",
+      "options": ["+1 555 0123", "+41 44 707 9633", "+34 900 000 000", "+971 4 000 0000"],
+      "correctIndex": 1,
+      "explanation": "Teléfono soporte: +41 44 707 9633. Canales: chat Intercom (<2 min), email (<1h), WhatsApp, teléfono."
+    },
+    {
+      "id": "q7",
+      "question": "¿De qué países NO acepta clientes NEOMAAA?",
+      "options": [
+        "Todos los países",
+        "Sólo Europa",
+        "Estados Unidos, Canadá, Unión Europea, Reino Unido, países bajo sanciones internacionales",
+        "Sólo LATAM"
+      ],
+      "correctIndex": 2,
+      "explanation": "No acepta: USA, Canadá, UE, UK, países bajo sanciones internacionales. Mercados principales: LATAM, Middle East, Africa, SE Asia."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuál es la jurisdicción y número de licencia del broker?",
+      "options": [
+        "FCA UK - 123456",
+        "CySEC - 99/99",
+        "Licencia L15968/N emitida por AOFA (Anjouan, Comoros)",
+        "ASIC AU - 000001"
+      ],
+      "correctIndex": 2,
+      "explanation": "Licencia L15968/N de AOFA (Anjouan Offshore Finance Authority), Unión de Comoros. Neomaaa Ltd IBC 15968."
+    },
+    {
+      "id": "q9",
+      "question": "¿Qué plataforma de trading usa NEOMAAA?",
+      "options": ["MT4 exclusivamente", "cTrader", "MetaTrader 5 (MT5) — escritorio, web y móvil", "Plataforma propia"],
+      "correctIndex": 2,
+      "explanation": "MetaTrader 5 (MT5). Disponible para Windows, macOS, Android, iOS y WebTrader."
+    },
+    {
+      "id": "q10",
+      "question": "¿Qué se debe responder si un cliente pregunta si los directivos son Diego, Yulia y Stanislav?",
+      "options": [
+        "Confirmar todos los nombres",
+        "Mentir",
+        "[SOLO USO INTERNO] Responder: 'NEOMAAA Markets es operado por un equipo directivo con experiencia en mercados financieros y tecnología'. No dar nombres salvo autorización de Principal",
+        "Decir que no hay directivos"
+      ],
+      "correctIndex": 2,
+      "explanation": "A clientes: respuesta genérica sobre equipo directivo con experiencia. No dar nombres de Principals sin autorización explícita."
+    },
+    {
+      "id": "q11",
+      "question": "¿Cuál es el horario del trading forex?",
+      "options": [
+        "9 a 18 hs",
+        "24 horas, 5 días a la semana (domingo 22:00 CET a viernes 22:00 CET)",
+        "24/7",
+        "Sólo fines de semana"
+      ],
+      "correctIndex": 1,
+      "explanation": "Forex: 24 horas, 5 días (domingo 22:00 CET - viernes 22:00 CET). Cripto CFDs 24/7. Soporte: horario LATAM (9-18 COL) e inglés (9-18 CET)."
+    },
+    {
+      "id": "q12",
+      "question": "¿Qué son las cuentas demo en NEOMAAA?",
+      "options": [
+        "Cuentas de pago",
+        "Gratis, saldo virtual de $10,000 USD, sin fecha de expiración mientras estén activas",
+        "Sólo para empleados",
+        "Sólo por 7 días"
+      ],
+      "correctIndex": 1,
+      "explanation": "Demo: gratis, saldo virtual $10,000 USD, sin expiración mientras estén activas. Se crean desde MT5 o portal del cliente."
+    },
+    {
+      "id": "q13",
+      "question": "¿Qué pasa con una cuenta que tiene saldo cero por mucho tiempo?",
+      "options": [
+        "Se cierra automáticamente",
+        "Se cobra tarifa de inactividad",
+        "Inactivas con saldo cero 90 días consecutivos pueden ser archivadas. El cliente puede pedir reactivación. No hay tarifa de inactividad",
+        "Se elimina después de 7 días"
+      ],
+      "correctIndex": 2,
+      "explanation": "Inactividad 90 días con saldo cero: archivo automático, reactivación por solicitud. NO hay tarifa de inactividad."
+    },
+    {
+      "id": "q14",
+      "question": "¿Cobran comisión por depositar?",
+      "options": [
+        "Sí, 5%",
+        "NEOMAAA no cobra comisión por depósitos. El banco/PSP del cliente puede aplicar sus propias tarifas",
+        "Sí, $10 fijo",
+        "Sólo en tarjetas"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA no cobra por depósitos. [SOLO USO INTERNO] Algunos PSPs nos cobran y absorbemos — puede cambiar si no es sostenible."
+    },
+    {
+      "id": "q15",
+      "question": "¿Cuánto tarda un retiro típicamente?",
+      "options": ["Instantáneo", "1-3 días hábiles según método", "1 mes", "Sólo en horario bancario"],
+      "correctIndex": 1,
+      "explanation": "1-3 días hábiles según método. E-wallets y crypto más rápidos (24h). Wires pueden tardar hasta 5 días por banco receptor."
+    },
+    {
+      "id": "q16",
+      "question": "¿Cuál es la política AML sobre método de retiro?",
+      "options": [
+        "Retiro a cualquier método",
+        "Los retiros deben procesarse al mismo método usado para depositar hasta cubrir el monto depositado. Ganancias arriba pueden ir a otros métodos",
+        "Sólo a bancos",
+        "Sólo a la tarjeta original siempre"
+      ],
+      "correctIndex": 1,
+      "explanation": "Política AML: retiro al mismo método hasta cubrir depósito. Ganancias adicionales a otros métodos aprobados. Excepciones requieren Compliance."
+    },
+    {
+      "id": "q17",
+      "question": "¿Qué plataforma usa NEOMAAA para KYC?",
+      "options": ["Onfido", "Jumio", "Sumsub", "Veriff"],
+      "correctIndex": 2,
+      "explanation": "Sumsub automatiza el KYC. Procesa documentos de identidad y comprobantes de domicilio."
+    },
+    {
+      "id": "q18",
+      "question": "¿Qué documentos se requieren para KYC?",
+      "options": [
+        "Sólo pasaporte",
+        "Documento de identidad (pasaporte/DNI/licencia) + comprobante de domicilio no mayor a 3 meses",
+        "Solo comprobante bancario",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "KYC requiere: ID (pasaporte/DNI/licencia de conducir) + comprobante de domicilio (<3 meses): factura servicios, estado cuenta bancario o doc oficial."
+    },
+    {
+      "id": "q19",
+      "question": "¿Puede un menor de edad operar con NEOMAAA?",
+      "options": ["Sí, con autorización de padres", "Sólo si deposita en crypto", "No. Sólo mayores de 18 años. Si KYC detecta menor, rechaza automáticamente", "Desde 16 años"],
+      "correctIndex": 2,
+      "explanation": "Sólo mayores de 18. Si KYC detecta menor, rechaza automáticamente."
+    },
+    {
+      "id": "q20",
+      "question": "¿Permite NEOMAAA scalping y hedging?",
+      "options": [
+        "No, prohibido",
+        "Sí, sin restricciones de estilo de trading. MT5 está configurado para hedging",
+        "Sólo scalping",
+        "Sólo hedging con aprobación"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sí, sin restricciones: scalping, day trading, swing, algoritmos. MT5 permite hedging (posiciones opuestas simultáneas)."
+    },
+    {
+      "id": "q21",
+      "question": "¿Pueden los clientes usar Expert Advisors (EAs)?",
+      "options": [
+        "No permitidos",
+        "Sí, MT5 soporta EAs y scripts MQL5, sin restricciones. NEOMAAA no proporciona EAs propios",
+        "Solo EAs certificados por NEOMAAA",
+        "Sólo demos"
+      ],
+      "correctIndex": 1,
+      "explanation": "EAs permitidos sin restricciones en MQL5. NEOMAAA no provee EAs propios — los clientes instalan los suyos."
+    },
+    {
+      "id": "q22",
+      "question": "¿Cómo se calcula el swap en NEOMAAA?",
+      "options": [
+        "Es gratis",
+        "Se calcula por diferencia de tasas de interés de las divisas del par. Se aplica a las 00:00 hora servidor. Miércoles triple swap",
+        "Solo los lunes",
+        "Basado en el apalancamiento"
+      ],
+      "correctIndex": 1,
+      "explanation": "Swap = interés diferencial de las divisas del par. Se aplica 00:00 hora servidor. Miércoles triple swap (compensa fin de semana)."
+    },
+    {
+      "id": "q23",
+      "question": "¿A qué nivel de margen se ejecuta el margin call?",
+      "options": ["50%", "100%", "20%", "0%"],
+      "correctIndex": 1,
+      "explanation": "Margin call a 100% (alerta). Stop-out a 20% (cierre automático de posiciones empezando por la de mayor pérdida)."
+    },
+    {
+      "id": "q24",
+      "question": "¿A qué nivel se ejecuta el stop-out?",
+      "options": ["100%", "50%", "20%", "0%"],
+      "correctIndex": 2,
+      "explanation": "Stop-out al 20% (varía por tipo de cuenta). Cierra posiciones automáticamente empezando por la de mayor pérdida."
+    },
+    {
+      "id": "q25",
+      "question": "¿Qué copy trading ofrece NEOMAAA?",
+      "options": [
+        "Sistema propio",
+        "MAM/PAMM custom",
+        "MQL5 Signals (sistema nativo MT5 operado por MetaQuotes). NEOMAAA no opera sistema propio ni MAM/PAMM actualmente",
+        "Copia de clientes VIP"
+      ],
+      "correctIndex": 2,
+      "explanation": "Copy trading vía MQL5 Signals (MetaQuotes). Link: https://www.mql5.com/en/signals. NEOMAAA no opera copy trading propio."
+    },
+    {
+      "id": "q26",
+      "question": "¿Ofrece NEOMAAA servicio de VPS?",
+      "options": [
+        "Sí, gratis a todos",
+        "[SOLO USO INTERNO] No tenemos VPS propio ni subsidiado. Recomendar proveedores terceros",
+        "Sí, sólo para Institutional",
+        "Sólo con depósito mínimo"
+      ],
+      "correctIndex": 1,
+      "explanation": "[SOLO USO INTERNO] NEOMAAA no ofrece VPS propio. Puede recomendar proveedores terceros reconocidos."
+    },
+    {
+      "id": "q27",
+      "question": "¿Qué es Vault Yield?",
+      "options": [
+        "Un producto disponible hoy",
+        "[SOLO USO INTERNO] Funcionalidad PLANIFICADA, NO disponible. Si pregunta, 'está en desarrollo, sera anunciada cuando esté disponible'. No dar fechas",
+        "Un tipo de cuenta",
+        "Un bono de bienvenida"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vault Yield = funcionalidad planificada, no disponible. Respuesta al cliente: 'en desarrollo, le notificaremos por email'. No dar fechas."
+    },
+    {
+      "id": "q28",
+      "question": "¿Ofrece NEOMAAA cuentas swap-free (islámicas)?",
+      "options": [
+        "No",
+        "Sí, bajo solicitud para clientes con razones religiosas. Tarifa administrativa fija en lugar del swap",
+        "Sólo para Middle East",
+        "Sólo con Institutional"
+      ],
+      "correctIndex": 1,
+      "explanation": "Swap-free: bajo solicitud. Tarifa administrativa fija en vez del swap. Demás condiciones (spreads, comisiones, apalancamiento) no cambian."
+    },
+    {
+      "id": "q29",
+      "question": "¿En qué idiomas atiende Soporte?",
+      "options": [
+        "Sólo inglés",
+        "Español nativo (LATAM 9-18 COL/MEX) e inglés fluido (Europa/Middle East 9-18 CET)",
+        "10 idiomas",
+        "Sólo portugués"
+      ],
+      "correctIndex": 1,
+      "explanation": "Español nativo (LATAM 9-18 COL/MEX) e inglés fluido (Europa/Middle East 9-18 CET)."
+    },
+    {
+      "id": "q30",
+      "question": "¿Tiene NEOMAAA oficinas físicas?",
+      "options": [
+        "Sí, en Dubai",
+        "[SOLO USO INTERNO] Opera 100% remoto, sin oficinas al público. A cliente: 'NEOMAAA opera equipo distribuido globalmente para soporte multi-zona horaria'",
+        "Sí, en Anjouan",
+        "Sí, en LATAM"
+      ],
+      "correctIndex": 1,
+      "explanation": "100% remoto, no hay oficinas públicas. A clientes: mensaje profesional sobre equipo distribuido globalmente."
+    },
+    {
+      "id": "q31",
+      "question": "¿Los fondos de clientes están segregados?",
+      "options": [
+        "No",
+        "Sí, en cuentas segregadas separadas de fondos operativos. No se usan para operaciones de la empresa",
+        "Sólo parcialmente",
+        "Sólo Institutional"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sí, fondos segregados de fondos operativos. No se usan para operaciones de la empresa."
+    },
+    {
+      "id": "q32",
+      "question": "Cliente amenaza con reportar a un regulador. ¿Qué hacés?",
+      "options": [
+        "Negar todo",
+        "[SOLO USO INTERNO] Calma y profesionalismo. Documentar queja textualmente. No prometer ni admitir culpa. Responder empáticamente. Escalar inmediatamente a Yulia con ticket completo",
+        "Amenazarlo de vuelta",
+        "Ignorarlo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Documentar textualmente, no prometer ni admitir culpa, responder 'escalamos a compliance, le contactará en 24h', escalar a Yulia."
+    },
+    {
+      "id": "q33",
+      "question": "Cliente reporta cuenta hackeada y fondos robados. ¿Primera acción?",
+      "options": [
+        "Esperar a investigar",
+        "[SOLO USO INTERNO] Bloquear cuenta inmediatamente. Documentar todo. Escalar a Yulia + Stanislav simultáneamente. Responder 'cuenta asegurada, equipo de seguridad investigando'. No especular",
+        "Devolver los fondos",
+        "Pedir al cliente cambiar password y ya"
+      ],
+      "correctIndex": 1,
+      "explanation": "1) Bloquear cuenta 2) Documentar 3) Escalar a Yulia + Stanislav 4) Respuesta profesional sin especular. Update en 24h."
+    },
+    {
+      "id": "q34",
+      "question": "Depósitos > $10,000 USD requieren:",
+      "options": [
+        "Nada extra",
+        "Verificación adicional EDD (Enhanced Due Diligence). KYC aprobado. Escalar a Yulia antes de aceptar. No rechazar cliente, informar de requisitos",
+        "Firma notariada",
+        "Aprobación de banco"
+      ],
+      "correctIndex": 1,
+      "explanation": "Depósitos >$10K requieren EDD. Verificar KYC aprobado. Escalar a Yulia antes de confirmar. Informar con respeto: 'requieren verificaciones adicionales'."
+    },
+    {
+      "id": "q35",
+      "question": "¿Qué CRM usa NEOMAAA para gestión de clientes?",
+      "options": ["HubSpot", "Salesforce", "Skale CRM", "Zoho"],
+      "correctIndex": 2,
+      "explanation": "Skale CRM es el sistema central para gestión de clientes, depósitos, retiros y reportes. Sumsub para KYC. Intercom para soporte."
+    },
+    {
+      "id": "q36",
+      "question": "¿Cuál es el flujo de escalación interna correcto?",
+      "options": [
+        "Siempre directo a Diego",
+        "L1 agente → Head of Support → Finance Manager (si es financiero) / Yulia (compliance/KYC) / Stanislav (técnico/MT5) / Diego (decisión de negocio)",
+        "No hay escalación",
+        "Al canal general"
+      ],
+      "correctIndex": 1,
+      "explanation": "Escalación: L1 → Head of Support → según tema: Finance (financiero), Yulia (compliance/KYC), Stanislav (técnico), Diego (negocio). Con ticket + resumen + acciones ya tomadas."
+    },
+    {
+      "id": "q37",
+      "question": "¿Puede un empleado ofrecer bonos o descuentos a un cliente?",
+      "options": [
+        "Sí, si el cliente lo pide",
+        "[SOLO USO INTERNO] NO sin autorización explícita de Principals. Cualquier programa debe ser aprobado y comunicado formalmente. Verificar promociones vigentes en canal interno",
+        "Sí, hasta $100",
+        "Sólo si es cliente VIP"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nunca ofrecer bonos/descuentos sin autorización de Principals. Verificar promociones vigentes en canal interno de marketing."
+    },
+    {
+      "id": "q38",
+      "question": "¿Qué es un pip en EUR/USD?",
+      "options": [
+        "El primer decimal",
+        "Cuarto decimal (0.0001). En 1 lote estándar de EUR/USD ≈ $10 USD",
+        "Un tipo de orden",
+        "El 5%"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pip = cuarto decimal (0.0001) para la mayoría de pares. Pares con JPY: segundo decimal (0.01). 1 pip en 1 lote EUR/USD ≈ $10 USD."
+    },
+    {
+      "id": "q39",
+      "question": "¿Qué tamaño tiene un lote estándar?",
+      "options": ["1,000 unidades", "10,000 unidades", "100,000 unidades de moneda base", "1,000,000 unidades"],
+      "correctIndex": 2,
+      "explanation": "Lote estándar = 100,000 unidades moneda base. Mini = 10,000. Micro = 1,000. Cent opera en centavos."
+    },
+    {
+      "id": "q40",
+      "question": "¿Qué diferencia real tiene el leverage según el concepto de Pepe?",
+      "options": [
+        "Multiplica el capital del cliente",
+        "El leverage NO multiplica capital — reduce el margen requerido por 1/N. El cliente sigue asumiendo toda la exposición nocional",
+        "Aumenta la ganancia garantizada",
+        "Reduce el riesgo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Leverage NO multiplica capital — reduce el margen por 1/N. Cliente asume toda la exposición nocional. Con 1:500 el margen de 1 lote EUR/USD ($115K nocionales) es $230."
+    }
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "docPath": "partners/modelo-financiero",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuál es el FTD promedio para el caso base Brasil?",
+      "options": ["$50", "$100", "$300", "$1,000"],
+      "correctIndex": 2,
+      "explanation": "FTD promedio Brasil: $300 (caso base)."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuáles son los depósitos lifetime promedio en el caso base?",
+      "options": ["$300", "$900", "$1,800", "$10,000"],
+      "correctIndex": 2,
+      "explanation": "Depósitos lifetime promedio: $1,800 (Brasil, caso base)."
+    },
+    {
+      "id": "q3",
+      "question": "¿Cuál es la vida promedio del cliente?",
+      "options": ["1 mes", "6 meses", "12 meses", "3 años"],
+      "correctIndex": 1,
+      "explanation": "Vida promedio del cliente: 6 meses en el caso base."
+    },
+    {
+      "id": "q4",
+      "question": "¿Cuál es el LTV del cliente en el caso base?",
+      "options": ["$100", "$500", "$1,000 - $1,400", "$10,000"],
+      "correctIndex": 2,
+      "explanation": "LTV del cliente en caso base Brasil: $1,000 - $1,400."
+    },
+    {
+      "id": "q5",
+      "question": "¿Cuántos lotes por mes opera un cliente promedio?",
+      "options": ["1", "10", "50", "500"],
+      "correctIndex": 1,
+      "explanation": "Lotes promedio por mes: 10. Spread promedio asumido $10/lote."
+    },
+    {
+      "id": "q6",
+      "question": "¿Cuál es el ingreso bruto total mensual por cliente?",
+      "options": ["$50", "$115 - $125/mes", "$500", "$1,000"],
+      "correctIndex": 1,
+      "explanation": "Ingreso bruto total mensual: $115-$125/mes (spread $100 + swaps $15-$25)."
+    },
+    {
+      "id": "q7",
+      "question": "¿Cuál es el margen NEOMAAA en Affiliate Partner (tier Partner 25%)?",
+      "options": ["25%", "50%", "66% (después de costos operativos ~9%)", "90%"],
+      "correctIndex": 2,
+      "explanation": "Affiliate Partner tier Partner (25% rev share): margen NEOMAAA 66% después de costos operativos ~9%."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuál es el margen NEOMAAA en Affiliate Partner tier Elite (35%)?",
+      "options": ["25%", "45%", "56%", "90%"],
+      "correctIndex": 2,
+      "explanation": "Affiliate Elite (35% rev share): margen NEOMAAA 56%."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cuál es el Mini-CPA de Brasil en Digital Affiliate?",
+      "options": ["$50", "$75", "$100", "$150"],
+      "correctIndex": 2,
+      "explanation": "Mini-CPA Brasil: $100 único por FTD calificado."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cuál es el Mini-CPA de México/Colombia?",
+      "options": ["$50", "$75", "$100", "$150"],
+      "correctIndex": 1,
+      "explanation": "Mini-CPA México/Colombia: $75."
+    },
+    {
+      "id": "q11",
+      "question": "¿Cuál es el Mini-CPA de Argentina/Chile/Perú?",
+      "options": ["$25", "$50", "$75", "$100"],
+      "correctIndex": 1,
+      "explanation": "Mini-CPA Argentina/Chile/Perú: $50."
+    },
+    {
+      "id": "q12",
+      "question": "¿Cuál es el Mini-CPA para Europa/Medio Oriente?",
+      "options": ["$50", "$75", "$100", "$150"],
+      "correctIndex": 3,
+      "explanation": "Mini-CPA Europa/Medio Oriente: $150. La más alta por costos de adquisición."
+    },
+    {
+      "id": "q13",
+      "question": "¿Cuál es el margen promedio lifetime del Digital Affiliate Growth (15%)?",
+      "options": ["20%", "65%", "85%", "100%"],
+      "correctIndex": 1,
+      "explanation": "Digital Affiliate Growth (15% rev share): margen promedio lifetime 65%."
+    },
+    {
+      "id": "q14",
+      "question": "¿Cuál es el margen NEOMAAA en IB Bronze Rev Share 25%?",
+      "options": ["25%", "50%", "66%", "90%"],
+      "correctIndex": 2,
+      "explanation": "IB Bronze Rev Share (25%): margen NEOMAAA 66%."
+    },
+    {
+      "id": "q15",
+      "question": "¿Cuál es el margen NEOMAAA en IB Platinum (35% + 15% swap + bonos)?",
+      "options": ["10%", "37%", "66%", "90%"],
+      "correctIndex": 1,
+      "explanation": "IB Platinum (35% + 15% swap + bonos): margen NEOMAAA 37%. Baja significativamente en tiers altos."
+    },
+    {
+      "id": "q16",
+      "question": "¿Cuál es el rebate/lote en IB Platinum (Forex)?",
+      "options": ["$2.50", "$3.00", "$3.50", "$4.50"],
+      "correctIndex": 3,
+      "explanation": "IB Platinum rebate Forex: $4.50/lote. Margen NEOMAAA 55%."
+    },
+    {
+      "id": "q17",
+      "question": "¿Cuál es el CPA Standalone estimado del mercado?",
+      "options": ["$100", "$300", "$540", "$1,000"],
+      "correctIndex": 2,
+      "explanation": "CPA Standalone estimado del mercado: $540 por FTD."
+    },
+    {
+      "id": "q18",
+      "question": "¿Cuánto ahorra el modelo híbrido vs CPA Standalone para 200 clientes?",
+      "options": [
+        "$1,000",
+        "$10,000",
+        "$58,000 - $76,000 en los primeros 6 meses",
+        "$500,000"
+      ],
+      "correctIndex": 2,
+      "explanation": "Modelo híbrido ahorra $58,000 - $76,000 en primeros 6 meses vs CPA Standalone, con margen comparable."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cuál es el cash burn inicial por 200 clientes con CPA Standalone?",
+      "options": ["$20,000", "$50,000", "$108,000", "$500,000"],
+      "correctIndex": 2,
+      "explanation": "CPA Standalone: $108,000 ($540 x 200 clientes). Hibrido solo $20,000."
+    },
+    {
+      "id": "q20",
+      "question": "¿Cuál es el payback del Mini-CPA Brasil?",
+      "options": ["1 día", "1 mes", "6 meses", "12 meses"],
+      "correctIndex": 1,
+      "explanation": "Payback Mini-CPA Brasil: 1 mes. Ingreso mes 1 estimado $100-$125 cubre el CPA de $100."
+    },
+    {
+      "id": "q21",
+      "question": "¿Qué sucede si el FTD promedio cae 30% (de $300 a $210)?",
+      "options": [
+        "Sin impacto",
+        "Payback Mini-CPA Brasil sube a 1.5 meses; margen híbrido Starter baja a 55%; considerar reducir Mini-CPA $20-30",
+        "Payback se mantiene",
+        "Margen sube"
+      ],
+      "correctIndex": 1,
+      "explanation": "FTD -30%: payback 1.5m, margen Starter 55%. Acción: revisar Mini-CPA y reducir $20-30. Mantener LTV/CPA >6x."
+    },
+    {
+      "id": "q22",
+      "question": "¿Qué acción se toma si la retención cae a 3 meses?",
+      "options": [
+        "Nada",
+        "Activar programa de retención agresivo (bonos depósito, señales, eventos) y revisar Creator Rewards Lab",
+        "Cerrar operaciones",
+        "Aumentar Mini-CPA"
+      ],
+      "correctIndex": 1,
+      "explanation": "Retención <4 meses: activar retención agresiva (bonos depósito, señales, eventos exclusivos). Revisar Creator Rewards Lab bounties."
+    },
+    {
+      "id": "q23",
+      "question": "¿Qué sucede en el escenario combinado (FTD -30% + Retención 3m)?",
+      "options": [
+        "Sin impacto",
+        "LTV ajustado $350-$490, ratio LTV/CPA 3.5x-4.9x, margen híbrido Starter 42% — poner en riesgo viabilidad",
+        "Aumenta margen",
+        "Sin cambio"
+      ],
+      "correctIndex": 1,
+      "explanation": "Escenario combinado: LTV $350-$490, LTV/CPA 3.5x-4.9x, margen 42%. Pone en riesgo viabilidad."
+    },
+    {
+      "id": "q24",
+      "question": "¿Qué acción inmediata se toma en el escenario combinado?",
+      "options": [
+        "Expansión",
+        "Congelar onboarding, reducir Mini-CPA 40%, suspender Content Bounties y Equipment Milestones, renegociar tiers altos",
+        "Aumentar gastos",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Acciones inmediatas: congelar onboarding nuevos, reducir Mini-CPA 40% todas GEOs, suspender Content Bounties y Equipment Milestones, renegociar tiers altos."
+    },
+    {
+      "id": "q25",
+      "question": "¿Cuál es el mix de partners asumido?",
+      "options": [
+        "100% Affiliate",
+        "60% Affiliate, 25% Digital, 15% IB",
+        "Solo IB",
+        "20/30/50"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mix asumido: 60% Affiliate, 25% Digital Affiliate, 15% IB Program."
+    },
+    {
+      "id": "q26",
+      "question": "¿Cuál es el cash flow neto con 50 partners activos/mes?",
+      "options": [
+        "$500",
+        "$4,500 - $9,250",
+        "$50,000",
+        "$1M"
+      ],
+      "correctIndex": 1,
+      "explanation": "50 partners activos: clientes 80-130, ingreso bruto $8K-$16K, costo partners $3.5K-$7K, cash flow neto $4,500-$9,250."
+    },
+    {
+      "id": "q27",
+      "question": "¿Cuál es el límite recomendado de Digital Affiliates activos?",
+      "options": [
+        "5",
+        "25 máximo hasta que ingreso recurrente cubra cash burn CPAs",
+        "100",
+        "Sin límite"
+      ],
+      "correctIndex": 1,
+      "explanation": "Límite recomendado: no superar 25 Digital Affiliates activos hasta que ingreso recurrente mensual cubra cash burn CPAs."
+    },
+    {
+      "id": "q28",
+      "question": "¿Cuál es el Monthly Milestone Platinum IB?",
+      "options": ["$500", "$5,000", "$15,000", "$50,000"],
+      "correctIndex": 2,
+      "explanation": "Monthly Milestone Platinum IB: $15,000. Requiere ~190 clientes activos generando $22,000 ingreso/mes."
+    },
+    {
+      "id": "q29",
+      "question": "¿Cuál es el umbral para pausar onboarding en tiers altos?",
+      "options": [
+        "Margen <80%",
+        "Margen neto por cliente cae debajo del 40%",
+        "Margen <20%",
+        "Sin umbral"
+      ],
+      "correctIndex": 1,
+      "explanation": "Señal alerta: margen neto por cliente <40% → pausar onboarding de nuevos partners en tiers altos."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuál es el ratio LTV/CPA mínimo aceptable?",
+      "options": ["1x", "3x", "5x", "10x"],
+      "correctIndex": 2,
+      "explanation": "Ratio LTV/CPA debajo de 5x → revisar Mini-CPAs y considerar reducción."
+    },
+    {
+      "id": "q31",
+      "question": "¿Qué % del ingreso total puede depender de un partner Affiliate?",
+      "options": ["5%", "Máximo 15% del ingreso total", "50%", "Sin límite"],
+      "correctIndex": 1,
+      "explanation": "Límite exposure: Affiliate Partner sin límite hard, pero máximo 15% del ingreso total."
+    },
+    {
+      "id": "q32",
+      "question": "¿Cuál es el límite de exposición de un IB Individual?",
+      "options": [
+        "100 clientes",
+        "500 clientes max, máximo 25% del ingreso total",
+        "1000 clientes",
+        "Sin límite"
+      ],
+      "correctIndex": 1,
+      "explanation": "IB Individual: 500 clientes máximo, máximo 25% del ingreso total. Diversificación obligatoria."
+    },
+    {
+      "id": "q33",
+      "question": "¿Cuál es el cash flow neto proyectado al mes 12 (caso base conservador)?",
+      "options": ["$5,000/mes", "$10,000/mes", "$49,000/mes", "$500,000/mes"],
+      "correctIndex": 2,
+      "explanation": "Proyección 12 meses: 100 partners activos, 800 clientes, ingreso bruto $80K, costo partners $31K, cash flow neto $49,000/mes."
+    },
+    {
+      "id": "q34",
+      "question": "¿Cuántos clientes acumulados hay proyectados al mes 6?",
+      "options": ["80", "300", "800", "5,000"],
+      "correctIndex": 1,
+      "explanation": "Mes 6: 50 partners activos, 300 clientes acumulados, ingreso bruto $30,000 mensual."
+    },
+    {
+      "id": "q35",
+      "question": "¿Cuál es la recomendación #1 para Principals?",
+      "options": [
+        "Empezar con IB",
+        "Empezar con Affiliate Partners — cero costo fijo, riesgo mínimo",
+        "Expansión masiva",
+        "CPA puro"
+      ],
+      "correctIndex": 1,
+      "explanation": "Recomendación #1: empezar con Affiliate Partners (cero costo fijo, riesgo mínimo, valida producto)."
+    },
+    {
+      "id": "q36",
+      "question": "¿Cuándo activar Digital Affiliates?",
+      "options": [
+        "Mes 1",
+        "Mes 2-3 — cuando haya ingreso recurrente suficiente para cubrir CPAs",
+        "Nunca",
+        "Mes 12"
+      ],
+      "correctIndex": 1,
+      "explanation": "Activar Digital Affiliates mes 2-3, solo cuando haya ingreso recurrente suficiente para cubrir CPAs."
+    },
+    {
+      "id": "q37",
+      "question": "¿Cuándo activar IB Program?",
+      "options": [
+        "Mes 1",
+        "Mes 4+ — requiere operación estabilizada para manejar Monthly Milestones",
+        "Nunca",
+        "Solo post-10 años"
+      ],
+      "correctIndex": 1,
+      "explanation": "IB Program: mes 4+. Requiere operación estabilizada para manejar Monthly Milestones."
+    },
+    {
+      "id": "q38",
+      "question": "¿Cuál es la reserva de cash recomendada?",
+      "options": [
+        "1 semana",
+        "3 meses de CPAs proyectados",
+        "1 año",
+        "Sin reserva"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mantener reserva de cash equivalente a 3 meses de CPAs proyectados."
+    },
+    {
+      "id": "q39",
+      "question": "¿Cuál es el mínimo de depósitos para activar el 12-Month Super-Bonus de $50K + equity?",
+      "options": [
+        "$10,000",
+        "$100,000",
+        "$500,000 en depósitos acumulados",
+        "$10,000,000"
+      ],
+      "correctIndex": 2,
+      "explanation": "12-Month Super-Bonus ($50K + equity): solo para IBs que generen mínimo $500K en depósitos acumulados."
+    },
+    {
+      "id": "q40",
+      "question": "¿Cuál es la oferta por defecto en el modelo financiero?",
+      "options": [
+        "CPA Standalone",
+        "Modelo híbrido (Mini-CPA + Rev Share) — maximiza margen 77%-83%",
+        "Rev Share puro",
+        "Rebate fijo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Modelo híbrido es oferta por defecto — combina CPA reducido + rev share menor. Margen 77%-83%. Solo Rev Share puro a partners con track record demostrado."
+    }
+  ]
+}

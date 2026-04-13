@@ -1,0 +1,371 @@
+{
+  "docPath": "operations/go-live-runbook",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Quién tiene la palabra final en las decisiones críticas del Go-Live?",
+      "options": ["Yulia", "Stanislav", "Diego", "El Head of Support"],
+      "correctIndex": 2,
+      "explanation": "Diego tiene la palabra final. En su ausencia: Yulia. En ausencia de ambos: Stanislav."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuál es el canal principal de coordinación durante el Go-Live?",
+      "options": [
+        "#general en Slack",
+        "Canal dedicado en Slack: #war-room-golive",
+        "WhatsApp",
+        "Email"
+      ],
+      "correctIndex": 1,
+      "explanation": "Canal principal: #war-room-golive en Slack. Canal de escalación: Grupo de Principals en Slack/WhatsApp."
+    },
+    {
+      "id": "q3",
+      "question": "¿Quién es responsable de verificaciones tecnológicas en D-1?",
+      "options": ["Diego", "Yulia", "Stanislav", "Head of Support"],
+      "correctIndex": 2,
+      "explanation": "Stanislav es responsable de verificaciones tecnológicas D-1: servidores MT5, web, SSL, conectividad, Intercom widget, etc."
+    },
+    {
+      "id": "q4",
+      "question": "¿A qué hora (CET) se ejecuta el briefing general del equipo en D-1?",
+      "options": ["09:00", "14:00", "18:00", "21:00"],
+      "correctIndex": 2,
+      "explanation": "18:00 CET: videollamada de 30 min con todo el equipo para revisar plan y resolver dudas. 19:00: Diego decide GO/NO-GO."
+    },
+    {
+      "id": "q5",
+      "question": "¿Cuáles son los criterios para decidir GO en D-1?",
+      "options": [
+        "Sólo verificar que MT5 funciona",
+        "Todas las verificaciones tech, PSPs y KYC completadas exitosamente; issues menores con workaround documentado",
+        "Aprobación de marketing",
+        "Decisión unilateral"
+      ],
+      "correctIndex": 1,
+      "explanation": "GO: todas las verificaciones tech, PSPs, KYC OK; issues menores documentados con workaround. NO-GO: fallo crítico MT5, PSPs principales caídos, Sumsub no funcional, web caída, compliance sin resolver."
+    },
+    {
+      "id": "q6",
+      "question": "¿A qué hora es el T-0 de activación del Go-Live?",
+      "options": ["00:00 CET", "08:00 CET", "09:00 CET", "12:00 CET"],
+      "correctIndex": 2,
+      "explanation": "T-0 a las 09:00 CET. Diego confirma GO FINAL. Stanislav habilita registros. Marketing activa campañas y publica anuncio. Email al pre-registro a las 09:05."
+    },
+    {
+      "id": "q7",
+      "question": "En el T-0 (09:00 CET), ¿quién habilita el registro de cuentas reales?",
+      "options": ["Diego", "Yulia", "Stanislav (09:01)", "Marketing"],
+      "correctIndex": 2,
+      "explanation": "Stanislav a las 09:01 habilita registro de cuentas reales. Marketing a las 09:02 activa campañas. 09:03 publicación redes. 09:05 email lanzamiento."
+    },
+    {
+      "id": "q8",
+      "question": "¿Con qué frecuencia monitorea Stanislav los servidores MT5 en las primeras 2 horas?",
+      "options": ["Cada hora", "Cada 30 min", "Cada 15 min (CPU, memoria, conexiones activas)", "Sólo al final"],
+      "correctIndex": 2,
+      "explanation": "Stanislav monitorea cada 15 min en las primeras 2h: CPU, memoria, conexiones activas. Reporta primer registro, primer KYC, primer deposito, primera operación."
+    },
+    {
+      "id": "q9",
+      "question": "¿Qué KPIs se rastrean cada 4 horas durante las primeras 24 horas?",
+      "options": [
+        "Sólo registros",
+        "Registros, KYCs (iniciado/aprobado/rechazado), depósitos, retiros, operaciones MT5, tickets soporte, errores plataforma, tráfico web, gasto ads vs registros",
+        "Sólo ventas",
+        "Sólo tickets de soporte"
+      ],
+      "correctIndex": 1,
+      "explanation": "KPIs cada 4h: registros, KYCs, depósitos, retiros, operaciones MT5, tickets soporte (volumen/tiempo/CSAT), errores plataforma, tráfico web, gasto ads vs registros."
+    },
+    {
+      "id": "q10",
+      "question": "¿Cuáles son los niveles de escalación durante el Go-Live?",
+      "options": [
+        "Sólo 2",
+        "4 niveles: Incidencia Menor (Head of Support), Problema Operativo (Diego/Yulia), Incidencia Mayor (Diego), Crítico (Diego única autoridad)",
+        "3 niveles iguales",
+        "Sin estructura"
+      ],
+      "correctIndex": 1,
+      "explanation": "4 niveles: Nivel 1 Menor (ticket no resuelto en 30 min → Head of Support), Nivel 2 Operativo (patrón múltiple → Diego/Yulia), Nivel 3 Mayor (PSP/MT5/Sumsub → Diego), Nivel 4 Crítico (rollback → Diego única autoridad)."
+    },
+    {
+      "id": "q11",
+      "question": "¿Cuándo se activa el protocolo de Rollback?",
+      "options": [
+        "Cuando un cliente se queja",
+        "Sólo bajo decisión de Diego, cuando hay evento crítico que pone en riesgo clientes o integridad del broker",
+        "Por voto del equipo",
+        "Por decisión del Head of Support"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rollback: SOLO bajo decisión de Diego. Triggers: MT5 inaccesible >30 min, breach de seguridad, PSPs procesando mal, issue regulatorio, error crítico Skale."
+    },
+    {
+      "id": "q12",
+      "question": "Primer paso del Rollback:",
+      "options": [
+        "Apagar servidores",
+        "Diego anuncia ROLLBACK en #war-room-golive y grupo Principals (inmediato)",
+        "Contactar abogados",
+        "Notificar clientes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Paso 1 rollback: Diego anuncia ROLLBACK en #war-room-golive y grupo Principals. Inmediato. Luego: deshabilitar registro (Stanislav 5 min), pausar campañas (Marketing 10 min)."
+    },
+    {
+      "id": "q13",
+      "question": "Durante Rollback, ¿cuánto tiempo tiene Stanislav para publicar mensaje de mantenimiento en web?",
+      "options": ["5 min", "10 min", "15 min", "30 min"],
+      "correctIndex": 2,
+      "explanation": "Stanislav publica mensaje de mantenimiento en web dentro de 15 min. Head of Support notifica a clientes por email en 30 min."
+    },
+    {
+      "id": "q14",
+      "question": "¿Con qué frecuencia se comunica internamente durante un Rollback?",
+      "options": ["Cada hora", "Cada 30 minutos en #war-room-golive", "Una vez", "Al final"],
+      "correctIndex": 1,
+      "explanation": "Rollback interno: updates cada 30 min en #war-room-golive. A clientes: cada 2h por email y redes (mensaje genérico sin detalles técnicos)."
+    },
+    {
+      "id": "q15",
+      "question": "Después de un rollback, ¿cuándo es la reunión de post-mortem?",
+      "options": [
+        "Una semana después",
+        "Post-mortem dentro de las 24 horas siguientes con todo el equipo involucrado",
+        "Nunca",
+        "Después del próximo Go-Live"
+      ],
+      "correctIndex": 1,
+      "explanation": "Post-mortem dentro de 24h con todo el equipo involucrado. Documentar causa raíz, timeline, acciones tomadas, resolución. Actualizar runbook con lecciones aprendidas."
+    },
+    {
+      "id": "q16",
+      "question": "¿A qué hora es el primer standup diario en primera semana post-launch?",
+      "options": ["07:00 CET", "09:00 CET / 02:00 COL", "12:00 CET", "18:00 CET"],
+      "correctIndex": 1,
+      "explanation": "Standup diario: 09:00 CET / 02:00 COL (o ajustado). Máximo 15 min. Videollamada + resumen en #war-room-golive."
+    },
+    {
+      "id": "q17",
+      "question": "¿Cuál es el tiempo máximo para el standup diario?",
+      "options": ["5 min", "15 min máximo", "30 min", "1 hora"],
+      "correctIndex": 1,
+      "explanation": "Standup diario: 15 min máximo. Agenda: métricas día anterior (2 min), problemas activos (5 min), acciones del día (5 min), decision items (3 min)."
+    },
+    {
+      "id": "q18",
+      "question": "¿Quién es responsable de verificaciones de KYC/Compliance en D-1?",
+      "options": ["Diego", "Yulia", "Stanislav", "Susana"],
+      "correctIndex": 1,
+      "explanation": "Yulia responsable de verificaciones KYC/Compliance D-1: Sumsub, KYC prueba, docs legales publicados, disclaimers regulatorios en formulario."
+    },
+    {
+      "id": "q19",
+      "question": "¿Cuándo se ejecuta prueba de deposito real en D-1?",
+      "options": [
+        "Nunca",
+        "10:00 CET: depósito de prueba de $10 USD con al menos 3 métodos de pago principales",
+        "24 horas antes",
+        "Sólo $1"
+      ],
+      "correctIndex": 1,
+      "explanation": "D-1 10:00 CET: depósito de prueba $10 USD con mínimo 3 métodos de pago principales. 11:00: retiro de prueba $5 USD."
+    },
+    {
+      "id": "q20",
+      "question": "¿Qué se verifica en el simulacro de atención del equipo de Support D-1?",
+      "options": [
+        "Nada",
+        "15:00 CET: cada agente responde 3 escenarios de prueba",
+        "Sólo el chat",
+        "Configurar macros"
+      ],
+      "correctIndex": 1,
+      "explanation": "D-1 15:00 CET: simulacro de atención, cada agente responde 3 escenarios de prueba. 14:00: acceso a Intercom/Skale/Sumsub. 16:00: verificar macros Intercom."
+    },
+    {
+      "id": "q21",
+      "question": "¿Qué canales debe tener acceso el agente de soporte antes del go-live?",
+      "options": [
+        "Sólo Intercom",
+        "Intercom, Skale CRM y Sumsub",
+        "Sólo WhatsApp",
+        "Slack únicamente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Acceso obligatorio pre-launch: Intercom (chat/email), Skale CRM (clientes) y Sumsub (KYC). Más FAQ Interno actualizado."
+    },
+    {
+      "id": "q22",
+      "question": "Checklist de primeras 2 horas incluye:",
+      "options": [
+        "Sólo registros",
+        "Primer registro, primer KYC aprobado, primer depósito en MT5, primera operación ejecutada, soporte <2 min chat, cero errores críticos, campañas sin error, web estable",
+        "Sólo depósitos",
+        "Nada específico"
+      ],
+      "correctIndex": 1,
+      "explanation": "Checklist 2h: primer registro, KYC aprobado, depósito reflejado en MT5, operación ejecutada, soporte cumple SLA <2 min, cero errores críticos, campañas OK, web estable."
+    },
+    {
+      "id": "q23",
+      "question": "Formato del reporte diario:",
+      "options": [
+        "Texto libre",
+        "Plantilla fija: métricas (registros/KYCs/depósitos/retiros/ops/tickets/CSAT), issues activos, acciones completadas, acciones pendientes mañana, decisiones necesarias, notas",
+        "Sólo números",
+        "Sólo problemas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Plantilla fija: métricas completas, issues activos con responsable, acciones completadas, pendientes mañana, decisiones necesarias para Principals, notas."
+    },
+    {
+      "id": "q24",
+      "question": "¿Qué herramienta se usa para el Log de Issues?",
+      "options": [
+        "Obsidian",
+        "Notion",
+        "Documento compartido (Google Sheet) con columnas: ID, fecha, descripción, severidad, responsable, estado, resolución, fecha cierre",
+        "Sólo emails"
+      ],
+      "correctIndex": 2,
+      "explanation": "Log de Issues: Google Sheet con columnas ID/fecha/descripción/severidad (crítico/mayor/menor)/responsable/estado/resolución/fecha cierre."
+    },
+    {
+      "id": "q25",
+      "question": "¿Qué reportes envía Finance Manager al cliente afectado por un Rollback de PSP?",
+      "options": [
+        "Ninguno",
+        "Suspender depósitos/retiros y notificar al PSP si el issue es de PSP. Comunicar a clientes afectados",
+        "Reembolso sin explicación",
+        "Esperar 48h"
+      ],
+      "correctIndex": 1,
+      "explanation": "Finance Manager en rollback de PSP: suspender depósitos/retiros afectados y notificar al PSP (15 min). Parte del plan de Rollback."
+    },
+    {
+      "id": "q26",
+      "question": "Si el issue de Rollback es de MT5, ¿qué hace Stanislav?",
+      "options": [
+        "Seguir operando",
+        "Cerrar acceso a trading, documentar posiciones abiertas de clientes (15 min)",
+        "Esperar",
+        "Reiniciar servidores"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rollback MT5: Stanislav cierra acceso a trading y documenta posiciones abiertas de clientes (15 min). Paso 7 del procedimiento."
+    },
+    {
+      "id": "q27",
+      "question": "¿Quién decide la re-activación post-Rollback?",
+      "options": [
+        "Cualquier Principal",
+        "Diego, cuando el problema está resuelto y verificado en ambiente de prueba",
+        "Stanislav",
+        "Marketing"
+      ],
+      "correctIndex": 1,
+      "explanation": "Diego decide re-activación. El problema debe estar resuelto e implementado en ambiente de prueba antes. Variable en tiempo."
+    },
+    {
+      "id": "q28",
+      "question": "¿Quién maneja el chat en vivo ES durante Go-Live?",
+      "options": [
+        "Diego",
+        "Support ES (asignado)",
+        "Marketing",
+        "Yulia"
+      ],
+      "correctIndex": 1,
+      "explanation": "Support ES (asignado) maneja Intercom + WhatsApp español. Support EN maneja inglés. Head of Support coordina."
+    },
+    {
+      "id": "q29",
+      "question": "¿Qué disponibilidad deben tener los Principals durante Go-Live?",
+      "options": [
+        "Horario normal",
+        "Sólo por email",
+        "24/7 durante Go-Live",
+        "Cuando puedan"
+      ],
+      "correctIndex": 2,
+      "explanation": "Diego, Yulia y Stanislav: 24/7 durante Go-Live. Teléfono + Slack + Grupo Principals."
+    },
+    {
+      "id": "q30",
+      "question": "¿Cuándo se hace el check-in #5 del día de lanzamiento?",
+      "options": [
+        "09:00",
+        "13:00",
+        "21:00 CET (async) — resumen del día",
+        "Nunca"
+      ],
+      "correctIndex": 2,
+      "explanation": "21:00 CET async: resumen del día en #war-room-golive. Check-ins día: 10:00 (#1), 11:00 (#2), 13:00 (#3), 17:00 (#4 cierre CET), 21:00 (#5)."
+    },
+    {
+      "id": "q31",
+      "question": "Cuándo es la retrospectiva de primera semana?",
+      "options": [
+        "D+1",
+        "D+3",
+        "D+7 — retrospectiva completa con todos",
+        "D+30"
+      ],
+      "correctIndex": 2,
+      "explanation": "D+7: retrospectiva de primera semana completa. D+1: reunión equipo primeras 24h. D+1 a D+7: standups diarios 09:00 CET."
+    },
+    {
+      "id": "q32",
+      "question": "¿A quién hay que escalar un patrón de múltiples tickets sobre el mismo tema?",
+      "options": [
+        "Sólo al agente",
+        "Head of Support notifica en #war-room-golive → Diego o Yulia deciden (Nivel 2 escalación)",
+        "A Marketing",
+        "A Susana"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nivel 2 Problema Operativo: Head of Support notifica en #war-room-golive, Diego o Yulia deciden."
+    },
+    {
+      "id": "q33",
+      "question": "¿Hay que afectar a algún cliente financieramente durante rollback?",
+      "options": [
+        "Da igual",
+        "Post-rollback verificar que ningún cliente fue afectado financieramente; si lo fue, resolver inmediatamente",
+        "Si pasa, se compensa luego",
+        "No importa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Post-rollback: verificar que ningún cliente fue afectado financieramente. Si lo fue, resolver inmediatamente. Paso 4 del post-rollback."
+    },
+    {
+      "id": "q34",
+      "question": "¿Qué hace Marketing en el protocolo de Rollback?",
+      "options": [
+        "Nada",
+        "Pausar todas las campañas de marketing pagadas (10 min)",
+        "Aumentar campañas",
+        "Publicar disculpas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Marketing en rollback paso 3: pausar todas las campañas pagadas dentro de 10 min. Evita atraer nuevos clientes durante incidente."
+    },
+    {
+      "id": "q35",
+      "question": "¿Cuándo se confirma 'Listo' cada equipo antes de la activación?",
+      "options": [
+        "D-1",
+        "T-60 min pre-go-live: cada equipo confirma verificaciones rápidas entre 08:00-08:50, todos confirman 'Listo' a las 08:50 en #war-room-golive",
+        "Cualquier hora",
+        "Nunca se confirma"
+      ],
+      "correctIndex": 1,
+      "explanation": "T-60 min: verificaciones rápidas (Stanislav 08:00, Finance 08:10, Yulia 08:20, Support 08:30, Marketing 08:40). Todos confirman 'Listo' 08:50."
+    }
+  ]
+}

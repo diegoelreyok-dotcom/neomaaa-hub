@@ -1,0 +1,426 @@
+{
+  "docPath": "operations/psps-explicados",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Qué es un PSP (Payment Service Provider)?",
+      "options": [
+        "Un banco",
+        "Empresa intermediaria que conecta al broker con redes globales de pago (bancos, Visa/MC, wallets, blockchains, sistemas locales)",
+        "Un regulador",
+        "Un proveedor de liquidez"
+      ],
+      "correctIndex": 1,
+      "explanation": "PSP: empresa intermediaria que conecta al broker con redes de pago globales. Sin PSP, el broker tendría que integrarse directo con cada banco/red — operativamente imposible."
+    },
+    {
+      "id": "q2",
+      "question": "Diferencia entre PSP, Gateway, Acquirer e Issuer:",
+      "options": [
+        "Son sinónimos",
+        "PSP orquesta todo. Gateway es capa técnica que transmite datos. Acquirer es banco que procesa pagos del broker. Issuer es banco emisor de tarjeta del cliente",
+        "Sólo existen PSPs",
+        "Todos son bancos"
+      ],
+      "correctIndex": 1,
+      "explanation": "PSP (Checkout, Praxis) orquesta todo. Gateway (Authorize.net) transmite datos. Acquirer (Barclays) procesa pagos del broker. Issuer (BBVA, Nubank) emite tarjeta del cliente."
+    },
+    {
+      "id": "q3",
+      "question": "¿Por qué un broker nunca opera con un solo PSP?",
+      "options": [
+        "Por capricho",
+        "Redundancia operativa, cobertura geográfica, mix de costos, routing inteligente, palanca comercial",
+        "Es gratis",
+        "Porque los PSPs lo piden"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nunca 1 solo PSP: redundancia si uno cae, cobertura geografía (PagSmile Brasil, DLocal México), mix costos, routing inteligente, leverage comercial."
+    },
+    {
+      "id": "q4",
+      "question": "Diferencia crítica entre acreditación al cliente y settlement al broker:",
+      "options": [
+        "Son lo mismo",
+        "Acreditación = lo que el cliente ve (inmediato). Settlement = cuando el broker recibe los fondos reales (T+1 a T+3)",
+        "Sólo importa el settlement",
+        "Broker cobra primero"
+      ],
+      "correctIndex": 1,
+      "explanation": "Acreditación cliente (segundos) vs settlement al broker (T+1 a T+3). El broker asume riesgo de settlement — acreditamos en segundos pero cobramos días después."
+    },
+    {
+      "id": "q5",
+      "question": "Rates típicos de tarjetas (Visa/Mastercard) en brokers:",
+      "options": [
+        "0.5% flat",
+        "MDR 2.5-4.5% + fixed fee $0.20-0.40 + rolling reserve 5-10% x 6 meses + chargeback fee $15-40",
+        "Gratis",
+        "10%"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tarjetas: MDR 2.5-4.5% + fixed fee + rolling reserve 5-10% retenidos 6 meses + chargeback fee $15-40. Brokers = high-risk merchants."
+    },
+    {
+      "id": "q6",
+      "question": "Rates típicos de crypto (USDT TRC-20 vía B2BinPay):",
+      "options": [
+        "5%",
+        "0.5% - 1% flat, settlement T+0, zero chargeback",
+        "3.5%",
+        "$20 fijo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Crypto (B2BinPay): 0.5-1% flat, zero chargeback (no existe en blockchain), settlement T+0 una vez confirmado, permite clientes con banking restringido."
+    },
+    {
+      "id": "q7",
+      "question": "¿Qué PSPs son críticos para LATAM?",
+      "options": [
+        "Sólo Stripe",
+        "PagSmile (Brasil PIX/Boleto, México), DLocal (LATAM + Africa + Asia), EBANX, Astropay, PayU",
+        "Sólo PayPal",
+        "Ninguno"
+      ],
+      "correctIndex": 1,
+      "explanation": "LATAM: PagSmile (Brasil/México), DLocal (LATAM + más), EBANX, Astropay (tarjetas virtuales), PayU. Tener al menos 1 fuerte en Brasil con PIX+Boleto es no-negociable."
+    },
+    {
+      "id": "q8",
+      "question": "¿Cuánto puede convertir un broker en Brasil sólo con Visa internacional vs con PIX?",
+      "options": [
+        "Lo mismo",
+        "Visa sólo: ~20%. Con PIX: 70%+",
+        "Más con Visa",
+        "No importa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Brasil sólo con Visa internacional: ~20% conversión. Con PIX: 70%+. Por eso PIX no es negociable."
+    },
+    {
+      "id": "q9",
+      "question": "¿Acepta Stripe brokers forex?",
+      "options": [
+        "Sí, todos",
+        "Stripe sólo acepta brokers low-risk, hoy no opera con la mayoría de brokers forex. Cortó a muchos en 2020",
+        "Es el más usado",
+        "Solo regulados"
+      ],
+      "correctIndex": 1,
+      "explanation": "Stripe no opera con la mayoría de brokers forex (high-risk). Cortó a muchos unilateralmente en 2020. PayPal tampoco soporta brokers forex."
+    },
+    {
+      "id": "q10",
+      "question": "Componentes del costo total de PSPs:",
+      "options": [
+        "Sólo MDR",
+        "MDR + fixed fee + monthly fee + setup fee + rolling reserve + chargeback fee + refund fee + FX markup",
+        "Sólo comisión",
+        "Sólo setup"
+      ],
+      "correctIndex": 1,
+      "explanation": "Costo total: MDR (%), fixed fee ($0.20-0.40), monthly fee ($100-2000), setup ($500-10K), rolling reserve, chargeback fee ($15-40), refund fee, FX markup (0.5-2%)."
+    },
+    {
+      "id": "q11",
+      "question": "¿Por qué card es más caro pero el cliente lo prefiere?",
+      "options": [
+        "Porque es obligatorio",
+        "Fricción cero (ya tiene tarjeta), confianza en Visa/MC, puede hacer chargeback si sale mal, no requiere aprender crypto",
+        "Es obligatorio",
+        "Es gratis"
+      ],
+      "correctIndex": 1,
+      "explanation": "Card: fricción cero, ya tiene tarjeta, confianza en marca, puede chargeback, no requiere aprender. Al broker cuesta más pero convierte más fácil."
+    },
+    {
+      "id": "q12",
+      "question": "¿Qué es un chargeback?",
+      "options": [
+        "Una comisión del broker",
+        "Cuando un cliente disputa una transacción con su banco emisor. Si falla a favor del cliente, el broker pierde el dinero además del servicio entregado",
+        "Un refund voluntario",
+        "Un tipo de depósito"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chargeback: cliente disputa con su banco emisor. Si falla a favor del cliente, dinero se reversa. Broker pierde dinero + servicio entregado + chargeback fee."
+    },
+    {
+      "id": "q13",
+      "question": "Ratio de chargeback aceptable:",
+      "options": [
+        "<5%",
+        "< 0.5% healthy. 0.5-1% aceptable con atención. 1-1.5% alarma (VDMP). >1.5% fees penales. >2% cierre inminente",
+        "<10%",
+        "No importa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ratios: <0.5% healthy, 0.5-1% aceptable, 1-1.5% alarma, >1.5% VDMP/Excessive Chargeback (fees penales), >2% cierre inminente."
+    },
+    {
+      "id": "q14",
+      "question": "¿Qué es rolling reserve?",
+      "options": [
+        "Un depósito voluntario",
+        "PSP retiene 5-10% de cada pago durante 6 meses para cubrir posibles chargebacks futuros. Colchón forzado",
+        "Una comisión mensual",
+        "Un bonus"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rolling reserve: PSP retiene 5-10% de cada depósito durante 6 meses. Volumen $500K/mes con 7% = $35K/mes retenidos, liberados 6 meses después."
+    },
+    {
+      "id": "q15",
+      "question": "Herramientas de defensa contra chargebacks:",
+      "options": [
+        "Ninguna",
+        "Verifi (Visa), Ethoca (Mastercard), 3DS (liability shift), evidencia robusta (IP, device, KYC), pre-chargeback communication",
+        "Sólo contratos",
+        "Sólo compensar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Defensa: Verifi (Visa pre-dispute), Ethoca (Mastercard alerts), 3DS (liability shift al issuer), evidencia robusta (IP/device/KYC/emails), pre-chargeback con cliente."
+    },
+    {
+      "id": "q16",
+      "question": "¿Qué es friendly fraud?",
+      "options": [
+        "Un fraude con amigos",
+        "Cliente usa su tarjeta, deposita, opera, pierde, luego disputa alegando 'no autorice'. Es el 40-60% de chargebacks en brokers forex",
+        "Fraude pequeño",
+        "No existe"
+      ],
+      "correctIndex": 1,
+      "explanation": "Friendly fraud: cliente opera con su propia tarjeta, pierde, disputa. No es fraude real, es fraude del cliente. 40-60% de chargebacks en brokers forex."
+    },
+    {
+      "id": "q17",
+      "question": "Mitigación de friendly fraud:",
+      "options": [
+        "No se puede",
+        "3DS obligatorio (liability shift), T&C firmados con acknowledgment de riesgo, screenshots del cliente operando, KYC verificado, comunicación grabada",
+        "Sólo bloquear",
+        "Ignorar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mitigación friendly fraud: 3DS obligatorio, T&C firmados, screenshots cliente operando, KYC verificado (demuestra SI es titular), comunicación grabada con intent."
+    },
+    {
+      "id": "q18",
+      "question": "¿Por qué el PSP corre su propio KYC además del broker?",
+      "options": [
+        "Por capricho",
+        "Regulatoriamente, el PSP es responsable ante su acquirer, redes y regulador. No puede confiar ciegamente en el KYC del broker",
+        "Duplicar trabajo",
+        "Cobrar más"
+      ],
+      "correctIndex": 1,
+      "explanation": "PSP KYC independiente: responsable ante acquirer, redes, regulador propio. Agrega screening sanciones, device fingerprint, verificación tarjeta titular."
+    },
+    {
+      "id": "q19",
+      "question": "Razones típicas por las que un PSP rechaza un depósito con KYC del broker ya aprobado:",
+      "options": [
+        "Capricho",
+        "Nombre tarjeta ≠ KYC, país tarjeta ≠ país KYC, cliente en blacklist PSP por chargeback previo, monto supera threshold, velocity (5 intentos en 10 min)",
+        "Nada",
+        "Solo por clima"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rechazos PSP: nombre no coincide (3rd party), país tarjeta ≠ KYC, blacklist PSP por chargeback previo en otro merchant, threshold sin docs extra, velocity flag."
+    },
+    {
+      "id": "q20",
+      "question": "¿Por qué rotar PSPs?",
+      "options": [
+        "Para confundir",
+        "No poner huevos en una cesta. Si 100% va por 1 PSP y corta la cuenta, el broker no procesa pagos. Es riesgo existencial",
+        "Más comisiones",
+        "Sin razón"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rotar PSPs: evitar riesgo existencial. Si PSP corta la cuenta por cualquier razón (chargebacks, cambio apetito), el broker no procesa. Stripe cortó a muchos en 2020."
+    },
+    {
+      "id": "q21",
+      "question": "Routing inteligente por geografía:",
+      "options": [
+        "Mismo PSP para todo",
+        "Brasil → PagSmile PIX/Boleto. México → PagSmile o DLocal SPEI/OXXO. Europa → Checkout card/SEPA. Asia → B2BinPay crypto. USA → ACH o crypto (forex no retail en USA)",
+        "Cualquiera sirve",
+        "Sólo card"
+      ],
+      "correctIndex": 1,
+      "explanation": "Routing geografía: Brasil PagSmile PIX/Boleto, México DLocal, Europa Checkout SEPA, Asia B2BinPay crypto, USA ACH/crypto (forex retail no en USA regulado)."
+    },
+    {
+      "id": "q22",
+      "question": "Routing por tipo de cliente:",
+      "options": [
+        "Siempre card",
+        "Chico (<$500) card fricción baja; mediano ($500-5K) card/wallet; grande (>$5K) wire/crypto ahorrar fees; VIP tratamiento dedicado wire priority",
+        "Siempre wire",
+        "Sólo crypto"
+      ],
+      "correctIndex": 1,
+      "explanation": "Por cliente: <$500 card (fricción baja), $500-5K card/wallet, >$5K wire/crypto (fees bajos), VIP wire priority dedicado."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuántos PSPs mínimo apunta NEOMAAA para Go-live?",
+      "options": [
+        "1 PSP",
+        "Mínimo 3 PSPs en producción (Card, LATAM local, Crypto, Wire bancario)",
+        "10 PSPs",
+        "No importa"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA stack go-live: mínimo 3 PSPs en producción. Card (Praxis/Checkout), LATAM (PagSmile), Crypto (B2BinPay/CoinsPaid), Wire (banking partner)."
+    },
+    {
+      "id": "q24",
+      "question": "¿Quién coordina el setup de PSPs hasta que se contrate Finance Manager?",
+      "options": [
+        "Nadie",
+        "Angel coordina el setup y negociación. Los contratos PSP tienen cláusulas que afectan cashflow por años",
+        "Diego solo",
+        "Soporte"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hasta contratar Finance Manager, Angel coordina setup y negociación PSPs. Los contratos tienen cláusulas de rolling reserve, MDR, chargeback, cancelación que afectan cashflow por años."
+    },
+    {
+      "id": "q25",
+      "question": "¿Qué debe saber Ventas sobre PSPs?",
+      "options": [
+        "Todo sobre negociación",
+        "Qué métodos hay por país, tiempos esperados de acreditación, qué decir sobre fees. NO prometer tiempos exactos sin conocer método",
+        "Nada",
+        "Rates exactos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ventas debe saber: métodos por país, tiempos esperados, qué decir sobre fees. NO prometer tiempos exactos sin conocer el método específico."
+    },
+    {
+      "id": "q26",
+      "question": "¿Qué debe saber Soporte sobre PSPs?",
+      "options": [
+        "Rates exactos",
+        "Por qué un depósito puede fallar (KYC del PSP, nombre no coincide, 3DS, límite, fraud check), cómo escalar a Finance, qué info pedir al cliente",
+        "Nada",
+        "Contratos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Soporte debe saber: causas de rechazo PSP, cómo escalar a Finance, info a pedir al cliente (transaction ID, screenshot, método, hora exacta)."
+    },
+    {
+      "id": "q27",
+      "question": "Respuesta modelo a cliente que pregunta por comisión inesperada:",
+      "options": [
+        "Somos gratis",
+        "'NEOMAAA no cobra comisión por depositar. Puede ser fee de tu banco por operación internacional o conversión de moneda. Revisalo con tu banco'",
+        "Es normal",
+        "Reclamá al PSP"
+      ],
+      "correctIndex": 1,
+      "explanation": "Respuesta modelo: NEOMAAA no cobra. Puede ser fee del banco cliente por operación internacional o conversión. Revisar con su banco."
+    },
+    {
+      "id": "q28",
+      "question": "¿Puede un cliente depositar con tarjeta que no está a su nombre?",
+      "options": [
+        "Sí, no importa",
+        "No. Por AML sólo aceptamos métodos a nombre del titular. Si lo intenta, se rechaza y devuelve al origen",
+        "Sólo si es familiar",
+        "Sólo con autorización"
+      ],
+      "correctIndex": 1,
+      "explanation": "No se aceptan métodos a nombre distinto del titular (3rd party payment). Por AML se rechaza y devuelve al origen."
+    },
+    {
+      "id": "q29",
+      "question": "Info a pedir al cliente cuando su depósito no se acreditó:",
+      "options": [
+        "Sólo nombre",
+        "Método exacto (y red si crypto), transaction ID del PSP, monto/moneda, hora con zona horaria, screenshot del comprobante, estado confirmado (approved vs pending)",
+        "Cualquier cosa",
+        "Una foto"
+      ],
+      "correctIndex": 1,
+      "explanation": "Info necesaria: método exacto (+red crypto), TX ID del PSP, monto/moneda, hora con TZ, screenshot comprobante, estado confirmado por banco/PSP."
+    },
+    {
+      "id": "q30",
+      "question": "¿Quién debe tener contacto directo con el AML team de cada PSP?",
+      "options": [
+        "Soporte",
+        "Compliance officer (Susana). Issues serios no se resuelven por email con soporte — se resuelven escalando a AML team",
+        "Marketing",
+        "Ventas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Compliance officer (Susana) con contacto directo a AML team de cada PSP. Issues serios escalan al AML team, no soporte estándar."
+    },
+    {
+      "id": "q31",
+      "question": "Regla de oro para Soporte sobre tiempos:",
+      "options": [
+        "Prometer siempre 24h",
+        "Nunca prometas tiempo exacto. Siempre da un rango ('entre 1 y 5 días hábiles') y comunica proactivamente si hay delay",
+        "Decir inmediato siempre",
+        "No comprometer nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla oro: nunca prometer tiempo exacto, siempre rango, comunicar proactivamente si hay delay. Clientes toleran demoras comunicadas, no silencio."
+    },
+    {
+      "id": "q32",
+      "question": "¿Qué debe saber Compliance (Susana) sobre PSPs?",
+      "options": [
+        "Nada",
+        "KYC conjunto con el PSP, source of funds, AML cooperation, screening de wallets crypto, red flags de 3rd party payment",
+        "Rates",
+        "Contratos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Compliance: KYC conjunto PSP, SOF, AML cooperation, screening wallets crypto (Chainalysis), red flags 3rd party payment."
+    },
+    {
+      "id": "q33",
+      "question": "¿Por qué brokers forex son considerados high-risk merchants?",
+      "options": [
+        "Son rentables",
+        "Son considerados high-risk universalmente por card networks. El chargeback rate aceptable es más bajo que e-commerce normal (~0.9% vs 1.5%)",
+        "Son nuevos",
+        "Por diversion"
+      ],
+      "correctIndex": 1,
+      "explanation": "Brokers forex = high-risk universalmente. Chargeback rate aceptable ~0.9% vs 1.5% en e-commerce normal. Hay que ser agresivo en prevención."
+    },
+    {
+      "id": "q34",
+      "question": "¿Por qué depósito crypto para broker: ventajas?",
+      "options": [
+        "Sólo es más barato",
+        "Zero chargeback (no existe en blockchain), settlement rápido T+0 una vez confirmado, permite países con banking restringido, bajo costo (0.5-1%)",
+        "Más seguro que card",
+        "Ninguna"
+      ],
+      "correctIndex": 1,
+      "explanation": "Crypto: zero chargeback, settlement T+0, permite clientes con banking restringido, bajo costo. Desventajas: volatilidad si no se convierte inmediatamente, AML más exigente, requiere cliente tech-savvy."
+    },
+    {
+      "id": "q35",
+      "question": "¿Qué es iDeal y en qué país domina?",
+      "options": [
+        "iDeal es una criptomoneda",
+        "iDeal es APM europeo de Holanda que redirige al banco online del cliente. 60% del e-commerce NL",
+        "Una wallet móvil",
+        "Un bitcoin bank"
+      ],
+      "correctIndex": 1,
+      "explanation": "iDeal: APM (Alternative Payment Method) Holanda. Redirige al banco online del cliente, aprueba, debita. 60% del e-commerce NL. Rate 1-2.5%, T+1 a T+2."
+    }
+  ]
+}

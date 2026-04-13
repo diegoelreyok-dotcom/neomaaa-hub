@@ -1,0 +1,381 @@
+{
+  "docPath": "hiring/support-en",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Compensación del Support Agent EN:",
+      "options": ["$200/mes", "$400 USD/mes", "$800/mes", "$1,500/mes"],
+      "correctIndex": 1,
+      "explanation": "Support Agent EN: $400 USD/mes. Remoto. Horario: L-V 9:00 AM - 6:00 PM CET."
+    },
+    {
+      "id": "q2",
+      "question": "Horario del Support Agent EN:",
+      "options": [
+        "24/7",
+        "L-V 9:00 AM - 6:00 PM CET (hora Europa Central)",
+        "Sólo fines de semana",
+        "Por turnos"
+      ],
+      "correctIndex": 1,
+      "explanation": "Horario: Lunes a Viernes, 9:00 AM - 6:00 PM CET. Cubre turno europeo para mayor actividad de Europa/ME/Africa/SE Asia."
+    },
+    {
+      "id": "q3",
+      "question": "Mercados que cubre:",
+      "options": [
+        "Sólo Europa",
+        "Europa, Middle East, Africa y SE Asia",
+        "LATAM",
+        "USA"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cubre mercados angloparlantes: Europa, Middle East, Africa, SE Asia."
+    },
+    {
+      "id": "q4",
+      "question": "Nivel de inglés requerido:",
+      "options": [
+        "Básico",
+        "Inglés fluido (escrito y hablado — nivel C1 mínimo). Idioma principal del puesto",
+        "B1",
+        "Sólo conversacional"
+      ],
+      "correctIndex": 1,
+      "explanation": "Obligatorio: inglés fluido C1 mínimo (escrito y hablado). Es el idioma principal del puesto."
+    },
+    {
+      "id": "q5",
+      "question": "Experiencia mínima obligatoria:",
+      "options": [
+        "Sin experiencia",
+        "1 año mínimo en atención al cliente (cualquier industria)",
+        "5 años broker",
+        "10 años"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mínimo 1 año en atención al cliente (cualquier industria)."
+    },
+    {
+      "id": "q6",
+      "question": "Modalidad:",
+      "options": [
+        "Presencial Europa",
+        "Remoto (debe residir en zona horaria compatible con CET)",
+        "Híbrido",
+        "Solo Dubai"
+      ],
+      "correctIndex": 1,
+      "explanation": "Remoto, debe residir en zona horaria compatible con CET. Deseable: Europa del Este, Turquía, Egipto, Sudáfrica o compatible."
+    },
+    {
+      "id": "q7",
+      "question": "Canales de atención:",
+      "options": [
+        "Sólo chat",
+        "Intercom (chat en vivo), correo electrónico y WhatsApp",
+        "Sólo teléfono",
+        "Redes sociales"
+      ],
+      "correctIndex": 1,
+      "explanation": "Canales: Intercom (chat en vivo), correo electrónico y WhatsApp."
+    },
+    {
+      "id": "q8",
+      "question": "Idioma como ventaja significativa para Middle East:",
+      "options": [
+        "Francés",
+        "Árabe como segundo idioma (ventaja significativa)",
+        "Ruso",
+        "Alemán"
+      ],
+      "correctIndex": 1,
+      "explanation": "Árabe como segundo idioma = ventaja significativa para mercado Middle East."
+    },
+    {
+      "id": "q9",
+      "question": "KPI FRT chat:",
+      "options": ["< 30 seg", "< 2 minutos", "< 10 min", "< 1 hora"],
+      "correctIndex": 1,
+      "explanation": "FRT chat: <2 minutos. FRT email: <1 hora. FRT WhatsApp: <5 minutos."
+    },
+    {
+      "id": "q10",
+      "question": "KPI traspaso de turno (específico de EN):",
+      "options": [
+        "No aplica",
+        "100% de tickets abiertos documentados al cierre de turno",
+        "50%",
+        "Al día siguiente"
+      ],
+      "correctIndex": 1,
+      "explanation": "Traspaso de turno: 100% de tickets abiertos documentados al cierre de turno. Crítico para garantizar continuidad con Support ES."
+    },
+    {
+      "id": "q11",
+      "question": "KPI tickets atendidos por día:",
+      "options": ["10", "20", "Mínimo 40 interacciones", "100"],
+      "correctIndex": 2,
+      "explanation": "Mínimo 40 interacciones por día."
+    },
+    {
+      "id": "q12",
+      "question": "KPI CSAT:",
+      "options": ["3.0/5.0", "4.5/5.0+", "3.5/5.0", "No se mide"],
+      "correctIndex": 1,
+      "explanation": "CSAT: >4.5/5.0."
+    },
+    {
+      "id": "q13",
+      "question": "KPI resolución en primer contacto:",
+      "options": ["> 50%", "> 80%", "100%", "20%"],
+      "correctIndex": 1,
+      "explanation": "Tasa de resolución en primer contacto: >80%."
+    },
+    {
+      "id": "q14",
+      "question": "KPI disponibilidad en horario:",
+      "options": ["70%", "95%+ (ausencias justificadas excluidas)", "100%", "80%"],
+      "correctIndex": 1,
+      "explanation": "Disponibilidad: 95%+ (ausencias justificadas excluidas)."
+    },
+    {
+      "id": "q15",
+      "question": "KPI escalaciones incorrectas:",
+      "options": ["< 1%", "< 5% del total de escalaciones", "< 20%", "No importa"],
+      "correctIndex": 1,
+      "explanation": "Escalaciones incorrectas: <5% del total de escalaciones."
+    },
+    {
+      "id": "q16",
+      "question": "Cobertura regional — responsabilidad:",
+      "options": [
+        "Sólo responder",
+        "Entender particularidades de Middle East y Africa (métodos de pago locales, sensibilidades culturales, regulaciones locales básicas)",
+        "No aplica",
+        "Sólo traducir"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cobertura regional: entender particularidades Middle East y Africa — métodos pago locales, sensibilidades culturales, regulaciones locales básicas."
+    },
+    {
+      "id": "q17",
+      "question": "Coordinación con Support ES:",
+      "options": [
+        "No hay coordinación",
+        "Traspaso limpio de turno y continuidad en tickets abiertos",
+        "Sólo con el lead",
+        "Sin contacto"
+      ],
+      "correctIndex": 1,
+      "explanation": "Coordinar con Support ES: traspaso limpio de turno y continuidad en tickets abiertos."
+    },
+    {
+      "id": "q18",
+      "question": "Deseable comprensión de forex:",
+      "options": [
+        "No necesario",
+        "Comprensión básica de forex y trading (qué es un pip, apalancamiento, spread)",
+        "Ser trader profesional",
+        "Experto en técnicas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deseable: comprensión básica de forex y trading (pip, apalancamiento, spread). No requiere ser trader profesional."
+    },
+    {
+      "id": "q19",
+      "question": "Herramientas que utilizará:",
+      "options": [
+        "Sólo email",
+        "Intercom, WhatsApp Business, Skale CRM, Sumsub, MT5, Google Docs/Sheets, Slack/Discord",
+        "Sólo Slack",
+        "CRM propio"
+      ],
+      "correctIndex": 1,
+      "explanation": "Intercom (chat/email/tickets), WhatsApp Business, Skale CRM, Sumsub (KYC), MT5 (referencia tech), Docs/Sheets, Slack/Discord."
+    },
+    {
+      "id": "q20",
+      "question": "A quién reporta:",
+      "options": ["Solo Diego", "Head of Support / Principals", "Stanislav", "Marketing"],
+      "correctIndex": 1,
+      "explanation": "Reporta a Head of Support / Principals."
+    },
+    {
+      "id": "q21",
+      "question": "Capacitación incluye específico EN:",
+      "options": [
+        "Sólo productos",
+        "Particularidades regionales (métodos de pago por región, consideraciones culturales, regulaciones locales relevantes)",
+        "Sólo MT5",
+        "Sólo Intercom"
+      ],
+      "correctIndex": 1,
+      "explanation": "Capacitación específica EN: particularidades regionales — métodos pago por región, cultural, regulaciones locales. Más FAQ Interno con 50+ preguntas."
+    },
+    {
+      "id": "q22",
+      "question": "Prueba escrita proceso de selección:",
+      "options": [
+        "Test lógica",
+        "5 escenarios simulados de soporte al cliente en inglés (20 min)",
+        "CV únicamente",
+        "Entrevista grupal"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prueba escrita: 5 escenarios simulados en inglés (20 min). Entrevista videollamada en inglés (20 min). Decisión 48h."
+    },
+    {
+      "id": "q23",
+      "question": "Entrevista proceso selección:",
+      "options": [
+        "En español",
+        "Videollamada en inglés (20 min) — evalúa comunicación, fluidez, actitud de servicio",
+        "Presencial",
+        "Sólo email"
+      ],
+      "correctIndex": 1,
+      "explanation": "Entrevista videollamada en inglés 20 min: comunicación, fluidez, actitud de servicio."
+    },
+    {
+      "id": "q24",
+      "question": "Decisión proceso:",
+      "options": ["1 semana", "48 horas post-entrevista", "Sin plazo", "1 mes"],
+      "correctIndex": 1,
+      "explanation": "Decisión en 48 horas post-entrevista."
+    },
+    {
+      "id": "q25",
+      "question": "Deseable sobre el resto de idiomas:",
+      "options": [
+        "Francés",
+        "Árabe (Middle East), Español básico (comunicación interna con parte del equipo)",
+        "Mandarín",
+        "Ruso"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deseables: árabe (ventaja ME), español básico (comunicación interna con parte del equipo). Hindi/Urdu útiles para SE Asia."
+    },
+    {
+      "id": "q26",
+      "question": "Responsabilidades en KYC:",
+      "options": [
+        "Aprobar KYCs",
+        "Guiar a clientes en verificación de identidad vía Sumsub, explicar requisitos y resolver dudas sobre rechazos, escalar casos de compliance al Compliance Officer",
+        "Rechazar docs",
+        "No aplica"
+      ],
+      "correctIndex": 1,
+      "explanation": "KYC: guiar al cliente en Sumsub, explicar requisitos, resolver rechazos. Escalar casos de compliance al Compliance Officer."
+    },
+    {
+      "id": "q27",
+      "question": "Responsabilidades en depósitos/retiros:",
+      "options": [
+        "Aprobar retiros",
+        "Informar métodos (120+), guiar proceso paso a paso, responder consultas sobre estado verificando en Skale CRM, escalar problemas a Finance Manager o PSP",
+        "Transferir fondos",
+        "Nada"
+      ],
+      "correctIndex": 1,
+      "explanation": "Depósitos/retiros: informar métodos 120+, guiar proceso, verificar estado en Skale, escalar problemas a Finance Manager o PSP."
+    },
+    {
+      "id": "q28",
+      "question": "Tipos de cuenta que debe conocer:",
+      "options": [
+        "Cent, Standard, Raw, Institutional",
+        "Sólo Standard",
+        "Demo únicamente",
+        "Institutional solo"
+      ],
+      "correctIndex": 0,
+      "explanation": "Los 4 tipos: Cent, Standard, Raw, Institutional. Condiciones trading, spreads, comisiones, apalancamiento."
+    },
+    {
+      "id": "q29",
+      "question": "Residencia deseable:",
+      "options": [
+        "USA",
+        "Europa del Este, Turquía, Egipto, Sudáfrica o países con zona horaria compatible con CET",
+        "LATAM",
+        "Japón"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deseable: Europa del Este, Turquía, Egipto, Sudáfrica o compatible con CET."
+    },
+    {
+      "id": "q30",
+      "question": "Soft skills:",
+      "options": [
+        "Agresividad",
+        "Actitud de servicio, paciencia, comunicación clara",
+        "Sólo técnica",
+        "Ventas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Soft skills: actitud de servicio, paciencia, comunicación clara. Capacidad de aprender rápido herramientas nuevas."
+    },
+    {
+      "id": "q31",
+      "question": "Responsabilidad de registro/tracking:",
+      "options": [
+        "Sólo email",
+        "Registrar cada interacción en Intercom/CRM con notas claras sobre problema y resolución",
+        "Mental",
+        "En excel personal"
+      ],
+      "correctIndex": 1,
+      "explanation": "Registrar cada interacción en Intercom/CRM con notas claras: problema + resolución."
+    },
+    {
+      "id": "q32",
+      "question": "¿Qué reporta al supervisor?",
+      "options": [
+        "Nada",
+        "Patrones de quejas o problemas recurrentes",
+        "Solo CSAT",
+        "Asistencias"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reportar patrones de quejas o problemas recurrentes al supervisor. Identificar preguntas frecuentes y sugerir mejoras al FAQ."
+    },
+    {
+      "id": "q33",
+      "question": "Sobre NEOMAAA (contexto):",
+      "options": [
+        "Exchange",
+        "Broker forex/CFDs con licencia AOFA Anjouan, MT5 ECN/STP híbrido, 2K+ instrumentos, $5 min, 1:1000, mercados: LATAM + ME + Africa + SE Asia",
+        "Prop firm",
+        "Banco"
+      ],
+      "correctIndex": 1,
+      "explanation": "NEOMAAA Markets bajo AOFA Anjouan, MT5 híbrido ECN/STP, 2K+ instrumentos, $5 min, apalancamiento 1:1000. Principal: LATAM; expansión ME + Africa + SE Asia."
+    },
+    {
+      "id": "q34",
+      "question": "Equipo:",
+      "options": [
+        "500+",
+        "Remoto en crecimiento con mentalidad de startup",
+        "Presencial",
+        "Sólo fundadores"
+      ],
+      "correctIndex": 1,
+      "explanation": "Equipo remoto en crecimiento, mentalidad startup: rápidos, directos, enfocados en resultados."
+    },
+    {
+      "id": "q35",
+      "question": "Problemas técnicos avanzados:",
+      "options": [
+        "L1 resuelve todo",
+        "Escalar (ejecución, conectividad servidor, errores plataforma) al equipo técnico",
+        "Ignorar",
+        "Transferir al cliente"
+      ],
+      "correctIndex": 1,
+      "explanation": "L1 resuelve básico MT5 (descarga, login, gráficos). Avanzados (ejecución, conectividad, errores plataforma) escalan al equipo técnico."
+    }
+  ]
+}

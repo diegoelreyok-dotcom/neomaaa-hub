@@ -1,0 +1,366 @@
+{
+  "docPath": "sales/commissions",
+  "language": "es",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "¿Cuál es el salario base actual de cada sales agent (Franco, Edward, Luis)?",
+      "options": ["$500 USD/mes", "$750 USD/mes", "$1,000 USD/mes", "$1,500 USD/mes"],
+      "correctIndex": 2,
+      "explanation": "El salario base actual de cada agente es $1,000 USD/mes. La estructura de comisiones se suma encima de ese base."
+    },
+    {
+      "id": "q2",
+      "question": "¿Cuántos Tiers tiene el esquema de comisiones propuesto?",
+      "options": ["2 tiers", "3 tiers", "4 tiers", "5 tiers"],
+      "correctIndex": 1,
+      "explanation": "3 Tiers: Tier 1 (meses 1-3, lanzamiento), Tier 2 (meses 4-6, normalización), Tier 3 (mes 7+, modelo sostenible)."
+    },
+    {
+      "id": "q3",
+      "question": "¿Qué modelo de comisión se recomienda en el documento?",
+      "options": [
+        "100% fija por FTD",
+        "100% porcentaje del FTD",
+        "Modelo híbrido: comisión fija base por FTD + bono escalonado por monto depositado",
+        "Solo salario, sin comisiones"
+      ],
+      "correctIndex": 2,
+      "explanation": "Modelo híbrido: fija base por FTD + bono adicional si supera un umbral. Combina simplicidad con incentivo a buscar clientes de mayor valor."
+    },
+    {
+      "id": "q4",
+      "question": "En Tier 1, ¿cuál es la comisión fija por FTD de una cuenta Standard?",
+      "options": ["$5", "$10", "$15", "$25"],
+      "correctIndex": 2,
+      "explanation": "Tier 1 cuenta Standard: $15 fijo + $10 de bono si el FTD es >= $200."
+    },
+    {
+      "id": "q5",
+      "question": "En Tier 1, ¿qué comisión se paga por un FTD de una cuenta Raw con depósito >= $1,000?",
+      "options": ["$40", "$50", "$60", "$80"],
+      "correctIndex": 2,
+      "explanation": "Tier 1 Raw: $40 fijo + $20 bono si FTD >= $1,000 = $60 total."
+    },
+    {
+      "id": "q6",
+      "question": "Si Franco consigue un cliente que abre Standard y deposita $300 (Tier 1), ¿cuánto gana de comisión por ese FTD?",
+      "options": ["$15", "$20", "$25", "$30"],
+      "correctIndex": 2,
+      "explanation": "$15 fijo Standard + $10 bono porque $300 > $200 = $25 total por ese FTD."
+    },
+    {
+      "id": "q7",
+      "question": "¿Qué es el Bono de Volumen Mensual?",
+      "options": [
+        "Bono por número de llamadas realizadas",
+        "Bono calculado sobre TODOS los depósitos (FTDs + re-depósitos) de los clientes asignados al agente durante el mes",
+        "Bono por antigüedad en la empresa",
+        "Bono solo por nuevos clientes"
+      ],
+      "correctIndex": 1,
+      "explanation": "El Bono de Volumen Mensual se calcula sobre TODOS los depósitos (FTDs + re-depósitos) de los clientes asignados al agente durante el mes. Premia la retención."
+    },
+    {
+      "id": "q8",
+      "question": "En Tier 1, ¿qué bono de volumen recibe un agente con $7,300 en depósitos totales del mes?",
+      "options": ["$0", "$150", "$350", "$600"],
+      "correctIndex": 2,
+      "explanation": "Tramo $7,000-$14,999 en Tier 1 = $350 de bono de volumen."
+    },
+    {
+      "id": "q9",
+      "question": "¿Cuál es el propósito del Bono de Equipo (Team Bonus)?",
+      "options": [
+        "Premiar solo al agente con más ventas",
+        "Evitar que agentes 'roben' leads entre sí y fomentar colaboración: si el equipo alcanza la meta, TODOS cobran",
+        "Solo aplicar cuando un agente renuncia",
+        "Un pago extra del CEO fuera del esquema"
+      ],
+      "correctIndex": 1,
+      "explanation": "El team bonus evita canibalización entre agentes. Si el equipo alcanza la meta de FTDs combinados, TODOS reciben el bono — incentiva colaboración y cultura de equipo."
+    },
+    {
+      "id": "q10",
+      "question": "En Tier 1, ¿qué meta de equipo da $200 por agente?",
+      "options": ["20+ FTDs", "30+ FTDs", "50+ FTDs", "75+ FTDs"],
+      "correctIndex": 2,
+      "explanation": "Tier 1: 30+ FTDs = $100/agente, 50+ = $200/agente, 75+ = $350/agente."
+    },
+    {
+      "id": "q11",
+      "question": "En Tier 3, se agrega un nuevo bono que NO existe en Tier 1 y Tier 2. ¿Cuál es?",
+      "options": [
+        "Bono de antigüedad",
+        "Bono de Retención (por clientes activos)",
+        "Bono de referidos",
+        "Bono de capacitación"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tier 3 agrega Bono de Retención: hasta $400/mes si el agente tiene 70+ clientes activos (al menos 1 trade en los últimos 30 días)."
+    },
+    {
+      "id": "q12",
+      "question": "¿Qué define un 'cliente activo' para el Bono de Retención en Tier 3?",
+      "options": [
+        "Que tenga cuenta abierta",
+        "Que haya depositado alguna vez",
+        "Al menos 1 trade en los últimos 30 días",
+        "Que tenga más de 3 meses con la firma"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cliente activo = al menos 1 trade ejecutado en los últimos 30 días."
+    },
+    {
+      "id": "q13",
+      "question": "¿Qué compensación total mensual apunta el esquema para un 'agente promedio'?",
+      "options": [
+        "$1,000 - $1,400/mes",
+        "$1,800 - $2,200/mes",
+        "$3,500 - $4,000/mes",
+        "$5,000+/mes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Compensación objetivo: Promedio $1,800-$2,200/mes, Buen desempeño $2,500-$3,200, Excepcional $3,500-$4,000."
+    },
+    {
+      "id": "q14",
+      "question": "Regla anti-gaming: ¿se paga comisión por cuentas de familiares directos del agente?",
+      "options": [
+        "Sí, sin restricción",
+        "Sí, pero con aprobación",
+        "NO. Ninguna comisión se paga por cuentas que pertenezcan al agente, familiares directos o amigos cercanos",
+        "Solo si el familiar vive en otro país"
+      ],
+      "correctIndex": 2,
+      "explanation": "Regla 6.1: no se paga comisión por cuentas de familiares directos (padres, hermanos, hijos, pareja) ni amigos cercanos. Se detecta por cruce de IP, KYC, métodos de pago."
+    },
+    {
+      "id": "q15",
+      "question": "¿Qué pasa con un segundo incidente de cuentas falsas en las reglas anti-gaming?",
+      "options": [
+        "Advertencia verbal",
+        "Suspensión de 1 mes",
+        "Devolución de comisión",
+        "Despido"
+      ],
+      "correctIndex": 3,
+      "explanation": "Primer incidente = devolución de comisión + suspensión de bonos 1 mes. Segundo incidente = despido."
+    },
+    {
+      "id": "q16",
+      "question": "¿Qué es 'churning' en el contexto del esquema de comisiones?",
+      "options": [
+        "Un tipo de trade en MT5",
+        "Aconsejar al cliente que retire y re-deposite para inflar métricas de depósito",
+        "Rotar clientes entre agentes",
+        "Un bono especial del broker"
+      ],
+      "correctIndex": 1,
+      "explanation": "Churning = aconsejar al cliente que retire y re-deposite para inflar métricas. Se detecta por ratio depósito/retiro anormal (>3 ciclos en 30 días sin trading significativo)."
+    },
+    {
+      "id": "q17",
+      "question": "Si un cliente abre primero cuenta Cent y luego Raw, ¿cuál genera comisión FTD?",
+      "options": [
+        "Ambas, cada una como FTD independiente",
+        "Solo la primera (Cent). La Raw genera re-depósito (cuenta para bono de volumen)",
+        "Solo la Raw (la de mayor valor)",
+        "Ninguna, hay que esperar 90 días"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla 6.4 anti-fragmentación: solo la primera cuenta del cliente genera FTD. La segunda cuenta cuenta como re-depósito para el bono de volumen."
+    },
+    {
+      "id": "q18",
+      "question": "¿Cuándo se pagan las comisiones cada mes?",
+      "options": [
+        "El último día del mes de cálculo",
+        "El día 1 del mes siguiente",
+        "El día 10 del mes siguiente",
+        "El día 30 del mes siguiente"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ciclo de pago: cierre último día del mes, auditoría días 1-5, aprobación de Diego día 5, pago día 10 del mes siguiente."
+    },
+    {
+      "id": "q19",
+      "question": "¿Qué pasa si un cliente deposita y retira en menos de 7 días sin hacer ningún trade?",
+      "options": [
+        "No pasa nada, la comisión es definitiva",
+        "Se activa clawback del 50%",
+        "Se activa clawback del 100% de la comisión FTD",
+        "Se duplica la comisión"
+      ],
+      "correctIndex": 2,
+      "explanation": "Si deposita y retira en <7 días sin trading = clawback 100% de la comisión FTD. Estándar de la industria."
+    },
+    {
+      "id": "q20",
+      "question": "¿Cuál es el período de 'madurez' del FTD antes de que la comisión se consolide?",
+      "options": ["7 días", "14 días", "30 días", "60 días"],
+      "correctIndex": 1,
+      "explanation": "Período de madurez: 14 días. Si el cliente pasa 14 días con saldo activo y al menos 0.5 lotes operados, la comisión se consolida."
+    },
+    {
+      "id": "q21",
+      "question": "¿Cuál es el límite máximo de clawback en un mes?",
+      "options": [
+        "10% de las comisiones del agente",
+        "20% de las comisiones del agente",
+        "30% de las comisiones totales del agente en ese mes",
+        "50% de las comisiones del agente"
+      ],
+      "correctIndex": 2,
+      "explanation": "Límite 30%. Esto protege al agente de quedar en negativo. El exceso se arrastra al mes siguiente."
+    },
+    {
+      "id": "q22",
+      "question": "¿Cuál es el KPI mínimo de contactos diarios que debe cumplir un agente?",
+      "options": ["10/día", "20/día", "30/día (650/mes)", "50/día"],
+      "correctIndex": 2,
+      "explanation": "Mínimo 30 contactos/día (~650/mes). Incumplir = advertencia verbal 1er mes, escrita 2do, PIP 3er."
+    },
+    {
+      "id": "q23",
+      "question": "¿Cuál es el FTD mínimo mensual requerido por agente?",
+      "options": ["3 FTDs/mes", "5 FTDs/mes", "8 FTDs/mes", "15 FTDs/mes"],
+      "correctIndex": 2,
+      "explanation": "Mínimo 8 FTDs/mes. Incumplir activa la misma escala de consecuencias que bajos contactos."
+    },
+    {
+      "id": "q24",
+      "question": "¿Qué es un PIP en el contexto del esquema?",
+      "options": [
+        "Un tipo de cuenta",
+        "Performance Improvement Plan: 30 días con coaching intensivo antes de evaluar reemplazo",
+        "Un indicador de spreads",
+        "Un método de pago"
+      ],
+      "correctIndex": 1,
+      "explanation": "PIP = Performance Improvement Plan. 30 días con coaching intensivo. Si no mejora, se evalúa reemplazo."
+    },
+    {
+      "id": "q25",
+      "question": "¿Cuenta el bonus del broker (ej. 'deposita $500 y recibe $100') como depósito para calcular comisiones?",
+      "options": [
+        "Sí, cuenta igual que dinero real",
+        "NO. Solo cuenta el dinero real depositado por el cliente",
+        "Solo si el bonus es mayor a $50",
+        "Depende del tipo de cuenta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Los bonus promocionales del broker NO cuentan para calcular comisiones. Solo el dinero real del cliente."
+    },
+    {
+      "id": "q26",
+      "question": "¿Cada cuánto se revisa el esquema de comisiones?",
+      "options": ["Mensualmente", "Cada 3 meses (al cambio de Tier)", "Anualmente", "Nunca se revisa"],
+      "correctIndex": 1,
+      "explanation": "Cada 3 meses al cambio de Tier. Cambios se comunican con 15 días de anticipación mínimo y NO son retroactivos."
+    },
+    {
+      "id": "q27",
+      "question": "Según benchmarks, ¿en qué rango debería estar el costo total de adquisición + compensación de ventas respecto al revenue?",
+      "options": ["1-3%", "5-7%", "8-15%", "20-30%"],
+      "correctIndex": 2,
+      "explanation": "Regla general de la industria de brokers: costo adquisición + compensación sales entre 8-15% del revenue. NEOMAAA propone 6.5-12.3% según escenario."
+    },
+    {
+      "id": "q28",
+      "question": "¿Cuál es el payback period estimado de la comisión FTD?",
+      "options": [
+        "1-2 días",
+        "~2-3 semanas",
+        "3-6 meses",
+        "12 meses"
+      ],
+      "correctIndex": 1,
+      "explanation": "Payback ~2-3 semanas. El broker recupera la comisión en ~15-20 días de operación del cliente. ROI 15x-30x sobre la vida del cliente."
+    },
+    {
+      "id": "q29",
+      "question": "Si un lead entra por marketing (organic, ads) sin agente asignado, ¿cómo se distribuye?",
+      "options": [
+        "Se asigna al agente con más ventas del mes",
+        "Por round-robin",
+        "Lo elige Diego manualmente",
+        "Se queda sin asignar"
+      ],
+      "correctIndex": 1,
+      "explanation": "Leads sin agente asignado se distribuyen por round-robin. Cliente nunca se reasigna sin aprobación de Diego."
+    },
+    {
+      "id": "q30",
+      "question": "Si un agente renuncia, ¿qué pasa con sus clientes?",
+      "options": [
+        "Se pierden todos",
+        "Van a un pool general sin comisión",
+        "Se redistribuyen entre los agentes restantes. Las comisiones de volumen aplican desde el mes siguiente a la redistribución",
+        "Los compra otro broker"
+      ],
+      "correctIndex": 2,
+      "explanation": "Los clientes se redistribuyen entre agentes restantes. Las comisiones de volumen sobre esos clientes aplican desde el mes siguiente."
+    },
+    {
+      "id": "q31",
+      "question": "¿Qué comportamiento se presume si un agente presiona a un cliente para que pida dinero prestado o use tarjetas de crédito para depositar?",
+      "options": [
+        "Técnica de venta normal",
+        "Presión indebida — prohibida. Primer incidente = advertencia escrita + capacitación. Segundo = despido",
+        "Bono extra por cerrar grande",
+        "No está regulado"
+      ],
+      "correctIndex": 1,
+      "explanation": "Regla 6.3 Presión indebida prohibida. Primer incidente = advertencia escrita + capacitación obligatoria. Segundo = despido."
+    },
+    {
+      "id": "q32",
+      "question": "Benchmark LATAM vs propuesta: ¿cada cuánto paga típicamente la industria las comisiones?",
+      "options": [
+        "Inmediato",
+        "10 días post-mes (como NEOMAAA)",
+        "15-30 días post-mes (NEOMAAA es más rápido)",
+        "Trimestral"
+      ],
+      "correctIndex": 2,
+      "explanation": "La industria paga entre 15-30 días post-mes. NEOMAAA paga día 10 — ventaja competitiva para atraer talento."
+    },
+    {
+      "id": "q33",
+      "question": "En Tier 2, ¿qué pasa con la comisión por FTD comparada con Tier 1?",
+      "options": [
+        "Sube",
+        "Baja (los agentes ya tienen cartera, el bono de volumen sube para premiar retención)",
+        "Se mantiene igual",
+        "Se elimina"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tier 2 (meses 4-6): comisión FTD baja ~25% pero el bono de volumen sube ~30% para premiar retención. Compensación total similar o superior al Tier 1."
+    },
+    {
+      "id": "q34",
+      "question": "¿Qué puede ver cada agente en su dashboard de Skale CRM?",
+      "options": [
+        "Solo su salario base",
+        "Solo FTDs del año anterior",
+        "FTDs del mes en curso, depósitos totales de su cartera, progreso hacia bonos, progreso del equipo — todo en tiempo real",
+        "Datos de los otros agentes"
+      ],
+      "correctIndex": 2,
+      "explanation": "Dashboard transparente en tiempo real: FTDs del mes, depósitos de cartera, progreso a bonos, progreso del equipo. Los agentes no deben preguntar 'cuánto llevo'."
+    },
+    {
+      "id": "q35",
+      "question": "¿Qué NO cuenta como depósito para el bono de volumen?",
+      "options": [
+        "FTDs nuevos",
+        "Re-depósitos de clientes existentes",
+        "Transferencias internas entre cuentas del mismo cliente y bonus/créditos otorgados por el broker",
+        "Depósitos en crypto"
+      ],
+      "correctIndex": 2,
+      "explanation": "NO cuentan: transferencias internas entre cuentas del mismo cliente, bonus/créditos del broker. SÍ cuentan: FTDs + re-depósitos reales."
+    }
+  ]
+}
