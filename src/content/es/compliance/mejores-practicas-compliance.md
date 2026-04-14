@@ -331,7 +331,7 @@ Exness opera con un modelo de compliance por jurisdiccion:
 |---|---|---|---|
 | 7 | Implementar la reunion mensual de compliance (Susana + Principals) | Principals | Recurrente (1 hora/mes) |
 | 8 | Preparar primer reporte trimestral a AOFA | Susana | 8 horas |
-| 9 | Realizar capacitacion AML completa para TODO el equipo (18 personas) | Susana | 4 horas |
+| 9 | Realizar capacitacion AML completa para TODO el equipo (16 personas) | Susana | 4 horas |
 | 10 | Documentar los primeros 50 clientes en el Registro (retroactivo si ya hay clientes) | Susana | Variable |
 | 11 | Revisar y confirmar con abogado todos los items marcados [VERIFICAR CON ABOGADO] | Principals | Variable |
 | 12 | Confirmar con Sumsub todos los items marcados [VERIFICAR CON SUMSUB] | Susana | Variable |

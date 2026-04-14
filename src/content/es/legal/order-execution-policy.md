@@ -25,6 +25,14 @@ NEOMAAA opera bajo un modelo de ejecucion ECN/STP (Electronic Communication Netw
 - La Empresa actua como intermediario entre el cliente y los proveedores de liquidez.
 - La Empresa agrega liquidez de multiples proveedores para ofrecer los mejores precios disponibles.
 
+### 2.1.1 Actuacion como Principal o Contraparte
+
+El Cliente reconoce y acepta que, bajo este modelo hibrido, **Neomaaa Ltd puede actuar en determinadas circunstancias como principal (principal) o contraparte (counterparty) de las operaciones del Cliente**. Esto significa que no todas las ordenes se enrutan necesariamente a un proveedor de liquidez externo; una parte puede ser ejecutada internamente por la Empresa. La Empresa adopta politicas internas para gestionar cualquier conflicto de interes derivado de esta estructura (ver Seccion 9).
+
+La ejecucion esta sujeta a: slippage (positivo o negativo), latency, requotes (bajo circunstancias excepcionales), delayed execution y condiciones de mercado prevalecientes.
+
+Este servicio se presta sobre una base de **execution-only**: la Empresa no brinda asesoramiento de inversion, recomendaciones personalizadas ni gestion de carteras.
+
 ### 2.2 Ejecucion de Mercado (Market Execution)
 
 Todas las ordenes se ejecutan bajo el modelo de Market Execution. Esto implica que:
@@ -195,6 +203,6 @@ Esta politica se revisa al menos una vez al ano o cuando se produzcan cambios si
 
 ---
 
-**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union de Comoras
+**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union of Comoros
 
 *Ultima actualizacion: Abril 2026*

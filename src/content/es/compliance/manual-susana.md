@@ -51,8 +51,14 @@ NEOMAAA Markets opera bajo la siguiente estructura regulatoria:
 | Numero de licencia | L15968/N |
 | Regulador | Anjouan Offshore Finance Authority (AOFA) |
 | Tipo de licencia | International Brokerage License |
-| Jurisdiccion | Anjouan, Union de las Comoras |
-| Actividades autorizadas | Intermediacion en instrumentos financieros: forex, CFDs, commodities, indices, criptomonedas |
+| Jurisdiccion | The Autonomous Island of Anjouan, Union of Comoros |
+| Sede registrada | Hamchako, Mutsamudu, The Autonomous Island of Anjouan, Union of Comoros |
+| Web oficial | neomaaa.com |
+| Soporte | help.neomaaa.com |
+| Legal / documentacion | neomaaa.com/about/legal-documentation |
+| Actividades autorizadas | Intermediacion en instrumentos financieros: CFDs, Forex, Commodities, Indices, Metales, Energies, Cryptocurrencies |
+| Base operativa | Execution-only (no asesoria de inversion ni gestion de portafolios) |
+| Modelo de ejecucion | Neomaaa Ltd puede actuar como principal o counterparty (hibrido A-Book/B-Book, ver `compliance/ab-book-policy.md` interno y `legal/order-execution-policy.md` publico) |
 
 ### 1.2 Obligaciones Ante el Regulador (AOFA)
 
@@ -387,6 +393,8 @@ El monitoreo no termina con el KYC. Susana debe vigilar de forma continua las si
 
 ### 7.1 Lista de Paises Donde NEOMAAA NO Puede Operar
 
+**GOLD SOURCE oficial (aprobado por Neomaaa Ltd):** USA, Canada, EEA (Espacio Economico Europeo -- incluye Espana, Francia, Alemania, Italia y el resto de la UE/EFTA), UK, Australia, Cuba, Iraq, Myanmar, North Korea, Sudan, y cualquier jurisdiccion sancionada internacionalmente.
+
 Los siguientes paises estan PROHIBIDOS. No se aceptan clientes que residan en, sean nacionales de, o depositen desde estas jurisdicciones:
 
 **Categoria A -- Sancionados internacionalmente (prohibicion absoluta):**
@@ -474,7 +482,7 @@ Todo el equipo de NEOMAAA (ventas, soporte, marketing) tiene PROHIBIDO hacer pro
 | 18 | "Con nosotros no hay spreads ocultos" (si no es verificable) | Afirmacion que debe ser 100% demostrable | "Nuestros spreads son transparentes y visibles en la plataforma MT5 en tiempo real." |
 | 19 | "Vamos a duplicar tu deposito" (refiriendose a bonos) | Puede interpretarse como promesa de ganancia | "Tenemos una promocion de bonificacion de X% sobre su deposito, sujeta a terminos y condiciones." |
 | 20 | "No necesitas experiencia para ganar en forex" | Minimiza complejidad, induce a operar sin preparacion | "Recomendamos que los traders nuevos utilicen nuestra cuenta demo para familiarizarse con la plataforma antes de operar con fondos reales." |
-| 21 | "Somos regulados por FCA / CySEC / ASIC / BaFin / BCRA / CNV / CNMV" (o cualquier regulador tier-1 o nacional que NEOMAAA no posee) | AFIRMACION REGULATORIA FALSA -- la unica licencia de NEOMAAA es L15968/N de AOFA (Anjouan). Mentir sobre regulacion es delito en casi todas las jurisdicciones | "NEOMAAA Markets opera bajo Neomaaa Ltd (IBC 15968), licencia L15968/N otorgada por la Anjouan Offshore Finance Authority (AOFA)." |
+| 21 | "Somos regulados por FCA / CySEC / ASIC / BaFin / BCRA / CNV / CNMV" (o cualquier regulador tier-1 o nacional que NEOMAAA no posee) | AFIRMACION REGULATORIA FALSA -- la unica licencia de NEOMAAA es L15968/N de AOFA (Anjouan). Mentir sobre regulacion es delito en casi todas las jurisdicciones | "Neomaaa Ltd, International Business Company registrada en Union of Comoros (reg. 15968), licencia International Brokerage L15968/N otorgada por la Anjouan Offshore Finance Authority (AOFA). Sede: Hamchako, Mutsamudu, The Autonomous Island of Anjouan, Union of Comoros." |
 | 22 | "Duplica tu dinero" / "Duplica tu cuenta en X dias" / "Triplica tu capital" | Promesa explicita de rendimiento con cifra especifica | "El trading es de alto riesgo. Los resultados dependen de tu estrategia, experiencia y condiciones de mercado." |
 | 23 | "NEOMAAA es mejor que [competidor]" / "[Competidor] es una estafa, venite a NEOMAAA" / Bashing por nombre de otros brokers | Comparacion directa denigrando a competidor -- ilegal en la mayoria de jurisdicciones y genera riesgo legal | "Te invito a comparar condiciones punto por punto en vivo: nuestra cuenta Raw ofrece spreads desde 0.0 pips, $3/lote/lado, y 120+ metodos de deposito." |
 | 24 | "Rentabilidad asegurada" / "Senales que nunca fallan" / "Sistema infalible" / "100% win rate" | Variantes de promesa de rendimiento | "El rendimiento pasado no garantiza resultados futuros. El trading conlleva riesgo de perdida." |
@@ -483,22 +491,51 @@ Todo el equipo de NEOMAAA (ventas, soporte, marketing) tiene PROHIBIDO hacer pro
 | 27 | "No te preocupes por el KYC, es solo tramite" / "Te puedo acelerar la verificacion" | Minimiza compliance y/o crea expectativa falsa | "El KYC es un requisito regulatorio obligatorio. El proceso estandar toma 24-48h y protege tus fondos." |
 | 28 | "Te doy un consejo de inversion" / "Compra/vende [X] ahora" / "Yo te digo cuando entrar y salir" | Asesoria de inversion sin licencia | "NEOMAAA no proporciona recomendaciones de inversion. Las decisiones de trading son responsabilidad exclusiva del cliente." |
 
+### 8.2.bis Frases APROBADAS -- Lista Maestra (textos oficiales exactos)
+
+Estas frases estan aprobadas literalmente para uso en cualquier canal (ventas, soporte, marketing, legal, partners). Usar EXACTAMENTE el texto de la columna derecha. Cualquier variante debe consultarse con Susana antes de publicar.
+
+| Tema | Frase APROBADA (texto exacto) |
+|---|---|
+| Identidad legal completa | "Neomaaa Ltd, International Business Company registrada en Union of Comoros (reg. 15968), licencia International Brokerage L15968/N otorgada por la Anjouan Offshore Finance Authority (AOFA)." |
+| Identidad corta | "Neomaaa Ltd (IBC 15968), licencia L15968/N de AOFA (Anjouan)." |
+| Sede | "Sede registrada: Hamchako, Mutsamudu, The Autonomous Island of Anjouan, Union of Comoros." |
+| Canales oficiales | "Web: neomaaa.com. Soporte: help.neomaaa.com. Documentacion legal: neomaaa.com/about/legal-documentation." |
+| Base de operacion | "Neomaaa Ltd opera sobre base execution-only: no ofrece asesoramiento de inversion, recomendaciones personalizadas, señales de trading ni gestion de portafolios." |
+| Modelo de ejecucion (publico) | "Neomaaa Ltd puede actuar como principal o counterparty en las operaciones de sus clientes, dentro de su politica de ejecucion de ordenes publicada." |
+| Modelo comercial simplificado | "NEOMAAA opera un modelo hibrido ECN/STP. Las ordenes se enrutan segun nuestra politica de ejecucion y pueden ejecutarse contra proveedores de liquidez o internamente. La ejecucion es auditable en MetaTrader 5." |
+| Riesgo general CFDs | "Los CFDs son instrumentos complejos con alto riesgo de perder dinero debido al apalancamiento." |
+| Riesgo estadistico oficial | "El 70-80% de los clientes minoristas pierden dinero operando CFDs con este tipo de proveedor." |
+| Riesgos de ejecucion admitidos | "Las operaciones pueden estar sujetas a slippage, latencia, requotes y demoras en la ejecucion, como es propio de los mercados OTC." |
+| Performance | "El rendimiento pasado no es indicativo de resultados futuros." |
+| Productos | "Ofrecemos CFDs sobre Forex, Commodities, Indices, Metales, Energies y Cryptocurrencies." |
+| Jurisdicciones restringidas | "Neomaaa Ltd no presta servicios a residentes de Estados Unidos, Canada, Espacio Economico Europeo (EEA), Reino Unido, Australia, Cuba, Iraq, Myanmar, Corea del Norte, Sudan ni a ningun pais sujeto a sanciones internacionales." |
+| KYC / AML | "El proceso de verificacion de identidad (KYC) es un requisito regulatorio obligatorio conforme a las guias AML/CFT de AOFA y las recomendaciones del GAFI/FATF." |
+
 ### 8.3 Disclaimers Obligatorios
 
-Los siguientes disclaimers DEBEN aparecer en toda comunicacion con clientes:
+Los siguientes disclaimers DEBEN aparecer en toda comunicacion con clientes. Son los textos OFICIALES aprobados por Neomaaa Ltd.
 
 **Disclaimer corto (para mensajes, WhatsApp, redes sociales):**
-> "El trading de CFDs y forex conlleva un alto riesgo de perdida. Puede perder todo su capital. No invierta dinero que no pueda permitirse perder."
+> "El trading de CFDs y forex conlleva un alto riesgo de perdida. El 70-80% de los clientes minoristas pierden dinero operando CFDs. Puede perder todo su capital. No invierta dinero que no pueda permitirse perder."
 
 **Disclaimer largo (para emails, landing pages, material promocional):**
-> "Advertencia de riesgo: Los contratos por diferencia (CFDs) y el trading de divisas (forex) son productos apalancados que conllevan un alto nivel de riesgo para su capital. No debe invertir dinero que no pueda permitirse perder. Antes de decidir operar, debe considerar cuidadosamente sus objetivos de inversion, nivel de experiencia y tolerancia al riesgo. Existe la posibilidad de que pueda perder parte o la totalidad de su inversion inicial, y por lo tanto, no debe invertir dinero que no pueda permitirse perder. Debe ser consciente de todos los riesgos asociados con el trading de CFDs y forex. Si tiene dudas, busque asesoramiento financiero independiente. El rendimiento pasado no es indicativo de resultados futuros. Neomaaa Ltd (IBC 15968), licencia L15968/N otorgada por la Anjouan Offshore Finance Authority."
+> "Advertencia de riesgo: Los contratos por diferencia (CFDs) y el trading de divisas (forex) son productos apalancados que conllevan un alto nivel de riesgo para su capital. El 70-80% de los clientes minoristas pierden dinero operando CFDs con este tipo de proveedor. No debe invertir dinero que no pueda permitirse perder. Antes de decidir operar, debe considerar cuidadosamente sus objetivos de inversion, nivel de experiencia y tolerancia al riesgo. Existe la posibilidad de que pueda perder parte o la totalidad de su inversion inicial. Debe ser consciente de todos los riesgos asociados con el trading de CFDs y forex, incluyendo slippage, latencia, requotes y demoras en la ejecucion. Neomaaa Ltd opera sobre base execution-only: no ofrece asesoramiento de inversion ni gestion de portafolios. Si tiene dudas, busque asesoramiento financiero independiente. El rendimiento pasado no es indicativo de resultados futuros. Neomaaa Ltd (IBC 15968), licencia International Brokerage L15968/N otorgada por la Anjouan Offshore Finance Authority (AOFA). Sede registrada: Hamchako, Mutsamudu, The Autonomous Island of Anjouan, Union of Comoros."
+
+**Disclaimer de execution-only (cuando el cliente pida opiniones o señales):**
+> "Neomaaa Ltd opera bajo base execution-only. No proporcionamos asesoramiento de inversion, recomendaciones personalizadas, señales de trading ni gestion de portafolios. Cualquier decision de trading es exclusiva responsabilidad del cliente."
+
+**Disclaimer de contraparte (cuando el cliente pregunte por modelo de ejecucion):**
+> "Neomaaa Ltd puede actuar como principal o counterparty en las operaciones de sus clientes, dentro del marco de su politica de ejecucion de ordenes publicada. La ejecucion es auditable en MetaTrader 5."
 
 **Disclaimer de apalancamiento (cuando se mencione apalancamiento):**
 > "El apalancamiento amplifica tanto las ganancias potenciales como las perdidas potenciales. Un apalancamiento de 1:1000 significa que un movimiento del 0.1% en contra de su posicion puede resultar en la perdida total de su margen. Asegurese de comprender completamente como funciona el apalancamiento antes de operar."
 
 ### 8.3.bis A-Book / B-Book -- Que Se Puede Decir Publicamente
 
-La politica interna A-Book/B-Book (`compliance/ab-book-policy.md`) es CONFIDENCIAL y de uso exclusivo del Dealing Desk + Principals. El equipo de ventas NO tiene acceso y NO sabe si un cliente especifico es A-Book o B-Book.
+**Importante:** Neomaaa Ltd reconoce OFICIALMENTE en sus Terminos y Condiciones (`legal/terms-conditions.md` y `legal/order-execution-policy.md`) que puede actuar como principal o counterparty en operaciones de clientes. Por lo tanto, mencionar que operamos "modelo hibrido ECN/STP" o que "Neomaaa puede actuar como principal o counterparty" es comunicacion APROBADA y publica.
+
+Lo que es CONFIDENCIAL y de uso exclusivo del Dealing Desk + Principals es la politica interna de enrutamiento (`compliance/ab-book-policy.md`): umbrales, ratios, criterios especificos, y la clasificacion A/B de clientes individuales. El equipo de ventas NO tiene acceso a esta info y NO sabe si un cliente especifico es A-Book o B-Book.
 
 | Pregunta del cliente | Respuesta aprobada (publica) | Respuesta PROHIBIDA |
 |---|---|---|

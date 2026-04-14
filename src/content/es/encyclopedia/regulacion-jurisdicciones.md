@@ -89,7 +89,7 @@ Capital más bajo (USD 50k–500k), leverage alto (1:500–1:1000), bonos permit
 
 | Regulador | País |
 |-----------|------|
-| AOFA | Anjouan, Unión de las Comoras — **NEOMAAA Markets** |
+| AOFA | Anjouan, Union of Comoros — **NEOMAAA Markets** |
 | FSC | Mauricio |
 | Labuan FSA | Malasia Labuan |
 | St. Lucia FSRA | Santa Lucía |
@@ -100,7 +100,7 @@ Capital bajo, licenciamiento más accesible, supervisión limitada pero existent
 
 **Entidad:** Neomaaa Ltd (IBC 15968)
 **Licencia:** L15968/N emitida por Anjouan Offshore Finance Authority (AOFA)
-**Jurisdicción:** Anjouan, Unión de las Comoras
+**Jurisdicción:** Anjouan, Union of Comoros
 
 ### Qué implica en la práctica — Anjouan vs FCA
 

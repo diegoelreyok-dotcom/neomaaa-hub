@@ -153,10 +153,13 @@ Diferencias clave:
 
 ### DÍA 1 — Regulacion Basica
 *Lunes*
-- Que es la licencia AOFA y que implica
-- Paises restringidos - MEMORIZAR la lista
+- Identidad legal oficial: **Neomaaa Ltd, IBC 15968, Union of Comoros, licencia International Brokerage L15968/N otorgada por AOFA**. Sede en Hamchako, Mutsamudu, Autonomous Island of Anjouan.
+- Base de operacion: **execution-only** (no asesoria, no gestion de portafolios). Neomaaa Ltd puede actuar como principal o counterparty.
+- Productos oficiales: CFDs, Forex, Commodities, Indices, Metales, Energies, Cryptocurrencies.
+- Paises restringidos - MEMORIZAR la lista: USA, Canada, EEA, UK, Australia, Cuba, Iraq, Myanmar, North Korea, Sudan, sancionados internacionales.
 - Por que compliance existe (proteger a NEOMAAA Y al cliente)
 - Consecuencias reales de violar compliance: multas, perdida de licencia, demandas
+- **Disclaimer oficial estadistico:** 70-80% de los clientes minoristas pierden dinero operando CFDs. Este dato es factual y debe aparecer en marketing y disclosures.
 
 ### DÍA 2 — FRASES PROHIBIDAS (memorizar)
 *Martes*
@@ -173,7 +176,7 @@ Diferencias clave:
 | "Pedi plata prestada para invertir" | Induccion a endeudamiento | "Solo opera con dinero que puedas permitirte perder" |
 | "No te preocupes por el KYC, es solo un tramite" | Minimizar compliance | "El KYC protege tu cuenta y tus fondos - es un proceso de seguridad estandar" |
 | Cualquier consejo fiscal | No somos asesores fiscales | "Te recomendamos consultar con un asesor fiscal en tu pais" |
-| "Somos regulados por FCA / CySEC / ASIC" (o cualquier regulador que no tengamos) | AFIRMACION REGULATORIA FALSA -- solo tenemos Anjouan L15968/N | "Operamos bajo Neomaaa Ltd (IBC 15968), licencia L15968/N otorgada por la AOFA" |
+| "Somos regulados por FCA / CySEC / ASIC" (o cualquier regulador que no tengamos) | AFIRMACION REGULATORIA FALSA -- solo tenemos Anjouan L15968/N | "Neomaaa Ltd, IBC 15968 registrada en Union of Comoros, licencia International Brokerage L15968/N otorgada por la Anjouan Offshore Finance Authority (AOFA)" |
 | "Duplica tu dinero" / "Duplica tu cuenta en X dias" | Promesa explicita de rendimiento | "El trading es de alto riesgo. Resultados dependen de tu estrategia" |
 | "[Competidor] es una estafa" / "Somos mejores que [broker X]" | Bashing directo prohibido -- riesgo legal | "Te invito a comparar condiciones punto por punto en vivo" |
 | "Senales que nunca fallan" / "Sistema infalible" / "100% win rate" / "Rentabilidad asegurada" | Promesa de rendimiento disfrazada | "El rendimiento pasado no garantiza futuros. Copy trading tambien conlleva riesgo" |

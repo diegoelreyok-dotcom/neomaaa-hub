@@ -289,7 +289,7 @@ Operamos con licencia. Si la licencia se revoca, el broker cierra. Si compliance
 
 ### Nuestro regulador: Anjouan (AOFA)
 
-NEOMAAA Markets opera bajo la licencia de la **Anjouan Offshore Finance Authority (AOFA)**, en la Unión de las Comoras. Licencia L15968/N de Neomaaa Ltd (IBC 15968).
+NEOMAAA Markets opera bajo la licencia de la **Anjouan Offshore Finance Authority (AOFA)**, en la Union of Comoros. Licencia L15968/N de Neomaaa Ltd (IBC 15968).
 
 **Qué implica:**
 - Obligación de KYC riguroso en cada cliente.

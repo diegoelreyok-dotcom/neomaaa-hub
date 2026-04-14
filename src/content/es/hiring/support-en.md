@@ -61,7 +61,7 @@ El Support Agent (English) es el primer punto de contacto para los clientes angl
 ### Deseables
 - Comprension basica de forex y trading (que es un pip, que es apalancamiento, que es un spread).
 - Experiencia previa en soporte de broker de forex, fintech, o plataforma de trading.
-- Familiaridad con MetaTrader 4 o MetaTrader 5.
+- Familiaridad con MetaTrader 5 (NEOMAAA opera solo en MT5). Experiencia previa con MT4 valorable.
 - Experiencia con Intercom o herramientas de chat en vivo similares.
 - Arabe como segundo idioma (ventaja significativa para mercado Middle East).
 - Residencia en Europa del Este, Turquia, Egipto, Sudafrica, o paises con zona horaria compatible con CET.

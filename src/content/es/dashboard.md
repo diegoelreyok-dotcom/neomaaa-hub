@@ -172,7 +172,7 @@
 | Campo | Valor |
 |-------|-------|
 | **Entidad** | Neomaaa Ltd (IBC 15968) — marca comercial: NEOMAAA Markets |
-| **Licencia** | L15968/N — Anjouan Offshore Finance Authority (AOFA), Anjouan, Unión de las Comoras |
+| **Licencia** | L15968/N — Anjouan Offshore Finance Authority (AOFA), Anjouan, Union of Comoros |
 | **Plataforma** | MetaTrader 5 (MT5) — ejecución ECN/STP híbrida |
 | **Instrumentos** | 2,000+ (forex, crypto, metales, stocks, índices, ETFs, futuros, energía) |
 | **Cuentas** | Cent ($5) · Standard ($50) · Raw ($500) · Institutional ($50K) |

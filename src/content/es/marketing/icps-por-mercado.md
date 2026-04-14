@@ -4,6 +4,12 @@
 > Aplica a: NEOMAAA Markets (broker forex/CFD) | Mercados: LATAM, Espana, CIS, Asia (fase 2)
 > Audiencia: Ventas, Marketing, Soporte, Compliance, Partners
 
+> [!WARNING]
+> **España está en la EEA — jurisdicción RESTRINGIDA bajo los Terminos y Condiciones.**
+> Neomaaa Ltd NO acepta clientes residentes en la EEA (incluida España), UK, Australia, Canada, USA ni jurisdicciones sancionadas. El contenido sobre España se mantiene aqui por valor estrategico (lecciones del mercado post-ESMA, benchmarks competitivos, perfil cultural del trader hispanohablante sofisticado) pero **NO se debe ejecutar adquisicion directa en España**. Onboardings desde EEA deben ser bloqueados en KYC/Sumsub.
+>
+> Mercados operativos aceptables: **LATAM (core), CIS (selectivo), Asia fase 2 (fuera de paises restringidos), Middle East, Africa**.
+
 ---
 
 ## 1. Introduccion

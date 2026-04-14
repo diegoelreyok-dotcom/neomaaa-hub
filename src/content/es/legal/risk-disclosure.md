@@ -9,7 +9,7 @@
 
 ## 1. INTRODUCCION
 
-La presente Declaracion de Divulgacion de Riesgos es emitida por Neomaaa Ltd (en adelante, "la Empresa", "NEOMAAA" o "el Broker"), sociedad registrada como International Business Company (IBC 15968) en Anjouan, Union de Comoras, y titular de la licencia L15968/N otorgada por la Autoridad de Servicios Financieros Offshore de Anjouan (AOFA).
+La presente Declaracion de Divulgacion de Riesgos es emitida por Neomaaa Ltd (en adelante, "la Empresa", "NEOMAAA" o "el Broker"), sociedad registrada como International Business Company (IBC 15968) en Anjouan, Union of Comoros, y titular de la licencia L15968/N otorgada por la Autoridad de Servicios Financieros Offshore de Anjouan (AOFA).
 
 Este documento tiene como proposito informar a los clientes actuales y potenciales sobre los riesgos inherentes a la operacion con instrumentos financieros derivados, incluyendo pero no limitandose a Contratos por Diferencia (CFDs), pares de divisas (forex), criptomonedas, metales preciosos, acciones, indices, ETFs, futuros y energia, a traves de la plataforma MetaTrader 5 (MT5).
 
@@ -180,6 +180,6 @@ Al abrir una cuenta con NEOMAAA, el cliente reconoce y acepta que:
 
 ---
 
-**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union de Comoras
+**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union of Comoros
 
 *Ultima actualizacion: Abril 2026*

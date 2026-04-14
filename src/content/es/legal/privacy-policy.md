@@ -234,6 +234,6 @@ Para consultas sobre esta Politica de Privacidad o el tratamiento de datos perso
 
 ---
 
-**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union de Comoras
+**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union of Comoros
 
 *Ultima actualizacion: Abril 2026*

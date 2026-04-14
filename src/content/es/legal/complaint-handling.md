@@ -173,6 +173,6 @@ La Empresa se compromete a:
 
 ---
 
-**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union de Comoras
+**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union of Comoros
 
 *Ultima actualizacion: Abril 2026*

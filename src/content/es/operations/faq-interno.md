@@ -28,7 +28,7 @@ Este documento contiene las respuestas estandarizadas a las preguntas mas frecue
 | 2 | Que apalancamiento ofrecen? | Hasta 1:1000 dependiendo del tipo de cuenta e instrumento |
 | 3 | Cuanto tarda un retiro? | 1-3 dias habiles segun el metodo de pago |
 | 4 | Que plataforma usan? | MetaTrader 5 (escritorio, web, y movil) |
-| 5 | Estan regulados? | Licencia L15968/N emitida por AOFA (Anjouan, Comoros) |
+| 5 | Estan regulados? | Licencia L15968/N emitida por AOFA (Anjouan, Union of Comoros) |
 | 6 | Cuantos instrumentos tienen? | Mas de 2,000 (forex, indices, commodities, acciones, cripto CFDs) |
 | 7 | Como verifico mi cuenta? | Sube documento de identidad y comprobante de domicilio en el portal del cliente |
 | 8 | Tienen copy trading? | Si, disponible a traves de MT5 Signals y plataformas compatibles |
@@ -380,7 +380,7 @@ Si el agente de soporte no puede resolver el problema, lo escalara al departamen
 
 ### 14.1 Estan regulados?
 
-NEOMAAA Markets opera bajo la licencia L15968/N emitida por la Anjouan Offshore Finance Authority (AOFA), Comoros. Esta licencia autoriza servicios de brokerage, dealing, y gestion de carteras.
+NEOMAAA Markets opera bajo la licencia L15968/N emitida por la Anjouan Offshore Finance Authority (AOFA), Union of Comoros. Esta licencia autoriza servicios de brokerage, dealing, y gestion de carteras.
 
 ### 14.2 Que es la AOFA?
 

@@ -57,7 +57,7 @@ El Support Agent (Espanol) es el primer punto de contacto para los clientes hisp
 ### Deseables
 - Ingles basico (para comunicacion interna con equipo internacional).
 - Experiencia previa en soporte de broker de forex, fintech, o plataforma de trading.
-- Familiaridad con MetaTrader 4 o MetaTrader 5.
+- Familiaridad con MetaTrader 5 (NEOMAAA opera solo en MT5). Experiencia previa con MT4 valorable.
 - Experiencia con Intercom o herramientas de chat en vivo similares.
 - Residencia en Colombia, Mexico, Argentina, Chile, o Peru (zonas horarias compatibles).
 

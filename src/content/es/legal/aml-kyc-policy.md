@@ -44,9 +44,10 @@ Todo cliente debe completar un proceso de verificacion de identidad antes de pod
 
 | Tier | Deposito Acumulado | Documentos Adicionales |
 |------|-------------------|----------------------|
-| **Tier 1** | Hasta $5,000 | ID + Comprobante de domicilio + Verificacion biometrica |
-| **Tier 2** | $5,001 - $25,000 | Tier 1 + Declaracion de origen de fondos |
-| **Tier 3** | Mas de $25,000 | Tier 2 + Documentacion de respaldo de origen de fondos (extractos bancarios, recibos de nomina, escrituras, etc.) |
+| **Tier 1** | Hasta $1,000 | ID + Comprobante de domicilio + Verificacion biometrica |
+| **Tier 2** | $1,001 - $10,000 | Tier 1 + Declaracion de origen de fondos |
+| **Tier 3** | $10,001 - $50,000 | Tier 2 + Documentacion de respaldo de origen de fondos (extractos bancarios, recibos de nomina, escrituras) |
+| **Tier 4** | Mas de $50,000 | Tier 3 + Revision reforzada (EDD): referencias bancarias, declaracion patrimonial, validacion independiente |
 
 ### 3.3 Proveedor de Verificacion
 
@@ -61,7 +62,7 @@ La Empresa utiliza Sumsub como proveedor de servicios de verificacion KYC, que i
 ### 3.4 Plazos de Verificacion
 
 - La verificacion automatica se completa en minutos en la mayoria de los casos.
-- Las revisiones manuales pueden tomar hasta 24 horas habiles.
+- Las revisiones manuales pueden tomar entre 48 y 72 horas habiles, dependiendo del nivel de tier y la calidad de la documentacion.
 - En caso de documentacion insuficiente, el cliente recibira instrucciones para corregir y reintentar.
 
 ---
@@ -165,6 +166,6 @@ La Empresa cooperara plenamente con solicitudes legitimas de informacion de auto
 
 ---
 
-**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union de Comoras
+**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union of Comoros
 
 *Ultima actualizacion: Abril 2026*

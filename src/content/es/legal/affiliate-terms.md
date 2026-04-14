@@ -228,7 +228,7 @@ La Empresa puede terminar la participacion del Afiliado con efecto inmediato en 
 
 ## 13. LEY APLICABLE
 
-Estos Terminos del Programa se rigen por las leyes de Anjouan, Union de Comoras. Las disputas se resolveran de acuerdo con el procedimiento de quejas de la Empresa y, en ultima instancia, ante los tribunales competentes de Anjouan.
+Estos Terminos del Programa se rigen por las leyes de Anjouan, Union of Comoros. Las disputas se resolveran de acuerdo con el procedimiento de quejas de la Empresa y, en ultima instancia, ante los tribunales competentes de Anjouan.
 
 ---
 
@@ -238,6 +238,6 @@ La Empresa se reserva el derecho de modificar estos Terminos del Programa en cua
 
 ---
 
-**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union de Comoras
+**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union of Comoros
 
 *Ultima actualizacion: Abril 2026*

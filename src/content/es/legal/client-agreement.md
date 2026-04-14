@@ -11,7 +11,7 @@
 
 El presente Acuerdo del Cliente (en adelante, "el Acuerdo") se celebra entre:
 
-**Neomaaa Ltd** (en adelante, "la Empresa"), sociedad registrada como International Business Company (IBC 15968) en Anjouan, Union de Comoras, titular de la licencia L15968/N emitida por la Autoridad de Servicios Financieros Offshore de Anjouan (AOFA),
+**Neomaaa Ltd** (en adelante, "la Empresa"), sociedad registrada como International Business Company (IBC 15968) en Anjouan, Union of Comoros, titular de la licencia L15968/N emitida por la Autoridad de Servicios Financieros Offshore de Anjouan (AOFA),
 
 y
 
@@ -212,7 +212,7 @@ Los servicios de la Empresa no estan disponibles para residentes ni nacionales d
 
 ## 15. LEY APLICABLE
 
-15.1 Este Acuerdo se rige por las leyes de Anjouan, Union de Comoras.
+15.1 Este Acuerdo se rige por las leyes de Anjouan, Union of Comoros.
 
 15.2 Las disputas se resolveran conforme al procedimiento establecido en la Politica de Manejo de Quejas. En caso de no alcanzarse una resolucion, las partes se someteran a la jurisdiccion de los tribunales competentes de Anjouan.
 
@@ -230,6 +230,6 @@ Al completar el proceso de registro y verificacion, el Cliente confirma que:
 
 ---
 
-**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union de Comoras
+**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union of Comoros
 
 *Ultima actualizacion: Abril 2026*

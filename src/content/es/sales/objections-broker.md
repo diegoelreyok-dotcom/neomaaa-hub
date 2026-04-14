@@ -30,7 +30,7 @@
 **Por que lo dice:** El cliente ha sido estafado antes o tiene miedo de perder su dinero con una empresa desconocida.
 
 **Respuesta:**
-"Entiendo perfectamente tu precaucion, es lo correcto antes de confiar tu dinero a alguien. NEOMAAA Markets opera bajo Neomaaa Ltd, registrada como IBC 15968 con licencia L15968/N emitida por la AOFA de Anjouan. Nuestros fondos de clientes estan en cuentas segregadas, separados de los fondos operativos de la empresa. Usamos MetaTrader 5, la plataforma mas reconocida del mundo, con ejecucion ECN/STP. Ademas, nuestro proceso de KYC es gestionado por Sumsub, el mismo proveedor que usan brokers como eToro y Binance. Te invito a verificar toda esta informacion en nuestra pagina de regulacion."
+"Entiendo perfectamente tu precaucion, es lo correcto antes de confiar tu dinero a alguien. NEOMAAA Markets opera bajo Neomaaa Ltd, International Business Company registrada en Union of Comoros (IBC 15968), con licencia International Brokerage L15968/N emitida por la Anjouan Offshore Finance Authority (AOFA). Sede registrada en Hamchako, Mutsamudu, The Autonomous Island of Anjouan. Nuestros fondos de clientes estan en cuentas segregadas, separados de los fondos operativos de la empresa. Usamos MetaTrader 5 con ejecucion ECN/STP hibrida, y KYC gestionado por Sumsub. Todo esto es verificable publicamente en neomaaa.com/about/legal-documentation."
 
 **Puntos clave:**
 - Licencia verificable L15968/N (AOFA)
@@ -76,7 +76,7 @@
 **Por que lo dice:** Sabe que brokers market maker operan contra el cliente. Sospecha que NEOMAAA hace lo mismo.
 
 **Respuesta:**
-"Es una pregunta inteligente. NEOMAAA opera con modelo ECN/STP hibrido. Esto significa que tus ordenes se enrutan directamente a proveedores de liquidez, no las ejecutamos internamente contra ti. No tenemos incentivo para que pierdas, al contrario: cuanto mas operes y mas capital tengas, mas beneficio genera la relacion para ambas partes. Puedes verificar la calidad de ejecucion en MT5 revisando los tiempos de llenado y el slippage de tus ordenes."
+"Es una pregunta inteligente y la respuesta es transparente. NEOMAAA opera un modelo hibrido ECN/STP: las ordenes se enrutan segun nuestra politica de ejecucion publicada y pueden ejecutarse contra proveedores de liquidez externos o internamente, como admite nuestro contrato de cliente. Nuestro interes es la continuidad de la relacion, no un trade puntual. Puedes auditar cada ejecucion en MT5: tiempos de llenado, slippage y spread efectivo quedan registrados. La politica de ejecucion completa esta publicada en nuestra documentacion legal."
 
 **Puntos clave:**
 - Modelo ECN/STP hibrido
@@ -520,14 +520,32 @@
 | "Yo te digo cuando comprar y vender" / "Te doy un consejo de inversion" | Asesoria sin licencia |
 | "Apalancamiento ilimitado" / "Deposito minimo $0" / "Retiros instantaneos sin comision" | Ofertas falsas -- condiciones reales diferentes |
 
-### Frases que SI puedes usar:
+### Frases que SI puedes usar (aprobadas oficialmente):
 
+**Identidad y regulacion:**
+- "Neomaaa Ltd, International Business Company registrada en Union of Comoros (reg. 15968)"
+- "Licencia International Brokerage L15968/N otorgada por la Anjouan Offshore Finance Authority (AOFA)"
+- "Sede registrada: Hamchako, Mutsamudu, The Autonomous Island of Anjouan, Union of Comoros"
+
+**Modelo de ejecucion:**
+- "Neomaaa Ltd opera sobre base execution-only: no ofrecemos asesoramiento de inversion ni gestion de portafolios"
+- "Neomaaa Ltd puede actuar como principal o counterparty, dentro de su politica de ejecucion publicada"
+- "Modelo hibrido ECN/STP, auditable en MetaTrader 5"
+
+**Riesgo:**
+- "Los CFDs son instrumentos complejos con alto riesgo de perder dinero debido al apalancamiento"
+- "El 70-80% de los clientes minoristas pierden dinero operando CFDs"
 - "El trading conlleva riesgo y no es adecuado para todos los perfiles"
-- "Resultados pasados no garantizan resultados futuros"
+- "El rendimiento pasado no es indicativo de resultados futuros"
+- "Pueden producirse slippage, latencia, requotes y demoras en la ejecucion"
+
+**Operativa:**
 - "Te recomiendo operar solo con capital que puedas permitirte perder"
 - "Ofrecemos las herramientas; los resultados dependen de tu estrategia y disciplina"
 - "Te invito a probar con nuestra cuenta Cent de $5 antes de comprometer mas capital"
 - "Consulta con un asesor financiero independiente si tienes dudas"
+
+> Para la lista maestra completa de frases aprobadas ver `compliance/manual-susana.md` seccion 8.2.bis.
 
 ---
 

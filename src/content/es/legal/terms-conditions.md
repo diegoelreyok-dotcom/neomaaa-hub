@@ -13,7 +13,7 @@ En los presentes Terminos y Condiciones, los siguientes terminos tendran el sign
 
 | Termino | Definicion |
 |---------|-----------|
-| **Empresa** | Neomaaa Ltd, sociedad registrada como IBC 15968 en Anjouan, Union de Comoras, titular de la licencia L15968/N emitida por la AOFA. |
+| **Empresa** | Neomaaa Ltd, sociedad registrada como IBC 15968 en Anjouan, Union of Comoros, titular de la licencia L15968/N emitida por la AOFA. |
 | **Cliente** | Toda persona fisica o juridica que haya completado el proceso de registro y verificacion (KYC) y mantenga una cuenta de trading activa con la Empresa. |
 | **Cuenta de Trading** | La cuenta abierta por el Cliente en la plataforma MetaTrader 5 para la realizacion de operaciones con instrumentos financieros. |
 | **Plataforma** | MetaTrader 5 (MT5), incluyendo sus versiones de escritorio, web y movil. |
@@ -234,7 +234,7 @@ Los servicios de la Empresa no estan disponibles para residentes de:
 
 ## 17. LEY APLICABLE Y RESOLUCION DE DISPUTAS
 
-17.1 Estos Terminos y Condiciones se rigen por las leyes de Anjouan, Union de Comoras.
+17.1 Estos Terminos y Condiciones se rigen por las leyes de Anjouan, Union of Comoros.
 
 17.2 En caso de disputa, las partes intentaran resolverla amigablemente a traves del procedimiento de quejas de la Empresa (ver Politica de Manejo de Quejas).
 
@@ -252,6 +252,6 @@ Los servicios de la Empresa no estan disponibles para residentes de:
 
 ---
 
-**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union de Comoras
+**Neomaaa Ltd** | IBC 15968 | Licencia L15968/N | AOFA, Anjouan, Union of Comoros
 
 *Ultima actualizacion: Abril 2026*

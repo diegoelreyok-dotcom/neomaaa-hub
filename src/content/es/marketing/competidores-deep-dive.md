@@ -116,7 +116,7 @@ Honestidad brutal interna:
 <div className="neo-pyramid-level">Tier 1 regulatorio — FCA (UK), ASIC (AU), MAS (SG): Pepperstone, IC Markets, FXCM</div>
 <div className="neo-pyramid-level">Tier 2 — CySEC (EU), FSCA (ZA): XM, Exness EU, HFM, Axi</div>
 <div className="neo-pyramid-level">Tier 3 offshore serio — FSA Seychelles, SCB, VFSC: Exness global, Octa, Roboforex</div>
-<div className="neo-pyramid-level">Tier 4 offshore flexible — AOFA Anjouan, Comoras, Mwali: NEOMAAA Markets, varios</div>
+<div className="neo-pyramid-level">Tier 4 offshore flexible — AOFA Anjouan, Union of Comoros, Mwali: NEOMAAA Markets, varios</div>
 </div>
 
 <div className="neo-stat-grid">

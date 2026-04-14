@@ -930,9 +930,9 @@ Hola {{nombre}}, el apalancamiento disponible en NEOMAAA depende del tipo de cue
 | Tipo de Cuenta | Apalancamiento Maximo |
 |---|---|
 | Cent | Hasta 1:1000 |
-| Standard | Hasta 1:500 |
+| Standard | Hasta 1:1000 |
 | Raw | Hasta 1:500 |
-| Institutional | Hasta 1:200 |
+| Institutional | Custom (negociable con Pepe) |
 
 Que es el apalancamiento?
 El apalancamiento te permite operar con un monto mayor al que tienes depositado. Por ejemplo, con apalancamiento 1:500 y un deposito de $100, puedes abrir posiciones por hasta $50,000.
@@ -952,9 +952,9 @@ Hello {{name}}, the leverage available at NEOMAAA depends on your account type:
 | Account Type | Maximum Leverage |
 |---|---|
 | Cent | Up to 1:1000 |
-| Standard | Up to 1:500 |
+| Standard | Up to 1:1000 |
 | Raw | Up to 1:500 |
-| Institutional | Up to 1:200 |
+| Institutional | Custom (negotiable with Pepe) |
 
 What is leverage?
 Leverage allows you to trade with a larger amount than your deposit. For example, with 1:500 leverage and a $100 deposit, you can open positions worth up to $50,000.
@@ -980,7 +980,7 @@ Hola {{nombre}}, aqui tienes la comparacion de nuestros tipos de cuenta:
 | Deposito minimo | $5 | $50 | $500 | $50,000 |
 | Spreads | Desde 1.5 pips | Desde 1.2 pips | Desde 0.0 pips | Desde 0.0 pips |
 | Comision | No | No | Si (por lote) | Si (reducida) |
-| Apalancamiento max | 1:1000 | 1:500 | 1:500 | 1:200 |
+| Apalancamiento max | 1:1000 | 1:1000 | 1:500 | Custom |
 | Tamano minimo de lote | 0.01 (centavos) | 0.01 | 0.01 | 0.1 |
 | Ideal para | Principiantes, poco capital | Traders intermedios | Scalpers, traders activos | Gestores de fondos, alto volumen |
 | Plataforma | MT5 | MT5 | MT5 | MT5 |
@@ -1005,7 +1005,7 @@ Hello {{name}}, here's a comparison of our account types:
 | Minimum deposit | $5 | $50 | $500 | $50,000 |
 | Spreads | From 1.5 pips | From 1.2 pips | From 0.0 pips | From 0.0 pips |
 | Commission | No | No | Yes (per lot) | Yes (reduced) |
-| Max leverage | 1:1000 | 1:500 | 1:500 | 1:200 |
+| Max leverage | 1:1000 | 1:1000 | 1:500 | Custom |
 | Min lot size | 0.01 (cents) | 0.01 | 0.01 | 0.1 |
 | Ideal for | Beginners, small capital | Intermediate traders | Scalpers, active traders | Fund managers, high volume |
 | Platform | MT5 | MT5 | MT5 | MT5 |

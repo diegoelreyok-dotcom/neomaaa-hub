@@ -81,7 +81,7 @@ El Finance Manager es responsable de la gestion financiera completa del broker: 
 - Espanol (comunicacion con equipo LATAM y Principals).
 - Experiencia con Skale CRM o CRMs similares de broker.
 - Experiencia con MetaTrader 5 (entender el lado financiero de la plataforma).
-- Conocimiento de regulaciones offshore (Anjouan, Comoros, similar).
+- Conocimiento de regulaciones offshore (Anjouan, Union of Comoros, similar).
 - Experiencia gestionando nomina de equipos remotos internacionales.
 
 ---
