@@ -11,7 +11,7 @@
 > Este documento es la fuente autoritativa para:
 > - Lista de frases PROHIBIDAS en comunicacion con clientes (seccion 8.2)
 > - Lista de frases APROBADAS y disclaimers obligatorios (secciones 8.2 columna derecha y 8.3)
-> - Tiers de onboarding por deposito y umbrales EDD (secciones 3 y 4)
+> - Categorias de riesgo del cliente (LOW/MEDIUM/HIGH) y triggers EDD (secciones 3 y 4). Autoridad tecnica: [risk-matrix.md](/content/compliance/risk-matrix) y [edd-triggers.md](/content/compliance/edd-triggers).
 > - Umbrales SAR y timing de presentacion (seccion 9)
 > - Canal unico de escalamiento a compliance (Anexo B.2)
 >
@@ -23,7 +23,7 @@
 
 1. [Marco Regulatorio y Obligaciones de Licencia](#1-marco-regulatorio-y-obligaciones-de-licencia)
 2. [Politica KYC/AML](#2-politica-kycaml)
-3. [Tiers de Onboarding por Deposito](#3-tiers-de-onboarding-por-deposito)
+3. [Categorias de Riesgo del Cliente (LOW / MEDIUM / HIGH)](#3-categorias-de-riesgo-del-cliente)
 4. [Enhanced Due Diligence (EDD)](#4-enhanced-due-diligence-edd)
 5. [Flujo de Trabajo con Sumsub](#5-flujo-de-trabajo-con-sumsub)
 6. [Monitoreo Continuo de Transacciones](#6-monitoreo-continuo-de-transacciones)
@@ -153,30 +153,35 @@ NEOMAAA no acepta depositos de terceros bajo ninguna circunstancia. El nombre en
 
 ---
 
-## 3. TIERS DE ONBOARDING POR DEPOSITO
+## 3. CATEGORIAS DE RIESGO DEL CLIENTE
 
-### 3.1 Estructura de Tiers
+> [!INFO]
+> **Framework AML/KYC oficial:** La clasificacion operativa se basa en 3 categorias cualitativas de riesgo definidas en:
+> - [Matriz de Riesgo](/content/compliance/risk-matrix) -- criterios LOW/MEDIUM/HIGH
+> - [EDD Triggers](/content/compliance/edd-triggers) -- cuando aplicar Enhanced Due Diligence
+> - [Playbook Susana](/content/compliance/susana-playbook) -- guia operativa dia a dia
 
-Los requisitos de verificacion aumentan proporcionalmente al monto depositado:
+### 3.1 Estructura de Categorias
 
-| Tier | Deposito Acumulado | KYC Requerido | Documentos Adicionales | Aprobacion |
+Los requisitos de verificacion se asignan segun la categoria de riesgo determinada por la Matriz de Riesgo (no por monto acumulado de deposito):
+
+| Categoria | Perfil | KYC Requerido | Documentos Adicionales | Aprobacion |
 |---|---|---|---|---|
-| **Tier 1 -- Basico** | $0 - $1,000 | ID + POA + Selfie | Ninguno | Automatica (Sumsub) |
-| **Tier 2 -- Intermedio** | $1,001 - $10,000 | Todo lo de Tier 1 | Declaracion de origen de fondos (formulario interno) | Susana revisa declaracion |
-| **Tier 3 -- Alto** | $10,001 - $50,000 | Todo lo de Tier 2 | Documento que respalde origen de fondos (extracto bancario, recibo de nomina, declaracion fiscal) | Susana aprueba con evidencia |
-| **Tier 4 -- Institucional** | $50,001+ | Todo lo de Tier 3 | Documentacion corporativa (si aplica), fuente de riqueza documentada, entrevista telefonica o video | Susana + Principals |
+| **LOW RISK** | Cliente retail estandar, perfil consistente, sin triggers | ID + POA + Selfie | Ninguno (salvo trigger) | Automatica (Sumsub) |
+| **MEDIUM RISK** | Triggers cualitativos de riesgo medio (ver risk-matrix) | Todo LOW RISK | Declaracion de origen de fondos + documentacion segun trigger | Susana revisa |
+| **HIGH RISK** | Trigger categorico de EDD (PEP, sanciones, jurisdiccion FATF high risk, estructura opaca, etc.) | Todo MEDIUM RISK | SoF documentado + SoW + documentacion corporativa si aplica + entrevista segun trigger | Susana + Principals (dual) |
 
-### 3.2 Proceso de Escalamiento entre Tiers
+### 3.2 Proceso de Reclasificacion entre Categorias
 
-Cuando un cliente deposita y supera el umbral de su tier actual:
+Cuando el monitoreo continuo o un evento especifico eleva la categoria de riesgo de un cliente:
 
-1. El deposito se pone en estado **pendiente** en Skale CRM.
+1. Skale CRM marca la cuenta con la nueva categoria.
 2. Susana notifica al cliente (a traves de ventas) que se requiere documentacion adicional.
 3. El cliente tiene **5 dias habiles** para proporcionar la documentacion.
-4. Si no cumple en 5 dias, el deposito se devuelve a la fuente original.
-5. La cuenta se congela para nuevos depositos hasta que se complete la verificacion del tier.
+4. Si no cumple en 5 dias, los depositos pendientes se devuelven a la fuente original.
+5. La cuenta se congela para nuevas operaciones hasta que se complete la documentacion de la nueva categoria.
 
-### 3.3 Formulario de Declaracion de Origen de Fondos (Tier 2+)
+### 3.3 Formulario de Declaracion de Origen de Fondos (MEDIUM / HIGH RISK)
 
 El formulario debe incluir:
 
@@ -193,7 +198,7 @@ El formulario debe incluir:
   - Otro (especificar)
 - Descripcion breve (2-3 oraciones)
 - Firma y fecha del cliente
-- Campo para documentacion de respaldo (obligatorio en Tier 3+)
+- Campo para documentacion de respaldo (obligatorio en HIGH RISK y segun trigger en MEDIUM RISK)
 
 ---
 
@@ -207,7 +212,7 @@ La EDD se activa automaticamente cuando se presenta cualquiera de las siguientes
 |---|---|---|
 | PEP detectado | El cliente o un familiar cercano es Persona Expuesta Politicamente | EDD obligatoria antes de aprobar cuenta |
 | Pais de alto riesgo | Nacionalidad o residencia en pais de la lista GAFI de alto riesgo (ver seccion 7) | EDD obligatoria antes de aprobar cuenta |
-| Deposito alto (Tier 3/4) | Deposito acumulado > $10,000 | EDD segun tier |
+| Patron transaccional inconsistente con perfil declarado | Actividad (monto, frecuencia, origen) no coherente con profesion/ingresos/declaracion inicial | EDD obligatoria -- ver criterios cualitativos en [edd-triggers.md](/content/compliance/edd-triggers) |
 | Patron sospechoso detectado | Monitoreo continuo detecta anomalia (ver seccion 6) | EDD inmediata + posible SAR |
 | Informacion adversa | Busqueda de medios adversos arroja resultados relevantes | EDD obligatoria |
 | Inconsistencias en documentacion | Datos que no coinciden, documentos alterados, etc. | EDD obligatoria + posible rechazo |
@@ -224,7 +229,7 @@ La EDD se activa automaticamente cuando se presenta cualquiera de las siguientes
 | 4 | Verificacion cruzada de datos (direcciones, empleo, redes sociales) | Susana | 24 horas |
 | 5 | Para PEPs: determinar nivel de exposicion politica y fuente de riqueza | Susana | 48 horas |
 | 6 | Documentar hallazgos en formulario EDD | Susana | Al completar investigacion |
-| 7 | Decision: aprobar, rechazar, o escalar a Principals | Susana (o Principals si Tier 4) | 24 horas post-investigacion |
+| 7 | Decision: aprobar, rechazar, o escalar a Principals | Susana (aprobacion dual con Principals si HIGH RISK) | 24 horas post-investigacion |
 | 8 | Registrar decision y justificacion en Skale CRM | Susana | Inmediato post-decision |
 
 ### 4.3 PEPs (Personas Expuestas Politicamente)

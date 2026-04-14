@@ -2,9 +2,17 @@
 
 **Documento interno -- CONFIDENCIAL**
 **Neomaaa Ltd (IBC 15968) | Licencia L15968/N | AOFA**
-**Version: 1.0 | Fecha: 8 de abril 2026**
+**Version: 1.1 | Fecha: 13 de abril 2026**
 **Responsable: Susana (Compliance Officer)**
 **Aprobado por: Principals**
+
+> [!INFO]
+> **Framework AML/KYC oficial:** Este documento se alinea con el framework de 3 categorias de riesgo (LOW / MEDIUM / HIGH) definido en:
+> - [Matriz de Riesgo](/content/compliance/risk-matrix) -- criterios LOW/MEDIUM/HIGH
+> - [EDD Triggers](/content/compliance/edd-triggers) -- cuando aplicar Enhanced Due Diligence
+> - [Playbook Susana](/content/compliance/susana-playbook) -- guia operativa dia a dia
+>
+> El sistema anterior basado en montos acumulados ($1K/$10K/$50K) fue deprecado. La clasificacion actual es cualitativa por perfil de riesgo.
 
 ---
 
@@ -12,7 +20,7 @@
 
 1. [Que es Sumsub y Como Funciona para un Broker](#1-que-es-sumsub-y-como-funciona-para-un-broker)
 2. [Arquitectura del Flujo KYC](#2-arquitectura-del-flujo-kyc)
-3. [Tiers de Verificacion por Nivel de Deposito](#3-tiers-de-verificacion-por-nivel-de-deposito)
+3. [Categorias de Riesgo del Cliente (LOW / MEDIUM / HIGH)](#3-categorias-de-riesgo-del-cliente)
 4. [Tipos de Documentos Aceptados](#4-tipos-de-documentos-aceptados)
 5. [Resultados de Sumsub y Acciones Requeridas](#5-resultados-de-sumsub-y-acciones-requeridas)
 6. [Revision Manual -- Guia para Susana](#6-revision-manual----guia-para-susana)
@@ -70,13 +78,13 @@ SI RECHAZADO -> BLOQUEADO HASTA RESOLUCION
 
 | Componente | Descripcion | Configuracion NEOMAAA |
 |---|---|---|
-| **Applicant Levels** | Niveles de verificacion configurables | 3 niveles (Tier 1, Tier 2, Tier 3) |
+| **Applicant Levels** | Niveles de verificacion configurables | Mapeados a categorias LOW / MEDIUM / HIGH (ver risk-matrix) |
 | **Verification Steps** | Pasos dentro de cada nivel | ID check, liveness, PoA, SoF |
 | **Webhooks** | Notificaciones automaticas de resultados | Conectado a Skale CRM |
 | **Dashboard** | Panel de administracion para revision manual | Acceso para Susana |
 | **Sanctions Screening** | Screening automatico en cada verificacion | OFAC, ONU, UE, UK, PEP |
 | **AML Screening** | Busqueda de media adversa | Activado |
-| **Ongoing Monitoring** | Re-screening periodico | Cada 6 meses para Tier 3 [VERIFICAR CON SUMSUB] |
+| **Ongoing Monitoring** | Re-screening periodico | Frecuencia segun categoria (HIGH mensual, MEDIUM trimestral, LOW anual) [DATO: Susana confirma config Sumsub] |
 
 ---
 
@@ -92,13 +100,13 @@ SI RECHAZADO -> BLOQUEADO HASTA RESOLUCION
 **Paso 2: Inicio de Verificacion**
 - Skale CRM abre el widget de Sumsub (SDK embebido) o envia un link de verificacion por email.
 - Sumsub detecta automaticamente que nivel de verificacion aplicar segun la configuracion.
-- Para el registro inicial, todos los clientes pasan por Tier 1.
+- Para el registro inicial, todos los clientes entran al flujo base (categoria LOW RISK por defecto, recalificable segun triggers).
 
 **Paso 3: Captura de Documentos**
 - Sumsub guia al cliente paso a paso:
   - Subir documento de identidad (frente y dorso si aplica).
   - Realizar liveness check (video selfie en tiempo real).
-  - Subir documentos adicionales segun el tier.
+  - Subir documentos adicionales segun la categoria de riesgo asignada.
 
 **Paso 4: Procesamiento Automatico**
 - Sumsub aplica las siguientes verificaciones automaticas:
@@ -112,8 +120,8 @@ SI RECHAZADO -> BLOQUEADO HASTA RESOLUCION
 
 **Paso 5: Resultado**
 - Sumsub emite un resultado y envia webhook a Skale.
-- Tiempo promedio de procesamiento automatico: 30 segundos a 3 minutos.
-- Si requiere revision manual: hasta 48 horas habiles (SLA interno conservador). EDD puede agregar hasta 72 horas adicionales.
+- Tiempo promedio de procesamiento automatico: `[DATO: Susana confirma timing real auto]`.
+- Si requiere revision manual: `[DATO: Susana confirma SLA interno]`. EDD puede agregar tiempo adicional segun triggers (ver [edd-triggers.md](/content/compliance/edd-triggers)).
 
 **Paso 6: Accion en Skale CRM**
 - Skale actualiza el estado del cliente segun el webhook recibido.
@@ -126,10 +134,9 @@ SI RECHAZADO -> BLOQUEADO HASTA RESOLUCION
 |---|---|---|---|
 | Pendiente KYC | Registro completado, KYC no iniciado | No | No |
 | KYC en Proceso | Documentos enviados, Sumsub procesando | No | No |
-| KYC Aprobado - Tier 1 | Verificacion basica completada | Si (hasta $1,000) | Si |
-| KYC Aprobado - Tier 2 | PoA verificada + SoF declarado | Si (hasta $10,000) | Si |
-| KYC Aprobado - Tier 3 | SoF documentado | Si (hasta $50,000) | Si |
-| KYC Aprobado - Tier 4 | SoW + entrevista, aprobado por Principals | Si (sin limite) | Si |
+| KYC Aprobado - LOW RISK | Verificacion estandar completada, perfil consistente | Si | Si |
+| KYC Aprobado - MEDIUM RISK | PoA verificada + SoF declarado/documentado segun triggers | Si | Si |
+| KYC Aprobado - HIGH RISK | EDD completo + aprobacion dual (Susana + Principals) | Si (con monitoreo reforzado) | Si |
 | KYC Retry | Documentos rechazados, puede reintentar | No | No |
 | KYC Rechazado | Rechazo final | No | No |
 | Bloqueado - Sanciones | Match de sanciones confirmado | No | No |
@@ -137,11 +144,13 @@ SI RECHAZADO -> BLOQUEADO HASTA RESOLUCION
 
 ---
 
-## 3. TIERS DE VERIFICACION POR NIVEL DE DEPOSITO
+## 3. CATEGORIAS DE RIESGO DEL CLIENTE
 
-> **Nota de consistencia:** Los tiers aqui descritos son la referencia operativa. Coinciden con `compliance/manual-susana.md` y `compliance/workflow.md`. La version publica en `legal/aml-kyc-policy.md` esta pendiente de alineacion por el equipo legal (ver AUDIT4).
+> **Framework oficial:** NEOMAAA clasifica a cada cliente en una de 3 categorias de riesgo (LOW, MEDIUM, HIGH) conforme a los criterios cualitativos definidos en [risk-matrix.md](/content/compliance/risk-matrix). Los triggers EDD estan documentados en [edd-triggers.md](/content/compliance/edd-triggers). El sistema anterior basado en montos acumulados fue deprecado.
 
-### 3.1 Tier 1 -- Verificacion Basica (depositos hasta $1,000)
+### 3.1 LOW RISK -- Perfil estandar
+
+**Se aplica a:** Cliente retail con perfil consistente con su declaracion, jurisdiccion no restringida, sin matches de sanciones/PEP, sin patrones conductuales de riesgo.
 
 **Documentos requeridos:**
 - Documento de identidad valido (pasaporte, DNI, licencia de conducir).
@@ -158,77 +167,65 @@ SI RECHAZADO -> BLOQUEADO HASTA RESOLUCION
 - Verificacion de edad (18+).
 - Verificacion de pais de emision vs pais declarado.
 
-**Resultado esperado:** Aprobacion automatica en 1-3 minutos para la mayoria de los casos. Si requiere revision manual, SLA hasta 48 horas habiles.
+**Resultado esperado:** Aprobacion automatica via Sumsub en la mayoria de los casos. Si requiere revision manual, Susana define SLA operativo en [susana-playbook.md](/content/compliance/susana-playbook). `[DATO: Susana confirma timing real auto / manual]`
 
-**Limite operativo:** El cliente puede depositar y operar hasta un total acumulado de $1,000 USD.
+### 3.2 MEDIUM RISK -- Triggers cualitativos
 
-### 3.2 Tier 2 -- Verificacion Intermedia (depositos $1,001 - $10,000)
-
-**Se activa cuando:** El cliente quiere depositar mas de $1,000 acumulados, o el sistema detecta que se acerca al limite del Tier 1.
+**Se activa cuando:** Se detecta al menos un trigger cualitativo definido en la Matriz de Riesgo (ver [risk-matrix.md](/content/compliance/risk-matrix)). Ejemplos de triggers categoricos: inconsistencia entre perfil declarado y actividad, jurisdiccion de riesgo medio, profesion de riesgo medio, patrones transaccionales que requieren soporte documental, cuenta nueva con actividad atipica.
 
 **Documentos adicionales requeridos:**
 - Declaracion de origen de fondos (formulario interno firmado).
-- PoA actualizada si la del Tier 1 tiene mas de 6 meses.
+- PoA actualizada si la del onboarding inicial tiene mas de 6 meses.
+- Documentacion de respaldo del origen de fondos cuando el trigger lo requiera (criterio definido por Compliance en risk-matrix).
 
 **Verificaciones adicionales:**
 - Revision manual de Susana sobre la declaracion de SoF.
-- Coherencia entre perfil declarado (profesion, ingresos) y monto de deposito.
+- Coherencia entre perfil declarado (profesion, ingresos) y patron transaccional.
 
-**Resultado esperado:** Aprobacion en 24-48 horas habiles tras recepcion de la declaracion.
+**Resultado esperado:** Aprobacion manual. `[DATO: Susana confirma SLA]`
 
-### 3.3 Tier 3 -- Verificacion Completa (depositos $10,001 - $50,000)
+### 3.3 HIGH RISK -- EDD completo obligatorio
 
-**Se activa cuando:** El cliente quiere depositar mas de $10,000 acumulados, o se detecta actividad inusual, o el cliente es PEP.
+**Se activa cuando:** Se detecta al menos un trigger categorico de HIGH RISK / EDD definido en [edd-triggers.md](/content/compliance/edd-triggers). Triggers categoricos:
+
+- PEP status (personal, familiar directo, asociado cercano).
+- Match confirmado en listas de sanciones internacionales.
+- Jurisdiccion FATF high risk (lista gris o negra).
+- Estructuras corporativas opacas o con UBO no identificable.
+- Media adversa detectada (corrupcion, crimen organizado, fraude financiero).
+- Profesiones de alto riesgo segun politica interna (casinos, cambio de divisas no regulado, etc.).
+- Patrones conductuales severos de riesgo (structuring, depositos inconsistentes con perfil, etc.).
 
 **Documentos adicionales requeridos:**
-- Source of Funds (SoF) -- Origen de los fondos especificos:
-  - Estado de cuenta bancario mostrando los fondos disponibles.
-  - Comprobante de venta de activos.
-  - Contrato laboral o recibos de sueldo recientes.
-  - Certificacion de ingresos por contador.
-  
-- Source of Wealth (SoW) -- Origen del patrimonio general:
-  - Declaracion patrimonial o fiscal.
-  - Documentacion de herencia, venta de propiedad, o ganancias empresariales.
-  - Carta explicativa firmada por el cliente detallando como acumulo su patrimonio.
-
-**Verificaciones adicionales:**
-- Susana revisa manualmente TODOS los casos de Tier 3.
-- Se evalua coherencia entre ingresos declarados, patrimonio y volumen de deposito.
-- Se documenta la evaluacion en el Registro de Compliance.
-
-**Resultado esperado:** Aprobacion en 2-5 dias habiles. Susana revisa cada caso individualmente. EDD completo puede agregar hasta 72 horas adicionales si se solicita documentacion complementaria.
-
-### 3.4 Tier 4 -- Institucional (depositos superiores a $50,000)
-
-**Se activa cuando:** El cliente declara o deposita mas de $50,000 acumulados, o es una cuenta corporativa / family office / fund manager.
-
-**Documentos adicionales requeridos (sobre Tier 3):**
-- Source of Wealth (SoW) documentado: declaracion patrimonial, herencia, venta de propiedad, ganancias empresariales.
+- Source of Funds (SoF) documentado: estado de cuenta bancario, comprobante de venta de activos, contrato laboral, certificacion de ingresos por contador.
+- Source of Wealth (SoW) documentado: declaracion patrimonial, herencia, venta de propiedad, ganancias empresariales, carta explicativa firmada.
 - Documentacion corporativa completa (si aplica): incorporacion, UBO, estructura societaria.
-- Entrevista telefonica o por video con Susana.
+- Entrevista telefonica o por video con Susana cuando el trigger lo requiera.
 
 **Verificaciones adicionales:**
-- Aprobacion obligatoria de Principals (no solo Susana).
-- Monitoreo reforzado trimestral desde apertura.
+- EDD completo conforme a FATF Recommendation 12.
+- Aprobacion dual obligatoria: Susana (Compliance) + Principals.
+- Monitoreo reforzado mensual desde apertura.
+- Busqueda en fuentes abiertas (Google, registros publicos, verificacion de empleador).
 
-**Resultado esperado:** Aprobacion en 5-10 dias habiles.
+**Resultado esperado:** Aprobacion con EDD documentado. `[DATO: Susana confirma SLA]`
 
-### 3.5 Tabla Resumen de Tiers
+### 3.4 Tabla Resumen de Categorias
 
-| Aspecto | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
-|---|---|---|---|---|
-| Deposito acumulado | $0 - $1,000 | $1,001 - $10,000 | $10,001 - $50,000 | $50,001+ |
-| Documento de identidad | Si | Si | Si | Si |
-| Liveness check | Si | Si | Si | Si |
-| Prueba de domicilio | Si | Si (refresh) | Si (refresh) | Si (refresh) |
-| Declaracion SoF | No | Si (formulario) | Si | Si |
-| Documentacion SoF | No | No | Si (obligatoria) | Si |
-| Source of Wealth | No | No | No | Si |
-| Entrevista | No | No | No | Si |
-| Revision automatica | Si | Parcial | No (manual) | No (manual + Principals) |
-| Tiempo de aprobacion | 1-3 min (auto) / hasta 48h manual | 24-48 h habiles | 2-5 dias habiles | 5-10 dias habiles |
-| Revision por Susana | Solo excepciones | Siempre | Siempre | Siempre + Principals |
+| Aspecto | LOW RISK | MEDIUM RISK | HIGH RISK |
+|---|---|---|---|
+| Disparador | Perfil estandar sin triggers | Trigger(s) cualitativos de riesgo medio (risk-matrix) | Trigger categorico de EDD (edd-triggers) |
+| Documento de identidad | Si | Si | Si |
+| Liveness check | Si | Si | Si |
+| Prueba de domicilio | Si | Si (refresh si aplica) | Si (refresh obligatorio) |
+| Declaracion SoF | No (salvo trigger) | Si | Si |
+| Documentacion SoF | No (salvo trigger) | Segun trigger | Si (obligatoria) |
+| Source of Wealth | No | Segun trigger | Si (obligatoria) |
+| Entrevista | No | Opcional | Segun trigger |
+| Revision automatica | Si (Sumsub) | No (revision Susana) | No (revision Susana + Principals) |
+| Aprobacion | Sumsub | Susana | Susana + Principals (dual) |
+| Revision periodica | Anual | Trimestral | Mensual |
+| Revision por Susana | Solo excepciones | Siempre | Siempre + Principals |
 
 ---
 
@@ -284,7 +281,7 @@ SI RECHAZADO -> BLOQUEADO HASTA RESOLUCION
 **Que significa:** Sumsub ha verificado automaticamente la identidad del cliente. Todos los checks pasaron correctamente. No hay matches en sanciones ni PEPs.
 
 **Accion requerida:**
-1. Skale CRM actualiza automaticamente el estado a "KYC Aprobado - Tier X".
+1. Skale CRM actualiza automaticamente el estado a "KYC Aprobado - [CATEGORIA]".
 2. El cliente recibe notificacion automatica de que puede depositar.
 3. Se habilita la cuenta MT5 para operacion.
 4. No se requiere intervencion de Susana.
@@ -392,7 +389,7 @@ Susana debe intervenir en los siguientes escenarios:
 | PEP match | Alta | Revisar en 24h. Iniciar EDD si procede. |
 | Cliente en RETRY por mas de 48h | Media | Contactar al cliente o escalar a ventas. |
 | Cliente en RETRY 3+ intentos | Alta | Evaluar posible fraude. |
-| Deposito que empuja a cliente a nuevo Tier | Media | Verificar que documentos del nuevo tier estan completos. |
+| Cliente reclasificado a categoria de mayor riesgo (LOW -> MEDIUM o MEDIUM -> HIGH) | Media | Verificar que la documentacion requerida por la nueva categoria esta completa. |
 | Patron de transaccion inusual (alerta de Skale) | Alta | Revisar en 24h. Posible SAR. |
 | Auditoria aleatoria (5% de aprobaciones automaticas) | Baja | Revision semanal. |
 
@@ -441,7 +438,7 @@ Susana debe intervenir en los siguientes escenarios:
 **Escalar a Principals si:**
 - Match de sanciones ambiguo que no se puede resolver con informacion disponible.
 - PEP de alto nivel (jefe de estado, ministro, familiar directo de los anteriores).
-- Depositos propuestos superiores a $50,000.
+- Clientes categorizados como HIGH RISK que requieren aprobacion dual (ver [edd-triggers.md](/content/compliance/edd-triggers)).
 - Cualquier situacion que Susana considere que excede su autoridad.
 
 ---
@@ -452,16 +449,17 @@ Susana debe intervenir en los siguientes escenarios:
 
 Enhanced Due Diligence es un nivel adicional de verificacion que se aplica cuando existe un riesgo elevado. Se activa por:
 
+> Lista autoritativa de triggers: [edd-triggers.md](/content/compliance/edd-triggers). Resumen operativo:
+
 | Trigger | Fuente de Deteccion | Respuesta |
 |---|---|---|
-| PEP match | Sumsub screening automatico | EDD obligatorio |
-| Pais de alto riesgo (no restringido, pero con riesgo elevado) | Sumsub + politica interna | EDD obligatorio |
-| Deposito acumulado superior a $15,000 | Skale CRM / manual | Upgrade a Tier 3 + EDD |
-| Patron de transacciones inusual | Monitoreo de Skale + manual | EDD + posible SAR |
-| Media adversa detectada | Sumsub screening | EDD obligatorio |
-| Profesion de alto riesgo (casinos, cambio de divisas, joyerias, arte) | Formulario de registro + evaluacion | EDD recomendado |
-| Estructura corporativa compleja (si se aceptan cuentas corporativas) | Manual | EDD obligatorio [VERIFICAR CON ABOGADO] |
-| Origen de fondos no claro en Tier 3 | Revision manual de Susana | EDD ampliado |
+| PEP match | Sumsub screening automatico | EDD obligatorio (HIGH RISK) |
+| Pais FATF high risk (lista gris/negra) | Sumsub + politica interna | EDD obligatorio (HIGH RISK) |
+| Patron de transacciones inusual / structuring | Monitoreo de Skale + manual | EDD + posible SAR |
+| Media adversa detectada | Sumsub screening | EDD obligatorio (HIGH RISK) |
+| Profesion de alto riesgo (casinos, cambio de divisas no regulado, joyerias, arte) | Formulario de registro + evaluacion | EDD obligatorio |
+| Estructura corporativa opaca / UBO no identificable | Manual | EDD obligatorio [VERIFICAR CON ABOGADO] |
+| Inconsistencia severa perfil declarado vs actividad | Revision manual de Susana | EDD ampliado |
 
 ### 7.2 Paises de Alto Riesgo (No Restringidos, pero con EDD Obligatorio)
 
@@ -492,7 +490,7 @@ Estos paises NO estan bloqueados, pero todo cliente de estos paises requiere EDD
   - Actividad profesional detallada.
   - Volumen esperado de depositos y retiros mensuales.
 - Solicitar documentacion de respaldo:
-  - Todos los documentos de Tier 3 (SoF, SoW).
+  - SoF y SoW documentados conforme a HIGH RISK.
   - Documentacion adicional segun el trigger del EDD.
 
 **Paso 2: Analisis**
@@ -558,14 +556,14 @@ SUMSUB                    SKALE CRM                  MT5
 | Campo en Skale | Fuente | Actualizacion |
 |---|---|---|
 | KYC Status | Sumsub webhook | Automatica |
-| KYC Tier | Configuracion interna | Manual/Semi-automatica |
+| Risk Category (LOW/MEDIUM/HIGH) | Configuracion interna segun risk-matrix | Manual/Semi-automatica |
 | Sanctions Check Result | Sumsub webhook | Automatica |
 | PEP Status | Sumsub webhook | Automatica |
 | Compliance Notes | Susana | Manual |
 | Last KYC Review Date | Sumsub/Manual | Automatica/Manual |
 | EDD Required | Reglas internas | Manual |
 | EDD Status | Susana | Manual |
-| Deposit Limit | Tier del cliente | Semi-automatica |
+| Deposit Restrictions | Categoria de riesgo + triggers EDD | Semi-automatica |
 
 [VERIFICAR CON SUMSUB] -- Confirmar que todos estos campos estan mapeados correctamente en la integracion actual de Skale con Sumsub.
 
@@ -606,13 +604,13 @@ Una vez que un cliente esta aprobado, el compliance no termina. Se requiere moni
 
 ### 9.2 Re-Verificacion Periodica
 
-| Tipo de Cliente | Frecuencia de Re-Verificacion | Que Se Revisa |
+> Frecuencias conforme a FATF Recommendation 10. Detalle operativo en [ongoing-monitoring-sop.md](/content/compliance/ongoing-monitoring-sop).
+
+| Categoria de Cliente | Frecuencia de Re-Verificacion | Que Se Revisa |
 |---|---|---|
-| Tier 1 (bajo riesgo) | Cada 24 meses | Documento de identidad vigente, re-screening sanciones |
-| Tier 2 (riesgo medio) | Cada 12 meses | ID vigente, PoA actualizado, re-screening sanciones |
-| Tier 3 (alto valor) | Cada 12 meses | ID, PoA, SoF actualizado, re-screening sanciones |
-| EDD activo | Cada 6 meses | Todo Tier 3 + re-evaluacion EDD completa |
-| PEP | Cada 6 meses | Todo + verificacion de status PEP vigente |
+| LOW RISK | Anual (o al triggered event) | Documento de identidad vigente, re-screening sanciones |
+| MEDIUM RISK | Trimestral | ID vigente, PoA actualizado, re-screening sanciones, SoF si aplica |
+| HIGH RISK (incluye PEP) | Mensual | ID, PoA, SoF/SoW actualizado, re-screening sanciones, re-evaluacion EDD completa |
 
 [VERIFICAR CON ABOGADO] -- Confirmar que AOFA no exige frecuencias mas estrictas.
 
@@ -641,7 +639,7 @@ Una vez que un cliente esta aprobado, el compliance no termina. Se requiere moni
 | Revision de casos PENDING | 24 horas | Desde que Sumsub marca PENDING |
 | Revision de casos RED | 24 horas | Desde que Sumsub marca RED |
 | Revision de sanctions hit | Mismo dia | Desde la notificacion |
-| Respuesta a upgrade de Tier | 48 horas | Desde que cliente sube documentos |
+| Respuesta a reclasificacion de categoria de riesgo | 48 horas | Desde que cliente sube documentos |
 | Revision de SAR potencial | 24 horas | Desde la deteccion |
 | Re-verificacion periodica | Dentro del mes calendario | Antes del vencimiento |
 | Auditoria aleatoria (5%) | Semanal | Cada lunes |
@@ -650,8 +648,8 @@ Una vez que un cliente esta aprobado, el compliance no termina. Se requiere moni
 
 | KPI | Meta | Frecuencia de Reporte |
 |---|---|---|
-| Tasa de aprobacion automatica (Tier 1) | >85% | Mensual |
-| Tiempo promedio de verificacion (Tier 1) | <5 minutos | Mensual |
+| Tasa de aprobacion automatica (LOW RISK via Sumsub) | >85% | Mensual |
+| Tiempo promedio de verificacion automatica (LOW RISK) | Segun config Sumsub `[DATO: Susana confirma]` | Mensual |
 | Tiempo promedio de revision manual | <12 horas | Mensual |
 | Casos PENDING sin resolver >24h | 0 | Diario |
 | Tasa de rechazo | <10% | Mensual |
@@ -672,7 +670,7 @@ Una vez que un cliente esta aprobado, el compliance no termina. Se requiere moni
 | "El selfie no funciona" | Camara de baja calidad, mala iluminacion, VPN activa | Instrucciones: desactivar VPN, usar camara frontal, buena iluminacion, sin lentes |
 | "Me rechazaron pero mi documento es real" | Falso positivo de Sumsub | Susana revisa manualmente y puede aprobar |
 | "No tengo factura de servicios a mi nombre" | Vive con familiares, alquiler informal | Opciones alternativas: estado de cuenta bancario, carta del banco |
-| "Cuanto tarda?" | Expectativa incorrecta | Respuesta: Tier 1 en minutos, Tier 2 en horas, Tier 3 en dias |
+| "Cuanto tarda?" | Expectativa incorrecta | Respuesta estandar segun categoria de riesgo (ver susana-playbook). `[DATO: Susana confirma timing comunicado a cliente]` |
 
 ### 11.2 Problemas Tecnicos
 
@@ -688,7 +686,7 @@ Una vez que un cliente esta aprobado, el compliance no termina. Se requiere moni
 | Problema | Causa | Solucion |
 |---|---|---|
 | Alto volumen de falsos positivos en sanciones | Nombres comunes que coinciden con listas | Documentar cada falso positivo. Ajustar sensibilidad en Sumsub si es posible [VERIFICAR CON SUMSUB]. |
-| Cliente aprobado en Tier 1 deposita mas de $1,000 | Control de limites no implementado en Skale | Implementar limites duros en Skale CRM [VERIFICAR CON SUMSUB]. |
+| Cliente reclasificado a categoria de mayor riesgo no tiene documentacion actualizada | Control de re-documentacion no implementado en Skale | Implementar flag en Skale que bloquee nuevos depositos hasta completar documentacion de la nueva categoria [DATO: Susana confirma config]. |
 | Cliente rechazado intenta registrarse de nuevo | Mulitples cuentas | Sumsub tiene deteccion de duplicados. Verificar que este activo. |
 
 ---
@@ -706,7 +704,7 @@ Una vez que un cliente esta aprobado, el compliance no termina. Se requiere moni
 ### 12.2 Revision de Mediodia (13:00)
 
 - [ ] Segundo pase de casos PENDING y RED nuevos.
-- [ ] Revisar depositos del dia en Skale -- verificar que ningun cliente exceda su Tier sin documentacion.
+- [ ] Revisar depositos del dia en Skale -- verificar que ningun cliente con triggers de categoria superior opere sin la documentacion requerida.
 - [ ] Verificar que los webhooks estan funcionando (comparar ultimos resultados de Sumsub con Skale).
 
 ### 12.3 Revision Vespertina (17:00)

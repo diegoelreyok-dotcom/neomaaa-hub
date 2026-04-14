@@ -40,14 +40,15 @@ Todo cliente debe completar un proceso de verificacion de identidad antes de pod
 | **Comprobante de domicilio** | Verificar direccion de residencia | Factura de servicios publicos, extracto bancario o documento oficial. No mayor a 3 meses de antiguedad. |
 | **Verificacion biometrica** | Prevenir fraude de identidad | Selfie o verificacion en vivo (liveness check) a traves de la plataforma de verificacion. |
 
-### 3.2 Niveles de Verificacion (Tiers)
+### 3.2 Clasificacion de riesgo del cliente
 
-| Tier | Deposito Acumulado | Documentos Adicionales |
-|------|-------------------|----------------------|
-| **Tier 1** | Hasta $1,000 | ID + Comprobante de domicilio + Verificacion biometrica |
-| **Tier 2** | $1,001 - $10,000 | Tier 1 + Declaracion de origen de fondos |
-| **Tier 3** | $10,001 - $50,000 | Tier 2 + Documentacion de respaldo de origen de fondos (extractos bancarios, recibos de nomina, escrituras) |
-| **Tier 4** | Mas de $50,000 | Tier 3 + Revision reforzada (EDD): referencias bancarias, declaracion patrimonial, validacion independiente |
+Neomaaa Ltd clasifica a sus clientes en 3 categorias de riesgo (LOW, MEDIUM, HIGH) segun la matriz de riesgo definida internamente. Los criterios y triggers especificos son propiedad operacional de la Compliance Office y estan documentados en la politica interna (Matriz de Riesgo AML/KYC), disponible para auditores bajo solicitud.
+
+| Categoria | Perfil de riesgo | Documentacion requerida |
+|-----------|------------------|-------------------------|
+| **LOW RISK** | Cliente retail estandar, jurisdiccion no restringida, perfil consistente con declaracion | ID + Comprobante de domicilio + Verificacion biometrica |
+| **MEDIUM RISK** | Triggers cualitativos definidos en Matriz de Riesgo interna | LOW RISK + Declaracion y documentacion de origen de fondos |
+| **HIGH RISK** | PEP, match en listas, jurisdiccion FATF high risk, estructuras opacas u otros triggers categoricos | MEDIUM RISK + EDD completo (ver seccion 4) + aprobacion dual de Compliance + Principals |
 
 ### 3.3 Proveedor de Verificacion
 
@@ -62,22 +63,23 @@ La Empresa utiliza Sumsub como proveedor de servicios de verificacion KYC, que i
 ### 3.4 Plazos de Verificacion
 
 - La verificacion automatica se completa en minutos en la mayoria de los casos.
-- Las revisiones manuales pueden tomar entre 48 y 72 horas habiles, dependiendo del nivel de tier y la calidad de la documentacion.
+- Las revisiones manuales pueden tomar entre 48 y 72 horas habiles, dependiendo de la categoria de riesgo y la calidad de la documentacion.
 - En caso de documentacion insuficiente, el cliente recibira instrucciones para corregir y reintentar.
 
 ---
 
 ## 4. DEBIDA DILIGENCIA REFORZADA (EDD)
 
-La Empresa aplica procedimientos de Debida Diligencia Reforzada en los siguientes casos:
+La Empresa aplica procedimientos de Debida Diligencia Reforzada conforme a FATF Recommendation 12 en clientes categorizados como HIGH RISK. Los triggers categoricos incluyen:
 
-- Clientes identificados como Personas Politicamente Expuestas (PEPs) o familiares/asociados cercanos de PEPs.
-- Clientes de paises incluidos en la lista gris o negra del GAFI.
-- Depositos inusualmente altos en relacion con el perfil del cliente.
-- Patrones de transacciones inusuales o sospechosos.
-- Cualquier circunstancia que genere un nivel de riesgo elevado.
+- PEP status (personal, familiar o asociado cercano de Persona Politicamente Expuesta).
+- Match en listas de sanciones internacionales (OFAC, UN, UE).
+- Jurisdicciones incluidas en la lista gris o negra de FATF/GAFI (high risk jurisdictions).
+- Estructuras corporativas opacas o con beneficiario final no identificable.
+- Patrones conductuales de riesgo (transacciones inconsistentes con perfil, structuring).
+- Cualquier circunstancia que genere un nivel de riesgo elevado segun la Matriz de Riesgo interna.
 
-La EDD puede incluir solicitudes de documentacion adicional, entrevistas y restricciones temporales en la cuenta hasta que se complete la revision.
+La EDD puede incluir solicitudes de documentacion adicional, entrevistas, validacion independiente de fuentes, y restricciones temporales en la cuenta hasta que se complete la revision.
 
 ---
 
@@ -85,13 +87,21 @@ La EDD puede incluir solicitudes de documentacion adicional, entrevistas y restr
 
 ### 5.1 Monitoreo Continuo
 
-La Empresa monitorea de forma continua las transacciones de los clientes para detectar actividades inusuales o potencialmente sospechosas, incluyendo:
+Conforme a FATF Recommendation 10, la Empresa mantiene monitoreo continuo de todas las cuentas y transacciones de clientes para detectar actividades inusuales o potencialmente sospechosas, incluyendo:
 
 - Depositos o retiros de montos inusualmente altos.
 - Depositos seguidos de retiros inmediatos sin actividad de trading significativa.
 - Uso de multiples metodos de pago sin justificacion aparente.
 - Transacciones inconsistentes con el perfil financiero declarado del cliente.
 - Intentos de estructuracion (fraccionamiento de transacciones para evitar umbrales de reporte).
+
+**Reviews periodicos por categoria de riesgo:**
+
+| Categoria | Frecuencia de review |
+|-----------|---------------------|
+| HIGH RISK | Mensual |
+| MEDIUM RISK | Trimestral |
+| LOW RISK | Anual o al triggered event |
 
 ### 5.2 Reportes de Actividad Sospechosa (SARs)
 
