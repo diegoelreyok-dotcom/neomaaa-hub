@@ -7,6 +7,12 @@ export interface User {
   isActive: boolean;
   createdAt: string;
   lastLogin?: string;
+  /**
+   * When true, the user is forced to rotate their login code before accessing
+   * the rest of the portal. Set at creation for staff with default codes and
+   * for users approved via the registration flow. Cleared by /api/users/change-code.
+   */
+  mustChangeCode?: boolean;
 }
 
 export interface Role {

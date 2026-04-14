@@ -9,23 +9,38 @@ const PUBLIC_POST_ROUTES = ['/api/register'];
 
 // KB API routes: auth is handled by X-API-Key in the route handler itself,
 // not by session. Middleware must NOT force session auth here.
+// NOTE: /api/search/* is NOT in this list — it uses the session gate below
+// (SEC1: endpoint replaces the old public /search-index.json and must be
+// cookie-authenticated, not API-key authenticated).
 const API_KEY_ROUTES = ['/api/kb'];
 
 // Admin-only routes (both pages and API endpoints)
 const ADMIN_ROUTES = ['/admin', '/api/users', '/api/roles', '/api/seed', '/api/admin'];
 
+// Routes that a logged-in user can reach even when mustChangeCode is true.
+// Everything else forces a redirect to /change-code until they rotate.
+const CODE_CHANGE_ALLOWED = [
+  '/change-code',
+  '/api/users/change-code',
+  '/api/auth', // session/signOut endpoints
+];
+
 export default auth((req) => {
   const { pathname } = req.nextUrl;
   const method = req.method;
   const isLoggedIn = !!req.auth;
-  const isAdmin = (req.auth?.user as any)?.isAdmin;
+  const user = req.auth?.user as any;
+  const isAdmin = user?.isAdmin;
+  const mustChangeCode = user?.mustChangeCode === true;
 
   // Public routes (login, register page, auth API)
   const isPublicRoute = PUBLIC_ROUTES.some((route) => pathname.startsWith(route));
   if (isPublicRoute) {
     // Redirect logged-in users away from login
     if (isLoggedIn && pathname.startsWith('/login')) {
-      return NextResponse.redirect(new URL('/dashboard', req.url));
+      // If they must rotate first, send to /change-code instead of /dashboard
+      const target = mustChangeCode ? '/change-code' : '/dashboard';
+      return NextResponse.redirect(new URL(target, req.url));
     }
     return NextResponse.next();
   }
@@ -49,6 +64,17 @@ export default auth((req) => {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
     return NextResponse.redirect(new URL('/login', req.url));
+  }
+
+  // Forced code rotation: user must rotate their code before reaching anything
+  // else. /change-code and its API endpoint stay accessible so they can
+  // actually complete the rotation; /api/auth allows signOut.
+  const isChangeCodeAllowed = CODE_CHANGE_ALLOWED.some((route) => pathname.startsWith(route));
+  if (mustChangeCode && !isChangeCodeAllowed) {
+    if (pathname.startsWith('/api/')) {
+      return NextResponse.json({ error: 'Code rotation required', code: 'MUST_CHANGE_CODE' }, { status: 403 });
+    }
+    return NextResponse.redirect(new URL('/change-code', req.url));
   }
 
   // Admin routes require admin role

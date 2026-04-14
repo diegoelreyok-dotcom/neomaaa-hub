@@ -24,11 +24,15 @@ export async function validateKbRequest(req: Request): Promise<KbAuthResult> {
 
   const rl = await checkRateLimit(key.id);
   if (!rl.allowed) {
-    return {
-      valid: false,
-      status: 429,
-      error: `Rate limit exceeded (${rl.limit}/hour). Try again next hour.`,
-    };
+    let error = `Rate limit exceeded (${rl.limit}/hour). Try again next hour.`;
+    if (rl.reason === 'day') {
+      error = `Daily rate limit exceeded (${rl.limit}/day). Key temporarily disabled for 24h.`;
+    } else if (rl.reason === 'temp_disabled') {
+      error = 'Key temporarily disabled due to abnormal usage. Contact an admin.';
+    } else if (rl.reason === 'hour') {
+      error = `Hourly rate limit exceeded (${rl.limit}/hour). Key temporarily disabled for 24h.`;
+    }
+    return { valid: false, status: 429, error };
   }
 
   // Fire-and-forget; don't block response on this

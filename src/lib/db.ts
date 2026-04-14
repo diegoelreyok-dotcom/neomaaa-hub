@@ -1,5 +1,6 @@
 import { User, Role, ReadProgress } from './types';
 import { hashSync, compareSync } from 'bcryptjs';
+import { randomInt } from 'crypto';
 
 // In-memory store for development (when Vercel KV is not available)
 const memStore: Record<string, string> = {};
@@ -262,6 +263,33 @@ export async function getAllProgress(): Promise<ReadProgress[]> {
   return progress;
 }
 
+export async function getProgressEntry(
+  userId: string,
+  documentPath: string
+): Promise<ReadProgress | null> {
+  if (!userId || !documentPath) return null;
+  const safeUserId = userId.replace(/[^a-zA-Z0-9_-]/g, '');
+  const safeDocPath = documentPath.replace(/[^a-zA-Z0-9_\-./]/g, '');
+  const key = `progress:${safeUserId}:${safeDocPath}`;
+  return await kvGet<ReadProgress>(key);
+}
+
+/**
+ * Delete all progress entries for a user. Used during cascade user delete.
+ * Returns the number of keys deleted.
+ */
+export async function deleteAllProgressForUser(userId: string): Promise<number> {
+  if (!userId || typeof userId !== 'string') return 0;
+  const safeUserId = userId.replace(/[^a-zA-Z0-9_-]/g, '');
+  const keys = await kvKeys(`progress:${safeUserId}:*`);
+  let count = 0;
+  for (const key of keys) {
+    await kvDel(key);
+    count += 1;
+  }
+  return count;
+}
+
 // ---- SEED DEFAULT DATA ----
 export async function seedDefaultData(): Promise<void> {
   // --- Seed roles (idempotent: skip each role that already exists) ---
@@ -366,10 +394,12 @@ export async function seedDefaultData(): Promise<void> {
 
   // --- Seed users (idempotent: skip each user that already exists) ---
 
-  // Admin users get a random seed code (must be changed immediately)
-  const adminSeedCode = Math.floor(100000 + Math.random() * 900000).toString();
+  // Admin users get a random seed code (must be changed immediately).
+  // randomInt is cryptographically secure; Math.random is not.
+  const adminSeedCode = randomInt(100000, 1000000).toString();
 
-  // Default code for non-admin team members (should be changed via admin panel)
+  // Default code for non-admin team members (MUST be changed on first login —
+  // enforced via mustChangeCode flag + middleware redirect to /change-code).
   const teamDefaultCode = '000000';
 
   const defaultUsers: Array<{
@@ -378,26 +408,27 @@ export async function seedDefaultData(): Promise<void> {
     roleId: string;
     lang: 'es' | 'ru';
     code: string;
+    mustChangeCode?: boolean;
   }> = [
-    // Admins
+    // Admins — random seed code; not flagged for forced rotation (admin handles themselves)
     { id: 'diego', name: 'Diego', roleId: 'admin', lang: 'es', code: adminSeedCode },
     { id: 'yulia', name: 'Yulia', roleId: 'admin', lang: 'ru', code: adminSeedCode },
     { id: 'stanislav', name: 'Stanislav', roleId: 'admin', lang: 'ru', code: adminSeedCode },
-    // Dealing
-    { id: 'pepe', name: 'Pepe', roleId: 'dealing', lang: 'es', code: teamDefaultCode },
+    // Dealing — default 000000, MUST rotate on first login
+    { id: 'pepe', name: 'Pepe', roleId: 'dealing', lang: 'es', code: teamDefaultCode, mustChangeCode: true },
     // Compliance
-    { id: 'susana', name: 'Susana', roleId: 'compliance', lang: 'es', code: teamDefaultCode },
+    { id: 'susana', name: 'Susana', roleId: 'compliance', lang: 'es', code: teamDefaultCode, mustChangeCode: true },
     // Sales
-    { id: 'edward', name: 'Edward', roleId: 'sales', lang: 'es', code: teamDefaultCode },
-    { id: 'franco', name: 'Franco', roleId: 'sales', lang: 'es', code: teamDefaultCode },
-    { id: 'luis', name: 'Luis', roleId: 'sales', lang: 'es', code: teamDefaultCode },
-    { id: 'rocio', name: 'Rocio', roleId: 'sales', lang: 'es', code: teamDefaultCode },
-    { id: 'marilyn', name: 'Marilyn', roleId: 'sales', lang: 'es', code: teamDefaultCode },
+    { id: 'edward', name: 'Edward', roleId: 'sales', lang: 'es', code: teamDefaultCode, mustChangeCode: true },
+    { id: 'franco', name: 'Franco', roleId: 'sales', lang: 'es', code: teamDefaultCode, mustChangeCode: true },
+    { id: 'luis', name: 'Luis', roleId: 'sales', lang: 'es', code: teamDefaultCode, mustChangeCode: true },
+    { id: 'rocio', name: 'Rocio', roleId: 'sales', lang: 'es', code: teamDefaultCode, mustChangeCode: true },
+    { id: 'marilyn', name: 'Marilyn', roleId: 'sales', lang: 'es', code: teamDefaultCode, mustChangeCode: true },
     // Dev
-    { id: 'alexa', name: 'Alex A', roleId: 'dev', lang: 'es', code: teamDefaultCode },
-    { id: 'alexb', name: 'Alex B', roleId: 'dev', lang: 'es', code: teamDefaultCode },
-    { id: 'gleb', name: 'Gleb', roleId: 'dev', lang: 'ru', code: teamDefaultCode },
-    { id: 'dimitri', name: 'Dimitri', roleId: 'dev', lang: 'ru', code: teamDefaultCode },
+    { id: 'alexa', name: 'Alex A', roleId: 'dev', lang: 'es', code: teamDefaultCode, mustChangeCode: true },
+    { id: 'alexb', name: 'Alex B', roleId: 'dev', lang: 'es', code: teamDefaultCode, mustChangeCode: true },
+    { id: 'gleb', name: 'Gleb', roleId: 'dev', lang: 'ru', code: teamDefaultCode, mustChangeCode: true },
+    { id: 'dimitri', name: 'Dimitri', roleId: 'dev', lang: 'ru', code: teamDefaultCode, mustChangeCode: true },
   ];
 
   for (const u of defaultUsers) {
@@ -405,7 +436,14 @@ export async function seedDefaultData(): Promise<void> {
     if (existing) continue;
     try {
       await createUser(
-        { id: u.id, name: u.name, roleId: u.roleId, lang: u.lang, isActive: true },
+        {
+          id: u.id,
+          name: u.name,
+          roleId: u.roleId,
+          lang: u.lang,
+          isActive: true,
+          mustChangeCode: u.mustChangeCode ?? false,
+        },
         u.code
       );
     } catch {

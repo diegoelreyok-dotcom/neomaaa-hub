@@ -1,27 +1,56 @@
 'use client';
 
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import remarkGfm from 'remark-gfm';
 import type { Components } from 'react-markdown';
 
 /* ─────────────────────────────────────────────
-   Sanitization — strip dangerous tags, keep formatting
+   Sanitization schema — HAST-level allowlist
+   Runs AFTER rehype-raw parses any inline HTML. Blocks script/style/iframe/
+   object/embed/form/input/link/meta/base and all on* event handlers. Strips
+   javascript:/data: URLs on href (defaultSchema enforces safe protocols).
    ───────────────────────────────────────────── */
-const DANGEROUS_TAG_REGEX = /<\s*(script|iframe|object|embed|form|input|textarea|button|link|style|meta|base|applet)[^>]*>[\s\S]*?<\s*\/\s*\1[^>]*>/gi;
-const DANGEROUS_SELF_CLOSING_REGEX = /<\s*(script|iframe|object|embed|form|input|textarea|button|link|style|meta|base|applet)[^>]*\/?\s*>/gi;
-const EVENT_HANDLER_REGEX = /\s+on\w+\s*=\s*["'][^"']*["']/gi;
-const JAVASCRIPT_URL_REGEX = /href\s*=\s*["']\s*javascript:/gi;
-
-function sanitizeMarkdown(content: string): string {
-  let sanitized = content;
-  sanitized = sanitized.replace(DANGEROUS_TAG_REGEX, '');
-  sanitized = sanitized.replace(DANGEROUS_SELF_CLOSING_REGEX, '');
-  sanitized = sanitized.replace(EVENT_HANDLER_REGEX, '');
-  sanitized = sanitized.replace(JAVASCRIPT_URL_REGEX, 'href="');
-  return sanitized;
-}
+const sanitizeSchema = {
+  ...defaultSchema,
+  tagNames: [
+    ...(defaultSchema.tagNames || []),
+    'div', 'span', 'section', 'article', 'aside', 'figure', 'figcaption',
+  ],
+  attributes: {
+    ...(defaultSchema.attributes || {}),
+    '*': [
+      ...((defaultSchema.attributes && defaultSchema.attributes['*']) || []),
+      'className', 'id',
+      'dataValue', 'dataLabel', 'dataTitle', 'dataNum',
+      ['data-value'], ['data-label'], ['data-title'], ['data-num'],
+    ],
+    div: ['className', 'id', 'dataValue', 'dataLabel', 'dataTitle', 'dataNum'],
+    span: ['className', 'id', 'dataValue', 'dataLabel', 'dataTitle', 'dataNum'],
+    section: ['className', 'id'],
+    article: ['className', 'id'],
+    aside: ['className', 'id', 'role', 'ariaLabel'],
+    a: [
+      ...((defaultSchema.attributes && defaultSchema.attributes.a) || []),
+      'target', 'rel', 'className',
+    ],
+    img: [
+      ...((defaultSchema.attributes && defaultSchema.attributes.img) || []),
+      'className', 'loading',
+    ],
+    code: [
+      ...((defaultSchema.attributes && defaultSchema.attributes.code) || []),
+      'className',
+    ],
+    input: ['type', 'checked', 'disabled'],
+  },
+  // Allow GFM task-list checkboxes explicitly.
+  // defaultSchema forbids <style> tag; we also never include it in tagNames.
+  // Do NOT allow: script, style, iframe, object, embed, form, link, meta, base
+  // event handler attributes (on*) are stripped by default.
+};
 
 /* ─────────────────────────────────────────────
    Helpers
@@ -390,16 +419,16 @@ const components: Components = {
    Main component
    ───────────────────────────────────────────── */
 export default function MarkdownRenderer({ content }: { content: string }) {
-  const safeContent = useMemo(() => sanitizeMarkdown(content), [content]);
-
   return (
     <div className="markdown-section neo-markdown">
       <ReactMarkdown
-        rehypePlugins={[rehypeRaw]}
+        // Order matters: rehypeRaw parses inline HTML into HAST nodes first,
+        // then rehypeSanitize strips anything not in the allowlist.
+        rehypePlugins={[rehypeRaw, [rehypeSanitize, sanitizeSchema]]}
         remarkPlugins={[remarkGfm]}
         components={components}
       >
-        {safeContent}
+        {content}
       </ReactMarkdown>
     </div>
   );

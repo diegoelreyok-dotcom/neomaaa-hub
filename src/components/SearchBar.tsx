@@ -7,8 +7,9 @@ import type { Lang } from '@/lib/types';
 /**
  * Global search modal (Cmd+K / Ctrl+K).
  *
- * - Lazy-fetches /search-index.json on first open.
- * - Filters by allowedSections (user's role.sections).
+ * - Lazy-fetches /api/search/index on first open (auth-gated, role-filtered).
+ * - Filters by allowedSections (user's role.sections) — defense in depth;
+ *   the endpoint already returns only allowed sections for the user.
  * - Client-side scoring mirrors server: title (×10) + body occurrences (×1).
  */
 
@@ -122,8 +123,8 @@ export default function SearchBar({ lang, allowedSections }: SearchBarProps) {
   useEffect(() => {
     if (!open || index || loading) return;
     setLoading(true);
-    fetch('/search-index.json')
-      .then((r) => r.json())
+    fetch('/api/search/index', { credentials: 'same-origin' })
+      .then((r) => (r.ok ? r.json() : []))
       .then((data: SearchEntry[]) => setIndex(Array.isArray(data) ? data : []))
       .catch(() => setIndex([]))
       .finally(() => setLoading(false));

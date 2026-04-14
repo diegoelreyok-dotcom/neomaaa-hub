@@ -24,13 +24,22 @@ let INDEX: SearchEntry[] | null = null;
 
 export function getIndex(): SearchEntry[] {
   if (INDEX) return INDEX;
-  const file = path.join(process.cwd(), 'public', 'search-index.json');
-  try {
-    const raw = fs.readFileSync(file, 'utf-8');
-    INDEX = JSON.parse(raw) as SearchEntry[];
-  } catch {
-    INDEX = [];
+  // Primary: data/search-index.json (SEC1 — moved out of /public for auth gate)
+  // Fallback: legacy public/search-index.json (for local dev if still around)
+  const candidates = [
+    path.join(process.cwd(), 'data', 'search-index.json'),
+    path.join(process.cwd(), 'public', 'search-index.json'),
+  ];
+  for (const file of candidates) {
+    try {
+      const raw = fs.readFileSync(file, 'utf-8');
+      INDEX = JSON.parse(raw) as SearchEntry[];
+      return INDEX;
+    } catch {
+      // try next
+    }
   }
+  INDEX = [];
   return INDEX;
 }
 

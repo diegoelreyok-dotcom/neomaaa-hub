@@ -57,11 +57,21 @@ curl -H "X-API-Key: neo_live_abc123..." https://portal.neomaaa.com/api/kb/list
 
 ---
 
-## Rate limits
+## Rate limits y anti-scraping
 
-**100 requests por hora por clave.** Si excedes el límite, recibirás `429 Too Many Requests` con un mensaje indicando cuándo reintentar.
+Límites acumulativos por clave (el primero que se exceda dispara el bloqueo):
 
-El contador se resetea al final de cada hora UTC.
+| Límite | Valor | Consecuencia |
+|--------|-------|--------------|
+| Requests por hora | **100** | 429 + clave deshabilitada 24h |
+| Requests por día | **200** | 429 + clave deshabilitada 24h |
+| Paths únicos en `/api/kb/doc` por hora | **50** | 429 + clave deshabilitada 24h (patrón de scraping) |
+
+Si tu clave queda temporalmente deshabilitada, verás en el admin el motivo (`scrape_pattern`, `hourly_limit_exceeded`, `daily_limit_exceeded`). Después de 24h el flag se limpia automáticamente. Si necesitás reactivación inmediata, pedile a un admin que regenere la clave.
+
+**Watermarking:** todas las respuestas de `/api/kb/doc` y `/api/kb/list` incluyen el header `X-KB-Key-Id: {últimos 6 del id}`. Si filtrás el contenido de la KB, podemos rastrear desde qué clave salió el dump.
+
+Los contadores horarios/diarios se resetean al final de cada ventana UTC.
 
 ---
 
@@ -173,15 +183,14 @@ curl -H "X-API-Key: $NEO_KEY" https://portal.neomaaa.com/api/kb/list
       "docPath": "encyclopedia/abc",
       "section": "encyclopedia",
       "slug": "abc",
-      "titleEs": "ABC del Broker",
-      "titleRu": "ABC брокера",
-      "language": "es",
-      "wordCount": 4120,
-      "url": "https://portal.neomaaa.com/content/encyclopedia/abc"
+      "language": "es"
     }
   ]
 }
 ```
+
+> [!INFO]
+> `/api/kb/list` devuelve SOLO `docPath`, `section`, `slug` y `language` — sin títulos, sin previews, sin URLs. Para obtener títulos y snippets, usá `/api/kb/search`. Esta restricción reduce la utilidad del endpoint para scraping masivo sin dañar los casos de uso legítimos (un agente descubre qué hay y después busca lo relevante).
 
 Útil para que un agente explore qué hay disponible antes de hacer búsquedas específicas.
 

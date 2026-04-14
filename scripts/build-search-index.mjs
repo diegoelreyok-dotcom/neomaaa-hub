@@ -5,10 +5,10 @@
  * Reads every markdown doc under src/content/{es,ru}/**, strips markdown
  * down to plain text for token-based scoring, cross-references with
  * src/lib/sections.ts for canonical titles/slugs, and emits
- * public/search-index.json.
+ * data/search-index.json (NOT public/ — see SEC1 audit fix).
  *
  * Consumed by:
- *   - Client-side (SearchBar component, lazy fetch on first Cmd+K)
+ *   - Client-side via /api/search/index (auth + filtered by role.sections)
  *   - Server-side (/api/kb/search, cached in-memory singleton)
  */
 
@@ -26,7 +26,7 @@ const jiti = require('jiti')(ROOT, { interopDefault: true, esmResolve: true });
 const { SECTIONS } = jiti(path.join(ROOT, 'src/lib/sections.ts'));
 
 const CONTENT_DIR = path.join(ROOT, 'src', 'content');
-const OUT_FILE = path.join(ROOT, 'public', 'search-index.json');
+const OUT_FILE = path.join(ROOT, 'data', 'search-index.json');
 
 /**
  * Strip markdown formatting to plain text (retains semantic words only).

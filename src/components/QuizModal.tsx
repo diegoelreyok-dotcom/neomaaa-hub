@@ -1112,8 +1112,13 @@ function ResultView({
         )}
       </div>
 
-      {/* Wrong questions review */}
-      {wrongPerQ.length > 0 && (
+      {/*
+        Wrong-questions review is shown ONLY when the user has passed —
+        revealing correct answers after a failed attempt would let the user
+        simply retry and submit the memorized answers. On failure the API
+        omits correctAnswer/explanation entirely and we show only the score.
+      */}
+      {passed && wrongPerQ.length > 0 && (
         <div className="mt-8">
           <p className="text-xs uppercase tracking-[0.14em] text-neo-text-muted mb-3">
             {t.reviewErrors}
@@ -1128,7 +1133,10 @@ function ResultView({
                 pq.userAnswer >= 0
                   ? OPTION_LETTERS[pq.userAnswer]
                   : t.noAnswer;
-              const correctLabel = OPTION_LETTERS[pq.correctAnswer];
+              const hasCorrect = typeof pq.correctAnswer === 'number';
+              const correctLabel = hasCorrect
+                ? OPTION_LETTERS[pq.correctAnswer]
+                : '';
               return (
                 <div
                   key={pq.questionId}
@@ -1151,16 +1159,18 @@ function ResultView({
                           : ''}
                       </span>
                     </div>
-                    <div>
-                      <span className="text-neo-success">●</span>{' '}
-                      <span className="text-neo-text-secondary">
-                        {t.correctAnswer}:
-                      </span>{' '}
-                      <span className="text-neo-text-body">
-                        {correctLabel}
-                        {q ? `. ${q.options[pq.correctAnswer]}` : ''}
-                      </span>
-                    </div>
+                    {hasCorrect && (
+                      <div>
+                        <span className="text-neo-success">●</span>{' '}
+                        <span className="text-neo-text-secondary">
+                          {t.correctAnswer}:
+                        </span>{' '}
+                        <span className="text-neo-text-body">
+                          {correctLabel}
+                          {q ? `. ${q.options[pq.correctAnswer]}` : ''}
+                        </span>
+                      </div>
+                    )}
                     {pq.explanation && (
                       <div className="mt-2 pt-2 border-t border-neo-dark-3/70 text-neo-text-body/90">
                         <span className="text-neo-text-secondary">

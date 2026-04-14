@@ -3,3 +3,9 @@ node_modules/
 .env.local
 .vercel
 .env*.local
+
+# Build-generated search index (SEC1 — not public, never committed)
+data/search-index.json
+
+# Legacy: ensure stale copy can't accidentally be committed again
+public/search-index.json

@@ -5,7 +5,7 @@ import {
   LEARNING_PATHS,
   computePathState,
 } from '@/lib/learning-paths';
-import { getRoleBadge, saveRoleBadge } from '@/lib/role-badges';
+import { getRoleBadge, saveRoleBadgeIfNotExists } from '@/lib/role-badges';
 
 export const dynamic = 'force-dynamic';
 
@@ -69,7 +69,18 @@ export async function POST() {
     issuedAt: new Date().toISOString(),
   };
 
-  await saveRoleBadge(badge);
+  // Atomic: only one concurrent caller wins the write. If another request
+  // already created the badge between our check and this set, we re-read and
+  // report badgeIssued=false with the existing badge.
+  const written = await saveRoleBadgeIfNotExists(badge);
+  if (!written) {
+    const current = await getRoleBadge(userId, path.roleId);
+    return NextResponse.json({
+      pathComplete: true,
+      badgeIssued: false,
+      badge: current || badge,
+    });
+  }
 
   return NextResponse.json({ pathComplete: true, badgeIssued: true, badge });
 }

@@ -3,6 +3,7 @@ import crypto from 'crypto';
 import { auth } from '@/lib/auth';
 import { loadQuizPool } from '@/lib/quiz-pools';
 import { createQuizSession, getCooldown } from '@/lib/quiz-storage';
+import { getRole } from '@/lib/db';
 import {
   QuizLanguage,
   QuizSession,
@@ -51,6 +52,26 @@ export async function POST(req: Request) {
   }
 
   const userIdEarly = (session.user as any).userId as string;
+  const roleId = (session.user as any).roleId as string | undefined;
+  const isAdmin = (session.user as any).isAdmin as boolean | undefined;
+
+  // Section-level permission check. Admins bypass.
+  if (!isAdmin && roleId !== 'admin') {
+    const section = docPath.split('/')[0];
+    if (!section) {
+      return NextResponse.json(
+        { error: 'forbidden', message: 'No tienes acceso a esta sección' },
+        { status: 403 }
+      );
+    }
+    const role = roleId ? await getRole(roleId) : null;
+    if (!role || !Array.isArray(role.sections) || !role.sections.includes(section)) {
+      return NextResponse.json(
+        { error: 'forbidden', message: 'No tienes acceso a esta sección' },
+        { status: 403 }
+      );
+    }
+  }
 
   // Block if user is on cooldown for this doc.
   const cooldown = await getCooldown(userIdEarly, docPath);

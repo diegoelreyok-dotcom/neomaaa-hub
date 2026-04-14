@@ -1,13 +1,23 @@
 import { NextResponse } from 'next/server';
+import { randomInt } from 'crypto';
 import { auth } from '@/lib/auth';
-import { getAllUsers, createUser, updateUser, deleteUser } from '@/lib/db';
+import {
+  getAllUsers,
+  createUser,
+  updateUser,
+  deleteUser,
+  deleteAllProgressForUser,
+} from '@/lib/db';
+import { deleteAllCertsForUser } from '@/lib/quiz-storage';
+import { deleteAllBadgesForUser } from '@/lib/role-badges';
 
 function generateCode(length = 6): string {
-  // Use crypto for better randomness in code generation
-  const chars = '0123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz';
+  // Crypto-secure RNG (randomInt) — Math.random() is predictable.
+  // Ambiguous chars (0/O, 1/l/I) kept out for readability.
+  const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz';
   let code = '';
   for (let i = 0; i < length; i++) {
-    code += chars.charAt(Math.floor(Math.random() * chars.length));
+    code += chars.charAt(randomInt(0, chars.length));
   }
   return code;
 }
@@ -153,9 +163,43 @@ export async function DELETE(req: Request) {
       return NextResponse.json({ error: 'Falta parametro: id' }, { status: 400 });
     }
 
+    // Prevent admin from deleting themselves.
+    const selfId = (session.user as any).userId as string | undefined;
+    if (selfId && selfId === id) {
+      return NextResponse.json(
+        { error: 'No puedes eliminar tu propio usuario' },
+        { status: 400 }
+      );
+    }
+
+    // Cascade delete: clean up all per-user KV state BEFORE removing the
+    // user record, so an intermediate failure never leaves a live user
+    // with broken references.
+    const certs = await deleteAllCertsForUser(id).catch((err) => {
+      console.error('[users DELETE] cert cascade failed', id, err);
+      return 0;
+    });
+    const badges = await deleteAllBadgesForUser(id).catch((err) => {
+      console.error('[users DELETE] badge cascade failed', id, err);
+      return 0;
+    });
+    const progress = await deleteAllProgressForUser(id).catch((err) => {
+      console.error('[users DELETE] progress cascade failed', id, err);
+      return 0;
+    });
+
     await deleteUser(id);
-    return NextResponse.json({ success: true });
+
+    console.log(
+      `[users DELETE] ${id} — removed user + ${certs} certs + ${badges} badges + ${progress} progress records`
+    );
+
+    return NextResponse.json({
+      success: true,
+      cascade: { certs, badges, progress },
+    });
   } catch (error) {
+    console.error('[users DELETE] error', error);
     return NextResponse.json(
       { error: 'Error al eliminar usuario' },
       { status: 500 }

@@ -1,8 +1,18 @@
 import { NextResponse } from 'next/server';
 import { auth } from '@/lib/auth';
-import { recordAccess, getUserProgress, getAllProgress, markCompleted, getRole } from '@/lib/db';
+import {
+  recordAccess,
+  getUserProgress,
+  getAllProgress,
+  markCompleted,
+  getRole,
+  getProgressEntry,
+} from '@/lib/db';
 import { LEARNING_PATHS, computePathState } from '@/lib/learning-paths';
-import { getRoleBadge, saveRoleBadge } from '@/lib/role-badges';
+import { getRoleBadge, saveRoleBadgeIfNotExists } from '@/lib/role-badges';
+
+/** Minimum seconds between firstAccessed and completion via PATCH. */
+const MIN_READ_SECONDS = 60;
 
 /**
  * Check if the user has now completed their full learning path and emit a
@@ -27,7 +37,9 @@ async function maybeIssueRoleBadge(userId: string, userName: string, roleId: str
     const roleNameEs = role?.name || path.titleEs;
     const roleNameRu = role?.nameRu || path.titleRu;
 
-    await saveRoleBadge({
+    // Atomic-ish: only writes if no badge exists yet (prevents duplicates
+    // when two PATCH requests land simultaneously).
+    await saveRoleBadgeIfNotExists({
       userId,
       userName,
       roleId: path.roleId,
@@ -136,6 +148,57 @@ export async function PATCH(req: Request) {
     const userId: string = user.userId;
     const userName: string = user.name || userId;
     const roleId: string = user.roleId || 'admin';
+    const isAdmin: boolean = !!user.isAdmin;
+
+    // 1. Section permission check (same as /api/quiz/start).
+    if (!isAdmin && roleId !== 'admin') {
+      const section = documentPath.split('/')[0];
+      if (!section) {
+        return NextResponse.json(
+          { error: 'forbidden', message: 'No tienes acceso a esta sección' },
+          { status: 403 }
+        );
+      }
+      const role = await getRole(roleId).catch(() => null);
+      if (!role || !Array.isArray(role.sections) || !role.sections.includes(section)) {
+        return NextResponse.json(
+          { error: 'forbidden', message: 'No tienes acceso a esta sección' },
+          { status: 403 }
+        );
+      }
+    }
+
+    // 2. Must have accessed the doc first (via POST).
+    const existing = await getProgressEntry(userId, documentPath);
+    if (!existing) {
+      return NextResponse.json(
+        {
+          error: 'no_access',
+          message: 'Debes leer el documento antes de marcarlo completado',
+        },
+        { status: 400 }
+      );
+    }
+
+    // 3. Proof-of-reading heuristic: either multiple accesses OR >=60s since
+    // first access. Prevents 1-tick "POST then PATCH" cheating.
+    const firstAccessMs = Date.parse(existing.firstAccessed);
+    const elapsedSec = Number.isFinite(firstAccessMs)
+      ? Math.floor((Date.now() - firstAccessMs) / 1000)
+      : 0;
+    const enoughReads = (existing.accessCount || 0) >= 3;
+    const enoughTime = elapsedSec >= MIN_READ_SECONDS;
+    if (!enoughReads && !enoughTime) {
+      return NextResponse.json(
+        {
+          error: 'read_too_fast',
+          message: 'Debes pasar más tiempo leyendo antes de marcarlo completado',
+          minSeconds: MIN_READ_SECONDS,
+        },
+        { status: 400 }
+      );
+    }
+
     const result = await markCompleted(userId, documentPath);
 
     // Fire-and-forget: check if path is now complete and emit badge.

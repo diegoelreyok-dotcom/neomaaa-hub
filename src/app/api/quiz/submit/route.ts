@@ -11,6 +11,7 @@ import {
 } from '@/lib/quiz-storage';
 import { loadQuizPool } from '@/lib/quiz-pools';
 import { getDocByPath } from '@/lib/sections';
+import { getRole, markCompleted } from '@/lib/db';
 import {
   Certificate,
   QuizResult,
@@ -64,6 +65,27 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Sesion de otro usuario' }, { status: 403 });
   }
 
+  // Section-level permission check as second layer (role may have changed
+  // between /start and /submit, revoking access).
+  const roleId = (session.user as any).roleId as string | undefined;
+  const isAdmin = (session.user as any).isAdmin as boolean | undefined;
+  if (!isAdmin && roleId !== 'admin') {
+    const section = quizSession.docPath.split('/')[0];
+    if (!section) {
+      return NextResponse.json(
+        { error: 'forbidden', message: 'No tienes acceso a esta sección' },
+        { status: 403 }
+      );
+    }
+    const role = roleId ? await getRole(roleId) : null;
+    if (!role || !Array.isArray(role.sections) || !role.sections.includes(section)) {
+      return NextResponse.json(
+        { error: 'forbidden', message: 'No tienes acceso a esta sección' },
+        { status: 403 }
+      );
+    }
+  }
+
   if (answersRaw.length !== quizSession.questions.length) {
     return NextResponse.json(
       {
@@ -113,6 +135,13 @@ export async function POST(req: Request) {
   if (passed) {
     // Clean up any stale cooldown from previous failures.
     await clearCooldown(userId, quizSession.docPath);
+    // Passing the quiz is itself proof of reading → mark progress completed.
+    // This bypasses /api/progress PATCH strict checks intentionally.
+    try {
+      await markCompleted(userId, quizSession.docPath);
+    } catch {
+      // non-critical
+    }
   } else {
     await setCooldown(userId, quizSession.docPath, QUIZ_COOLDOWN_SECONDS);
     retryAfter = QUIZ_COOLDOWN_SECONDS;
@@ -164,12 +193,23 @@ export async function POST(req: Request) {
   // Consume the session regardless of outcome (no partial resume).
   await deleteQuizSession(sessionId);
 
+  // Redact correctAnswer + explanation on fail to prevent cheating.
+  // Only reveal answers when the user has passed.
+  const perQuestionSafe: QuizResultQuestion[] = passed
+    ? perQuestion
+    : perQuestion.map((pq) => ({
+        questionId: pq.questionId,
+        userAnswer: pq.userAnswer,
+        correct: pq.correct,
+        // correctAnswer + explanation intentionally omitted on failure.
+      })) as QuizResultQuestion[];
+
   const result: QuizResult = {
     score,
     totalQuestions,
     passed,
     passThreshold: QUIZ_PASS_THRESHOLD,
-    perQuestion,
+    perQuestion: perQuestionSafe,
     certificateId,
     retryAfter,
   };

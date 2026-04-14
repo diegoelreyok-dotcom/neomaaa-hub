@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+import { randomInt } from 'crypto';
+import { checkRateLimit, consumeRateLimit } from '@/lib/rate-limit';
 
 // In-memory pending registrations (will move to KV when configured)
 const pendingStore: Record<string, string> = {};
@@ -54,31 +56,41 @@ export interface PendingRegistration {
   status: 'pending' | 'approved' | 'rejected';
 }
 
-// Simple rate limiting for public registration endpoint
-const registrationAttempts: Map<string, { count: number; firstAttempt: number }> = new Map();
-const MAX_REGISTRATIONS_PER_HOUR = 5;
-const REGISTRATION_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+// KV-backed rate limit for public registration endpoint.
+// Tighter than login (register is unauthenticated): 5 per 15min per IP.
+const REGISTER_MAX_PER_WINDOW = 5;
+const REGISTER_WINDOW_SECONDS = 15 * 60;
 
-function checkRegistrationRateLimit(ip: string): boolean {
-  const now = Date.now();
-  const entry = registrationAttempts.get(ip);
-  if (!entry || now - entry.firstAttempt > REGISTRATION_WINDOW_MS) {
-    registrationAttempts.set(ip, { count: 1, firstAttempt: now });
-    return true;
+/**
+ * Extract the client IP from request headers. On Vercel, `x-forwarded-for` is
+ * set by the platform and the leftmost value is the original client. We also
+ * fall back to `x-real-ip`. IP spoofing is still possible in environments
+ * without a trusted proxy; Vercel guarantees these headers on deployed apps.
+ */
+function getClientIp(req: Request): string {
+  const xff = req.headers.get('x-forwarded-for');
+  if (xff) {
+    const first = xff.split(',')[0]?.trim();
+    if (first) return first;
   }
-  if (entry.count >= MAX_REGISTRATIONS_PER_HOUR) return false;
-  entry.count += 1;
-  return true;
+  const xri = req.headers.get('x-real-ip');
+  if (xri) return xri.trim();
+  return 'unknown';
 }
 
 // POST — submit a new registration request (public, no auth)
 export async function POST(req: Request) {
   try {
-    // Rate limit by IP
-    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
-    if (!checkRegistrationRateLimit(ip)) {
+    // Rate limit by IP (KV-backed so it survives cold starts)
+    const ip = getClientIp(req);
+    const rlKey = `ratelimit:register:${ip}`;
+    const rl = await checkRateLimit(rlKey, REGISTER_MAX_PER_WINDOW, REGISTER_WINDOW_SECONDS);
+    if (!rl.allowed) {
       return NextResponse.json({ error: 'Demasiadas solicitudes. Intenta mas tarde.' }, { status: 429 });
     }
+    // Consume one slot up front: a submission (valid or not) counts toward
+    // the limit, otherwise attackers could spray with bad payloads for free.
+    await consumeRateLimit(rlKey, REGISTER_MAX_PER_WINDOW, REGISTER_WINDOW_SECONDS);
 
     const body = await req.json();
     const { name, email, lang, message } = body;
@@ -195,15 +207,17 @@ export async function PATCH(req: Request) {
         return NextResponse.json({ error: 'Role not found' }, { status: 400 });
       }
 
-      // Generate a secure code (6 digits)
-      const code = Math.floor(100000 + Math.random() * 900000).toString();
+      // Generate a secure code (6 digits) using crypto, not Math.random.
+      const code = randomInt(100000, 1000000).toString();
       const baseUserId = registration.name.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/g, '').substring(0, 15);
 
-      // Handle userId collisions by appending a random suffix
+      // Handle userId collisions by appending a crypto-random suffix
       let userId = baseUserId;
       const existingUser = await getUser(userId);
       if (existingUser) {
-        userId = baseUserId + '-' + Math.random().toString(36).substring(2, 6);
+        // 4 hex chars from 16 random bits — plenty for collision avoidance here
+        const suffix = randomInt(0, 0x10000).toString(16).padStart(4, '0');
+        userId = baseUserId + '-' + suffix;
       }
 
       await createUser(
@@ -213,6 +227,10 @@ export async function PATCH(req: Request) {
           roleId,
           lang: registration.lang,
           isActive: true,
+          // Admin hands the generated code to the user. That code is known to
+          // the admin and transmitted out-of-band, so the user must rotate it
+          // on first login.
+          mustChangeCode: true,
         },
         code
       );

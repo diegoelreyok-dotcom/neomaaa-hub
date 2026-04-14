@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { validateKbRequest } from '@/lib/kb-auth';
 import { getIndex } from '@/lib/kb-search';
+import { trackDocPath } from '@/lib/api-keys';
 
 export const runtime = 'nodejs';
 
@@ -67,14 +68,36 @@ export async function GET(req: Request) {
     (e) => e.section === section && e.slug === slug && e.language === 'es',
   );
 
-  return NextResponse.json({
-    docPath: `${section}/${slug}`,
-    section,
-    slug,
-    titleEs: entry?.titleEs || slug,
-    titleRu: entry?.titleRu || slug,
-    language: lang,
-    content,
-    wordCount: entry?.wordCount ?? content.split(/\s+/).length,
-  });
+  // Scraping detection — track unique paths per key per hour. Fire-and-forget
+  // but we await to ensure the temp-disable kicks in before the NEXT request.
+  const scrape = await trackDocPath(auth.key.id, `${section}/${slug}`).catch(() => ({
+    flagged: false,
+    unique: 0,
+  }));
+  if (scrape.flagged) {
+    return NextResponse.json(
+      { error: 'Scraping pattern detected. Key temporarily disabled for 24h.' },
+      { status: 429 },
+    );
+  }
+
+  // Watermark: partial key id for post-hoc leak attribution
+  const keyIdPartial = auth.key.id.slice(-6);
+  return NextResponse.json(
+    {
+      docPath: `${section}/${slug}`,
+      section,
+      slug,
+      titleEs: entry?.titleEs || slug,
+      titleRu: entry?.titleRu || slug,
+      language: lang,
+      content,
+      wordCount: entry?.wordCount ?? content.split(/\s+/).length,
+    },
+    {
+      headers: {
+        'X-KB-Key-Id': keyIdPartial,
+      },
+    },
+  );
 }

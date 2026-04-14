@@ -13,21 +13,20 @@ export async function GET(req: Request) {
   const url = new URL(req.url);
   const lang = (url.searchParams.get('lang') || 'es').toLowerCase() === 'ru' ? 'ru' : 'es';
 
+  // Intentionally minimal: docPath + section + slug only (no titles, no previews).
+  // Titles/snippets are available via /api/kb/search (rate-limited per-query).
   const docs = getIndex()
     .filter((e) => e.language === lang)
     .map((e) => ({
       docPath: e.docPath,
       section: e.section,
       slug: e.slug,
-      titleEs: e.titleEs,
-      titleRu: e.titleRu,
       language: e.language,
-      wordCount: e.wordCount,
-      url: `${url.origin}/content/${e.section}/${e.slug}`,
     }));
 
-  return NextResponse.json({
-    total: docs.length,
-    docs,
-  });
+  const keyIdPartial = auth.key.id.slice(-6);
+  return NextResponse.json(
+    { total: docs.length, docs },
+    { headers: { 'X-KB-Key-Id': keyIdPartial } },
+  );
 }

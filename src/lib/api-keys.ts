@@ -175,19 +175,121 @@ export async function toggleApiKey(id: string, enabled: boolean): Promise<ApiKey
 }
 
 /**
- * Rate limit: increments a per-key-per-hour counter.
- * Returns { allowed, count, limit }.
+ * Rate limit: per-key-per-hour AND per-key-per-day counters.
+ * Also honors a temporary disable flag (`apikey_disabled:{id}`) set when
+ * limits or scraping patterns are tripped.
+ *
+ * Returns { allowed, count, limit, reason? } where `reason` is populated on
+ * denial for logging/telemetry.
  */
 export const RATE_LIMIT_PER_HOUR = 100;
+export const RATE_LIMIT_PER_DAY = 200;
+export const SCRAPE_DETECT_UNIQUE_PATHS = 50; // within 1h → flag
+export const TEMP_DISABLE_TTL_SECONDS = 24 * 3600;
 
-export async function checkRateLimit(
-  keyId: string,
-): Promise<{ allowed: boolean; count: number; limit: number }> {
+export type RateLimitResult = {
+  allowed: boolean;
+  count: number;
+  limit: number;
+  reason?: 'hour' | 'day' | 'temp_disabled' | 'scrape_detected';
+  scope?: 'hour' | 'day';
+};
+
+/** Temporarily disable a key for TEMP_DISABLE_TTL_SECONDS. */
+export async function tempDisableKey(keyId: string, reason: string): Promise<void> {
+  try {
+    const { kv } = await import('@vercel/kv');
+    await kv.set(`apikey_disabled:${keyId}`, { reason, at: new Date().toISOString() }, {
+      ex: TEMP_DISABLE_TTL_SECONDS,
+    });
+  } catch {
+    mem[`apikey_disabled:${keyId}`] = JSON.stringify({ reason, at: new Date().toISOString() });
+  }
+}
+
+export async function isTempDisabled(keyId: string): Promise<boolean> {
+  const v = await kvGet<unknown>(`apikey_disabled:${keyId}`);
+  return v !== null && v !== undefined;
+}
+
+export async function checkRateLimit(keyId: string): Promise<RateLimitResult> {
+  // Temp disable takes precedence
+  if (await isTempDisabled(keyId)) {
+    return { allowed: false, count: 0, limit: RATE_LIMIT_PER_HOUR, reason: 'temp_disabled' };
+  }
+
   const hour = Math.floor(Date.now() / 3600_000);
-  const count = await kvIncr(`ratelimit:${keyId}:${hour}`, 3600);
+  const day = Math.floor(Date.now() / 86_400_000);
+
+  const hourCount = await kvIncr(`ratelimit:${keyId}:${hour}`, 3600);
+  if (hourCount > RATE_LIMIT_PER_HOUR) {
+    await tempDisableKey(keyId, `hourly_limit_exceeded:${hourCount}`);
+    return {
+      allowed: false,
+      count: hourCount,
+      limit: RATE_LIMIT_PER_HOUR,
+      reason: 'hour',
+      scope: 'hour',
+    };
+  }
+
+  const dayCount = await kvIncr(`ratelimit_day:${keyId}:${day}`, 86_400);
+  if (dayCount > RATE_LIMIT_PER_DAY) {
+    await tempDisableKey(keyId, `daily_limit_exceeded:${dayCount}`);
+    return {
+      allowed: false,
+      count: dayCount,
+      limit: RATE_LIMIT_PER_DAY,
+      reason: 'day',
+      scope: 'day',
+    };
+  }
+
   return {
-    allowed: count <= RATE_LIMIT_PER_HOUR,
-    count,
+    allowed: true,
+    count: hourCount,
     limit: RATE_LIMIT_PER_HOUR,
   };
+}
+
+/**
+ * Scraping detection: tracks unique `/api/kb/doc?path=X` values fetched per
+ * key per hour. If the unique-path count crosses SCRAPE_DETECT_UNIQUE_PATHS,
+ * the key is temp-disabled and the caller gets `{ flagged: true }`.
+ *
+ * Implementation: Redis SET with 1h TTL (fallback: in-memory Set).
+ */
+export async function trackDocPath(
+  keyId: string,
+  docPath: string,
+): Promise<{ flagged: boolean; unique: number }> {
+  const hour = Math.floor(Date.now() / 3600_000);
+  const setKey = `kb_paths:${keyId}:${hour}`;
+
+  let unique = 0;
+  try {
+    const { kv } = await import('@vercel/kv');
+    const added = await kv.sadd(setKey, docPath);
+    if (added === 1) {
+      // Set expiration when it was actually added (first time for this path)
+      await kv.expire(setKey, 3600);
+    }
+    unique = (await kv.scard(setKey)) as number;
+  } catch {
+    const raw = mem[setKey];
+    const set: Set<string> = raw ? new Set(JSON.parse(raw)) : new Set();
+    set.add(docPath);
+    mem[setKey] = JSON.stringify(Array.from(set));
+    unique = set.size;
+  }
+
+  if (unique > SCRAPE_DETECT_UNIQUE_PATHS) {
+    await tempDisableKey(keyId, `scrape_pattern:${unique}_unique_paths`);
+    // Log in stderr so Vercel log drain picks it up
+    console.warn(
+      `[kb] scraping pattern detected for ${keyId}: ${unique} unique paths in 1h → temp-disabled 24h`,
+    );
+    return { flagged: true, unique };
+  }
+  return { flagged: false, unique };
 }

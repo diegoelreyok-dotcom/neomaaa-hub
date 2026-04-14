@@ -153,6 +153,32 @@ export async function deleteCertificate(
   }
 }
 
+/**
+ * Delete all certificates for a user (both cert:{userId}:* and the cert_index
+ * pointers). Used during cascade user delete.
+ * Returns the number of cert records deleted.
+ */
+export async function deleteAllCertsForUser(userId: string): Promise<number> {
+  const safeUserId = sanitizeUserId(userId);
+  if (!safeUserId) return 0;
+  const keys = await kvKeys(`cert:${safeUserId}:*`);
+  let count = 0;
+  for (const key of keys) {
+    const cert = await kvGet<Certificate>(key);
+    await kvDel(key);
+    if (cert?.id) {
+      await kvDel(certIndexKey(cert.id));
+    }
+    count += 1;
+  }
+  // Also clear any outstanding quiz cooldowns.
+  const cdKeys = await kvKeys(`quiz_cooldown:${safeUserId}:*`);
+  for (const k of cdKeys) {
+    await kvDel(k);
+  }
+  return count;
+}
+
 export async function getCertificateById(certId: string): Promise<Certificate | null> {
   const pointer = await kvGet<string>(certIndexKey(certId));
   if (!pointer) return null;

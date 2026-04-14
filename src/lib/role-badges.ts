@@ -44,6 +44,34 @@ async function kvSet(key: string, value: unknown): Promise<void> {
   }
 }
 
+/**
+ * Atomic set-if-not-exists. Returns true if written, false if a value already
+ * existed. Uses Upstash KV `nx` option; falls back to best-effort check+set
+ * on the in-memory dev store.
+ */
+async function kvSetNX(key: string, value: unknown): Promise<boolean> {
+  try {
+    const { kv } = await import('@vercel/kv');
+    // Upstash supports `{ nx: true }` — returns null if key already exists,
+    // "OK" otherwise. Works with JSON values.
+    const res = await kv.set(key, value, { nx: true } as any);
+    return res !== null;
+  } catch {
+    if (memStore[key] !== undefined) return false;
+    memStore[key] = JSON.stringify(value);
+    return true;
+  }
+}
+
+async function kvDel(key: string): Promise<void> {
+  try {
+    const { kv } = await import('@vercel/kv');
+    await kv.del(key);
+  } catch {
+    delete memStore[key];
+  }
+}
+
 async function kvKeys(pattern: string): Promise<string[]> {
   try {
     const { kv } = await import('@vercel/kv');
@@ -71,6 +99,34 @@ export async function getRoleBadge(
 
 export async function saveRoleBadge(badge: RoleBadge): Promise<void> {
   await kvSet(badgeKey(badge.userId, badge.roleId), badge);
+}
+
+/**
+ * Write the badge only if no badge already exists for this (userId, roleId).
+ * Returns true if the badge was written, false if one already existed.
+ *
+ * Use this instead of getRoleBadge()-then-saveRoleBadge() to prevent race
+ * conditions when two concurrent check-completion calls both pass the
+ * existence check and end up writing duplicate badges.
+ */
+export async function saveRoleBadgeIfNotExists(badge: RoleBadge): Promise<boolean> {
+  return await kvSetNX(badgeKey(badge.userId, badge.roleId), badge);
+}
+
+/**
+ * Delete all role badges for a user. Used during cascade user delete.
+ * Returns the number of keys deleted.
+ */
+export async function deleteAllBadgesForUser(userId: string): Promise<number> {
+  const safe = sanitize(userId);
+  if (!safe) return 0;
+  const keys = await kvKeys(`role_badge:${safe}:*`);
+  let count = 0;
+  for (const key of keys) {
+    await kvDel(key);
+    count += 1;
+  }
+  return count;
 }
 
 export async function getAllRoleBadges(userId: string): Promise<RoleBadge[]> {

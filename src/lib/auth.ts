@@ -2,10 +2,13 @@ import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { hashSync, compareSync } from 'bcryptjs';
 import { validateLogin, getUser, getRole, seedDefaultData } from './db';
+import { checkRateLimit, consumeRateLimit } from './rate-limit';
 
-// Hardcoded admin accounts — always work regardless of database state
-// In production, set ADMIN_CODE_DIEGO, ADMIN_CODE_YULIA, ADMIN_CODE_STANISLAV env vars
-// Falls back to database-only auth if env vars are not set
+// Hardcoded admin accounts — emergency fallback only.
+// Behaviour: if a user with the same id exists in the DB, the DB record wins
+// (so admins can be deactivated via the panel). Hardcoded creds are only used
+// when the DB entry is missing (e.g. KV wiped, fresh deploy before seed).
+// In production, set ADMIN_CODE_DIEGO, ADMIN_CODE_YULIA, ADMIN_CODE_STANISLAV env vars.
 type HardcodedAdmin = { name: string; codeHash: string; lang: 'es' | 'ru'; roleId: string };
 const HARDCODED_ADMINS: Record<string, HardcodedAdmin> = {};
 
@@ -30,37 +33,9 @@ function initHardcodedAdmins() {
 }
 initHardcodedAdmins();
 
-// Simple in-memory rate limiter for login attempts
-const loginAttempts: Map<string, { count: number; lastAttempt: number }> = new Map();
-const MAX_LOGIN_ATTEMPTS = 5;
-const LOGIN_LOCKOUT_MS = 15 * 60 * 1000; // 15 minutes
-
-function checkRateLimit(userId: string): boolean {
-  const now = Date.now();
-  const entry = loginAttempts.get(userId);
-  if (!entry) return true;
-  // Reset if lockout period has passed
-  if (now - entry.lastAttempt > LOGIN_LOCKOUT_MS) {
-    loginAttempts.delete(userId);
-    return true;
-  }
-  return entry.count < MAX_LOGIN_ATTEMPTS;
-}
-
-function recordFailedLogin(userId: string): void {
-  const now = Date.now();
-  const entry = loginAttempts.get(userId);
-  if (!entry || now - entry.lastAttempt > LOGIN_LOCKOUT_MS) {
-    loginAttempts.set(userId, { count: 1, lastAttempt: now });
-  } else {
-    entry.count += 1;
-    entry.lastAttempt = now;
-  }
-}
-
-function clearLoginAttempts(userId: string): void {
-  loginAttempts.delete(userId);
-}
+// Rate-limit parameters for login. Key scheme: ratelimit:login:{userId}
+const LOGIN_MAX_ATTEMPTS = 5;
+const LOGIN_WINDOW_SECONDS = 15 * 60; // 15 minutes
 
 // Auto-seed on first use
 let seeded = false;
@@ -93,49 +68,72 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         // Validate input length to prevent abuse
         if (userId.length > 50 || code.length > 50) return null;
 
-        // Rate limit check
-        if (!checkRateLimit(userId)) {
-          return null; // Too many failed attempts
+        // KV-backed rate limit: prevents bypass via serverless cold starts.
+        const rlKey = `ratelimit:login:${userId}`;
+        const rl = await checkRateLimit(rlKey, LOGIN_MAX_ATTEMPTS, LOGIN_WINDOW_SECONDS);
+        if (!rl.allowed) {
+          // Too many attempts — fail closed until window expires.
+          return null;
         }
 
-        // Check hardcoded admins first (always works)
+        await ensureSeeded();
+
+        // DB wins over hardcoded. Only fall back to hardcoded when the user
+        // doesn't exist in the DB (emergency access before/after seed wipe).
+        const dbUser = await getUser(userId);
+
+        if (dbUser) {
+          const validated = await validateLogin(userId, code);
+          if (!validated) {
+            await consumeRateLimit(rlKey, LOGIN_MAX_ATTEMPTS, LOGIN_WINDOW_SECONDS);
+            return null;
+          }
+          return { id: validated.id, name: validated.name, email: `${validated.id}@neomaaa.internal` };
+        }
+
+        // No DB record — try hardcoded fallback
         const hardcoded = HARDCODED_ADMINS[userId];
         if (hardcoded && compareSync(code, hardcoded.codeHash)) {
-          clearLoginAttempts(userId);
           return { id: userId, name: hardcoded.name, email: `${userId}@neomaaa.internal` };
         }
 
-        // Then try database
-        await ensureSeeded();
-        const user = await validateLogin(userId, code);
-        if (!user) {
-          recordFailedLogin(userId);
-          return null;
-        }
-        clearLoginAttempts(userId);
-        return { id: user.id, name: user.name, email: `${user.id}@neomaaa.internal` };
+        // Neither DB nor hardcoded matched — count as failed attempt
+        await consumeRateLimit(rlKey, LOGIN_MAX_ATTEMPTS, LOGIN_WINDOW_SECONDS);
+        return null;
       },
     }),
   ],
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        // Check hardcoded first
-        const hardcoded = HARDCODED_ADMINS[user.id!];
+        const userId = user.id!;
+        // DB wins. If DB has the user, use DB role/flags regardless of hardcoded.
+        const dbUser = await getUser(userId);
+        if (dbUser) {
+          const role = await getRole(dbUser.roleId);
+          token.userId = userId;
+          token.roleId = dbUser.roleId;
+          token.isAdmin = role?.isAdmin || false;
+          token.lang = dbUser.lang;
+          token.mustChangeCode = dbUser.mustChangeCode === true;
+          return token;
+        }
+        // Fallback: hardcoded admin (no DB record)
+        const hardcoded = HARDCODED_ADMINS[userId];
         if (hardcoded) {
-          token.userId = user.id;
+          token.userId = userId;
           token.roleId = hardcoded.roleId;
           token.isAdmin = true;
           token.lang = hardcoded.lang;
+          token.mustChangeCode = false;
           return token;
         }
-        // Then check database
-        const dbUser = await getUser(user.id!);
-        const role = dbUser ? await getRole(dbUser.roleId) : null;
-        token.userId = user.id;
-        token.roleId = dbUser?.roleId || 'principal';
-        token.isAdmin = role?.isAdmin || false;
-        token.lang = dbUser?.lang || 'es';
+        // Shouldn't reach here (authorize would've returned null), but be safe
+        token.userId = userId;
+        token.roleId = 'principal';
+        token.isAdmin = false;
+        token.lang = 'es';
+        token.mustChangeCode = false;
       }
       return token;
     },
@@ -145,6 +143,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         (session.user as any).roleId = token.roleId;
         (session.user as any).isAdmin = token.isAdmin;
         (session.user as any).lang = token.lang;
+        (session.user as any).mustChangeCode = token.mustChangeCode === true;
       }
       return session;
     },
@@ -154,7 +153,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   },
   session: {
     strategy: 'jwt',
-    maxAge: 7 * 24 * 60 * 60, // 7 days (was 30 — reduced for financial platform)
+    // Reduced from 7d to 1h so deactivations / role changes take effect within
+    // one refresh window without requiring per-request DB lookups in middleware.
+    // Combined with isActive check in middleware, the effective revocation
+    // window is ~0s for page nav (middleware) and <=1h for API-only sessions.
+    maxAge: 60 * 60, // 1 hour
   },
   secret: process.env.NEXTAUTH_SECRET || (process.env.NODE_ENV === 'development' ? 'neomaaa-dev-secret-local-only' : undefined),
 });
