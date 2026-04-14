@@ -38,6 +38,7 @@ export const SECTIONS: Section[] = [
       { slug: 'productos-mt5', titleEs: 'MT5 y Productos NEOMAAA', titleRu: 'MT5 и продукты NEOMAAA', filePath: 'encyclopedia/productos-mt5.md', pdfSlug: 'encyclopedia-productos-mt5' },
       { slug: 'regulacion-jurisdicciones', titleEs: 'Regulación y Jurisdicciones', titleRu: 'Регулирование и юрисдикции', filePath: 'encyclopedia/regulacion-jurisdicciones.md', pdfSlug: 'encyclopedia-regulacion-jurisdicciones' },
       { slug: 'psicologia-trader', titleEs: 'Psicología del Trader Retail', titleRu: 'Психология розничного трейдера', filePath: 'encyclopedia/psicologia-trader.md', pdfSlug: 'encyclopedia-psicologia-trader' },
+      { slug: 'knowledge-base-api', titleEs: 'Knowledge Base API', titleRu: 'Knowledge Base API', filePath: 'encyclopedia/knowledge-base-api.md', pdfSlug: 'encyclopedia-knowledge-base-api' },
     ],
   },
   {

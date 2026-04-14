@@ -17,6 +17,14 @@ Un ICP (Ideal Customer Profile) operativo no es un ejercicio teorico de libro de
 
 El primero no sirve para nada. El segundo te dice que canal usar, que hora lanzar el anuncio, que metodo de pago priorizar en el funnel, y que persona contratar para soporte.
 
+<div className="neo-stat-grid">
+<div className="neo-stat" data-value="BR" data-label="Brasil (BMP) — prioridad 1"></div>
+<div className="neo-stat" data-value="ES" data-label="España — core sofisticado"></div>
+<div className="neo-stat" data-value="LATAM" data-label="MX/AR/CO/CL/PE"></div>
+<div className="neo-stat" data-value="RU/CIS" data-label="Post-sanciones, USDT"></div>
+<div className="neo-stat" data-value="ASIA" data-label="ID/VN/PH — fase 2"></div>
+</div>
+
 ### Por que NEOMAAA necesita diferentes pitches por mercado
 
 NEOMAAA Markets lanza simultaneamente en LATAM, Espana y (fase 2) Asia, con expansion tactica a CIS. Cada uno de estos mercados tiene:
@@ -621,6 +629,11 @@ Todos los valores son **estimaciones de mercado**, no datos NEOMAAA. Se corrigen
 ---
 
 ## 10. Anti-ICPs — A quienes NO buscamos
+
+<div className="neo-compare">
+<div className="neo-compare-col neo-compare-col--pro"><div className="neo-compare-title">ICP — Cliente ideal</div><ul><li>KYC pasa limpio (SoF claro)</li><li>Deposito recurrente 500-5000 USD</li><li>LTV 6-18 meses</li><li>Trader educado o dispuesto a aprender</li><li>Canal local (PIX, SEPA, USDT)</li></ul></div>
+<div className="neo-compare-col neo-compare-col--con"><div className="neo-compare-title">Anti-ICP — Rechazo activo</div><ul><li>Paises sancionados / FATF high-risk</li><li>Sin fuente de fondos comprobable</li><li>Gambler profile / 5+ brokers quemados</li><li>Historial de chargebacks</li><li>Solo propfirm hunter (no broker)</li></ul></div>
+</div>
 
 > [!WARNING]
 > Tan importante como definir el ICP es definir **quien no**. Un cliente toxico cuesta mas que diez buenos.

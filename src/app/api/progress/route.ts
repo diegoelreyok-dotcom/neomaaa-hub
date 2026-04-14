@@ -1,6 +1,47 @@
 import { NextResponse } from 'next/server';
 import { auth } from '@/lib/auth';
-import { recordAccess, getUserProgress, getAllProgress, markCompleted } from '@/lib/db';
+import { recordAccess, getUserProgress, getAllProgress, markCompleted, getRole } from '@/lib/db';
+import { LEARNING_PATHS, computePathState } from '@/lib/learning-paths';
+import { getRoleBadge, saveRoleBadge } from '@/lib/role-badges';
+
+/**
+ * Check if the user has now completed their full learning path and emit a
+ * role badge if so. Fire-and-forget from the PATCH handler — non-critical.
+ */
+async function maybeIssueRoleBadge(userId: string, userName: string, roleId: string): Promise<void> {
+  try {
+    const path = LEARNING_PATHS[roleId] || LEARNING_PATHS['admin'];
+    if (!path) return;
+    const existing = await getRoleBadge(userId, path.roleId);
+    if (existing) return;
+    const progressEntries = await getUserProgress(userId);
+    const completedSet = new Set<string>(
+      progressEntries
+        .filter((p) => p.completed)
+        .map((p) => p.documentPath.replace(/\.md$/, ''))
+    );
+    const state = computePathState(path, completedSet);
+    if (!state.pathComplete) return;
+
+    const role = await getRole(roleId).catch(() => null);
+    const roleNameEs = role?.name || path.titleEs;
+    const roleNameRu = role?.nameRu || path.titleRu;
+
+    await saveRoleBadge({
+      userId,
+      userName,
+      roleId: path.roleId,
+      pathId: path.roleId,
+      roleNameEs,
+      roleNameRu,
+      titleEs: path.finalBadge.titleEs,
+      titleRu: path.finalBadge.titleRu,
+      issuedAt: new Date().toISOString(),
+    });
+  } catch {
+    // non-critical
+  }
+}
 
 export async function GET(req: Request) {
   const session = await auth();
@@ -91,8 +132,14 @@ export async function PATCH(req: Request) {
       );
     }
 
-    const userId = (session.user as any).userId;
+    const user = session.user as any;
+    const userId: string = user.userId;
+    const userName: string = user.name || userId;
+    const roleId: string = user.roleId || 'admin';
     const result = await markCompleted(userId, documentPath);
+
+    // Fire-and-forget: check if path is now complete and emit badge.
+    void maybeIssueRoleBadge(userId, userName, roleId);
 
     return NextResponse.json({ success: true, progress: result });
   } catch (error) {

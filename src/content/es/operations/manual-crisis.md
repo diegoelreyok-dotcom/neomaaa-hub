@@ -108,6 +108,13 @@ Este log sirve para:
 
 ## 3. Cadena de mando
 
+<div className="neo-pyramid">
+<div className="neo-pyramid-level">SEV1 — Regulatoria / Seguridad / Filtracion (pone al broker en riesgo legal o de licencia)</div>
+<div className="neo-pyramid-level">SEV2 — Financiera / PSP bloqueado / Feed corrupto (afecta fondos y ejecucion)</div>
+<div className="neo-pyramid-level">SEV3 — Tecnica MT5 / Reputacional viral (afecta operacion o imagen publica)</div>
+<div className="neo-pyramid-level">SEV4 — Cliente VIP enojado / incidente aislado (impacto limitado, urgencia alta)</div>
+</div>
+
 Cada tipo de crisis tiene roles definidos. El **Incident Commander (IC)** decide. El **Operational Lead** ejecuta la parte tecnica/operativa. **Communications** maneja el mensaje interno y externo.
 
 | Tipo de crisis | Incident Commander | Operational Lead | Communications |

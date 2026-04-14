@@ -8,6 +8,7 @@ import type {
   AdminRegistration,
 } from './fetcher';
 import { jsonFetcher } from './fetcher';
+import type { AnalyticsResponse } from '@/lib/analytics';
 
 // Long dedupe interval so navigating between admin tabs never refetches.
 // Mutations explicitly call mutate() to update cache.
@@ -53,6 +54,31 @@ export function useAdminProgress() {
   );
   return {
     progress: data ?? [],
+    isLoading,
+    error,
+    mutate,
+  };
+}
+
+export type AnalyticsRange = '7d' | '30d' | '90d';
+
+export function useAdminAnalytics(
+  range: AnalyticsRange = '30d',
+  roleId?: string,
+  sectionId?: string,
+) {
+  const params = new URLSearchParams({ range });
+  if (roleId) params.set('role', roleId);
+  if (sectionId) params.set('section', sectionId);
+  const url = `/api/admin/analytics?${params.toString()}`;
+
+  const { data, error, isLoading, mutate } = useSWR<AnalyticsResponse>(
+    url,
+    jsonFetcher,
+    OPTS,
+  );
+  return {
+    analytics: data,
     isLoading,
     error,
     mutate,

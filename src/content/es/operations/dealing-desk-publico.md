@@ -347,6 +347,9 @@ Esa respuesta es **verdadera, técnica y honesta**. El cliente sofisticado la ac
 
 ## 6. Frases aprobadas
 
+> [!SUCCESS]
+> Estas 15 frases estan revisadas por Compliance y Dealing. Son de uso libre en soporte, ventas, webinars y material de marketing. Preferirlas a cualquier improvisacion.
+
 Lista de frases revisadas por Compliance y Dealing. Se pueden usar en soporte, ventas, webinars, material de marketing y respuestas escritas.
 
 1. *"NEOMAAA Markets opera con modelo híbrido ECN/STP usando múltiples liquidity providers para asegurar best execution."*

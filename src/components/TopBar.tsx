@@ -2,17 +2,19 @@
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import SearchBar from './SearchBar';
 import type { Lang } from '@/lib/types';
 
 interface TopBarProps {
   userName: string;
   isAdmin: boolean;
   lang: Lang;
+  allowedSections: string[];
   onToggleSidebar: () => void;
   onSwitchLang: (lang: Lang) => void;
 }
 
-export default function TopBar({ userName, isAdmin, lang, onToggleSidebar, onSwitchLang }: TopBarProps) {
+export default function TopBar({ userName, isAdmin, lang, allowedSections, onToggleSidebar, onSwitchLang }: TopBarProps) {
   const router = useRouter();
 
   async function handleLogout() {
@@ -40,6 +42,9 @@ export default function TopBar({ userName, isAdmin, lang, onToggleSidebar, onSwi
 
       {/* Right side controls */}
       <div className="flex items-center gap-2 sm:gap-3">
+        {/* Global search (Cmd+K) */}
+        <SearchBar lang={lang} allowedSections={allowedSections} />
+
         {/* Language switcher */}
         <div className="flex items-center bg-neo-dark-3/60 rounded-lg p-0.5 border border-neo-dark-3/40">
           <button

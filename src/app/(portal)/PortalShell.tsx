@@ -78,6 +78,7 @@ export default function PortalShell({
           userName={userName}
           isAdmin={isAdmin}
           lang={lang}
+          allowedSections={sections.map((s) => s.id)}
           onToggleSidebar={() => setSidebarOpen((prev) => !prev)}
           onSwitchLang={handleSwitchLang}
         />

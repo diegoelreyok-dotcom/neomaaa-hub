@@ -50,6 +50,13 @@ El revenue share se calcula sobre el **neto broker** generado por tus clientes �
 
 ### Tiers por volumen mensual
 
+<div className="neo-pyramid">
+<div className="neo-pyramid-level">Diamond (60%+) — Volumen &gt; $1M/mes + bonos + revshare sub-IBs ampliado</div>
+<div className="neo-pyramid-level">Gold (50%) — Volumen $250k–$1M/mes + co-branding</div>
+<div className="neo-pyramid-level">Silver (40%) — Volumen $50k–$250k/mes + Partner Manager</div>
+<div className="neo-pyramid-level">Bronze (30%) — Volumen 0–$50k/mes (entrada)</div>
+</div>
+
 <div className="neo-stat-grid">
   <div className="neo-stat">
     <div className="neo-stat-label">Bronze</div>

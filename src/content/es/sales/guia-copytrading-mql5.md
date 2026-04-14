@@ -421,6 +421,13 @@ Esta sección es específica para el equipo de ventas NEOMAAA. La usás cuando t
 >
 > El combo te da ingresos por ambos lados: suscripción MQL5 + comisiones IB. Con 50 followers a $100/mes de suscripción son $5,000/mes pasivos. Sumale las comisiones IB y podés hacer $8,000-12,000/mes recurrentes."
 
+<div className="neo-stat-grid">
+<div className="neo-stat" data-value="$50-500" data-label="Suscripción MQL5/mes"></div>
+<div className="neo-stat" data-value="30-60%" data-label="Revenue share IB"></div>
+<div className="neo-stat" data-value="$5K/mes" data-label="50 followers a $100"></div>
+<div className="neo-stat" data-value="$8-12K" data-label="Combo MQL5 + IB"></div>
+</div>
+
 ### Qué SÍ puede prometer el influencer
 
 - "Podés suscribirte a mi estrategia en MQL5."
@@ -430,6 +437,9 @@ Esta sección es específica para el equipo de ventas NEOMAAA. La usás cuando t
 - "Si yo gano, vos ganás. Si yo pierdo, vos perdés. Estoy en la misma que vos."
 
 ### Qué NO puede prometer (prohibido por compliance)
+
+> [!DANGER]
+> Las siguientes frases estan prohibidas. Si el influencer las usa publicamente, pierde su señal MQL5 Y su cuenta NEOMAAA, y expone al broker a denuncias regulatorias.
 
 - **"Vas a ganar $X al mes seguro"**
 - **"Nunca pierdo"**

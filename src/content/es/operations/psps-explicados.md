@@ -96,6 +96,16 @@ No todos los depositos tardan lo mismo, y no todos se settlean igual. Distinguir
 
 ## 3. Tipos de PSPs
 
+<div className="neo-compare">
+<div className="neo-compare-col neo-compare-col--pro"><div className="neo-compare-title">Tarjeta + e-Wallet</div><ul><li>Alta conversion (70-80%)</li><li>Friccion cero, familiar</li><li>Fees altos (2.5%-4.5%)</li><li>Chargeback risk alto</li></ul></div>
+<div className="neo-compare-col neo-compare-col--con"><div className="neo-compare-title">Cripto (USDT)</div><ul><li>Fees bajos (0.5%-1%)</li><li>Zero chargeback</li><li>Settlement T+0</li><li>Conversion baja (~35%)</li></ul></div>
+</div>
+
+<div className="neo-compare">
+<div className="neo-compare-col neo-compare-col--pro"><div className="neo-compare-title">Bank wire (SEPA/SWIFT)</div><ul><li>Fees bajos (0.5%-1.5%)</li><li>Zero chargeback</li><li>Settlement 1-5 dias</li><li>Conversion media (~40%)</li></ul></div>
+<div className="neo-compare-col neo-compare-col--con"><div className="neo-compare-title">PSPs LATAM (PIX/SPEI)</div><ul><li>Conversion local 70%+</li><li>Fees medios (2%-5%)</li><li>Settlement T+0 a T+1</li><li>Critico para BMP Brasil</li></ul></div>
+</div>
+
 ### 3.1 Tarjetas (Visa, Mastercard, Amex)
 
 El metodo mas usado globalmente. Tambien el mas caro para el broker y el mas riesgoso.

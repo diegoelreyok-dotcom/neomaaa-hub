@@ -7,8 +7,12 @@ const PUBLIC_ROUTES = ['/login', '/register', '/api/auth'];
 // Routes that require only POST (registration is public for submission only)
 const PUBLIC_POST_ROUTES = ['/api/register'];
 
+// KB API routes: auth is handled by X-API-Key in the route handler itself,
+// not by session. Middleware must NOT force session auth here.
+const API_KEY_ROUTES = ['/api/kb'];
+
 // Admin-only routes (both pages and API endpoints)
-const ADMIN_ROUTES = ['/admin', '/api/users', '/api/roles', '/api/seed'];
+const ADMIN_ROUTES = ['/admin', '/api/users', '/api/roles', '/api/seed', '/api/admin'];
 
 export default auth((req) => {
   const { pathname } = req.nextUrl;
@@ -29,6 +33,12 @@ export default auth((req) => {
   // Registration POST is public, but GET/PATCH/DELETE require admin
   const isPublicPostRoute = PUBLIC_POST_ROUTES.some((route) => pathname.startsWith(route));
   if (isPublicPostRoute && method === 'POST') {
+    return NextResponse.next();
+  }
+
+  // KB API: bypass session check; route handlers enforce X-API-Key
+  const isApiKeyRoute = API_KEY_ROUTES.some((route) => pathname.startsWith(route));
+  if (isApiKeyRoute) {
     return NextResponse.next();
   }
 

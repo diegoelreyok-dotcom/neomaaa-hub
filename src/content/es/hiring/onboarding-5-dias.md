@@ -502,6 +502,14 @@ Stack base: Next.js 14, Docsify (algunos portales legacy), Vercel auto-deploy de
 
 ### Última cosa
 
+<div className="neo-stat-grid">
+<div className="neo-stat" data-value="5" data-label="Días de onboarding"></div>
+<div className="neo-stat" data-value="22h" data-label="Lectura + práctica"></div>
+<div className="neo-stat" data-value="10" data-label="Preguntas self-check"></div>
+<div className="neo-stat" data-value="4" data-label="Semanas post-onboarding"></div>
+</div>
+
 NEOMAAA se mueve rápido. Esperamos que vos también. Si en cualquier momento de la semana algo no cierra, no tiene sentido, o creés que está mal, **decilo**. Acá no premiamos al que ejecuta callado errores; premiamos al que detecta y plantea.
 
-Bienvenido al equipo.
+> [!SUCCESS]
+> Si completaste los 5 días, pasaste los check diarios y tenés claridad de rol + herramientas: estás listo. Bienvenido al equipo.

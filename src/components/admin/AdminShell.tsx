@@ -18,6 +18,8 @@ interface NavLabels {
   registrations: string;
   progress: string;
   certificates: string;
+  analytics: string;
+  apiKeys: string;
   settings: string;
   backToPortal: string;
   signedAs: string;
@@ -32,6 +34,8 @@ const L: Record<Lang, NavLabels> = {
     registrations: 'Solicitudes',
     progress: 'Progreso',
     certificates: 'Certificados',
+    analytics: 'Analytics',
+    apiKeys: 'API Keys',
     settings: 'Settings',
     backToPortal: 'Volver al Portal',
     signedAs: 'Conectado',
@@ -44,6 +48,8 @@ const L: Record<Lang, NavLabels> = {
     registrations: 'Заявки',
     progress: 'Прогресс',
     certificates: 'Сертификаты',
+    analytics: 'Аналитика',
+    apiKeys: 'API-ключи',
     settings: 'Настройки',
     backToPortal: 'Вернуться в портал',
     signedAs: 'Вошли как',
@@ -79,6 +85,16 @@ const icons = {
   certificates: (
     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-6.75c-.621 0-1.125.504-1.125 1.125v3.375m8.25 0V10.5c0-.621-.504-1.125-1.125-1.125H6.75a1.125 1.125 0 00-1.125 1.125v8.25m12.75 0V6a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6v12.75" />
+    </svg>
+  ),
+  analytics: (
+    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 3v18h18M7 15l4-4 4 4 5-6" />
+    </svg>
+  ),
+  apiKeys: (
+    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
     </svg>
   ),
   settings: (
@@ -131,6 +147,8 @@ export function AdminShell({
     { href: '/admin/registrations', label: t.registrations, icon: icons.registrations, count: pendingCount, badgeVariant: 'amber' as const },
     { href: '/admin/progress', label: t.progress, icon: icons.progress, count: 0, badgeVariant: 'neutral' as const },
     { href: '/admin/certificates', label: t.certificates, icon: icons.certificates, count: 0, badgeVariant: 'neutral' as const },
+    { href: '/admin/analytics', label: t.analytics, icon: icons.analytics, count: 0, badgeVariant: 'neutral' as const },
+    { href: '/admin/api-keys', label: t.apiKeys, icon: icons.apiKeys, count: 0, badgeVariant: 'neutral' as const },
     { href: '/admin/settings', label: t.settings, icon: icons.settings, count: 0, badgeVariant: 'neutral' as const },
   ];
 

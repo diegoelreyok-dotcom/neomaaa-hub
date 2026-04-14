@@ -112,6 +112,20 @@ Honestidad brutal interna:
 
 ## Battle cards
 
+<div className="neo-pyramid">
+<div className="neo-pyramid-level">Tier 1 regulatorio — FCA (UK), ASIC (AU), MAS (SG): Pepperstone, IC Markets, FXCM</div>
+<div className="neo-pyramid-level">Tier 2 — CySEC (EU), FSCA (ZA): XM, Exness EU, HFM, Axi</div>
+<div className="neo-pyramid-level">Tier 3 offshore serio — FSA Seychelles, SCB, VFSC: Exness global, Octa, Roboforex</div>
+<div className="neo-pyramid-level">Tier 4 offshore flexible — AOFA Anjouan, Comoras, Mwali: NEOMAAA Markets, varios</div>
+</div>
+
+<div className="neo-stat-grid">
+<div className="neo-stat" data-value="5" data-label="Competidores battle card"></div>
+<div className="neo-stat" data-value="700K+" data-label="Cuentas activas Exness"></div>
+<div className="neo-stat" data-value="1:1000" data-label="Max leverage NEOMAAA"></div>
+<div className="neo-stat" data-value="120+" data-label="Metodos pago NEOMAAA"></div>
+</div>
+
 ### 1. Exness
 
 **Ficha rapida**

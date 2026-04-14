@@ -27,6 +27,13 @@ Este documento resuelve cuatro problemas concretos:
 
 Un broker forex/CFD regulado se estructura en tres capas verticales mas una cuarta horizontal de servicios externos:
 
+<div className="neo-pyramid">
+<div className="neo-pyramid-level">Capa 1 — Governance / C-Level (4-6 personas)</div>
+<div className="neo-pyramid-level">Capa 2 — Heads departamentales (5-8 personas)</div>
+<div className="neo-pyramid-level">Capa 3 — Roles operativos (60-75% del headcount)</div>
+<div className="neo-pyramid-level">Capa 4 — Roles externos / outsourceables (retainer o proyecto)</div>
+</div>
+
 <div className="neo-step-list">
 
 **Capa 1 — Governance / C-Level.** Deciden la estrategia, asignan capital, responden al regulador y al board. 4-6 personas en un broker maduro. Son los unicos roles que no se pueden tercerizar.
@@ -40,6 +47,13 @@ Un broker forex/CFD regulado se estructura en tres capas verticales mas una cuar
 </div>
 
 ### Must-have vs nice-to-have por etapa
+
+<div className="neo-stat-grid">
+<div className="neo-stat" data-value="10-15" data-label="Headcount pre-launch + 6m"></div>
+<div className="neo-stat" data-value="20-35" data-label="Headcount 6-18 meses"></div>
+<div className="neo-stat" data-value="40-80" data-label="Headcount 18+ meses"></div>
+<div className="neo-stat" data-value="60-75%" data-label="Capa operativa del total"></div>
+</div>
 
 La diferencia entre un broker bien estructurado y uno que se rompe no es cuanta gente tiene — es si tiene la gente correcta en el momento correcto.
 

@@ -6,6 +6,7 @@ import type { Lang, Role } from '@/lib/types';
 import { SECTIONS } from '@/lib/sections';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import DashboardProgress from './DashboardProgress';
+import LearningPathCard from './LearningPathCard';
 
 // Fallback roles (same as layout)
 const FALLBACK_ROLES: Record<string, Role> = {
@@ -24,6 +25,7 @@ export default async function DashboardPage() {
   const user = session?.user as any;
   const lang: Lang = user?.lang || 'es';
   const userName: string = user?.name || user?.userId || '';
+  const userId: string = user?.userId || '';
   const roleId: string = user?.roleId || 'admin';
   const isAdmin: boolean = user?.isAdmin || false;
 
@@ -96,6 +98,13 @@ export default async function DashboardPage() {
           </div>
         </div>
       </div>
+
+      {/* Learning path card (server-rendered so SSR has the right state) */}
+      {userId && (
+        <div className="mb-4">
+          <LearningPathCard userId={userId} roleId={roleId} lang={lang} />
+        </div>
+      )}
 
       {/* Progress card — full width, client component */}
       <div className="mb-8">

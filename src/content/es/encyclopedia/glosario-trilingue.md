@@ -15,6 +15,13 @@ Glosario de referencia del broker NEOMAAA Markets en tres idiomas: español (Esp
 > [!TIP]
 > Cuando dudes entre usar el término en inglés o traducirlo, aplica esta regla: si el cliente lo vería escrito en MT5, en un contrato del broker o en una tabla de spreads, **mantén el inglés**. Si es explicación educativa, **traduce**.
 
+<div className="neo-stat-grid">
+<div className="neo-stat" data-value="189" data-label="Términos totales"></div>
+<div className="neo-stat" data-value="3" data-label="Idiomas (ES/EN/RU)"></div>
+<div className="neo-stat" data-value="10" data-label="Secciones temáticas"></div>
+<div className="neo-stat" data-value="15" data-label="Frases soporte multilingüe"></div>
+</div>
+
 ---
 
 ## Convenciones
@@ -337,6 +344,17 @@ Decisiones editoriales vigentes. Cuando el equipo escriba material nuevo, seguir
 ---
 
 ## 10. Glosario maestro — resumen de secciones
+
+<div className="neo-stat-grid">
+<div className="neo-stat" data-value="55" data-label="Trading y mercado"></div>
+<div className="neo-stat" data-value="25" data-label="Cuentas y producto"></div>
+<div className="neo-stat" data-value="20" data-label="KYC/AML/Compliance"></div>
+<div className="neo-stat" data-value="20" data-label="Pagos y PSPs"></div>
+<div className="neo-stat" data-value="27" data-label="CRM/marketing/partners"></div>
+<div className="neo-stat" data-value="15" data-label="Tecnología"></div>
+<div className="neo-stat" data-value="15" data-label="Frases comunes"></div>
+<div className="neo-stat" data-value="12" data-label="Glosario NEOMAAA"></div>
+</div>
 
 | Sección | Términos incluidos | Uso principal |
 |---|---|---|

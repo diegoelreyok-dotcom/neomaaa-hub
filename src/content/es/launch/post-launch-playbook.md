@@ -131,6 +131,13 @@ Durante el mes 1, ademas de la retro de los viernes, hay un stand-up corto los l
 
 ## Semana por semana
 
+<div className="neo-timeline">
+<div className="neo-timeline-step"><span className="neo-timeline-step-title">Semana 1 — Supervivencia</span><span className="neo-timeline-step-desc">Que todo funcione. No escalar nada.</span></div>
+<div className="neo-timeline-step"><span className="neo-timeline-step-title">Semana 2 — Estabilizacion</span><span className="neo-timeline-step-desc">Arreglar fuegos criticos, empezar a escalar lo que funciono.</span></div>
+<div className="neo-timeline-step"><span className="neo-timeline-step-title">Semana 3 — Optimizacion</span><span className="neo-timeline-step-desc">Mover la aguja en KPIs. Optimizar en serio.</span></div>
+<div className="neo-timeline-step"><span className="neo-timeline-step-title">Semana 4 — Reset</span><span className="neo-timeline-step-desc">Month-in-review y plan del mes 2.</span></div>
+</div>
+
 ### Semana 1 — Supervivencia
 
 **Objetivo:** que todo funcione. NO escalar nada.
