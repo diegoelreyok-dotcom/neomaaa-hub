@@ -374,22 +374,26 @@ Antes de que el cliente inicie la verificacion, ventas debe explicar:
 
 | Condicion | Procesamiento |
 |---|---|
-| Deposito Tier 1 (hasta $1,000 acumulado) | Automatico |
-| Metodo de pago verificado (nombre coincide) | Automatico |
+| Cliente LOW RISK con historial limpio | Automatico |
+| Metodo de pago verificado (nombre coincide con titular) | Automatico |
 | No hay red flags activas en la cuenta | Automatico |
-| Cliente con historial limpio de depositos anteriores | Automatico |
+| Deposito coherente con perfil declarado | Automatico |
 
 ### 5.2 Depositos Que SI Requieren Aprobacion de Compliance
+
+> [!INFO]
+> La categoria de riesgo del cliente la define Compliance segun la [Matriz de Riesgo](/content/compliance/risk-matrix). Los criterios son cualitativos, no umbrales monetarios fijos.
 
 | Condicion | Proceso | SLA |
 |---|---|---|
 | Primer deposito de cualquier cliente nuevo | Susana verifica que KYC esta completo y aprobado | 2 horas |
-| Deposito que supera umbral de Tier 1 ($1,000) | Susana solicita declaracion de origen de fondos | 24 horas (post-recepcion de documentos) |
-| Deposito que supera umbral de Tier 2 ($10,000) | Susana solicita documentacion de respaldo | 24 horas (post-recepcion de documentos) |
-| Deposito Tier 4 ($50,000+) | Susana + Principals revisan | 48 horas |
+| Cliente categorizado MEDIUM RISK | Susana solicita Source of Funds documentado | 24 horas (post-recepcion de documentos) |
+| Cliente categorizado HIGH RISK | EDD completo (ver [EDD Triggers](/content/compliance/edd-triggers)) | 5-10 dias habiles |
+| Deposito significativo inconsistente con perfil | Susana solicita documentacion adicional | 24-48 horas |
+| Deposito que dispara HIGH RISK | Susana + Director revisan (aprobacion dual) | 48 horas |
 | Deposito desde metodo de pago nuevo (no usado antes) | Susana verifica que el nombre coincide con el titular | 4 horas |
 | Deposito desde pais diferente a residencia del cliente | Susana investiga | 24 horas |
-| Deposito crypto de monto alto (> $5,000) | Susana verifica fuente del wallet (si posible) | 24 horas |
+| Deposito crypto significativo | Susana verifica fuente del wallet (si posible) | 24 horas |
 | Cualquier red flag activa en la cuenta | Susana investiga antes de acreditar | Variable |
 
 ### 5.3 Comunicacion de Ventas Sobre Depositos
@@ -633,8 +637,8 @@ Susana realiza una auditoria mensual del CRM:
 | KYC REJECTED por fraude | Si | No (Susana decide si escalar) | Susana maneja y decide SAR |
 | Cliente de pais restringido intenta registrarse | Si | No | Susana confirma rechazo |
 | Red flag durante conversacion de ventas | Si | No (salvo amenazas) | Susana investiga |
-| Deposito Tier 2/3 requiere aprobacion | Si | No | Susana aprueba |
-| Deposito Tier 4 ($50,000+) | Si | Si | Ambos deben aprobar |
+| Cliente MEDIUM RISK (deposito/SoF) | Si | No | Susana aprueba |
+| Cliente HIGH RISK o EDD disparado | Si | Si | Ambos deben aprobar (ver [EDD Triggers](/content/compliance/edd-triggers)) |
 | Sospecha de lavado de dinero | Si | Si (inmediato) | SAR posible |
 | PEP detectado | Si | Si | EDD + aprobacion conjunta |
 | Cliente amenaza con denuncia legal | Si | Si | Respuesta coordinada |

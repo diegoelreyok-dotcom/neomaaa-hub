@@ -214,12 +214,13 @@ Las razones comunes de rechazo son: foto borrosa o cortada, documento vencido, i
 
 ### 5.5 Puedo operar sin completar KYC?
 
-**No.** Segun politica oficial AML/KYC, ningun cliente puede depositar, operar ni retirar sin KYC Tier 1 aprobado (ID + PoA + liveness). Los limites operativos se escalan por tier segun `compliance/proceso-kyc-sumsub.md` seccion 3:
+**No.** Segun politica oficial AML/KYC, ningun cliente puede depositar, operar ni retirar sin KYC base aprobado (ID + PoA + liveness). La documentacion adicional escala segun la categoria de riesgo del cliente definida por Compliance (ver [Matriz de Riesgo](/content/compliance/risk-matrix)):
 
-- Tier 1 (hasta $1,000): ID + PoA + selfie
-- Tier 2 ($1,001 - $10,000): + declaracion SoF
-- Tier 3 ($10,001 - $50,000): + documentacion SoF
-- Tier 4 ($50,001+): + SoW + aprobacion Principals
+- **LOW RISK**: ID + PoA + liveness (KYC estandar)
+- **MEDIUM RISK**: + Source of Funds (SoF) documentado
+- **HIGH RISK**: + Source of Wealth (SoW) + EDD completo + aprobacion dual (Compliance Officer + Director)
+
+Los triggers que disparan cada categoria estan en [EDD Triggers](/content/compliance/edd-triggers). No hay umbrales monetarios fijos — la categorizacion se basa en perfil del cliente, jurisdiccion, patron de comportamiento y criterios cualitativos definidos por Compliance Office.
 
 ### 5.6 Que pasa si soy menor de edad?
 

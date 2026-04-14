@@ -111,14 +111,17 @@
 
 > Fuente: `compliance/manual-susana.md` seccion 4. Replicado aqui para facilidad operativa. Si hay discrepancia, prevalece manual-susana.
 
-EDD es obligatorio cuando:
+EDD es obligatorio cuando (ver lista completa en [EDD Triggers](/content/compliance/edd-triggers)):
 
 1. El cliente es PEP (Persona Politicamente Expuesta) o familiar/asociado de PEP
-2. Deposito acumulado supera **$10,000 USD** (entra en Tier 3, requiere documentacion de respaldo de origen de fondos). Para Tier 4 ($50,000+) aplica EDD reforzado con aprobacion de Principals
-3. Cliente de pais de alto riesgo (no restringido, pero alto riesgo: Venezuela, Nigeria, Pakistan, Afganistan, Yemen, Libia, Somalia, RD Congo, lista gris GAFI)
-4. Actividad sospechosa detectada en monitoreo
+2. Deposito o patron inconsistente con perfil declarado (criterio cualitativo definido por Compliance segun Matriz de Riesgo)
+3. Cliente de pais de alto riesgo FATF grey list (ver [Risk Matrix](/content/compliance/risk-matrix) seccion 5)
+4. Actividad sospechosa detectada en monitoreo continuo
 5. Source of funds no es claro o inconsistente
-6. Inconsistencias en documentacion, multiples cuentas detectadas, o fondos desde jurisdiccion diferente a residencia
+6. Match en sanctions screening (incluso false positive requiere revision)
+7. Inconsistencias en documentacion, multiples cuentas detectadas, o fondos desde jurisdiccion diferente a residencia
+8. Estructuras corporativas opacas (BVI shell, trust sin beneficial owner claro)
+9. Industria de alto riesgo AML (casino, arms, crypto OTC, precious metals dealer)
 
 **Documentos adicionales para EDD:**
 

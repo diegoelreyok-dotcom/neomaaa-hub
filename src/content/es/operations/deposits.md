@@ -404,18 +404,22 @@ Firma: _________________________________
 
 ## 5. Protocolo de Transacciones Grandes
 
-### 5.1 Umbrales de Enhanced Due Diligence (EDD)
+### 5.1 Triggers de Enhanced Due Diligence (EDD)
 
-> Estos umbrales complementan los Tiers de KYC definidos en `compliance/proceso-kyc-sumsub.md` seccion 3. Tier 3 (>$10K) dispara EDD automaticamente; Tier 4 (>$50K) agrega aprobacion de Principals.
+> [!INFO]
+> El framework EDD sigue la [Matriz de Riesgo](/content/compliance/risk-matrix) y los [EDD Triggers](/content/compliance/edd-triggers). La clasificacion se basa en categorias de riesgo (LOW/MEDIUM/HIGH), no en umbrales monetarios fijos. Los criterios cualitativos los define Compliance Officer segun perfil del cliente, jurisdiccion y patrones de comportamiento.
 
-| Trigger | Umbral | Accion |
-|---------|--------|--------|
-| Deposito individual grande | > $10,000 | EDD requerido antes de acreditar (Tier 3) |
-| Deposito acumulado | > $10,000 acumulado historico | Upgrade a Tier 3 + EDD |
-| Deposito acumulado institucional | > $50,000 | Upgrade a Tier 4 + aprobacion Principals |
-| Retiro grande | > $10,000 | EDD + aprobacion de Compliance |
-| Cliente nuevo con deposito grande | > $5,000 en primera semana | EDD requerido |
-| Cambio repentino de patron | Deposito 3x mayor que su promedio | EDD requerido |
+**Triggers tipicos que disparan EDD** (criterios cualitativos, escalados a Compliance para decision final):
+
+| Trigger | Criterio | Accion |
+|---------|---------|--------|
+| Deposito inconsistente con perfil declarado | Monto no coherente con ocupacion/ingresos del cliente | Escalar a Compliance, solicitar SoF |
+| Deposito acumulado inusual | Patron acumulado que excede significativamente lo esperado para el perfil | Upgrade categoria riesgo + EDD |
+| Cliente institucional o alto patrimonio | Cuenta Institutional o perfil HNW | HIGH RISK default + EDD completo |
+| Retiro rapido post-deposito sin trading | Red flag layering potencial | Hold + EDD + posible SAR |
+| Cliente nuevo con deposito significativo primera semana | Ritmo acelerado requiere validacion | EDD previo a siguiente deposito |
+| Cambio abrupto de patron | Deposito/trading 3x mayor al promedio historico | Investigacion + posible re-categorizacion |
+| PEP, sanctions match, jurisdiccion FATF high risk | Ver [PEP+Sanctions SOP](/content/compliance/pep-sanctions-sop) | HIGH RISK + aprobacion dual |
 
 ### 5.2 Documentacion Requerida (Source of Funds)
 
