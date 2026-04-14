@@ -102,17 +102,17 @@
     },
     {
       "id": "q15",
-      "question": "¿Cuál es el margen NEOMAAA en IB Platinum (35% + 15% swap + bonos)?",
-      "options": ["10%", "37%", "66%", "90%"],
+      "question": "¿Cuál es el margen NEOMAAA en IB Elite (50% base + bono fijo $2K/mes) con boost Brasil aplicado?",
+      "options": ["10%", "32%", "66%", "90%"],
       "correctIndex": 1,
-      "explanation": "IB Platinum (35% + 15% swap + bonos): margen NEOMAAA 37%. Baja significativamente en tiers altos."
+      "explanation": "IB Elite (50% base + bono fijo cappeado $2K/mes + boost Brasil cap 55%): margen NEOMAAA ~32%. Ajuste abril 2026 desde <20% (60% + bonos sin cap) → sostenible."
     },
     {
       "id": "q16",
-      "question": "¿Cuál es el rebate/lote en IB Platinum (Forex)?",
+      "question": "¿Cuál es el rebate/lote en IB Elite (Forex)?",
       "options": ["$2.50", "$3.00", "$3.50", "$4.50"],
       "correctIndex": 3,
-      "explanation": "IB Platinum rebate Forex: $4.50/lote. Margen NEOMAAA 55%."
+      "explanation": "IB Elite rebate Forex: $4.50/lote. Margen NEOMAAA 55%."
     },
     {
       "id": "q17",
@@ -233,10 +233,10 @@
     },
     {
       "id": "q28",
-      "question": "¿Cuál es el Monthly Milestone Platinum IB?",
-      "options": ["$500", "$5,000", "$15,000", "$50,000"],
+      "question": "¿Cuál es el Monthly Milestone Elite IB (target histórico, hoy cappeado)?",
+      "options": ["$500", "$5,000", "$15,000 (target) / $2,000 (cap efectivo abril 2026)", "$50,000"],
       "correctIndex": 2,
-      "explanation": "Monthly Milestone Platinum IB: $15,000. Requiere ~190 clientes activos generando $22,000 ingreso/mes."
+      "explanation": "Monthly Milestone Elite IB target histórico: $15,000 (requería ~190 clientes activos). Desde abril 2026 los bonos variables están cappeados en $2K/mes para sostenibilidad. Excedentes redirigidos a evento anual + equity."
     },
     {
       "id": "q29",

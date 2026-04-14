@@ -1177,7 +1177,7 @@ Basado en las politicas generales del broker:
 
 **Proteccion de saldo negativo:** Todos los tipos de cuenta incluyen proteccion. Si condiciones de mercado extremas causan que la cuenta caiga por debajo de cero, el saldo se restablece a cero automaticamente. El cliente nunca debe mas de lo que deposito.
 
-**Modelo de ejecucion ECN/STP hibrido:** Las ordenes se dirigen directamente a proveedores de liquidez. Los algoritmos de enrutamiento inteligente seleccionan la ruta optima para cada orden basandose en precios, velocidad y eficiencia de costos. Esto asegura precios transparentes y ejecucion justa.
+**Modelo de ejecucion hibrido (ECN/STP priorizado):** Neomaaa Ltd opera bajo modelo hibrido de ejecucion (STP/ECN o principal/counterparty segun condiciones de mercado), tal como se establece en la Politica de Ejecucion de Ordenes publicada (neomaaa.com/about/legal-documentation). La ruta ECN/STP es la priorizada: los algoritmos de enrutamiento seleccionan la ruta optima para cada orden basandose en precios, velocidad y eficiencia de costos. En determinadas circunstancias, la Empresa puede actuar como principal o contraparte. Toda la ejecucion (timestamps, spread, slippage) es auditable en MetaTrader 5.
 
 **Procesamiento seguro de pagos:** Todas las transacciones financieras se procesan a traves de canales cifrados. Los metodos de deposito y retiro se verifican contra la identidad de la cuenta para prevenir transacciones no autorizadas.
 

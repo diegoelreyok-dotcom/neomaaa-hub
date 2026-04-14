@@ -2,7 +2,12 @@
 
 ## Documento Operativo para el Equipo de Support
 
-**Version:** 1.0
+> [!DANGER]
+> **Mercados NO operativos (RESTRINGIDOS):** USA, Canada, EEA (30 países incluida **España**), UK, Australia, Cuba, Iraq, Myanmar, North Korea, Sudan + jurisdicciones sancionadas.
+>
+> Cualquier cliente de esas jurisdicciones debe ser rechazado con template CR-26 (ver sección de templates). **NO inventar soluciones** tipo "usá dirección de tu primo en México" — eso es fraude regulatorio y compromete la licencia Anjouan L15968/N. Escalar a Compliance si hay duda.
+
+**Version:** 1.1
 **Ultima actualizacion:** Abril 2026
 **Herramienta de soporte:** Intercom
 **CRM:** Skale
@@ -38,12 +43,12 @@
 
 ### Distribucion de Turnos
 
-Con 2 agentes, el objetivo es cubrir la mayor ventana posible entre LATAM y Europa/Middle East.
+Con 2 agentes, el objetivo es cubrir la mayor ventana posible entre LATAM y Middle East / Africa / Asia. **Europa/UK NO es mercado operativo** pero CET sigue siendo referencia horaria conveniente por ubicación de Angel (agente backoffice en España) y clientes MENA que operan en horario europeo.
 
 | Agente | Zona | Idioma | Horario (UTC) | Horario Local | Dias |
 |--------|------|--------|---------------|---------------|------|
 | Agente 1 | LATAM | Espanol | 13:00 - 21:00 UTC | 8:00 AM - 4:00 PM (Colombia/Mexico) | Lunes a Viernes |
-| Agente 2 | Europa / Middle East | Ingles | 06:00 - 14:00 UTC | 8:00 AM - 4:00 PM (Dubai) / 9:00 AM - 5:00 PM (Madrid) | Lunes a Viernes |
+| Agente 2 | MENA / Africa / Asia | Ingles | 06:00 - 14:00 UTC | 8:00 AM - 4:00 PM (Dubai) / referencia CET Madrid (NO clientes EEA) | Lunes a Viernes |
 
 ### Cobertura Resultante
 
@@ -299,7 +304,7 @@ Configurar estos campos para cada contacto:
 
 - Dar consejos de trading o recomendar operaciones
 - Prometer tiempos exactos de procesamiento de retiros
-- Discutir la politica A-Book/B-Book de la empresa
+- Revelar criterios internos de enrutamiento A-Book/B-Book, umbrales, ratios o la clasificacion individual de un cliente (esa info es confidencial del Dealing Desk). SI se puede explicar al cliente que Neomaaa opera modelo hibrido de ejecucion con ECN/STP priorizado, segun lo admitido en T&C, y referirlo a la Politica de Ejecucion publicada.
 - Dar informacion sobre la estructura interna de la empresa
 - Responder a quejas regulatorias con argumentos (solo documentar y escalar)
 - Garantizar que un deposito se va a acreditar

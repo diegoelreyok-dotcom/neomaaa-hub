@@ -52,7 +52,7 @@
     },
     {
       "id": "q5",
-      "question": "¿Quién aprueba un IB Gold o Platinum?",
+      "question": "¿Quién aprueba un IB Senior o Elite?",
       "options": [
         "Edward solo",
         "Equipo de operaciones",
@@ -60,11 +60,11 @@
         "Susana"
       ],
       "correctIndex": 2,
-      "explanation": "IB Gold y Platinum requieren aprobación de Principals. SLA: 72 horas."
+      "explanation": "IB Senior y Elite requieren aprobación de Principals. SLA: 72 horas."
     },
     {
       "id": "q6",
-      "question": "¿Qué se requiere antes de aprobar un IB Gold+?",
+      "question": "¿Qué se requiere antes de aprobar un IB Senior+?",
       "options": [
         "Nada",
         "Videollamada previa con al menos un Principal",
@@ -72,7 +72,7 @@
         "Pago inicial"
       ],
       "correctIndex": 1,
-      "explanation": "Regla: Toda aprobación IB Gold+ requiere videollamada previa con al menos un Principal."
+      "explanation": "Regla: Toda aprobación IB Senior+ requiere videollamada previa con al menos un Principal."
     },
     {
       "id": "q7",

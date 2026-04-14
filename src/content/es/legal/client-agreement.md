@@ -79,7 +79,7 @@ Al aceptar este Acuerdo, el Cliente declara y garantiza que:
 
 ## 6. EJECUCION DE ORDENES
 
-6.1 Las ordenes se ejecutan a traves de la plataforma MetaTrader 5 bajo el modelo de ejecucion ECN/STP.
+6.1 Las ordenes se ejecutan a traves de la plataforma MetaTrader 5 bajo un modelo de ejecucion ECN/STP hibrido. Neomaaa Ltd puede actuar como principal o counterparty de las operaciones del Cliente, segun lo establecido en los Terminos y Condiciones y en la Politica de Ejecucion de Ordenes publicada.
 
 6.2 Las ordenes se ejecutan al mejor precio disponible en el momento de la ejecucion (Market Execution). La Empresa no garantiza la ejecucion al precio exacto solicitado.
 

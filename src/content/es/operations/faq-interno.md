@@ -53,15 +53,28 @@ Neomaaa Ltd esta registrada como International Business Company con numero IBC 1
 
 ### 1.4 En que paises operan?
 
-NEOMAAA Markets acepta clientes de la mayoria de paises del mundo. Los mercados principales son LATAM (Colombia, Mexico, Argentina, Chile, Peru, Ecuador, Republica Dominicana), Middle East, Africa, y SE Asia.
+NEOMAAA Markets acepta clientes de la mayoria de paises del mundo. Los mercados principales son **LATAM** (Brasil, Colombia, Mexico, Argentina, Chile, Peru, Ecuador, Republica Dominicana y el resto excluyendo USA/Canadá), **CIS** con screening caso por caso (Rusia y vecinos), **Middle East / MENA** (UAE, Saudi, Qatar, Turquía, excluyendo Iraq), **Africa** (Sudáfrica, Nigeria, Kenya, Egipto, excluyendo Sudán), y **SE Asia fase 2** (China, Vietnam, Filipinas, Indonesia, Tailandia, excluyendo North Korea y Myanmar).
 
 **No aceptamos clientes de:**
-- Restricciones regulatorias: Estados Unidos, Canada, Espacio Economico Europeo (EEA, 30 paises), Reino Unido, Australia, Japon, Israel.
+- Restricciones regulatorias: Estados Unidos, Canada, Espacio Economico Europeo (EEA, 30 paises, **incluida España**), Reino Unido, Australia, Japon, Israel.
 - Sanciones internacionales: Cuba, Irak, Iran, Corea del Norte, Myanmar, Siria, Sudan, Crimea, Donetsk, Luhansk.
 
 **Paises con restricciones especiales (solo caso por caso con EDD completo y aprobacion de compliance):** Rusia, Venezuela, Nigeria, Pakistan, Turquia, Belarus, Afganistan, y paises en lista gris/negra de GAFI.
 
 [SOLO USO INTERNO] La lista autoritativa y actualizada esta en `compliance/screening-sanciones.md` seccion 12.5. Consultar ahi ante cualquier duda.
+
+### 1.4b Podemos aceptar un cliente residente en España? (PREGUNTA FRECUENTE)
+
+**NO.** Respuesta oficial de Diego (Abril 2026): *"Actualmente no podemos trabajar como broker con clientes de España/Europa sin las regulaciones que piden esos países."*
+
+España está en la EEA. Cualquier residente España/EEA/UK debe ser rechazado en KYC/Sumsub. El IB que intente ingresar leads España pierde comisión sobre esos FTDs y puede ser sancionado. Cuando un lead España contacta:
+
+1. Agradecer su interés
+2. Informar que **por restricción jurisdiccional** no podemos aceptar residentes EEA/UK
+3. **NO** sugerir workarounds (usar pasaporte de otro país, dirección de familiar LATAM, VPN, etc.) — eso es fraude regulatorio
+4. Dejar puerta abierta: "cuando obtengamos licencia EEA te contactaremos"
+
+Excepciones: cero. Ni nacido en España residente LATAM cuenta — lo que pesa es **residencia fiscal comprobable por KYC**, no nacionalidad.
 
 ### 1.5 Cual es el horario de operacion del broker?
 
@@ -364,7 +377,7 @@ Hay 4 canales disponibles:
 
 ### 13.2 En que idiomas atienden?
 
-Espanol (nativo) e ingles (fluido). Soporte en espanol cubre horario LATAM (9:00-18:00 COL/MEX). Soporte en ingles cubre horario Europa/Middle East (9:00-18:00 CET).
+Espanol (nativo) e ingles (fluido). Soporte en espanol cubre horario LATAM (9:00-18:00 COL/MEX). Soporte en ingles cubre horario Middle East / África / Asia (9:00-18:00 GST/CET equivalente) — Europa NO es mercado operativo pero CET sigue siendo referencia de turno por ubicación de agentes.
 
 ### 13.3 Que hago si mi problema no se resuelve en soporte?
 

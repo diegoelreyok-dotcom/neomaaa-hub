@@ -239,42 +239,42 @@
       "question": "¿Cuál es el rebate Forex en IB tier Bronze?",
       "options": ["$1.00", "$2.50", "$4.50", "$10.00"],
       "correctIndex": 1,
-      "explanation": "IB Bronze rebate Forex: $2.50/lote. Gold: $4.00, Crypto: $4.50."
+      "explanation": "IB Bronze rebate Forex: $2.50/lote. Senior: $3.50, Crypto Bronze: $4.50."
     },
     {
       "id": "q28",
-      "question": "¿Cuál es el rebate Crypto en IB Platinum?",
+      "question": "¿Cuál es el rebate Crypto en IB Elite?",
       "options": ["$4.50", "$5.50", "$7.00", "$8.00"],
       "correctIndex": 3,
-      "explanation": "IB Platinum rebate Crypto: $8.00/lote. Forex $4.50, Gold $7.00."
+      "explanation": "IB Elite rebate Crypto: $8.00/lote. Forex $4.50, Gold/XAU $7.00."
     },
     {
       "id": "q29",
       "question": "¿A partir de qué tier el IB puede activar Auto-Rebate a clientes?",
-      "options": ["Bronze", "Silver (hasta 50%)", "Gold", "Platinum únicamente"],
+      "options": ["Bronze", "Silver (hasta 50%)", "Senior", "Elite únicamente"],
       "correctIndex": 1,
       "explanation": "Auto-Rebate a clientes disponible desde Silver (hasta 50%). Bronze no disponible."
     },
     {
       "id": "q30",
-      "question": "¿Cuál es el Swap Share en IB Gold?",
+      "question": "¿Cuál es el Swap Share en IB Senior?",
       "options": ["0%", "5%", "10%", "15%"],
       "correctIndex": 2,
-      "explanation": "IB Gold Swap Share: 10%. Bronze 0%, Silver 5%, Platinum 15%."
+      "explanation": "IB Senior Swap Share: 10%. Bronze 0%, Silver 5%, Elite 15% (dentro del cap de bonos variables $2K/mes)."
     },
     {
       "id": "q31",
-      "question": "¿Cuál es el Monthly Milestone de Platinum?",
-      "options": ["$500", "$5,000", "$15,000", "$40,000"],
+      "question": "¿Cuál es el bono mensual de milestone para tier Senior?",
+      "options": ["$500", "$1,500", "$5,000", "$15,000"],
       "correctIndex": 2,
-      "explanation": "Monthly Achievement Milestone Platinum: $15,000. Diamond $40,000, Legend $120,000."
+      "explanation": "Monthly Achievement Milestone Senior: $5,000. Bronze $500, Silver $1,500. Elite tiene cap $2K/mes desde abril 2026."
     },
     {
       "id": "q32",
-      "question": "¿Cuál es el Monthly Milestone de Diamond?",
-      "options": ["$5,000", "$15,000", "$40,000", "$120,000"],
-      "correctIndex": 2,
-      "explanation": "Monthly Milestone Diamond: $40,000. Legend $120,000."
+      "question": "¿Cuál es el cap de bonos variables mensuales para tier Elite (abril 2026)?",
+      "options": ["$2,000", "$15,000", "$40,000", "Sin cap"],
+      "correctIndex": 0,
+      "explanation": "Actualización abril 2026: bonos variables Elite cappeados en $2,000/mes para sostenibilidad operativa. Excedentes se redirigen a evento anual y consideración de equity."
     },
     {
       "id": "q33",
@@ -305,14 +305,14 @@
         "Sin comisión"
       ],
       "correctIndex": 1,
-      "explanation": "Diferencial sub-IBs: IB Gold (33%) asigna 25% a sub-IB Bronze → retiene 8% como override."
+      "explanation": "Diferencial sub-IBs: IB Senior (45%) asigna 30% a sub-IB Bronze → retiene 15% como override."
     },
     {
       "id": "q36",
-      "question": "¿Cuál es la frecuencia de pago de IB Platinum?",
-      "options": ["Mensual", "Semanal", "Diario", "Trimestral"],
-      "correctIndex": 2,
-      "explanation": "IB Platinum: pago diario. Bronze, Silver, Gold: semanal."
+      "question": "¿Cuál es la frecuencia de pago unificada de todos los tiers IB desde abril 2026?",
+      "options": ["Mensual (día 15)", "Semanal", "Diario", "Trimestral"],
+      "correctIndex": 0,
+      "explanation": "Desde abril 2026 el calendario de pagos unificó todos los tiers IB (Bronze/Silver/Senior/Elite) en mensual, día 15 del mes siguiente. Alineado al playbook-ib.md."
     },
     {
       "id": "q37",

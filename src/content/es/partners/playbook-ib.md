@@ -8,13 +8,18 @@
 
 ## Bienvenido a NEOMAAA Markets Partners
 
-Felicitaciones. Acabás de entrar a uno de los programas de partnership más rentables y transparentes del mercado forex/CFDs para LATAM, España y Asia. Este playbook es tu manual de operaciones: todo lo que necesitás saber para empezar a generar ingresos desde la primera semana.
+> [!DANGER]
+> **Mercados NO permitidos para IBs:** USA, Canada, **EEA (incluida España)**, UK, Australia, Cuba, Iraq, Myanmar, North Korea, Sudan + sancionados. Si traés un lead de esas jurisdicciones, **el FTD no cuenta, no generás comisión y podés ser sancionado o removido del programa**. NO intentar workarounds (direcciones falsas, pasaporte alternativo) — compliance lo detecta y cancela el acuerdo.
+>
+> Mercados OK para IBs: LATAM (excl. USA/Canadá), CIS con screening, MENA (excl. Iraq), Asia fase 2 (excl. NK/Myanmar), África (excl. Sudán).
+
+Felicitaciones. Acabás de entrar a uno de los programas de partnership más rentables y transparentes del mercado forex/CFDs para **LATAM, MENA, CIS, África y Asia fase 2**. Este playbook es tu manual de operaciones: todo lo que necesitás saber para empezar a generar ingresos desde la primera semana.
 
 NEOMAAA Markets opera bajo licencia Anjouan (L15968/N), con ejecución ECN/STP híbrida, más de 2.000 instrumentos, MT5 como plataforma principal y soporte multilingüe en español, portugués, inglés y ruso. Vos sos parte de ese engranaje: sin partners, no hay crecimiento. Con partners que entienden el juego, escalamos juntos.
 
 ### Qué vas a obtener como IB
 
-- **Revenue share competitivo** — hasta 60% del neto broker, uno de los porcentajes más altos del mercado
+- **Revenue share competitivo** — hasta 50% del neto broker (55% con boost Brasil), uno de los porcentajes más altos del mercado
 - **Dashboard profesional** vía Cellxpert con tracking en tiempo real
 - **Pack de materiales** listos para usar: banners, videos, landings, copy pre-aprobado
 - **Soporte dedicado** — tu Partner Manager te contesta por Telegram en horario laboral UAE
@@ -51,8 +56,8 @@ El revenue share se calcula sobre el **neto broker** generado por tus clientes �
 ### Tiers por volumen mensual
 
 <div className="neo-pyramid">
-<div className="neo-pyramid-level">Diamond (60%+) — Volumen &gt; $1M/mes + bonos + revshare sub-IBs ampliado</div>
-<div className="neo-pyramid-level">Gold (50%) — Volumen $250k–$1M/mes + co-branding</div>
+<div className="neo-pyramid-level">Elite (50%) — Volumen &gt; $1M/mes + bono fijo $2K/mes + revshare sub-IBs ampliado</div>
+<div className="neo-pyramid-level">Senior (45%) — Volumen $250k–$1M/mes + co-branding</div>
 <div className="neo-pyramid-level">Silver (40%) — Volumen $50k–$250k/mes + Partner Manager</div>
 <div className="neo-pyramid-level">Bronze (30%) — Volumen 0–$50k/mes (entrada)</div>
 </div>
@@ -69,19 +74,19 @@ El revenue share se calcula sobre el **neto broker** generado por tus clientes �
     <div className="neo-stat-sub">Volumen $50k – $250k/mes</div>
   </div>
   <div className="neo-stat">
-    <div className="neo-stat-label">Gold</div>
-    <div className="neo-stat-value">50%</div>
+    <div className="neo-stat-label">Senior</div>
+    <div className="neo-stat-value">45%</div>
     <div className="neo-stat-sub">Volumen $250k – $1M/mes</div>
   </div>
   <div className="neo-stat">
-    <div className="neo-stat-label">Diamond</div>
-    <div className="neo-stat-value">60%+</div>
-    <div className="neo-stat-sub">Volumen &gt; $1M/mes + bonos</div>
+    <div className="neo-stat-label">Elite</div>
+    <div className="neo-stat-value">50%</div>
+    <div className="neo-stat-sub">Volumen &gt; $1M/mes + bono fijo</div>
   </div>
 </div>
 
 > [!INFO]
-> Los porcentajes y umbrales arriba son ilustrativos para este playbook. [DATO: confirmar con Diego/Finance los tiers definitivos antes de firmar contratos]
+> **Actualización abril 2026:** tiers Senior/Elite ajustados de 50%/60% a 45%/50% para sostenibilidad operativa. Bonos variables cappeados a $2K/mes para Elite. Boost Brasil mantenido (+10%) con cap total de 55% (base + boost no puede exceder 55%). Aprobado por Diego.
 
 ### Tabla detallada
 
@@ -89,8 +94,8 @@ El revenue share se calcula sobre el **neto broker** generado por tus clientes �
 |------|----------------------|---------------|------------------|
 | Bronze | 0 – $50.000 | 30% | Acceso estándar a materiales y dashboard |
 | Silver | $50.001 – $250.000 | 40% | Partner Manager asignado |
-| Gold | $250.001 – $1.000.000 | 50% | Co-branding permitido + marketing co-funding |
-| Diamond | > $1.000.000 | 60% + bonos | Evento anual pagado + bonos por milestones + revshare sobre sub-IBs ampliado |
+| Senior | $250.001 – $1.000.000 | 45% | Co-branding permitido + marketing co-funding |
+| Elite | > $1.000.000 | 50% + bono fijo $2K/mes | Evento anual pagado + bono fijo mensual (cap en variables) + revshare sobre sub-IBs ampliado |
 
 ### Cómo se calcula
 
@@ -399,9 +404,12 @@ Estos son los 5 mercados donde buscamos tracción acelerada en 2026. Cada lead p
 |---------|---------|-----------------|-------|
 | 1 | Brasil | Portugués | +10% |
 | 2 | México | Español | +10% |
-| 3 | España | Español | +10% |
-| 4 | Argentina | Español | +10% |
-| 5 | Colombia | Español | +10% |
+| 3 | Argentina | Español | +10% |
+| 4 | Colombia | Español | +10% |
+| 5 | UAE / Saudi / Qatar (MENA) | Árabe/Inglés | +10% |
+
+> [!WARNING]
+> **España fue removida del ranking de prioridad.** Decisión Diego (Abril 2026): no podemos trabajar como broker con residentes EEA hasta tener licencia EEA equivalente. Cualquier lead España es rechazado en KYC y NO genera comisión. Si ves material antiguo que liste España como target — está desactualizado.
 
 > [!TIP]
 > Si tu tier es Silver (40%) y el cliente es brasileño, tu revenue share efectivo es **44%** sobre ese cliente de por vida. El boost se suma al % base.
@@ -571,7 +579,7 @@ Le recordás el disclaimer de riesgo que firmó al abrir cuenta. Vos no garantiz
 
 ### 7. ¿Puedo aparecer en videos de NEOMAAA?
 
-Sí, los IBs Gold y Diamond tienen acceso al estudio de podcast NEOMAAA y pueden aparecer en contenido oficial. Coordinación a través del Partner Manager.
+Sí, los IBs Senior y Elite tienen acceso al estudio de podcast NEOMAAA y pueden aparecer en contenido oficial. Coordinación a través del Partner Manager.
 
 ### 8. ¿Qué pasa si tengo un conflicto con otro IB por un cliente?
 
@@ -591,7 +599,7 @@ Sí, con las versiones oficiales del logo pack. No podés modificar colores, tip
 
 ### 12. ¿Necesito tener mi propia empresa constituida?
 
-No es obligatorio para Bronze y Silver. Para Gold y Diamond sí es recomendable (o mandatorio según jurisdicción) para temas fiscales. NEOMAAA puede pagar a persona física o jurídica indistintamente.
+No es obligatorio para Bronze y Silver. Para Senior y Elite sí es recomendable (o mandatorio según jurisdicción) para temas fiscales. NEOMAAA puede pagar a persona física o jurídica indistintamente.
 
 ### 13. ¿Pagás impuestos por mis comisiones?
 
@@ -619,7 +627,7 @@ Los cambios se comunican con **60 días de anticipación** por email oficial. Lo
 
 ### 19. ¿Hay evento anual de partners?
 
-Sí. Evento presencial anual (Dubai en años pares, LATAM en años impares) con vuelo y estadía pagados para tier Diamond. Gold paga estadía propia pero tiene entrada gratis. Silver y Bronze pueden asistir con entrada paga.
+Sí. Evento presencial anual (Dubai en años pares, LATAM en años impares) con vuelo y estadía pagados para tier Elite. Senior paga estadía propia pero tiene entrada gratis. Silver y Bronze pueden asistir con entrada paga.
 
 ### 20. ¿Puedo invertir como cliente también?
 
@@ -666,7 +674,7 @@ Sí. Muchos IBs operan también. Abrís cuenta de trading separada (no podés co
 - **2026:** Dubai, octubre (tentativo)
 - **2027:** LATAM (ciudad por confirmar)
 - Networking + masterclasses + awards para top performers
-- Cobertura de vuelo y hotel para tier Diamond
+- Cobertura de vuelo y hotel para tier Elite
 
 ---
 

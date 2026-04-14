@@ -29,7 +29,7 @@ NEOMAAA opera dos negocios separados pero complementarios bajo la misma sombrill
 
 **NEOMAAA Funded** es el negocio principal hoy. Es una propfirm: vendemos cuentas de evaluación a traders retail. El trader paga una fee, pasa una evaluación con reglas (drawdown, target de profit, etc.), y si la pasa, le damos una cuenta "fondeada" donde los profits se splitean. Es el negocio que paga la nómina, financia la expansión y nos dio escala (40K+ registrados, 1,200+ afiliados, equipo de managers regionales en LATAM).
 
-**NEOMAAA Markets** es el broker forex/CFD que estamos por lanzar. Tenemos licencia (Anjouan, AOFA L15968/N) bajo Neomaaa Ltd (IBC 15968). Vamos a operar MT5 con ejecución ECN/STP híbrida. Apuntamos al mismo público que Funded — LATAM, España, y eventualmente Asia — pero con un producto distinto: trading con su propio capital, no fondeado.
+**NEOMAAA Markets** es el broker forex/CFD que estamos por lanzar. Tenemos licencia (Anjouan, AOFA L15968/N) bajo Neomaaa Ltd (IBC 15968). Vamos a operar MT5 con ejecución ECN/STP híbrida. **Mercados operativos: LATAM core (excl. USA/Canadá), CIS con screening, MENA, Asia fase 2, África.** España/EEA/UK/Australia/USA/Canadá están RESTRINGIDOS — no aceptamos clientes de esas jurisdicciones hasta obtener licencia EEA equivalente. Producto distinto a Funded: trading con su propio capital, no fondeado.
 
 > [!INFO]
 > La diferencia es importante y vas a tener que explicarla muchas veces. Funded = trader opera con capital nuestro y comparte profits. Broker = trader opera con su propio capital, nosotros somos la plataforma.
@@ -173,7 +173,7 @@ Operamos exclusivamente en **MetaTrader 5**. Razones:
 
 ### Diferenciadores NEOMAAA
 
-- **Foco LATAM + España** real, no marketing. Atención en español de verdad, equipo en zona horaria.
+- **Foco LATAM** real (+ CIS selectivo, MENA, Asia fase 2, África), no marketing. Atención en español de verdad, equipo en zona horaria. *España NO es mercado operativo — equipo en España (Angel/Pepe/Susana) es backoffice/compliance, no comercial EEA.*
 - **Expansión agresiva en Brasil** (BMP es prioridad).
 - **Cross-sell con NEOMAAA Funded** — base de 40K+ registrados que pueden migrar a broker.
 - **Atención humana** — no chatbots, agentes reales.
@@ -200,7 +200,7 @@ Hoy entendés a quién le vendemos y cómo lo movemos a través del funnel. Esto
 
 **Demografía:**
 - Hombre, 25-45 años (95% del público)
-- LATAM o España (también UAE y Asia en menor medida)
+- LATAM core (+ CIS, MENA con UAE/Saudi/Qatar/Turquía, África, Asia fase 2). **España/EEA/UK/Australia NO — jurisdicciones restringidas.**
 - Ingreso medio o medio-alto en su país, con dinero discrecional para "invertir/probar"
 - Smartphone-first, redes sociales activas (Instagram, YouTube, TikTok)
 

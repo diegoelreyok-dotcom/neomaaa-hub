@@ -53,7 +53,10 @@ Olvidate del slogan. Esto es lo que realmente tenemos.
 
 **1. Atencion latina y espanola de verdad**
 
-No call center indio que aprendio "hola" la semana pasada. No bot traducido. Soporte escrito y hablado por gente que vive en el mercado — Franco en Argentina, Luis en Mexico, Edward coordinando, Angel en Espana. Tiempos culturales (hablamos cuando el cliente esta despierto, en su zona horaria), modismos que el cliente reconoce, comprension de por que un trader brasileno opera distinto a uno argentino.
+> [!WARNING]
+> **Nota de mercado (Abril 2026):** NEOMAAA NO opera con residentes España/EEA/UK/USA/Canada/Australia. Mercados operativos: **LATAM (excl. USA/Canadá), CIS con screening, MENA, Asia fase 2, África**. Referencias a España en este documento son contexto de equipo (Angel reside en España pero coordina operaciones globales) o histórico competitivo — NO target de adquisición.
+
+No call center indio que aprendio "hola" la semana pasada. No bot traducido. Soporte escrito y hablado por gente que vive en el mercado — Franco en Argentina, Luis en Mexico, Edward coordinando, Angel en España (base operativa, NO target comercial EEA). Tiempos culturales (hablamos cuando el cliente esta despierto, en su zona horaria), modismos que el cliente reconoce, comprension de por que un trader brasileno opera distinto a uno argentino.
 
 Esto suena a cliche de marketing pero es literal — la mayoria de brokers grandes (Exness, XM, IC) tienen soporte en espanol via outsourcing con agentes rotativos que no te conocen. Nosotros si.
 
@@ -106,7 +109,7 @@ Honestidad brutal interna:
 **Sin historial de payouts masivos documentados.** Los brokers grandes tienen decadas de retiros publicos en TrustPilot. Nosotros tenemos meses. Se arregla con tiempo.
 
 > [!INFO]
-> Regla general de posicionamiento: nosotros somos el **broker ideal para el trader retail LATAM/Espana activo, con tickets $100-$10,000, que quiere leverage alto + soporte humano + metodos locales + producto moderno**. No intentamos ser Exness ni IC Markets. Sabemos que somos.
+> Regla general de posicionamiento: nosotros somos el **broker ideal para el trader retail LATAM activo (+ CIS selectivo, MENA, Asia fase 2, África), con tickets $100-$10,000, que quiere leverage alto + soporte humano + metodos locales + producto moderno**. No intentamos ser Exness ni IC Markets. Sabemos que somos. *España/EEA/UK NO son mercados operativos hoy.*
 
 ---
 
@@ -183,14 +186,14 @@ SEO masivo (rankean #1 o #2 para "best forex broker" en muchos idiomas), Google 
 
 - Reconocemos: Exness es un broker serio, no lo negamos. Es una de las referencias del mercado.
 - Diferenciamos: Atencion. Cliente de Exness es un numero. Cliente de NEOMAAA tiene un rep con nombre y telefono.
-- Diferenciamos: Mercado. Exness es Africa y Asia. Nosotros somos LATAM y Espana con rails locales reales.
+- Diferenciamos: Mercado. Exness es Africa y Asia. Nosotros somos LATAM con rails locales reales (+ CIS/MENA/Asia fase 2).
 - Diferenciamos: Flexibilidad. Exness no da bonos ni competencias. Nosotros si.
 
 **Frases aprobadas de contrataque** (compliance-safe)
 
 - "Exness es un broker establecido, lo respetamos. La diferencia es el nivel de atencion — con nosotros hablas con una persona, no con un ticket."
 - "Si buscas el broker con mas tecnologia pura, Exness es una opcion. Si buscas un broker que te entienda como trader LATAM, somos nosotros."
-- "Exness tiene volumen global. Nosotros tenemos foco: LATAM, Espana, metodos locales, soporte en tu zona horaria."
+- "Exness tiene volumen global. Nosotros tenemos foco: LATAM core (+ CIS/MENA), metodos locales, soporte en tu zona horaria."
 
 **Frases prohibidas**
 
@@ -488,7 +491,7 @@ Cliente que:
 - Educacion y research minimos
 - Spreads no son los mejores del mercado (son medios)
 - Ecosistema cerrado (OctaTrader no es estandar industria)
-- Presencia en Espana minima
+- Presencia en España minima (no aplica — España NO operativa)
 
 **Presencia por mercado**
 
@@ -510,7 +513,7 @@ Influencers locales LATAM (especialmente Mexico), patrocinios deportivos (F1 en 
 **Como respondemos**
 
 - Diferenciamos: Producto. OctaFX es simple, nosotros somos completos (Vault, Copy, 2000+ instrumentos vs 230).
-- Diferenciamos: Mercado. Ellos tienen foco Mexico. Nosotros somos panLATAM + Espana + Brasil con PIX.
+- Diferenciamos: Mercado. Ellos tienen foco Mexico. Nosotros somos panLATAM + Brasil con PIX (+ CIS/MENA/Asia fase 2). *España NO operativa.*
 - Diferenciamos: Equipo. Nuestros reps tienen nombre. En Octa es un chat anonimo.
 
 **Frases aprobadas de contrataque**
@@ -587,13 +590,13 @@ Seminarios regionales Medio Oriente y Africa, IBs locales bien pagados, contenid
 
 **Como respondemos**
 
-- Diferenciamos: HF es broker global disperso. Nosotros somos broker enfocado LATAM/Espana.
+- Diferenciamos: HF es broker global disperso. Nosotros somos broker enfocado LATAM (+ CIS/MENA/Asia fase 2).
 - Diferenciamos: Rails locales, soporte cultural.
 - Diferenciamos: Producto moderno (Vault, Copy, app).
 
 **Frases aprobadas de contrataque**
 
-- "HF Markets es un broker serio con presencia fuerte en Africa y Medio Oriente. Si es tu region es buena opcion. Para LATAM y Espana nuestra propuesta es especifica: rails locales, soporte cultural, equipo con nombre."
+- "HF Markets es un broker serio con presencia fuerte en Africa y Medio Oriente. Si es tu region es buena opcion. Para LATAM (y mercados operativos como CIS/MENA) nuestra propuesta es especifica: rails locales, soporte cultural, equipo con nombre."
 
 **Frases prohibidas**
 
@@ -731,13 +734,13 @@ Content marketing tecnico premium, YouTube de calidad, partnerships EAs/TradingV
 
 **Como respondemos**
 
-- Segmentamos: Pepperstone es para trader profesional europeo/australiano. Nosotros para trader activo LATAM/Espana.
+- Segmentamos: Pepperstone es para trader profesional europeo/australiano (mercados NO operativos para NEOMAAA). Nosotros para trader activo LATAM (+ CIS/MENA/Asia fase 2).
 - Diferenciamos: Producto. Vault, copy, rails locales.
 - Diferenciamos: Ticket. Ellos piden $200, nosotros $5.
 
 **Frases aprobadas de contrataque**
 
-- "Pepperstone es referencia en mercado australiano/europeo profesional. No somos competencia directa — servimos mercados distintos. Nosotros: LATAM, Espana, ticket retail, producto moderno con Vault y Copy."
+- "Pepperstone es referencia en mercado australiano/europeo profesional. No somos competencia directa — servimos mercados distintos. Nosotros: LATAM, CIS, MENA, Asia fase 2. Ticket retail, producto moderno con Vault y Copy. Europa/UK/Australia NO son mercados operativos NEOMAAA."
 
 **Frases prohibidas**
 
@@ -1038,7 +1041,7 @@ El mercado forex/CFD offshore tiene practicas cuestionables frecuentes. Como cli
 <div className="neo-compare-box neo-compare-us">
 <h3>NEOMAAA Markets</h3>
 <ul>
-<li>Foco LATAM + Espana real</li>
+<li>Foco LATAM real (+ CIS/MENA/Asia fase 2)</li>
 <li>Equipo con nombre y cara</li>
 <li>Rails locales (PIX, Astropay, PSE, OXXO)</li>
 <li>Vault propio + MT5 con MQL5 Signals</li>

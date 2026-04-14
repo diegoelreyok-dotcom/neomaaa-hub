@@ -19,6 +19,8 @@
 ### A-Book
 Modelo de ejecucion donde el broker envia las ordenes del cliente directamente al mercado (liquidity provider). El broker gana solo con comisiones/spread markup, no con las perdidas del cliente. Opuesto a B-Book.
 
+**Neomaaa opera modelo hibrido A-Book/B-Book**, admitido oficialmente en los Terminos y Condiciones publicos (ver `legal/terms-conditions.md` y `legal/order-execution-policy.md`). El modelo ECN/STP es la ruta priorizada; la Empresa puede actuar como principal o counterparty en determinadas circunstancias.
+
 ### Account Types (Tipos de Cuenta)
 NEOMAAA ofrece 4 tipos:
 
@@ -48,8 +50,8 @@ Precio al que puedes COMPRAR un instrumento. Siempre es el precio mas alto del p
 ### B-Book
 Modelo donde el broker actua como contraparte del cliente. El broker "absorbe" la orden internamente sin enviarla al mercado. El broker gana cuando el cliente pierde y viceversa. Se usa para ordenes pequenas o flow predecible.
 
-> [!DANGER]
-> Cero discusion publica de A-Book/B-Book con clientes. Es politica interna operativa y NO se menciona en llamadas, WhatsApp, ni materiales de marketing. Si un cliente pregunta, redirigir a "ofrecemos ejecucion ECN/STP hibrida".
+> [!INFO]
+> **Politica aprobada:** Neomaaa Ltd reconoce OFICIALMENTE en sus T&C que puede actuar como principal o counterparty. Al cliente se le puede decir que operamos "modelo hibrido de ejecucion (STP/ECN o principal/counterparty segun condiciones de mercado)" citando la Politica de Ejecucion publicada. Lo que SI es confidencial: criterios internos de enrutamiento, umbrales, ratios, y la clasificacion A/B de clientes individuales (ver `compliance/ab-book-policy.md`). Nunca decir "somos 100% A-Book" ni "nunca somos contraparte" — es falso y contradice el T&C.
 
 ### Balance
 Dinero total en la cuenta del cliente, sin contar posiciones abiertas. Diferente al Equity.
@@ -265,12 +267,17 @@ Empresas que procesan nuestros depositos y retiros. Ejemplos: procesadores de ta
 
 ### Restricted Countries (Paises Restringidos)
 NO podemos aceptar clientes de:
-- USA, Canada
-- EEA (Union Europea), UK, Australia
-- Cuba, Iraq, Myanmar, North Korea, Sudan
-- Cualquier jurisdiccion sancionada
+- **USA, Canada**
+- **EEA (30 países del Espacio Económico Europeo — incluida España, Alemania, Francia, Italia, Portugal, Holanda, etc.)**
+- **UK (Reino Unido), Australia**
+- **Cuba, Iraq, Myanmar, North Korea, Sudan**
+- Cualquier jurisdiccion sancionada (OFAC/UE/UK/ONU)
 
-> **CRITICO para Sales:** Si un lead es de estos paises, NO continuar. Escalar a Susana inmediatamente.
+**Mercados OPERATIVOS confirmados (Abril 2026):** LATAM (excl. USA/Canadá), CIS con screening, MENA (excl. Iraq), Asia fase 2 (excl. NK/Myanmar), África (excl. Sudán).
+
+> **CRITICO para Sales:** Si un lead es de un país restringido, **NO continuar, NO prometer solución, NO sugerir workarounds** (direcciones falsas, VPN, pasaporte alternativo — eso es fraude regulatorio). Escalar a Susana inmediatamente y cerrar con template de rechazo CR-26.
+
+> **Decisión Diego (Abril 2026):** "No podemos trabajar como broker con clientes de España/Europa sin las regulaciones que piden esos países." España está en EEA — **NO operativa** hasta que NEOMAAA tenga licencia EEA equivalente.
 
 ### Rollover / Swap
 Cargo o credito por mantener una posicion abierta de un dia al siguiente. Triple swap los miercoles (por el fin de semana).

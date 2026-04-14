@@ -64,14 +64,17 @@ Costos operativos incluyen: plataforma Cellxpert, soporte al partner, content bo
 
 ### Programa 3: IB Program (alineado a playbook-ib.md)
 
-**Opcion A (Rev Share) — tiers Bronze/Silver/Gold/Diamond:**
+> [!INFO]
+> **Actualización (abril 2026):** tiers Senior/Elite bajados de 50%/60% a 45%/50% para sostenibilidad operativa. Bonos variables cappeados a $2K/mes para Elite. Boost Brasil se mantiene (+10%) pero con cap total de 55% (base + boost no puede exceder 55%). Aprobado por Diego.
 
-| Tier | Rev Share base | Rev Share efectivo (con +10% boost mercado prioritario) | Margen NEOMAAA base | Margen con boost |
+**Opcion A (Rev Share) — tiers Bronze/Silver/Senior/Elite:**
+
+| Tier | Rev Share base | Rev Share efectivo (con boost mercado prioritario, cap 55%) | Margen NEOMAAA base | Margen con boost |
 |---|---|---|---|---|
 | Bronze | 30% | 40% (BR/MX/ES/AR/CO) | 61% | 51% |
 | Silver | 40% + 5% swap | 50% + swap | 50% | 40% |
-| Gold | 50% + 10% swap | 60% + swap | 39% | 29% |
-| Diamond | 60% + 15% swap + bonos | 70% + swap + bonos | 27% | 17% |
+| Senior | 45% + 10% swap | 55% + swap (cap aplicado) | 44% | 34% |
+| Elite | 50% + bono fijo $2K/mes | 55% + bono fijo (cap aplicado) | 37% | 32% |
 
 **Opcion B (Rebate por lote, Forex) — legacy, a confirmar vigencia:**
 
@@ -79,12 +82,12 @@ Costos operativos incluyen: plataforma Cellxpert, soporte al partner, content bo
 |---|---|---|---|
 | Bronze | $2.50 | $25 | 74% |
 | Silver | $3.00 | $30 | 70% |
-| Gold | $3.50 | $35 | 66% |
-| Diamond | $4.50 | $45 | 55% |
+| Senior | $3.50 | $35 | 66% |
+| Elite | $4.50 | $45 | 55% |
 
-> **CRITICO:** El margen del IB Program con los %s alineados al playbook-ib cae sustancialmente en tiers altos. Diamond con boost + bonos + swap share puede llegar a margen **<20%**, lo cual es INSOSTENIBLE a escala sin volumen compensatorio. [DECISION DIEGO: revisar tiers definitivos antes del lanzamiento de contratos — o se baja el rev share del playbook, o se ajusta la estructura de bonos/boost.]
+> **Validación financiera:** con los tiers ajustados (Senior 45% / Elite 50% + bono fijo cappeado), el margen broker queda en ~35% incluso con boost Brasil activo. Sostenible operativamente. Bonos variables (milestones, event support) se cappearon a $2K/mes para Elite; excedentes quedan diferidos a evento anual.
 
-Nota: Los numeros previos del modelo interno (25/30/33/35) representaban una version anterior mas conservadora. El playbook-ib publicado al IB promete 30/40/50/60 + boost 10% + bonos. Hay gap entre la oferta externa y la sostenibilidad interna.
+Nota: Los numeros previos del modelo interno (25/30/33/35) representaban una version anterior mas conservadora. La version oficial abril 2026 del playbook-ib publica al IB 30/40/45/50 + boost 10% (cap total 55%) + bono fijo Elite. Alineado entre oferta externa y sostenibilidad interna.
 
 ---
 
@@ -209,8 +212,8 @@ El programa Affiliate no tiene costo fijo significativo; es 100% variable (reven
 |---|---|---|
 | Bronze ($500 milestone) | ~7 clientes activos | $750 |
 | Silver ($1,500 milestone) | ~20 clientes activos | $2,100 |
-| Gold ($5,000 milestone) | ~65 clientes activos | $7,500 |
-| Diamond ($15,000 milestone) | ~190 clientes activos | $22,000 |
+| Senior ($5,000 milestone) | ~65 clientes activos | $7,500 |
+| Elite ($15,000 milestone, cap bonos $2K/mes) | ~190 clientes activos | $22,000 |
 
 Nota: Los Monthly Milestones son bonos adicionales al revenue share/rebate. El IB debe generar suficiente ingreso para que NEOMAAA cubra tanto la comision base como el milestone.
 

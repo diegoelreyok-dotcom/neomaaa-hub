@@ -43,7 +43,7 @@ Todo lo que tiene que estar listo ANTES de abrir las puertas a clientes reales. 
 
 - [ ] **Finance Manager contratado** - PRIORIDAD #1. Sin el, el broker opera a ciegas.
 - [ ] **Support Agent #1 contratado** (LATAM, espanol)
-- [ ] **Support Agent #2 contratado** (Europa/Middle East, ingles)
+- [ ] **Support Agent #2 contratado** (MENA / Africa / Asia, ingles — NO atiende EEA/UK: jurisdicciones restringidas)
 - [ ] **Marketing Manager** - decision hire vs freelance tomada y ejecutada
 
 ### BLOQUE 5: Testing Pre-Live (Semana 5-6)

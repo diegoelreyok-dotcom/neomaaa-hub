@@ -46,10 +46,10 @@
 **Por que lo dice:** Desconfianza general hacia la industria de forex. Ha leido casos negativos en internet.
 
 **Respuesta:**
-"Tienes razon, una licencia por si sola no lo es todo. Por eso en NEOMAAA vamos mas alla: cuentas segregadas en bancos independientes, ejecucion ECN/STP donde nosotros no operamos contra ti, MetaTrader 5 que te permite auditar cada operacion en tiempo real, y un sistema de KYC riguroso con Sumsub. Ademas, puedes empezar con nuestra cuenta Cent desde $5 para comprobar todo el proceso — depositos, operaciones y retiros — sin arriesgar una cantidad significativa. Asi verificas con tu propia experiencia antes de comprometer mas capital."
+"Tienes razon, una licencia por si sola no lo es todo. Por eso en NEOMAAA vamos mas alla: cuentas segregadas en bancos independientes, modelo hibrido de ejecucion con ECN/STP priorizado (los detalles estan publicados en nuestra Politica de Ejecucion de Ordenes en neomaaa.com/about/legal-documentation), MetaTrader 5 que te permite auditar cada operacion en tiempo real, y un sistema de KYC riguroso con Sumsub. Ademas, puedes empezar con nuestra cuenta Cent desde $5 para comprobar todo el proceso — depositos, operaciones y retiros — sin arriesgar una cantidad significativa. Asi verificas con tu propia experiencia antes de comprometer mas capital."
 
 **Puntos clave:**
-- Ejecucion ECN/STP: no hay conflicto de interes
+- Modelo hibrido ECN/STP transparente (documentado publicamente en T&C)
 - Cuenta Cent desde $5 para prueba real
 - Retiros verificables antes de depositar mas
 - MT5 permite auditar cada tick y operacion
@@ -294,10 +294,10 @@
 **Por que lo dice:** Experiencia previa negativa o lo leyo en alguna review.
 
 **Respuesta:**
-"Nuestra ejecucion ECN/STP conecta directamente con proveedores de liquidez, lo que minimiza latencia y slippage. Sin embargo, el slippage es parte natural del mercado, especialmente en noticias de alto impacto o baja liquidez. Te invito a probar con una cuenta Cent durante noticias y fuera de noticias para que compares. En MT5 puedes revisar el historial de cada operacion incluyendo el tiempo exacto de ejecucion y cualquier diferencia de precio."
+"Operamos modelo hibrido con ejecucion ECN/STP priorizada — la ruta STP conecta con proveedores de liquidez para minimizar latencia y slippage. Los detalles estan en nuestra politica de ejecucion oficial. El slippage es parte natural del mercado, especialmente en noticias de alto impacto o baja liquidez. Te invito a probar con una cuenta Cent durante noticias y fuera de noticias para que compares. En MT5 puedes revisar el historial de cada operacion incluyendo el tiempo exacto de ejecucion y cualquier diferencia de precio."
 
 **Puntos clave:**
-- ECN/STP = ejecucion directa
+- Modelo hibrido con ECN/STP priorizado (documentado en T&C)
 - Slippage es normal en momentos especificos
 - Verificable en historial de MT5
 - Invitar a prueba real

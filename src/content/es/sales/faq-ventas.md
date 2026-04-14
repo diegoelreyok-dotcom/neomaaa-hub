@@ -150,7 +150,7 @@ Hasta 1:1000 para cuentas retail (depende de cuenta e instrumento). Instituciona
 
 ### P18: Que tipo de ejecucion tienen?
 
-Ejecucion ECN/STP hibrida. Las ordenes se enrutan directamente a proveedores de liquidez sin intervencion de mesa de operaciones (dealing desk). Esto significa que NEOMAAA no opera contra el cliente.
+Neomaaa Ltd opera bajo modelo hibrido de ejecucion (STP/ECN o principal/counterparty segun condiciones de mercado), tal como se establece en nuestros Terminos y Condiciones (neomaaa.com/about/legal-documentation). La ejecucion ECN/STP es la ruta priorizada: las ordenes se enrutan a proveedores de liquidez siempre que las condiciones lo permiten. En determinadas circunstancias, la Empresa puede actuar como principal o contraparte, dentro de su Politica de Ejecucion de Ordenes publicada. Toda la ejecucion es auditable en MetaTrader 5 (timestamps, spread, slippage).
 
 ---
 

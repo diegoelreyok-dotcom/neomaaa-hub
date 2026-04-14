@@ -1,18 +1,21 @@
-# Descripcion del Puesto — Support Agent (English/Europe-Middle East)
+# Descripcion del Puesto — Support Agent (English / MENA-Africa-Asia)
 
 **Empresa:** Neomaaa Ltd (IBC 15968) | Licencia L15968/N (AOFA, Anjouan)
-**Puesto:** Support Agent — English/Europe-Middle East
-**Modalidad:** Remoto (debe residir en zona horaria compatible con CET)
+**Puesto:** Support Agent — English (MENA / Africa / Asia)
+**Modalidad:** Remoto (debe residir en zona horaria compatible con CET/GST)
 **Compensacion:** $400 USD/mes
-**Horario:** Lunes a Viernes, 9:00 AM – 6:00 PM CET (hora Europa Central)
+**Horario:** Lunes a Viernes, 9:00 AM – 6:00 PM CET (referencia horaria — NO implica clientes EEA)
 **Reporta a:** Head of Support / Principals
 **Inicio:** Inmediato
+
+> [!WARNING]
+> Este rol **NO atiende clientes EEA/UK/Australia/USA/Canadá** — son jurisdicciones restringidas. El horario CET es por conveniencia operativa (overlap con MENA y Asia Pacífico temprano). Cualquier lead EEA/UK que llegue por error se rechaza con template CR-26. El soporte en inglés cubre: MENA (UAE, Saudi, Qatar, Turquía excl. Iraq), África (excl. Sudán), Asia fase 2 (excl. NK/Myanmar), y clientes LATAM que prefieran inglés.
 
 ---
 
 ## Descripcion General del Rol
 
-El Support Agent (English) es el primer punto de contacto para los clientes angloparlantes de NEOMAAA Markets, cubriendo los mercados de Europa, Middle East, Africa y SE Asia. Atiende consultas a traves de Intercom (chat en vivo), correo electronico y WhatsApp. Su funcion es resolver dudas, guiar a los clientes en procesos de registro, KYC, depositos y retiros, y escalar temas tecnicos o de compliance al equipo correspondiente. Cubre el turno europeo para garantizar cobertura de soporte en las horas de mayor actividad de estos mercados.
+El Support Agent (English) es el primer punto de contacto para los clientes angloparlantes de NEOMAAA Markets, cubriendo los **mercados operativos de MENA, Africa y Asia (fase 2)**. Atiende consultas a traves de Intercom (chat en vivo), correo electronico y WhatsApp. Su funcion es resolver dudas, guiar a los clientes en procesos de registro, KYC, depositos y retiros, y escalar temas tecnicos o de compliance al equipo correspondiente. Cubre el turno CET/GST para garantizar cobertura de soporte en las horas de mayor actividad de estos mercados. **Europa (EEA) y UK NO son mercados operativos** — si llega un cliente de esas jurisdicciones, rechazar con template CR-26.
 
 ---
 
@@ -64,7 +67,7 @@ El Support Agent (English) es el primer punto de contacto para los clientes angl
 - Familiaridad con MetaTrader 5 (NEOMAAA opera solo en MT5). Experiencia previa con MT4 valorable.
 - Experiencia con Intercom o herramientas de chat en vivo similares.
 - Arabe como segundo idioma (ventaja significativa para mercado Middle East).
-- Residencia en Europa del Este, Turquia, Egipto, Sudafrica, o paises con zona horaria compatible con CET.
+- Residencia en Europa del Este (por zona horaria operativa — NO por atender clientes EEA), Turquia, Egipto, Sudafrica, UAE, o paises con zona horaria compatible con CET/GST.
 - Espanol basico (para comunicacion interna con parte del equipo).
 
 ---

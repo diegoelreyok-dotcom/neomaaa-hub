@@ -12,7 +12,10 @@
 
 ## Descripcion General del Rol
 
-El Support Agent (Espanol) es el primer punto de contacto para los clientes hispanohablantes de NEOMAAA Markets. Atiende consultas a traves de Intercom (chat en vivo), correo electronico y WhatsApp. Su funcion es resolver dudas, guiar a los clientes en procesos de registro, KYC, depositos y retiros, y escalar temas tecnicos o de compliance al equipo correspondiente. Es la voz del broker para el mercado LATAM.
+El Support Agent (Espanol) es el primer punto de contacto para los clientes hispanohablantes de NEOMAAA Markets. Atiende consultas a traves de Intercom (chat en vivo), correo electronico y WhatsApp. Su funcion es resolver dudas, guiar a los clientes en procesos de registro, KYC, depositos y retiros, y escalar temas tecnicos o de compliance al equipo correspondiente. Es la voz del broker para el **mercado LATAM** (Brasil, México, Argentina, Colombia, Chile, Perú y resto — excluyendo USA/Canadá).
+
+> [!WARNING]
+> **NO atiende clientes residentes en España / EEA / UK** — son jurisdicciones RESTRINGIDAS para NEOMAAA Markets. Si un cliente español contacta, responder con template CR-26 de rechazo por restricción jurisdiccional (no ofrecer workarounds). El soporte en español peninsular no es target hasta que NEOMAAA obtenga licencia EEA equivalente.
 
 ---
 

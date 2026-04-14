@@ -46,11 +46,11 @@ El candidato a partner completa el formulario de aplicacion que incluye:
 | Affiliate Partner (cualquier tier) | Edward / equipo | 48 horas desde aplicacion completa |
 | Digital Affiliate (cualquier tier) | Edward / equipo | 48 horas desde aplicacion completa |
 | IB Bronze / Silver | Edward / equipo | 48 horas desde aplicacion completa |
-| IB Gold | Principals | 72 horas desde aplicacion completa |
-| IB Diamond | Principals | 72 horas desde aplicacion completa |
+| IB Senior | Principals | 72 horas desde aplicacion completa |
+| IB Elite | Principals | 72 horas desde aplicacion completa |
 | Cualquier partner con mas de 200 clientes existentes | Principals | 72 horas |
 
-**Regla:** Toda aprobacion IB Gold+ requiere videollamada previa con al menos un Principal.
+**Regla:** Toda aprobacion IB Senior+ requiere videollamada previa con al menos un Principal.
 
 ### Etapa 4: Setup en Cellxpert
 
@@ -160,7 +160,7 @@ El upgrade se revisa mensualmente y requiere:
 1. Cumplimiento de los requisitos numericos del tier superior (clientes, depositos, FTDs)
 2. Mantenimiento de los requisitos durante al menos 2 meses consecutivos
 3. Cero infracciones de compliance en los ultimos 3 meses
-4. Aprobacion del equipo (y de Principals para tiers Gold+)
+4. Aprobacion del equipo (y de Principals para tiers Senior+)
 
 ### Criterios de Downgrade de Tier
 
@@ -281,7 +281,7 @@ El reporte mensual incluye:
 |---|---|---|---|
 | Pregunta sobre comisiones | Equipo de operaciones | Edward | 24 horas |
 | Discrepancia en tracking | Equipo de operaciones | Edward | 48 horas |
-| Solicitud de upgrade de tier | Edward | Principals (Gold+) | 5 dias habiles |
+| Solicitud de upgrade de tier | Edward | Principals (Senior+) | 5 dias habiles |
 | Queja sobre pagos retrasados | Finanzas | Edward | 24 horas |
 | Disputa de payout (monto incorrecto) | Finanzas | Edward → Principals | 48 horas |
 | Solicitud de condiciones especiales | Edward | Principals | 5 dias habiles |

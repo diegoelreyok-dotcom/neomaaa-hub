@@ -1,14 +1,22 @@
 # Perfiles de cliente ideal (ICP) por mercado
 
 > Documento interno | Ultima actualizacion: Abril 2026
-> Aplica a: NEOMAAA Markets (broker forex/CFD) | Mercados: LATAM, Espana, CIS, Asia (fase 2)
+> Aplica a: NEOMAAA Markets (broker forex/CFD) | Mercados operativos: LATAM, CIS (selectivo), Asia (fase 2), MENA, Africa
 > Audiencia: Ventas, Marketing, Soporte, Compliance, Partners
 
-> [!WARNING]
-> **España está en la EEA — jurisdicción RESTRINGIDA bajo los Terminos y Condiciones.**
-> Neomaaa Ltd NO acepta clientes residentes en la EEA (incluida España), UK, Australia, Canada, USA ni jurisdicciones sancionadas. El contenido sobre España se mantiene aqui por valor estrategico (lecciones del mercado post-ESMA, benchmarks competitivos, perfil cultural del trader hispanohablante sofisticado) pero **NO se debe ejecutar adquisicion directa en España**. Onboardings desde EEA deben ser bloqueados en KYC/Sumsub.
+> [!DANGER]
+> **DECISION DIEGO (Abril 2026): "No podemos trabajar como broker con clientes de España/Europa sin las regulaciones que piden esos países."**
 >
-> Mercados operativos aceptables: **LATAM (core), CIS (selectivo), Asia fase 2 (fuera de paises restringidos), Middle East, Africa**.
+> **España / EEA / UK / Australia / Canada / USA son jurisdicciones RESTRINGIDAS — NO OPERATIVAS.** Neomaaa Ltd NO acepta clientes residentes en EEA (30 países incluida España), UK, Australia, Canada, USA, Cuba, Iraq, Myanmar, North Korea, Sudan ni jurisdicciones sancionadas.
+>
+> **El ICP #2 — España que aparece en este documento se mantiene SOLO como referencia educativa / benchmark / roadmap futuro** (sujeto a obtener licencia EEA equivalente). **NO usar para adquisición, creativos, campañas ni pitches operativos hoy.** Onboardings desde EEA deben ser bloqueados en KYC/Sumsub.
+>
+> **Mercados OPERATIVOS confirmados:**
+> - **LATAM (core):** Brasil, México, Argentina, Colombia, Chile, Perú y resto (excluyendo USA/Canadá)
+> - **CIS:** Rusia y vecinos con screening caso por caso (OFAC/UE/UK/ONU)
+> - **Asia (fase 2):** China, Vietnam, Filipinas, Indonesia, Tailandia (excluyendo North Korea, Myanmar)
+> - **MENA:** UAE, Saudi Arabia, Qatar, Turquía (excluyendo Iraq)
+> - **Africa:** Sudáfrica, Nigeria, Kenya, Egipto (excluyendo Sudán)
 
 ---
 
@@ -25,7 +33,7 @@ El primero no sirve para nada. El segundo te dice que canal usar, que hora lanza
 
 <div className="neo-stat-grid">
 <div className="neo-stat" data-value="BR" data-label="Brasil (BMP) — prioridad 1"></div>
-<div className="neo-stat" data-value="ES" data-label="España — core sofisticado"></div>
+<div className="neo-stat" data-value="LATAM+" data-label="Rusia/CIS + MENA + Asia fase 2"></div>
 <div className="neo-stat" data-value="LATAM" data-label="MX/AR/CO/CL/PE"></div>
 <div className="neo-stat" data-value="RU/CIS" data-label="Post-sanciones, USDT"></div>
 <div className="neo-stat" data-value="ASIA" data-label="ID/VN/PH — fase 2"></div>
@@ -33,10 +41,10 @@ El primero no sirve para nada. El segundo te dice que canal usar, que hora lanza
 
 ### Por que NEOMAAA necesita diferentes pitches por mercado
 
-NEOMAAA Markets lanza simultaneamente en LATAM, Espana y (fase 2) Asia, con expansion tactica a CIS. Cada uno de estos mercados tiene:
+NEOMAAA Markets lanza en LATAM como mercado core, con expansion tactica a CIS (selectiva con screening) y Asia (fase 2), más MENA y Africa. **España NO es mercado operativo** — queda como referencia de roadmap futuro. Cada mercado operativo tiene:
 
-- **Cultura trading distinta** (Brasil explotado, Espana sofisticado, Argentina desesperado, Rusia post-sanciones)
-- **Regulacion propia** (ESMA en Espana prohibe bonos; CVM en Brasil endureciendo; CNBV en Mexico no regula offshore)
+- **Cultura trading distinta** (Brasil explotado, Argentina desesperado, Rusia post-sanciones, LATAM variado)
+- **Regulacion propia** (CVM en Brasil endureciendo; CNBV en Mexico no regula offshore; Rusia sin regulacion FX local post-sanciones)
 - **Metodos de pago locales** (PIX vs SEPA vs Astropay vs USDT)
 - **Canales de adquisicion que funcionan** (Instagram Reels en BR, SEO largo en ES, Telegram en RU)
 - **Objeciones especificas** (scam chipriota en ES, "que pasa si me bloqueas" en RU, "para que sirve si no tiene CVM" en BR)
@@ -47,10 +55,10 @@ Un pitch generico en ingles, con pagina web unica, y un equipo de ventas sin scr
 
 | Area | Uso concreto |
 |------|--------------|
-| **Ventas** | Customiza primera llamada: abre con la pregunta correcta segun el ICP, anticipa la objecion #1, elige el closer correcto (Franco para BR/LATAM, Edward para ES) |
-| **Marketing** | Customiza creativos: colores, copy, CTA, canal, timing, idioma. Un creativo para BR no va en ES, y viceversa |
-| **Soporte** | Customiza tono y cobertura: BR informal, Espana formal, RU directo. Cobertura horaria segun pico de conexion |
-| **Compliance** | Customiza screening: RU requiere review exhaustivo, BR ya tiene base mas tolerante, ES requiere transparencia regulatoria |
+| **Ventas** | Customiza primera llamada: abre con la pregunta correcta segun el ICP, anticipa la objecion #1, elige el closer correcto (Franco para BR/LATAM, Edward para LATAM sofisticado / MENA / CIS) |
+| **Marketing** | Customiza creativos: colores, copy, CTA, canal, timing, idioma. Un creativo para BR no va en LATAM resto, y viceversa |
+| **Soporte** | Customiza tono y cobertura: BR informal, LATAM neutro, RU directo. Cobertura horaria segun pico de conexion |
+| **Compliance** | Customiza screening: RU requiere review exhaustivo, BR ya tiene base mas tolerante, MENA requiere screening PEP |
 | **Partners** | Customiza comisiones y materiales para afiliados locales segun el LTV esperado del mercado |
 
 > [!WARNING]
@@ -181,10 +189,20 @@ Elementos no negociables del pitch BR:
 
 ---
 
-## 4. ICP #2 — Espana
+## 4. ICP #2 — España (NO OPERATIVO — roadmap futuro / referencia educativa)
+
+> [!DANGER]
+> **NO OPERATIVO — NO USAR PARA ADQUISICION.**
+>
+> España está en la EEA. Neomaaa Ltd (Anjouan L15968/N) NO puede aceptar residentes EEA/UK sin la licencia EU equivalente (MiFID II vía CySEC/BaFin/CNMV u otra). Esta sección se mantiene como:
+> 1. **Referencia educativa** del perfil cultural del trader hispanohablante sofisticado (benchmarks competitivos)
+> 2. **Lecciones del mercado post-ESMA 2018** (regulación retail EU)
+> 3. **Roadmap futuro** — mercado al que NEOMAAA aspira cuando obtenga licencia EEA
+>
+> **PROHIBIDO:** creativos dirigidos a España, campañas pagas con geo-targeting EEA, pitches de ventas a residentes españoles, IBs reclutando leads España. Cualquier lead EEA debe ser bloqueado por Sumsub en KYC y rechazado con mensaje educado de restricción jurisdiccional.
 
 > [!INFO]
-> **Mercado estable, alto LTV.** Menos volumen que BR pero ticket y retencion significativamente mas altos. El espanol es sofisticado: va a comparar, investigar, y solo convertir si ve transparencia total.
+> **[REFERENCIA HISTORICA/FUTURA]** Mercado estable, alto LTV. Menos volumen que BR pero ticket y retencion significativamente mas altos. El espanol es sofisticado: va a comparar, investigar, y solo convertir si ve transparencia total. *Cuando NEOMAAA tenga licencia EEA este ICP se reactivará.*
 
 ### 4.1 Demografia
 
@@ -492,7 +510,7 @@ Elementos no negociables del pitch ES:
 | ICP | Primera pregunta |
 |-----|------------------|
 | Brasil | "Voce ja tentou propfirm antes? Qual?" |
-| Espana | "Que broker estas usando ahora? Que te gusta y que no?" |
+| ~~España~~ | NO OPERATIVO | 
 | Argentina | "Estas tradeando en pesos o ya buscas dolarizar?" |
 | Mexico | "Vienes de crypto o ya tradeas FX?" |
 | Colombia | "Como descubriste el trading? Por algun influencer?" |
@@ -503,7 +521,7 @@ Elementos no negociables del pitch ES:
 | ICP | Objecion #1 | Respuesta base |
 |-----|-------------|----------------|
 | Brasil | "Voce e golpista como FTMO?" | Licencia + Sumsub + caso real de retiro PIX |
-| Espana | "Por que no estais en CNMV?" | Transparencia Anjouan, comparativa IC Markets offshore |
+| ~~España~~ | NO OPERATIVO — responder con restricción EEA | "Actualmente no operamos con residentes EEA/UK" |
 | Argentina | "Como retiro si hay cepo?" | USDT, Astropay, PIX via stablecoin |
 | Mexico | "Mi banco bloquea los wires" | OXXO, SPEI via PSP local, USDT |
 | Rusia | "Меня заблокируют как везде?" | No bloqueo por pasaporte, screening case-by-case |
@@ -514,7 +532,7 @@ Elementos no negociables del pitch ES:
 |-----|----------------|----------------|
 | Brasil | Franco | [DATO: pedir a Diego/Edward] |
 | LATAM (resto) | Franco, Luis Espinoza | Edward Chestryp |
-| Espana | Edward Chestryp | Angel Ortega |
+| España | ~~N/A — mercado NO operativo~~ | — |
 | Rusia | Yulia / Gleb / Dimitri | — |
 | Asia (fase 2) | [DATO: a contratar en fase 2] | — |
 
@@ -525,7 +543,7 @@ Elementos no negociables del pitch ES:
 | ICP | Colores | Tono | Formato | CTA |
 |-----|---------|------|---------|-----|
 | Brasil | Verde/amarillo acentos + dark primary | Energico, casual, urgente | Reels 15-30s, thumbnails con cara | "Abrir conta agora" |
-| Espana | Verde NEOMAAA + acentos sobrios | Profesional, tranquilo, transparente | YouTube 15-25min, blog post largo | "Crear cuenta demo" |
+| ~~España~~ | NO OPERATIVO — no generar creativos | — | — | — |
 | Argentina | Celeste/blanco + acentos verdes | Directo, desafiante, anti-sistema | Reels, Tweets, memes | "Operar en dolares" |
 | Mexico | Verde + acentos morados | Claro, educativo, familiar | Reels + YouTube medium | "Abre tu cuenta gratis" |
 | Colombia | Verde + amarillo calido | Comunitario, aspiracional | Reels, IG Lives | "Comienza hoy con $100" |
@@ -558,7 +576,7 @@ Asia:  Facebook > TikTok > YouTube > Telegram (fase 2)
 | ICP | Tono | Ejemplo apertura |
 |-----|------|------------------|
 | Brasil | Informal, cercano, energia | "Fala, [nome]! Aqui e [agente] do NEOMAAA. Como posso ajudar?" |
-| Espana | Formal, profesional, preciso | "Buenos dias/tardes [nombre], soy [agente] del equipo NEOMAAA. En que puedo ayudarle?" |
+| ~~España~~ | NO OPERATIVO — si entra lead ES responder con mensaje de restricción jurisdiccional | "Lamentamos informarle que actualmente no aceptamos residentes de la Unión Europea. Cuando obtengamos licencia EEA le contactaremos." |
 | Argentina | Directo, amigable, informal | "Hola [nombre], que tal? Soy [agente] de NEOMAAA. Contame que pasa." |
 | Mexico | Amable, respetuoso | "Hola [nombre], buen dia. Te escribe [agente] de NEOMAAA. En que te apoyo?" |
 | Colombia | Calido, familiar | "Hola [nombre], que mas! Soy [agente] de NEOMAAA. Cuentame en que te ayudo?" |
@@ -570,7 +588,7 @@ Asia:  Facebook > TikTok > YouTube > Telegram (fase 2)
 | Mercado | Horario pico tickets | Recomendacion cobertura |
 |---------|----------------------|-------------------------|
 | Brasil | 19:00-23:00 BRT | 2 agentes PT-BR nativos en ese bloque |
-| Espana | 20:00-00:00 CET | 1 agente ES peninsular en ese bloque |
+| ~~España~~ | NO OPERATIVO | — |
 | LATAM | 19:00-23:00 local (multiple TZ) | 2 agentes ES neutro rotativos |
 | Rusia | 18:00-23:00 MSK | 1 agente RU nativo en ese bloque |
 
@@ -626,7 +644,7 @@ Asia:  Facebook > TikTok > YouTube > Telegram (fase 2)
 | ICP | CAC objetivo | FTD rate esperado | Ticket avg | LTV objetivo |
 |-----|--------------|-------------------|------------|--------------|
 | Brasil | $80-150 | 10-15% | $100-250 | $400-800 |
-| Espana | $200-350 | 8-12% | EUR 500-800 | EUR 2.000-4.000 |
+| ~~España~~ | NO OPERATIVO (referencia futura: $200-350 CAC, EUR 2k-4k LTV) | — | — | — |
 | LATAM resto | $100-200 | 9-13% | $150-400 | $600-1.500 |
 | Rusia | $150-250 | 12-18% | $400-800 | $2.500-5.000 |
 

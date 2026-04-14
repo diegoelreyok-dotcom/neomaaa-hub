@@ -118,7 +118,7 @@ En los presentes Terminos y Condiciones, los siguientes terminos tendran el sign
 
 8.1 Las operaciones se ejecutan a traves de la plataforma MetaTrader 5 bajo las condiciones publicadas para cada instrumento (spread, comision, swap, apalancamiento, tamano minimo de posicion).
 
-8.2 La Empresa opera bajo un modelo de ejecucion ECN/STP, donde las ordenes se enrutan a proveedores de liquidez.
+8.2 La Empresa opera bajo un modelo de ejecucion ECN/STP hibrido. Neomaaa Ltd puede actuar como principal o counterparty de las operaciones del Cliente. La ejecucion puede estar sujeta a slippage, latencia, requotes, ejecucion demorada, o condiciones de mercado fuera del control de la Empresa. Los detalles se establecen en la Politica de Ejecucion de Ordenes publicada en neomaaa.com/about/legal-documentation.
 
 8.3 Las ordenes se ejecutan al precio disponible en el momento de la ejecucion (Market Execution). El slippage positivo o negativo puede ocurrir y es inherente a este modelo de ejecucion.
 

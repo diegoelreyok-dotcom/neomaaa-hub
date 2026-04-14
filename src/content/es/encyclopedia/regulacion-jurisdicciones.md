@@ -154,17 +154,29 @@ Independientemente de la jurisdicción del broker, hay países cuyos ciudadanos 
 
 ### Restricciones prácticas
 
-- **UE post-ESMA** — podemos aceptar pero el cliente tiene que entender que no está bajo CySEC/MiFID. Política de passive onboarding: aceptamos si el cliente viene a nosotros, no hacemos outreach activo.
-- **Canadá** — regulación provincial compleja. Caso a caso.
+> [!DANGER]
+> **Decisión Diego (Abril 2026):** "No podemos trabajar como broker con clientes de España/Europa sin las regulaciones que piden esos países." **EEA/UK/Australia/USA/Canadá están RESTRINGIDOS — NO operativos.** Bloqueados por Sumsub, rechazados por Compliance. Se elimina cualquier política de "passive onboarding" EEA previa.
+
+- **UE / EEA (incluida España)** — **RESTRINGIDO.** NO aceptamos residentes EEA bajo ninguna modalidad (ni activa ni pasiva). El cliente es rechazado en KYC.
+- **UK** — **RESTRINGIDO.** Igual tratamiento que EEA.
+- **Australia** — **RESTRINGIDO.** ASIC no nos pasa — nunca ha sido target.
+- **Canadá** — **RESTRINGIDO.** Regulación provincial compleja.
+- **USA** — **RESTRINGIDO.** NFA/CFTC fuera de alcance offshore.
 - **Japón** — estrictamente JFSA. Sin licencia japonesa, no.
 
 ### Países objetivo (donde operamos activamente)
 
-LATAM completo (México, Colombia, Argentina, Chile, Perú, Brasil, etc.), España con pasiva, Emiratos Árabes Unidos, Sudeste Asiático (Vietnam, Tailandia, Filipinas, Malasia, Indonesia), Medio Oriente no-sancionado, partes de África.
+- **LATAM completo** (excluyendo USA/Canadá): Brasil, México, Colombia, Argentina, Chile, Perú, y resto de la región
+- **CIS**: Rusia y vecinos con screening caso por caso (OFAC/UE/UK/ONU obligatorio)
+- **MENA**: Emiratos Árabes Unidos, Saudi Arabia, Qatar, Turquía (excluyendo Iraq)
+- **Sudeste Asiático (fase 2)**: Vietnam, Tailandia, Filipinas, Malasia, Indonesia, China (excluyendo North Korea y Myanmar)
+- **África**: Sudáfrica, Nigeria, Kenya, Egipto (excluyendo Sudán)
+
+**España queda como referencia / roadmap futuro** — cuando NEOMAAA obtenga licencia EEA equivalente se reactivará como target. Hoy NO es mercado operativo.
 
 ## Cómo explicarlo al cliente sin mentir ni defendernos
 
-El cliente retail de LATAM o España NO entiende las 4 tiers regulatorias al mismo nivel de profundidad que un compliance officer. Pero sí entiende **lenguaje sencillo + datos concretos + opciones**.
+El cliente retail de LATAM NO entiende las 4 tiers regulatorias al mismo nivel de profundidad que un compliance officer. Pero sí entiende **lenguaje sencillo + datos concretos + opciones**. (Si el cliente es residente EEA/UK el flujo es distinto: **rechazo directo con template CR-26**, sin vender.)
 
 Frases de cierre que funcionan:
 

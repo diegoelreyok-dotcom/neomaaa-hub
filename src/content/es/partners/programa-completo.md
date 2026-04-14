@@ -15,7 +15,7 @@ NEOMAAA opera tres programas de partnership complementarios, cada uno disenado p
 |---|---|---|---|
 | **Perfil** | Creadores de contenido, bloggers, educadores, sitios de resenas | Media buyers, PPC/SEO, arbitrajistas, redes de afiliados | IBs profesionales con base de clientes existente, oficinas regionales |
 | **Modelo de comision** | Revenue Share puro (lifetime) | Mini-CPA + Revenue Share (lifetime) | Rev Share O Rebate por lote (a elegir) |
-| **Revenue Share** | 25% - 35% | 10% - 20% | 30% - 60% |
+| **Revenue Share** | 25% - 35% | 10% - 20% | 30% - 50% (55% con boost) |
 | **CPA** | No | Si (por GEO) | No |
 | **Rebate por lote** | No | No | Si (opcion alternativa) |
 | **Sub-afiliados** | Hasta 3 niveles (interno) | 1 nivel | 2 niveles (70/30 master/sub-IB) |
@@ -23,7 +23,7 @@ NEOMAAA opera tres programas de partnership complementarios, cada uno disenado p
 | **Creator Rewards Lab** | Si | Si (con bounties ampliados) | No |
 | **Margen NEOMAAA** | 56% - 66% | 62% - 65% | 40% - 70% |
 
-> **NOTA DE CONSISTENCIA (Abril 2026):** La estructura de tiers y porcentajes del **IB Program** en este documento fue alineada al [playbook-ib.md](playbook-ib.md) (doc oficial de cara al IB). Los datos historicos internos con tiers "Platinum" fueron reemplazados por "Diamond" con los %s actualizados (30/40/50/60). [DATO: confirmar con Diego/Finance antes de firmar contratos nuevos — el playbook-ib tambien flag este punto pendiente.]
+> **ACTUALIZACION OFICIAL (Abril 2026):** Tiers IB unificados en **Bronze / Silver / Senior / Elite**. Porcentajes ajustados a **30/40/45/50** (Senior bajado de 50% a 45%, Elite bajado de 60% a 50%). Bonos variables cappeados a $2K/mes para Elite. Boost Brasil se mantiene (+10%) pero cap total 55% (base + boost no excede 55%). Aprobado por Diego. Margen broker Elite pasa de <20% a ~35% (sostenible).
 
 ---
 
@@ -108,7 +108,8 @@ Se descarto el modelo CPA puro porque destruye el cash flow de un broker nuevo. 
 | Brasil | $100 |
 | Mexico / Colombia | $75 |
 | Argentina / Chile / Peru | $50 |
-| Europa / Medio Oriente | $150 |
+| MENA (UAE, Saudi, Qatar, Turquía — excl. Iraq) | $150 |
+| ~~Europa / EEA / UK~~ | **NO OPERATIVO — lead rechazado en KYC, $0** |
 
 ### Calificacion de FTD
 
@@ -174,29 +175,35 @@ El margen operativo para la empresa oscila entre 62% y 65%.
 |---|---|---|---|
 | **Bronze** | 30% | 0 - $50.000 | Acceso estandar a materiales y dashboard |
 | **Silver** | 40% | $50.001 - $250.000 | Partner Manager asignado |
-| **Gold** | 50% | $250.001 - $1.000.000 | Co-branding + marketing co-funding |
-| **Diamond** | 60% + bonos | > $1.000.000 | Evento anual pagado + bonos milestones + override ampliado sub-IBs |
+| **Senior** | 45% | $250.001 - $1.000.000 | Co-branding + marketing co-funding |
+| **Elite** | 50% + bono fijo $2K/mes | > $1.000.000 | Evento anual pagado + bono fijo mensual (cap en variables) + override ampliado sub-IBs |
 
-### Boost por mercado prioritario
+### Boost por mercado prioritario (cap total 55%)
 
-Cada lead proveniente de los mercados prioritarios (confirmado por KYC address) recibe **+10% sobre el revenue share** del tier vigente:
+Cada lead proveniente de los mercados prioritarios (confirmado por KYC address) recibe **+10% sobre el revenue share** del tier vigente. **Cap absoluto:** la combinación base + boost nunca excede 55%.
 
 - Brasil +10%
 - Mexico +10%
-- Espana +10%
 - Argentina +10%
 - Colombia +10%
+- UAE / Saudi / Qatar (MENA) +10%
 
-Ejemplo: Silver (40%) + Brasil = **44%** efectivo sobre ese cliente lifetime.
+> [!WARNING]
+> **España fue removida del boost.** Decisión Diego (Abril 2026): EEA no operativa. Leads España son rechazados en KYC y NO generan comisión. Material antiguo que liste España como mercado prioritario está desactualizado.
+
+Ejemplos:
+- Silver (40%) + Brasil = **44%** efectivo sobre ese cliente lifetime
+- Senior (45%) + Brasil = **55%** (cap aplicado, boost efectivo +10%)
+- Elite (50%) + Brasil = **55%** (cap aplicado, boost efectivo +5%)
 
 ### Opcion B: Rebate por Lote
 
-| Tier | Forex (por lote) | Gold (por lote) | Crypto (por lote) |
+| Tier | Forex (por lote) | Gold/XAU (por lote) | Crypto (por lote) |
 |---|---|---|---|
 | **Bronze** | $2.50 | $4.00 | $4.50 |
 | **Silver** | $3.00 | $5.00 | $5.50 |
-| **Gold** | $3.50 | $6.00 | $7.00 |
-| **Diamond** | $4.50 | $7.00 | $8.00 |
+| **Senior** | $3.50 | $6.00 | $7.00 |
+| **Elite** | $4.50 | $7.00 | $8.00 |
 
 [DATO: confirmar con Diego/Finance si Opcion B (rebate por lote) sigue vigente o quedo deprecada en favor de Rev Share puro. El playbook-ib no la menciona.]
 
@@ -208,8 +215,8 @@ A partir de Silver, el IB puede compartir parte de su comision con sus clientes 
 |---|---|
 | Bronze | No disponible |
 | Silver | Hasta 50% |
-| Gold | Hasta 50% |
-| Diamond | Hasta 50% |
+| Senior | Hasta 50% |
+| Elite | Hasta 50% |
 
 > **Advertencia compliance:** "Rebate a clientes" debe implementarse via programa oficial NEOMAAA, NO via pagos informales del IB al cliente. Cashback informal del IB = rebating prohibido (ver playbook-ib.md, causales de terminacion).
 
@@ -221,8 +228,8 @@ Comision adicional sobre los swaps generados por los clientes del IB:
 |---|---|
 | Bronze | 0% |
 | Silver | 5% |
-| Gold | 10% |
-| Diamond | 15% |
+| Senior | 10% |
+| Elite | 15% (incluido dentro del cap de bonos variables $2K/mes) |
 
 ### Monthly Achievement Milestones
 
@@ -232,10 +239,12 @@ Bonificaciones mensuales por alcanzar metas de rendimiento (interno, no publicad
 |---|---|
 | Bronze | $500 |
 | Silver | $1,500 |
-| Gold | $5,000 |
-| Diamond | $15,000 |
-| Diamond Elite | $40,000 |
-| Legend | $120,000 |
+| Senior | $5,000 |
+| Elite | $2,000 (cap mensual aplicado) |
+| Elite Top | $2,000 (cap) + asignacion diferida a evento anual |
+| Legend | $2,000 (cap) + equity consideration |
+
+> **Nota:** Desde abril 2026, los bonos variables para tier Elite estan cappeados en $2K/mes. Montos que antes escalaban a $15K-$120K/mes se redirigen a: bono fijo mensual garantizado ($2K), mayor cobertura de evento anual (vuelo+hotel+stipend), y consideracion de equity al mes 12.
 
 [DATO: confirmar si los Monthly Milestones se comunican al IB en el onboarding o son bonificaciones discrecionales internas.]
 
@@ -266,8 +275,8 @@ Los pagos se hacen por separado a cada parte el dia 15, sin que el master tenga 
 |---|---|
 | Bronze | Mensual (dia 15) |
 | Silver | Mensual (dia 15) |
-| Gold | Mensual (dia 15) |
-| Diamond | Mensual (dia 15) |
+| Senior | Mensual (dia 15) |
+| Elite | Mensual (dia 15) |
 
 - Corte: ultimo dia del mes calendario, 23:59 UTC
 - Calculo: dias 1-10 del mes siguiente
@@ -275,7 +284,7 @@ Los pagos se hacen por separado a cada parte el dia 15, sin que el master tenga 
 - Minimo payout: $100 USD (rollea al mes siguiente si no llega)
 - Procesamiento bancario: 1-3 dias habiles post dia 15
 
-[DATO: en la version historica interna habia pagos semanales/diarios para tiers altos. Playbook-ib.md unifico todo a dia 15 mensual. Confirmar con Finance si se abre excepcion para tier Diamond.]
+[DATO: en la version historica interna habia pagos semanales/diarios para tiers altos. Playbook-ib.md unifico todo a dia 15 mensual. Confirmar con Finance si se abre excepcion para tier Elite.]
 
 ### Metodos de pago disponibles
 
@@ -286,7 +295,7 @@ Los pagos se hacen por separado a cada parte el dia 15, sin que el master tenga 
 
 ### Margen NEOMAAA
 
-El margen operativo para la empresa oscila entre **40% y 70%** segun tier (Diamond con bonos plenos tiene el margen mas bajo; Bronze el mas alto).
+El margen operativo para la empresa oscila entre **35% y 70%** segun tier (Elite con bonos plenos tiene el margen mas bajo ~35% post-ajuste abril 2026; Bronze el mas alto).
 
 ---
 
@@ -304,7 +313,7 @@ NEOMAAA es el unico broker que combina los siguientes elementos en un solo ecosi
 
 | Caracteristica | NEOMAAA | Exness | XM |
 |---|---|---|---|
-| Revenue Share maximo IB | 60% + bonos | Hasta 40% | N/A |
+| Revenue Share maximo IB | 55% (con boost) + bono fijo | Hasta 40% | N/A |
 | CPA | Hibrido (Mini-CPA + RS) | No | Hasta $80/lote |
 | Creator Rewards Lab | Si | No | No |
 | Sub-afiliados (niveles) | Hasta 3 | 1 | 1 |
