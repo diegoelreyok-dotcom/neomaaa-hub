@@ -3,6 +3,13 @@
 > [!INFO]
 > Toda noticia macroeconómica relevante es, potencialmente, un evento de mercado. El precio se mueve rápido, los spreads se abren, los stops se ejecutan lejos. Un agente de soporte tiene que entender **por qué pasa** para explicarle al cliente sin defenderse ni mentir.
 
+<div className="neo-stat-grid">
+<div className="neo-stat" data-value="7" data-label="Noticias high-impact"></div>
+<div className="neo-stat" data-value="30-60 min" data-label="Ventana pre-noticia"></div>
+<div className="neo-stat" data-value="5-20 pips" data-label="Spreads durante evento"></div>
+<div className="neo-stat" data-value="8/año" data-label="FOMC meetings"></div>
+</div>
+
 ## Por qué las noticias mueven el mercado
 
 El precio de un activo refleja, en todo momento, la **suma de expectativas** de millones de participantes sobre el futuro de ese activo. Cuando sale una noticia, pasan dos cosas en milisegundos:
@@ -76,25 +83,11 @@ Regla general: **solo los eventos de impacto alto (rojo) justifican precauciones
 
 ## Comportamiento pre, durante y post noticia
 
-### Pre-noticia (30–60 min antes)
-
-- El volumen baja.
-- Los spreads empiezan a abrirse levemente.
-- Las posiciones grandes se recortan.
-- Aparecen movimientos "en falso" cuando algún trader intenta anticipar.
-
-### Durante la publicación (segundo 0 al minuto 3)
-
-- **Whipsaw**: el precio puede moverse 30–80 pips arriba y abajo en segundos antes de encontrar dirección.
-- **Spreads explotan**: pueden pasar de 0.3 a 5–15 pips en majors, y a 20+ en cross exóticos.
-- **Slippage negativo en stops es casi garantizado** si el stop estaba cerca del precio al momento del evento.
-- Órdenes pendientes muy cercanas al precio pueden ejecutarse con slippage importante.
-
-### Post-noticia (minutos 3 a 30)
-
-- El mercado "digiere" el dato y elige dirección.
-- Spreads se normalizan progresivamente.
-- Aparece la **continuación** o el **retroceso** (depende de si el dato confirmó o sorprendió).
+<div className="neo-timeline">
+<div className="neo-timeline-step"><span className="neo-timeline-step-title">PRE (30–60 min antes)</span><span className="neo-timeline-step-desc">Volumen baja, spreads empiezan a abrirse, posiciones grandes se recortan, aparecen movimientos "en falso" de anticipación.</span></div>
+<div className="neo-timeline-step"><span className="neo-timeline-step-title">DURANTE (seg 0 → min 3)</span><span className="neo-timeline-step-desc">Whipsaw 30–80 pips. Spreads explotan (0.3 → 5–15 pips majors, 20+ en exóticos). Slippage negativo en stops casi garantizado.</span></div>
+<div className="neo-timeline-step"><span className="neo-timeline-step-title">POST (min 3 → 30)</span><span className="neo-timeline-step-desc">El mercado "digiere" el dato y elige dirección. Spreads se normalizan. Aparece la continuación o el retroceso.</span></div>
+</div>
 
 ### Ejemplo real — NFP
 

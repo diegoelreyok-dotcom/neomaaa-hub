@@ -9,10 +9,14 @@ El precio de un instrumento no es un número mágico que baja de una pizarra cen
 
 En cualquier par o instrumento siempre hay **dos precios simultáneos**:
 
-- **Bid** → el precio al que el mercado está dispuesto a **comprarte** a vos. Es decir, si vos querés **vender**, lo hacés al bid.
-- **Ask** (o Offer) → el precio al que el mercado está dispuesto a **venderte** a vos. Si querés **comprar**, lo hacés al ask.
+<div className="neo-compare">
+<div className="neo-compare-col neo-compare-col--pro"><div className="neo-compare-title">Bid (precio de venta)</div><ul><li>El precio al que el mercado está dispuesto a <strong>comprarte</strong> a vos</li><li>Si vos querés <strong>vender</strong>, lo hacés al bid</li><li>Siempre es el más bajo del par</li></ul></div>
+<div className="neo-compare-col neo-compare-col--con"><div className="neo-compare-title">Ask / Offer (precio de compra)</div><ul><li>El precio al que el mercado está dispuesto a <strong>venderte</strong> a vos</li><li>Si vos querés <strong>comprar</strong>, lo hacés al ask</li><li>Siempre es el más alto del par</li></ul></div>
+</div>
 
 La diferencia entre ambos se llama **spread**, y es la primera forma de costo que paga cualquier trader.
+
+<div className="neo-formula">Spread = Ask − Bid (medido en pips)</div>
 
 ### Ejemplo numérico — EUR/USD
 
@@ -27,11 +31,15 @@ El spread es `1.08545 - 1.08542 = 0.00003` → **0.3 pips**.
 
 Si abrís una posición de **compra** (BUY) de 1 lote (100,000 EUR):
 
-1. Entrás al ask → 1.08545
-2. En el instante en que abriste, tu posición ya vale el bid → 1.08542
-3. Estás en pérdida de 3 puntos = 0.3 pips = **USD 3**
+<div className="neo-step-list">
+<div className="neo-step" data-num="1" data-title="Entrada al ask"><div>Entrás al ask → 1.08545</div></div>
+<div className="neo-step" data-num="2" data-title="Valoración instantánea"><div>En el instante en que abriste, tu posición ya vale el bid → 1.08542</div></div>
+<div className="neo-step" data-num="3" data-title="Pérdida inicial"><div>Estás en pérdida de 3 puntos = 0.3 pips = <strong>USD 3</strong></div></div>
+</div>
 
 Es por eso que toda posición "nace" en rojo: estás pagando el spread al entrar. Para estar en ganancia el precio tiene que moverse **a favor** más de lo que costó el spread.
+
+<div className="neo-formula">Costo del spread = pips × valor por pip × lotes</div>
 
 ## Qué es la liquidez y por qué importa
 
@@ -89,11 +97,17 @@ Ocurre típicamente en:
 - Ejecución durante noticias de alto impacto
 - Gaps de fin de semana
 
+> [!WARNING]
+> El slippage negativo en eventos de alta volatilidad no es un bug del broker: es cómo funciona el mercado real cuando la liquidez desaparece por segundos. Soporte debe saber explicar esto sin defenderse.
+
 ### Slippage positivo (a favor del trader)
 
 El precio mejora entre que enviaste la orden y se ejecutó. Pasa menos seguido pero pasa, y un broker honesto te lo pasa entero al cliente (NEOMAAA tiene política de slippage simétrico: el cliente recibe el slippage positivo cuando existe).
 
 ## Gap de mercado
+
+> [!DANGER]
+> El gap de fin de semana es el riesgo más difícil de explicar al cliente retail. Los stops NO se ejecutan al precio puesto: se ejecutan al primer precio disponible el lunes.
 
 El forex cierra de viernes 22:00 GMT a domingo 22:00 GMT. Durante esas 48 horas, **el mundo sigue moviéndose**: pasa una elección, un atentado, un default de un país, y el lunes el precio abre en un nivel muy distinto al del cierre.
 

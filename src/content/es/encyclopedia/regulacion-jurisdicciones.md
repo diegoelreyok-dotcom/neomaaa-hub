@@ -3,6 +3,13 @@
 > [!INFO]
 > Todo broker opera bajo alguna jurisdicción regulatoria. No todas valen lo mismo. NEOMAAA Markets opera bajo **Anjouan (AOFA)**, licencia L15968/N. Este documento explica qué significa eso, qué podemos decir al cliente, y qué jamás podemos decir.
 
+<div className="neo-stat-grid">
+<div className="neo-stat" data-value="L15968/N" data-label="Licencia NEOMAAA"></div>
+<div className="neo-stat" data-value="AOFA" data-label="Regulador"></div>
+<div className="neo-stat" data-value="1:1000" data-label="Leverage permitido"></div>
+<div className="neo-stat" data-value="4 Tiers" data-label="Jerarquía global"></div>
+</div>
+
 ## Qué es un regulador financiero
 
 Un regulador financiero es una autoridad pública (o paraestatal) que **autoriza, supervisa y sanciona** a entidades que manejan dinero de terceros: bancos, brokers, gestoras de fondos, plataformas de pago.
@@ -24,6 +31,13 @@ Para un broker de forex/CFDs, el regulador dicta:
 ## Los 4 tiers de regulación
 
 Dentro de la industria, los reguladores se agrupan informalmente en "tiers" según qué tan estrictos son, cuánto capital exigen, y qué protección al cliente garantizan.
+
+<div className="neo-pyramid">
+<div className="neo-pyramid-level">Tier 1 — FCA, CySEC, ASIC, FINMA, BaFin (capital EUR 730k+, leverage 1:30)</div>
+<div className="neo-pyramid-level">Tier 2 — DFSA, FSRA, MAS, FSA Japón (leverage 1:50–1:100)</div>
+<div className="neo-pyramid-level">Tier 3 — VFSC, FSC BVI, Belice, Bahamas (leverage 1:500–1:1000)</div>
+<div className="neo-pyramid-level">Tier 4 — AOFA (NEOMAAA), Mauricio, Labuan, Santa Lucía</div>
+</div>
 
 ### Tier 1 — Regulación estricta
 
@@ -88,21 +102,12 @@ Capital bajo, licenciamiento más accesible, supervisión limitada pero existent
 **Licencia:** L15968/N emitida por Anjouan Offshore Finance Authority (AOFA)
 **Jurisdicción:** Anjouan, Unión de las Comoras
 
-### Qué implica en la práctica
+### Qué implica en la práctica — Anjouan vs FCA
 
-**Aspectos positivos:**
-- **Leverage alto disponible** — hasta 1:1000 en majors.
-- **Bonos de depósito permitidos** — podemos ofrecer promociones que en UE están prohibidas.
-- **Sin restricciones tipo ESMA** — no estamos obligados a limitar al cliente retail a 1:30.
-- **Costos operativos menores** — impuestos y compliance menos onerosos que Tier 1.
-- **Mercados globales** — podemos aceptar clientes de LATAM, España (con cuidado), Asia, África, Oriente Medio.
-- **Licencia real, auditada** — AOFA emite licencias válidas, con renovación anual, con requisitos de capital y de reporte.
-
-**Aspectos a gestionar:**
-- **Menor confianza inicial del cliente** — un cliente que viene de un broker FCA tiene expectativas más altas de branding y de fondo de compensación.
-- **No hay fondo de compensación europeo** — si el broker quiebra, el cliente **no** tiene un fondo público que le devuelva hasta EUR 20k.
-- **Disputas** — se resuelven internamente y vía AOFA, no vía ombudsman europeo.
-- **Reputación en reviews** — foros como Forex Peace Army a veces penalizan brokers offshore por defecto. Hay que construir reputación con ejecución y soporte.
+<div className="neo-compare">
+<div className="neo-compare-col neo-compare-col--pro"><div className="neo-compare-title">Anjouan (NEOMAAA) — Pros</div><ul><li><strong>Leverage alto</strong> — hasta 1:1000 en majors</li><li><strong>Bonos de depósito permitidos</strong></li><li>Sin restricciones ESMA (no limitamos retail a 1:30)</li><li>Costos operativos menores</li><li>Mercados globales (LATAM, Asia, África, Medio Oriente)</li><li>Licencia real, auditada, renovación anual</li></ul></div>
+<div className="neo-compare-col neo-compare-col--con"><div className="neo-compare-title">Anjouan vs FCA — Cons</div><ul><li>Menor confianza inicial del cliente</li><li><strong>Sin fondo de compensación europeo</strong> (no FSCS/ICF)</li><li>Disputas vía AOFA, no ombudsman europeo</li><li>Reputación default más baja en foros (Forex Peace Army)</li><li>Hay que construir reputación con ejecución y soporte</li></ul></div>
+</div>
 
 ### Nuestra respuesta al cliente que pregunta por la regulación
 
@@ -113,11 +118,15 @@ Capital bajo, licenciamiento más accesible, supervisión limitada pero existent
 > "Sí. Neomaaa Ltd está licenciada por la Anjouan Offshore Finance Authority, licencia L15968/N. Somos una jurisdicción offshore lo cual nos permite ofrecer condiciones competitivas como leverage hasta 1:1000, bonos de depósito y cuentas en múltiples monedas. Eso sí, queremos ser transparentes: no somos una licencia europea tipo FCA o CySEC, así que si buscás un fondo de compensación tipo FSCS, este no es el producto. Nuestra responsabilidad con tus fondos la cumplimos a través de **segregación de cuentas** (tu dinero está en cuentas bancarias separadas de las operativas del broker) y **Negative Balance Protection** en cuentas retail. Eso también está en el client agreement que vas a firmar."
 
 Lo que NO podemos decir:
-- "Somos FCA." → **MENTIRA, GRAVE**, puede costar la licencia.
-- "Somos CySEC." → **MENTIRA, GRAVE.**
-- "Estamos regulados igual que IG / Pepperstone / Interactive Brokers." → **MENTIRA.**
-- "Tu dinero está asegurado por el gobierno." → **MENTIRA.**
-- "Somos regulados en la UE." → **MENTIRA.**
+
+> [!DANGER]
+> Afirmaciones prohibidas. Cualquiera de estas puede costarnos la licencia.
+>
+> - "Somos FCA." → **MENTIRA, GRAVE.**
+> - "Somos CySEC." → **MENTIRA, GRAVE.**
+> - "Estamos regulados igual que IG / Pepperstone / Interactive Brokers." → **MENTIRA.**
+> - "Tu dinero está asegurado por el gobierno." → **MENTIRA.**
+> - "Somos regulados en la UE." → **MENTIRA.**
 
 ## Comparación tabular
 
@@ -139,8 +148,9 @@ Independientemente de la jurisdicción del broker, hay países cuyos ciudadanos 
 
 ### Prohibidos absolutos
 
-- **Estados Unidos** — no tenemos licencia CFTC/NFA. Aceptar clientes US sin licencia US es un delito federal en EEUU. **NUNCA aceptar un cliente con documento, dirección, IP o teléfono US.**
-- **Países bajo sanciones OFAC/UE/UN** — Irán, Corea del Norte, Siria, Rusia (parcial según persona), Cuba (parcial), Myanmar, Sudán, Yemen, Venezuela (personas específicas). Ver documento de compliance [Screening de Sanciones](../compliance/screening-sanciones.md).
+> [!DANGER]
+> - **Estados Unidos** — no tenemos licencia CFTC/NFA. Aceptar clientes US sin licencia US es un delito federal en EEUU. **NUNCA aceptar un cliente con documento, dirección, IP o teléfono US.**
+> - **Países bajo sanciones OFAC/UE/UN** — Irán, Corea del Norte, Siria, Rusia (parcial según persona), Cuba (parcial), Myanmar, Sudán, Yemen, Venezuela (personas específicas). Ver documento de compliance [Screening de Sanciones](../compliance/screening-sanciones.md).
 
 ### Restricciones prácticas
 

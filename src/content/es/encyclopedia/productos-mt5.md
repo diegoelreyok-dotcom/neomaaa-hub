@@ -3,6 +3,13 @@
 > [!INFO]
 > MT5 (MetaTrader 5) es la plataforma donde opera 100% de nuestros clientes. Si no la entendés, no podés hacer soporte, ventas ni retención. Este documento cubre lo que tiene que saber cualquier persona del equipo, sin importar su rol.
 
+<div className="neo-stat-grid">
+<div className="neo-stat" data-value="2,000+" data-label="Instrumentos"></div>
+<div className="neo-stat" data-value="4" data-label="Tipos de cuenta"></div>
+<div className="neo-stat" data-value="1:1000" data-label="Leverage máximo"></div>
+<div className="neo-stat" data-value="24/5" data-label="Mercados activos"></div>
+</div>
+
 ## MT5 vs MT4 — ¿por qué NEOMAAA usa MT5?
 
 MetaTrader 4 salió en 2005. Fue (y sigue siendo) el estándar de facto en forex retail. MetaTrader 5 salió en 2010, pero tardó una década en desplazar a su antecesor. Hoy, brokers nuevos eligen MT5 por razones concretas.
@@ -89,7 +96,9 @@ La frase "con $250 y leverage 1:500 controlás $125,000" es engañosa. Lo correc
 - **Con leverage 1:500:** margen requerido = 115,000 / 500 = **USD 230**.
 - Con USD 230 de margen libre inmovilizado podés abrir ese lote. El "poder de compra" de la posición sigue siendo USD 115,000 (notional) — lo que cambia es lo que inmovilizás de tu cuenta.
 
-Fórmula general: `Margen requerido = Tamaño nocional / Leverage`
+Fórmula general:
+
+<div className="neo-formula">Margen requerido = Tamaño nocional / Leverage</div>
 
 ### Leverage típico por tipo de instrumento
 
@@ -205,10 +214,12 @@ Tras el cierre de NY y antes de Tokio (21:00–00:00 GMT): **valle de liquidez**
 
 ### Cómo funciona (pasos)
 
-1. Un trader abre su cuenta NEOMAAA real y opera en MT5.
-2. Habilita la cuenta como **proveedor de señal** y la publica en [MQL5 Signals](https://www.mql5.com/en/signals). Puede cobrar una **suscripción mensual** (el precio lo pone el proveedor; MetaQuotes se queda con una parte).
-3. Otros clientes NEOMAAA (u otros brokers que usan MT5) se **suscriben** a esa señal desde su propio MT5.
-4. Las órdenes del proveedor se **copian proporcionalmente al balance** de cada suscriptor.
+<div className="neo-step-list">
+<div className="neo-step" data-num="1" data-title="Abrir cuenta real"><div>Un trader abre su cuenta NEOMAAA real y opera en MT5.</div></div>
+<div className="neo-step" data-num="2" data-title="Publicar señal"><div>Habilita la cuenta como <strong>proveedor de señal</strong> y la publica en <a href="https://www.mql5.com/en/signals">MQL5 Signals</a>. Puede cobrar una <strong>suscripción mensual</strong> (el precio lo pone el proveedor; MetaQuotes se queda con una parte).</div></div>
+<div className="neo-step" data-num="3" data-title="Suscripción"><div>Otros clientes NEOMAAA (u otros brokers que usan MT5) se <strong>suscriben</strong> a esa señal desde su propio MT5.</div></div>
+<div className="neo-step" data-num="4" data-title="Copia proporcional"><div>Las órdenes del proveedor se <strong>copian proporcionalmente al balance</strong> de cada suscriptor.</div></div>
+</div>
 
 El proveedor no ve las cuentas de los suscriptores; los suscriptores no ven la estrategia ni el sizing absoluto del proveedor. Todo lo maneja MetaQuotes via su infraestructura MQL5.
 
@@ -227,9 +238,10 @@ Patrón frecuente: un influencer quiere "setupar su cuenta en NEOMAAA y que su a
 
 ### Riesgos del modelo
 
-- Si el proveedor tiene una mala racha, cada suscriptor pierde proporcionalmente.
-- El suscriptor **no controla** la estrategia — solo decide cuánto capital asignar y si desuscribirse.
-- Las comisiones de NEOMAAA se aplican normalmente sobre cada trade copiado (cada follower paga su propio spread/commission en su cuenta).
+> [!WARNING]
+> - Si el proveedor tiene una mala racha, cada suscriptor pierde proporcionalmente.
+> - El suscriptor **no controla** la estrategia — solo decide cuánto capital asignar y si desuscribirse.
+> - Las comisiones de NEOMAAA se aplican normalmente sobre cada trade copiado (cada follower paga su propio spread/commission en su cuenta).
 
 ## Features avanzadas de MT5
 

@@ -3,6 +3,13 @@
 > [!INFO]
 > Este documento no es sobre trading. Es sobre **las personas** que tradean. Entender por qué la mayoría pierde es lo que separa a un agente de soporte que resuelve problemas de un agente que los **evita**. Y lo que separa a un vendedor honesto de uno que se quema clientes después de tres meses.
 
+<div className="neo-stat-grid">
+<div className="neo-stat" data-value="70-80%" data-label="Retail pierde dinero"></div>
+<div className="neo-stat" data-value="2x" data-label="Fuerza de la pérdida vs ganancia"></div>
+<div className="neo-stat" data-value="6-12 mo" data-label="Ciclo emocional típico"></div>
+<div className="neo-stat" data-value="80%" data-label="Clientes masculinos 25-45"></div>
+</div>
+
 ## La estadística incómoda: 70–80% pierde
 
 Los datos de la **ESMA** (regulador europeo), publicados obligatoriamente por brokers regulados, son brutales:
@@ -50,17 +57,15 @@ Creer que "si uso más indicadores / si hablo con el gurú / si tengo el Expert 
 
 Todo trader retail pasa por esta secuencia, sobre todo en sus primeros 6–12 meses:
 
-<div className="neo-timeline">
-
-1. **Euforia inicial** — los primeros trades son ganadores por azar (50/50). Se siente "fácil".
-2. **Confianza** — aumenta tamaño de posición. "Le encontré la vuelta".
-3. **Codicia** — busca apalancamiento más alto, más pares, más operaciones simultáneas.
-4. **Primer drawdown serio** — una racha de pérdidas. No entiende qué pasó.
-5. **Miedo** — duda de cada trade. Cierra ganadoras rápido por miedo a perderlas.
-6. **Desesperación** — la cuenta lleva 40% abajo. Busca la operación "que lo salve".
-7. **Pánico** — revenge trading, aumenta tamaño descontroladamente.
-8. **Capitulación** — pierde todo o casi todo. Se retira o, peor, deposita de nuevo para "recuperar".
-
+<div className="neo-pyramid">
+<div className="neo-pyramid-level">1. Euforia inicial — primeros trades ganadores por azar</div>
+<div className="neo-pyramid-level">2. Confianza — aumenta tamaño. "Le encontré la vuelta"</div>
+<div className="neo-pyramid-level">3. Codicia — leverage alto, más pares, más ops simultáneas</div>
+<div className="neo-pyramid-level">4. Primer drawdown serio — racha de pérdidas</div>
+<div className="neo-pyramid-level">5. Miedo — duda de cada trade, cierra ganadoras rápido</div>
+<div className="neo-pyramid-level">6. Desesperación — cuenta 40% abajo, busca "la salvadora"</div>
+<div className="neo-pyramid-level">7. Pánico — revenge trading, tamaño descontrolado</div>
+<div className="neo-pyramid-level">8. Capitulación — pierde todo o redeposita para recuperar</div>
 </div>
 
 El 80% de los clientes retail están en algún punto de este ciclo cuando hablan con soporte o ventas. Saberlo cambia **todo** cómo los tratás.
@@ -102,13 +107,14 @@ NEOMAAA tiene políticas de **Responsible Trading** para intervenir en estos cas
 
 ### Qué NO prometer
 
-- "Vas a duplicar tu cuenta en un mes."
-- "Con nuestro broker ganan el 90% de los clientes."
-- "Te garantizamos que vas a ser rentable."
-- "El trading es ingreso pasivo."
-- "Es fácil si seguís el plan."
-
-Cualquiera de estas frases, en un mail, WhatsApp o llamada grabada, es **contenido vinculante** que compliance puede obligarnos a honrar y que un regulador puede usar en nuestra contra.
+> [!DANGER]
+> Frases prohibidas. Cualquiera de estas en mail, WhatsApp o llamada grabada es **contenido vinculante** que compliance puede obligarnos a honrar y que un regulador puede usar en nuestra contra.
+>
+> - "Vas a duplicar tu cuenta en un mes."
+> - "Con nuestro broker ganan el 90% de los clientes."
+> - "Te garantizamos que vas a ser rentable."
+> - "El trading es ingreso pasivo."
+> - "Es fácil si seguís el plan."
 
 ### Qué SÍ comunicar
 
@@ -142,15 +148,15 @@ No está enojado con el broker. Está enojado **consigo mismo** por una decisió
 
 ### Frases prohibidas
 
-> [!WARNING]
+> [!DANGER]
 > Estas frases desencadenan conflicto, demandas, o daño psicológico al cliente.
-
-- "Deberías haberlo sabido."
-- "El mercado es el mercado, no es nuestro problema."
-- "Tu estrategia es mala."
-- "Si no te gusta, cerrá la cuenta."
-- "Ese dinero ya está perdido, no hay nada que hacer." (cierta pero cruel)
-- "Es tu culpa por usar tanto leverage."
+>
+> - "Deberías haberlo sabido."
+> - "El mercado es el mercado, no es nuestro problema."
+> - "Tu estrategia es mala."
+> - "Si no te gusta, cerrá la cuenta."
+> - "Ese dinero ya está perdido, no hay nada que hacer." (cierta pero cruel)
+> - "Es tu culpa por usar tanto leverage."
 
 ## Responsabilidad del broker — Responsible Trading
 
