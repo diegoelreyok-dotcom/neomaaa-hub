@@ -959,7 +959,7 @@ Compliance es un rol que **nunca termina de aprenderse**. El que no se actualiza
 
 Sección para que Susana complete con su data. Mantener actualizada.
 
-- **Email oficial:** compliance@neomaaa.com — [COMPLETAR: activo desde fecha]
+- **Email oficial:** compliance@neomaaa.com ✓ activo
 - **Email personal backup (interno):** [COMPLETAR]
 - **Telegram / WhatsApp para emergencias equipo:** [COMPLETAR]
 - **Teléfono oficial declarado a AOFA:** [COMPLETAR]
