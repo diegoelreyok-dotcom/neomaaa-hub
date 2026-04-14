@@ -53,7 +53,15 @@ Neomaaa Ltd esta registrada como International Business Company con numero IBC 1
 
 ### 1.4 En que paises operan?
 
-NEOMAAA Markets acepta clientes de la mayoria de paises del mundo. Los mercados principales son LATAM (Colombia, Mexico, Argentina, Chile, Peru, Ecuador, Republica Dominicana), Middle East, Africa, y SE Asia. No aceptamos clientes de Estados Unidos, Canada, Union Europea, Reino Unido, ni paises bajo sanciones internacionales. Consultar la lista completa de paises restringidos en la documentacion legal del sitio web.
+NEOMAAA Markets acepta clientes de la mayoria de paises del mundo. Los mercados principales son LATAM (Colombia, Mexico, Argentina, Chile, Peru, Ecuador, Republica Dominicana), Middle East, Africa, y SE Asia.
+
+**No aceptamos clientes de:**
+- Restricciones regulatorias: Estados Unidos, Canada, Espacio Economico Europeo (EEA, 30 paises), Reino Unido, Australia, Japon, Israel.
+- Sanciones internacionales: Cuba, Irak, Iran, Corea del Norte, Myanmar, Siria, Sudan, Crimea, Donetsk, Luhansk.
+
+**Paises con restricciones especiales (solo caso por caso con EDD completo y aprobacion de compliance):** Rusia, Venezuela, Nigeria, Pakistan, Turquia, Belarus, Afganistan, y paises en lista gris/negra de GAFI.
+
+[SOLO USO INTERNO] La lista autoritativa y actualizada esta en `compliance/screening-sanciones.md` seccion 12.5. Consultar ahi ante cualquier duda.
 
 ### 1.5 Cual es el horario de operacion del broker?
 
@@ -120,7 +128,7 @@ La mayoria de los depositos se procesan de forma instantanea o en menos de 30 mi
 
 ### 3.4 Cobran comision por depositar?
 
-NEOMAAA Markets no cobra comision por depositos. Sin embargo, el proveedor de pago o banco del cliente puede aplicar sus propias tarifas. [SOLO USO INTERNO] Algunos PSPs nos cobran comision que absorbemos; esto puede cambiar en el futuro si los costos no son sostenibles.
+NEOMAAA Markets no cobra comision por depositos (fee broker $0 en todos los metodos). Sin embargo, el proveedor de pago o banco del cliente puede aplicar sus propias tarifas. [SOLO USO INTERNO] Los PSPs cobran MDR al broker (ver `operations/psps-explicados.md` seccion 4); NEOMAAA absorbe este costo como parte del modelo de negocio. Si a futuro un PSP se vuelve no sostenible, podria trasladarse; comunicar al cliente solo si se aprueba oficialmente.
 
 ### 3.5 En que monedas puedo depositar?
 
@@ -144,11 +152,20 @@ Los retiros se procesan dentro de 1-3 dias habiles dependiendo del metodo de pag
 
 ### 4.3 Hay monto minimo de retiro?
 
-Si. El monto minimo de retiro depende del metodo de pago seleccionado. Generalmente es $10 USD para billeteras electronicas y $50 USD para transferencias bancarias. El portal del cliente muestra el minimo aplicable para cada metodo.
+Si. El monto minimo de retiro depende del metodo de pago seleccionado. Guia aproximada:
+- Crypto (USDT/BTC): $10 USD
+- Billeteras electronicas (Skrill/Neteller): $10 USD
+- Tarjeta (refund): $10 USD (sujeto a minimo del PSP card)
+- Transferencia bancaria (wire/SEPA): $50 USD (los fees correspondent hacen no-economico retirar menos)
+- Metodos locales LATAM (PIX/SPEI/Nequi): segun el metodo, tipicamente $10-20 USD equivalentes
+
+El portal del cliente muestra el minimo aplicable para cada metodo al momento de la solicitud.
 
 ### 4.4 Cobran comision por retirar?
 
-[SOLO USO INTERNO] Depende del metodo y del PSP. Algunos metodos tienen comision del lado del PSP que puede o no trasladarse al cliente. Consultar la tabla de tarifas actualizada en el panel interno. Para el cliente: "NEOMAAA Markets busca minimizar las comisiones de retiro. Las tarifas aplicables se muestran en el portal del cliente al momento de solicitar el retiro."
+**Politica base:** NEOMAAA no cobra comision broker por retiros. El PSP o banco destino puede aplicar fees propios (wire correspondent fees, red crypto, etc.) que se descuentan del monto recibido.
+
+[SOLO USO INTERNO] Si un PSP especifico cobra fee al broker, la politica actual es absorberlo. Consultar tabla de tarifas actualizada en `operations/psps-explicados.md`. Para el cliente: "NEOMAAA no cobra comision de retiro. El banco o procesador del metodo elegido puede aplicar tarifas propias."
 
 ### 4.5 Por que me rechazaron un retiro?
 
@@ -174,7 +191,9 @@ Se requieren dos documentos:
 
 ### 5.3 Cuanto tarda la verificacion KYC?
 
-Con Sumsub, la verificacion automatica puede tardar desde minutos hasta 24 horas. Si se requiere revision manual (documentos borrosos, informacion no coincidente), puede tardar hasta 48 horas habiles. El cliente recibe notificacion por email del resultado.
+Con Sumsub, la verificacion automatica puede tardar desde 1-3 minutos hasta algunas horas. Si se requiere revision manual (documentos borrosos, informacion no coincidente, flags menores), puede tardar hasta 48 horas habiles. Si aplica EDD (Tier 3/4, PEP, deposito grande), puede extenderse hasta 5 dias habiles. El cliente recibe notificacion por email del resultado.
+
+**Regla de comunicacion al cliente:** decir "24-48 horas" como tiempo estimado estandar. No prometer "minutos" aunque la mayoria pasen automaticamente.
 
 ### 5.4 Me rechazaron un documento, que hago?
 
@@ -182,7 +201,12 @@ Las razones comunes de rechazo son: foto borrosa o cortada, documento vencido, i
 
 ### 5.5 Puedo operar sin completar KYC?
 
-Los clientes pueden registrarse y depositar montos limitados sin KYC completo, pero no pueden realizar retiros. Es politica del broker que el KYC se complete lo antes posible. [SOLO USO INTERNO] Los umbrales exactos de deposito sin KYC dependen de la configuracion actual en Skale CRM y las politicas de compliance vigentes. Consultar con Yulia si hay dudas.
+**No.** Segun politica oficial AML/KYC, ningun cliente puede depositar, operar ni retirar sin KYC Tier 1 aprobado (ID + PoA + liveness). Los limites operativos se escalan por tier segun `compliance/proceso-kyc-sumsub.md` seccion 3:
+
+- Tier 1 (hasta $1,000): ID + PoA + selfie
+- Tier 2 ($1,001 - $10,000): + declaracion SoF
+- Tier 3 ($10,001 - $50,000): + documentacion SoF
+- Tier 4 ($50,001+): + SoW + aprobacion Principals
 
 ### 5.6 Que pasa si soy menor de edad?
 

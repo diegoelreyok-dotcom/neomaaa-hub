@@ -15,13 +15,15 @@ NEOMAAA opera tres programas de partnership complementarios, cada uno disenado p
 |---|---|---|---|
 | **Perfil** | Creadores de contenido, bloggers, educadores, sitios de resenas | Media buyers, PPC/SEO, arbitrajistas, redes de afiliados | IBs profesionales con base de clientes existente, oficinas regionales |
 | **Modelo de comision** | Revenue Share puro (lifetime) | Mini-CPA + Revenue Share (lifetime) | Rev Share O Rebate por lote (a elegir) |
-| **Revenue Share** | 25% - 35% | 10% - 20% | 25% - 35% |
+| **Revenue Share** | 25% - 35% | 10% - 20% | 30% - 60% |
 | **CPA** | No | Si (por GEO) | No |
 | **Rebate por lote** | No | No | Si (opcion alternativa) |
-| **Sub-afiliados** | Hasta 3 niveles | 1 nivel | Hasta 3 niveles (diferencial) |
-| **Frecuencia de pago** | Mensual a Semanal | Mensual a Semanal | Semanal a Diario |
+| **Sub-afiliados** | Hasta 3 niveles (interno) | 1 nivel | 2 niveles (70/30 master/sub-IB) |
+| **Frecuencia de pago** | Mensual a Semanal | Mensual a Semanal | Mensual (dia 15) |
 | **Creator Rewards Lab** | Si | Si (con bounties ampliados) | No |
-| **Margen NEOMAAA** | 56% - 66% | 62% - 65% | 63% - 74% |
+| **Margen NEOMAAA** | 56% - 66% | 62% - 65% | 40% - 70% |
+
+> **NOTA DE CONSISTENCIA (Abril 2026):** La estructura de tiers y porcentajes del **IB Program** en este documento fue alineada al [playbook-ib.md](playbook-ib.md) (doc oficial de cara al IB). Los datos historicos internos con tiers "Platinum" fueron reemplazados por "Diamond" con los %s actualizados (30/40/50/60). [DATO: confirmar con Diego/Finance antes de firmar contratos nuevos — el playbook-ib tambien flag este punto pendiente.]
 
 ---
 
@@ -166,14 +168,26 @@ El margen operativo para la empresa oscila entre 62% y 65%.
 - Academias y escuelas de trading
 - Money managers con red de seguidores
 
-### Opcion A: Revenue Share
+### Opcion A: Revenue Share (alineado a playbook-ib.md)
 
-| Tier | Revenue Share | Requisitos Implicitos |
-|---|---|---|
-| **Bronze** | 25% | Entrada |
-| **Silver** | 30% | Crecimiento demostrado |
-| **Gold** | 33% | Volumen alto sostenido |
-| **Platinum** | 35% | Top performer |
+| Tier | Revenue Share | Volumen mensual (USD) | Beneficios extra |
+|---|---|---|---|
+| **Bronze** | 30% | 0 - $50.000 | Acceso estandar a materiales y dashboard |
+| **Silver** | 40% | $50.001 - $250.000 | Partner Manager asignado |
+| **Gold** | 50% | $250.001 - $1.000.000 | Co-branding + marketing co-funding |
+| **Diamond** | 60% + bonos | > $1.000.000 | Evento anual pagado + bonos milestones + override ampliado sub-IBs |
+
+### Boost por mercado prioritario
+
+Cada lead proveniente de los mercados prioritarios (confirmado por KYC address) recibe **+10% sobre el revenue share** del tier vigente:
+
+- Brasil +10%
+- Mexico +10%
+- Espana +10%
+- Argentina +10%
+- Colombia +10%
+
+Ejemplo: Silver (40%) + Brasil = **44%** efectivo sobre ese cliente lifetime.
 
 ### Opcion B: Rebate por Lote
 
@@ -182,7 +196,9 @@ El margen operativo para la empresa oscila entre 62% y 65%.
 | **Bronze** | $2.50 | $4.00 | $4.50 |
 | **Silver** | $3.00 | $5.00 | $5.50 |
 | **Gold** | $3.50 | $6.00 | $7.00 |
-| **Platinum** | $4.50 | $7.00 | $8.00 |
+| **Diamond** | $4.50 | $7.00 | $8.00 |
+
+[DATO: confirmar con Diego/Finance si Opcion B (rebate por lote) sigue vigente o quedo deprecada en favor de Rev Share puro. El playbook-ib no la menciona.]
 
 ### Auto-Rebate a Clientes
 
@@ -193,7 +209,9 @@ A partir de Silver, el IB puede compartir parte de su comision con sus clientes 
 | Bronze | No disponible |
 | Silver | Hasta 50% |
 | Gold | Hasta 50% |
-| Platinum | Hasta 50% |
+| Diamond | Hasta 50% |
+
+> **Advertencia compliance:** "Rebate a clientes" debe implementarse via programa oficial NEOMAAA, NO via pagos informales del IB al cliente. Cashback informal del IB = rebating prohibido (ver playbook-ib.md, causales de terminacion).
 
 ### Swap Share
 
@@ -204,20 +222,22 @@ Comision adicional sobre los swaps generados por los clientes del IB:
 | Bronze | 0% |
 | Silver | 5% |
 | Gold | 10% |
-| Platinum | 15% |
+| Diamond | 15% |
 
 ### Monthly Achievement Milestones
 
-Bonificaciones mensuales por alcanzar metas de rendimiento:
+Bonificaciones mensuales por alcanzar metas de rendimiento (interno, no publicado en playbook-ib):
 
 | Milestone | Bono Mensual |
 |---|---|
 | Bronze | $500 |
 | Silver | $1,500 |
 | Gold | $5,000 |
-| Platinum | $15,000 |
-| Diamond | $40,000 |
+| Diamond | $15,000 |
+| Diamond Elite | $40,000 |
 | Legend | $120,000 |
+
+[DATO: confirmar si los Monthly Milestones se comunican al IB en el onboarding o son bonificaciones discrecionales internas.]
 
 ### 12-Month Super-Bonus
 
@@ -232,24 +252,41 @@ Recompensa acumulativa por rendimiento sostenido durante 12 meses consecutivos:
 
 La consideracion de equity al mes 12 sera evaluada caso por caso por los Principals.
 
-### Estructura de Sub-IBs (Hasta 3 Niveles)
+### Estructura de Sub-IBs (2 Niveles — alineado a playbook-ib.md)
 
-El modelo de sub-IBs funciona con un diferencial: el IB principal recibe la diferencia entre su tasa y la tasa asignada al sub-IB.
+El modelo de sub-IBs funciona con **split 70/30**: el IB master retiene 70% del revenue share total generado por los clientes que trajo el sub-IB; el sub-IB recibe 30%.
 
-**Ejemplo:** Si el IB principal tiene Rev Share de 33% (Gold) y asigna 25% (Bronze) a su sub-IB, el IB principal retiene el diferencial de 8% como override.
+**Ejemplo:** Si un cliente referido por el sub-IB genera $300 de neto broker al mes y el tier aplicable es Silver (40% rev share) → el total a distribuir es $120. De esos $120: **$84 master (70%) / $36 sub-IB (30%)**.
 
-### Calendario de Pagos
+Los pagos se hacen por separado a cada parte el dia 15, sin que el master tenga que redistribuir manualmente.
+
+### Calendario de Pagos (alineado a playbook-ib.md)
 
 | Tier | Frecuencia de Pago |
 |---|---|
-| Bronze | Semanal |
-| Silver | Semanal |
-| Gold | Semanal |
-| Platinum | Diario |
+| Bronze | Mensual (dia 15) |
+| Silver | Mensual (dia 15) |
+| Gold | Mensual (dia 15) |
+| Diamond | Mensual (dia 15) |
+
+- Corte: ultimo dia del mes calendario, 23:59 UTC
+- Calculo: dias 1-10 del mes siguiente
+- Payment day: dia 15 (si cae fin de semana, siguiente habil)
+- Minimo payout: $100 USD (rollea al mes siguiente si no llega)
+- Procesamiento bancario: 1-3 dias habiles post dia 15
+
+[DATO: en la version historica interna habia pagos semanales/diarios para tiers altos. Playbook-ib.md unifico todo a dia 15 mensual. Confirmar con Finance si se abre excepcion para tier Diamond.]
+
+### Metodos de pago disponibles
+
+- USDT (TRC20 / ERC20 / BEP20)
+- Wire (SWIFT)
+- Wise
+- Skrill
 
 ### Margen NEOMAAA
 
-El margen operativo para la empresa oscila entre 63% y 74%.
+El margen operativo para la empresa oscila entre **40% y 70%** segun tier (Diamond con bonos plenos tiene el margen mas bajo; Bronze el mas alto).
 
 ---
 
@@ -267,7 +304,7 @@ NEOMAAA es el unico broker que combina los siguientes elementos en un solo ecosi
 
 | Caracteristica | NEOMAAA | Exness | XM |
 |---|---|---|---|
-| Revenue Share maximo | 35% | Hasta 40% | N/A |
+| Revenue Share maximo IB | 60% + bonos | Hasta 40% | N/A |
 | CPA | Hibrido (Mini-CPA + RS) | No | Hasta $80/lote |
 | Creator Rewards Lab | Si | No | No |
 | Sub-afiliados (niveles) | Hasta 3 | 1 | 1 |
@@ -301,7 +338,7 @@ Funcionalidades clave:
 |---|---|
 | Affiliate Partner | 56% - 66% |
 | Digital Affiliate (Hibrido) | 62% - 65% |
-| IB Program | 63% - 74% |
+| IB Program | 40% - 70% |
 | Hibrido como oferta default | 77% - 83% |
 
 El modelo hibrido es la oferta por defecto porque maximiza el margen (77% - 83%) al combinar un CPA reducido con revenue share de menor porcentaje.

@@ -2,8 +2,11 @@
 
 **Documento interno -- NEOMAAA Markets**
 **Neomaaa Ltd (IBC 15968) | Licencia L15968/N | AOFA**
-**Version: 1.0 | Fecha: 8 de abril 2026**
+**Version: 1.1 | Fecha: 13 de abril 2026**
 **Audiencia: Equipo de Ventas (Edward, Franco, Luis) + Compliance (Susana)**
+
+> [!INFO]
+> **Fuente de verdad:** Para frases prohibidas/aprobadas, disclaimers, tiers de onboarding, umbrales EDD, SAR timing y canal de escalamiento a compliance, la autoridad unica es `compliance/manual-susana.md`. Este documento describe la COLABORACION operativa entre ventas y compliance (scripts, SLAs, red flags, escalamiento) pero no redefine reglas de comunicacion. Ante discrepancia, manual-susana prevalece.
 
 ---
 

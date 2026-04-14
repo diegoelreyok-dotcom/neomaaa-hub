@@ -2,10 +2,13 @@
 
 **Documento interno - CONFIDENCIAL**
 **Licencia Anjouan: L15968/N | Regulador: AOFA**
-**Version: 1.0 | Fecha: 8 de abril 2026**
+**Version: 1.1 | Fecha: 13 de abril 2026**
 
 > [!DANGER]
 > Este documento es de lectura OBLIGATORIA para todo el equipo antes de empezar a operar. Cada uno firma el acuse de recibo al final. Violar estas reglas tiene consecuencias que escalan desde advertencia hasta despido + reporte a AOFA.
+
+> [!INFO]
+> **Fuente de verdad:** Para frases prohibidas/aprobadas, disclaimers, tiers de onboarding, umbrales EDD, SAR timing y canal de escalamiento, la autoridad unica es `compliance/manual-susana.md` ("Manual de Compliance"). Este workflow operativo es complementario -- describe procesos paso a paso, SLAs y permisos, pero no redefine las reglas de comunicacion ni los umbrales. Ante discrepancia entre este doc y manual-susana, manual-susana prevalece.
 
 ---
 
@@ -106,13 +109,16 @@
 
 ### 1.4 Enhanced Due Diligence (EDD) - Cuando Se Activa
 
+> Fuente: `compliance/manual-susana.md` seccion 4. Replicado aqui para facilidad operativa. Si hay discrepancia, prevalece manual-susana.
+
 EDD es obligatorio cuando:
 
 1. El cliente es PEP (Persona Politicamente Expuesta) o familiar/asociado de PEP
-2. Deposito acumulado supera $25,000 USD
-3. Cliente de pais de alto riesgo (no restringido, pero alto riesgo: Venezuela, Nigeria, Pakistan, Bangladesh, etc.)
+2. Deposito acumulado supera **$10,000 USD** (entra en Tier 3, requiere documentacion de respaldo de origen de fondos). Para Tier 4 ($50,000+) aplica EDD reforzado con aprobacion de Principals
+3. Cliente de pais de alto riesgo (no restringido, pero alto riesgo: Venezuela, Nigeria, Pakistan, Afganistan, Yemen, Libia, Somalia, RD Congo, lista gris GAFI)
 4. Actividad sospechosa detectada en monitoreo
 5. Source of funds no es claro o inconsistente
+6. Inconsistencias en documentacion, multiples cuentas detectadas, o fondos desde jurisdiccion diferente a residencia
 
 **Documentos adicionales para EDD:**
 

@@ -5,6 +5,10 @@
 **Responsables de modulos:** Pepe (producto), Susana (compliance), Diego (ventas/CRM)
 **Formato:** 2 horas diarias (10am-12pm), lunes a viernes
 **Evaluacion:** Examen escrito + simulacion de llamada al final de cada semana
+**Ultima actualizacion:** 13 de abril 2026 (v1.1)
+
+> [!INFO]
+> La Semana 3 (Compliance) es un RESUMEN operativo para el equipo de ventas. La fuente de verdad completa es `compliance/manual-susana.md`. Esa es la autoridad para frases prohibidas/aprobadas, disclaimers, tiers, EDD, SAR timing y canal de escalamiento. Todo agent debe leer manual-susana antes del examen de Semana 3.
 
 <div className="neo-stat-grid">
 <div className="neo-stat" data-value="6" data-label="Semanas"></div>
@@ -169,6 +173,12 @@ Diferencias clave:
 | "Pedi plata prestada para invertir" | Induccion a endeudamiento | "Solo opera con dinero que puedas permitirte perder" |
 | "No te preocupes por el KYC, es solo un tramite" | Minimizar compliance | "El KYC protege tu cuenta y tus fondos - es un proceso de seguridad estandar" |
 | Cualquier consejo fiscal | No somos asesores fiscales | "Te recomendamos consultar con un asesor fiscal en tu pais" |
+| "Somos regulados por FCA / CySEC / ASIC" (o cualquier regulador que no tengamos) | AFIRMACION REGULATORIA FALSA -- solo tenemos Anjouan L15968/N | "Operamos bajo Neomaaa Ltd (IBC 15968), licencia L15968/N otorgada por la AOFA" |
+| "Duplica tu dinero" / "Duplica tu cuenta en X dias" | Promesa explicita de rendimiento | "El trading es de alto riesgo. Resultados dependen de tu estrategia" |
+| "[Competidor] es una estafa" / "Somos mejores que [broker X]" | Bashing directo prohibido -- riesgo legal | "Te invito a comparar condiciones punto por punto en vivo" |
+| "Senales que nunca fallan" / "Sistema infalible" / "100% win rate" / "Rentabilidad asegurada" | Promesa de rendimiento disfrazada | "El rendimiento pasado no garantiza futuros. Copy trading tambien conlleva riesgo" |
+| "Te puedo acelerar la verificacion" | Crea expectativa falsa -- compliance no se acelera | "La verificacion toma 24-48h estandar. Te aviso apenas Susana confirme" |
+| "Apalancamiento ilimitado" / "Retiros instantaneos sin comision" / "Deposito minimo $0" | Ofertas falsas | Informar condiciones reales |
 
 ### DÍA 3 — Risk Disclaimers Obligatorios
 *Miercoles*
@@ -233,7 +243,7 @@ Diferencias clave:
 | 6 | "No se nada de trading" | "Tenemos cuenta demo gratuita para que practiques sin riesgo, copy trading para seguir a traders experimentados, y soporte en espanol 24/7 para cualquier duda." |
 | 7 | "Que pasa si pierdo todo?" | "El trading de CFDs tiene riesgo real de perder dinero - eso es importante que lo sepas. NEOMAAA ofrece proteccion de balance negativo, asi que nunca vas a deber mas de lo que depositaste. Y siempre recomendamos usar stop loss y operar con gestion de riesgo." |
 | 8 | "Anjouan? Eso no es un regulador serio" | "La licencia AOFA nos permite operar legalmente y nos obliga a cumplir con KYC/AML, fondos segregados, y reportes regulatorios. Muchos brokers LATAM exitosos operan bajo licencias similares. Lo que importa es como nos comportamos: retiros rapidos, transparencia total, y soporte real." |
-| 9 | "Cuanto voy a ganar?" | "No puedo decirte cuanto vas a ganar porque eso depende de tu estrategia, experiencia y gestion de riesgo. Lo que si puedo garantizarte son las mejores condiciones para operar: spreads bajos, ejecucion rapida, y las herramientas que necesitas." |
+| 9 | "Cuanto voy a ganar?" | "No puedo decirte cuanto vas a ganar porque eso depende de tu estrategia, experiencia y gestion de riesgo. Lo que te puedo ofrecer son condiciones competitivas para operar: spreads bajos, ejecucion ECN/STP, y las herramientas que necesitas. Los resultados son responsabilidad tuya." |
 | 10 | "Dejame pensarlo" | "Claro, tomate tu tiempo. Te dejo mi contacto directo. Mientras tanto, te puedo crear una cuenta demo para que vayas explorando la plataforma sin compromiso. Asi cuando estes listo, ya conoces todo." |
 | 11 | "Vi reviews negativas de brokers similares" | "En la industria hay de todo. Te invito a que veas nuestra plataforma, hagas el deposito minimo, pruebes un retiro, y juzgues por vos mismo. Las acciones hablan mas que las reviews." |
 | 12 | "El leverage es muy alto, es peligroso" | "Tenes razon en ser cauteloso con el leverage. En NEOMAAA podes elegir tu leverage - no es obligatorio usar 1:1000. Muchos traders experimentados usan 1:100 o menos. Te recomendamos empezar conservador." |

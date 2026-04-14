@@ -1,8 +1,11 @@
 # Playbook de Objeciones — NEOMAAA Markets (Broker)
 
 **Documento interno — Equipo de Ventas**
-**Ultima actualizacion: Abril 2026**
+**Ultima actualizacion: 13 de abril 2026 (v1.1)**
 **Clasificacion: Confidencial**
+
+> [!INFO]
+> La lista de frases prohibidas/aprobadas abajo es un SUBSET operativo para ventas. La fuente de verdad completa y vinculante es `compliance/manual-susana.md` seccion 8. Si algo aparece en manual-susana y no aqui, igual esta prohibido/aprobado. Si detectas inconsistencia, reportar a Susana.
 
 ---
 
@@ -508,6 +511,14 @@
 | "Te doy un consejo de inversion" | No somos asesores financieros regulados |
 | "Este trader del Copy Trading siempre gana" | Resultados pasados no garantizan futuros |
 | "El apalancamiento alto es una ventaja" | Puede amplificar perdidas igual que ganancias |
+| "Somos regulados por FCA / CySEC / ASIC / BaFin / CNV / CNMV" (o cualquier regulador tier-1 o nacional que no tengamos) | AFIRMACION REGULATORIA FALSA -- solo tenemos licencia Anjouan L15968/N. Mentir sobre regulacion es delito |
+| "Duplica tu dinero" / "Duplica tu cuenta en X dias" / "Triplica tu capital" | Promesa explicita de rendimiento con cifra |
+| "NEOMAAA es mejor que [competidor]" / "[Competidor] es una estafa" / Bashing directo por nombre | Comparacion denigrante -- genera riesgo legal. Comparar punto por punto es ok, denigrar no |
+| "Senales que nunca fallan" / "Sistema infalible" / "100% win rate" / "Rentabilidad asegurada" | Variantes de promesa de rendimiento |
+| "Pedi plata prestada" / "Usa tu tarjeta de credito para depositar mas" | Induccion a endeudamiento |
+| "Te puedo acelerar la verificacion" / "No te preocupes por el KYC, es solo tramite" | Minimiza compliance o promete acceleracion indebida |
+| "Yo te digo cuando comprar y vender" / "Te doy un consejo de inversion" | Asesoria sin licencia |
+| "Apalancamiento ilimitado" / "Deposito minimo $0" / "Retiros instantaneos sin comision" | Ofertas falsas -- condiciones reales diferentes |
 
 ### Frases que SI puedes usar:
 

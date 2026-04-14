@@ -654,6 +654,72 @@ Con Sumsub, NEOMAAA tiene acceso a una plataforma comparable a las que usan brok
 
 ---
 
+## 12.5 LISTA CONSOLIDADA DE PAISES RESTRINGIDOS (GOLD SOURCE)
+
+Esta lista es la **fuente de verdad operativa** para compliance, ventas y soporte. Es un superset (union) de las listas que aparecen en `compliance/manual-susana.md`, `legal/aml-kyc-policy.md` y `compliance/onboarding.md`. Ante cualquier discrepancia, esta es la lista vinculante.
+
+### 12.5.1 Paises NO aceptados -- Sanciones internacionales
+
+| Pais / region | Motivo |
+|---|---|
+| Cuba | Sanciones OFAC/ONU |
+| Irak | Sanciones ONU/UE |
+| Iran | Sanciones OFAC/ONU/UE completas |
+| Corea del Norte | Sanciones ONU/OFAC completas |
+| Myanmar (Birmania) | Sanciones ONU/UE/OFAC |
+| Siria | Sanciones OFAC/UE |
+| Sudan | Sanciones OFAC/UE |
+| Crimea | Sanciones OFAC/UE (region ocupada) |
+| Donetsk (region) | Sanciones OFAC/UE (region ocupada) |
+| Luhansk (region) | Sanciones OFAC/UE (region ocupada) |
+
+### 12.5.2 Paises NO aceptados -- Restricciones regulatorias
+
+| Pais / region | Motivo |
+|---|---|
+| Estados Unidos (USA) | Requiere registro SEC/CFTC/NFA. Sin licencia US, no se atiende. |
+| Canada | Requiere registro IIROC / provincial (OSC, BCSC, AMF). |
+| Reino Unido (UK) | Requiere licencia FCA. |
+| Espacio Economico Europeo (EEA) -- 30 paises | Requiere licencia MiFID II (CySEC, BaFin, etc.). Ver lista completa abajo. |
+| Australia | Requiere licencia ASIC. |
+| Japon | Requiere licencia FSA Japon. |
+| Israel | Requiere licencia ISA. |
+
+**Lista EEA (30 paises):** Austria, Belgica, Bulgaria, Chipre, Croacia, Dinamarca, Eslovaquia, Eslovenia, Espana, Estonia, Finlandia, Francia, Alemania, Grecia, Hungria, Irlanda, Islandia, Italia, Letonia, Liechtenstein, Lituania, Luxemburgo, Malta, Noruega, Paises Bajos, Polonia, Portugal, Republica Checa, Rumania, Suecia.
+
+### 12.5.3 Paises con restricciones especiales (se acepta caso por caso, SIEMPRE con EDD)
+
+Estos paises NO estan prohibidos, pero TODO cliente de estas jurisdicciones requiere EDD completo antes de aprobar cuenta. La decision final es de Susana; Principals deciden casos borderline.
+
+- Venezuela (alta corrupcion, screening reforzado)
+- Nigeria (GAFI, alta fraude/scam)
+- Pakistan (GAFI gris historicamente)
+- Bangladesh
+- Turquia (GAFI gris, screening reforzado)
+- Rusia (situacion geopolitica cambiante; caso por caso con aprobacion Principals y screening exhaustivo; [VERIFICAR CON ABOGADO] trimestralmente)
+- Belarus (caso por caso; [VERIFICAR CON ABOGADO])
+- Afganistan (evaluar si debe escalar a restringido; [VERIFICAR CON ABOGADO])
+- Yemen
+- Libia
+- Somalia
+- Republica Democratica del Congo
+- Cualquier pais en lista gris o negra de GAFI (FATF) vigente (actualizar trimestralmente)
+
+### 12.5.4 Criterio de rechazo
+
+Un pais entra en la lista restringida si aparece como restringido en **cualquiera** de los siguientes:
+- Sanciones OFAC/ONU/UE/UK vigentes.
+- Jurisdicciones reguladas Tier 1 donde NEOMAAA no tiene licencia (USA, Canada, EEA, UK, Australia, Japon, Israel).
+- Lista negra GAFI.
+
+### 12.5.5 Excepciones y casos especiales
+
+- **Doble nacionalidad:** Evaluar residencia ACTUAL. Si reside en pais NO restringido y puede probarlo con PoA valido, puede proceder. Documentar.
+- **IP de pais restringido con documentos de pais permitido:** Investigar. Solicitar prueba de residencia actual. VPN no es razon suficiente para bloquear si la documentacion es valida.
+- **Cliente con nacionalidad restringida pero residencia permitida:** Si tiene PoA de pais no restringido (contrato alquiler, factura servicios, cedula de residencia) de al menos 6 meses de antiguedad, puede proceder con EDD.
+
+---
+
 ## 13. CHECKLIST DE SCREENING DE SANCIONES
 
 ### 13.1 Para Cada Nuevo Cliente

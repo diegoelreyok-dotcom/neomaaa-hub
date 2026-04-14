@@ -2,9 +2,12 @@
 
 **Documento interno -- CONFIDENCIAL**
 **Neomaaa Ltd (IBC 15968) | Licencia L15968/N | AOFA**
-**Version: 1.0 | Fecha: 8 de abril 2026**
+**Version: 1.1 | Fecha: 13 de abril 2026**
 **Responsable: Susana (Compliance Officer)**
 **Aprobado por: Principals**
+
+> [!INFO]
+> Este documento es un benchmark de industria (Exness, IC Markets, Pepperstone) y plan de implementacion. NO redefine reglas operativas de NEOMAAA. Para reglas vinculantes (frases prohibidas, tiers, EDD, SAR, escalamiento) ver `compliance/manual-susana.md` (gold source).
 
 ---
 

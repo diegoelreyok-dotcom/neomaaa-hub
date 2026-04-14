@@ -89,7 +89,7 @@ Capital más bajo (USD 50k–500k), leverage alto (1:500–1:1000), bonos permit
 
 | Regulador | País |
 |-----------|------|
-| AOFA | Anjouan (Comoras) — **NEOMAAA** |
+| AOFA | Anjouan, Unión de las Comoras — **NEOMAAA Markets** |
 | FSC | Mauricio |
 | Labuan FSA | Malasia Labuan |
 | St. Lucia FSRA | Santa Lucía |

@@ -418,14 +418,16 @@ No es solo tener multiples PSPs — es usarlos inteligentemente:
 
 ## 8. NEOMAAA stack actual
 
-NEOMAAA esta en pre-lanzamiento. El stack objetivo para go-live es un minimo de 3 PSPs en produccion.
+NEOMAAA esta en pre-lanzamiento. El stack objetivo para go-live es un minimo de **3 PSPs activos en produccion** (card + LATAM local + cripto), mas el wire bancario directo.
 
 | Categoria | PSP planeado | Estado |
 |---|---|---|
-| Card (Visa/Mastercard) | [DATO: confirmar con Diego/Angel — Praxis, Checkout o similar] | [DATO: pendiente] |
-| LATAM local (Brasil/Mexico) | PagSmile (o EBANX/DLocal como backup) | [DATO: pendiente confirmacion] |
-| Cripto | B2BinPay o CoinsPaid | [DATO: pendiente] |
-| Wire bancario | Banking partner directo | [DATO: pendiente nombre del banco] |
+| Card (Visa/Mastercard) | [DATO: PSP card a confirmar con Diego/Angel — candidatos: Praxis Cashier, Checkout.com] | [DATO: pendiente] |
+| LATAM local (Brasil PIX/Boleto + Mexico SPEI/OXXO) | [DATO: PSP LATAM a confirmar — candidatos: PagSmile, EBANX, DLocal] | [DATO: pendiente] |
+| Cripto (USDT/BTC) | [DATO: PSP crypto a confirmar — candidatos: B2BinPay, CoinsPaid] | [DATO: pendiente] |
+| Wire bancario | [DATO: banking partner a confirmar] | [DATO: pendiente] |
+
+> **Regla de consistencia:** Hasta que los PSPs esten confirmados, cualquier referencia a PSP especifico en documentos internos debe usar el formato `[DATO: PSP <categoria> — pendiente confirmacion]`. No inventar PSPs. No asumir que Stripe, PayPal o similares son opciones (no operan con brokers forex).
 
 **Futuro (post go-live):**
 - Skrill/Neteller (e-wallets — alta demanda en forex)

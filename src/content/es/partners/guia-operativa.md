@@ -47,7 +47,7 @@ El candidato a partner completa el formulario de aplicacion que incluye:
 | Digital Affiliate (cualquier tier) | Edward / equipo | 48 horas desde aplicacion completa |
 | IB Bronze / Silver | Edward / equipo | 48 horas desde aplicacion completa |
 | IB Gold | Principals | 72 horas desde aplicacion completa |
-| IB Platinum | Principals | 72 horas desde aplicacion completa |
+| IB Diamond | Principals | 72 horas desde aplicacion completa |
 | Cualquier partner con mas de 200 clientes existentes | Principals | 72 horas |
 
 **Regla:** Toda aprobacion IB Gold+ requiere videollamada previa con al menos un Principal.
@@ -101,7 +101,7 @@ Una vez aprobado, el equipo configura la cuenta del partner en Cellxpert:
 | Tarea | Responsable | Frecuencia |
 |---|---|---|
 | Generar reporte de comisiones pendientes | Equipo de operaciones | Lunes |
-| Procesar pagos semanales (Silver+, IB) | Finanzas | Martes |
+| Procesar pagos mensuales IB (dia 15) | Finanzas | Dia 15 cada mes |
 | Revisar metricas de conversion por partner | Equipo de operaciones | Miercoles |
 | Verificar que los sub-afiliados estan correctamente atribuidos | Equipo de operaciones | Viernes |
 

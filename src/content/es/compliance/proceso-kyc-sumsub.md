@@ -113,7 +113,7 @@ SI RECHAZADO -> BLOQUEADO HASTA RESOLUCION
 **Paso 5: Resultado**
 - Sumsub emite un resultado y envia webhook a Skale.
 - Tiempo promedio de procesamiento automatico: 30 segundos a 3 minutos.
-- Si requiere revision manual: hasta 24 horas (SLA interno).
+- Si requiere revision manual: hasta 48 horas habiles (SLA interno conservador). EDD puede agregar hasta 72 horas adicionales.
 
 **Paso 6: Accion en Skale CRM**
 - Skale actualiza el estado del cliente segun el webhook recibido.
@@ -127,8 +127,9 @@ SI RECHAZADO -> BLOQUEADO HASTA RESOLUCION
 | Pendiente KYC | Registro completado, KYC no iniciado | No | No |
 | KYC en Proceso | Documentos enviados, Sumsub procesando | No | No |
 | KYC Aprobado - Tier 1 | Verificacion basica completada | Si (hasta $1,000) | Si |
-| KYC Aprobado - Tier 2 | PoA verificada | Si (hasta $15,000) | Si |
-| KYC Aprobado - Tier 3 | SoF/SoW verificado | Si (sin limite) | Si |
+| KYC Aprobado - Tier 2 | PoA verificada + SoF declarado | Si (hasta $10,000) | Si |
+| KYC Aprobado - Tier 3 | SoF documentado | Si (hasta $50,000) | Si |
+| KYC Aprobado - Tier 4 | SoW + entrevista, aprobado por Principals | Si (sin limite) | Si |
 | KYC Retry | Documentos rechazados, puede reintentar | No | No |
 | KYC Rechazado | Rechazo final | No | No |
 | Bloqueado - Sanciones | Match de sanciones confirmado | No | No |
@@ -138,11 +139,14 @@ SI RECHAZADO -> BLOQUEADO HASTA RESOLUCION
 
 ## 3. TIERS DE VERIFICACION POR NIVEL DE DEPOSITO
 
+> **Nota de consistencia:** Los tiers aqui descritos son la referencia operativa. Coinciden con `compliance/manual-susana.md` y `compliance/workflow.md`. La version publica en `legal/aml-kyc-policy.md` esta pendiente de alineacion por el equipo legal (ver AUDIT4).
+
 ### 3.1 Tier 1 -- Verificacion Basica (depositos hasta $1,000)
 
 **Documentos requeridos:**
 - Documento de identidad valido (pasaporte, DNI, licencia de conducir).
 - Liveness check (selfie en video).
+- Prueba de domicilio (PoA) -- exigida desde el onboarding inicial por politica AML.
 
 **Verificaciones que ejecuta Sumsub:**
 - OCR y extraccion de datos del documento.
@@ -154,31 +158,27 @@ SI RECHAZADO -> BLOQUEADO HASTA RESOLUCION
 - Verificacion de edad (18+).
 - Verificacion de pais de emision vs pais declarado.
 
-**Resultado esperado:** Aprobacion automatica en 1-3 minutos para la mayoria de los casos.
+**Resultado esperado:** Aprobacion automatica en 1-3 minutos para la mayoria de los casos. Si requiere revision manual, SLA hasta 48 horas habiles.
 
 **Limite operativo:** El cliente puede depositar y operar hasta un total acumulado de $1,000 USD.
 
-### 3.2 Tier 2 -- Verificacion Intermedia (depositos hasta $15,000)
+### 3.2 Tier 2 -- Verificacion Intermedia (depositos $1,001 - $10,000)
 
 **Se activa cuando:** El cliente quiere depositar mas de $1,000 acumulados, o el sistema detecta que se acerca al limite del Tier 1.
 
 **Documentos adicionales requeridos:**
-- Prueba de domicilio (Proof of Address - PoA):
-  - Factura de servicios publicos (agua, luz, gas, internet) -- no mayor a 3 meses.
-  - Estado de cuenta bancario -- no mayor a 3 meses.
-  - Documento fiscal o gubernamental con domicilio.
-  - Carta de un banco confirmando domicilio.
+- Declaracion de origen de fondos (formulario interno firmado).
+- PoA actualizada si la del Tier 1 tiene mas de 6 meses.
 
 **Verificaciones adicionales:**
-- Cruce de nombre en PoA vs nombre en documento de identidad.
-- Verificacion de que la direccion coincide con el pais declarado.
-- Verificacion de que el documento de PoA no esta manipulado.
+- Revision manual de Susana sobre la declaracion de SoF.
+- Coherencia entre perfil declarado (profesion, ingresos) y monto de deposito.
 
-**Resultado esperado:** Aprobacion en 5-15 minutos (automatico) o hasta 24 horas si requiere revision manual.
+**Resultado esperado:** Aprobacion en 24-48 horas habiles tras recepcion de la declaracion.
 
-### 3.3 Tier 3 -- Verificacion Completa (depositos superiores a $15,000)
+### 3.3 Tier 3 -- Verificacion Completa (depositos $10,001 - $50,000)
 
-**Se activa cuando:** El cliente quiere depositar mas de $15,000 acumulados, o se detecta actividad inusual, o el cliente es PEP.
+**Se activa cuando:** El cliente quiere depositar mas de $10,000 acumulados, o se detecta actividad inusual, o el cliente es PEP.
 
 **Documentos adicionales requeridos:**
 - Source of Funds (SoF) -- Origen de los fondos especificos:
@@ -197,21 +197,38 @@ SI RECHAZADO -> BLOQUEADO HASTA RESOLUCION
 - Se evalua coherencia entre ingresos declarados, patrimonio y volumen de deposito.
 - Se documenta la evaluacion en el Registro de Compliance.
 
-**Resultado esperado:** Aprobacion en 1-5 dias habiles. Susana revisa cada caso individualmente.
+**Resultado esperado:** Aprobacion en 2-5 dias habiles. Susana revisa cada caso individualmente. EDD completo puede agregar hasta 72 horas adicionales si se solicita documentacion complementaria.
 
-### 3.4 Tabla Resumen de Tiers
+### 3.4 Tier 4 -- Institucional (depositos superiores a $50,000)
 
-| Aspecto | Tier 1 | Tier 2 | Tier 3 |
-|---|---|---|---|
-| Deposito maximo acumulado | $1,000 | $15,000 | Sin limite |
-| Documento de identidad | Si | Si | Si |
-| Liveness check | Si | Si | Si |
-| Prueba de domicilio | No | Si | Si |
-| Source of Funds | No | No | Si |
-| Source of Wealth | No | No | Si |
-| Revision automatica | Si | Parcial | No (manual) |
-| Tiempo de aprobacion | 1-3 min | 5 min - 24 hrs | 1-5 dias |
-| Revision por Susana | Solo excepciones | Si (si Sumsub flaggea) | Siempre |
+**Se activa cuando:** El cliente declara o deposita mas de $50,000 acumulados, o es una cuenta corporativa / family office / fund manager.
+
+**Documentos adicionales requeridos (sobre Tier 3):**
+- Source of Wealth (SoW) documentado: declaracion patrimonial, herencia, venta de propiedad, ganancias empresariales.
+- Documentacion corporativa completa (si aplica): incorporacion, UBO, estructura societaria.
+- Entrevista telefonica o por video con Susana.
+
+**Verificaciones adicionales:**
+- Aprobacion obligatoria de Principals (no solo Susana).
+- Monitoreo reforzado trimestral desde apertura.
+
+**Resultado esperado:** Aprobacion en 5-10 dias habiles.
+
+### 3.5 Tabla Resumen de Tiers
+
+| Aspecto | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
+|---|---|---|---|---|
+| Deposito acumulado | $0 - $1,000 | $1,001 - $10,000 | $10,001 - $50,000 | $50,001+ |
+| Documento de identidad | Si | Si | Si | Si |
+| Liveness check | Si | Si | Si | Si |
+| Prueba de domicilio | Si | Si (refresh) | Si (refresh) | Si (refresh) |
+| Declaracion SoF | No | Si (formulario) | Si | Si |
+| Documentacion SoF | No | No | Si (obligatoria) | Si |
+| Source of Wealth | No | No | No | Si |
+| Entrevista | No | No | No | Si |
+| Revision automatica | Si | Parcial | No (manual) | No (manual + Principals) |
+| Tiempo de aprobacion | 1-3 min (auto) / hasta 48h manual | 24-48 h habiles | 2-5 dias habiles | 5-10 dias habiles |
+| Revision por Susana | Solo excepciones | Siempre | Siempre | Siempre + Principals |
 
 ---
 

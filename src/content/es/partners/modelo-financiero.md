@@ -62,27 +62,29 @@ Costos operativos incluyen: plataforma Cellxpert, soporte al partner, content bo
 | Growth | 20% | 77% | 65% |
 | Pro | 15% | 72% | 63% |
 
-### Programa 3: IB Program
+### Programa 3: IB Program (alineado a playbook-ib.md)
 
-**Opcion A (Rev Share):**
+**Opcion A (Rev Share) — tiers Bronze/Silver/Gold/Diamond:**
 
-| Tier | Rev Share | Margen NEOMAAA |
-|---|---|---|
-| Bronze | 25% | 66% |
-| Silver | 30% + 5% swap | 57% |
-| Gold | 33% + 10% swap | 49% |
-| Platinum | 35% + 15% swap + bonos | 37% |
+| Tier | Rev Share base | Rev Share efectivo (con +10% boost mercado prioritario) | Margen NEOMAAA base | Margen con boost |
+|---|---|---|---|---|
+| Bronze | 30% | 40% (BR/MX/ES/AR/CO) | 61% | 51% |
+| Silver | 40% + 5% swap | 50% + swap | 50% | 40% |
+| Gold | 50% + 10% swap | 60% + swap | 39% | 29% |
+| Diamond | 60% + 15% swap + bonos | 70% + swap + bonos | 27% | 17% |
 
-**Opcion B (Rebate por lote, Forex):**
+**Opcion B (Rebate por lote, Forex) — legacy, a confirmar vigencia:**
 
 | Tier | Rebate/Lote | Costo por 10 lotes/mes | Margen NEOMAAA |
 |---|---|---|---|
 | Bronze | $2.50 | $25 | 74% |
 | Silver | $3.00 | $30 | 70% |
 | Gold | $3.50 | $35 | 66% |
-| Platinum | $4.50 | $45 | 55% |
+| Diamond | $4.50 | $45 | 55% |
 
-Nota: El margen del IB Program baja significativamente en tiers altos cuando se suman swap share, monthly milestones y super-bonus. Monitorear de cerca.
+> **CRITICO:** El margen del IB Program con los %s alineados al playbook-ib cae sustancialmente en tiers altos. Diamond con boost + bonos + swap share puede llegar a margen **<20%**, lo cual es INSOSTENIBLE a escala sin volumen compensatorio. [DECISION DIEGO: revisar tiers definitivos antes del lanzamiento de contratos — o se baja el rev share del playbook, o se ajusta la estructura de bonos/boost.]
+
+Nota: Los numeros previos del modelo interno (25/30/33/35) representaban una version anterior mas conservadora. El playbook-ib publicado al IB promete 30/40/50/60 + boost 10% + bonos. Hay gap entre la oferta externa y la sostenibilidad interna.
 
 ---
 
@@ -133,7 +135,7 @@ El payback rapido es posible porque el Mini-CPA esta calibrado para ser menor al
 | LTV ajustado | $500 - $700 (vs $1,000 - $1,400) |
 | Payback Mini-CPA Brasil | 1 mes (sin cambio en mes 1) |
 | Margen Affiliate Partner (Partner tier) | 58% (vs 66%) |
-| Margen IB Bronze (Rev Share) | 60% (vs 66%) |
+| Margen IB Bronze (Rev Share, 30%) | 55% (vs 61%) |
 
 **Accion requerida:** Si la retencion cae por debajo de 4 meses, activar programa de retencion agresivo (bonos de deposito, senales de trading, eventos exclusivos). Revisar la estructura de bounties del Creator Rewards Lab.
 
@@ -208,7 +210,7 @@ El programa Affiliate no tiene costo fijo significativo; es 100% variable (reven
 | Bronze ($500 milestone) | ~7 clientes activos | $750 |
 | Silver ($1,500 milestone) | ~20 clientes activos | $2,100 |
 | Gold ($5,000 milestone) | ~65 clientes activos | $7,500 |
-| Platinum ($15,000 milestone) | ~190 clientes activos | $22,000 |
+| Diamond ($15,000 milestone) | ~190 clientes activos | $22,000 |
 
 Nota: Los Monthly Milestones son bonos adicionales al revenue share/rebate. El IB debe generar suficiente ingreso para que NEOMAAA cubra tanto la comision base como el milestone.
 

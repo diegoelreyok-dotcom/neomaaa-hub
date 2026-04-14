@@ -5,7 +5,7 @@
 <div class="neo-stat-grid">
 <div class="neo-stat" data-value="40,000+" data-label="Registrados Funded"></div>
 <div class="neo-stat" data-value="~250" data-label="Pre-registrados Markets"></div>
-<div class="neo-stat" data-value="18" data-label="Team members"></div>
+<div class="neo-stat" data-value="16" data-label="Team members"></div>
 <div class="neo-stat" data-value="6 sem" data-label="Al go-live"></div>
 </div>
 
@@ -171,8 +171,8 @@
 
 | Campo | Valor |
 |-------|-------|
-| **Entidad** | Neomaaa Ltd (IBC 15968) |
-| **Licencia** | L15968/N — Anjouan Offshore Finance Authority (vigente hasta Feb 2027) |
+| **Entidad** | Neomaaa Ltd (IBC 15968) — marca comercial: NEOMAAA Markets |
+| **Licencia** | L15968/N — Anjouan Offshore Finance Authority (AOFA), Anjouan, Unión de las Comoras |
 | **Plataforma** | MetaTrader 5 (MT5) — ejecución ECN/STP híbrida |
 | **Instrumentos** | 2,000+ (forex, crypto, metales, stocks, índices, ETFs, futuros, energía) |
 | **Cuentas** | Cent ($5) · Standard ($50) · Raw ($500) · Institutional ($50K) |

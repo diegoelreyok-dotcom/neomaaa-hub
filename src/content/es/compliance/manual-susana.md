@@ -2,9 +2,20 @@
 
 **Documento interno -- CONFIDENCIAL**
 **Neomaaa Ltd (IBC 15968) | Licencia L15968/N | AOFA**
-**Version: 1.0 | Fecha: 8 de abril 2026**
+**Version: 1.1 | Fecha: 13 de abril 2026**
 **Responsable: Susana (Compliance Officer)**
 **Aprobado por: Principals**
+
+> **GOLD SOURCE -- FUENTE DE VERDAD UNICA PARA COMPLIANCE OPERATIVO**
+>
+> Este documento es la fuente autoritativa para:
+> - Lista de frases PROHIBIDAS en comunicacion con clientes (seccion 8.2)
+> - Lista de frases APROBADAS y disclaimers obligatorios (secciones 8.2 columna derecha y 8.3)
+> - Tiers de onboarding por deposito y umbrales EDD (secciones 3 y 4)
+> - Umbrales SAR y timing de presentacion (seccion 9)
+> - Canal unico de escalamiento a compliance (Anexo B.2)
+>
+> Cualquier inconsistencia con otros documentos (workflow.md, workflow-sales-compliance.md, training.md, objections-broker.md, support/playbook.md, partners/playbook-ib.md, marketing/copy-broker.md, legal/aml-kyc-policy.md, proceso-kyc-sumsub.md) se resuelve a favor de este manual. Los demas docs deben referenciar este, no duplicar.
 
 ---
 
@@ -463,6 +474,14 @@ Todo el equipo de NEOMAAA (ventas, soporte, marketing) tiene PROHIBIDO hacer pro
 | 18 | "Con nosotros no hay spreads ocultos" (si no es verificable) | Afirmacion que debe ser 100% demostrable | "Nuestros spreads son transparentes y visibles en la plataforma MT5 en tiempo real." |
 | 19 | "Vamos a duplicar tu deposito" (refiriendose a bonos) | Puede interpretarse como promesa de ganancia | "Tenemos una promocion de bonificacion de X% sobre su deposito, sujeta a terminos y condiciones." |
 | 20 | "No necesitas experiencia para ganar en forex" | Minimiza complejidad, induce a operar sin preparacion | "Recomendamos que los traders nuevos utilicen nuestra cuenta demo para familiarizarse con la plataforma antes de operar con fondos reales." |
+| 21 | "Somos regulados por FCA / CySEC / ASIC / BaFin / BCRA / CNV / CNMV" (o cualquier regulador tier-1 o nacional que NEOMAAA no posee) | AFIRMACION REGULATORIA FALSA -- la unica licencia de NEOMAAA es L15968/N de AOFA (Anjouan). Mentir sobre regulacion es delito en casi todas las jurisdicciones | "NEOMAAA Markets opera bajo Neomaaa Ltd (IBC 15968), licencia L15968/N otorgada por la Anjouan Offshore Finance Authority (AOFA)." |
+| 22 | "Duplica tu dinero" / "Duplica tu cuenta en X dias" / "Triplica tu capital" | Promesa explicita de rendimiento con cifra especifica | "El trading es de alto riesgo. Los resultados dependen de tu estrategia, experiencia y condiciones de mercado." |
+| 23 | "NEOMAAA es mejor que [competidor]" / "[Competidor] es una estafa, venite a NEOMAAA" / Bashing por nombre de otros brokers | Comparacion directa denigrando a competidor -- ilegal en la mayoria de jurisdicciones y genera riesgo legal | "Te invito a comparar condiciones punto por punto en vivo: nuestra cuenta Raw ofrece spreads desde 0.0 pips, $3/lote/lado, y 120+ metodos de deposito." |
+| 24 | "Rentabilidad asegurada" / "Senales que nunca fallan" / "Sistema infalible" / "100% win rate" | Variantes de promesa de rendimiento | "El rendimiento pasado no garantiza resultados futuros. El trading conlleva riesgo de perdida." |
+| 25 | "Apalancamiento ilimitado" / "Deposito minimo $0" / "Retiros instantaneos sin comision" (cuando hay fee o minimo real) | Oferta falsa -- condiciones reales diferentes a lo publicitado | Informar condiciones reales: "apalancamiento hasta 1:1000", "deposito minimo Cent $5 / Standard $50 / Raw $500", "tiempos y comisiones varian segun metodo" |
+| 26 | "Pedi plata prestada para invertir" / "Usa tu tarjeta de credito para depositar mas" | Induccion a endeudamiento para operar | "Solo opera con capital que puedas permitirte perder sin afectar tu economia personal." |
+| 27 | "No te preocupes por el KYC, es solo tramite" / "Te puedo acelerar la verificacion" | Minimiza compliance y/o crea expectativa falsa | "El KYC es un requisito regulatorio obligatorio. El proceso estandar toma 24-48h y protege tus fondos." |
+| 28 | "Te doy un consejo de inversion" / "Compra/vende [X] ahora" / "Yo te digo cuando entrar y salir" | Asesoria de inversion sin licencia | "NEOMAAA no proporciona recomendaciones de inversion. Las decisiones de trading son responsabilidad exclusiva del cliente." |
 
 ### 8.3 Disclaimers Obligatorios
 
@@ -476,6 +495,18 @@ Los siguientes disclaimers DEBEN aparecer en toda comunicacion con clientes:
 
 **Disclaimer de apalancamiento (cuando se mencione apalancamiento):**
 > "El apalancamiento amplifica tanto las ganancias potenciales como las perdidas potenciales. Un apalancamiento de 1:1000 significa que un movimiento del 0.1% en contra de su posicion puede resultar en la perdida total de su margen. Asegurese de comprender completamente como funciona el apalancamiento antes de operar."
+
+### 8.3.bis A-Book / B-Book -- Que Se Puede Decir Publicamente
+
+La politica interna A-Book/B-Book (`compliance/ab-book-policy.md`) es CONFIDENCIAL y de uso exclusivo del Dealing Desk + Principals. El equipo de ventas NO tiene acceso y NO sabe si un cliente especifico es A-Book o B-Book.
+
+| Pregunta del cliente | Respuesta aprobada (publica) | Respuesta PROHIBIDA |
+|---|---|---|
+| "Son A-Book o B-Book?" | "NEOMAAA opera un modelo hibrido ECN/STP. Las ordenes se enrutan a proveedores de liquidez segun reglas de ejecucion. Puedes auditar ejecucion, slippage y tiempos en MT5." | Confirmar que un cliente es A-Book o B-Book. Revelar criterios de enrutamiento, umbrales, o ratios. |
+| "Ustedes operan contra mi?" | "Nuestro modelo ECN/STP hibrido busca alinear intereses con el cliente. La ejecucion es auditable en MT5." | Confirmar o negar internalizacion especifica. |
+| "Me quiero asegurar que no me cierren posiciones a proposito" | "Las ordenes se procesan bajo nuestra politica de ejecucion publicada (`legal/order-execution-policy.md`). Puedes revisar cualquier operacion especifica con soporte." | Detalles operativos del dealing desk. |
+
+Si el cliente insiste o hace preguntas tecnicas especificas, escalar a Pepe (Head of Dealing). NUNCA inventar ni confirmar nada sobre el modelo interno.
 
 ### 8.4 Canales Donde Aplican las Reglas
 
@@ -499,15 +530,18 @@ Estas reglas aplican a TODA comunicacion, sin excepcion:
 
 Un SAR se presenta cuando Susana tiene sospecha razonable de que:
 
-| Situacion | Nivel de Urgencia |
-|---|---|
-| Los fondos provienen de actividad criminal | Alta |
-| El cliente intenta lavar dinero (structuring, layering, integration) | Alta |
-| Hay indicios de financiamiento del terrorismo | Critica (inmediato) |
-| El cliente proporciona documentacion falsa o alterada | Alta |
-| El cliente se niega a proporcionar informacion requerida y luego desaparece | Media |
-| Transacciones sin logica economica aparente (deposita y retira sin operar) | Media |
-| Coincidencia con lista de sanciones post-onboarding | Critica (inmediato) |
+| Situacion | Nivel de Urgencia | Timing OBLIGATORIO de presentacion a AOFA/FIU |
+|---|---|---|
+| Indicios de financiamiento del terrorismo | CRITICA | Mismo dia (inmediato) |
+| Coincidencia con lista de sanciones post-onboarding | CRITICA | Mismo dia (inmediato) |
+| Actividad criminal comprobada (narcotrafico, trafico humano, armas) | CRITICA | Mismo dia (inmediato) |
+| Los fondos provienen de actividad criminal sospechada | Alta | 24 horas desde confirmacion interna |
+| Cliente intenta lavar dinero (structuring, layering, integration) | Alta | 24 horas desde confirmacion interna |
+| Documentacion falsa o alterada | Alta | 24 horas desde confirmacion interna |
+| Cliente se niega a proporcionar info y desaparece | Media | 48 horas desde confirmacion interna |
+| Transacciones sin logica economica (deposita y retira sin operar) | Media | 48 horas desde confirmacion interna |
+
+**Regla global (standard de industria):** Presentar SAR dentro de 24-48 horas de la DECISION interna de que procede reportar. Para criticos (terrorismo/sanciones/criminal confirmado) es MISMO DIA. Los timings mas largos que aparezcan en otros docs (ej: "48 horas" generico) estan superados por esta tabla.
 
 ### 9.2 Proceso de Presentacion de SAR
 
@@ -815,15 +849,32 @@ Este registro se conserva por 5 anos y se presenta a AOFA en caso de auditoria.
 
 ---
 
-## ANEXO B: CONTACTOS IMPORTANTES
+## ANEXO B: CONTACTOS IMPORTANTES Y CANAL DE ESCALAMIENTO
 
-| Rol | Nombre | Canal | Horario |
-|---|---|---|---|
-| Compliance Officer | Susana | [Definir: Slack/WhatsApp/email] | Horario laboral |
-| Principals | [Nombres] | [Definir canal] | Disponibles 24/7 para emergencias |
-| Sumsub Soporte | N/A | Portal de Sumsub + email de soporte | 24/7 |
-| AOFA | N/A | [Canal oficial de AOFA] | Horario oficial |
-| Asesor Legal Externo | [Pendiente de contratar?] | [Definir] | Segun contrato |
+### B.1 Tabla de Contactos
+
+| Rol | Nombre | Canal primario | Canal urgencias | Horario |
+|---|---|---|---|---|
+| Compliance Officer | Susana | Slack `#compliance-sales` + email `compliance@neomaaa.com` | WhatsApp grupo `Compliance Urgente` + llamada directa | Lun-Vie 9:00-18:00 hora local |
+| Principals | Diego + Yulia + Stanislav | Slack `#compliance-urgente` | Llamada directa | 24/7 para emergencias |
+| Sumsub Soporte | N/A | Portal de Sumsub + email de soporte | Portal | 24/7 |
+| AOFA | N/A | [Canal oficial de AOFA] | N/A | Horario oficial |
+| Asesor Legal Externo | [Pendiente de contratar] | [Definir] | [Definir] | Segun contrato |
+
+### B.2 Canal Unico de Escalamiento (aplica a Ventas, Soporte, Finance)
+
+Este es el canal oficial y unico. Cualquier otro doc (workflow.md, workflow-sales-compliance.md, support/playbook, training) debe referenciar esta seccion -- no definir canales alternativos.
+
+| Urgencia | Canal | SLA de respuesta de Susana |
+|---|---|---|
+| CRITICA (fraude en curso, amenaza legal, match sanciones confirmado, mencion terrorismo/criminal) | WhatsApp grupo `Compliance Urgente` + llamada + ping en Slack `#compliance-urgente` | 30 minutos (cualquier hora, incluido fin de semana) |
+| ALTA (PEP detectado, deposito > $10K sospechoso, red flag activa, retiro rechazado + cliente reclama) | Slack `#compliance-sales` + mencion directa `@Susana` | 2 horas habiles |
+| MEDIA (consulta KYC pendiente, RETRY 3er intento, deposito Tier 2-3) | Slack `#compliance-sales` | 4 horas habiles |
+| BAJA (documentacion formal, source of funds via email, reportes) | Email `compliance@neomaaa.com` | 24 horas habiles |
+
+**Regla de oro:** Todo queda por escrito. Si se habla por llamada o WhatsApp de voz, Susana debe dejar un resumen en Slack `#compliance-sales` despues.
+
+**Emergencias fuera de horario (Sab/Dom/nocturno):** solo para criticas. Resto espera al siguiente dia habil.
 
 ---
 

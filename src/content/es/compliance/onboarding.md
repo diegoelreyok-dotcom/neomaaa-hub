@@ -41,7 +41,8 @@ DESCUBRIMIENTO ──> REGISTRO ──> KYC ──> APROBACION ──> DEPOSITO 
 | Descubrimiento -> Registro | Variable (ads, orgánico) | -- |
 | Registro | 2 minutos | 5 minutos |
 | KYC (envio documentos) | 5-10 minutos | 24 horas |
-| Verificacion KYC | 5 minutos (auto) / 2 horas (manual) | 24 horas |
+| Verificacion KYC (Tier 1 auto) | 1-5 minutos (auto) | 48 horas habiles (manual) |
+| Verificacion KYC (Tier 2+) | 24-48 horas habiles | 5 dias habiles (EDD) |
 | Aprobacion de cuenta | Inmediata post-KYC | 4 horas |
 | Primer deposito | Mismo dia de aprobacion | 72 horas |
 | Setup MT5 | 10 minutos | 1 hora (con soporte) |
@@ -77,7 +78,10 @@ DESCUBRIMIENTO ──> REGISTRO ──> KYC ──> APROBACION ──> DEPOSITO 
 | Prospecto de pais restringido intenta registrarse | Geo-blocking en landing + mensaje claro de restriccion |
 
 **Paises restringidos (NO onboardear):**
-USA, Canada, EEA (toda la Union Europea), Reino Unido, Australia, Cuba, Iraq, Myanmar, Corea del Norte, Sudan, y cualquier jurisdiccion sancionada por OFAC/ONU.
+
+Lista resumida: USA, Canada, EEA (30 paises), Reino Unido, Australia, Japon, Israel, Cuba, Irak, Iran, Corea del Norte, Myanmar, Siria, Sudan, Crimea, Donetsk, Luhansk.
+
+**Lista autoritativa y actualizada:** ver `compliance/screening-sanciones.md` seccion 12.5 (incluye paises sancionados, regulatorios, y paises de alto riesgo que requieren EDD caso por caso: Venezuela, Nigeria, Pakistan, Rusia, Belarus, Afganistan, etc.).
 
 **Script de primer contacto (cuando el lead llega por DM/chat):**
 
@@ -169,7 +173,8 @@ USA, Canada, EEA (toda la Union Europea), Reino Unido, Australia, Cuba, Iraq, My
 5. Sumsub procesa automaticamente (1-5 minutos)
 6. Resultado:
    - **APROBADO** -> pasa automaticamente a Etapa 4
-   - **REVISION MANUAL** -> Susana revisa en max 2 horas
+   - **REVISION MANUAL** -> Susana revisa en max 48 horas habiles (SLA interno conservador)
+   - **EDD requerido** (Tier 3+, PEP, pais alto riesgo) -> hasta 5 dias habiles
    - **RECHAZADO** -> Se notifica al cliente con razon y opcion de reintentar
 
 **Criterios de rechazo:**

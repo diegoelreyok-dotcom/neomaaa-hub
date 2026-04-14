@@ -161,7 +161,7 @@ Cada instrumento tiene una "hoja técnica" que define cómo funciona. Ejemplo pa
 | Swap long | –0.5 points/día | Cuánto pagás/cobrás si dejás un lote comprado overnight |
 | Swap short | +0.2 points/día | Idem para posición vendida |
 | Triple swap day | Miércoles | Día que se cobra 3x swap (por el fin de semana) |
-| Commission | USD 0 (Standard) / USD 7 round-turn (Raw) | Cobro por volumen |
+| Commission | USD 0 (Cent/Standard) / USD 6 round-turn (Raw: $3/lote/lado) | Cobro por volumen |
 | Session | Lun 22:00 – Vie 22:00 GMT | Horarios de mercado |
 
 ## Ejemplo numérico — abrir 0.1 lote de EUR/USD

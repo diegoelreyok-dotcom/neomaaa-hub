@@ -24,6 +24,12 @@
 
 ## 1. Metodos de Deposito Disponibles
 
+> **Minimos de deposito:** Conviven dos minimos que deben cumplirse simultaneamente:
+> 1. **Minimo por tipo de cuenta:** Cent $5 | Standard $50 | Raw $500 | Institutional $50,000 (ver `operations/faq-interno.md` 3.2).
+> 2. **Minimo por metodo de pago:** Se detalla en las tablas siguientes. Si el metodo tiene un minimo superior al de la cuenta, prevalece el del metodo.
+>
+> **Fee broker:** $0 en todos los metodos salvo excepciones documentadas. Los PSPs o bancos del cliente pueden aplicar sus propias comisiones.
+
 ### Tarjetas
 | Metodo | Monedas | Tiempo Esperado | Monto Min | Monto Max |
 |--------|---------|-----------------|-----------|-----------|
@@ -400,10 +406,13 @@ Firma: _________________________________
 
 ### 5.1 Umbrales de Enhanced Due Diligence (EDD)
 
+> Estos umbrales complementan los Tiers de KYC definidos en `compliance/proceso-kyc-sumsub.md` seccion 3. Tier 3 (>$10K) dispara EDD automaticamente; Tier 4 (>$50K) agrega aprobacion de Principals.
+
 | Trigger | Umbral | Accion |
 |---------|--------|--------|
-| Deposito individual grande | > $10,000 | EDD requerido antes de acreditar |
-| Deposito acumulado mensual | > $25,000 en el mes | EDD requerido |
+| Deposito individual grande | > $10,000 | EDD requerido antes de acreditar (Tier 3) |
+| Deposito acumulado | > $10,000 acumulado historico | Upgrade a Tier 3 + EDD |
+| Deposito acumulado institucional | > $50,000 | Upgrade a Tier 4 + aprobacion Principals |
 | Retiro grande | > $10,000 | EDD + aprobacion de Compliance |
 | Cliente nuevo con deposito grande | > $5,000 en primera semana | EDD requerido |
 | Cambio repentino de patron | Deposito 3x mayor que su promedio | EDD requerido |
