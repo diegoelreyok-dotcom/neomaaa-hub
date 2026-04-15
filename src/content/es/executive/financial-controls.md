@@ -620,7 +620,7 @@ Listado de `[DATO:]` que owners completan:
 - [`treasury-management.md`](/content/executive/treasury-management) — framework genérico multi-wallet
 - [`wallet-structure-neomaaa.md`](/content/executive/wallet-structure-neomaaa) — setup específico wallets NEOMAAA
 - [`unit-economics-broker.md`](/content/executive/unit-economics-broker) — CAC / LTV / margen
-- [`compliance/aofa-compliance.md`](/content/compliance/aofa-compliance) — requisitos regulatorios AOFA
+- [`compliance/expansion-regulatoria.md`](/content/compliance/expansion-regulatoria) — requisitos regulatorios AOFA Anjouan
 - [`compliance/ab-book-policy.md`](/content/compliance/ab-book-policy) — policy hibrida A/B book
 
 ---

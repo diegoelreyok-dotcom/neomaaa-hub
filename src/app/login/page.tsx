@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import type { Lang } from '@/lib/types';
 
 export default function LoginPage() {
@@ -147,7 +148,7 @@ export default function LoginPage() {
 
             {/* Error message */}
             {error && (
-              <div className="flex items-center gap-2.5 px-3.5 py-3 rounded-lg bg-neo-danger/8 border border-neo-danger/15 animate-[fadeInContent_0.2s_ease-out]">
+              <div role="alert" aria-live="polite" className="flex items-center gap-2.5 px-3.5 py-3 rounded-lg bg-neo-danger/8 border border-neo-danger/15 animate-[fadeInContent_0.2s_ease-out]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neo-danger flex-shrink-0">
                   <circle cx="12" cy="12" r="10" />
                   <line x1="12" y1="8" x2="12" y2="12" />
@@ -190,6 +191,8 @@ export default function LoginPage() {
         <div className="flex items-center justify-center gap-2 mt-6">
           <button
             onClick={() => setLang('es')}
+            aria-label="Español"
+            aria-pressed={lang === 'es'}
             className={`
               flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium
               transition-all duration-200
@@ -203,7 +206,7 @@ export default function LoginPage() {
               src="/flags/es.svg"
               width="16"
               height="12"
-              alt="ES"
+              alt=""
               loading="eager"
               className="rounded-sm object-cover"
             />
@@ -211,6 +214,8 @@ export default function LoginPage() {
           </button>
           <button
             onClick={() => setLang('ru')}
+            aria-label="Русский"
+            aria-pressed={lang === 'ru'}
             className={`
               flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium
               transition-all duration-200
@@ -224,7 +229,7 @@ export default function LoginPage() {
               src="/flags/ru.svg"
               width="16"
               height="12"
-              alt="RU"
+              alt=""
               loading="eager"
               className="rounded-sm object-cover"
             />
@@ -234,7 +239,7 @@ export default function LoginPage() {
 
         {/* Register link */}
         <div className="text-center mt-4">
-          <a
+          <Link
             href="/register"
             className="
               inline-flex items-center gap-1.5
@@ -251,7 +256,7 @@ export default function LoginPage() {
               <line x1="23" y1="11" x2="17" y2="11" />
             </svg>
             {lang === 'es' ? 'No tengo acceso — Solicitar registro' : 'У меня нет доступа — Запросить регистрацию'}
-          </a>
+          </Link>
         </div>
       </div>
     </div>

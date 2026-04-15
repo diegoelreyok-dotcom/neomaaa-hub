@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function RegisterPage() {
   const [name, setName] = useState('');
@@ -56,12 +57,12 @@ export default function RegisterPage() {
               ? 'Tu solicitud de acceso ha sido enviada. Un administrador la revisará y te asignará un rol. Recibirás tu código de acceso pronto.'
               : 'Ваша заявка на доступ отправлена. Администратор рассмотрит её и назначит вам роль. Вы скоро получите код доступа.'}
           </p>
-          <a
+          <Link
             href="/login"
             className="text-neo-primary text-sm hover:underline"
           >
             {lang === 'es' ? 'Ir al login' : 'Перейти к входу'}
-          </a>
+          </Link>
         </div>
       </div>
     );
@@ -121,25 +122,27 @@ export default function RegisterPage() {
               <button
                 type="button"
                 onClick={() => setLang('es')}
+                aria-pressed={lang === 'es'}
                 className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg border text-sm font-medium transition-all ${
                   lang === 'es'
                     ? 'bg-neo-primary/10 border-neo-primary text-neo-primary'
                     : 'bg-neo-dark-3 border-neo-dark-4 text-neo-text-secondary hover:border-neo-dark-5'
                 }`}
               >
-                <img src="/flags/es.svg" alt="ES" width="20" height="13" loading="eager" className="rounded-sm object-cover" />
+                <img src="/flags/es.svg" alt="" width="20" height="13" loading="eager" className="rounded-sm object-cover" />
                 Español
               </button>
               <button
                 type="button"
                 onClick={() => setLang('ru')}
+                aria-pressed={lang === 'ru'}
                 className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg border text-sm font-medium transition-all ${
                   lang === 'ru'
                     ? 'bg-neo-primary/10 border-neo-primary text-neo-primary'
                     : 'bg-neo-dark-3 border-neo-dark-4 text-neo-text-secondary hover:border-neo-dark-5'
                 }`}
               >
-                <img src="/flags/ru.svg" alt="RU" width="20" height="13" loading="eager" className="rounded-sm object-cover" />
+                <img src="/flags/ru.svg" alt="" width="20" height="13" loading="eager" className="rounded-sm object-cover" />
                 Русский
               </button>
             </div>
@@ -161,7 +164,7 @@ export default function RegisterPage() {
 
           {/* Error */}
           {error && (
-            <div className="bg-neo-danger/10 border border-neo-danger/30 rounded-lg p-3 text-neo-danger text-xs">
+            <div role="alert" aria-live="polite" className="bg-neo-danger/10 border border-neo-danger/30 rounded-lg p-3 text-neo-danger text-xs">
               {error}
             </div>
           )}
@@ -180,9 +183,9 @@ export default function RegisterPage() {
 
         {/* Login link */}
         <div className="text-center mt-5">
-          <a href="/login" className="text-neo-text-muted text-xs hover:text-neo-primary transition-colors">
+          <Link href="/login" className="text-neo-text-muted text-xs hover:text-neo-primary transition-colors">
             {lang === 'es' ? 'Ya tengo acceso — Iniciar sesion' : 'У меня уже есть доступ — Войти'}
-          </a>
+          </Link>
         </div>
       </div>
     </div>

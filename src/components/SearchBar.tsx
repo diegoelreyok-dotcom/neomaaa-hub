@@ -229,7 +229,7 @@ export default function SearchBar({ lang, allowedSections }: SearchBarProps) {
       {/* Mobile: icon-only trigger */}
       <button
         onClick={() => setOpen(true)}
-        className="sm:hidden text-neo-text-secondary hover:text-neo-text hover:bg-neo-dark-3/50 p-1.5 rounded-lg transition-all"
+        className="sm:hidden text-neo-text-secondary hover:text-neo-text hover:bg-neo-dark-3/50 p-2.5 rounded-lg transition-all"
         aria-label={t.trigger}
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

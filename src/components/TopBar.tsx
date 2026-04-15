@@ -27,8 +27,8 @@ export default function TopBar({ userName, isAdmin, lang, allowedSections, onTog
       {/* Left: Hamburger (mobile) */}
       <button
         onClick={onToggleSidebar}
-        className="lg:hidden text-neo-text-secondary hover:text-neo-text hover:bg-neo-dark-3/50 p-1.5 rounded-lg transition-all duration-200"
-        aria-label="Abrir menu"
+        className="lg:hidden text-neo-text-secondary hover:text-neo-text hover:bg-neo-dark-3/50 p-2.5 -ml-1 rounded-lg transition-all duration-200"
+        aria-label={lang === 'ru' ? 'Открыть меню' : 'Abrir menu'}
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <line x1="3" y1="12" x2="21" y2="12" />
@@ -46,9 +46,11 @@ export default function TopBar({ userName, isAdmin, lang, allowedSections, onTog
         <SearchBar lang={lang} allowedSections={allowedSections} />
 
         {/* Language switcher */}
-        <div className="flex items-center bg-neo-dark-3/60 rounded-lg p-0.5 border border-neo-dark-3/40">
+        <div className="flex items-center bg-neo-dark-3/60 rounded-lg p-0.5 border border-neo-dark-3/40" role="group" aria-label={lang === 'ru' ? 'Язык' : 'Idioma'}>
           <button
             onClick={() => onSwitchLang('es')}
+            aria-label="Español"
+            aria-pressed={lang === 'es'}
             className={`
               flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium
               transition-all duration-200
@@ -57,13 +59,12 @@ export default function TopBar({ userName, isAdmin, lang, allowedSections, onTog
                 : 'text-neo-text-muted hover:text-neo-text-secondary'
               }
             `}
-            aria-label="Español"
           >
             <img
               src="/flags/es.svg"
               width="16"
               height="12"
-              alt="ES"
+              alt=""
               loading="eager"
               className="rounded-sm object-cover"
             />
@@ -71,6 +72,8 @@ export default function TopBar({ userName, isAdmin, lang, allowedSections, onTog
           </button>
           <button
             onClick={() => onSwitchLang('ru')}
+            aria-label="Русский"
+            aria-pressed={lang === 'ru'}
             className={`
               flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium
               transition-all duration-200
@@ -79,13 +82,12 @@ export default function TopBar({ userName, isAdmin, lang, allowedSections, onTog
                 : 'text-neo-text-muted hover:text-neo-text-secondary'
               }
             `}
-            aria-label="Ruso"
           >
             <img
               src="/flags/ru.svg"
               width="16"
               height="12"
-              alt="RU"
+              alt=""
               loading="eager"
               className="rounded-sm object-cover"
             />

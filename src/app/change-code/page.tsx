@@ -144,7 +144,7 @@ export default function ChangeCodePage() {
             </div>
 
             {error && (
-              <div className="flex items-center gap-2.5 px-3.5 py-3 rounded-lg bg-neo-danger/8 border border-neo-danger/15 animate-[fadeInContent_0.2s_ease-out]">
+              <div role="alert" aria-live="polite" className="flex items-center gap-2.5 px-3.5 py-3 rounded-lg bg-neo-danger/8 border border-neo-danger/15 animate-[fadeInContent_0.2s_ease-out]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neo-danger flex-shrink-0">
                   <circle cx="12" cy="12" r="10" />
                   <line x1="12" y1="8" x2="12" y2="12" />
@@ -167,12 +167,16 @@ export default function ChangeCodePage() {
         <div className="flex items-center justify-center gap-2 mt-6">
           <button
             onClick={() => setLang('es')}
+            aria-label="Español"
+            aria-pressed={lang === 'es'}
             className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 ${lang === 'es' ? 'bg-neo-dark-2 text-neo-text border border-neo-dark-3' : 'text-neo-text-muted hover:text-neo-text-secondary border border-transparent'}`}
           >
             ES
           </button>
           <button
             onClick={() => setLang('ru')}
+            aria-label="Русский"
+            aria-pressed={lang === 'ru'}
             className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 ${lang === 'ru' ? 'bg-neo-dark-2 text-neo-text border border-neo-dark-3' : 'text-neo-text-muted hover:text-neo-text-secondary border border-transparent'}`}
           >
             RU

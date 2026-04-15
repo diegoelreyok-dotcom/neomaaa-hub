@@ -130,7 +130,7 @@ export default function PdfDownloadButton({ pdfSlug, lang = 'es' }: PdfDownloadB
                   src="/flags/es.svg"
                   width="20"
                   height="15"
-                  alt="ES"
+                  alt=""
                   loading="eager"
                   className="rounded-sm object-cover"
                 />
@@ -155,7 +155,7 @@ export default function PdfDownloadButton({ pdfSlug, lang = 'es' }: PdfDownloadB
                   src="/flags/ru.svg"
                   width="20"
                   height="15"
-                  alt="RU"
+                  alt=""
                   loading="eager"
                   className="rounded-sm object-cover"
                 />

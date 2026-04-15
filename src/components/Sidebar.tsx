@@ -69,7 +69,7 @@ export default function Sidebar({ sections, lang, isOpen, onClose, completedDocs
           </Link>
           <button
             onClick={onClose}
-            className="lg:hidden p-1 text-neo-text-muted hover:text-neo-text hover:bg-neo-dark-3/50 rounded-lg transition-all duration-200"
+            className="lg:hidden p-2.5 -mr-1.5 text-neo-text-muted hover:text-neo-text hover:bg-neo-dark-3/50 rounded-lg transition-all duration-200"
             aria-label="Cerrar menu"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

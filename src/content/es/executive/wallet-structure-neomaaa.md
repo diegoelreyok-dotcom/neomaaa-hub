@@ -514,7 +514,7 @@ Acciones concretas que Diego + Yulia ejecutan esta semana y la próxima.
 - [`unit-economics-broker.md`](/content/executive/unit-economics-broker) — CAC/LTV/margen bruto
 - [`financial-controls.md`](/content/executive/financial-controls) — sistema de controles diarios/semanales/mensuales
 - [`compliance/ab-book-policy.md`](/content/compliance/ab-book-policy) — policy hibrida A/B book
-- [`compliance/aofa-compliance.md`](/content/compliance/aofa-compliance) — requisitos regulatorios AOFA
+- [`compliance/expansion-regulatoria.md`](/content/compliance/expansion-regulatoria) — requisitos regulatorios AOFA Anjouan
 
 ---
 
