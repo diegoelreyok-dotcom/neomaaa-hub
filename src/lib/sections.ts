@@ -160,7 +160,12 @@ export const SECTIONS: Section[] = [
     documents: [
       { slug: 'panorama-ejecutivo', titleEs: 'Panorama Ejecutivo — Operar un Broker', titleRu: 'Исполнительный обзор — Управление брокером', filePath: 'executive/panorama-ejecutivo.md', pdfSlug: 'executive-panorama' },
       { slug: 'treasury-management', titleEs: 'Treasury Management — Multi-Wallet Strategy', titleRu: 'Treasury Management — Стратегия мульти-кошелька', filePath: 'executive/treasury-management.md', pdfSlug: 'executive-treasury' },
+      { slug: 'wallet-structure-neomaaa', titleEs: 'Wallet Structure NEOMAAA (Setup Específico)', titleRu: 'Структура кошельков NEOMAAA', filePath: 'executive/wallet-structure-neomaaa.md', pdfSlug: 'executive-wallets-neomaaa' },
       { slug: 'unit-economics-broker', titleEs: 'Unit Economics — Cómo Gana Dinero un Broker', titleRu: 'Unit Economics — Как зарабатывает брокер', filePath: 'executive/unit-economics-broker.md', pdfSlug: 'executive-unit-economics' },
+      { slug: 'financial-controls', titleEs: 'Controles Financieros Ejecutivos', titleRu: 'Исполнительные финансовые контроли', filePath: 'executive/financial-controls.md', pdfSlug: 'executive-financial-controls' },
+      { slug: 'risk-management-owner', titleEs: 'Risk Management — Vista del Owner', titleRu: 'Управление рисками — взгляд владельца', filePath: 'executive/risk-management-owner.md', pdfSlug: 'executive-risk-management' },
+      { slug: 'liquidity-providers-b2b', titleEs: 'Liquidity Providers — Relación B2B Estratégica', titleRu: 'Поставщики ликвидности — B2B стратегия', filePath: 'executive/liquidity-providers-b2b.md', pdfSlug: 'executive-liquidity-providers' },
+      { slug: 'escalamiento-y-crecimiento', titleEs: 'Escalamiento y Crecimiento Sostenible', titleRu: 'Масштабирование и устойчивый рост', filePath: 'executive/escalamiento-y-crecimiento.md', pdfSlug: 'executive-escalamiento' },
     ],
   },
 ];
