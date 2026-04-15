@@ -474,7 +474,7 @@ Antes de cerrar un caso EDD, Susana valida que:
 
 ## 9. Secciones para Susana completar
 
-- [ ] **Email institucional para casos EDD:** `___________________@neomaaa.com`
+- [x] **Email institucional para casos EDD:** `compliance@neomaaa.com` (confirmado)
 - [ ] **Director aprobador default** (uno o ambos): [ ] Diego Loyola [ ] Yulia
 - [ ] **Servicio externo de background check** contratado (opcional): `_______________`
 - [ ] **Abogado externo de referencia** para casos complejos: nombre, jurisdiccion, contacto

@@ -436,7 +436,7 @@ Sospecha razonable no requiere certeza. Si hay indicios, se reporta. La decision
 
 ## 11. Secciones para Susana completar
 
-- [ ] **Email institucional para alerts Sumsub:** `___________________@neomaaa.com`
+- [x] **Email institucional para alerts Sumsub:** `compliance@neomaaa.com` (confirmado)
 - [ ] **Confirmar configuracion Sumsub** para envio de daily alerts a ese email: [ ] OK [ ] Pendiente
 - [ ] **Confirmar acceso a OFAC search web** (home.treasury.gov): [ ] OK [ ] Pendiente
 - [ ] **Confirmar acceso a UN sanctions search**: [ ] OK [ ] Pendiente

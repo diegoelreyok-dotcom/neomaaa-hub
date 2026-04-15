@@ -337,7 +337,7 @@ Sumsub las consulta automaticamente, pero Susana valida cada 6 meses que la inte
 
 Estos campos quedan pendientes hasta que Susana los confirme. Son datos operativos que ella define.
 
-- [ ] **Email institucional de compliance** para PEP/SAR queries: `_______________@neomaaa.com`
+- [x] **Email institucional de compliance** para PEP/SAR queries: `compliance@neomaaa.com` (confirmado)
 - [ ] **Servicio externo de PEP/Sanctions** complementario a Sumsub (opcional, solo si contratan World-Check / Dow Jones / Refinitiv): `_______________`
 - [ ] **Abogado externo de referencia** para casos EDD complejos: `Nombre ______________ Email _____________ Telefono _____________ Jurisdiccion __________`
 - [ ] **Directora de aprobacion dual** para casos HIGH: [ ] Diego Loyola [ ] Yulia [ ] Ambos indistintamente

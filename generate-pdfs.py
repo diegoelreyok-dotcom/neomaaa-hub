@@ -525,11 +525,77 @@ def parse_markdown_to_elements(md_text, styles):
     return elements
 
 
+def preprocess_for_pdf(md_text):
+    """
+    Clean up JSX/React-specific syntax and complex HTML components so reportlab
+    can parse the markdown safely. Strips neo-* component divs entirely
+    (they render visually in Next.js but reportlab can't layout them).
+    """
+    # Convert JSX className -> HTML class (reportlab doesn't know JSX)
+    md_text = re.sub(r'\bclassName=', 'class=', md_text)
+
+    # Strip neo-* visual components (timeline, stat-grid, pyramid, compare, step-list, formula, badge)
+    # These render in the web UI but break reportlab parser. Replace with plain text fallback.
+    # Match <div class="neo-...">...</div> with nested content, replace with extracted text.
+    def _flatten_component(match):
+        inner = match.group(1)
+        # Extract text content from spans/divs inside, drop tags
+        text = re.sub(r'<[^>]+>', ' ', inner)
+        text = re.sub(r'\s+', ' ', text).strip()
+        return text + '\n\n' if text else '\n'
+
+    md_text = re.sub(
+        r'<div class="neo-[^"]*">(.*?)</div>\s*</div>',
+        _flatten_component,
+        md_text,
+        flags=re.DOTALL,
+    )
+    md_text = re.sub(
+        r'<div class="neo-[^"]*">(.*?)</div>',
+        _flatten_component,
+        md_text,
+        flags=re.DOTALL,
+    )
+    md_text = re.sub(
+        r'<span class="neo-[^"]*">(.*?)</span>',
+        lambda m: m.group(1),
+        md_text,
+        flags=re.DOTALL,
+    )
+
+    # Clean up any leftover empty placeholder markers like <b><i><i></i></b>
+    # that the content audit agent left in email placeholders.
+    md_text = re.sub(r'<b><i><i></i></b><b><i></i></i></b>', '', md_text)
+    md_text = re.sub(r'<i><i></i></i>', '', md_text)
+    md_text = re.sub(r'<b><b>', '<b>', md_text)
+    md_text = re.sub(r'</b></b>', '</b>', md_text)
+
+    # Long underscore runs (fill-in-the-blank placeholders like ______________)
+    # confuse the markdown parser which interprets them as italic/bold marks.
+    # Replace with visible dotted line instead.
+    md_text = re.sub(r'_{4,}', '............', md_text)
+
+    # `>` inside text that reportlab's paraparser may interpret as unclosed tags.
+    # Escape stray `>` that aren't closing an HTML tag or starting a blockquote.
+    # Stray ">500K" etc. can confuse the parser.
+    def _escape_stray_gt(line):
+        # Only escape if the line is prose (not starting with > as blockquote, not inside HTML tag context)
+        if line.lstrip().startswith('>'):
+            return line
+        # Only escape `>` that appear inside text like ">$500K" or ">100 req"
+        return re.sub(r'(?<=[a-zA-Z0-9 ])>(?=\$|\d)', '&gt;', line)
+
+    md_text = '\n'.join(_escape_stray_gt(l) for l in md_text.split('\n'))
+
+    return md_text
+
+
 def generate_pdf(md_filepath, output_filepath, styles, header_footer_fn):
     """Convert a single markdown file to PDF."""
     with open(md_filepath, 'r', encoding='utf-8') as f:
         md_text = f.read()
 
+    md_text = preprocess_for_pdf(md_text)
     elements = parse_markdown_to_elements(md_text, styles)
 
     if not elements:
