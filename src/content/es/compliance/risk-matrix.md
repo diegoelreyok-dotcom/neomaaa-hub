@@ -245,6 +245,15 @@ Segun categoria:
 
 ## 5. Listas FATF y paises restringidos
 
+> [!WARNING]
+> **Las listas FATF y OFAC se actualizan trimestralmente / semanalmente respectivamente.** Verificar siempre las fuentes oficiales antes de cualquier decision critica:
+> - FATF (plenarias feb / jun / oct): https://www.fatf-gafi.org/en/countries/black-and-grey-lists.html
+> - OFAC: https://ofac.treasury.gov/sanctions-programs-and-country-information
+> - UN Sanctions: https://main.un.org/securitycouncil/en/sanctions
+> - EU Sanctions map: https://www.sanctionsmap.eu
+>
+> **Fecha ultima revision interna de este documento:** 15 Abril 2026. Si hoy es mas de 90 dias despues de esta fecha y no hay nota de re-review, Susana debe auditar antes de clasificar nuevos clientes.
+
 ### Paises NO operables (RECHAZAR automatico)
 
 **Prohibidos por politica interna de Neomaaa Ltd:**

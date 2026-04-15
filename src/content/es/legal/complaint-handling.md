@@ -37,7 +37,9 @@ El cliente puede presentar una queja formal a traves de los siguientes canales:
 
 | Canal | Como Utilizarlo |
 |-------|----------------|
-| **Correo electronico** | Enviar un correo a la direccion de quejas publicada en el sitio web con el asunto "Queja Formal - [Numero de cuenta]". |
+| **Correo electronico (quejas)** | `support@neomaaa.com` con asunto "Queja Formal - [Numero de cuenta]". |
+| **Correo electronico (legal)** | `legal@neomaaa.com` — email oficial legal publicado en neomaaa.com. Para quejas de caracter legal formal, subpoenas, disputas contractuales. |
+| **Correo electronico (compliance)** | `compliance@neomaaa.com` — para temas AML/KYC, PEP, sanctions. |
 | **Chat en vivo (Intercom)** | Iniciar una conversacion y solicitar que se registre como queja formal. El agente de soporte escalara al departamento correspondiente. |
 | **Portal del Cliente** | Utilizar el formulario de quejas disponible en la seccion de soporte del Portal del Cliente. |
 

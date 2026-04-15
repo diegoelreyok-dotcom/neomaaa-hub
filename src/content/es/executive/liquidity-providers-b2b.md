@@ -9,6 +9,9 @@
 > [!DANGER]
 > Los Liquidity Providers (LPs) son infrastructure crítica. Sin LPs no hay broker — es literal. Un LP mal elegido o una relación mal gestionada puede significar spreads malos para el cliente (→ churn), costos altos (→ margen comprimido), ejecución deficiente (→ reputación destruida), o exposure no cubierta (→ pérdida material). Este documento consolida cómo se eligen, contratan, gestionan y diversifican los LPs de NEOMAAA Ltd.
 
+> [!WARNING]
+> **Benchmarks de markup LP, comisiones B2B, minimos de volumen y estructura de contratos son snapshot Abril 2026.** El mercado LP tiene ciclos: en periodos de alta volatilidad los LPs suben markups y endurecen colaterales; en periodos de compresion compiten agresivamente por flow. Revalidar numeros con al menos 2-3 LPs vivos antes de renegociar cualquier contrato material. Cifras mencionadas aqui son direccionales, no operacionales literales.
+
 > [!INFO]
 > **Propósito:** marco estratégico completo para la gestión de la relación B2B con Liquidity Providers. Define qué es un LP y su rol, los 3 tiers de LPs disponibles en el mercado, criterios de selección, proceso de contratación, política de diversificación obligatoria, gestión operativa day-to-day, tactics de negociación, cláusulas contractuales críticas, red flags para terminación, estado y target NEOMAAA, y KPIs de performance que Pepe monitorea.
 

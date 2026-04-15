@@ -4,6 +4,9 @@
 > Aplica a: NEOMAAA Markets (broker forex/CFD, Anjouan L15968/N)
 > Clasificacion: CONFIDENCIAL — no compartir fuera del equipo
 
+> [!WARNING]
+> **Datos de competidores son snapshot a Abril 2026.** Spreads, comisiones, bonos, regulaciones, listas de paises aceptados, payouts y condiciones cambian con frecuencia (mensual o trimestral en brokers agresivos). Antes de cerrar una venta critica contra un competidor especifico, verificar las condiciones vigentes del competidor en su website oficial. Este doc sirve como base estrategica, no como data real-time.
+
 ---
 
 ## Introduccion

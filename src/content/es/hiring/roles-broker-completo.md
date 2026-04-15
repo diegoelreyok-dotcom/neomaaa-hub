@@ -530,7 +530,12 @@ La fuerza de ejecucion diaria. 60-75% del headcount total.
 - Escalation rate <8%.
 - Adherence a schedule >95%.
 
-**Perfil ideal.** Empatico, paciente, conocimiento tecnico basico (internet, navegadores, apps). Idiomas segun mercado (ES nativo + EN intermedio minimo, o EN nativo + segundo idioma). Maneja Intercom/Zendesk. Capacidad multitasking.
+**Perfil ideal.** Empatico, paciente, conocimiento tecnico basico (internet, navegadores, apps). **Idiomas oficiales de atencion al cliente NEOMAAA Markets: ES / EN / PT** (confirmado en neomaaa.com). Perfiles prioritarios:
+- **ES nativo** + EN intermedio minimo (cobertura LATAM hispanohablante + Espana compliance backoffice).
+- **PT nativo (Brasil)** + EN intermedio minimo — critico porque Brasil (BMP) es mercado prioritario.
+- **EN nativo** + segundo idioma (ES o PT preferido, o ruso/arabe para cobertura CIS/MENA).
+
+Maneja Intercom/Zendesk. Capacidad multitasking. Portal interno y materiales operativos: ES primary. Roadmap traducciones: ES → RU → EN (PT queda para fase posterior). Atencion operativa a Brasil con agente PT-BR dedicado.
 
 **Reporta a.** Head of Support (o Team Lead).
 

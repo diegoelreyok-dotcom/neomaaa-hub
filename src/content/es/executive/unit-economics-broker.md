@@ -9,6 +9,9 @@
 
 > **AVISO:** Este documento describe mecánicas estructurales de unit economics de brokers retail de FX/CFDs basadas en rangos públicos de la industria (ESMA, ASIC, NFA, reportes anuales de brokers listados). No contiene números internos de NEOMAAA. Los `[DATO:]` marcan lugares donde owners deben completar con cifras propias al cerrar cada mes fiscal.
 
+> [!WARNING]
+> **Benchmarks de industria (CAC, LTV, churn, payout ratios, margenes LP) son estimaciones snapshot de Abril 2026** basadas en reportes publicos de brokers listados, research de consultoras y datos ESMA/ASIC. Estos numeros **varian significativamente** por ciclo de mercado (bull crypto, recesion, news cycles), por mercado geografico (LATAM vs EU vs Asia), por canal de adquisicion (paid vs organic vs IB) y por tipo de cliente (retail vs institutional). Usar como direccion general, **no como target operativo literal**. Revalidar contra benchmarks actualizados cada trimestre antes de tomar decisiones de capex/opex basadas en estos numeros.
+
 ---
 
 ## ÍNDICE

@@ -145,9 +145,12 @@ Más de 2,000 instrumentos disponibles. Las categorías principales:
 
 - **Forex** — pares mayores (EUR/USD, GBP/USD, USD/JPY), menores y exóticos.
 - **Índices** — S&P 500, Nasdaq, DAX, Nikkei, etc.
-- **Metales** — oro (XAU), plata (XAG).
+- **Metales** — oro (XAU), plata (XAG), platino (XPT), paladio (XPD).
+- **Stocks CFDs** — acciones individuales (Apple, Tesla, Amazon, Google, JPMorgan, empresas europeas, etc.) vía CFD.
+- **ETFs** — fondos cotizados (SPY, QQQ, sectoriales) vía CFD.
 - **Crypto CFDs** — Bitcoin, Ethereum y los principales (no es custodia de crypto real, es CFD).
-- **Commodities** — petróleo, gas natural, agrícolas.
+- **Commodities** — petróleo (WTI/Brent), gas natural, agrícolas.
+- **Energies** — WTI, Brent, NatGas y otros instrumentos energéticos.
 
 ### Plataforma: MT5 (no MT4)
 
@@ -174,6 +177,7 @@ Operamos exclusivamente en **MetaTrader 5**. Razones:
 ### Diferenciadores NEOMAAA
 
 - **Foco LATAM** real (+ CIS selectivo, MENA, Asia fase 2, África), no marketing. Atención en español de verdad, equipo en zona horaria. *España NO es mercado operativo — equipo en España (Angel/Pepe/Susana) es backoffice/compliance, no comercial EEA.*
+- **Idiomas del portal y operación interna**: **Español (primary)** y **Ruso**. Inglés se agregará en siguiente fase. La atención a Brasil se cubre operativamente con portugués brasileño (agente dedicado PT-BR) pero el portal/materiales internos no están traducidos a PT en esta fase.
 - **Expansión agresiva en Brasil** (BMP es prioridad).
 - **Cross-sell con NEOMAAA Funded** — base de 40K+ registrados que pueden migrar a broker.
 - **Atención humana** — no chatbots, agentes reales.

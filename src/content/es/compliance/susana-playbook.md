@@ -35,6 +35,8 @@ Cómo funciona:
 □ Abrir este playbook
 □ Abrir Sumsub dashboard → revisar alerts nuevos (PEP, Sanctions, EDD pendientes)
 □ Revisar inbox compliance@neomaaa.com → emergentes urgentes
+□ Revisar inbox legal@neomaaa.com (email oficial legal del broker publicado en neomaaa.com) → subpoenas, requests de reguladores, notificaciones formales
+□ Revisar inbox support@neomaaa.com si hay escalaciones de soporte que tocan compliance
 □ Revisar estado de casos EDD abiertos — ¿alguno venció SLA?
 □ Revisar pings del equipo (Sales, Support, Dealing, Marketing) del día anterior
 □ Revisar compliance-calendar.md → ¿qué toca hoy?

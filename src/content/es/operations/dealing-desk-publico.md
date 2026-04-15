@@ -147,6 +147,8 @@ NEOMAAA Markets opera un **modelo híbrido ECN/STP**, con routing por defecto ha
 - **La política de ejecución está documentada** en `legal/order-execution-policy.md` y es pública para cualquier cliente que la pida
 - **El cliente puede solicitar un execution report** de cualquiera de sus operaciones — Pepe lo genera desde el servidor MT5
 - **Cuentas islámicas (swap-free)** disponibles bajo solicitud para clientes que lo requieran por convicción religiosa
+- **Infraestructura tecnológica**: servidores MT5 alojados en **data centers Equinix** (NY4, LD5) con proximidad física a los principales LPs y venues, conexiones cross-connect de baja latencia. Esto es un diferenciador técnico real vs brokers low-tier que corren en VPS genéricos.
+- **SLA de disponibilidad target**: 99.9% uptime oficial publicado en neomaaa.com. Redundancia geográfica y failover automático enterprise-grade.
 
 ### Lo que NO podés decir al cliente sobre NEOMAAA
 

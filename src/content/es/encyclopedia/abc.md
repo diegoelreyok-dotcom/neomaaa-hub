@@ -60,7 +60,7 @@ Dinero total en la cuenta del cliente, sin contar posiciones abiertas. Diferente
 Precio al que puedes VENDER un instrumento. Siempre es el precio mas bajo del par bid/ask.
 
 ### Broker
-Intermediario financiero que permite a los clientes operar instrumentos financieros (forex, acciones, crypto, etc.) a traves de una plataforma. Eso somos nosotros.
+Intermediario financiero que permite a los clientes operar instrumentos financieros (forex, commodities, metales, stocks, ETFs, indices, cryptocurrencies, energies) a traves de una plataforma. Eso somos nosotros. Cubrimos las 8 asset classes oficiales publicadas en neomaaa.com.
 
 ---
 
@@ -346,7 +346,7 @@ Stablecoin vinculada al dolar USD. Uno de nuestros metodos principales de deposi
 ## V
 
 ### Vault Yield System
-Feature especial de NEOMAAA. Los clientes pueden depositar fondos en el "vault" y ganar hasta 5% p.a. de rendimiento.
+Feature oficial de NEOMAAA Markets. Sistema de yield pasivo para clientes: depositan fondos (tipicamente USDT u otra stablecoin) en el "vault" y ganan un rendimiento anualizado ([DATO: rate exacto — revisar con Finance/Diego]). Similar en concepto a Binance Earn, Crypto.com Earn o Nexo Earn, pero operado internamente por el broker. Ver doc completo en encyclopedia/vault-yield-system.md y terminos legales en legal/vault-yield-terms.md.
 
 ### Volatility (Volatilidad)
 Medida de cuanto fluctua el precio de un instrumento. Alta volatilidad = mas oportunidades pero tambien mas riesgo.

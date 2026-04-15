@@ -39,6 +39,7 @@ export const SECTIONS: Section[] = [
       { slug: 'regulacion-jurisdicciones', titleEs: 'Regulación y Jurisdicciones', titleRu: 'Регулирование и юрисдикции', filePath: 'encyclopedia/regulacion-jurisdicciones.md', pdfSlug: 'encyclopedia-regulacion-jurisdicciones' },
       { slug: 'psicologia-trader', titleEs: 'Psicología del Trader Retail', titleRu: 'Психология розничного трейдера', filePath: 'encyclopedia/psicologia-trader.md', pdfSlug: 'encyclopedia-psicologia-trader' },
       { slug: 'knowledge-base-api', titleEs: 'Knowledge Base API', titleRu: 'Knowledge Base API', filePath: 'encyclopedia/knowledge-base-api.md', pdfSlug: 'encyclopedia-knowledge-base-api' },
+      { slug: 'vault-yield-system', titleEs: 'Vault Yield System (Sistema de Yield)', titleRu: 'Vault Yield System (Система доходности)', filePath: 'encyclopedia/vault-yield-system.md', pdfSlug: 'encyclopedia-vault-yield-system' },
     ],
   },
   {
@@ -150,6 +151,14 @@ export const SECTIONS: Section[] = [
       { slug: 'complaint-handling', titleEs: 'Manejo de Quejas', titleRu: 'Обработка жалоб', filePath: 'legal/complaint-handling.md', pdfSlug: 'legal-complaint-handling' },
       { slug: 'refund-policy', titleEs: 'Política de Reembolsos', titleRu: 'Политика возвратов', filePath: 'legal/refund-policy.md', pdfSlug: 'legal-refund-policy' },
       { slug: 'affiliate-terms', titleEs: 'Términos de Afiliados', titleRu: 'Условия партнёрской программы', filePath: 'legal/affiliate-terms.md', pdfSlug: 'legal-affiliate-terms' },
+      { slug: 'terms-of-use', titleEs: 'Terms of Use (Uso del Sitio)', titleRu: 'Условия использования сайта', filePath: 'legal/terms-of-use.md', pdfSlug: 'legal-terms-of-use' },
+      { slug: 'bonus-terms', titleEs: 'Términos de Bonos y Promociones', titleRu: 'Условия бонусов и промоакций', filePath: 'legal/bonus-terms.md', pdfSlug: 'legal-bonus-terms' },
+      { slug: 'cookies-policy', titleEs: 'Política de Cookies', titleRu: 'Политика cookies', filePath: 'legal/cookies-policy.md', pdfSlug: 'legal-cookies-policy' },
+      { slug: 'conflicts-of-interest', titleEs: 'Conflictos de Interés', titleRu: 'Конфликт интересов', filePath: 'legal/conflicts-of-interest.md', pdfSlug: 'legal-conflicts-of-interest' },
+      { slug: 'trading-conditions', titleEs: 'Condiciones de Trading', titleRu: 'Условия торговли', filePath: 'legal/trading-conditions.md', pdfSlug: 'legal-trading-conditions' },
+      { slug: 'trading-restrictions', titleEs: 'Restricciones de Trading', titleRu: 'Торговые ограничения', filePath: 'legal/trading-restrictions.md', pdfSlug: 'legal-trading-restrictions' },
+      { slug: 'disclaimers-communications', titleEs: 'Disclaimers y Comunicaciones', titleRu: 'Disclaimers и коммуникации', filePath: 'legal/disclaimers-communications.md', pdfSlug: 'legal-disclaimers-communications' },
+      { slug: 'vault-yield-terms', titleEs: 'Vault Yield Terms', titleRu: 'Условия Vault Yield', filePath: 'legal/vault-yield-terms.md', pdfSlug: 'legal-vault-yield-terms' },
     ],
   },
   {

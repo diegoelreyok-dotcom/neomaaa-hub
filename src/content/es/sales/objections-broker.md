@@ -217,11 +217,12 @@
 **Por que lo dice:** Asocia tamano con seguridad.
 
 **Respuesta:**
-"Ser una operacion mas enfocada tiene ventajas claras: atencion personalizada, soporte que te conoce por nombre, y flexibilidad para adaptarnos a tus necesidades. Los brokers grandes te tratan como un numero mas. En NEOMAAA, cada cliente tiene acceso directo a soporte humano via Intercom, y si tienes una cuenta institucional, tienes un gestor dedicado. La infraestructura es de primer nivel — MT5, Sumsub, Skale CRM — las mismas herramientas que usan los grandes."
+"Ser una operacion mas enfocada tiene ventajas claras: atencion personalizada, soporte que te conoce por nombre, y flexibilidad para adaptarnos a tus necesidades. Los brokers grandes te tratan como un numero mas. En NEOMAAA, cada cliente tiene acceso directo a soporte humano via Intercom, y si tienes una cuenta institucional, tienes un gestor dedicado. La infraestructura es de primer nivel — servidores MT5 en **data centers Equinix** (NY4/LD5) con proximidad a los principales liquidity providers, SLA de 99.9% uptime, Sumsub para KYC, Skale CRM — las mismas herramientas que usan los grandes."
 
 **Puntos clave:**
 - Atencion personalizada como ventaja
-- Misma infraestructura tecnologica que grandes brokers
+- **Infraestructura Equinix** (data centers tier-1 que usan los brokers top) — diferenciador real vs brokers que corren en VPS genericos
+- SLA 99.9% uptime publicado oficialmente
 - Soporte humano directo
 - Gestor dedicado para institucionales
 

@@ -2,7 +2,16 @@
 
 **Documento interno -- CONFIDENCIAL**
 **Neomaaa Ltd (IBC 15968) | Licencia L15968/N | AOFA**
-**Version: 1.0 | Fecha: 8 de abril 2026**
+**Version: 1.0 | Fecha: 8 de abril 2026 | Auditoria de actualidad: 15 Abril 2026**
+
+> [!WARNING]
+> **Listas FATF y OFAC actualizan trimestralmente / semanalmente.** Verificar fuentes oficiales antes de cualquier decision critica:
+> - FATF: https://www.fatf-gafi.org/en/countries/black-and-grey-lists.html
+> - OFAC: https://ofac.treasury.gov/sanctions-programs-and-country-information
+> - UN Sanctions: https://main.un.org/securitycouncil/en/sanctions
+> - EU Sanctions: https://www.sanctionsmap.eu
+>
+> Fecha ultima revision interna: 15 Abril 2026. Re-review cada 90 dias minimo.
 **Responsable: Susana (Compliance Officer)**
 **Aprobado por: Principals**
 

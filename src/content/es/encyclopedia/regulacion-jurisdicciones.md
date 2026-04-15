@@ -146,6 +146,9 @@ Lo que NO podemos decir:
 
 Independientemente de la jurisdicción del broker, hay países cuyos ciudadanos no podemos aceptar como clientes, por restricciones legales o por incompatibilidad regulatoria.
 
+> [!WARNING]
+> **Listas FATF y OFAC actualizan frecuentemente.** Verificar siempre en fuentes oficiales (fatf-gafi.org, ofac.treasury.gov, sanctionsmap.eu) antes de decisiones criticas. Fecha ultima revision interna de este documento: **15 Abril 2026**. Si transcurrieron mas de 90 dias sin re-review, validar con Compliance (Susana) antes de clasificar nuevos clientes.
+
 ### Prohibidos absolutos
 
 > [!DANGER]

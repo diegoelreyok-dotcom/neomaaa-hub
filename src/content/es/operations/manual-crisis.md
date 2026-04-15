@@ -190,6 +190,11 @@ Carpeta `/comunicacion-crisis/` con borradores para:
 - Dashboard de PSPs con success rate real-time
 - Social listening (Mention.com o similar) para detectar viralidad negativa
 
+> [!WARNING]
+> **SLA oficial publicado: 99.9% uptime** (fuente: neomaaa.com). Esto equivale a un presupuesto maximo de downtime de ~43 minutos por mes (~8.76 horas por ano). Cualquier incidente que acumulado mensual exceda este margen debe tratarse como **SEV1 automatico** y activar comunicacion proactiva al cliente + retrospective formal. Romper SLA publicado expone al broker a reclamos formales y dano reputacional. Tracking diario del uptime consolidado es responsabilidad de Stanislav (tech) y reportado semanalmente a los Principals.
+>
+> Infraestructura base: servidores MT5 en Equinix (NY4, LD5), redundancia geografica, failover enterprise-grade.
+
 > [!TIP]
 > La mayoria de crisis se detectan 30-60 min antes por el equipo de soporte o dealing (los clientes reportan primero). El dashboard ayuda a confirmar, pero el **oido del equipo operativo** es la alerta mas rapida. Entrenar a soporte a escalar cuando ven patrones raros, no esperar instrucciones.
 

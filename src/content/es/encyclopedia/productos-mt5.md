@@ -30,7 +30,18 @@ MetaTrader 4 salió en 2005. Fue (y sigue siendo) el estándar de facto en forex
 
 ## Instrumentos disponibles en NEOMAAA
 
-NEOMAAA ofrece **2,000+ instrumentos** agrupados en 6 categorías:
+NEOMAAA ofrece **2,000+ instrumentos** agrupados en 8 categorías (confirmado en neomaaa.com):
+
+- Forex (CFDs de divisas)
+- Metales
+- Índices
+- Commodities
+- Cryptocurrencies (CFDs)
+- **Stocks CFDs** (acciones individuales) — confirmado como asset class oficial en neomaaa.com
+- **ETFs** (fondos cotizados vía CFD) — confirmado como asset class oficial en neomaaa.com
+- Energies (WTI, Brent, NatGas)
+
+Detalle por categoría:
 
 ### 1. Forex
 
@@ -75,11 +86,32 @@ CFDs sobre cripto, **no** cripto real. El cliente no recibe el activo; es especu
 
 ### 6. Stocks CFDs
 
-Acciones individuales vía CFD. El cliente no compra la acción real.
+Acciones individuales vía CFD. El cliente no compra la acción real (sin derecho a voto, sin dividendos como accionista — aunque sí hay ajuste de dividendos en la posición CFD). Confirmado en neomaaa.com como asset class oficial.
 
-- FAANG, grandes tech, bancos US, empresas europeas principales.
-- Trading en horario de la bolsa correspondiente.
-- [DATO: confirmar con Pepe/Dealing si NEOMAAA los ofrece en el tier inicial o son expansión futura].
+- FAANG (Meta, Apple, Amazon, Netflix, Google/Alphabet), grandes tech (Microsoft, NVIDIA, Tesla).
+- Bancos US (JPMorgan, Bank of America, Citi, Goldman Sachs).
+- Empresas europeas principales (LVMH, SAP, Siemens, Nestlé, Shell).
+- Trading en horario de la bolsa correspondiente (NYSE/NASDAQ 14:30–21:00 GMT; bolsas EU 08:00–16:30 GMT aprox).
+- [DATO: lista exacta de tickers disponibles — confirmar con Pepe/Dealing].
+
+### 7. ETFs (Exchange-Traded Funds) vía CFD
+
+Fondos cotizados operados como CFD. Confirmado en neomaaa.com como asset class oficial.
+
+- Índices amplios: SPY (S&P 500), QQQ (Nasdaq 100), DIA (Dow 30), IWM (Russell 2000).
+- Sectoriales: XLF (financieros), XLE (energía), XLK (tech), XLV (salud).
+- Geográficos: EEM (emergentes), FXI (China), EWZ (Brasil), VGK (Europa).
+- Commodities ETFs: GLD (oro), SLV (plata), USO (petróleo).
+- [DATO: lista exacta de ETFs disponibles — confirmar con Pepe/Dealing].
+
+### 8. Energies
+
+Instrumentos de energía, CFDs sobre futuros de energía.
+
+- **USOil / WTI** — crudo americano.
+- **UKOil / Brent** — crudo europeo.
+- **NatGas** — gas natural (altísima volatilidad).
+- [DATO: si hay otros contratos como heating oil, gasoline].
 
 ## Leverage — Cómo funciona realmente
 

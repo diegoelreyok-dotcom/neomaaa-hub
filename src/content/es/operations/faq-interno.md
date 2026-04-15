@@ -3,7 +3,7 @@
 **Documento:** Base de conocimiento interna para todo el equipo
 **Version:** 1.0
 **Clasificacion:** [SOLO USO INTERNO] — No compartir con clientes sin adaptacion
-**Ultima actualizacion:** Abril 2026
+**Ultima actualizacion:** 15 Abril 2026 (auditoria de actualidad contra neomaaa.com)
 **Responsable:** Head of Support / Principals
 
 ---
@@ -29,7 +29,7 @@ Este documento contiene las respuestas estandarizadas a las preguntas mas frecue
 | 3 | Cuanto tarda un retiro? | 1-3 dias habiles segun el metodo de pago |
 | 4 | Que plataforma usan? | MetaTrader 5 (escritorio, web, y movil) |
 | 5 | Estan regulados? | Licencia L15968/N emitida por AOFA (Anjouan, Union of Comoros) |
-| 6 | Cuantos instrumentos tienen? | Mas de 2,000 (forex, indices, commodities, acciones, cripto CFDs) |
+| 6 | Cuantos instrumentos tienen? | Mas de 2,000 (forex, indices, commodities, metales, stocks CFDs, **ETFs**, cryptocurrencies CFDs, energies) |
 | 7 | Como verifico mi cuenta? | Sube documento de identidad y comprobante de domicilio en el portal del cliente |
 | 8 | Tienen copy trading? | Si, disponible a traves de MT5 Signals y plataformas compatibles |
 | 9 | Ofrecen cuentas swap-free? | Si, disponibles para clientes que lo soliciten |
@@ -244,7 +244,15 @@ Pasos de solucion: 1) Verificar conexion a internet. 2) Confirmar que esta usand
 
 ### 6.4 Que instrumentos puedo operar?
 
-Mas de 2,000 instrumentos incluyendo: pares de forex (majors, minors, exotics), indices (S&P 500, NASDAQ, DAX, etc.), commodities (oro, plata, petroleo, gas natural), acciones CFDs de mercados globales, y criptomonedas CFDs (Bitcoin, Ethereum, y mas).
+Mas de 2,000 instrumentos oficialmente confirmados en neomaaa.com, agrupados en 8 asset classes:
+- **Forex** (majors, minors, exotics — 60+ pares)
+- **Metales** (oro XAU, plata XAG, platino XPT, paladio XPD)
+- **Indices** (S&P 500, NASDAQ, DAX, Nikkei, FTSE, etc.)
+- **Commodities** (agricolas y otros)
+- **Stocks CFDs** (acciones individuales globales — FAANG, bancos US, empresas europeas)
+- **ETFs** (SPY, QQQ, sectoriales, geograficos — operados via CFD)
+- **Cryptocurrencies CFDs** (BTC, ETH, XRP, SOL, LTC, etc.)
+- **Energies** (WTI, Brent, gas natural)
 
 ### 6.5 Puedo usar Expert Advisors (EAs)?
 
@@ -463,6 +471,12 @@ Si. Los IBs deben completar el mismo proceso de KYC que los clientes regulares, 
 ### 17.4 El MT5 esta caido y los clientes no pueden operar, que hago?
 
 [SOLO USO INTERNO] 1) Verificar si el issue es del lado del cliente (conexion, version de MT5) o del servidor. 2) Si es del servidor, reportar inmediatamente a Stanislav en #war-room o Slack. 3) Informar a los clientes: "Estamos experimentando una intermitencia tecnica que nuestro equipo esta resolviendo. Le actualizaremos en los proximos 30 minutos." 4) Documentar hora de inicio, hora de resolucion, y clientes afectados.
+
+### 17.6 Que SLA de uptime ofrece NEOMAAA? Que infraestructura usamos?
+
+**Respuesta publica/cliente:** NEOMAAA Markets opera con infraestructura de grado empresarial y target de disponibilidad del **99.9% SLA** (uptime oficial publicado en neomaaa.com). Servidores MT5 alojados en **data centers Equinix** con proximidad a los principales venues y liquidity providers (NY4/LD5), conexiones de baja latencia y redundancia geografica. Backups enterprise-grade con failover automatico.
+
+[SOLO USO INTERNO] El 99.9% SLA equivale a ~43 minutos de downtime permitido por mes. Incidentes que excedan esto deben reportarse a Stanislav + Pepe + Diego inmediatamente. Si se rompe el SLA publicado, podemos tener exposicion de reputacion y reclamos formales — activar manual-crisis.md.
 
 ### 17.5 Un cliente quiere cerrar su cuenta y retirar todo, que hago?
 
