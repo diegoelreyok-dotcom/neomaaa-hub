@@ -26,8 +26,8 @@ async function main() {
     return;
   }
 
-  console.log('Diego exists, regenerating code to 123456...');
-  const newCode = await regenerateCode('diego', '123456');
+  console.log('Diego exists, regenerating code to 443396...');
+  const newCode = await regenerateCode('diego', '443396');
   console.log('Result:', newCode);
 }
 

@@ -139,7 +139,7 @@ export const SECTIONS: Section[] = [
     id: 'legal',
     nameEs: 'Documentos Legales',
     nameRu: 'Юридические документы',
-    order: 99,
+    order: 98,
     documents: [
       { slug: 'risk-disclosure', titleEs: 'Divulgación de Riesgos', titleRu: 'Раскрытие рисков', filePath: 'legal/risk-disclosure.md', pdfSlug: 'legal-risk-disclosure' },
       { slug: 'terms-conditions', titleEs: 'Términos y Condiciones', titleRu: 'Условия использования', filePath: 'legal/terms-conditions.md', pdfSlug: 'legal-terms-conditions' },
@@ -150,6 +150,17 @@ export const SECTIONS: Section[] = [
       { slug: 'complaint-handling', titleEs: 'Manejo de Quejas', titleRu: 'Обработка жалоб', filePath: 'legal/complaint-handling.md', pdfSlug: 'legal-complaint-handling' },
       { slug: 'refund-policy', titleEs: 'Política de Reembolsos', titleRu: 'Политика возвратов', filePath: 'legal/refund-policy.md', pdfSlug: 'legal-refund-policy' },
       { slug: 'affiliate-terms', titleEs: 'Términos de Afiliados', titleRu: 'Условия партнёрской программы', filePath: 'legal/affiliate-terms.md', pdfSlug: 'legal-affiliate-terms' },
+    ],
+  },
+  {
+    id: 'executive',
+    nameEs: '🔒 Executive (Owners)',
+    nameRu: '🔒 Executive (Владельцы)',
+    order: 99,
+    documents: [
+      { slug: 'panorama-ejecutivo', titleEs: 'Panorama Ejecutivo — Operar un Broker', titleRu: 'Исполнительный обзор — Управление брокером', filePath: 'executive/panorama-ejecutivo.md', pdfSlug: 'executive-panorama' },
+      { slug: 'treasury-management', titleEs: 'Treasury Management — Multi-Wallet Strategy', titleRu: 'Treasury Management — Стратегия мульти-кошелька', filePath: 'executive/treasury-management.md', pdfSlug: 'executive-treasury' },
+      { slug: 'unit-economics-broker', titleEs: 'Unit Economics — Cómo Gana Dinero un Broker', titleRu: 'Unit Economics — Как зарабатывает брокер', filePath: 'executive/unit-economics-broker.md', pdfSlug: 'executive-unit-economics' },
     ],
   },
 ];
