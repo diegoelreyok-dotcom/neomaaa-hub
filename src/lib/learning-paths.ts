@@ -317,10 +317,9 @@ export const LEARNING_PATHS: Record<string, LearningPath> = {
         descriptionRu: 'Как не терять клиента и позиционироваться.',
         docs: [
           'marketing/retencion-broker',
-          'marketing/competidores-broker',
           'marketing/competidores-deep-dive',
         ],
-        requiredForNext: 3,
+        requiredForNext: 2,
       },
     ],
     finalBadge: {
@@ -453,7 +452,7 @@ export const LEARNING_PATHS: Record<string, LearningPath> = {
         docs: [
           'partners/programa-completo',
           'partners/modelo-financiero',
-          'launch/checklist',
+          'operations/go-live-runbook',
           'launch/post-launch-playbook',
           'operations/manual-crisis',
         ],
@@ -529,7 +528,7 @@ export const LEARNING_PATHS: Record<string, LearningPath> = {
         docs: [
           'partners/programa-completo',
           'partners/modelo-financiero',
-          'launch/checklist',
+          'operations/go-live-runbook',
           'launch/post-launch-playbook',
         ],
         requiredForNext: 4,
@@ -587,10 +586,9 @@ export const LEARNING_PATHS: Record<string, LearningPath> = {
         descriptionRu: 'Runbook, чеклист и руководство по кризисам.',
         docs: [
           'operations/go-live-runbook',
-          'launch/checklist',
           'operations/manual-crisis',
         ],
-        requiredForNext: 3,
+        requiredForNext: 2,
       },
     ],
     finalBadge: {

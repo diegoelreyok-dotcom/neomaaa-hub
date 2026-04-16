@@ -42,7 +42,9 @@
 
 ### P1: Que tipos de cuenta ofrecen?
 
-Ofrecemos 4 tipos de cuenta: Cent (deposito minimo $5, ideal para principiantes y pruebas), Standard (deposito minimo $50, la mas popular), Raw (deposito minimo $500, spreads desde 0.0 pips con comision de $3 por lote por lado), e Institucional (deposito minimo $50,000, condiciones personalizadas). Todas operan en MetaTrader 5 con ejecucion ECN/STP.
+Ofrecemos 4 tipos: **Cent** ($5, principiantes), **Standard** ($50, retail regular), **Raw** ($500, scalpers — 0.0 pips + $3/lado), **Institutional** ($50,000, custom). Todas en MT5 con ejecución ECN/STP.
+
+Tabla completa con spreads, comisiones y leverage máximo (gold source): [`encyclopedia/productos-mt5`](/content/encyclopedia/productos-mt5) sección "Tipos de cuenta".
 
 ---
 

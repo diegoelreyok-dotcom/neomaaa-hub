@@ -55,13 +55,8 @@ Neomaaa Ltd esta registrada como International Business Company con numero IBC 1
 
 NEOMAAA Markets acepta clientes de la mayoria de paises del mundo. Los mercados principales son **LATAM** (Brasil, Colombia, Mexico, Argentina, Chile, Peru, Ecuador, Republica Dominicana y el resto excluyendo USA/Canadá), **CIS** con screening caso por caso (Rusia y vecinos), **Middle East / MENA** (UAE, Saudi, Qatar, Turquía, excluyendo Iraq), **Africa** (Sudáfrica, Nigeria, Kenya, Egipto, excluyendo Sudán), y **SE Asia fase 2** (China, Vietnam, Filipinas, Indonesia, Tailandia, excluyendo North Korea y Myanmar).
 
-**No aceptamos clientes de:**
-- Restricciones regulatorias: Estados Unidos, Canada, Espacio Economico Europeo (EEA, 30 paises, **incluida España**), Reino Unido, Australia, Japon, Israel.
-- Sanciones internacionales: Cuba, Irak, Iran, Corea del Norte, Myanmar, Siria, Sudan, Crimea, Donetsk, Luhansk.
-
-**Paises con restricciones especiales (solo caso por caso con EDD completo y aprobacion de compliance):** Rusia, Venezuela, Nigeria, Pakistan, Turquia, Belarus, Afganistan, y paises en lista gris/negra de GAFI.
-
-[SOLO USO INTERNO] La lista autoritativa y actualizada esta en `compliance/screening-sanciones.md` seccion 12.5. Consultar ahi ante cualquier duda.
+> [!WARNING]
+> **Países restringidos:** no aceptamos clientes de USA, Canada, EEA (todos los países, incluida España), UK, Australia, Cuba, Iraq, Myanmar, North Korea, Sudan + sancionados. Lista completa y gold source: [`compliance/screening-sanciones`](/content/compliance/screening-sanciones) sección 12.5.
 
 ### 1.4b Podemos aceptar un cliente residente en España? (PREGUNTA FRECUENTE)
 
@@ -90,14 +85,9 @@ Modelo hibrido ECN/STP. Las ordenes se envian directamente a proveedores de liqu
 
 ### 2.1 Que tipos de cuenta ofrecen?
 
-NEOMAAA Markets ofrece 4 tipos de cuenta:
+NEOMAAA Markets ofrece 4 tipos: **Cent** ($5, principiantes), **Standard** ($50, retail regular), **Raw** ($500, scalpers — 0.0 pips + $3/lado), **Institutional** ($50,000, custom).
 
-| Tipo | Deposito Minimo | Spread desde | Comision | Apalancamiento Max |
-|---|---|---|---|---|
-| Cent | $5 USD | 1.5 pips | Sin comision | 1:1000 |
-| Standard | $50 USD | 1.0 pips | Sin comision | 1:500 |
-| Raw | $500 USD | 0.0 pips | $3.5/lote/lado | 1:200 |
-| Institutional | $50,000 USD | 0.0 pips | Negociable | 1:100 |
+Tabla completa con spreads, comisiones, leverage máximo y perfiles (gold source vinculante): [`encyclopedia/productos-mt5`](/content/encyclopedia/productos-mt5) sección "Tipos de cuenta".
 
 ### 2.2 Cual es la diferencia entre cuenta Cent y Standard?
 
@@ -282,7 +272,7 @@ Los spreads son variables y se amplian durante noticias de alto impacto, apertur
 
 ### 7.2 Que comisiones cobran?
 
-Las cuentas Cent y Standard no tienen comision por operacion; el costo esta incluido en el spread. La cuenta Raw cobra $3.5 USD por lote estandar por lado ($7 USD round-trip). La cuenta Institutional tiene comisiones negociables.
+Cuentas Cent y Standard: sin comisión (costo en spread). Cuenta Raw: $3/lote/lado ($6 round-turn). Cuenta Institutional: negociable. Gold source: [`encyclopedia/productos-mt5`](/content/encyclopedia/productos-mt5) sección "Tipos de cuenta".
 
 ### 7.3 Hay comisiones ocultas?
 

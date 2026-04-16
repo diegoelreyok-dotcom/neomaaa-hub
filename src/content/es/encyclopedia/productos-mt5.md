@@ -28,6 +28,33 @@ MetaTrader 4 salió en 2005. Fue (y sigue siendo) el estándar de facto en forex
 
 **NEOMAAA elige MT5** por: mejor soporte regulatorio, DOM nativo, compatibilidad con stocks y cripto CFDs sin forzar el sistema, y porque es la plataforma que MetaQuotes sigue desarrollando (MT4 está en mantenimiento).
 
+## Tipos de cuenta (GOLD SOURCE)
+
+> [!WARNING]
+> **Esta es la tabla maestra de tipos de cuenta de NEOMAAA.** Cualquier doc del portal (FAQ ventas, objeciones, soporte, marketing, training) que mencione Cent / Standard / Raw / Institutional debe linkear aqui. Ante discrepancia, esta tabla prevalece.
+
+NEOMAAA ofrece **4 tipos de cuenta** diseñados para perfiles distintos de trader. El cliente elige al abrir la cuenta y puede tener varias cuentas de distintos tipos bajo el mismo login de Client Portal.
+
+| Cuenta | Depósito mínimo | Spread (desde) | Comisión | Leverage máx | Ideal para |
+|--------|----------------|----------------|----------|--------------|------------|
+| **Cent** | $5 | 1.0 pip | $0 (incluida en spread) | 1:1000 | Principiantes, demo real, probar estrategia con riesgo mínimo |
+| **Standard** | $50 | 1.0 pip | $0 (incluida en spread) | 1:1000 | Trader retail regular, volumen moderado |
+| **Raw** | $500 | 0.0 pips | $3/lote/lado ($6 round-turn) | 1:500 | Scalpers, algos, traders activos que priorizan spread bajo |
+| **Institutional** | $50,000 | 0.0 pips | Custom (negociable) | Negociable | Fondos, money managers, clientes institucionales |
+
+**Diferencia clave Standard vs Raw:**
+- Standard: sin comisión, spread mayor (1.0 pip típico en EURUSD). Costo total ≈ $10/lote.
+- Raw: spread casi cero + comisión fija $3/lado. Costo total ≈ $6/lote en instrumentos liquidos. Más barato para volumen alto.
+
+**Cuenta Cent — nota técnica:**
+En la cuenta Cent los lotes están expresados en centavos: 1 lote Cent = 1,000 unidades (no 100,000). Permite operar con tamaños muy pequeños y ver el P&L magnificado (útil para educar). No es recomendable para traders serios porque el volumen nocional es bajo.
+
+**Cambio de tipo de cuenta:**
+El cliente NO puede convertir una cuenta existente. Debe abrir una segunda cuenta del tipo nuevo y transferir fondos internamente (instantáneo desde Client Portal).
+
+> [!INFO]
+> Depósitos mínimos, spreads, comisiones y leverage máximos son valores oficiales vigentes a abril 2026. Cualquier cambio requiere aprobación de Pepe (Dealing) + Susana (Compliance) y actualización simultánea de este doc + landing pages.
+
 ## Instrumentos disponibles en NEOMAAA
 
 NEOMAAA ofrece **2,000+ instrumentos** agrupados en 8 categorías (confirmado en neomaaa.com):

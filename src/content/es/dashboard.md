@@ -184,7 +184,7 @@
 
 ## Links rápidos
 
-- **[Master Checklist Pre Go-Live](/content/launch/checklist)** — el doc maestro del lanzamiento.
+- **[Go-Live Runbook + Checklist Maestro](/content/operations/go-live-runbook)** — el doc maestro del lanzamiento (pre-launch + dia D).
 - **[Manual de Crisis](/content/operations/manual-crisis)** — qué hacer cuando algo rompe.
 - **[FAQ Interno](/content/operations/faq-interno)** — 87 respuestas a lo que pregunta el equipo.
 

@@ -123,9 +123,11 @@ Cuando la Empresa identifique actividades sospechosas, presentara un Reporte de 
 
 La Empresa no acepta clientes de las siguientes jurisdicciones:
 
-**Sancionados internacionalmente:** Cuba, Irak, Myanmar (Birmania), Corea del Norte, Sudan, Siria, Iran, Crimea, regiones de Donetsk y Luhansk.
+**Sancionados internacionalmente (FATF black list / OFAC / UN / EU / UK — rechazo automatico):** Cuba, Iran, Iraq, Myanmar (Birmania), Corea del Norte (DPRK), Sudan, Siria, Crimea, regiones de Donetsk y Luhansk, y cualquier individuo/pais bajo sanciones especificas.
 
-**Restricciones regulatorias:** Estados Unidos, Canada, Espacio Economico Europeo (30 paises), Reino Unido, Australia, Japon, Israel.
+**Restricciones regulatorias (politica interna o regulatoria local):** Estados Unidos, Canada, Espacio Economico Europeo (30 paises), Reino Unido, Australia, Japon, Israel.
+
+**Monitoreo elevado (FATF grey list):** Los clientes residentes en jurisdicciones de la lista gris FATF se clasifican automaticamente como MEDIUM RISK y deben aportar Source of Funds obligatorio. La lista vigente se mantiene en `compliance/risk-matrix.md` seccion 5 y `compliance/screening-sanciones.md` (gold source).
 
 Los clientes que intenten registrarse desde paises restringidos seran rechazados automaticamente durante el proceso de verificacion.
 

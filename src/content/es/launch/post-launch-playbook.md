@@ -5,7 +5,7 @@
 **Equipo principal:** Principals (Diego, Angel, Yulia, Stanislav) + Heads (Pepe Dealing, Susana Compliance, Edward Sales/Support, `[DATO: Finance Manager por contratar]`, `[DATO: Marketing Manager por contratar]`)
 **Ritmo obligatorio:** Daily snapshot 19:00 UAE + Stand-up Lunes 09:00 UAE + Retro Viernes 16:00 UAE
 
-Las primeras cuatro semanas despues de abrir un broker son las que definen si el lanzamiento fue un exito, un experimento caro, o un desastre. Este documento toma el relevo donde terminan el [master checklist pre-launch](/content/es/launch/checklist) y el [runbook del dia D](/content/es/operations/go-live-runbook): que hacer desde la manana del dia 2 hasta el cierre del mes 1.
+Las primeras cuatro semanas despues de abrir un broker son las que definen si el lanzamiento fue un exito, un experimento caro, o un desastre. Este documento toma el relevo donde termina el [runbook del dia D + checklist maestro pre-launch](/content/es/operations/go-live-runbook): que hacer desde la manana del dia 2 hasta el cierre del mes 1.
 
 No es un calendario sugerido. Es el estandar operativo interno para los primeros 30 dias de NEOMAAA Markets.
 
@@ -450,8 +450,7 @@ La disciplina del mes 1 no es opcional. Es la base sobre la que se construye tod
 
 > [!INFO]
 > **Documentos relacionados:**
-> - [Go-Live Runbook](/content/es/operations/go-live-runbook) — dia D minuto a minuto
-> - [Master Checklist pre-launch](/content/es/launch/checklist)
+> - [Go-Live Runbook + Checklist Maestro pre-launch](/content/es/operations/go-live-runbook) — dia D minuto a minuto + 6 bloques pre-launch
 > - [Manual de Crisis](/content/es/operations/manual-crisis) — cuando triggers no son suficiente
 > - [Financial Controls](/content/es/executive/financial-controls) — dashboards P&L y reconciliaciones
 > - [Compliance Calendar](/content/es/compliance/compliance-calendar) — obligaciones AOFA L15968/N

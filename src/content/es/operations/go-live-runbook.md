@@ -20,7 +20,6 @@ Zona horaria de referencia: **UAE (GMT+4)** donde opera HQ (Dubai). Conversiones
 
 > [!INFO]
 > **Documentos relacionados (lectura obligatoria pre-launch):**
-> - [Master Checklist pre-launch](/content/es/launch/checklist)
 > - [Post-Launch Playbook](/content/es/launch/post-launch-playbook) — semanas 1-4
 > - [Manual de Crisis](/content/es/operations/manual-crisis)
 > - [Manual de Depositos](/content/es/operations/depositos)
@@ -381,7 +380,77 @@ Este plan se activa **SOLO bajo decision de Diego** (o Angel en su ausencia) cua
 
 ---
 
-## Checklist Final Pre-Launch (firmas obligatorias D-1 19:00 UAE)
+## Checklist Maestro Pre-Launch (6 Semanas al Go-Live)
+
+> Este es el checklist completo de requisitos a cumplir desde T-6 semanas hasta D-1. Complementa (no reemplaza) las verificaciones D-1 descritas en la FASE 1 de este runbook. Los bloques 1-5 deben estar 100% completados antes de la decision GO/NO-GO.
+
+### Bloque 1: Fundamentos (Semanas 1-2)
+*Sin esto no se puede avanzar con nada mas.*
+
+- [ ] **Politica A-Book / B-Book documentada** (Pepe) — % B-Book, umbrales pase a A-Book, tratamiento toxic flow, politica hedging. Ver [ab-book-policy](/content/es/compliance/ab-book-policy).
+- [ ] **Esquema de comisiones cerrado** — aprobado por Principals. Ver [commissions](/content/es/sales/commissions).
+- [ ] **PSPs activos confirmados** — lista final de procesadores live dia 1. Minimo: 1 crypto (USDT), 1 tarjeta, 1 transferencia local LATAM (PIX/PSE/SPEI).
+- [ ] **Skale CRM configurado** — campos custom: tipo cuenta, FTD date/amount, depositos totales, ultimo deposito, KYC status, assigned agent, lead source.
+- [ ] **Intercom configurado** — workflows soporte, respuestas automaticas, horarios, routing ES/EN. Ver [support/playbook](/content/es/support/playbook).
+- [ ] **Sumsub flows finalizados** — KYC flow broker (diferente al prop), documentos aceptados por pais, thresholds de verificacion.
+
+### Bloque 2: Capacitacion (Semanas 2-6)
+*Se ejecuta en paralelo con el bloque 1.*
+
+- [ ] **Sales Training semana 1/6** completada (Producto broker basico)
+- [ ] **Sales Training semana 2/6** completada (MT5 hands-on)
+- [ ] **Sales Training semana 3/6** completada (Compliance + que NO decir)
+- [ ] **Sales Training semana 4/6** completada (Pitch + objeciones)
+- [ ] **Sales Training semana 5/6** completada (CRM + flujo operativo)
+- [ ] **Sales Training semana 6/6** completada (Simulaciones + examen)
+- [ ] **Capacitacion Susana** completada (Compliance broker vs prop)
+- [ ] **Capacitacion Support Agents** completada (Intercom + flujos)
+
+Ver detalle completo: [sales/training](/content/es/sales/training).
+
+### Bloque 3: Documentos Operativos (Semanas 3-5)
+
+- [ ] **Sales Playbook** finalizado — scripts, objeciones, pitch, KPIs. Ver [sales/training](/content/es/sales/training).
+- [ ] **Compliance Manual** finalizado — KYC/AML, frases prohibidas, escalaciones. Ver [compliance/workflow](/content/es/compliance/workflow).
+- [ ] **Support Playbook** finalizado — respuestas tipo, escalaciones, SLAs. Ver [support/playbook](/content/es/support/playbook).
+- [ ] **Client Onboarding Flow** documentado. Ver [compliance/onboarding](/content/es/compliance/onboarding).
+- [ ] **Deposit/Withdrawal Process** documentado. Ver [operations/deposits](/content/es/operations/deposits).
+- [ ] **FAQ interno** para Support + Sales. Ver [operations/faq-interno](/content/es/operations/faq-interno).
+
+### Bloque 4: Hiring Critico (Semanas 1-4)
+
+- [ ] **Finance Manager contratado** — PRIORIDAD #1. Sin el, el broker opera a ciegas.
+- [ ] **Support Agent #1 contratado** (LATAM, espanol) — Rocio
+- [ ] **Support Agent #2 contratado** (MENA/Africa/Asia, ingles — NO atiende EEA/UK: jurisdicciones restringidas) — Marilyn
+- [ ] **Marketing Manager** — decision hire vs freelance tomada y ejecutada
+
+### Bloque 5: Testing Pre-Live (Semana 5-6)
+*Nada sale a produccion sin testear.*
+
+- [ ] **Test end-to-end del flujo completo**: Registro → KYC → Deposito → Abrir trade → Cerrar trade → Retiro
+- [ ] **Test de cada PSP** con transaccion real (deposito + retiro)
+- [ ] **Test de Intercom** — ticket de prueba recorre todo el flujo de escalacion
+- [ ] **Test de CRM** — lead entra, se asigna, se trackea hasta FTD
+- [ ] **Simulacion de llamada de ventas** — cada agent hace 3 llamadas mock evaluadas
+- [ ] **Simulacion de KYC** — Susana procesa 10 KYCs de prueba con distintos escenarios (aprobado, retry, rechazado)
+- [ ] **Load test basico** de plataforma MT5 + client portal
+
+### Cronograma visual (6 semanas al Go-Live)
+
+```
+Semana 1  |==FUNDAMENTOS==|  |==HIRING==|  |=SALES TRAINING S1=|
+Semana 2  |==FUNDAMENTOS==|  |==HIRING==|  |=SALES TRAINING S2=|  |=SUSANA TRAINING=|
+Semana 3  |===DOCS OPS====|  |==HIRING==|  |=SALES TRAINING S3=|  |=SUSANA TRAINING=|
+Semana 4  |===DOCS OPS====|  |==HIRING==|  |=SALES TRAINING S4=|  |=SUPPORT TRAINING=|
+Semana 5  |===TESTING=====|              |=SALES TRAINING S5=|  |=SUPPORT TRAINING=|
+Semana 6  |===TESTING=====|  |GO-LIVE|  |=SALES TRAINING S6=|
+```
+
+---
+
+## Bloque 6: Checklist de Firmas Finales (D-1 19:00 UAE)
+
+Las verificaciones operativas detalladas estan en la FASE 1 de este runbook (tecnologia, PSPs, compliance, soporte, marketing). Este bloque es la **firma final** de los owners tras verificar que los bloques 1-5 estan completos.
 
 - [ ] **Diego Loyola** (CEO) — Aprobacion final go-live
 - [ ] **Angel Ortega** (CCO) — Compliance + strategy sign-off

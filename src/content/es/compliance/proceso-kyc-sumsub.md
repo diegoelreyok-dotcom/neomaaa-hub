@@ -146,86 +146,28 @@ SI RECHAZADO -> BLOQUEADO HASTA RESOLUCION
 
 ## 3. CATEGORIAS DE RIESGO DEL CLIENTE
 
-> **Framework oficial:** NEOMAAA clasifica a cada cliente en una de 3 categorias de riesgo (LOW, MEDIUM, HIGH) conforme a los criterios cualitativos definidos en [risk-matrix.md](/content/compliance/risk-matrix). Los triggers EDD estan documentados en [edd-triggers.md](/content/compliance/edd-triggers). El sistema anterior basado en montos acumulados fue deprecado.
+> [!INFO]
+> **Gold source del framework 3 categorias (LOW / MEDIUM / HIGH):** [`compliance/risk-matrix`](/content/compliance/risk-matrix). Los triggers específicos de EDD están en [`compliance/edd-triggers`](/content/compliance/edd-triggers).
+>
+> Esta sección describe cómo el proceso KYC Sumsub interactúa con cada categoría — no duplica los criterios de clasificación. El sistema anterior basado en montos acumulados fue deprecado.
 
-### 3.1 LOW RISK -- Perfil estandar
+### 3.1 Qué hace Sumsub en cada categoría
 
-**Se aplica a:** Cliente retail con perfil consistente con su declaracion, jurisdiccion no restringida, sin matches de sanciones/PEP, sin patrones conductuales de riesgo.
+**LOW RISK (perfil estándar):** Sumsub ejecuta verificación automática — OCR, liveness, screening OFAC/ONU/UE/UK, screening PEP, verificación de edad/país. Aprobación automática en mayoría de casos. Documentos: ID + liveness + PoA.
 
-**Documentos requeridos:**
-- Documento de identidad valido (pasaporte, DNI, licencia de conducir).
-- Liveness check (selfie en video).
-- Prueba de domicilio (PoA) -- exigida desde el onboarding inicial por politica AML.
+**MEDIUM RISK (triggers cualitativos — ver risk-matrix):** Sumsub recolecta docs adicionales (SoF declarado, PoA refresh si aplica). Revisión manual de Susana. Documentos: LOW + declaración SoF firmada.
 
-**Verificaciones que ejecuta Sumsub:**
-- OCR y extraccion de datos del documento.
-- Comparacion facial: selfie vs foto del documento.
-- Deteccion de falsificacion del documento.
-- Verificacion de vigencia del documento.
-- Screening de sanciones (OFAC, ONU, UE, UK).
-- Screening de PEPs.
-- Verificacion de edad (18+).
-- Verificacion de pais de emision vs pais declarado.
+**HIGH RISK (triggers categóricos — ver edd-triggers):** Sumsub facilita EDD completo. Documentos: MEDIUM + SoF/SoW documentados + docs corporativos + entrevista. Aprobación dual obligatoria (Susana + Principals).
 
-**Resultado esperado:** Aprobacion automatica via Sumsub en la mayoria de los casos. Si requiere revision manual, Susana define SLA operativo en [susana-playbook.md](/content/compliance/susana-playbook). `[DATO: Susana confirma timing real auto / manual]`
+### 3.2 Resumen operativo por categoría
 
-### 3.2 MEDIUM RISK -- Triggers cualitativos
-
-**Se activa cuando:** Se detecta al menos un trigger cualitativo definido en la Matriz de Riesgo (ver [risk-matrix.md](/content/compliance/risk-matrix)). Ejemplos de triggers categoricos: inconsistencia entre perfil declarado y actividad, jurisdiccion de riesgo medio, profesion de riesgo medio, patrones transaccionales que requieren soporte documental, cuenta nueva con actividad atipica.
-
-**Documentos adicionales requeridos:**
-- Declaracion de origen de fondos (formulario interno firmado).
-- PoA actualizada si la del onboarding inicial tiene mas de 6 meses.
-- Documentacion de respaldo del origen de fondos cuando el trigger lo requiera (criterio definido por Compliance en risk-matrix).
-
-**Verificaciones adicionales:**
-- Revision manual de Susana sobre la declaracion de SoF.
-- Coherencia entre perfil declarado (profesion, ingresos) y patron transaccional.
-
-**Resultado esperado:** Aprobacion manual. `[DATO: Susana confirma SLA]`
-
-### 3.3 HIGH RISK -- EDD completo obligatorio
-
-**Se activa cuando:** Se detecta al menos un trigger categorico de HIGH RISK / EDD definido en [edd-triggers.md](/content/compliance/edd-triggers). Triggers categoricos:
-
-- PEP status (personal, familiar directo, asociado cercano).
-- Match confirmado en listas de sanciones internacionales.
-- Jurisdiccion FATF high risk (lista gris o negra).
-- Estructuras corporativas opacas o con UBO no identificable.
-- Media adversa detectada (corrupcion, crimen organizado, fraude financiero).
-- Profesiones de alto riesgo segun politica interna (casinos, cambio de divisas no regulado, etc.).
-- Patrones conductuales severos de riesgo (structuring, depositos inconsistentes con perfil, etc.).
-
-**Documentos adicionales requeridos:**
-- Source of Funds (SoF) documentado: estado de cuenta bancario, comprobante de venta de activos, contrato laboral, certificacion de ingresos por contador.
-- Source of Wealth (SoW) documentado: declaracion patrimonial, herencia, venta de propiedad, ganancias empresariales, carta explicativa firmada.
-- Documentacion corporativa completa (si aplica): incorporacion, UBO, estructura societaria.
-- Entrevista telefonica o por video con Susana cuando el trigger lo requiera.
-
-**Verificaciones adicionales:**
-- EDD completo conforme a FATF Recommendation 12.
-- Aprobacion dual obligatoria: Susana (Compliance) + Principals.
-- Monitoreo reforzado mensual desde apertura.
-- Busqueda en fuentes abiertas (Google, registros publicos, verificacion de empleador).
-
-**Resultado esperado:** Aprobacion con EDD documentado. `[DATO: Susana confirma SLA]`
-
-### 3.4 Tabla Resumen de Categorias
-
-| Aspecto | LOW RISK | MEDIUM RISK | HIGH RISK |
+| Aspecto | LOW | MEDIUM | HIGH |
 |---|---|---|---|
-| Disparador | Perfil estandar sin triggers | Trigger(s) cualitativos de riesgo medio (risk-matrix) | Trigger categorico de EDD (edd-triggers) |
-| Documento de identidad | Si | Si | Si |
-| Liveness check | Si | Si | Si |
-| Prueba de domicilio | Si | Si (refresh si aplica) | Si (refresh obligatorio) |
-| Declaracion SoF | No (salvo trigger) | Si | Si |
-| Documentacion SoF | No (salvo trigger) | Segun trigger | Si (obligatoria) |
-| Source of Wealth | No | Segun trigger | Si (obligatoria) |
-| Entrevista | No | Opcional | Segun trigger |
-| Revision automatica | Si (Sumsub) | No (revision Susana) | No (revision Susana + Principals) |
-| Aprobacion | Sumsub | Susana | Susana + Principals (dual) |
-| Revision periodica | Anual | Trimestral | Mensual |
-| Revision por Susana | Solo excepciones | Siempre | Siempre + Principals |
+| Aprobación | Sumsub automática | Susana | Susana + Principals (dual) |
+| Revisión periódica | Anual | Trimestral | Mensual |
+| Docs adicionales vs LOW | — | SoF declarado, PoA refresh | SoF/SoW documentados, corporativos, entrevista |
+
+**Para criterios de clasificación, triggers, listas FATF y re-verificación:** [`compliance/risk-matrix`](/content/compliance/risk-matrix).
 
 ---
 

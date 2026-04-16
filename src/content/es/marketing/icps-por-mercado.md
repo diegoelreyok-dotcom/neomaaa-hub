@@ -4,12 +4,10 @@
 > Aplica a: NEOMAAA Markets (broker forex/CFD) | Mercados operativos: LATAM, CIS (selectivo), Asia (fase 2), MENA, Africa
 > Audiencia: Ventas, Marketing, Soporte, Compliance, Partners
 
-> [!DANGER]
-> **DECISION DIEGO (Abril 2026): "No podemos trabajar como broker con clientes de España/Europa sin las regulaciones que piden esos países."**
+> [!WARNING]
+> **Países restringidos:** no aceptamos clientes de USA, Canada, EEA (todos los países, incluida España), UK, Australia, Cuba, Iraq, Myanmar, North Korea, Sudan + sancionados. Lista completa y gold source: [`compliance/screening-sanciones`](/content/compliance/screening-sanciones) sección 12.5.
 >
-> **España / EEA / UK / Australia / Canada / USA son jurisdicciones RESTRINGIDAS — NO OPERATIVAS.** Neomaaa Ltd NO acepta clientes residentes en EEA (30 países incluida España), UK, Australia, Canada, USA, Cuba, Iraq, Myanmar, North Korea, Sudan ni jurisdicciones sancionadas.
->
-> **El ICP #2 — España que aparece en este documento se mantiene SOLO como referencia educativa / benchmark / roadmap futuro** (sujeto a obtener licencia EEA equivalente). **NO usar para adquisición, creativos, campañas ni pitches operativos hoy.** Onboardings desde EEA deben ser bloqueados en KYC/Sumsub.
+> **Decisión Diego (Abril 2026):** "No podemos trabajar como broker con clientes de España/Europa sin las regulaciones que piden esos países." El ICP #2 España que aparece en este documento se mantiene SOLO como referencia educativa / roadmap futuro — NO usar para adquisición.
 >
 > **Mercados OPERATIVOS confirmados:**
 > - **LATAM (core):** Brasil, México, Argentina, Colombia, Chile, Perú y resto (excluyendo USA/Canadá)
@@ -664,10 +662,7 @@ Todos los valores son **estimaciones de mercado**, no datos NEOMAAA. Se corrigen
 
 **Lista de Anti-ICPs (rechazo activo):**
 
-1. **Clientes en paises sancionados/restringidos**
-   - Crimea, Donetsk, Luhansk, Zaporizhzhia, Kherson
-   - Iran, Corea del Norte, Siria, Cuba (OFAC strict)
-   - Paises en lista FATF high-risk sin due diligence reforzada
+1. **Clientes en paises sancionados/restringidos** — lista completa en [`compliance/screening-sanciones`](/content/compliance/screening-sanciones) sección 12.5. Incluye USA, Canada, EEA, UK, Australia, sancionados OFAC/ONU/UE y FATF high-risk sin EDD reforzada.
 
 2. **Clientes sin SoF comprobable**
    - Origen de fondos opaco
@@ -718,7 +713,7 @@ Este documento se revisa:
 
 - `marketing/funnel-broker.md` — Funnel de conversion (como los ICPs entran al pipeline)
 - `marketing/copy-broker.md` — Copy y mensajes (pitchs por ICP traducidos a copy real)
-- `marketing/competidores-broker.md` — Analisis de competidores (profundidad por mercado)
+- `marketing/competidores-deep-dive.md` — Analisis de competidores (battle cards + gaps + presencia LATAM)
 - `marketing/retencion-broker.md` — Estrategia de retencion (LTV por ICP)
 - `sales/plan-contacto.md` — Plan de contacto (primera llamada adaptada por ICP)
 - `sales/objections-broker.md` — Objeciones (respuestas por ICP)

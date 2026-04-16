@@ -1,6 +1,8 @@
 # Enciclopedia de Soporte -- NEOMAAA Markets
 
-> Guia completa para el equipo de soporte y atencion al cliente. Toda la informacion oficial del broker basada en help.neomaaa.com. Documento interno -- no compartir con clientes.
+> Base de **conocimiento de producto** para el equipo de soporte: qué responderle al cliente sobre cuentas, KYC, depositos, retiros, MT5, trading, spreads, leverage, instrumentos, reglas, seguridad y Vault Yield. Informacion oficial basada en help.neomaaa.com. Documento interno -- no compartir con clientes.
+>
+> Para el **proceso operativo** (Intercom, SLAs, escalacion, canned responses, metricas, handoff, checklists diarios, capacitacion) ver el **[Support Playbook](/content/es/support/playbook)**. Playbook = proceso, Enciclopedia = conocimiento.
 
 > **Equipo:** Rocio, Marilyn (soporte/account management), Edward, Franco, Luis (ventas)
 
@@ -23,7 +25,7 @@
 11. [Seguridad](#11-seguridad)
 12. [Vault Yield System](#12-vault-yield-system)
 13. [Problemas Frecuentes y Soluciones](#13-problemas-frecuentes-y-soluciones)
-14. [Contacto y Escalacion](#14-contacto-y-escalacion)
+14. [Contacto y Canales Cliente-Facing](#14-contacto-y-canales-cliente-facing)
 
 ---
 
@@ -1466,95 +1468,63 @@ Contactar soporte con: numero de cuenta, metodo de pago, monto, fecha/hora de la
 
 ---
 
-## 14. Contacto y Escalacion
+## 14. Contacto y Canales Cliente-Facing
+
+Esta seccion cubre **solo lo que el cliente necesita saber** sobre como contactarnos. Para el **flujo interno de escalacion** (matriz L1/L2/L3, SLAs internos, contactos del equipo, protocolo de reclamos), ver **[Support Playbook seccion 3 - Matriz de Escalacion](/content/es/support/playbook)**.
 
 ### 14.1 Canales de Contacto Disponibles
 
 | Canal | Detalle | Tiempo de Respuesta |
 |---|---|---|
-| **Chat en vivo** | Disponible en el sitio web de NEOMAAA -- hacer clic en el icono de chat | Instantaneo durante horario de soporte |
-| **Correo electronico** | [email protected] | Tipicamente 24 horas |
-| **Centro de soporte** | help.neomaaa.com | Autoservicio 24/7 |
+| **Chat en vivo** | Sitio web NEOMAAA - icono de chat | Instantaneo en horario |
+| **Correo electronico** | [email protected] | Tipicamente 24h |
+| **Centro de ayuda** | help.neomaaa.com | Autoservicio 24/7 |
 
 ### 14.2 Horario de Soporte
 
-El soporte de NEOMAAA esta disponible durante las horas de mercado, de lunes a viernes. Los tiempos de respuesta pueden ser mas prolongados fuera del horario laboral y en dias festivos.
+Lunes a viernes durante horas de mercado. Tiempos de respuesta pueden ser mas prolongados fuera de horario y en dias festivos.
 
-### 14.3 Soporte Prioritario para Cuenta Raw
+### 14.3 Soporte Prioritario Raw
 
-Los clientes de cuenta Raw tienen acceso a:
+Clientes de cuenta Raw tienen:
 - Soporte prioritario con tiempos de respuesta mas rapidos
-- Gestor de cuenta dedicado para asistencia personalizada
+- Account manager dedicado
 
-### 14.4 Que Incluir al Contactar Soporte
+### 14.4 Que Debe Incluir el Cliente al Contactar
 
-Para resolver problemas rapidamente, incluir:
-- Numero de cuenta
+- Numero de cuenta MT5
 - Descripcion clara del problema
-- Capturas de pantalla si es relevante
-- Fecha y hora en que ocurrio el problema
+- Capturas de pantalla si aplica
+- Fecha/hora del problema
 - Mensajes de error recibidos
-- Dispositivo y sistema operativo (para problemas tecnicos)
-
-### 14.5 Guia de Escalacion Interna
-
-| Situacion | Escalar A | Prioridad |
-|---|---|---|
-| Acceso no autorizado a cuenta | Compliance + Seguridad | URGENTE |
-| Sospecha de fraude o tarjeta robada | Compliance + Finanzas | URGENTE |
-| Comunicaciones fraudulentas con marca NEOMAAA | Compliance + Legal | URGENTE |
-| Saldo negativo no restablecido | Finanzas + Operaciones | ALTA |
-| Deposito no acreditado (>24h con confirmacion) | Finanzas | ALTA |
-| Retiro pendiente >3 dias habiles | Finanzas | ALTA |
-| Cuenta bloqueada sin desbloqueo | Soporte Tecnico | ALTA |
-| Cuenta deshabilitada sin razon | Compliance | ALTA |
-| Solicitud de cuenta islamica | Compliance + Operaciones | MEDIA |
-| Disputa sobre cargos de swap | Operaciones de Trading | MEDIA |
-| Reclamo por slippage significativo | Operaciones de Trading | MEDIA |
-| KYC tarda >48h en periodo normal | Supervisor de Operaciones | MEDIA |
-| Documentos en idiomas inusuales | Compliance | MEDIA |
-| Cliente exige retiro urgente | Supervisor | MEDIA |
-| Problemas tecnicos persistentes de MT5 | Soporte Tecnico | NORMAL |
-| Preguntas sobre actividades de trading no listadas | Compliance | NORMAL |
-| VPS no activado cumpliendo requisitos | Operaciones | NORMAL |
-| Disputa sobre rebate de Raw Account | Operaciones + Finanzas | NORMAL |
-
-### 14.6 Protocolo de Respuesta a Reclamos
-
-1. Escuchar al cliente completamente sin interrumpir
-2. Validar su frustracion: "Entiendo que esto es frustrante, vamos a resolverlo."
-3. Recopilar toda la informacion necesaria (numero de cuenta, detalles del problema, capturas)
-4. Intentar resolver con la informacion disponible en esta enciclopedia
-5. Si no se puede resolver, escalar segun la tabla anterior informando al cliente: "Voy a escalar tu caso con el equipo especializado. Te contactaremos en [plazo estimado]."
-6. Documentar el caso completo en el sistema
-7. Hacer seguimiento hasta el cierre del caso
+- Dispositivo y SO (para problemas tecnicos)
 
 **Que decirle al cliente:**
 
-- "Puedes contactarnos por chat en vivo directamente en nuestro sitio web, o enviarnos un correo a [email protected]."
-- "Nuestro equipo de soporte esta disponible de lunes a viernes durante horas de mercado."
-- "Si tienes cuenta Raw, tienes acceso a soporte prioritario y un gestor de cuenta dedicado."
-- "Para que podamos ayudarte mas rapido, incluye tu numero de cuenta, una descripcion del problema, y capturas de pantalla si es posible."
+- "Puedes contactarnos por chat en vivo en nuestro sitio web, o escribirnos a [email protected]."
+- "Estamos de lunes a viernes durante horas de mercado."
+- "Si tienes cuenta Raw, tienes soporte prioritario y un account manager dedicado."
+- "Para ayudarte mas rapido, incluye tu numero de cuenta, descripcion del problema y capturas de pantalla."
 
 ---
 
 ## APENDICE A: Resumen Rapido por Tipo de Cuenta
 
+**4 tipos de cuenta:** Cent ($5), Standard ($50), Raw ($500 — 0.0 pips + $3/lado), Institutional ($50,000, custom).
+
+Tabla completa con spreads, comisiones, leverage máximo (gold source vinculante): [`encyclopedia/productos-mt5`](/content/encyclopedia/productos-mt5) sección "Tipos de cuenta".
+
+**Parámetros operativos específicos de soporte** (no en gold source, específicos para agents):
+
 | Caracteristica | Cent | Standard | Raw |
 |---|---|---|---|
-| Deposito minimo | $5 | $50 | $500 |
-| Apalancamiento forex | Hasta 1:1000 | Hasta 1:500 | Hasta 1:200 |
-| Spreads | Desde 1.0 pips | Desde 1.0 pips | Desde 0.0 pips |
-| Comision trading | Ninguna | Ninguna | $3/lote/lado |
 | Margin Call | 50% | 50% | 60% |
 | Stop Out | 30% | 30% | 40% |
 | Vault Yield | No | Si (hasta 5%) | Si (hasta 5%) |
 | VPS gratuito | No | No | Si (con requisitos) |
 | Soporte prioritario | No | No | Si |
-| Acciones/ETFs | No | No | Si |
 | Cuenta islamica | Si | Si | Si |
 | Moneda base | CNT (centavos) | USD | USD |
-| Ideal para | Principiantes | Trading diario | Profesionales |
 
 ---
 
@@ -1586,45 +1556,7 @@ Para resolver problemas rapidamente, incluir:
 
 ---
 
-## APENDICE D: Checklist de Primer Contacto con Nuevo Cliente
-
-Para el equipo de ventas (Edward, Franco, Luis), al hablar con un prospecto nuevo:
-
-1. [ ] Identificar experiencia previa del cliente (principiante, intermedio, avanzado)
-2. [ ] Recomendar tipo de cuenta apropiado segun su perfil
-3. [ ] Explicar el proceso de registro y verificacion KYC (24h)
-4. [ ] Mencionar los metodos de deposito disponibles y que todos son gratuitos
-5. [ ] Destacar la plataforma MT5 y su disponibilidad multi-dispositivo
-6. [ ] Si es trader de volumen: mencionar cuenta Raw, programa de rebate, y VPS gratuito
-7. [ ] Si mantiene saldo: mencionar Vault Yield System (hasta 5% anual)
-8. [ ] Destacar: proteccion de saldo negativo, cuentas segregadas, +50 pares forex
-9. [ ] Informar sobre soporte en espanol y canales de contacto
-10. [ ] Si usa EAs: confirmar que estan permitidos y mencionar VPS
-
----
-
-## APENDICE E: Respuestas Rapidas para Chat en Vivo
-
-### Saludo inicial
-"Hola [nombre], bienvenido a NEOMAAA Markets. Mi nombre es [agente]. Como puedo ayudarte hoy?"
-
-### Verificacion de identidad
-"Para poder acceder a la informacion de tu cuenta, necesito verificar tu identidad. Puedes proporcionarme tu numero de cuenta y el correo electronico registrado?"
-
-### Deposito no reflejado
-"Entiendo tu preocupacion. Vamos a verificar: puedes confirmarme el metodo de pago, el monto exacto, y la fecha/hora de la transaccion? Si tienes una captura de pantalla de la confirmacion, seria muy util."
-
-### Retiro pendiente
-"Verifico el estado de tu retiro. Los tiempos de procesamiento son: [metodo] toma aproximadamente [tiempo]. Si ha excedido este plazo, voy a escalar tu caso con nuestro equipo de finanzas."
-
-### Problema tecnico MT5
-"Lamento las dificultades tecnicas. Vamos a resolverlo paso a paso. Primero, puedes decirme que error exacto te muestra y en que dispositivo/sistema operativo estas?"
-
-### Cierre de conversacion
-"Me alegra haber podido ayudarte, [nombre]. Si necesitas algo mas, no dudes en contactarnos. Que tengas un excelente dia de trading."
-
-### Cliente molesto
-"Entiendo completamente tu frustracion, [nombre], y lo lamento. Tu caso es importante para nosotros. Voy a hacer todo lo posible para resolverlo ahora mismo. Permiteme [accion]."
+> Para canned responses completas (saludo inicial, verificacion de identidad, deposito no reflejado, retiro pendiente, problema MT5, cliente molesto, etc.), ver **[Support Playbook seccion 5 - Respuestas Predefinidas](/content/es/support/playbook)** (CR-01 a CR-32). No duplicamos aqui.
 
 ---
 

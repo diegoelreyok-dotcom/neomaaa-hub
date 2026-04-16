@@ -22,7 +22,9 @@
 </div>
 
 > [!INFO]
-> Este playbook es la biblia operativa del equipo de soporte. Incluye horarios, SLAs, canned responses, matriz de escalamiento y los 20 problemas mas comunes con su resolucion. Lectura obligatoria antes del primer turno.
+> Este playbook es la biblia **operativa** del equipo de soporte: como trabajamos (Intercom, SLAs, escalacion, canned responses, metricas, checklists, handoff, horarios). Lectura obligatoria antes del primer turno.
+>
+> Para el **conocimiento de producto** (como funcionan cuentas, KYC, depositos, retiros, MT5, spreads, leverage, instrumentos, reglas de trading, Vault Yield, seguridad) ver la **[Enciclopedia de Soporte](/content/es/support/enciclopedia-soporte)**. Estos dos documentos son complementarios: playbook = **proceso**, enciclopedia = **conocimiento**.
 
 ---
 
@@ -983,9 +985,9 @@ Hola {{nombre}}, aqui tienes la comparacion de nuestros tipos de cuenta:
 | Caracteristica | Cent | Standard | Raw | Institutional |
 |---|---|---|---|---|
 | Deposito minimo | $5 | $50 | $500 | $50,000 |
-| Spreads | Desde 1.5 pips | Desde 1.2 pips | Desde 0.0 pips | Desde 0.0 pips |
-| Comision | No | No | Si (por lote) | Si (reducida) |
-| Apalancamiento max | 1:1000 | 1:1000 | 1:500 | Custom |
+| Spreads | Desde 1.0 pips | Desde 1.0 pips | Desde 0.0 pips | Desde 0.0 pips |
+| Comision | No | No | $3/lote/lado | Custom |
+| Apalancamiento max | 1:1000 | 1:1000 | 1:500 | Negociable |
 | Tamano minimo de lote | 0.01 (centavos) | 0.01 | 0.01 | 0.1 |
 | Ideal para | Principiantes, poco capital | Traders intermedios | Scalpers, traders activos | Gestores de fondos, alto volumen |
 | Plataforma | MT5 | MT5 | MT5 | MT5 |
@@ -1660,26 +1662,27 @@ Please send the required documents and we'll process your request as soon as pos
 
 ---
 
-## 6. Top 20 Problemas Comunes y Resolucion
+## 6. Top 20 Problemas Comunes - Flujo de Triage
+
+> [!INFO]
+> Para el detalle tecnico del producto (como funciona un deposito, KYC, MT5, retiros, spreads, etc.), consultar la **[Enciclopedia de Soporte](/content/es/support/enciclopedia-soporte)**. Esta seccion es **solo el flujo operativo**: que preguntar, que verificar, que canned response usar y cuando escalar.
 
 ### Problema 1: "Mi deposito no aparece en mi cuenta"
 
 **Frecuencia:** Muy alta (top 1)
 
-**Diagnostico:**
-1. Pedir numero de cuenta MT5, metodo de deposito, monto y hora aproximada
-2. Verificar en el panel de PSP si la transaccion fue exitosa
-3. Verificar en Skale si el deposito esta registrado
-4. Verificar si el deposito fue a la cuenta correcta (el cliente puede tener varias)
+**Pasos del agente:**
+1. Pedir: numero de cuenta MT5, metodo, monto, hora aproximada, captura del comprobante
+2. Verificar transaccion en panel PSP y en Skale
+3. Verificar que el deposito haya ido a la cuenta correcta
 
-**Resoluciones posibles:**
-- PSP muestra exitoso pero no acreditado > Escalar a Finance Manager
-- PSP muestra pendiente > Informar al cliente que espere (dar timeframe segun metodo)
-- PSP muestra fallido > Informar al cliente que el pago no se proceso, debe reintentar
-- Deposito fue a otra cuenta del cliente > Explicar y ofrecer transferencia interna
-- Monto menor al minimo > Informar el deposito minimo para su tipo de cuenta
+**Decision:**
+- PSP exitoso pero no acreditado >24h > **Escalar a Finance Manager**
+- PSP pendiente > Informar timeframe (ver Enciclopedia 3.1)
+- PSP fallido > Pedir reintento
+- Monto bajo minimo > Informar minimos (ver Enciclopedia 3.1)
 
-**Canned Response:** CR-05, CR-06, CR-07, CR-08, CR-09, CR-10 (segun metodo)
+**Canned Response:** CR-05 a CR-10 segun metodo | **Detalle tecnico:** Enciclopedia seccion 3 y 13.4
 
 ---
 
@@ -1687,20 +1690,19 @@ Please send the required documents and we'll process your request as soon as pos
 
 **Frecuencia:** Muy alta (top 2)
 
-**Diagnostico:**
-1. Verificar que use el numero de cuenta (no el email) como login
-2. Verificar que este en el servidor correcto
-3. Verificar que la contrasena sea correcta (case-sensitive)
-4. Verificar que la cuenta no este desactivada
+**Pasos del agente:**
+1. Verificar que use numero de cuenta (no email) como login
+2. Verificar servidor `mt5.neomaaa.com`
+3. Verificar contrasena (case-sensitive, sin espacios)
+4. Verificar en Skale que la cuenta no este desactivada
 
-**Resoluciones posibles:**
-- Servidor incorrecto > Guiar al servidor correcto
-- Contrasena incorrecta > Ofrecer reset de contrasena
-- Cuenta desactivada > Verificar en Skale el motivo, escalar si es necesario
-- MT5 desactualizado > Guiar a descargar ultima version
-- Problema de red > Verificar conexion, sugerir cambiar DNS o usar VPN
+**Decision:**
+- Servidor/credenciales mal > CR-13
+- Password perdido > CR-12 (reset)
+- Cuenta desactivada > Escalar a compliance (posible suspension)
+- MT5 antiguo o conexion > CR-24
 
-**Canned Response:** CR-12, CR-13, CR-24
+**Canned Response:** CR-12, CR-13, CR-24 | **Detalle tecnico:** Enciclopedia seccion 5 y 13.2
 
 ---
 
@@ -1708,17 +1710,12 @@ Please send the required documents and we'll process your request as soon as pos
 
 **Frecuencia:** Alta
 
-**Diagnostico:**
-1. Verificar que la cuenta este verificada (KYC aprobado)
-2. Verificar que no tenga posiciones abiertas que consuman todo el margen
-3. Verificar metodos de retiro disponibles para su pais
+**Pasos del agente:**
+1. Verificar KYC aprobado
+2. Verificar margen libre
+3. Recordar politica AML (primer retiro al metodo de deposito)
 
-**Resolucion:**
-- Guiar paso a paso por el portal del cliente
-- Recordar politica de AML: retiro al mismo metodo del deposito
-- Si no puede retirar por restriccion, verificar motivo en Skale
-
-**Canned Response:** CR-11, CR-20
+**Canned Response:** CR-11, CR-20 | **Detalle tecnico:** Enciclopedia seccion 4
 
 ---
 
@@ -1726,19 +1723,16 @@ Please send the required documents and we'll process your request as soon as pos
 
 **Frecuencia:** Alta
 
-**Diagnostico:**
-1. Verificar fecha de solicitud y metodo
-2. Comparar con tiempos estandar de procesamiento
-3. Verificar si esta dentro del SLA normal
-4. Verificar si hay alguna nota del equipo de finanzas
+**Pasos del agente:**
+1. Comparar fecha de solicitud vs tiempos estandar (Enciclopedia 4.3)
+2. Revisar notas de Finanzas
 
-**Resoluciones posibles:**
-- Dentro del plazo normal > Informar tiempos estandar y pedir paciencia
-- Fuera del plazo normal > Escalar a Finance Manager
-- Retenido por compliance > Escalar a Susana
-- Datos bancarios incorrectos > Pedir al cliente que corrija y reenvie
+**Decision:**
+- Dentro de plazo > Informar y pedir paciencia
+- Fuera de plazo (>3 dias habiles) > **Escalar a Finance Manager**
+- Retenido por compliance > **Escalar a Susana**
 
-**Canned Response:** CR-11, CR-20
+**Canned Response:** CR-11, CR-20 | **Detalle tecnico:** Enciclopedia 4.3, 4.5, 13.5
 
 ---
 
@@ -1746,30 +1740,22 @@ Please send the required documents and we'll process your request as soon as pos
 
 **Frecuencia:** Alta
 
-**Diagnostico:**
-1. Verificar en Sumsub el motivo exacto del rechazo
-2. Revisar la imagen/documento enviado
+**Pasos del agente:**
+1. Buscar motivo exacto en Sumsub
+2. Revisar el documento enviado
 
-**Resoluciones posibles:**
-- Documento ilegible > Guiar sobre como tomar una mejor foto
-- Documento vencido > Solicitar documento vigente
-- Documento no aceptado (tipo) > Listar documentos aceptados
-- Discrepancia de datos > Verificar que nombre coincida con el registro
-- Pais restringido detectado > Usar CR-26
+**Decision:**
+- Documento ilegible/vencido/tipo no aceptado > CR-03 con motivo
+- Pais restringido detectado > CR-26 y NO escalar
+- Discrepancia de datos grave > **Escalar a Susana**
 
-**Canned Response:** CR-02, CR-03
+**Canned Response:** CR-02, CR-03 | **Detalle tecnico:** Enciclopedia seccion 2
 
 ---
 
 ### Problema 6: "Que tipos de cuenta tienen?"
 
-**Frecuencia:** Alta
-
-**Diagnostico:** Pregunta informativa, resolver directamente.
-
-**Resolucion:** Compartir comparacion de cuentas y recomendar segun perfil del cliente.
-
-**Canned Response:** CR-17
+Pregunta informativa. Usar CR-17 y referir a Enciclopedia seccion 1.1 si pide mas detalle.
 
 ---
 
@@ -1777,202 +1763,123 @@ Please send the required documents and we'll process your request as soon as pos
 
 **Frecuencia:** Media-Alta
 
-**Diagnostico:**
-1. Verificar si fue un Stop Out (margen insuficiente)
-2. Verificar si tenia un Stop Loss o Take Profit activo
-3. Verificar si la orden tenia fecha de expiracion
-4. Verificar si hubo un ajuste de margen (cambio de apalancamiento)
+**Pasos del agente:**
+1. Verificar si fue Stop Out (Enciclopedia 8.4 para niveles)
+2. Verificar si tenia SL/TP activo o expiracion
 
-**Resoluciones posibles:**
-- Stop Out > Explicar con CR-27
-- SL/TP activado > Explicar que la orden se ejecuto segun configuracion
-- Expiracion > Explicar tipos de ordenes
-- Si nada de lo anterior aplica > Documentar y escalar a Pepe
+**Decision:**
+- Stop Out > CR-27
+- SL/TP ejecutado > Explicar que se ejecuto segun configuracion del cliente
+- Nada de lo anterior > Documentar y **escalar a Pepe**
 
-**Canned Response:** CR-27
+**Canned Response:** CR-27 | **Detalle tecnico:** Enciclopedia 8.4 (margin/stop out), 6 (ordenes)
 
 ---
 
 ### Problema 8: "Como cambio mi apalancamiento?"
 
-**Frecuencia:** Media
+Guiar a Portal > Payments > Change Leverage. Si tiene posiciones abiertas, puede bloquearlo. Si necesita apalancamiento fuera del rango, **escalar a Pepe**.
 
-**Diagnostico:** Pregunta informativa/operativa.
-
-**Resolucion:**
-1. Guiar al portal del cliente > Mis Cuentas > Configuracion
-2. Si no puede cambiarlo desde el portal, verificar si tiene posiciones abiertas (el cambio suele requerir que no haya posiciones abiertas)
-3. Si necesita apalancamiento fuera del rango estandar, escalar a Pepe
-
-**Canned Response:** CR-16
+**Canned Response:** CR-16 | **Detalle tecnico:** Enciclopedia 8.2
 
 ---
 
 ### Problema 9: "No puedo abrir una orden en MT5"
 
-**Frecuencia:** Media
+**Pasos del agente:**
+1. Pedir mensaje de error exacto
+2. Verificar horario de mercado (Enciclopedia 9.3)
+3. Verificar margen disponible
 
-**Diagnostico:**
-1. Verificar si el mercado esta abierto para ese instrumento
-2. Verificar si tiene margen suficiente
-3. Verificar si el volumen es valido (lote minimo/maximo)
-4. Verificar mensaje de error exacto en MT5
+**Decision:**
+- Mercado cerrado > CR-14
+- Fondos insuficientes/margen > Explicar (Enciclopedia 13.7) y sugerir reducir lote o depositar
+- "Trade is disabled" > **Escalar a Pepe** (posible restriccion de cuenta)
 
-**Resoluciones posibles:**
-- Mercado cerrado > Informar horarios de trading (CR-14)
-- Margen insuficiente > Explicar el concepto, sugerir deposito o reducir volumen
-- Volumen invalido > Explicar tamanos de lote para su tipo de cuenta
-- "Trade is disabled" > Verificar si la cuenta esta habilitada, escalar a Pepe
-- Error de conexion > Troubleshooting de conectividad
-
-**Canned Response:** CR-14, CR-13
+**Canned Response:** CR-13, CR-14 | **Detalle tecnico:** Enciclopedia 13.7 (errores MT5)
 
 ---
 
 ### Problema 10: "Quiero una cuenta swap-free / islamica"
 
-**Frecuencia:** Media (especialmente de Middle East)
+Tomar datos con CR-18. **Escalar a Susana** (aprobacion) y Pepe (configuracion).
 
-**Diagnostico:** Solicitud operativa.
-
-**Resolucion:**
-1. Tomar datos del cliente y numero de cuenta
-2. Informar condiciones de cuenta swap-free
-3. Documentar solicitud y escalar a Susana (aprobacion) y Pepe (configuracion tecnica)
-
-**Canned Response:** CR-18
+**Detalle tecnico:** Enciclopedia 7.8
 
 ---
 
 ### Problema 11: "Como funciona el copy trading?"
 
-**Frecuencia:** Media
-
-**Diagnostico:** Pregunta informativa / configuracion.
-
-**Resolucion:** Guiar con instrucciones de copy trading. Si necesita configuracion tecnica, escalar a Pepe.
-
-**Canned Response:** CR-19
+Usar CR-19 (MQL5 Signals). Si pide configuracion tecnica avanzada, escalar a Pepe.
 
 ---
 
 ### Problema 12: "No puedo instalar/descargar MT5"
 
-**Frecuencia:** Media
+Usar CR-24 con links. Si no quiere instalar nada, ofrecer Web Terminal.
 
-**Diagnostico:**
-1. Identificar dispositivo y sistema operativo
-2. Verificar requisitos de compatibilidad
-
-**Resoluciones posibles:**
-- Windows: Descargar desde link oficial, ejecutar como administrador
-- Mac: Usar Wine/PlayOnMac o el Web Terminal
-- iOS/Android: Descargar desde App Store/Google Play
-- Si no quiere instalar nada: ofrecer Web Terminal
-- Problemas de antivirus/firewall: guiar para agregar excepcion
-
-**Canned Response:** CR-24
+**Detalle tecnico:** Enciclopedia 5.2
 
 ---
 
 ### Problema 13: "Tengo un spread diferente al anunciado"
 
-**Frecuencia:** Media
+**Pasos del agente:**
+1. Verificar tipo de cuenta y hora
+2. Explicar spreads variables (CR-15)
+3. Si el spread parece anormal (>3x el tipico), **documentar y escalar a Pepe**
 
-**Diagnostico:**
-1. Verificar tipo de cuenta del cliente
-2. Verificar hora de la consulta (spreads varian)
-3. Explicar que los spreads son variables
-
-**Resoluciones posibles:**
-- Horario de baja liquidez > Explicar que spreads se amplian
-- Noticias de alto impacto > Explicar volatilidad
-- Si el spread parece anormalmente alto > Documentar y escalar a Pepe
-
-**Canned Response:** CR-15
+**Canned Response:** CR-15 | **Detalle tecnico:** Enciclopedia seccion 7
 
 ---
 
 ### Problema 14: "Quiero transferir dinero entre mis cuentas"
 
-**Frecuencia:** Media
-
-**Diagnostico:** Solicitud operativa.
-
-**Resolucion:** Guiar paso a paso por el portal.
-
-**Canned Response:** CR-23
+Guiar con CR-23. **Detalle tecnico:** Enciclopedia 1.3
 
 ---
 
 ### Problema 15: "Quiero abrir una cuenta IB / ser afiliado"
 
-**Frecuencia:** Media
-
-**Diagnostico:** Pregunta comercial.
-
-**Resolucion:** Dar informacion basica y transferir a Sales (Franco/Edward/Luis).
-
-**Canned Response:** CR-29
+Dar info basica con CR-29 y transferir a Sales (Franco/Edward/Luis).
 
 ---
 
 ### Problema 16: "Quiero cerrar mi cuenta"
 
-**Frecuencia:** Baja-Media
+**Pasos del agente:**
+1. Intentar retener: entender motivo
+2. Si insiste: seguir procedimiento de cierre con CR-30
+3. Documentar motivo en Skale
 
-**Diagnostico:**
-1. Entender el motivo (retencion)
-2. Verificar si tiene fondos o posiciones
-
-**Resolucion:**
-1. Intentar retener: preguntar si hay algo que se pueda mejorar
-2. Si insiste: seguir procedimiento de cierre
-3. Documentar motivo de cierre en Skale para analytics
-
-**Canned Response:** CR-30
+**Canned Response:** CR-30 | **Detalle tecnico:** Enciclopedia 1.5
 
 ---
 
-### Problema 17: "No recibo el email de verificacion / password reset"
+### Problema 17: "No recibo email de verificacion / password reset"
 
-**Frecuencia:** Baja-Media
-
-**Diagnostico:**
-1. Verificar que el email registrado sea correcto
-2. Pedir que revise carpeta de spam/junk
-3. Verificar que el dominio no este bloqueado
-
-**Resoluciones posibles:**
-- En spam > Guiar para marcar como seguro
-- Email incorrecto > Corregir en Skale (si verificacion de identidad es posible)
-- No llega > Reenviar manualmente desde el panel, escalar a IT si es recurrente
+**Pasos del agente:**
+1. Verificar email registrado correcto
+2. Pedir revisar spam/junk
+3. Si no llega: reenviar manual, escalar a IT si recurrente
 
 ---
 
 ### Problema 18: "Quiero cambiar mis datos personales"
 
-**Frecuencia:** Baja
-
-**Diagnostico:** Solicitud que requiere compliance.
-
-**Resolucion:** Documentar solicitud y pedir documentacion de soporte. Escalar a Susana si es necesario.
-
-**Canned Response:** CR-32
+Usar CR-32 para pedir documentacion. Escalar a Susana si es cambio de nombre, email o direccion.
 
 ---
 
 ### Problema 19: "No soy de pais restringido pero el sistema me bloquea"
 
-**Frecuencia:** Baja
+**Pasos del agente:**
+1. Verificar IP del cliente (posible VPN)
+2. Verificar pais registrado vs residencia
 
-**Diagnostico:**
-1. Verificar la IP del cliente (puede estar usando VPN)
-2. Verificar pais de registro vs pais de residencia actual
-
-**Resoluciones posibles:**
-- VPN activa con IP de pais restringido > Pedir que desactive VPN
-- Error de geo-localizacion > Escalar a IT/Pepe para whitelist manual
+**Decision:**
+- VPN activa > Pedir desactivarla
+- Error geo > **Escalar a IT/Pepe** para whitelist manual
 - Cliente realmente en pais restringido > CR-26
 
 ---
@@ -1981,17 +1888,13 @@ Please send the required documents and we'll process your request as soon as pos
 
 **Frecuencia:** Baja (pero critica)
 
-**Diagnostico:** ALERTA MAXIMA
-
-**Resolucion:**
-1. Documentar TODO lo que dice el cliente sin interrumpir
-2. NO dar opiniones, explicaciones defensivas ni argumentar
+**Protocolo ALERTA MAXIMA:**
+1. Documentar TODO sin interrumpir
+2. NO dar opiniones, explicaciones ni argumentar
 3. Asignar numero de referencia
-4. Confirmar recepcion al cliente
-5. Escalar INMEDIATAMENTE a Susana
+4. Confirmar recepcion con CR-21
+5. **Escalar INMEDIATAMENTE a Susana**
 6. Tags: `complaint` + `priority:urgent` + `escalated`
-
-**Canned Response:** CR-21
 
 > [!DANGER]
 > REGLA: Un agente NUNCA responde al fondo de una queja formal. Solo documenta, confirma recepcion y escala. Cualquier intento de argumentar puede usarse en contra de NEOMAAA en un proceso regulatorio.
@@ -2176,20 +2079,12 @@ Si un cliente de estos paises contacta soporte, usar CR-26 (rechazo por pais res
 
 ---
 
-## APENDICE B: Glosario para Agentes
+## APENDICE B: Glosario Operativo Interno
+
+Terminos internos que usa el equipo de soporte. Para terminos de producto dirigidos al cliente (spread, pip, margen, swap, leverage, stop loss, slippage, etc.) ver **[Enciclopedia de Soporte](/content/es/support/enciclopedia-soporte)** - Apendice A y secciones 6-8.
 
 | Termino | Definicion |
 |---------|-----------|
-| **Spread** | Diferencia entre precio de compra (Ask) y venta (Bid). Es el costo principal de operar |
-| **Pip** | Unidad minima de cambio en un par de divisas. En EUR/USD, 1 pip = 0.0001 |
-| **Lote** | Unidad de volumen de trading. 1 lote estandar = 100,000 unidades de la divisa base |
-| **Margen** | Cantidad de dinero requerida como garantia para abrir una posicion |
-| **Margin Call** | Alerta cuando el margen disponible cae por debajo del nivel minimo |
-| **Stop Out** | Cierre automatico de posiciones cuando el margen es insuficiente |
-| **Apalancamiento** | Reductor del margen requerido (1/N), NO multiplicador de capital. Con 1:500, 1 lote EUR/USD (~USD 115K nocionales) pide ~USD 230 de margen |
-| **Swap** | Interes que se cobra o paga por mantener una posicion abierta de un dia a otro |
-| **Stop Loss (SL)** | Orden automatica para cerrar una posicion con perdida a un precio predefinido |
-| **Take Profit (TP)** | Orden automatica para cerrar una posicion con ganancia a un precio predefinido |
 | **FTD** | First Time Deposit - primer deposito de un cliente nuevo |
 | **KYC** | Know Your Customer - proceso de verificacion de identidad |
 | **AML** | Anti-Money Laundering - politicas contra lavado de dinero |
@@ -2198,8 +2093,13 @@ Si un cliente de estos paises contacta soporte, usar CR-26 (rechazo por pais res
 | **A-Book** | Modelo donde las ordenes del cliente se envian directamente al mercado |
 | **B-Book** | Modelo donde el broker toma la contraparte de la orden del cliente |
 | **LP** | Liquidity Provider - proveedor de liquidez |
-| **Slippage** | Diferencia entre el precio solicitado y el precio de ejecucion real |
-| **Requote** | Cuando el broker ofrece un nuevo precio porque el original ya no esta disponible |
+| **CSAT** | Customer Satisfaction Score - metrica de satisfaccion del cliente |
+| **FRT** | First Response Time - tiempo hasta la primera respuesta |
+| **FCR** | First Contact Resolution - resolucion en el primer contacto |
+| **SLA** | Service Level Agreement - acuerdo de nivel de servicio |
+| **L1/L2/L3** | Niveles de escalacion (1 = agente, 2 = especialista, 3 = principals) |
+| **Handoff** | Traspaso de tickets entre turnos |
+| **Canned Response (CR)** | Respuesta predefinida usada como template |
 
 ---
 

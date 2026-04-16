@@ -453,7 +453,7 @@ NEOMAAA Markets работает по лицензии **Anjouan Offshore Financ
 | Ресурс | Для чего | Путь |
 |---|---|---|
 | Воронка конверсии | Как меряем нового клиента | [/content/marketing/funnel-broker](/content/marketing/funnel-broker) |
-| Анализ конкурентов | Кто они и как мы позиционируемся | [/content/marketing/competidores-broker](/content/marketing/competidores-broker) |
+| Анализ конкурентов | Кто они и как мы позиционируемся | [/content/marketing/competidores-deep-dive](/content/marketing/competidores-deep-dive) |
 | Copy и сообщения | Тон, ключевые слова, запрещённые | [/content/marketing/copy-broker](/content/marketing/copy-broker) |
 | Стратегия удержания | Как не теряем клиента | [/content/marketing/retencion-broker](/content/marketing/retencion-broker) |
 

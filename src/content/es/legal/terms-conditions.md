@@ -116,15 +116,43 @@ En los presentes Terminos y Condiciones, los siguientes terminos tendran el sign
 
 ## 8. OPERACIONES DE TRADING
 
-8.1 Las operaciones se ejecutan a traves de la plataforma MetaTrader 5 bajo las condiciones publicadas para cada instrumento (spread, comision, swap, apalancamiento, tamano minimo de posicion).
+8.1 Las operaciones se ejecutan a traves de la plataforma MetaTrader 5 bajo las condiciones publicadas para cada instrumento (spread, comision, swap, apalancamiento, tamano minimo de posicion). El detalle tecnico y especificaciones por producto estan publicadas en neomaaa.com y consultables en MT5 (Symbol Specifications). Complementa esta seccion la Politica de Ejecucion de Ordenes (`legal/order-execution-policy.md`).
 
-8.2 La Empresa opera bajo un modelo de ejecucion ECN/STP hibrido. Neomaaa Ltd puede actuar como principal o counterparty de las operaciones del Cliente. La ejecucion puede estar sujeta a slippage, latencia, requotes, ejecucion demorada, o condiciones de mercado fuera del control de la Empresa. Los detalles se establecen en la Politica de Ejecucion de Ordenes publicada en neomaaa.com/about/legal-documentation.
+8.2 La Empresa opera bajo un modelo de ejecucion ECN/STP hibrido con routing a multiples proveedores de liquidez. Neomaaa Ltd puede actuar como principal o counterparty de las operaciones del Cliente. La ejecucion puede estar sujeta a slippage, latencia, requotes, ejecucion demorada, o condiciones de mercado fuera del control de la Empresa. Los data centers principales estan en Equinix (NY4, LD5) con SLA objetivo de 99.9% uptime publicado en neomaaa.com.
 
-8.3 Las ordenes se ejecutan al precio disponible en el momento de la ejecucion (Market Execution). El slippage positivo o negativo puede ocurrir y es inherente a este modelo de ejecucion.
+8.3 Las ordenes se ejecutan al precio disponible en el momento de la ejecucion (Market Execution). El slippage positivo o negativo puede ocurrir y es inherente a este modelo de ejecucion. No hay requotes en Market Execution salvo en circunstancias excepcionales.
 
-8.4 La Empresa se reserva el derecho de:
+8.4 **Spreads y comisiones.** Spreads variables (floating), minimos tipicos: Raw desde 0.0 pips (con comision USD 7 round-turn por lote forex), Standard desde 1.0 pips (sin comision), Cent equivalente a Standard con lotes en centesimos, Institutional negociable. Ampliacion de spreads en news events, apertura/cierre y baja liquidez es estandar de industria.
 
-- Modificar los niveles de apalancamiento con previo aviso.
+8.5 **Swap (financiacion overnight).** Las posiciones abiertas en el rollover (tipicamente 21:00 GMT) reciben cargo o credito segun la tasa de interes diferencial. El miercoles aplica **triple swap** para cubrir el weekend. **Cuentas swap-free (islamicas)** disponibles bajo solicitud con fundamento religioso; aplica tarifa administrativa alternativa.
+
+8.6 **Tamano de orden.** Volumen minimo 0.01 lotes (micro lote); 0.01 en Cent equivale a 0.0001 lotes estandar. El volumen maximo por orden y la exposicion maxima por cliente varian segun instrumento y pueden estar capados por la Empresa para proteger la integridad del libro (especialmente en crypto CFDs y exoticos).
+
+8.7 **Margin call y stop-out.**
+- **Margin call:** cuando el nivel de margen cae por debajo del umbral definido en la pagina de especificaciones de cuenta, el cliente recibe alerta pero puede seguir operando.
+- **Stop-out:** al superar el umbral de stop-out, el sistema cierra posiciones automaticamente empezando por la de mayor perdida hasta recuperar margen sano.
+- **Proteccion de saldo negativo:** garantizada. Si el mercado se gapea y el saldo queda negativo, se repone a cero. El cliente no debe dinero al broker.
+
+8.8 **Horarios.** Forex: domingo 22:00 GMT a viernes 22:00 GMT. Metales: similar a forex con breaks. Indices/commodities/stocks/ETFs: horario del mercado subyacente. Crypto CFDs: 24/7. Indices, commodities y energies estan sujetos a expiracion y rollover de contrato subyacente (gestionado por el broker con notificacion previa).
+
+8.9 **Practicas de trading prohibidas.** Las siguientes practicas no estan permitidas y pueden resultar en anulacion de operaciones, confiscacion de ganancias obtenidas mediante la practica, remocion de bonos y/o cierre de cuenta:
+
+- **Latency arbitrage** — uso de tecnologia para explotar retraso entre feed del broker y mercado subyacente; EAs con logica de arbitraje de latencia; toxic flow contra el broker.
+- **Price / quote manipulation** — ordenes coordinadas, layering, spoofing, wash trading.
+- **Arbitraje entre cuentas relacionadas** — hedging entre cuentas propias, de familiares directos, empleados o misma IP reiterada; hedging contra broker externo para explotar bonos o rebates.
+- **Abuso de bonos** — multi-accounting, turnover sintetico sin riesgo genuino, colusion con IB/afiliado. Ver `legal/bonus-terms.md` seccion 6.
+- **Swap arbitrage abusivo** en cuentas islamicas (uso sin fundamento religioso para evitar swap en largos plazos) — puede derivar en reclasificacion a cuenta standard con recalculo retroactivo.
+- **Explotacion de errores de precios / stale quotes** — operaciones contra precios fuera de mercado pueden ser anuladas o ajustadas al precio justo (practica estandar industria).
+- **Trading de pre-open / post-close** con intencion de capturar micro-gaps conocidos ex-ante.
+- **Uso de software prohibido** — EAs con arbitraje de latencia, explotacion abusiva de rollovers, o herramientas de terceros con garantia de "no-loss" basada en arbitraje contra el broker.
+
+La Empresa mantiene monitoreo automatico de patrones sospechosos y auditoria manual por Compliance y Dealing. Consecuencias escaladas: advertencia formal en primera ofensa menor; anulacion de operaciones abusivas + remocion de bono + perdida de ganancias en ofensa moderada o repetida; cierre de cuenta, retencion de fondos y reporte a AOFA ante fraude. El cliente puede apelar via `legal/complaint-handling.md`.
+
+8.10 **Restricciones de exposicion y eventos.** La Empresa puede reducir apalancamiento maximo, ampliar margen requerido, restringir apertura de nuevas posiciones o imponer limites de exposicion en instrumentos especificos durante eventos de alto riesgo (NFP, FOMC, elecciones, disrupciones geopoliticas o de liquidez). Notificacion previa cuando es posible. En stocks/ETFs CFDs no existen derechos de accionista; ajustes por dividendos y corporate actions son automaticos segun ex-date.
+
+8.11 La Empresa se reserva el derecho de:
+
+- Modificar los niveles de apalancamiento con previo aviso minimo de 7 dias, salvo circunstancias extraordinarias de mercado.
 - Ajustar los spreads en condiciones de mercado extremas.
 - Cancelar operaciones que resulten de errores manifiestos de precio (error quotes).
 - Limitar o restringir la operacion en determinados instrumentos.
@@ -210,9 +238,13 @@ El Cliente se compromete a:
 
 Los servicios de la Empresa no estan disponibles para residentes de:
 
-**Sancionados internacionalmente:** Cuba, Irak, Myanmar, Corea del Norte, Sudan, Siria, Iran, Crimea, Donetsk y Luhansk.
+**Restricciones regulatorias** (no aceptamos clientes por politica regulatoria o interna): Estados Unidos (SEC/CFTC/NFA), Canada (IIROC/CSA), Espacio Economico Europeo — 30 paises incluida Espana (MiFID II), Reino Unido (FCA), Australia (ASIC), Japon, Israel.
 
-**Restricciones regulatorias:** Estados Unidos, Canada, Espacio Economico Europeo (30 paises), Reino Unido, Australia, Japon, Israel.
+**Sancionados internacionalmente** (rechazo automatico): Cuba, Iran, Iraq, Myanmar (Birmania), Corea del Norte (DPRK), Siria, Sudan, Crimea, regiones de Donetsk y Luhansk, y cualquier pais o individuo bajo sanciones UN / EU / UK / OFAC especificas.
+
+**Monitoreo elevado (FATF grey list):** Clientes residentes son clasificados como MEDIUM RISK y se exige Source of Funds obligatorio. Lista vigente en `compliance/risk-matrix.md` seccion 5 y `compliance/screening-sanciones.md`.
+
+Los clientes que intenten registrarse desde paises restringidos seran rechazados durante el proceso de verificacion KYC (ver `legal/aml-kyc-policy.md` seccion 7).
 
 ---
 

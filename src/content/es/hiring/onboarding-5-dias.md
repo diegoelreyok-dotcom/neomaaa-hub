@@ -457,7 +457,7 @@ Hoy bajás de la teoría general a tu rol específico. Encontrá tu sección aba
 | Recurso | Para qué | Path |
 |---|---|---|
 | Funnel de Conversión | Cómo medimos cliente nuevo | [/content/marketing/funnel-broker](/content/marketing/funnel-broker) |
-| Análisis Competidores | Quiénes son y cómo nos posicionamos | [/content/marketing/competidores-broker](/content/marketing/competidores-broker) |
+| Análisis Competidores | Quiénes son y cómo nos posicionamos | [/content/marketing/competidores-deep-dive](/content/marketing/competidores-deep-dive) |
 | Copy y Mensajes | Tono, palabras clave, prohibidas | [/content/marketing/copy-broker](/content/marketing/copy-broker) |
 | Estrategia Retención | Cómo no perdemos al cliente | [/content/marketing/retencion-broker](/content/marketing/retencion-broker) |
 

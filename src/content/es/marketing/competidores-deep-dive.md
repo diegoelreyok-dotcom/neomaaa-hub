@@ -11,13 +11,14 @@
 
 ## Introduccion
 
-### Por que este doc es distinto de `competidores-broker.md`
+### Alcance del documento
 
-El doc `competidores-broker.md` es un **overview comparativo** — tabla maestra de specs, utilidad para pricing, producto, research de mercado. Es lectura horizontal, te muestra el panorama.
+Este doc es el **unico** de competidores en el portal. Consolida dos vistas:
 
-Este doc es **vertical por competidor** — una battle card real por cada broker con el que nos cruzamos todos los dias en ventas. Objetivo: que cualquier sales rep de NEOMAAA entre a una llamada sabiendo exactamente como atacar, defender y cerrar contra el broker del que viene el lead.
+1. **Battle cards verticales por competidor** (secciones 1-8) — manual de combate: fortalezas, debilidades, como nos atacan, como respondemos, frases aprobadas/prohibidas. Uso: ventas antes de cada llamada.
+2. **Analisis estrategico horizontal** (apendices finales) — presencia LATAM por pais, gaps de mercado explotables, amenazas, plan de inteligencia competitiva continua. Uso: marketing, producto, decisiones de posicionamiento.
 
-No es un resumen ejecutivo. Es un manual de combate.
+No es un resumen ejecutivo. Es manual de combate + inteligencia estrategica.
 
 ### Como usarlo
 
@@ -1090,6 +1091,135 @@ El mercado forex/CFD offshore tiene practicas cuestionables frecuentes. Como cli
 3. Identificar el dolor real del cliente (siempre hay uno).
 4. Proponer nuestra propuesta especifica sobre ese dolor.
 5. Cerrar con accion de bajo compromiso (ticket chico, test 1 mes).
+
+---
+
+## Apendice A — Presencia LATAM por Pais
+
+> Vista horizontal de mercado. Complementa las battle cards verticales con un mapa estrategico de donde competir primero.
+
+### Dominancia por mercado
+
+| Pais | Broker Dominante | Segundo | Oportunidad NEOMAAA |
+|------|-----------------|---------|---------------------|
+| **Colombia** | OctaFX, XM | Exness | ALTA — PSE/Nequi como diferenciador, XM seminarios establecidos pero spreads altos |
+| **Mexico** | Exness, XM | FBS | ALTA — OXXO/SPEI como gancho, mercado grande y creciente |
+| **Brasil** | Exness, FBS | XM | MEDIA-ALTA — PIX es clave, contenido en portugues necesario, mercado enorme |
+| **Peru** | XM, Exness | OctaFX | ALTA — Yape/BCP diferenciador, mercado menos saturado |
+| **Chile** | IC Markets, Pepperstone | Exness | MEDIA — Mercado mas sofisticado, cuenta Raw competitiva necesaria |
+| **Argentina** | Exness | FBS | ALTA — Mercado Pago/USDT crucial por restricciones cambiarias |
+| **Ecuador** | XM | Exness | MEDIA — Mercado pequeno pero con poca competencia local |
+| **Rep. Dominicana** | XM | OctaFX | MEDIA — Mercado pequeno, poca competencia |
+
+### Estrategia de entrada por pais
+
+**Prioridad 1 (meses 1-3):** Colombia y Mexico
+- Mayor tamano de mercado LATAM para forex retail
+- Metodos de pago locales ya integrados (PSE, Nequi, OXXO, SPEI)
+- Base de prop trading concentrada aqui (NEOMAAA Funded ya tiene presencia)
+- Competencia fuerte pero con gaps explotables (spreads de XM, limitaciones de OctaFX)
+
+**Prioridad 2 (meses 3-6):** Peru y Argentina
+- Mercados con menos saturacion
+- Metodos de pago diferenciadores (Yape, Mercado Pago)
+- Argentina tiene demanda especial por acceso a USD via trading
+
+**Prioridad 3 (meses 6-12):** Brasil y Chile
+- Brasil requiere contenido en portugues y adaptacion cultural
+- Chile requiere posicionamiento mas premium
+- Ambos son mercados grandes pero con mayor barrera de entrada
+
+---
+
+## Apendice B — Gaps de Mercado Explotables
+
+> Oportunidades estrategicas transversales que NO aparecen en la batalla 1-a-1 de las battle cards.
+
+### Gaps que NEOMAAA puede explotar
+
+| Gap | Competidores afectados | Oportunidad para NEOMAAA |
+|-----|----------------------|--------------------------|
+| **Vault Yield inexistente en competidores** | Todos | Unico en el mercado offshore. Posicionar como "tu dinero trabaja incluso cuando no operas." Retencion sin competencia directa. |
+| **IC Markets sin metodos LATAM** | IC Markets, Pepperstone | "Las mismas condiciones Raw, pero deposita con PSE, PIX, OXXO, Nequi, Yape." |
+| **XM con spreads altos** | XM | Contenido comparativo: "Operas EUR/USD? En XM pagas ~1.6 pip. En NEOMAAA, 0.8 pip. Calcula cuanto ahorras al mes." |
+| **OctaFX sin cuenta Raw/ECN** | OctaFX | "Quieres spreads reales? OctaFX no tiene ECN. NEOMAAA Raw: 0.0 pip + $3/lado." |
+| **Ningun competidor con prop + broker integrado** | Todos | "De prop trader a trader independiente — solo en NEOMAAA." Pipeline de conversion probado. |
+| **FBS con pocos instrumentos** | FBS | "550 instrumentos vs 2,000+. En NEOMAAA operas todo: forex, cripto, acciones, indices, metales, energia, ETFs, futuros." |
+| **IC Markets deposito minimo $200** | IC Markets | "$200 para empezar? En NEOMAAA Cent desde $5. Condiciones institucional-grade sin barrera." |
+| **Copy Trading robusto + cuenta Cent simultaneos** | IC, Pepperstone, la mayoria | Principiantes que quieren copiar con poco dinero — nadie mas ofrece combinacion. |
+
+### Nichos desatendidos
+
+| Nicho | Descripcion | Como atacar |
+|-------|-------------|-------------|
+| **Prop-to-Broker** | Traders de prop firms que quieren operar con capital propio | Unico: solo NEOMAAA tiene ambos productos. Email marketing a base NEOMAAA Funded. |
+| **Traders pasivos LATAM** | Quieren exposure pero no operar activamente | Vault Yield + Copy Trading = producto pasivo completo |
+| **Micro-traders** | <$50 que quieren operar con dinero real (no demo) | Cuenta Cent desde $5 + metodos locales |
+| **Traders argentinos** | Buscan USD y mercados internacionales por restricciones cambiarias | USDT + Mercado Pago deposito, apalancamiento en pares USD |
+| **Traders islamicos LATAM** | Comunidad musulmana creciente — cuentas swap-free | Cuenta Swap-Free + marketing dirigido |
+
+---
+
+## Apendice C — Amenazas Criticas y Mitigaciones
+
+> Lo que hacen mejor los competidores y nuestras respuestas estrategicas.
+
+### Amenazas criticas
+
+| Amenaza | Competidor | Impacto | Mitigacion |
+|---------|-----------|---------|------------|
+| **Regulacion superior** | IC Markets (ASIC, CySEC), XM (CySEC, ASIC), Exness (CySEC, FCA), Pepperstone (ASIC+FCA+BaFin) | Clientes sofisticados prefieren Tier 1 | Transparencia total sobre AOFA. Foco en clientes que priorizan condiciones sobre regulacion. No mentir sobre nivel regulatorio. |
+| **Brand awareness masivo** | Exness, XM | Presupuesto publicitario incomparable | Competir en nichos (LATAM, prop crossover, Vault Yield). No intentar ganar en awareness general. |
+| **Apalancamiento extremo** | Exness (ilimitado), FBS (1:3000) | Traders agresivos pueden preferirlos | Posicionar 1:1000 como "apalancamiento alto pero responsable." Enfatizar gestion de riesgo. |
+| **Retiros instantaneos** | Exness | Fuerte diferenciador de marketing | Asegurar retiros rapidos (24h max) y comunicarlo. Implementar retiros mas rapidos para VIP. |
+| **Educacion presencial** | XM (seminarios LATAM) | Genera confianza y engagement | Competir con educacion digital (webinars, YouTube, contenido social) — escala mejor y cuesta menos. |
+| **Programa de bonos** | XM, FBS | Atrae volumen de registros | Vault Yield como "bono permanente." Bonos de deposito con T&C transparentes. |
+
+### Amenazas de mediano plazo
+
+| Amenaza | Descripcion | Mitigacion |
+|---------|-------------|------------|
+| Exness mejora oferta LATAM | Si agrega mas metodos de pago locales | Moverse rapido. La ventaja de metodos LATAM es temporal. |
+| Regulacion AOFA pierde credibilidad | Si Anjouan tiene problemas regulatorios | Monitorear. Plan B de regulacion (IFSC, SVG, VFSC como opciones). |
+| OctaFX lanza cuenta Raw | Si OctaFX introduce ECN/Raw en LATAM | Diferenciarse con Vault Yield, instrumentos, prop crossover. |
+| Competidor copia Vault Yield | Alguien copia el concepto | Ser el primero establece la marca. Mejorar continuamente el producto. |
+| Restricciones publicitarias | Google/Meta aumentan restricciones a CFDs | Diversificar: SEO, YouTube organico, referidos, IB network, prop crossover. |
+
+---
+
+## Apendice D — Plan de Inteligencia Competitiva Continua
+
+> Monitoreo operacional mensual. No es solo conocer al competidor hoy — es detectar cambios antes de que duelan.
+
+### Monitoreo mensual
+
+| Actividad | Frecuencia | Responsable |
+|-----------|-----------|-------------|
+| Revisar spreads de competidores (EUR/USD, Gold, BTC) | Semanal | Trading/Operations (Pepe) |
+| Revisar cambios en paginas de competidores (cuentas, condiciones) | Mensual | Marketing |
+| Monitorear campanas publicitarias (Meta Ad Library, Google Ads Transparency) | Quincenal | Marketing |
+| Revisar foros y resenas (Trustpilot, ForexPeaceArmy, redes sociales) | Semanal | Support/Marketing |
+| Actualizar battle cards y tabla comparativa de este documento | Trimestral | Marketing + Edward |
+| Revisar regulaciones y noticias del sector | Mensual | Compliance (Susana) |
+
+### Herramientas de monitoreo
+
+| Herramienta | Uso | Costo |
+|-------------|-----|-------|
+| Meta Ad Library (ads.facebook.com) | Ver anuncios activos de competidores | Gratis |
+| Google Ads Transparency Center | Ver anuncios de Google de competidores | Gratis |
+| SimilarWeb (version gratuita) | Trafico estimado de competidores | Gratis (basico) |
+| Trustpilot / ForexPeaceArmy | Resenas y sentiment de competidores | Gratis |
+| Google Alerts | Noticias sobre competidores | Gratis |
+| SpyFu o SEMrush | Keywords y ads de competidores | $50-100/mes |
+
+### Plan de accion — los 3 priorities
+
+**PRIORIDAD #1:** Explotar el canal prop-to-broker (costo minimo, conversion maxima) mientras se construyen los canales paid y organico. NEOMAAA Funded ya tiene 40,000+ registrados — convertirlos es mas barato que adquirirlos nuevos.
+
+**PRIORIDAD #2:** Posicionarse como "el broker de LATAM" — nadie ha reclamado ese espacio de forma definitiva. Exness y XM son globales que atienden LATAM; NEOMAAA puede ser el broker HECHO para LATAM. Ventana corta, moverse antes de que Exness/XM dupliquen foco regional.
+
+**PRIORIDAD #3:** Vault Yield como caballo de batalla de diferenciacion en todas las comunicaciones. Es el unico feature que no puede ser igualado rapidamente por la competencia (requiere cambios estructurales en el modelo de negocio del broker).
 
 ---
 

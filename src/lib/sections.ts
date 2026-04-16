@@ -3,11 +3,10 @@ import { Section, DocMeta } from './types';
 export const SECTIONS: Section[] = [
   {
     id: 'launch',
-    nameEs: 'Master Checklist',
-    nameRu: 'Мастер-чеклист',
+    nameEs: 'Lanzamiento y Go-Live',
+    nameRu: 'Запуск и Go-Live',
     order: 0,
     documents: [
-      { slug: 'checklist', titleEs: 'Master Checklist Pre Go-Live', titleRu: 'Мастер-чеклист запуска', filePath: 'launch/checklist.md', pdfSlug: 'launch-checklist' },
       { slug: 'post-launch-playbook', titleEs: 'Post-Launch Playbook (Semanas 1-4)', titleRu: 'Playbook после запуска (недели 1-4)', filePath: 'launch/post-launch-playbook.md', pdfSlug: 'launch-post-launch-playbook' },
     ],
   },
@@ -86,6 +85,7 @@ export const SECTIONS: Section[] = [
       { slug: 'compliance-calendar', titleEs: 'Calendario de Compliance', titleRu: 'Календарь комплаенса', filePath: 'compliance/compliance-calendar.md', pdfSlug: 'compliance-compliance-calendar' },
       { slug: 'onboarding', titleEs: 'Client Onboarding', titleRu: 'Онбординг клиентов', filePath: 'compliance/onboarding.md', pdfSlug: 'compliance-onboarding' },
       { slug: 'manual-susana', titleEs: 'Manual Compliance', titleRu: 'Руководство по комплаенсу', filePath: 'compliance/manual-susana.md', pdfSlug: 'compliance-manual-susana' },
+      { slug: 'frases-prohibidas', titleEs: 'Frases Prohibidas y Aprobadas (Gold Source)', titleRu: 'Запрещённые и одобренные фразы (Gold Source)', filePath: 'compliance/frases-prohibidas.md', pdfSlug: 'compliance-frases-prohibidas' },
       { slug: 'ab-book-policy', titleEs: 'Política A-Book / B-Book', titleRu: 'Политика A-Book / B-Book', filePath: 'compliance/ab-book-policy.md', pdfSlug: 'compliance-ab-book-policy' },
       { slug: 'proceso-kyc-sumsub', titleEs: 'Proceso KYC Completo con Sumsub', titleRu: 'Полный процесс KYC с Sumsub', filePath: 'compliance/proceso-kyc-sumsub.md', pdfSlug: 'compliance-proceso-kyc-sumsub' },
       { slug: 'screening-sanciones', titleEs: 'Screening de Sanciones', titleRu: 'Скрининг санкций', filePath: 'compliance/screening-sanciones.md', pdfSlug: 'compliance-screening-sanciones' },
@@ -116,8 +116,7 @@ export const SECTIONS: Section[] = [
       { slug: 'funnel-broker', titleEs: 'Funnel de Conversión', titleRu: 'Воронка конверсии', filePath: 'marketing/funnel-broker.md', pdfSlug: 'marketing-funnel-broker' },
       { slug: 'retencion-broker', titleEs: 'Estrategia Retención', titleRu: 'Стратегия удержания', filePath: 'marketing/retencion-broker.md', pdfSlug: 'marketing-retencion-broker' },
       { slug: 'copy-broker', titleEs: 'Copy y Mensajes', titleRu: 'Копирайтинг', filePath: 'marketing/copy-broker.md', pdfSlug: 'marketing-copy-broker' },
-      { slug: 'competidores-broker', titleEs: 'Análisis Competidores', titleRu: 'Конкурентный анализ', filePath: 'marketing/competidores-broker.md', pdfSlug: 'marketing-competidores-broker' },
-      { slug: 'competidores-deep-dive', titleEs: 'Competidores — Battle Cards', titleRu: 'Конкуренты — Battle Cards', filePath: 'marketing/competidores-deep-dive.md', pdfSlug: 'marketing-competidores-deep-dive' },
+      { slug: 'competidores-deep-dive', titleEs: 'Análisis Competidores', titleRu: 'Конкурентный анализ', filePath: 'marketing/competidores-deep-dive.md', pdfSlug: 'marketing-competidores-deep-dive' },
     ],
   },
   {
@@ -151,8 +150,6 @@ export const SECTIONS: Section[] = [
       { slug: 'bonus-terms', titleEs: 'Términos de Bonos y Promociones', titleRu: 'Условия бонусов и промоакций', filePath: 'legal/bonus-terms.md', pdfSlug: 'legal-bonus-terms' },
       { slug: 'cookies-policy', titleEs: 'Política de Cookies', titleRu: 'Политика cookies', filePath: 'legal/cookies-policy.md', pdfSlug: 'legal-cookies-policy' },
       { slug: 'conflicts-of-interest', titleEs: 'Conflictos de Interés', titleRu: 'Конфликт интересов', filePath: 'legal/conflicts-of-interest.md', pdfSlug: 'legal-conflicts-of-interest' },
-      { slug: 'trading-conditions', titleEs: 'Condiciones de Trading', titleRu: 'Условия торговли', filePath: 'legal/trading-conditions.md', pdfSlug: 'legal-trading-conditions' },
-      { slug: 'trading-restrictions', titleEs: 'Restricciones de Trading', titleRu: 'Торговые ограничения', filePath: 'legal/trading-restrictions.md', pdfSlug: 'legal-trading-restrictions' },
       { slug: 'disclaimers-communications', titleEs: 'Disclaimers y Comunicaciones', titleRu: 'Disclaimers и коммуникации', filePath: 'legal/disclaimers-communications.md', pdfSlug: 'legal-disclaimers-communications' },
       { slug: 'vault-yield-terms', titleEs: 'Vault Yield Terms', titleRu: 'Условия Vault Yield', filePath: 'legal/vault-yield-terms.md', pdfSlug: 'legal-vault-yield-terms' },
     ],

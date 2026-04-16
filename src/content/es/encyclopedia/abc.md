@@ -22,14 +22,9 @@ Modelo de ejecucion donde el broker envia las ordenes del cliente directamente a
 **Neomaaa opera modelo hibrido A-Book/B-Book**, admitido oficialmente en los Terminos y Condiciones publicos (ver `legal/terms-conditions.md` y `legal/order-execution-policy.md`). El modelo ECN/STP es la ruta priorizada; la Empresa puede actuar como principal o counterparty en determinadas circunstancias.
 
 ### Account Types (Tipos de Cuenta)
-NEOMAAA ofrece 4 tipos:
+NEOMAAA ofrece 4 tipos: **Cent** ($5), **Standard** ($50), **Raw** ($500 — 0.0 pips + $3/lado), **Institutional** ($50,000, custom).
 
-| Cuenta | Deposito Minimo | Spread | Comision | Ideal para |
-|--------|----------------|--------|----------|------------|
-| **Cent** | $5 | Desde 1.0 pip | $0 | Principiantes, probar la plataforma |
-| **Standard** | $50 | Desde 1.0 pip | $0 | Traders retail regulares |
-| **Raw** | $500 | Desde 0.0 pips | $3/lote/lado | Traders activos, scalpers |
-| **Institutional** | $50,000 | Desde 0.0 pips | Custom | Fondos, gestores, institucionales |
+Tabla completa con spreads, comisiones, leverage y perfiles (gold source): [`encyclopedia/productos-mt5`](/content/encyclopedia/productos-mt5) sección "Tipos de cuenta".
 
 ### AML (Anti-Money Laundering)
 Politicas contra lavado de dinero. Obligatorio por regulacion. Susana es responsable. Incluye: verificacion de origen de fondos, monitoreo de transacciones sospechosas, reportes a la AOFA.

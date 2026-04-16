@@ -679,7 +679,7 @@ Asia:  Facebook > TikTok > YouTube > Telegram (fase 2)
 
 - `marketing/funnel-broker.md` — Воронка конверсии (как ICP входят в pipeline)
 - `marketing/copy-broker.md` — Копия и сообщения (питчи по ICP, переведённые в реальную копию)
-- `marketing/competidores-broker.md` — Анализ конкурентов (глубина по рынкам)
+- `marketing/competidores-deep-dive.md` — Анализ конкурентов (battle cards + gaps + присутствие LATAM)
 - `marketing/retencion-broker.md` — Стратегия удержания (LTV по ICP)
 - `sales/plan-contacto.md` — План контакта (первый звонок, адаптированный по ICP)
 - `sales/objections-broker.md` — Возражения (ответы по ICP)

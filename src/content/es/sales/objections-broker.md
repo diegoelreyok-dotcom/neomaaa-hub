@@ -5,7 +5,10 @@
 **Clasificacion: Confidencial**
 
 > [!INFO]
-> La lista de frases prohibidas/aprobadas abajo es un SUBSET operativo para ventas. La fuente de verdad completa y vinculante es `compliance/manual-susana.md` seccion 8. Si algo aparece en manual-susana y no aqui, igual esta prohibido/aprobado. Si detectas inconsistencia, reportar a Susana.
+> **Gold sources (consultar ante cualquier discrepancia):**
+> - **Frases prohibidas/aprobadas:** [`compliance/frases-prohibidas`](/content/compliance/frases-prohibidas) (gold source)
+> - **Tipos de cuenta (Cent/Standard/Raw/Institutional):** [`encyclopedia/productos-mt5`](/content/encyclopedia/productos-mt5) sección "Tipos de cuenta" (gold source)
+> - **Países restringidos:** [`compliance/screening-sanciones`](/content/compliance/screening-sanciones) sección 12.5 (gold source)
 
 ---
 

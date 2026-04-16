@@ -77,11 +77,8 @@ DESCUBRIMIENTO ──> REGISTRO ──> KYC ──> APROBACION ──> DEPOSITO 
 | Prospecto pregunta en redes pero nadie responde | SLA de respuesta en redes: 15 minutos en horario laboral |
 | Prospecto de pais restringido intenta registrarse | Geo-blocking en landing + mensaje claro de restriccion |
 
-**Paises restringidos (NO onboardear):**
-
-Lista resumida: USA, Canada, EEA (30 paises), Reino Unido, Australia, Japon, Israel, Cuba, Irak, Iran, Corea del Norte, Myanmar, Siria, Sudan, Crimea, Donetsk, Luhansk.
-
-**Lista autoritativa y actualizada:** ver `compliance/screening-sanciones.md` seccion 12.5 (incluye paises sancionados, regulatorios, y paises de alto riesgo que requieren EDD caso por caso: Venezuela, Nigeria, Pakistan, Rusia, Belarus, Afganistan, etc.).
+> [!WARNING]
+> **Paises restringidos:** no aceptamos clientes de USA, Canada, EEA (todos los paises), UK, Australia, Cuba, Iraq, Myanmar, North Korea, Sudan + sancionados. Lista completa y gold source: [`compliance/screening-sanciones`](/content/compliance/screening-sanciones) seccion 12.5.
 
 **Script de primer contacto (cuando el lead llega por DM/chat):**
 

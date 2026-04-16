@@ -9,9 +9,11 @@
 ## Bienvenido a NEOMAAA Markets Partners
 
 > [!DANGER]
-> **Mercados NO permitidos para IBs:** USA, Canada, **EEA (incluida España)**, UK, Australia, Cuba, Iraq, Myanmar, North Korea, Sudan + sancionados. Si traés un lead de esas jurisdicciones, **el FTD no cuenta, no generás comisión y podés ser sancionado o removido del programa**. NO intentar workarounds (direcciones falsas, pasaporte alternativo) — compliance lo detecta y cancela el acuerdo.
+> **Mercados NO permitidos para IBs:** USA, Canada, EEA (todos los países, incluida España), UK, Australia, Cuba, Iraq, Myanmar, North Korea, Sudan + sancionados. Si traés un lead de esas jurisdicciones, **el FTD no cuenta, no generás comisión y podés ser sancionado o removido del programa**. NO intentar workarounds (direcciones falsas, pasaporte alternativo) — compliance lo detecta y cancela el acuerdo.
 >
 > Mercados OK para IBs: LATAM (excl. USA/Canadá), CIS con screening, MENA (excl. Iraq), Asia fase 2 (excl. NK/Myanmar), África (excl. Sudán).
+>
+> Lista completa y gold source vinculante: [`compliance/screening-sanciones`](/content/compliance/screening-sanciones) sección 12.5.
 
 Felicitaciones. Acabás de entrar a uno de los programas de partnership más rentables y transparentes del mercado forex/CFDs para **LATAM, MENA, CIS, África y Asia fase 2**. Este playbook es tu manual de operaciones: todo lo que necesitás saber para empezar a generar ingresos desde la primera semana.
 
@@ -436,7 +438,7 @@ Mercados secundarios con tracción pero sin boost: Chile, Perú, Paraguay, Urugu
 
 - Gente sin trabajo buscando "dinero fácil"
 - Menores de edad
-- Clientes de países restringidos — USA, Irán, Corea del Norte, Cuba, Siria, Sudán, Crimea, Myanmar
+- Clientes de países restringidos (lista completa: [`compliance/screening-sanciones`](/content/compliance/screening-sanciones) sección 12.5)
 - PEPs (Personas Políticamente Expuestas) sin aviso previo al Partner Manager
 - Clientes que te pidan "operarles la cuenta" (esto es gestión discrecional no autorizada)
 - Clientes que no pueden explicar de dónde sale el dinero que depositan

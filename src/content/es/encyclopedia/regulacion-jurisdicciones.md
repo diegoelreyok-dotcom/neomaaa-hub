@@ -144,28 +144,12 @@ Lo que NO podemos decir:
 
 ## Países que NO podemos aceptar
 
-Independientemente de la jurisdicción del broker, hay países cuyos ciudadanos no podemos aceptar como clientes, por restricciones legales o por incompatibilidad regulatoria.
-
 > [!WARNING]
-> **Listas FATF y OFAC actualizan frecuentemente.** Verificar siempre en fuentes oficiales (fatf-gafi.org, ofac.treasury.gov, sanctionsmap.eu) antes de decisiones criticas. Fecha ultima revision interna de este documento: **15 Abril 2026**. Si transcurrieron mas de 90 dias sin re-review, validar con Compliance (Susana) antes de clasificar nuevos clientes.
+> **Países restringidos:** no aceptamos clientes de USA, Canada, EEA (todos los países, incluida España), UK, Australia, Cuba, Iraq, Myanmar, North Korea, Sudan + sancionados. Lista completa y gold source: [`compliance/screening-sanciones`](/content/compliance/screening-sanciones) sección 12.5.
 
-### Prohibidos absolutos
+**Decisión Diego (Abril 2026):** "No podemos trabajar como broker con clientes de España/Europa sin las regulaciones que piden esos países." **EEA/UK/Australia/USA/Canadá están RESTRINGIDOS — NO operativos.** Bloqueados por Sumsub, rechazados por Compliance.
 
-> [!DANGER]
-> - **Estados Unidos** — no tenemos licencia CFTC/NFA. Aceptar clientes US sin licencia US es un delito federal en EEUU. **NUNCA aceptar un cliente con documento, dirección, IP o teléfono US.**
-> - **Países bajo sanciones OFAC/UE/UN** — Irán, Corea del Norte, Siria, Rusia (parcial según persona), Cuba (parcial), Myanmar, Sudán, Yemen, Venezuela (personas específicas). Ver documento de compliance [Screening de Sanciones](../compliance/screening-sanciones.md).
-
-### Restricciones prácticas
-
-> [!DANGER]
-> **Decisión Diego (Abril 2026):** "No podemos trabajar como broker con clientes de España/Europa sin las regulaciones que piden esos países." **EEA/UK/Australia/USA/Canadá están RESTRINGIDOS — NO operativos.** Bloqueados por Sumsub, rechazados por Compliance. Se elimina cualquier política de "passive onboarding" EEA previa.
-
-- **UE / EEA (incluida España)** — **RESTRINGIDO.** NO aceptamos residentes EEA bajo ninguna modalidad (ni activa ni pasiva). El cliente es rechazado en KYC.
-- **UK** — **RESTRINGIDO.** Igual tratamiento que EEA.
-- **Australia** — **RESTRINGIDO.** ASIC no nos pasa — nunca ha sido target.
-- **Canadá** — **RESTRINGIDO.** Regulación provincial compleja.
-- **USA** — **RESTRINGIDO.** NFA/CFTC fuera de alcance offshore.
-- **Japón** — estrictamente JFSA. Sin licencia japonesa, no.
+**Motivo resumido:** USA (CFTC/NFA — delito federal sin licencia US), EEA/UK/Australia (sin licencia tier-1 equivalente), sanciones internacionales (OFAC/ONU/UE) para Irán, Corea del Norte, Siria, Cuba, Myanmar, Sudán.
 
 ### Países objetivo (donde operamos activamente)
 
