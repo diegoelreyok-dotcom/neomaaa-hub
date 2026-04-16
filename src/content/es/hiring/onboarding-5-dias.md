@@ -430,12 +430,13 @@ Hoy bajás de la teoría general a tu rol específico. Encontrá tu sección aba
 
 | Recurso | Para qué | Path |
 |---|---|---|
-| Manual Compliance | El manual operativo completo | [/content/compliance/manual-susana](/content/compliance/manual-susana) |
+| Playbook Susana | Guía diaria de compliance (entry point) | [/content/compliance/susana-playbook](/content/compliance/susana-playbook) |
+| Manual Compliance | Gold source de frases aprobadas/prohibidas + disclaimers | [/content/compliance/manual-susana](/content/compliance/manual-susana) |
+| Matriz de Riesgo | Clasificación LOW/MEDIUM/HIGH | [/content/compliance/risk-matrix](/content/compliance/risk-matrix) |
 | Screening de Sanciones | Cómo verificamos contra OFAC/EU/UN | [/content/compliance/screening-sanciones](/content/compliance/screening-sanciones) |
 | Proceso KYC Sumsub | El flujo técnico completo | [/content/compliance/proceso-kyc-sumsub](/content/compliance/proceso-kyc-sumsub) |
-| Mejores Prácticas | Cómo no romper nada | [/content/compliance/mejores-practicas-compliance](/content/compliance/mejores-practicas-compliance) |
+| Compliance Calendar | Rutina periódica + record keeping + retention | [/content/compliance/compliance-calendar](/content/compliance/compliance-calendar) |
 | Workflow Sales-Compliance | Cómo trabajamos con ventas | [/content/compliance/workflow-sales-compliance](/content/compliance/workflow-sales-compliance) |
-| Registro Compliance | Documentación obligatoria | [/content/compliance/registro-compliance](/content/compliance/registro-compliance) |
 
 **Práctica (2h):** Susana te muestra 5 casos KYC reales (1 limpio, 1 borderline, 1 rechazado, 1 PEP, 1 sospechoso). Vos decidís cómo lo manejarías y ella te corrige.
 

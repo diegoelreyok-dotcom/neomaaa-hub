@@ -546,8 +546,177 @@ Campos que Susana debe confirmar / definir antes de finalizar el calendario:
 
 ---
 
-**Version:** 1.0
-**Fecha:** 13 de abril 2026
+## 13. Record Keeping y Retention
+
+> [!INFO]
+> **Si no esta documentado, no paso.** En compliance, la documentacion no es una tarea administrativa secundaria. Es la prueba de que el broker cumple con sus obligaciones. Ante auditoria AOFA, lo que importa no es solo haber hecho el trabajo correcto, sino poder demostrarlo. Cada decision compliance debe tener registro que incluya: **que se decidio, quien lo decidio, cuando, por que, y con que evidencia**.
+
+### 13.1 Registro Maestro de Compliance — estructura
+
+**Nombre del archivo:** `NEOMAAA_Compliance_Register_YYYY.xlsx` (Google Sheets recomendado — acceso compartido, historial versiones automatico, acceso multidispositivo).
+
+**Hojas del archivo:**
+
+| Tab | Contenido | Responsable |
+|---|---|---|
+| Dashboard | Resumen de metricas y contadores | Automatico (formulas) |
+| KYC_Decisions | Todas las decisiones de KYC | Susana |
+| Sanctions_Screening | Resultados de screening con match (no clean) | Susana |
+| Suspicious_Activity | Actividad sospechosa + SARs | Susana |
+| Training_Log | Capacitaciones realizadas | Susana |
+| Complaints | Quejas relacionadas con compliance | Susana |
+| Audit_Trail | Acciones, cambios, accesos relevantes | Susana |
+| Config | Listas de referencia y validaciones | Susana |
+
+### 13.2 Columnas obligatorias — KYC_Decisions
+
+| Col | Campo | Validacion |
+|---|---|---|
+| A | ID_Registro (KYC-YYYY-####, auto-incremento) | Texto |
+| B | Fecha_Decision | YYYY-MM-DD |
+| C | Hora_Decision | HH:MM |
+| D | ID_Cliente_Skale | Texto |
+| E | Nombre_Cliente | Texto |
+| F | Pais_Cliente | Lista desplegable |
+| G | Nacionalidad | Lista desplegable |
+| H | Risk_Category | LOW / MEDIUM / HIGH |
+| I | Docs_Presentados | Texto |
+| J | Resultado_Sumsub | GREEN / RETRY / RED / PENDING |
+| K | Screening_Sanciones | Clean / Hit-FP / Hit-TM / PEP |
+| L | Decision_Final | Aprobado / Rechazado / Retry / En EDD / Escalado |
+| M | Razon_Decision (min 20 caracteres, OBLIGATORIO) | Texto |
+| N | Revisor | Susana / Automatico / Principals |
+| O | EDD_Requerido | Si / No |
+| P | Notas_Adicionales | Texto |
+| Q | ID_Sumsub | Texto |
+| R | Proximo_Review | YYYY-MM-DD |
+
+**Codificacion por colores:** verde = aprobado, amarillo = retry/pendiente, naranja = EDD/escalado, rojo claro = rechazado, rojo oscuro = match sanciones confirmado.
+
+### 13.3 Columnas obligatorias — Sanctions_Screening (solo con match)
+
+Esta hoja registra SOLO screenings con alerta (match/PEP/adverse media). Los clean solo van en KYC_Decisions.
+
+Campos clave: ID (SCR-YYYY-####), Fecha_Alerta, ID_Cliente, Tipo_Alerta (Sanctions/PEP/Adverse Media), Lista_Origen (OFAC/UN/EU/UK/AOFA), Detalle_Match, Score_Match (0-100), Analisis (min 50 caracteres), Conclusion (True Match / False Positive / Inconcluso), Decision, Escalado_A, Fecha_Resolucion, Evidencia (capturas), Tipo_Screening (Onboarding/Upgrade/Periodico/Ad-hoc), Reportado_AOFA (Si/No/N/A).
+
+**Regla de oro del analisis:** no basta "false positive". Debe decir algo como: "False positive. Nombre coincide parcialmente pero fecha de nacimiento difiere (cliente: 1985-03-15, lista: 1962-08-22). Pais distinto (cliente: Colombia, lista: Libia). Conclusion: homonimo."
+
+### 13.4 Columnas obligatorias — Suspicious_Activity / SAR
+
+Campos clave: ID (SAR-YYYY-####), Fecha_Deteccion, ID_Cliente, Tipo_Actividad (ver tipologias abajo), Descripcion (min 100 caracteres), Monto_Involucrado, Periodo, Fuente_Deteccion, Evaluacion_Riesgo (Bajo/Medio/Alto/Critico), Accion_Tomada, SAR_Presentado (Si/No/En evaluacion), Fecha_SAR, Ref_SAR, Estado, Revisor, Notas_Seguimiento, Fecha_Cierre.
+
+**Tipologias de actividad sospechosa (lista validada):**
+
+| Tipo | Nivel de riesgo tipico |
+|---|---|
+| Structuring (multiples depositos pequenos que evitan thresholds) | Alto |
+| Deposito-retiro rapido sin trading | Alto |
+| Terceros (deposito o retiro desde/hacia cuenta de otra persona) | Alto |
+| Volumen incoherente con perfil | Medio-Alto |
+| Cambio abrupto de patron de trading | Medio |
+| Pais de alto riesgo | Medio-Alto |
+| Documentos sospechosos | Alto |
+| Multiples cuentas del mismo individuo | Medio |
+| Solicitud inusual (transferencia a tercero, etc.) | Medio |
+| Reporte interno del equipo | Variable |
+
+Ver proceso completo en [sar-reporting.md](/content/compliance/sar-reporting).
+
+### 13.5 Audit Trail — que se registra
+
+| Accion | Cuando se registra |
+|---|---|
+| Modificacion de registro | Cualquier cambio a fila existente en cualquier hoja |
+| Cambio de decision | Una decision KYC se revierte (rechazado a aprobado, etc.) |
+| Acceso a datos sensibles | Acceso a documentos de un cliente por razon no rutinaria |
+| Exportacion de datos | Cuando se exportan datos del registro |
+| Cambio de configuracion | Modificacion de listas validacion, paises, reglas |
+| Escalacion | Cada vez que un caso se escala |
+| Comunicacion con regulador | Cada comunicacion enviada a o recibida de AOFA |
+| Cambio de politica | Cualquier cambio en politicas o procedimientos compliance |
+
+Campos: ID (AUD-YYYY-####), Fecha, Hora, Usuario, Accion, Detalle, Registro_Afectado (KYC-XXX/SCR-XXX/etc.), Valor_Anterior, Valor_Nuevo, Razon_Cambio.
+
+**Por que es critico:** el regulador quiere ver (1) que las decisiones fueron correctas Y (2) que nadie manipulo los registros despues. El audit trail demuestra lo segundo. Registro sin audit trail pierde credibilidad.
+
+### 13.6 Politica de Retencion — minimos obligatorios
+
+| Tipo de Registro | Retencion Minima | Base |
+|---|---|---|
+| Documentos KYC (ID, POA, selfie) | 7 anos desde cierre de cuenta | FATF + AOFA |
+| Formularios de origen de fondos (SoF/SoW) | 7 anos desde cierre | FATF + AOFA |
+| Historial de transacciones (depositos/retiros) | 7 anos desde transaccion | FATF + AOFA |
+| Historial de trading (MT5) | 7 anos desde cierre cuenta | FATF + AOFA |
+| Comunicaciones con clientes (emails, chat) | 5 anos desde comunicacion | Practica industria |
+| SARs y documentacion asociada | 7 anos desde presentacion (minimo); 10 anos recomendado | FATF + best practice |
+| Quejas y resoluciones | 5 anos desde resolucion | Practica industria |
+| Reportes a AOFA | 7 anos desde presentacion; 10 anos recomendado | FATF + best practice |
+| Contratos y terminos con clientes | 5 anos desde cierre cuenta | Practica industria |
+| Registros de capacitacion del personal | 5 anos desde capacitacion | Practica industria |
+| Decisiones de EDD | 7 anos desde decision | FATF + AOFA |
+| Monthly HIGH RISK checklists | 7 anos desde cierre cuenta | FATF |
+| Audit trail | 7 anos | Practica industria |
+| Risk category change logs | 7 anos | FATF |
+| Registros de screening con match | 7 anos desde cierre | FATF |
+
+> [!WARNING]
+> **Estandar interno NEOMAAA: 7 anos minimo para todo lo vinculado a KYC/AML/SAR/audit** (alineado con FATF R.11 y requisitos AOFA). No bajar este umbral sin aprobacion Director + abogado externo.
+
+### 13.7 Seguridad de los registros
+
+| Medida | Implementacion |
+|---|---|
+| Backup diario automatico | Google Workspace (automatico) + export semanal a Excel en Drive |
+| Acceso restringido | Solo Susana + Principals tienen acceso al Registro Maestro. SARs y EDD: acceso restringido a Susana + Principals unicamente |
+| Autenticacion | Google Workspace con 2FA activado obligatorio |
+| Historial de versiones | Google Sheets mantiene automatico |
+| Encriptacion | Registros KYC en Sumsub encriptados por el proveedor. Drive de compliance: Google Workspace encryption at rest |
+| Pantalla limpia | Susana no deja Registro abierto cuando se aleja del escritorio |
+| Dispositivos seguros | Solo acceder desde dispositivos autorizados (laptop corporativa, no personal) |
+| Permisos por rol en Skale CRM | Ventas/soporte NO pueden ver documentos de compliance |
+| Prueba de restauracion de backup | Trimestral (ver bloque T4 audit interno) |
+
+### 13.8 Destruccion de registros
+
+Al cumplirse el periodo de retencion:
+
+1. Susana identifica los registros elegibles para destruccion
+2. Verifica que no haya investigaciones o disputas abiertas sobre el cliente
+3. Destruccion segura: borrado permanente digital + destruccion fisica si aplica
+4. Se documenta la destruccion en audit trail: que se destruyo, cuando, por quien, con que metodo
+5. Aprobacion dual obligatoria (Susana + Director) para destrucciones masivas
+
+### 13.9 Rutina de mantenimiento del Registro
+
+| Tarea | Frecuencia | Incluido en bloque |
+|---|---|---|
+| Registrar decisiones KYC del dia | Diaria | D1 (ver seccion 3.1) |
+| Verificar Dashboard muestra datos correctos | Semanal | S1 |
+| Backup del archivo (export a Excel) | Semanal | S1 |
+| Verificar integridad de datos (sin celdas vacias obligatorias) | Mensual | M7 |
+| Reconciliar Sumsub-Skale-Registro | Mensual | M7 |
+| Revisar y actualizar listas de Config | Trimestral | T5 |
+| Crear nuevo archivo del ano siguiente | Anual (diciembre) | A1 |
+| Archivar archivo del ano anterior | Anual (enero) | A1 |
+
+### 13.10 Reportes a AOFA desde el Registro
+
+El Registro es la fuente de datos para los reportes regulatorios. Los bloques T6 (trimestral) y A5 (anual) del calendario consumen directamente:
+
+| Seccion del reporte | Fuente de datos |
+|---|---|
+| Resumen ejecutivo | Dashboard |
+| Estadisticas KYC | KYC_Decisions |
+| Screening de sanciones | Sanctions_Screening |
+| Actividad sospechosa | Suspicious_Activity |
+| Capacitaciones | Training_Log |
+| Quejas | Complaints |
+| Cambios de politica | Audit_Trail |
+
+---
+
+**Version:** 1.1
+**Fecha:** 13 de abril 2026 (v1.0) / 17 de abril 2026 (v1.1 -- absorbe record-keeping de registro-compliance.md)
 **Proxima revision:** 13 de abril 2027 (anual) o ante cambio regulatorio material
 **Responsable:** Susana — Compliance Officer
 **Aprobado por:** Principals

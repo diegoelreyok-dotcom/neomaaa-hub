@@ -426,12 +426,13 @@ NEOMAAA Markets работает по лицензии **Anjouan Offshore Financ
 
 | Ресурс | Для чего | Путь |
 |---|---|---|
-| Мануал Compliance | Полный операционный мануал | [/content/compliance/manual-susana](/content/compliance/manual-susana) |
+| Playbook Susana | Ежедневное руководство (entry point) | [/content/compliance/susana-playbook](/content/compliance/susana-playbook) |
+| Мануал Compliance | Gold source одобренных/запрещённых фраз + disclaimers | [/content/compliance/manual-susana](/content/compliance/manual-susana) |
+| Матрица риска | Классификация LOW/MEDIUM/HIGH | [/content/compliance/risk-matrix](/content/compliance/risk-matrix) |
 | Скрининг санкций | Как проверяем по OFAC/EU/UN | [/content/compliance/screening-sanciones](/content/compliance/screening-sanciones) |
 | Процесс KYC Sumsub | Полный технический флоу | [/content/compliance/proceso-kyc-sumsub](/content/compliance/proceso-kyc-sumsub) |
-| Лучшие практики | Как ничего не сломать | [/content/compliance/mejores-practicas-compliance](/content/compliance/mejores-practicas-compliance) |
+| Compliance Calendar | Периодическая рутина + record keeping + retention | [/content/compliance/compliance-calendar](/content/compliance/compliance-calendar) |
 | Workflow Sales-Compliance | Как работаем с продажами | [/content/compliance/workflow-sales-compliance](/content/compliance/workflow-sales-compliance) |
-| Реестр Compliance | Обязательная документация | [/content/compliance/registro-compliance](/content/compliance/registro-compliance) |
 
 **Практика (2ч):** Susana показывает 5 реальных KYC-кейсов (1 чистый, 1 borderline, 1 отклонённый, 1 PEP, 1 подозрительный). Вы решаете, как их обработать, а она корректирует.
 

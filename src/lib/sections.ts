@@ -89,8 +89,6 @@ export const SECTIONS: Section[] = [
       { slug: 'ab-book-policy', titleEs: 'Política A-Book / B-Book', titleRu: 'Политика A-Book / B-Book', filePath: 'compliance/ab-book-policy.md', pdfSlug: 'compliance-ab-book-policy' },
       { slug: 'proceso-kyc-sumsub', titleEs: 'Proceso KYC Completo con Sumsub', titleRu: 'Полный процесс KYC с Sumsub', filePath: 'compliance/proceso-kyc-sumsub.md', pdfSlug: 'compliance-proceso-kyc-sumsub' },
       { slug: 'screening-sanciones', titleEs: 'Screening de Sanciones', titleRu: 'Скрининг санкций', filePath: 'compliance/screening-sanciones.md', pdfSlug: 'compliance-screening-sanciones' },
-      { slug: 'registro-compliance', titleEs: 'Registro y Documentación', titleRu: 'Реестр и документация', filePath: 'compliance/registro-compliance.md', pdfSlug: 'compliance-registro-compliance' },
-      { slug: 'mejores-practicas-compliance', titleEs: 'Mejores Prácticas Compliance', titleRu: 'Лучшие практики комплаенса', filePath: 'compliance/mejores-practicas-compliance.md', pdfSlug: 'compliance-mejores-practicas' },
       { slug: 'expansion-regulatoria', titleEs: 'Plan de Expansión Regulatoria', titleRu: 'План регуляторного расширения', filePath: 'compliance/expansion-regulatoria.md', pdfSlug: 'compliance-expansion-regulatoria' },
     ],
   },

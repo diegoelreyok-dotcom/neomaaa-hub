@@ -864,6 +864,83 @@ R:
 5. **Notion** (case files internos, SOPs).
 6. **Intercom** (lectura de conversaciones con clientes cuando hacés investigation).
 
+### Stack tecnológico compliance — por fase de crecimiento
+
+**Fase 1 (actual — 0 a 500 clientes):**
+- Sumsub (KYC + screening + ongoing monitoring).
+- Skale CRM (gestión de clientes).
+- Google Sheets (registro de compliance — ver [compliance-calendar sección Record Keeping](/content/compliance/compliance-calendar)).
+- Procesos manuales de Susana para monitoreo.
+
+**Fase 2 (500 a 2.000 clientes):**
+- Todo lo de Fase 1.
+- Agregar: sistema de case management (Hummingbird, ComplyAdvantage o similar) cuando spreadsheets se queden cortos.
+- Agregar: monitoreo semi-automatizado de transacciones (reglas en Skale o herramienta dedicada).
+- Agregar: dashboard automatizado de compliance.
+- Contratar: segundo compliance analyst (ver [compliance-calendar sección 11](/content/compliance/compliance-calendar)).
+
+**Fase 3 (2.000+ clientes o expansión a Mauritius/Seychelles/CySEC/FCA):**
+- Todo lo anterior.
+- Evaluar: Refinitiv World-Check como complemento de screening.
+- Implementar: sistema de transaction monitoring dedicado (NICE Actimize o equivalente).
+- Implementar: programa de capacitación formalizado con evaluaciones por rol.
+- Contratar: compliance team 3-5 personas según jurisdicciones + MLRO dedicado por entidad regulada.
+- Evaluar: Onfido como backup/complemento de Sumsub si expansión a jurisdicción exige doble proveedor.
+
+### Benchmarks de industria — qué hacen los mejores brokers
+
+Los siguientes estándares salen de benchmark de Exness (CySEC+FCA+FSCA+FSA), IC Markets (ASIC+CySEC+FSA+SCB), Pepperstone (FCA+ASIC+CySEC+BaFin+DFSA). **NEOMAAA hoy opera con licencia Anjouan (requisitos menos estrictos), pero construye infraestructura escalable desde ahora** para:
+
+1. Preparar expansión regulatoria sin retrofitting doloroso.
+2. Mejorar relaciones bancarias y PSPs (evalúan compliance robusto).
+3. Proteger el negocio ante incidentes.
+
+**Tiempos de respuesta — target NEOMAAA (inicio → maduro):**
+
+| Proceso | Industry standard top brokers | NEOMAAA inicio | NEOMAAA maduro |
+|---|---|---|---|
+| Verificación KYC Tier 1 | <60 segundos (automático) | <5 minutos | <60 segundos |
+| Verificación KYC Tier 2 | <4 horas | <24 horas | <4 horas |
+| Verificación KYC Tier 3 (EDD) | 1-3 días hábiles | 1-5 días hábiles | 1-3 días hábiles |
+| Revisión de sanctions hit | <4 horas | <24 horas (mismo día críticos) | <4 horas |
+| Resolución false positive | <2 horas | <24 horas | <4 horas |
+| Presentación de SAR | Dentro 24h de decisión | Dentro 48h | Dentro 24h |
+
+**Modelo de tres líneas de defensa (Pepperstone / FCA estándar):**
+- 1ra línea: front office (ventas, soporte, dealing) — identifican riesgos en su área.
+- 2da línea: Susana (compliance) — monitorea, revisa, hace cumplir.
+- 3ra línea: auditoría trimestral de Principals (Diego + Yulia) — evalúa la efectividad de las primeras dos.
+
+**Ratios de personal compliance (industry standard):**
+- 2-5 personas de compliance por cada 1.000 clientes activos.
+- NEOMAAA actual: 1 persona (Susana) — adecuado hasta ~500 clientes.
+- MLRO dedicado por cada jurisdicción regulada (relevante cuando haya expansión).
+
+**Capacitación (industry standard):**
+- Compliance officer: trimestral + continua (self-study + certs).
+- Todo el equipo client-facing: semestral mínimo (NEOMAAA) / trimestral (top brokers).
+- Inducción AML obligatoria el primer día antes de interactuar con clientes.
+- Test post-capacitación con umbral mínimo 80%.
+
+**Dónde NEOMAAA debe superar el mínimo AOFA:**
+
+| Área | Por qué superar el mínimo | Beneficio |
+|---|---|---|
+| Documentación de decisiones | AOFA no especifica formato pero ante auditoría es crítico | Preparación auditorías + expansión |
+| Ongoing monitoring de sanciones | Las listas se actualizan constantemente | Protección contra riesgo sanciones |
+| Capacitación del equipo | AOFA no especifica frecuencia | Reduce riesgo incumplimiento accidental |
+| Monitoreo de transacciones | AOFA pide básico | Protección contra lavado / fraude |
+| Risk scoring por cliente | Permite decisiones más informadas | Mejor gestión de riesgo |
+
+**Principios adoptados de Exness / IC Markets / Pepperstone implementados en NEOMAAA:**
+
+- Política AML con estructura modular (global + adendas jurisdicción) — ya preparado aunque solo haya una jurisdicción hoy.
+- Liveness check obligatorio en todos los tiers — implementado con Sumsub.
+- Comité de compliance mensual (Susana + Principals) — ver [compliance-calendar M8](/content/compliance/compliance-calendar).
+- Capacitación AML para TODOS los empleados, no solo compliance — ver [compliance-calendar secciones M6 + A4](/content/compliance/compliance-calendar).
+- Risk scoring manual por cliente — ver [risk-matrix](/content/compliance/risk-matrix).
+- Dashboards manuales en Google Sheets hoy, automatizados cuando volumen lo justifique.
+
 **P: ¿Cada cuánto tengo que actualizar los SOPs?**
 R:
 - **Risk-matrix:** cada vez que FATF actualiza listas (3x año).

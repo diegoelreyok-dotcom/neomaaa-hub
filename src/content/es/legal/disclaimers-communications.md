@@ -121,7 +121,7 @@ Campanas publicitarias, landing pages nuevas, scripts de video y cualquier creat
 - Notificaciones transaccionales y de compliance **no son opt-out** (legalmente requeridas).
 
 ### 7.3 Retencion y archivo
-Todas las comunicaciones se archivan segun `compliance/registro-compliance.md` y retention policy AOFA (minimo 5 anos desde cierre de cuenta o ultima operacion).
+Todas las comunicaciones se archivan segun `compliance/compliance-calendar.md` seccion 13 (Record Keeping y Retention) y retention policy AOFA (minimo 7 anos desde cierre de cuenta o ultima operacion).
 
 ---
 
