@@ -32,7 +32,6 @@ export const SECTIONS: Section[] = [
     order: 2,
     documents: [
       { slug: 'abc', titleEs: 'ABC del Broker', titleRu: 'ABC брокера', filePath: 'encyclopedia/abc.md', pdfSlug: 'encyclopedia-abc' },
-      { slug: 'glosario-trilingue', titleEs: 'Glosario Trilingüe ES/EN/RU', titleRu: 'Трёхъязычный глоссарий ES/EN/RU', filePath: 'encyclopedia/glosario-trilingue.md', pdfSlug: 'encyclopedia-glosario-trilingue' },
       { slug: 'formacion-precio', titleEs: 'Formación del Precio de Mercado', titleRu: 'Формирование рыночной цены', filePath: 'encyclopedia/formacion-precio.md', pdfSlug: 'encyclopedia-formacion-precio' },
       { slug: 'noticias-impacto', titleEs: 'Noticias Económicas e Impacto', titleRu: 'Экономические новости и их влияние', filePath: 'encyclopedia/noticias-impacto.md', pdfSlug: 'encyclopedia-noticias-impacto' },
       { slug: 'productos-mt5', titleEs: 'MT5 y Productos NEOMAAA', titleRu: 'MT5 и продукты NEOMAAA', filePath: 'encyclopedia/productos-mt5.md', pdfSlug: 'encyclopedia-productos-mt5' },
@@ -88,7 +87,6 @@ export const SECTIONS: Section[] = [
       { slug: 'onboarding', titleEs: 'Client Onboarding', titleRu: 'Онбординг клиентов', filePath: 'compliance/onboarding.md', pdfSlug: 'compliance-onboarding' },
       { slug: 'manual-susana', titleEs: 'Manual Compliance', titleRu: 'Руководство по комплаенсу', filePath: 'compliance/manual-susana.md', pdfSlug: 'compliance-manual-susana' },
       { slug: 'ab-book-policy', titleEs: 'Política A-Book / B-Book', titleRu: 'Политика A-Book / B-Book', filePath: 'compliance/ab-book-policy.md', pdfSlug: 'compliance-ab-book-policy' },
-      { slug: 'workflow-sales-compliance', titleEs: 'Workflow Sales-Compliance', titleRu: 'Workflow Продажи-Комплаенс', filePath: 'compliance/workflow-sales-compliance.md', pdfSlug: 'compliance-workflow-sales-compliance' },
       { slug: 'proceso-kyc-sumsub', titleEs: 'Proceso KYC Completo con Sumsub', titleRu: 'Полный процесс KYC с Sumsub', filePath: 'compliance/proceso-kyc-sumsub.md', pdfSlug: 'compliance-proceso-kyc-sumsub' },
       { slug: 'screening-sanciones', titleEs: 'Screening de Sanciones', titleRu: 'Скрининг санкций', filePath: 'compliance/screening-sanciones.md', pdfSlug: 'compliance-screening-sanciones' },
       { slug: 'registro-compliance', titleEs: 'Registro y Documentación', titleRu: 'Реестр и документация', filePath: 'compliance/registro-compliance.md', pdfSlug: 'compliance-registro-compliance' },
@@ -168,7 +166,6 @@ export const SECTIONS: Section[] = [
     order: 99,
     documents: [
       { slug: 'panorama-ejecutivo', titleEs: 'Panorama Ejecutivo — Operar un Broker', titleRu: 'Исполнительный обзор — Управление брокером', filePath: 'executive/panorama-ejecutivo.md', pdfSlug: 'executive-panorama' },
-      { slug: 'treasury-management', titleEs: 'Treasury Management — Multi-Wallet Strategy', titleRu: 'Treasury Management — Стратегия мульти-кошелька', filePath: 'executive/treasury-management.md', pdfSlug: 'executive-treasury' },
       { slug: 'wallet-structure-neomaaa', titleEs: 'Wallet Structure NEOMAAA (Setup Específico)', titleRu: 'Структура кошельков NEOMAAA', filePath: 'executive/wallet-structure-neomaaa.md', pdfSlug: 'executive-wallets-neomaaa' },
       { slug: 'unit-economics-broker', titleEs: 'Unit Economics — Cómo Gana Dinero un Broker', titleRu: 'Unit Economics — Как зарабатывает брокер', filePath: 'executive/unit-economics-broker.md', pdfSlug: 'executive-unit-economics' },
       { slug: 'financial-controls', titleEs: 'Controles Financieros Ejecutivos', titleRu: 'Исполнительные финансовые контроли', filePath: 'executive/financial-controls.md', pdfSlug: 'executive-financial-controls' },
