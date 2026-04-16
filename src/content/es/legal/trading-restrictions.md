@@ -27,7 +27,7 @@ Por restriccion regulatoria o por politica interna:
 - **Espacio Economico Europeo (EEA)** — incluye Espana y los 29 paises restantes (MiFID II).
 - **Reino Unido** (FCA).
 - **Australia** (ASIC).
-- **Japon, Israel** [DATO: confirmar lista completa EEA+adjacencies].
+- **Japon, Israel** y jurisdicciones adicionales segun politica interna definida por Compliance.
 
 ### 2.2 Jurisdicciones SANCIONADAS (rechazo automatico)
 
@@ -159,7 +159,7 @@ El cliente afectado puede apelar via `legal/complaint-handling.md`. Compliance r
 
 ## 9. Modificaciones
 
-La Empresa puede actualizar estas restricciones en cualquier momento. La version vigente se publica en neomaaa.com. Cambios materiales se notifican por email a clientes activos con al menos [DATO: 7 dias] de preaviso.
+La Empresa puede actualizar estas restricciones en cualquier momento. La version vigente se publica en neomaaa.com. Cambios materiales se notifican por email a clientes activos con el preaviso minimo establecido segun politica interna definida por Compliance.
 
 ---
 
@@ -172,4 +172,4 @@ La Empresa puede actualizar estas restricciones en cualquier momento. La version
 ---
 
 [PENDIENTE: texto legal final desde neomaaa.com/about/legal-documentation]
-[DATO: limites exactos de apalancamiento por instrumento en eventos de alta volatilidad, niveles exactos de margin call/stop-out, lista de EAs prohibidos — confirmar con Pepe/Dealing]
+[Limites exactos de apalancamiento por instrumento en eventos de alta volatilidad, niveles exactos de margin call/stop-out y lista de EAs prohibidos: segun politica interna definida por el Head of Dealing y Compliance.]

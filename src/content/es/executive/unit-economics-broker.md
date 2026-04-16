@@ -496,3 +496,102 @@ Cuando se cumplen todos, la decisión correcta es 3x el budget de marketing el p
 | 1.0 | abril 2026 | Documento inicial owners | Pendiente Diego, Angel, Yulia, Stanislav |
 
 **Próxima revisión:** trimestral, en el offsite Q siguiente.
+
+---
+
+## 14. Caso NEOMAAA — Unit Economics por Sales Agent (Stage 1 lanzamiento)
+
+> **Restringido a owners (Diego, Angel, Yulia, Stanislav).** Esta sección cruza los costos de compensación variable del equipo de sales contra los targets de revenue del Stage 1 del broker. Los datos específicos de comisiones por agente viven en `sales/commissions.md` (versión sanitizada accesible al equipo). Los números de P&L, márgenes y ROI viven únicamente acá.
+
+### 14.1 Contexto financiero de referencia (Stage 1)
+
+Datos del Playbook de Lanzamiento, marco de referencia para calibrar la política de comisiones:
+
+- **Costos operativos Stage 1:** ~$34,000/mes
+- **Revenue target (margen bruto ~50%):** ~$68,000/mes
+- **Salarios base de los 3 agentes (Franco, Edward, Luis):** $3,000/mes (ya incluido en los $34K)
+
+### 14.2 Costo de comisiones por escenario (equipo de 3 agentes)
+
+**Escenario Conservador — mes promedio**
+
+| Concepto | Por Agente | x3 Agentes |
+|----------|-----------|------------|
+| Comisiones FTD | $230 | $690 |
+| Bono Volumen | $150 | $450 |
+| Bono Equipo | $100 | $300 |
+| **Total comisiones** | **$480** | **$1,440** |
+
+Impacto: $1,440/mes adicional sobre los $3,000 de base → **$4,440 total en comp de ventas**. Representa **6.5%** del revenue target de $68K.
+
+**Escenario Optimista — buen mes**
+
+| Concepto | Por Agente | x3 Agentes |
+|----------|-----------|------------|
+| Comisiones FTD | $491 | $1,473 |
+| Bono Volumen | $350 | $1,050 |
+| Bono Equipo | $200 | $600 |
+| **Total comisiones** | **$1,041** | **$3,123** |
+
+Impacto: $3,123/mes adicional → **$6,123 total en comp de ventas**. Representa **9.0%** del revenue target.
+
+**Escenario Excepcional — gran mes**
+
+| Concepto | Por Agente | x3 Agentes |
+|----------|-----------|------------|
+| Comisiones FTD | $846 | $2,538 |
+| Bono Volumen | $600 | $1,800 |
+| Bono Equipo | $350 | $1,050 |
+| **Total comisiones** | **$1,796** | **$5,388** |
+
+Impacto: $5,388/mes adicional → **$8,388 total en comp de ventas**. Representa **12.3%** del revenue target.
+
+### 14.3 Tabla resumen de impacto al P&L
+
+| Escenario | FTDs Equipo | Dep. Totales Equipo | Costo Comisiones | Costo Total Sales | % de Revenue Target |
+|-----------|------------|---------------------|------------------|-------------------|---------------------|
+| Conservador | 30 | ~$16,000 | $1,440 | $4,440 | 6.5% |
+| Optimista | 54 | ~$35,000 | $3,123 | $6,123 | 9.0% |
+| Excepcional | 75 | ~$82,000 | $5,388 | $8,388 | 12.3% |
+
+### 14.4 Lectura de sostenibilidad
+
+Regla general de la industria de brokers retail: el costo de adquisición + compensación de sales debería estar entre **8-15% del revenue bruto**. Todos los escenarios del modelo NEOMAAA quedan dentro o por debajo de ese rango:
+
+| Escenario | % Revenue | Dentro del rango? |
+|-----------|-----------|-------------------|
+| Conservador | 6.5% | Sí — por debajo (margen de seguridad) |
+| Optimista | 9.0% | Sí — rango ideal |
+| Excepcional | 12.3% | Sí — dentro del techo aceptable |
+
+**Punto crítico para monitorear:** si los 3 agentes alcanzan "mes excepcional" pero el revenue real queda debajo de $68K, el % sube fuera de rango. Mitigante: si los agentes generan $82K en depósitos, el revenue del broker debería ser proporcional (B-Book flow absorbido + spreads + comisiones por lote), por lo que el esquema es auto-regulante — **más depósitos = más comisiones para agentes PERO también más revenue para el broker**.
+
+### 14.5 ROI del esquema de comisiones por agente
+
+```
+Revenue por cliente activo promedio (estimación Stage 1 LATAM):
+- Depósito promedio: $300
+- Lotes operados/mes: 5-10 (retail típico)
+- Ingreso broker por lote (spread + comisión internalizada): ~$8-15
+- Revenue mensual por cliente activo: $40-150
+
+Si el agente trae 10 FTDs/mes y 60% se mantienen activos:
+- 6 clientes activos × $75 revenue promedio = $450/mes revenue recurrente
+- Comisión pagada al agente por esos 10 FTDs: ~$230 (one-off)
+- Payback de la comisión FTD: ~2-3 semanas de operación del cliente
+
+LTV estimado cliente activo (12 meses): $900 - $1,800
+CAC del canal sales (comisión FTD por cliente): $15 - $60
+LTV:CAC del canal sales: 15x - 30x
+```
+
+### 14.6 Implicancias estratégicas para owners
+
+1. **El canal sales directo tiene LTV:CAC excelente en Stage 1** (15-30x), muy por encima del benchmark de marketing paid (3-5x). Justifica mantener y escalar el equipo de sales antes que empujar paid ads agresivos.
+2. **El clawback del FTD (sección 5 del doc sales)** está calibrado para proteger el payback period real: si el cliente no opera en las primeras 2-3 semanas, la comisión se revierte y el broker no queda en pérdida.
+3. **El techo de compensación total ($3,000-$4,000/mes por agente top)** está alineado con el margen que un agente productivo genera al broker. Subirlo sin evidencia de revenue incremental rompe el ratio 8-15%.
+4. **Monitoreo recomendado:** revisar mensualmente el ratio (comp total sales) / (revenue atribuido a sales) por agente. Si un agente individual supera 15% durante 2 meses consecutivos sin traer clientes de calidad medible (retención + volumen), revisar caso.
+
+### 14.7 Alineación con el documento público de sales
+
+La versión que ve el equipo de sales en `sales/commissions.md` **no expone** los números de revenue target, margen, costos operativos, LTV, CAC ni ROI del broker. Sólo muestra sus comisiones personales, tiers, mecánica de pago y reglas de clawback. Esta separación es intencional por confidencialidad operativa y competitiva.

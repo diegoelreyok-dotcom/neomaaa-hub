@@ -411,7 +411,7 @@ Este es el **escenario mas peligroso financieramente** del manual. Un feed corru
 <div className="neo-timeline">
 
 1. **PAUSAR TRADING INMEDIATAMENTE.** Emergency stop en el servidor MT5. Mejor 30 min sin trading que perder millones. Esta decision la toma Pepe o Stanislav sin consultar.
-2. **Identificar feed provider corrupto.** NEOMAAA tiene feed agregado de multiples liquidity providers (Match-Prime, LMAX, otros). Identificar cual dio el precio loco.
+2. **Identificar feed provider corrupto.** NEOMAAA tiene feed agregado de multiples liquidity providers contratados (listado detallado en `executive/liquidity-providers-b2b.md`, acceso restringido). Identificar cual dio el precio loco.
 3. **Cambiar a feed backup.** Rerouteo de feed principal a backup. Validar que backup da precios normales.
 4. **Quote back al feed correcto.** Prices vuelven a rango normal antes de reabrir trading.
 5. **Snapshot de ordenes ejecutadas en la ventana corrupta.** Exportar desde MT5 Manager todas las trades en el periodo de corrupcion + 5 min antes y despues.
@@ -857,8 +857,8 @@ Lo que NUNCA se hace en crisis, sin importar la presion del momento:
 | Categoria | Contacto | Responsable interno |
 |---|---|---|
 | MT5 Provider — L2 Support | [DATO: confirmar con Stanislav] | Stanislav |
-| Liquidity Provider — Match-Prime | [DATO: confirmar con Pepe] | Pepe |
-| Liquidity Provider — Backup | [DATO: confirmar con Pepe] | Pepe |
+| Liquidity Provider — Primario | [DATO: confirmar con Head of Dealing] | Head of Dealing |
+| Liquidity Provider — Backup | [DATO: confirmar con Head of Dealing] | Head of Dealing |
 | PSP principal card | [DATO: confirmar con Finance Manager / Diego] | Finance Manager |
 | PSP backup card | [DATO: confirmar con Finance Manager / Diego] | Finance Manager |
 | PSP crypto | [DATO: confirmar con Finance Manager / Diego] | Finance Manager |

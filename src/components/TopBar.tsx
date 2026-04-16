@@ -11,10 +11,9 @@ interface TopBarProps {
   lang: Lang;
   allowedSections: string[];
   onToggleSidebar: () => void;
-  onSwitchLang: (lang: Lang) => void;
 }
 
-export default function TopBar({ userName, isAdmin, lang, allowedSections, onToggleSidebar, onSwitchLang }: TopBarProps) {
+export default function TopBar({ userName, isAdmin, lang, allowedSections, onToggleSidebar }: TopBarProps) {
   const router = useRouter();
 
   async function handleLogout() {
@@ -44,56 +43,6 @@ export default function TopBar({ userName, isAdmin, lang, allowedSections, onTog
       <div className="flex items-center gap-2 sm:gap-3">
         {/* Global search (Cmd+K) */}
         <SearchBar lang={lang} allowedSections={allowedSections} />
-
-        {/* Language switcher */}
-        <div className="flex items-center bg-neo-dark-3/60 rounded-lg p-0.5 border border-neo-dark-3/40" role="group" aria-label={lang === 'ru' ? 'Язык' : 'Idioma'}>
-          <button
-            onClick={() => onSwitchLang('es')}
-            aria-label="Español"
-            aria-pressed={lang === 'es'}
-            className={`
-              flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium
-              transition-all duration-200
-              ${lang === 'es'
-                ? 'bg-neo-dark-4/80 text-neo-text shadow-sm'
-                : 'text-neo-text-muted hover:text-neo-text-secondary'
-              }
-            `}
-          >
-            <img
-              src="/flags/es.svg"
-              width="16"
-              height="12"
-              alt=""
-              loading="eager"
-              className="rounded-sm object-cover"
-            />
-            <span className="hidden sm:inline">ES</span>
-          </button>
-          <button
-            onClick={() => onSwitchLang('ru')}
-            aria-label="Русский"
-            aria-pressed={lang === 'ru'}
-            className={`
-              flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium
-              transition-all duration-200
-              ${lang === 'ru'
-                ? 'bg-neo-dark-4/80 text-neo-text shadow-sm'
-                : 'text-neo-text-muted hover:text-neo-text-secondary'
-              }
-            `}
-          >
-            <img
-              src="/flags/ru.svg"
-              width="16"
-              height="12"
-              alt=""
-              loading="eager"
-              className="rounded-sm object-cover"
-            />
-            <span className="hidden sm:inline">RU</span>
-          </button>
-        </div>
 
         {/* Admin link */}
         {isAdmin && (

@@ -50,15 +50,15 @@ La Empresa se reserva el derecho de **denegar acceso** al Vault a cualquier clie
 El cliente transfiere fondos desde su cuenta de trading al Vault mediante el portal. La transferencia es **inmediata** y no implica fee.
 
 ### 4.2 Activo soportado
-El Vault opera sobre [DATO: USDT / otros stablecoins o fiat — confirmar con Finance]. El cliente debe tener el activo soportado en su cuenta para transferir al Vault.
+El Vault opera sobre el o los activos soportados definidos segun politica interna (tipicamente stablecoins como USDT u otros activos aprobados). El cliente debe tener el activo soportado en su cuenta para transferir al Vault.
 
 ### 4.3 Calculo del yield
-- **Accrual diario** con base en el Balance Vault a las [DATO: 00:00 UTC] de cada dia.
+- **Accrual diario** con base en el Balance Vault al corte diario establecido por la Empresa (tipicamente 00:00 UTC).
 - **Formula:** `yield_diario = Balance_vault × (APY / 365)`.
 - **APY vigente** publicado en la pagina del producto y en el portal del cliente. Variable, actualizable segun condiciones de mercado.
 
 ### 4.4 Pago del yield
-- **Plan flexible:** acreditado [DATO: diario / semanal] al Balance Vault o transferido a cuenta trading segun seleccione el cliente.
+- **Plan flexible:** acreditado segun la frecuencia publicada en la pagina del producto (tipicamente diaria o semanal) al Balance Vault o transferido a cuenta trading segun seleccione el cliente.
 - **Plan locked:** acreditado al vencimiento del lock (o segun subplan) con opcion de compounding automatico si el cliente lo habilita.
 
 ### 4.5 Retiro del Vault
@@ -70,7 +70,7 @@ El Vault opera sobre [DATO: USDT / otros stablecoins o fiat — confirmar con Fi
 ## 5. APY y modificaciones
 
 - El APY vigente se publica en la pagina del producto.
-- La Empresa puede modificar el APY con **notificacion previa de [DATO: 7 dias]**.
+- La Empresa puede modificar el APY con **notificacion previa** segun el plazo establecido en politica interna y publicado en la pagina del producto.
 - Modificaciones no afectan retroactivamente planes locked ya vigentes cuyo APY fue fijado al momento de la contratacion del plan.
 - Planes flexibles ven aplicado el nuevo APY desde la fecha de efectivo del cambio.
 
@@ -123,7 +123,7 @@ Violaciones resultan en: remocion del Vault, retencion para investigacion, cierr
 
 El Vault **no se ofrece** a residentes de:
 
-- Estados Unidos, Canada, Espacio Economico Europeo (incluye Espana), Reino Unido, Australia, Japon, Israel [DATO: confirmar lista completa].
+- Estados Unidos, Canada, Espacio Economico Europeo (incluye Espana), Reino Unido, Australia, Japon, Israel y jurisdicciones adicionales segun politica interna definida por Compliance.
 - Cuba, Iran, Corea del Norte, Myanmar, Siria, Sudan, Crimea y regiones ocupadas de Ucrania.
 - Cualquier jurisdiccion con sancion OFAC comprehensive o FATF black list.
 
@@ -135,10 +135,10 @@ Si el cliente se muda a una jurisdiccion restringida, debera cerrar su posicion 
 
 - **Deposito al Vault:** 0 (sin fee).
 - **Retiro del Vault (plan flexible):** 0 (sin fee).
-- **Retiro anticipado (plan locked):** penalidad [DATO: yield no acreditado + fee fijo].
-- **Fee administrativo:** 0 [DATO: confirmar si aplica fee anual].
+- **Retiro anticipado (plan locked):** penalidad (perdida del yield no acreditado y, cuando aplique, fee fijo) segun los terminos del plan contratado.
+- **Fee administrativo:** segun los terminos del plan contratado y publicado en la pagina del producto.
 
-El yield neto comunicado al cliente **ya es neto** de fees del producto. [DATO: confirmar con Finance].
+El yield neto comunicado al cliente **ya es neto** de fees del producto.
 
 ---
 
@@ -172,7 +172,7 @@ En terminacion por la Empresa, se devolvera el Balance + yield acumulado neto de
 
 ## 12. Modificacion de terminos
 
-La Empresa puede modificar estos Vault Yield Terms con notificacion previa de **[DATO: 30 dias]** por email. El cliente que no acepte puede retirar su Balance antes de la fecha de efectividad sin penalidad.
+La Empresa puede modificar estos Vault Yield Terms con notificacion previa por email segun el plazo establecido en politica interna. El cliente que no acepte puede retirar su Balance antes de la fecha de efectividad sin penalidad.
 
 ---
 
@@ -193,4 +193,4 @@ La Empresa puede modificar estos Vault Yield Terms con notificacion previa de **
 ---
 
 [PENDIENTE: texto legal final desde neomaaa.com/about/legal-documentation]
-[DATO: APY base y por plazo, penalidades exactas de early withdrawal, frecuencia de payout, minimos y maximos, fee administrativo — confirmar con Diego/Finance antes de publicar version cliente-facing]
+[APY base y por plazo, penalidades exactas de early withdrawal, frecuencia de payout, minimos y maximos, y fee administrativo: segun politica interna definida por Finance y aprobada por los Principals antes de publicar la version cliente-facing.]

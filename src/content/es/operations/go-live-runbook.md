@@ -1,104 +1,143 @@
 # Runbook del Dia de Lanzamiento — NEOMAAA Markets
 
 **Documento:** Runbook operativo para Go-Live
-**Version:** 1.0
+**Version:** 1.1
 **Clasificacion:** [SOLO USO INTERNO]
 **Ultima actualizacion:** Abril 2026
-**Responsable:** Principals (Diego, Yulia, Stanislav)
+**Entidad:** Neomaaa Ltd — **L15968/N AOFA Anjouan**
+**Responsable:** Principals (Diego Loyola, Angel Ortega, Yulia, Stanislav)
+**Aprobacion final requerida:** Diego (CEO) + Angel (CCO) + Yulia (Ops) + Susana (Compliance) + Pepe (Dealing)
 
 ---
 
 ## Objetivo
 
-Este documento define el plan minuto a minuto para el dia de lanzamiento publico de NEOMAAA Markets. Cubre desde las verificaciones del dia previo hasta las operaciones de la primera semana. Cada miembro del equipo debe leer, entender, y confirmar su comprension de este documento antes del lanzamiento.
+Este documento define el plan minuto a minuto para el dia de lanzamiento publico de NEOMAAA Markets. Cubre desde las verificaciones del dia previo (D-1) hasta las operaciones de la primera semana. Cada miembro del equipo debe leer, entender, y **confirmar por Telegram** su comprension del documento antes del lanzamiento.
+
+Zona horaria de referencia: **UAE (GMT+4)** donde opera HQ (Dubai). Conversiones LATAM (GMT-3) indicadas cuando aplica.
+
+---
+
+> [!INFO]
+> **Documentos relacionados (lectura obligatoria pre-launch):**
+> - [Master Checklist pre-launch](/content/es/launch/checklist)
+> - [Post-Launch Playbook](/content/es/launch/post-launch-playbook) — semanas 1-4
+> - [Manual de Crisis](/content/es/operations/manual-crisis)
+> - [Manual de Depositos](/content/es/operations/depositos)
+> - [Compliance Calendar AOFA](/content/es/compliance/compliance-calendar)
+> - [A/B Book Policy](/content/es/compliance/ab-book-policy)
+> - [Financial Controls](/content/es/executive/financial-controls)
+> - [Gestion de Tickets Support](/content/es/support/gestion-tickets)
 
 ---
 
 ## Equipo de War Room
 
-| Rol | Persona | Responsabilidad Principal | Canal de Contacto |
-|---|---|---|---|
-| Decision Final | Diego | Aprobacion de go/no-go, decisiones criticas | Slack + Telefono |
-| Operaciones / Compliance | Yulia | KYC, compliance, Sumsub, regulacion | Slack + Telefono |
-| Tecnologia / MT5 | Stanislav | Servidores MT5, conectividad, plataforma | Slack + Telefono |
-| Finance Manager | [Por contratar] | PSPs, depositos, retiros, reconciliacion | Slack |
-| Head of Support | [Asignado] | Coordinacion de agentes de soporte | Slack + Intercom |
-| Support ES | [Asignado] | Chat en vivo espanol | Intercom + WhatsApp |
-| Support EN | [Asignado] | Chat en vivo ingles | Intercom + WhatsApp |
-| Marketing | [Asignado/Freelance] | Activacion de campanas, redes sociales | Slack |
-| Sales Lead | [Asignado] | Contacto con primeros leads calificados | Slack + CRM |
+| Rol | Persona | Responsabilidad | Canal primario | Backup |
+|---|---|---|---|---|
+| **Decision Final / Go-No Go** | **Diego Loyola** (CEO/Founder) | Aprobacion go-live, decisiones criticas, crisis | Telegram + Telefono `[DATO: Diego confirma telefono personal para emergencia]` | Angel |
+| **Co-founder / CCO / Compliance estrategico** | **Angel Ortega** | Segundo en mando, compliance strategy, comunicacion externa | Telegram + Telefono `[DATO: Angel confirma telefono]` | Diego |
+| **Operaciones / PSPs / Reconciliacion** | **Yulia** (Operations Director) | KYC Sumsub oversight, PSPs, retiros, liquidez | Telegram + Telefono `[DATO: Yulia confirma telefono]` | Stanislav |
+| **Tecnologia / MT5 / Infra** | **Stanislav** (Principal) | Servidores MT5, conectividad LP, Equinix data centers, SSL, uptime | Telegram + Telefono `[DATO: Stanislav confirma telefono]` | Alex A |
+| **Dealing / Ejecucion** | **Pepe** (Head of Dealing, 20+ anos) | MT5 Manager, risk flow, A/B Book, hedging LPs | Telegram DM | Stanislav |
+| **Compliance Operativo** | **Susana** (Compliance Officer) | KYC approvals, AML flags, notificaciones AOFA, quejas regulatorias | Telegram DM + compliance@neomaaa.com | Angel |
+| **Sales Lead + Head of Support interino** | **Edward** (Head of Sales) | Coordinacion Franco/Luis/Rocio/Marilyn, supervision Intercom | Telegram + WhatsApp | Angel |
+| **Sales Agents** | **Franco, Luis** | Contacto primeros leads VIP, objeciones, cierre | Telegram + Skale CRM | Edward |
+| **Support L1 ES** | **Rocio** | Chat Intercom espanol, KYC support, depositos | Intercom + Telegram | Marilyn |
+| **Support L1 ES/EN** | **Marilyn** | Chat Intercom ingles + ES overflow | Intercom + Telegram | Rocio |
+| **Dev Team** | **Alex A, Alex B** (dev principal) | Portal, API, integracion Skale-MT5 | Telegram `#dev` | Stanislav |
+| **Dev Team RU** | **Gleb, Dimitri** | Backend, integraciones Sumsub, PSPs | Telegram `#dev` | Alex A |
+| **Finance Manager** | `[DATO: Por contratar — Yulia cubre interino]` | PSPs reconciliacion, depositos/retiros | Telegram | Yulia |
+| **Marketing** | `[DATO: Marketing Mgr por asignar/freelance]` | Campanas paid, redes sociales, emails lanzamiento | Telegram | Angel |
 
-**Canal principal de coordinacion:** Canal dedicado en Slack: #war-room-golive
-**Canal de escalacion:** Grupo de Principals en Slack/WhatsApp
-**Autoridad de decision:** Diego tiene la palabra final. En su ausencia: Yulia. En ausencia de ambos: Stanislav.
+**Canal principal coordinacion:** Telegram `#war-room-golive` (grupo dedicado)
+**Canal escalacion Principals:** Telegram grupo privado `#principals` (Diego + Angel + Yulia + Stanislav)
+**Canal dealing:** Telegram `#dealing` (Pepe + Stanislav + dev)
+**Canal support:** Telegram `#support` (Edward + Rocio + Marilyn)
+**Autoridad de decision:** **Diego tiene la palabra final.** En su ausencia: Angel. En ausencia de ambos: Yulia. En ausencia de los tres: Stanislav.
 
 ---
 
-## FASE 1: Pre-Lanzamiento (Dia Anterior, D-1)
+## FASE 1: Pre-Lanzamiento (D-1)
 
-### Verificaciones Tecnologicas (Responsable: Stanislav)
+### Verificaciones Tecnologicas — Owner: Stanislav + Alex A/Alex B
 
-| Hora (CET) | Accion | Estado |
-|---|---|---|
-| 09:00 | Verificar que servidores MT5 estan operativos y respondiendo | [ ] |
-| 09:30 | Ejecutar prueba de apertura de cuenta demo y real de cada tipo (Cent, Standard, Raw) | [ ] |
-| 10:00 | Verificar conectividad de feed de precios con proveedores de liquidez | [ ] |
-| 10:30 | Verificar que el sitio web esta online, SSL activo, formularios de registro funcionando | [ ] |
-| 11:00 | Probar flujo completo de registro: formulario web > Skale CRM > cuenta MT5 creada | [ ] |
-| 11:30 | Verificar que Intercom widget esta visible y funcional en el sitio web | [ ] |
-| 12:00 | Confirmar que el telefono de soporte (+41 44 707 9633) esta activo y redirige correctamente | [ ] |
-| 12:30 | Ejecutar prueba de carga basica: simular 50 registros simultaneos | [ ] |
-| 13:00 | Documentar cualquier issue encontrado y su estado de resolucion | [ ] |
+| Hora UAE | Accion | Herramienta / URL | Estado | Owner |
+|---|---|---|---|---|
+| 09:00 | Verificar servidores MT5 operativos | MT5 Admin — `[DATO: Stanislav confirma URL admin MT5]` + Equinix DC monitoring | [ ] | Stanislav |
+| 09:30 | Prueba apertura cuenta demo + real cada tipo (Cent, Standard, Raw ECN) | Portal client + Skale + MT5 Admin | [ ] | Alex A |
+| 10:00 | Verificar conectividad feed precios con LPs (liquidity providers) | MT5 Admin > Feeders | [ ] | Pepe + Stanislav |
+| 10:30 | Sitio web online, SSL activo, formularios funcionando | neomaaa.com + app.neomaaa.com | [ ] | Alex B |
+| 11:00 | Flujo completo: formulario web → Skale CRM → cuenta MT5 creada → Sumsub KYC triggered | End-to-end test con cuenta real | [ ] | Alex A + Yulia |
+| 11:30 | Intercom widget visible y funcional | neomaaa.com homepage + app.neomaaa.com | [ ] | Edward |
+| 12:00 | Telefono soporte +41 44 707 9633 activo y redirige | Call de prueba | [ ] | Edward |
+| 12:30 | Prueba de carga: simular 50 registros simultaneos | Script dev team | [ ] | Gleb / Dimitri |
+| 13:00 | Documentar issues encontrados + estado resolucion | Notion `Work HQ > Launch > Issues Log D-1` | [ ] | Stanislav |
 
-### Verificaciones de PSPs y Finanzas (Responsable: Finance Manager / Diego)
+### Verificaciones PSPs y Finanzas — Owner: Yulia + Finance Manager
 
-| Hora (CET) | Accion | Estado |
-|---|---|---|
-| 09:00 | Confirmar con cada PSP activo que estan listos para procesar transacciones en vivo | [ ] |
-| 10:00 | Ejecutar deposito de prueba de $10 USD con al menos 3 metodos de pago principales | [ ] |
-| 11:00 | Ejecutar retiro de prueba de $5 USD para verificar flujo completo | [ ] |
-| 12:00 | Verificar que los depositos de prueba se reflejan correctamente en Skale CRM y MT5 | [ ] |
-| 13:00 | Confirmar saldos en cuentas corporativas y liquidez disponible para operaciones | [ ] |
+| Hora UAE | Accion | Herramienta | Estado | Owner |
+|---|---|---|---|---|
+| 09:00 | Confirmar con cada PSP (120+ metodos deposito) que estan listos para live | PSP account managers + dashboards | [ ] | Yulia |
+| 10:00 | Deposito prueba $10 USD con 3+ metodos principales (tarjeta, crypto, wire) | Skale + PSP panels + MT5 | [ ] | Finance Mgr / Yulia |
+| 11:00 | Retiro prueba $5 USD — flujo completo | Skale + PSP | [ ] | Finance Mgr / Yulia |
+| 12:00 | Depositos prueba reflejan correctamente en Skale CRM y MT5 | Skale ↔ MT5 sync check | [ ] | Yulia |
+| 13:00 | Saldos cuentas corporativas + liquidez operacion | Bank statements + Fireblocks (target crypto custody) | [ ] | Yulia + Diego |
 
-### Verificaciones de KYC/Compliance (Responsable: Yulia)
+### Verificaciones KYC/Compliance — Owner: Susana + Angel
 
-| Hora (CET) | Accion | Estado |
-|---|---|---|
-| 09:00 | Verificar que Sumsub esta configurado y procesando verificaciones correctamente | [ ] |
-| 10:00 | Ejecutar verificacion KYC de prueba con documento de test | [ ] |
-| 11:00 | Confirmar que los documentos legales estan publicados en el sitio: Terms, Privacy Policy, Risk Disclosure, AML Policy | [ ] |
-| 12:00 | Verificar que el formulario de registro incluye los disclaimers regulatorios requeridos | [ ] |
+| Hora UAE | Accion | Herramienta | Estado | Owner |
+|---|---|---|---|---|
+| 09:00 | Sumsub configurado y procesando correctamente | Sumsub dashboard | [ ] | Susana |
+| 10:00 | KYC prueba con documento test (PEP check, sanctions screening, geo blocking) | Sumsub + Skale sync | [ ] | Susana |
+| 11:00 | Docs legales publicados en sitio: Terms, Privacy, Risk Disclosure, AML Policy, Client Agreement | neomaaa.com/legal | [ ] | Susana + Angel |
+| 12:00 | Formulario registro con disclaimers regulatorios AOFA L15968/N + geo-blocking de mercados restringidos (USA, Canada, EEA, UK, Australia, Cuba, Iraq, Myanmar, North Korea, Sudan) | Portal registro | [ ] | Susana + Alex A |
+| 12:30 | **Notificacion pre-launch AOFA enviada** (si corresponde a regulacion) | Email regulador + copia legal@neomaaa.com | [ ] | Susana + Angel |
+| 13:00 | Compliance calendar cargado con obligaciones post-launch | [Compliance Calendar](/content/es/compliance/compliance-calendar) | [ ] | Susana |
 
-### Verificaciones de Soporte (Responsable: Head of Support)
+### Verificaciones Soporte — Owner: Edward
 
-| Hora (CET) | Accion | Estado |
-|---|---|---|
-| 14:00 | Confirmar que todos los agentes de soporte tienen acceso a Intercom, Skale CRM, y Sumsub | [ ] |
-| 14:30 | Distribuir FAQ Interno actualizado a todos los agentes | [ ] |
-| 15:00 | Realizar simulacro de atencion: cada agente responde 3 escenarios de prueba | [ ] |
-| 15:30 | Confirmar horarios de turno para el dia de lanzamiento | [ ] |
-| 16:00 | Verificar que macros de Intercom estan configuradas para respuestas frecuentes | [ ] |
+| Hora UAE | Accion | Herramienta | Estado | Owner |
+|---|---|---|---|---|
+| 14:00 | Rocio, Marilyn, Edward, Franco, Luis con acceso Intercom + Skale + Sumsub read-only + MT5 support view | Pruebas login | [ ] | Edward |
+| 14:30 | Distribuir FAQ Interno actualizado + [Enciclopedia Soporte](/content/es/support/enciclopedia-soporte) | Portal broker + Telegram `#support` | [ ] | Edward |
+| 15:00 | Simulacro atencion: cada agente responde 3 escenarios prueba (KYC, deposito, MT5 login) | Intercom test workspace | [ ] | Edward |
+| 15:30 | Horarios turno dia de lanzamiento confirmados | Ver [gestion-tickets](/content/es/support/gestion-tickets) cap 0 | [ ] | Edward |
+| 16:00 | Macros Intercom configuradas (saludo, KYC, deposito, retiro, escalation) | Intercom Settings > Macros | [ ] | Edward |
 
-### Verificaciones de Marketing (Responsable: Marketing)
+### Verificaciones Marketing — Owner: Marketing Manager (o Angel interino)
 
-| Hora (CET) | Accion | Estado |
-|---|---|---|
-| 14:00 | Confirmar que campanas de paid media estan listas para activacion (NO activar todavia) | [ ] |
-| 15:00 | Verificar que landing pages estan online y tracking pixels estan funcionando | [ ] |
-| 16:00 | Preparar publicaciones de redes sociales para el anuncio de lanzamiento (NO publicar todavia) | [ ] |
-| 17:00 | Confirmar que email de anuncio esta listo para enviar a lista de pre-registro (si aplica) | [ ] |
+| Hora UAE | Accion | Estado | Owner |
+|---|---|---|---|
+| 14:00 | Campanas paid media listas (NO activar aun): Meta, TikTok, Google Ads | [ ] | Marketing |
+| 15:00 | Landing pages online + tracking pixels (Meta, Google, TikTok) | [ ] | Marketing + Alex B |
+| 16:00 | Publicaciones redes sociales preparadas (NO publicar): LinkedIn, Instagram @neomaaamarkets, Twitter, Telegram | [ ] | Marketing |
+| 17:00 | Email lanzamiento listo para enviar a lista pre-registro (~250 registrados actuales) | [ ] | Marketing |
 
-### Briefing del Equipo (Responsable: Diego)
+### Briefing del Equipo — Owner: Diego
 
-| Hora (CET) | Accion | Estado |
-|---|---|---|
-| 18:00 | Videollamada con todo el equipo (30 min): revisar plan, confirmar roles, resolver dudas | [ ] |
-| 18:30 | Cada persona confirma por Slack que esta lista para manana | [ ] |
-| 19:00 | Diego toma decision GO / NO-GO basado en estado de verificaciones | [ ] |
+| Hora UAE | Accion | Participantes | Estado |
+|---|---|---|---|
+| 18:00 | Videollamada equipo completo (30 min): revisar plan, confirmar roles, resolver dudas | Todos los 16 | [ ] |
+| 18:30 | Cada persona confirma por Telegram `#war-room-golive`: "Listo para manana — [nombre]" | Todos | [ ] |
+| 19:00 | **Diego toma decision GO / NO-GO** basado en estado verificaciones. **Firman aprobacion: Diego + Angel + Yulia + Susana + Pepe** (mensaje firmado en Telegram `#principals` + email a legal@neomaaa.com) | Principals + Pepe + Susana | [ ] |
 
-**Criterios de GO:** Todas las verificaciones tecnologicas, de PSPs, y de KYC completadas exitosamente. Cualquier issue menor documentado con workaround.
+**Criterios GO:**
+- [ ] Todas verificaciones tecnologicas completadas (MT5, portal, sitio)
+- [ ] PSPs principales operativos (minimo 3 metodos testeados exitosamente)
+- [ ] Sumsub operativo + KYC de prueba aprobado
+- [ ] Susana confirma compliance AOFA L15968/N en orden
+- [ ] Pepe confirma MT5 Admin + LPs conectados
+- [ ] Edward confirma support team ready
+- [ ] **Firma digital (Telegram voto) de Diego, Angel, Yulia, Susana, Pepe**
 
-**Criterios de NO-GO:** Fallo critico en MT5, PSPs principales no operativos, Sumsub no funcional, sitio web caido, o issue de compliance sin resolver.
+**Criterios NO-GO (cualquiera activa posponer):**
+- Fallo critico MT5
+- PSPs principales no operativos (<3 metodos funcionando)
+- Sumsub no funcional
+- Sitio web caido o SSL invalido
+- Issue compliance sin resolver (especialmente geo-blocking de mercados restringidos)
+- Ausencia de cualquier firma obligatoria
 
 ---
 
@@ -106,154 +145,146 @@ Este documento define el plan minuto a minuto para el dia de lanzamiento publico
 
 ### T-60 min: Verificaciones Finales
 
-| Hora (CET) | Responsable | Accion |
+| Hora UAE | Owner | Accion |
 |---|---|---|
-| 08:00 | Stanislav | Verificacion rapida de servidores MT5, sitio web, y CRM |
-| 08:10 | Finance Manager | Verificacion rapida de PSPs operativos |
-| 08:20 | Yulia | Verificacion rapida de Sumsub operativo |
-| 08:30 | Head of Support | Confirmar que agentes de soporte estan online (EN y ES) |
-| 08:40 | Marketing | Confirmar que campanas y publicaciones estan listas para activacion |
-| 08:50 | Todos | Confirmar en #war-room-golive: "Listo" |
+| 08:00 | Stanislav | Verificacion rapida servidores MT5, sitio, CRM Skale, Equinix DC |
+| 08:10 | Yulia / Finance Mgr | Verificacion rapida PSPs operativos (dashboard quick check) |
+| 08:20 | Susana | Verificacion rapida Sumsub operativo + geo-blocking activo |
+| 08:30 | Edward | Confirmar Rocio + Marilyn online en Intercom, turno EN + ES cubierto |
+| 08:40 | Marketing | Confirmar campanas y publicaciones listas activacion |
+| 08:50 | Todos | Confirmar en `#war-room-golive`: "Listo — [rol] — [nombre]" |
 
-### T-0: Activacion (09:00 CET)
+### T-0: Activacion (09:00 UAE)
 
-| Hora (CET) | Responsable | Accion |
+| Hora UAE | Owner | Accion |
 |---|---|---|
-| 09:00 | Diego | Confirma GO FINAL en #war-room-golive |
-| 09:01 | Stanislav | Habilita registro de cuentas reales en el sitio web (si estaba deshabilitado) |
-| 09:02 | Marketing | Activa campanas de paid media |
-| 09:03 | Marketing | Publica anuncio de lanzamiento en todas las redes sociales |
-| 09:05 | Marketing | Envia email de lanzamiento a lista de pre-registro |
-| 09:10 | Head of Support | Confirma que Intercom esta en modo activo con agentes disponibles |
-| 09:15 | Diego | Publica mensaje en #war-room-golive: "NEOMAAA Markets esta LIVE" |
+| **09:00** | **Diego** | **GO FINAL confirmado en `#war-room-golive`: "NEOMAAA Markets — GO LIVE"** |
+| 09:01 | Stanislav + Alex A | Habilita registro cuentas reales si estaba deshabilitado |
+| 09:02 | Marketing | Activa campanas paid media (Meta, TikTok, Google Ads) |
+| 09:03 | Marketing | Publica anuncio lanzamiento: LinkedIn, Instagram, Twitter, Telegram public |
+| 09:05 | Marketing | Envia email lanzamiento a lista pre-registro (~250) |
+| 09:10 | Edward | Confirma Intercom modo activo + Rocio/Marilyn disponibles |
+| 09:15 | Diego | Publica en `#war-room-golive`: "NEOMAAA Markets esta LIVE. Objetivo semana 1: 50-100 FTDs." |
 
-### T+0 a T+2h: Monitoreo Intensivo (09:00 – 11:00 CET)
+### T+0 a T+2h: Monitoreo Intensivo (09:00 – 11:00 UAE)
 
-| Hora (CET) | Responsable | Accion |
+| Hora UAE | Owner | Accion |
 |---|---|---|
-| 09:00-11:00 | Stanislav | Monitorear servidores MT5 cada 15 min: CPU, memoria, conexiones activas |
-| 09:00-11:00 | Head of Support | Monitorear cola de Intercom: tiempo de respuesta, volumen de chats |
-| 09:15 | Stanislav | Reportar: primer registro recibido? Si/No |
-| 09:30 | Yulia | Reportar: primer KYC iniciado en Sumsub? Si/No |
-| 09:45 | Finance Manager | Reportar: primer deposito recibido? Si/No |
-| 10:00 | Diego | Primer check-in en #war-room-golive: estado general, issues detectados |
-| 10:30 | Stanislav | Reportar: primera operacion de trading ejecutada? Si/No |
-| 11:00 | Diego | Segundo check-in: metricas de las primeras 2 horas |
+| 09:00-11:00 | Stanislav | Monitorea MT5 cada 15 min: CPU, memoria, conexiones activas, latencia LP |
+| 09:00-11:00 | Pepe | Monitorea MT5 Manager: primeras operaciones, flow, slippage |
+| 09:00-11:00 | Edward | Monitorea Intercom: FRT, volumen chats, escalaciones |
+| 09:15 | Stanislav / Alex A | Reporta en war-room: primer registro recibido? Si/No + ID Skale |
+| 09:30 | Susana / Yulia | Reporta: primer KYC iniciado Sumsub? Si/No |
+| 09:45 | Yulia / Finance Mgr | Reporta: primer deposito recibido? Si/No + monto + PSP |
+| 10:00 | **Diego** | **Check-in #1 en war-room:** estado general, issues detectados |
+| 10:30 | Pepe / Stanislav | Reporta: primera operacion trading ejecutada? Si/No + instrumento + size |
+| 11:00 | Diego | Check-in #2: metricas primeras 2 horas |
 
-**Checklist de Primeras 2 Horas:**
-- [ ] Primer registro completado exitosamente
-- [ ] Primer KYC aprobado
-- [ ] Primer deposito procesado y reflejado en MT5
-- [ ] Primera operacion de trading ejecutada
-- [ ] Soporte respondiendo dentro de KPIs (< 2 min chat)
-- [ ] Cero errores criticos de plataforma
-- [ ] Campanas de marketing corriendo sin errores
-- [ ] Sitio web estable y sin caidas
+**Checklist Primeras 2 Horas (verificar en war-room):**
+- [ ] Primer registro Skale completado
+- [ ] Primer KYC Sumsub aprobado
+- [ ] Primer deposito procesado + reflejado en MT5
+- [ ] Primera operacion MT5 ejecutada
+- [ ] Soporte respondiendo dentro de SLA (<5 min chat)
+- [ ] Cero errores criticos plataforma
+- [ ] Campanas marketing corriendo sin errores (Meta/TikTok/Google)
+- [ ] Sitio web estable, sin caidas
 
 ---
 
-## FASE 3: Primeras 24 Horas (D-0 completo)
+## FASE 3: Primeras 24 Horas
 
 ### KPIs a Rastrear (cada 4 horas)
 
-| Metrica | Fuente | Responsable |
+| Metrica | Fuente | Owner reporta |
 |---|---|---|
-| Registros totales | Skale CRM | Marketing |
-| KYCs iniciados / aprobados / rechazados | Sumsub | Yulia |
-| Depositos: cantidad y monto total | Skale CRM / PSP panels | Finance Manager |
-| Retiros: cantidad y monto total | Skale CRM / PSP panels | Finance Manager |
-| Operaciones ejecutadas en MT5 | MT5 Manager | Stanislav |
-| Tickets de soporte: volumen, tiempo de respuesta, CSAT | Intercom | Head of Support |
-| Errores de plataforma o servidor | MT5 logs / monitoring | Stanislav |
-| Trafico web: visitas, bounce rate, conversion | Google Analytics | Marketing |
-| Gasto publicitario vs. registros | Ad platforms | Marketing |
+| Registros totales | Skale CRM | Edward |
+| KYCs iniciados / aprobados / rechazados | Sumsub dashboard | Susana |
+| Depositos: cantidad + monto total | Skale + PSP panels | Yulia / Finance Mgr |
+| Retiros: cantidad + monto total | Skale + PSP panels | Yulia / Finance Mgr |
+| Operaciones ejecutadas MT5 | MT5 Manager | Pepe |
+| Tickets Intercom: volumen, FRT, CSAT | Intercom Reports | Edward |
+| Errores plataforma / server | MT5 logs + Equinix monitoring | Stanislav |
+| Trafico web: visitas, bounce, conversion | Google Analytics | Marketing |
+| Gasto publicitario vs registros (CAC preliminar) | Ad platforms + Skale | Marketing |
 
 ### Plan de Escalacion
 
-| Nivel | Trigger | Accion | Quien Decide |
+| Nivel | Trigger | Accion | Decision |
 |---|---|---|---|
-| Nivel 1 — Incidencia Menor | Ticket individual de soporte no resuelto en 30 min | Agente escala al Head of Support | Head of Support |
-| Nivel 2 — Problema Operativo | Patron de multiples tickets sobre el mismo tema | Head of Support notifica en #war-room-golive | Diego o Yulia |
-| Nivel 3 — Incidencia Mayor | PSP no procesando, MT5 con errores de ejecucion, Sumsub caido | Stanislav/Finance Manager ejecutan diagnostico inmediato | Diego |
-| Nivel 4 — Critico | Sitio web caido, MT5 inaccesible, brecha de seguridad, issue regulatorio | Activar protocolo de rollback (ver abajo) | Diego (unica autoridad) |
+| **L1 — Incidencia Menor** | Ticket individual soporte no resuelto 30 min | Rocio/Marilyn escala a Edward | Edward |
+| **L2 — Problema Operativo** | Patron multiples tickets mismo tema | Edward notifica en `#war-room-golive` | Diego o Yulia |
+| **L3 — Incidencia Mayor** | PSP no procesando / MT5 errores ejecucion / Sumsub caido | Stanislav + Yulia + Pepe diagnostico inmediato | Diego |
+| **L4 — Critico** | Sitio caido / MT5 inaccesible / brecha seguridad / issue regulatorio AOFA | **Activar protocolo rollback** (ver FASE 5) | **Diego (unica autoridad)** |
 
-### Comunicaciones en Primeras 24 Horas
+### Comunicaciones Primeras 24 Horas
 
-| Hora (CET) | Accion |
-|---|---|
-| 13:00 | Check-in #3: Diego revisa metricas acumuladas, ajustes necesarios |
-| 17:00 | Check-in #4: cierre de turno CET, traspaso a cobertura LATAM |
-| 21:00 | Check-in #5 (async): resumen del dia en #war-room-golive |
-| 09:00 (D+1) | Reunion de equipo completo: retrospectiva de primeras 24 horas |
+| Hora UAE | Accion | Owner |
+|---|---|---|
+| 13:00 | Check-in #3: metricas acumuladas, ajustes necesarios | Diego |
+| 17:00 | Check-in #4: cierre turno UAE, traspaso a cobertura LATAM (Rocio + Franco LATAM evening) | Diego + Edward |
+| 21:00 | Check-in #5 (async): resumen dia en `#war-room-golive` | Diego |
+| D+1 09:00 | Reunion equipo completo: retrospectiva primeras 24h | Todos Principals + Heads |
 
 ---
 
 ## FASE 4: Primera Semana (D+1 a D+7)
 
+Ver detalle completo en [Post-Launch Playbook — Semana 1](/content/es/launch/post-launch-playbook#semana-1--supervivencia).
+
 ### Standup Diario
 
-**Horario:** 09:00 CET / 02:00 COL (o ajustado segun equipo)
-**Duracion:** 15 minutos maximo
-**Canal:** Videollamada + resumen escrito en #war-room-golive
+**Horario:** 09:00 UAE / 02:00 ART (Buenos Aires) / 00:00 CST (Mexico). Ajustado segun equipo LATAM.
+**Duracion:** 15 min max
+**Canal:** Videollamada + resumen escrito en `#war-room-golive`
+**Facilitador:** Diego (o Angel si Diego no disponible)
 
 **Agenda del Standup:**
 
-1. **Metricas del dia anterior** (2 min)
-   - Registros, KYCs, depositos, retiros, operaciones
-   - Tickets de soporte: volumen y tiempo de respuesta
-   - Issues reportados y su estado
+1. **Metricas dia anterior (2 min)** — Registros, KYCs, depositos, retiros, operaciones, FRT + CSAT Intercom, issues + estado
+2. **Problemas activos (5 min)** — Que esta roto, que necesita atencion inmediata
+3. **Acciones del dia (5 min)** — Que hace cada persona hoy, bloqueos
+4. **Decision items (3 min)** — Decisiones que solo Principals pueden tomar
 
-2. **Problemas activos** (5 min)
-   - Que esta roto o no funciona como se esperaba?
-   - Que necesita atencion inmediata?
-
-3. **Acciones del dia** (5 min)
-   - Que va a hacer cada persona hoy?
-   - Hay bloqueos que necesitan resolucion?
-
-4. **Decision items** (3 min)
-   - Decisiones que solo los Principals pueden tomar
-
-### Plantilla de Reporte Diario
+### Plantilla Reporte Diario (Telegram `#war-room-golive` 21:00 UAE)
 
 ```
 REPORTE DIARIO — NEOMAAA Markets
-Fecha: [DD/MM/YYYY]
-Dia de operacion: [D+N]
+Fecha: [DD/MM/YYYY]  |  Dia operacion: [D+N]
+Entidad: Neomaaa Ltd L15968/N AOFA Anjouan
 
 METRICAS
 - Registros hoy: [X] | Acumulado: [X]
-- KYC aprobados hoy: [X] | Acumulado: [X]
-- Depositos hoy: [X] por $[X] USD | Acumulado: [X] por $[X] USD
-- Retiros hoy: [X] por $[X] USD | Acumulado: [X] por $[X] USD
-- Operaciones MT5 hoy: [X] | Acumulado: [X]
-- Tickets soporte hoy: [X] | Tiempo promedio respuesta: [X] min
-- CSAT promedio: [X]/5.0
+- KYC aprobados hoy: [X] | Acumulado: [X] | Pass rate: [X]%
+- Depositos hoy: [X] x $[X] USD | Acumulado: [X] x $[X] USD
+- Retiros hoy: [X] x $[X] USD | Acumulado: [X] x $[X] USD
+- Operaciones MT5 hoy: [X] | Volumen lotes: [X]
+- Tickets Intercom hoy: [X] | FRT promedio: [X] min
+- CSAT: [X]/5 | MT5 uptime: [X]%
 
 ISSUES ACTIVOS
-1. [Descripcion] — Estado: [Abierto/En progreso/Resuelto] — Responsable: [Nombre]
-2. ...
+1. [Descripcion] — Estado: [Abierto/En progreso/Resuelto] — Owner: [Nombre]
 
 ACCIONES COMPLETADAS HOY
 1. [Accion] — [Resultado]
-2. ...
 
 ACCIONES PENDIENTES PARA MANANA
-1. [Accion] — Responsable: [Nombre]
-2. ...
+1. [Accion] — Owner: [Nombre]
 
-DECISIONES NECESARIAS
-1. [Tema] — Contexto: [Breve] — Opcion recomendada: [X]
+DECISIONES NECESARIAS (Principals)
+1. [Tema] — Contexto — Recomendacion: [X]
 
-NOTAS
-[Observaciones generales, patrones detectados, sugerencias]
+NOTAS / PATRONES DETECTADOS
+[Observaciones — flow toxico detectado, canal que underperform, etc.]
 ```
+
+Se archiva en Notion `Work HQ NEOMAAA > Launch > Daily Reports`.
 
 ### Log de Issues
 
-Mantener un documento compartido (Google Sheet) con las siguientes columnas:
+Google Sheets compartido (owner Yulia):
 
-| ID | Fecha | Descripcion | Severidad | Responsable | Estado | Resolucion | Fecha Cierre |
+| ID | Fecha | Descripcion | Severidad | Owner | Estado | Resolucion | Fecha Cierre |
 |---|---|---|---|---|---|---|---|
 | 001 | DD/MM | ... | Critico/Mayor/Menor | Nombre | Abierto/Resuelto | ... | DD/MM |
 
@@ -261,79 +292,106 @@ Mantener un documento compartido (Google Sheet) con las siguientes columnas:
 
 ## FASE 5: Plan de Rollback
 
-Este plan se activa SOLO bajo decision de Diego cuando ocurre un evento critico que pone en riesgo a los clientes o la integridad del broker.
+Este plan se activa **SOLO bajo decision de Diego** (o Angel en su ausencia) cuando ocurre un evento critico que pone en riesgo clientes, fondos, o la licencia AOFA L15968/N.
 
 ### Triggers de Rollback
 
-- Servidores MT5 inaccesibles por mas de 30 minutos sin solucion a la vista.
-- Brecha de seguridad confirmada (acceso no autorizado a datos de clientes o fondos).
-- PSPs procesando transacciones incorrectamente (montos erroneos, duplicados).
-- Issue regulatorio que requiere suspension inmediata de operaciones.
-- Error critico en Skale CRM que impide rastrear clientes o transacciones.
+- **Servidores MT5 inaccesibles >30 min sin solucion a la vista** (owner trigger: Stanislav + Pepe)
+- **Brecha de seguridad confirmada** — acceso no autorizado a datos clientes / fondos (owner: Stanislav + Angel)
+- **PSPs procesando transacciones incorrectamente** — montos erroneos, duplicados, retiros a cuentas erradas (owner: Yulia)
+- **Issue regulatorio que requiere suspension inmediata** — contacto AOFA, cease & desist, sancion (owner: Susana + Angel)
+- **Error critico Skale CRM** que impide rastrear clientes/transacciones (owner: Alex A + Yulia)
+- **Fuga de fondos corporativos / Fireblocks comprometido** (owner: Yulia + Diego)
 
-### Procedimiento de Rollback
+### Procedimiento Rollback
 
-| Paso | Accion | Responsable | Tiempo Maximo |
+| Paso | Accion | Owner | Tiempo Max |
 |---|---|---|---|
-| 1 | Diego anuncia ROLLBACK en #war-room-golive y grupo de Principals | Diego | Inmediato |
-| 2 | Deshabilitar registro de nuevos clientes en el sitio web | Stanislav | 5 min |
-| 3 | Pausar todas las campanas de marketing pagadas | Marketing | 10 min |
-| 4 | Publicar mensaje de mantenimiento en el sitio web | Stanislav | 15 min |
-| 5 | Notificar a clientes registrados via email: "mantenimiento programado, servicios temporalmente limitados" | Head of Support | 30 min |
-| 6 | Si el issue es de PSP: suspender depositos/retiros y notificar al PSP | Finance Manager | 15 min |
-| 7 | Si el issue es de MT5: cerrar acceso a trading, documentar posiciones abiertas de clientes | Stanislav | 15 min |
-| 8 | Diagnosticar el problema raiz | Equipo tecnico relevante | Variable |
-| 9 | Implementar solucion y verificar en ambiente de prueba | Equipo tecnico relevante | Variable |
-| 10 | Diego decide re-activacion cuando el problema esta resuelto y verificado | Diego | Variable |
+| 1 | **Diego anuncia ROLLBACK** en `#war-room-golive` + `#principals` + call grupal | Diego | Inmediato |
+| 2 | Deshabilitar registro nuevos clientes en sitio | Stanislav / Alex A | 5 min |
+| 3 | Pausar todas las campanas paid media | Marketing | 10 min |
+| 4 | Publicar mensaje mantenimiento en neomaaa.com + app.neomaaa.com | Alex B | 15 min |
+| 5 | Notificar clientes registrados via email: "mantenimiento programado, servicios temporalmente limitados" | Edward + Marketing | 30 min |
+| 6 | Issue de PSP → suspender depositos/retiros + notificar account manager PSP | Yulia / Finance Mgr | 15 min |
+| 7 | Issue de MT5 → cerrar acceso trading, documentar posiciones abiertas clientes | Pepe + Stanislav | 15 min |
+| 8 | Issue compliance/regulatorio → **Susana notifica AOFA + legal@neomaaa.com** | Susana + Angel | <2h |
+| 9 | Diagnosticar problema raiz | Equipo tecnico relevante | Variable |
+| 10 | Implementar solucion + verificar ambiente staging | Dev team + Stanislav sign-off | Variable |
+| 11 | **Diego decide re-activacion** cuando problema esta resuelto y verificado | Diego + Angel | Variable |
 
 ### Comunicacion Durante Rollback
 
-- Internamente: actualizaciones cada 30 minutos en #war-room-golive.
-- A clientes: actualizacion cada 2 horas via email y redes sociales (mensaje generico de mantenimiento, sin detalles tecnicos).
-- A PSPs: notificacion directa si el issue les involucra.
+- **Internamente:** updates cada 30 min en `#war-room-golive`. Owner: Diego.
+- **A clientes:** cada 2h via email (support@neomaaa.com) + redes (@neomaaamarkets). Mensaje generico sin detalles tecnicos. Owner: Edward + Marketing.
+- **A PSPs:** notificacion directa si involucra. Owner: Yulia.
+- **A regulador (AOFA)** si aplica: Susana + Angel, copia a Diego.
+
+### Contactos Emergencia Rollback
+
+| Persona | Rol | Canal Primario | Canal Emergencia |
+|---|---|---|---|
+| Diego Loyola | CEO / Decision final | Telegram | Telefono `[DATO: Diego confirma telefono]` |
+| Angel Ortega | CCO / Co-founder | Telegram | Telefono `[DATO: Angel confirma telefono]` |
+| Yulia | Ops Director | Telegram | Telefono `[DATO: Yulia confirma telefono]` |
+| Stanislav | Tech Principal | Telegram | Telefono `[DATO: Stanislav confirma telefono]` |
+| Pepe | Head of Dealing | Telegram DM | `[DATO: Pepe confirma telefono]` |
+| Susana | Compliance | Telegram DM + compliance@neomaaa.com | `[DATO: Susana confirma telefono]` |
+| Edward | Head of Sales | Telegram + WhatsApp | `[DATO: Edward confirma telefono]` |
 
 ### Post-Rollback
 
-Una vez resuelto el incidente y restauradas las operaciones:
-
-1. Documentar el incidente completo: causa raiz, timeline, acciones tomadas, resolucion.
-2. Reunion de post-mortem dentro de las 24 horas siguientes con todo el equipo involucrado.
-3. Actualizar este runbook con lecciones aprendidas y ajustes al plan.
-4. Verificar que ningun cliente fue afectado financieramente; si lo fue, resolver inmediatamente.
+1. Documentar incidente completo: causa raiz, timeline, acciones, resolucion. Notion `Work HQ > Crisis Log`.
+2. **Post-mortem <24h** con equipo involucrado. Owner: Angel facilita.
+3. Actualizar este runbook con lecciones aprendidas.
+4. Verificar que ningun cliente fue afectado financieramente; si lo fue, resolver inmediatamente y notificar Susana (reporte regulatorio).
 
 ---
 
 ## Timeline Consolidado — Dia de Lanzamiento
 
-| Hora (CET) | Fase | Accion | Responsable |
+| Hora UAE | Fase | Accion | Owner |
 |---|---|---|---|
-| D-1 09:00 | Pre-launch | Inicio verificaciones tecnologicas | Stanislav |
-| D-1 09:00 | Pre-launch | Inicio verificaciones PSPs | Finance Manager |
-| D-1 09:00 | Pre-launch | Inicio verificaciones compliance | Yulia |
-| D-1 14:00 | Pre-launch | Inicio verificaciones soporte | Head of Support |
+| D-1 09:00 | Pre-launch | Inicio verificaciones tecnologicas | Stanislav + Alex A |
+| D-1 09:00 | Pre-launch | Inicio verificaciones PSPs | Yulia / Finance Mgr |
+| D-1 09:00 | Pre-launch | Inicio verificaciones compliance | Susana |
+| D-1 14:00 | Pre-launch | Inicio verificaciones soporte | Edward |
 | D-1 14:00 | Pre-launch | Inicio verificaciones marketing | Marketing |
-| D-1 18:00 | Pre-launch | Briefing general del equipo | Diego |
-| D-1 19:00 | Pre-launch | Decision GO/NO-GO | Diego |
+| D-1 18:00 | Pre-launch | Briefing general equipo (16 personas) | Diego |
+| **D-1 19:00** | **Pre-launch** | **Decision GO/NO-GO + firmas Diego + Angel + Yulia + Susana + Pepe** | **Principals** |
 | D-0 08:00 | Go-Live | Verificaciones finales rapidas | Todos |
-| D-0 08:50 | Go-Live | Confirmacion "Listo" de cada equipo | Todos |
-| D-0 09:00 | Go-Live | GO FINAL confirmado | Diego |
-| D-0 09:01 | Go-Live | Registro habilitado | Stanislav |
-| D-0 09:02 | Go-Live | Campanas activadas | Marketing |
-| D-0 09:03 | Go-Live | Anuncio en redes sociales | Marketing |
-| D-0 09:05 | Go-Live | Email de lanzamiento enviado | Marketing |
-| D-0 09:10 | Go-Live | Soporte en modo activo | Head of Support |
-| D-0 09:15 | Monitoreo | Primer registro verificado? | Stanislav |
-| D-0 09:30 | Monitoreo | Primer KYC verificado? | Yulia |
-| D-0 09:45 | Monitoreo | Primer deposito verificado? | Finance Manager |
+| D-0 08:50 | Go-Live | Confirmacion "Listo" cada equipo | Todos |
+| **D-0 09:00** | **Go-Live** | **GO FINAL confirmado — NEOMAAA Markets LIVE** | **Diego** |
+| D-0 09:01 | Go-Live | Registro habilitado | Stanislav + Alex A |
+| D-0 09:02 | Go-Live | Campanas activadas (Meta/TikTok/Google) | Marketing |
+| D-0 09:03 | Go-Live | Anuncio redes (LinkedIn/IG/Twitter/Telegram) | Marketing |
+| D-0 09:05 | Go-Live | Email lanzamiento a pre-registro | Marketing |
+| D-0 09:10 | Go-Live | Soporte modo activo (Rocio + Marilyn) | Edward |
+| D-0 09:15 | Monitoreo | Primer registro verificado? | Stanislav / Alex A |
+| D-0 09:30 | Monitoreo | Primer KYC verificado? | Susana |
+| D-0 09:45 | Monitoreo | Primer deposito verificado? | Yulia |
 | D-0 10:00 | Monitoreo | Check-in #1 | Diego |
-| D-0 10:30 | Monitoreo | Primera operacion verificada? | Stanislav |
+| D-0 10:30 | Monitoreo | Primera operacion verificada? | Pepe |
 | D-0 11:00 | Monitoreo | Check-in #2: metricas primeras 2h | Diego |
 | D-0 13:00 | Monitoreo | Check-in #3: metricas acumuladas | Diego |
-| D-0 17:00 | Monitoreo | Check-in #4: cierre turno CET | Diego |
-| D-0 21:00 | Monitoreo | Check-in #5: resumen del dia (async) | Diego |
-| D+1 09:00 | Retrospectiva | Reunion equipo: primeras 24 horas | Diego |
-| D+1 a D+7 | Primera semana | Standups diarios 09:00 CET | Diego |
-| D+7 | Cierre | Retrospectiva de primera semana completa | Todos |
+| D-0 17:00 | Monitoreo | Check-in #4: cierre turno UAE | Diego + Edward |
+| D-0 21:00 | Monitoreo | Check-in #5 async: resumen dia | Diego |
+| D+1 09:00 | Retrospectiva | Reunion equipo: primeras 24h | Todos |
+| D+1 a D+7 | Primera semana | Standups diarios 09:00 UAE | Diego |
+| D+7 16:00 | Cierre semana 1 | Primera retro formal — ver [Post-Launch Playbook](/content/es/launch/post-launch-playbook) | Todos Principals + Heads |
+
+---
+
+## Checklist Final Pre-Launch (firmas obligatorias D-1 19:00 UAE)
+
+- [ ] **Diego Loyola** (CEO) — Aprobacion final go-live
+- [ ] **Angel Ortega** (CCO) — Compliance + strategy sign-off
+- [ ] **Yulia** (Ops Director) — PSPs + reconciliacion + liquidez sign-off
+- [ ] **Susana** (Compliance Officer) — AOFA L15968/N compliance + Sumsub + geo-blocking activo
+- [ ] **Pepe** (Head of Dealing) — MT5 + LPs + A/B Book + hedging sign-off
+- [ ] **Stanislav** (Principal Tech) — Infra + Equinix + MT5 uptime sign-off
+- [ ] **Edward** (Head of Sales/Support) — Team ready + Intercom configured
+
+**Sin las 7 firmas en Telegram `#principals` antes de las 19:00 UAE D-1, el launch se pospone.**
 
 ---
 
@@ -341,11 +399,20 @@ Una vez resuelto el incidente y restauradas las operaciones:
 
 | Persona | Rol | Telefono | Email | Disponibilidad |
 |---|---|---|---|---|
-| Diego | Principal / Decision Final | [Privado] | [Privado] | 24/7 durante Go-Live |
-| Yulia | Principal / Compliance | [Privado] | [Privado] | 24/7 durante Go-Live |
-| Stanislav | Principal / Tech | [Privado] | [Privado] | 24/7 durante Go-Live |
-| Soporte General | NEOMAAA | +41 44 707 9633 | support@neomaaa.com | Horario de soporte |
+| Diego | CEO / Decision Final | `[DATO: Diego confirma]` | diego@neomaaa.com | 24/7 Go-Live week |
+| Angel | CCO / Co-founder | `[DATO: Angel confirma]` | angel@neomaaa.com | 24/7 Go-Live week |
+| Yulia | Operations Director | `[DATO: Yulia confirma]` | yulia@neomaaa.com | 24/7 Go-Live week |
+| Stanislav | Principal / Tech | `[DATO: Stanislav confirma]` | stanislav@neomaaa.com | 24/7 Go-Live week |
+| Pepe | Head of Dealing | `[DATO: Pepe confirma]` | pepe@neomaaa.com | Mercado abierto + on-call |
+| Susana | Compliance Officer | `[DATO: Susana confirma]` | compliance@neomaaa.com | Horario laboral + on-call critico |
+| Edward | Head of Sales/Support | `[DATO: Edward confirma]` | edward@neomaaa.com | Horario laboral extendido |
+| **Soporte General** | NEOMAAA Markets | **+41 44 707 9633** | **support@neomaaa.com** | Horario soporte |
+| **Legal** | — | — | **legal@neomaaa.com** | Email 24/7 |
+| **Compliance** | — | — | **compliance@neomaaa.com** | Email 24/7 |
 
 ---
 
-*Este documento debe ser revisado y aprobado por los tres Principals antes del lanzamiento. Cada miembro del equipo debe confirmar por escrito (Slack) que lo ha leido y entendido.*
+*Documento interno de Neomaaa Ltd — Licencia AOFA L15968/N Anjouan.*
+*Debe ser revisado y aprobado por los 4 Principals + Susana + Pepe antes del lanzamiento.*
+*Cada miembro del equipo debe confirmar por Telegram `#war-room-golive` que lo ha leido y entendido.*
+*Proxima revision: post-launch review D+7 (owner: Angel).*

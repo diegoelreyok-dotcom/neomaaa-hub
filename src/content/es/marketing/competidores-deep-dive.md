@@ -1012,7 +1012,7 @@ El mercado forex/CFD offshore tiene practicas cuestionables frecuentes. Como cli
 
 **Como identificar:** Comparar precio exacto en el momento del SL contra precio en 2-3 brokers distintos simultaneamente. Si hay diferencia >2 pips consistente, red flag.
 
-**NEOMAAA:** Modelo A-Book/B-Book hibrido transparente. Traders volatiles y exitosos van a A-Book (hedgeamos en LPs). Traders retail promedio van a B-Book (absorbemos). Decision basada en metricas, no en manipulacion.
+**NEOMAAA:** Neomaaa opera un modelo hibrido ECN/STP documentado en T&C oficiales (neomaaa.com/about/legal-documentation). La ejecucion se rige por la Order Execution Policy publica, auditada por Compliance. Las decisiones de routing no son manipuladas — se aplican controles de best execution documentados.
 
 ### 6. Soporte que no resuelve
 

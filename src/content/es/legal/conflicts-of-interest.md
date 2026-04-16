@@ -48,7 +48,7 @@ Este enfoque es **estandar en la industria retail**; el broker que afirme "cero 
 
 ### 4.1 Modelo hibrido ECN/STP con internalizacion parcial
 - **Conflicto:** la parte internalizada hace que la perdida del cliente sea ganancia del broker.
-- **Control:** politica de **best execution** (`legal/order-execution-policy.md`). El dealing desk (bajo supervision de Pepe + Compliance) no manipula precios: garantiza que el precio recibido por el cliente sea **comparable al precio de mercado** al momento de la ejecucion.
+- **Control:** politica de **best execution** (`legal/order-execution-policy.md`). El dealing desk (bajo supervision del Head of Dealing y del Compliance Officer) no manipula precios: garantiza que el precio recibido por el cliente sea **comparable al precio de mercado** al momento de la ejecucion.
 - **Supervision:** Compliance audita ejecuciones mensualmente. El cliente puede solicitar **execution report** de cualquier operacion.
 
 ### 4.2 Markup sobre spread en A-Book
@@ -69,7 +69,7 @@ Este enfoque es **estandar en la industria retail**; el broker que afirme "cero 
 
 ### 4.6 Empleados con posiciones propias
 - **Conflicto:** un empleado con acceso a informacion sensible podria operar a favor de sus propias posiciones.
-- **Control:** politica interna de **personal trading** — los empleados con acceso a flow o decisiones sobre ejecucion requieren registro de sus cuentas personales y pueden estar sujetos a blackout periods o pre-aprobacion de operaciones. [DATO: politica exacta de personal trading — confirmar con Susana].
+- **Control:** politica interna de **personal trading** — los empleados con acceso a flow o decisiones sobre ejecucion requieren registro de sus cuentas personales y pueden estar sujetos a blackout periods o pre-aprobacion de operaciones. La politica exacta de personal trading esta definida por Compliance y forma parte del onboarding del empleado.
 
 ### 4.7 Outsourcing a proveedores con intereses cruzados
 - **Conflicto:** proveedores de liquidez, PSPs o tech providers pueden tener intereses en dirigir flow o imponer comisiones.
@@ -85,12 +85,12 @@ Este enfoque es **estandar en la industria retail**; el broker que afirme "cero 
 
 ### 5.1 Responsabilidades
 - **Cada empleado** reporta a Compliance cualquier situacion que pueda constituir conflicto de interes (nuevo producto, nuevo proveedor, relacion personal con cliente, etc.).
-- **Compliance (Susana)** mantiene el **registro de conflictos** actualizado.
+- **El Compliance Officer** mantiene el **registro de conflictos** actualizado.
 - **Principals** revisan el registro semestralmente.
 - **Board / ownership** aprueba cualquier conflicto material antes de su materializacion.
 
 ### 5.2 Registro de conflictos
-[DATO: ubicacion del registro — Notion / archivo interno Yulia]. Debe contener:
+El registro se mantiene en el repositorio interno de Compliance definido por politica. Debe contener:
 - Descripcion del conflicto.
 - Partes involucradas.
 - Clientes afectados (si aplica).
@@ -119,7 +119,7 @@ Si un cliente considera que un conflicto de interes no declarado afecto su opera
 1. Reclamo formal via `legal/complaint-handling.md`.
 2. Investigacion por Compliance con revision de logs de ejecucion, comunicaciones, y decisiones de routing.
 3. Resolucion: si el reclamo es legitimo, compensacion + ajuste de controles. Si no es legitimo, respuesta razonada al cliente.
-4. Si el cliente no queda satisfecho: escalamiento interno al Head of Compliance (Susana) y a los Principals.
+4. Si el cliente no queda satisfecho: escalamiento interno al Head of Compliance y a los Principals.
 5. Via ultima: reclamo a la AOFA (regulador).
 
 ---
@@ -132,7 +132,7 @@ Todos los empleados en funciones comerciales, dealing, support y compliance reci
 
 ## 9. Revision de la politica
 
-Esta politica se revisa al menos **anualmente** o cuando haya cambios materiales en productos, estructura o regulacion. Responsable: Susana (Compliance Officer).
+Esta politica se revisa al menos **anualmente** o cuando haya cambios materiales en productos, estructura o regulacion. Responsable: Compliance Officer.
 
 ---
 
@@ -145,4 +145,4 @@ Esta politica se revisa al menos **anualmente** o cuando haya cambios materiales
 ---
 
 [PENDIENTE: texto legal final desde neomaaa.com/about/legal-documentation]
-[DATO: politica exacta de personal trading, ubicacion del registro de conflictos, lista completa de proveedores con DD completo — confirmar con Susana]
+[Politica exacta de personal trading, ubicacion del registro de conflictos y lista completa de proveedores con DD completo: definidas por Compliance segun politica interna.]

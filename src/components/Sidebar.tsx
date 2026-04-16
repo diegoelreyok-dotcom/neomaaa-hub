@@ -12,9 +12,10 @@ interface SidebarProps {
   onClose: () => void;
   completedDocs?: string[];
   accessedDocs?: string[];
+  onSwitchLang?: (lang: Lang) => void;
 }
 
-export default function Sidebar({ sections, lang, isOpen, onClose, completedDocs = [], accessedDocs = [] }: SidebarProps) {
+export default function Sidebar({ sections, lang, isOpen, onClose, completedDocs = [], accessedDocs = [], onSwitchLang }: SidebarProps) {
   const pathname = usePathname();
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>(() => {
     // Auto-expand the section that contains the current page
@@ -139,6 +140,64 @@ export default function Sidebar({ sections, lang, isOpen, onClose, completedDocs
             {lang === 'ru' ? 'Сертификаты' : 'Mis Certificados'}
           </Link>
         </div>
+
+        {/* Language switcher */}
+        {onSwitchLang && (
+          <div className="px-3 pt-2 pb-1">
+            <div
+              className="flex items-center gap-1.5 bg-neo-dark-3/40 rounded-lg p-1 border border-neo-dark-3/60"
+              role="group"
+              aria-label={lang === 'ru' ? 'Язык' : 'Idioma'}
+            >
+              <button
+                onClick={() => onSwitchLang('es')}
+                aria-label="Espanol"
+                aria-pressed={lang === 'es'}
+                className={`
+                  flex-1 flex items-center justify-center gap-1.5 px-2 py-1.5 rounded-md
+                  text-[12px] font-semibold transition-all duration-200
+                  ${lang === 'es'
+                    ? 'bg-neo-dark-2 text-neo-text border border-neo-primary/60 shadow-sm'
+                    : 'text-neo-text-muted hover:text-neo-text-secondary border border-transparent'
+                  }
+                `}
+              >
+                <img
+                  src="/flags/es.svg"
+                  width="16"
+                  height="12"
+                  alt=""
+                  loading="eager"
+                  className="rounded-sm object-cover"
+                />
+                <span>ES</span>
+              </button>
+              <button
+                onClick={() => onSwitchLang('ru')}
+                aria-label="Russkiy"
+                aria-pressed={lang === 'ru'}
+                className={`
+                  flex-1 flex items-center justify-center gap-1.5 px-2 py-1.5 rounded-md
+                  text-[12px] font-semibold transition-all duration-200
+                  ${lang === 'ru'
+                    ? 'bg-neo-dark-2 text-neo-text border border-neo-primary/60 shadow-sm'
+                    : 'text-neo-text-muted hover:text-neo-text-secondary border border-transparent'
+                  }
+                `}
+              >
+                <img
+                  src="/flags/ru.svg"
+                  width="16"
+                  height="12"
+                  alt=""
+                  loading="eager"
+                  className="rounded-sm object-cover"
+                />
+                <span>RU</span>
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Section divider label */}
         <div className="px-6 pt-3 pb-1">

@@ -104,7 +104,7 @@ En caso de **discrepancia entre versiones linguisticas** de un documento legal, 
 Detalle en `encyclopedia/abc.md` seccion "Frases PROHIBIDAS" y `operations/dealing-desk-publico.md` seccion 7.
 
 ### 6.3 Pre-aprobacion
-Campanas publicitarias, landing pages nuevas, scripts de video y cualquier creative con disclaimers legales debe **pre-aprobarse por Compliance (Susana)** antes de salir live. Revision objetivo: 48-72h habiles.
+Campanas publicitarias, landing pages nuevas, scripts de video y cualquier creative con disclaimers legales debe **pre-aprobarse por el Compliance Officer** antes de salir live. Revision objetivo: 48-72h habiles.
 
 ---
 
@@ -143,7 +143,7 @@ En caso de incidente que requiera comunicacion masiva a clientes (downtime >1h, 
 | Marketing Manager | Cumplimiento disclaimers en creatives, pre-aprobacion Compliance |
 | Sales Team | Evitar frases prohibidas, dar disclaimers verbales cuando corresponda |
 | Support | Canalizar quejas por comunicaciones incorrectas |
-| Compliance (Susana) | Aprobar campanas, auditar creatives publicados, escalar ante regulador si aplica |
+| Compliance Officer | Aprobar campanas, auditar creatives publicados, escalar ante regulador si aplica |
 | Legal | Validar textos de disclaimers, monitorear cambios regulatorios |
 | Principals | Aprobar comunicaciones de crisis y vocero oficial |
 
@@ -156,7 +156,7 @@ Publicar material sin disclaimers obligatorios o con frases prohibidas es causal
 - Advertencia formal al empleado/area responsable.
 - Retirada inmediata del material.
 - Ante reiteracion: accion disciplinaria hasta cierre de vinculo laboral.
-- Ante exposicion regulatoria: coordinacion con Susana y Diego para respuesta a AOFA.
+- Ante exposicion regulatoria: coordinacion entre Compliance Officer y CEO para respuesta a AOFA.
 
 ---
 

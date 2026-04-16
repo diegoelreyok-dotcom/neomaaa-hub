@@ -71,6 +71,7 @@ export default function PortalShell({
         onClose={() => setSidebarOpen(false)}
         completedDocs={completedDocs}
         accessedDocs={accessedDocs}
+        onSwitchLang={handleSwitchLang}
       />
 
       <div className="lg:ml-[280px] flex flex-col min-h-screen transition-[margin] duration-300">
@@ -80,7 +81,6 @@ export default function PortalShell({
           lang={lang}
           allowedSections={sections.map((s) => s.id)}
           onToggleSidebar={() => setSidebarOpen((prev) => !prev)}
-          onSwitchLang={handleSwitchLang}
         />
 
         <main className="flex-1 w-full max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-10 py-6 lg:py-8">

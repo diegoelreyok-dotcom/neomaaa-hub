@@ -504,92 +504,40 @@ Si el agente renuncia, se descuenta de su liquidacion.
 
 ---
 
-## 10. Analisis de Impacto en el P&L de NEOMAAA
+## 10. Como se Paga tu Variable — Mecanica Simplificada
 
-### Contexto Financiero
+### De donde sale el dinero de tus comisiones
 
-Datos de referencia del Playbook de Lanzamiento:
-- **Costos operativos Stage 1:** ~$34,000/mes
-- **Revenue target (con 50% margen):** ~$68,000/mes
-- **Salarios base de los 3 agentes:** $3,000/mes (ya incluido en los $34K)
+Tu variable sale del revenue que el broker genera por la actividad de los clientes que tu traes. En resumen:
 
-### Costo de Comisiones por Escenario
+- El broker obtiene revenue a partir del **spread**, comisiones por lote operado y otros ingresos de la actividad de trading del cliente.
+- De ese revenue, una **porcion definida** se destina a compensar a sales (tu variable). El resto cubre costos operativos (plataforma, liquidez, PSPs, soporte, compliance), reservas regulatorias y margen de la empresa.
+- Tu responsabilidad es **traer clientes reales que depositen y operen**. A mayor actividad genuina de tu cartera, mayor tu variable.
 
-#### Escenario Conservador (Mes Promedio x 3 agentes)
+No necesitas conocer los numeros internos del broker para calcular tu comision — tu pago depende exclusivamente de tu propio desempeno contra los targets definidos en este documento (FTDs, volumen de cartera, retencion).
 
-| Concepto | Por Agente | x3 Agentes |
-|----------|-----------|------------|
-| Comisiones FTD | $230 | $690 |
-| Bono Volumen | $150 | $450 |
-| Bono Equipo | $100 | $300 |
-| **Total comisiones** | **$480** | **$1,440** |
+### Por que el esquema es sostenible para ti
 
-**Impacto:** $1,440/mes adicional sobre los $3,000 de base = **$4,440 total en comp de ventas**
-**% del revenue target ($68K):** 6.5%
+El esquema de comisiones esta calibrado para que sea **rentable para el broker y motivador para vos** en simultaneo. Algunas reglas clave:
 
-#### Escenario Optimista (Buen Mes x 3 agentes)
+- **FTD aislado no alcanza:** si un cliente deposita y no opera, la comision FTD se clawbackea (ver seccion 5). Esto alinea tu incentivo con el del broker: ambos queremos clientes activos, no solo depositos.
+- **El bono de volumen es recurrente:** mientras tu cartera opere, vos cobras mes a mes. Mantener clientes activos es mas rentable que quemar leads en FTDs unicos.
+- **Los topes de compensacion** (hasta ~$3,350-$4,000/mes segun tier y desempeno) estan definidos para que agentes top performers ganen muy bien sin comprometer la sostenibilidad del modelo.
 
-| Concepto | Por Agente | x3 Agentes |
-|----------|-----------|------------|
-| Comisiones FTD | $491 | $1,473 |
-| Bono Volumen | $350 | $1,050 |
-| Bono Equipo | $200 | $600 |
-| **Total comisiones** | **$1,041** | **$3,123** |
+### Que significa esto en la practica
 
-**Impacto:** $3,123/mes adicional = **$6,123 total en comp de ventas**
-**% del revenue target ($68K):** 9.0%
+| Si vos haces... | El broker gana... | Tu comision... |
+|----|----|----|
+| FTDs que no operan | Poco o nada | Se clawbackea (seccion 5) |
+| FTDs que operan consistentemente | Revenue recurrente mes a mes | Cobras FTD + bono volumen + retencion |
+| Cartera grande y activa | Base de revenue estable | Escalas a Tier 3 con bono retencion (hasta $400/mes extra) |
+| Volumen sinteticamente inflado | Detectado en auditoria | Penalizacion + potencial cierre de vinculo |
 
-#### Escenario Excepcional (Gran Mes x 3 agentes)
+### Regla de oro
 
-| Concepto | Por Agente | x3 Agentes |
-|----------|-----------|------------|
-| Comisiones FTD | $846 | $2,538 |
-| Bono Volumen | $600 | $1,800 |
-| Bono Equipo | $350 | $1,050 |
-| **Total comisiones** | **$1,796** | **$5,388** |
+**Tu variable es un % del valor que generas — no un regalo.** El modelo esta disenado para que ambas partes ganen cuando traes clientes de calidad. Cuando no traes clientes de calidad, ambas partes pierden — por eso existen los clawbacks y los minimos de KPI (seccion 12).
 
-**Impacto:** $5,388/mes adicional = **$8,388 total en comp de ventas**
-**% del revenue target ($68K):** 12.3%
-
-### Tabla Resumen de Impacto al P&L
-
-| Escenario | FTDs Equipo | Dep. Totales Equipo | Costo Comisiones | Costo Total Sales | % de Revenue Target |
-|-----------|------------|---------------------|------------------|-------------------|---------------------|
-| Conservador | 30 | ~$16,000 | $1,440 | $4,440 | 6.5% |
-| Optimista | 54 | ~$35,000 | $3,123 | $6,123 | 9.0% |
-| Excepcional | 75 | ~$82,000 | $5,388 | $8,388 | 12.3% |
-
-### Es Sostenible?
-
-**Regla general en la industria de brokers:** El costo de adquisicion + compensacion de ventas deberia estar entre 8-15% del revenue.
-
-| Escenario | % del Revenue | Dentro del Rango? |
-|-----------|--------------|-------------------|
-| Conservador | 6.5% | Si - incluso por debajo (margen de seguridad) |
-| Optimista | 9.0% | Si - rango ideal |
-| Excepcional | 12.3% | Si - dentro del techo aceptable |
-
-**Punto critico:** Si los 3 agentes estan en "mes excepcional" y el revenue real esta por debajo de $68K, el % sube. Pero si los agentes generan $82K en depositos, el revenue del broker deberia ser proporcional (B-book + spreads + comisiones por lote), asi que el esquema es auto-regulante: **mas depositos = mas comisiones para agentes PERO tambien mas revenue para el broker.**
-
-### ROI del Esquema de Comisiones
-
-```
-Revenue por cliente activo promedio (estimado LATAM):
-- Deposito promedio: $300
-- Lotes operados/mes: 5-10 (retail tipico)
-- Ingreso broker por lote (spread + comision B-book): ~$8-15
-- Revenue mensual por cliente activo: $40-150
-
-Si el agente trae 10 FTDs/mes y 60% se mantienen activos:
-- 6 clientes activos x $75 revenue promedio = $450/mes de revenue recurrente
-- Comision pagada por esos 10 FTDs: ~$230 (una sola vez)
-- El broker recupera la comision en 15-20 dias de operacion del cliente
-
-CONCLUSION: El payback period de la comision FTD es de ~2-3 semanas.
-El LTV de un cliente activo a 12 meses: $900-1,800.
-El costo de adquisicion (comision FTD): $15-60.
-ROI: 15x - 30x sobre la vida del cliente.
-```
+Si tenes dudas sobre como se calcula tu variable en un mes especifico, el reporte mensual (enviado dia 5, pago dia 10) detalla cada concepto por cliente. Cualquier disputa se resuelve 1-a-1 con Diego en los 5 dias habiles posteriores.
 
 ---
 
