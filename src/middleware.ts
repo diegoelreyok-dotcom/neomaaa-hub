@@ -1,5 +1,6 @@
 import { auth } from '@/lib/auth';
 import { NextResponse } from 'next/server';
+import { kv } from '@vercel/kv';
 
 // Public routes that don't require authentication
 const PUBLIC_ROUTES = ['/login', '/register', '/api/auth'];
@@ -25,13 +26,14 @@ const CODE_CHANGE_ALLOWED = [
   '/api/auth', // session/signOut endpoints
 ];
 
-export default auth((req) => {
+export default auth(async (req) => {
   const { pathname } = req.nextUrl;
   const method = req.method;
   const isLoggedIn = !!req.auth;
   const user = req.auth?.user as any;
   const isAdmin = user?.isAdmin;
   const mustChangeCode = user?.mustChangeCode === true;
+  const userId: string | undefined = user?.userId;
 
   // Public routes (login, register page, auth API)
   const isPublicRoute = PUBLIC_ROUTES.some((route) => pathname.startsWith(route));
@@ -64,6 +66,30 @@ export default auth((req) => {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
     return NextResponse.redirect(new URL('/login', req.url));
+  }
+
+  // Session is valid — but verify user is still active in DB.
+  // JWT cached `isActive=true` at login; admin could have disabled since.
+  // Tradeoff: +1 KV get per request (~5-20ms). Fine for internal portal.
+  if (userId) {
+    try {
+      const dbUser: any = await kv.get(`user:${userId}`);
+      if (!dbUser || dbUser.isActive === false) {
+        // User was disabled or deleted — kill the session immediately.
+        if (pathname.startsWith('/api/')) {
+          return NextResponse.json(
+            { error: 'Account disabled', code: 'ACCOUNT_DISABLED' },
+            { status: 401 },
+          );
+        }
+        return NextResponse.redirect(
+          new URL('/login?error=AccountDisabled', req.url),
+        );
+      }
+    } catch {
+      // KV unavailable — don't block the request on infra failure.
+      // Fall through to normal flow.
+    }
   }
 
   // Forced code rotation: user must rotate their code before reaching anything
