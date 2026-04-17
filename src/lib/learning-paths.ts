@@ -149,7 +149,7 @@ export const LEARNING_PATHS: Record<string, LearningPath> = {
           'encyclopedia/abc',
           'encyclopedia/productos-mt5',
           'encyclopedia/formacion-precio',
-          'encyclopedia/glosario-trilingue',
+          'encyclopedia/regulacion-jurisdicciones',
         ],
         requiredForNext: 4,
       },
@@ -260,11 +260,10 @@ export const LEARNING_PATHS: Record<string, LearningPath> = {
         descriptionRu: 'Регуляторное расширение, обработка жалоб и правовые политики.',
         docs: [
           'compliance/expansion-regulatoria',
-          'compliance/workflow-sales-compliance',
           'legal/complaint-handling',
           'legal/order-execution-policy',
         ],
-        requiredForNext: 4,
+        requiredForNext: 3,
       },
     ],
     finalBadge: {

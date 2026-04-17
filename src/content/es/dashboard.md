@@ -87,7 +87,6 @@
 - **[Psicología del trader retail](/content/encyclopedia/psicologia-trader)** — sesgos, patrones, el doc más importante para soporte y ventas.
 - **[Regulación y jurisdicciones](/content/encyclopedia/regulacion-jurisdicciones)** — comparativa Anjouan vs FCA, CySEC, ASIC, CIMA.
 - **[MT5 y productos NEOMAAA](/content/encyclopedia/productos-mt5)** — Cent, Standard, Raw, Institutional y condiciones.
-- **[Glosario trilingüe ES/EN/RU](/content/encyclopedia/glosario-trilingue)** — vocabulario clave en tres idiomas.
 
 ### Operaciones críticas
 

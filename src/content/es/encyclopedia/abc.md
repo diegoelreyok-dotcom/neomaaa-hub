@@ -376,7 +376,7 @@ Proceso de retirar fondos de la cuenta de trading. Reglas:
 | Metodos de pago | 120+ |
 | Tiempo de retiro | 24h habiles |
 | Soporte | Intercom, email, telefono |
-| Telefono | +41 44 707 9633 |
+| Telefono | [DATO: teléfono oficial Dubai — Diego confirma] |
 
 ---
 

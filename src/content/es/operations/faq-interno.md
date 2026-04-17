@@ -33,7 +33,7 @@ Este documento contiene las respuestas estandarizadas a las preguntas mas frecue
 | 7 | Como verifico mi cuenta? | Sube documento de identidad y comprobante de domicilio en el portal del cliente |
 | 8 | Tienen copy trading? | Si, disponible a traves de MT5 Signals y plataformas compatibles |
 | 9 | Ofrecen cuentas swap-free? | Si, disponibles para clientes que lo soliciten |
-| 10 | Como contacto soporte? | Chat en vivo (Intercom), email, WhatsApp, o telefono +41 44 707 9633 |
+| 10 | Como contacto soporte? | Chat en vivo (Intercom), email, WhatsApp, o telefono [DATO: teléfono oficial Dubai — Diego confirma] |
 
 ---
 
@@ -372,7 +372,7 @@ Hay 4 canales disponibles:
 1. **Chat en vivo** (Intercom) — disponible en el sitio web, respuesta en menos de 2 minutos en horario laboral.
 2. **Email** — respuesta en menos de 1 hora en horario laboral.
 3. **WhatsApp** — disponible para clientes LATAM.
-4. **Telefono** — +41 44 707 9633, en horario de soporte.
+4. **Telefono** — [DATO: teléfono oficial Dubai — Diego confirma], en horario de soporte.
 
 ### 13.2 En que idiomas atienden?
 

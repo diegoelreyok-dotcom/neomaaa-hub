@@ -69,7 +69,7 @@ Zona horaria de referencia: **UAE (GMT+4)** donde opera HQ (Dubai). Conversiones
 | 10:30 | Sitio web online, SSL activo, formularios funcionando | neomaaa.com + app.neomaaa.com | [ ] | Alex B |
 | 11:00 | Flujo completo: formulario web → Skale CRM → cuenta MT5 creada → Sumsub KYC triggered | End-to-end test con cuenta real | [ ] | Alex A + Yulia |
 | 11:30 | Intercom widget visible y funcional | neomaaa.com homepage + app.neomaaa.com | [ ] | Edward |
-| 12:00 | Telefono soporte +41 44 707 9633 activo y redirige | Call de prueba | [ ] | Edward |
+| 12:00 | Telefono soporte [DATO: teléfono oficial Dubai — Diego confirma] activo y redirige | Call de prueba | [ ] | Edward |
 | 12:30 | Prueba de carga: simular 50 registros simultaneos | Script dev team | [ ] | Gleb / Dimitri |
 | 13:00 | Documentar issues encontrados + estado resolucion | Notion `Work HQ > Launch > Issues Log D-1` | [ ] | Stanislav |
 
@@ -475,7 +475,7 @@ Las verificaciones operativas detalladas estan en la FASE 1 de este runbook (tec
 | Pepe | Head of Dealing | `[DATO: Pepe confirma]` | pepe@neomaaa.com | Mercado abierto + on-call |
 | Susana | Compliance Officer | `[DATO: Susana confirma]` | compliance@neomaaa.com | Horario laboral + on-call critico |
 | Edward | Head of Sales/Support | `[DATO: Edward confirma]` | edward@neomaaa.com | Horario laboral extendido |
-| **Soporte General** | NEOMAAA Markets | **+41 44 707 9633** | **support@neomaaa.com** | Horario soporte |
+| **Soporte General** | NEOMAAA Markets | **[DATO: teléfono oficial Dubai — Diego confirma]** | **support@neomaaa.com** | Horario soporte |
 | **Legal** | — | — | **legal@neomaaa.com** | Email 24/7 |
 | **Compliance** | — | — | **compliance@neomaaa.com** | Email 24/7 |
 

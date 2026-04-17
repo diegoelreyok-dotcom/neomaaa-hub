@@ -56,7 +56,7 @@ La Empresa se comunica con clientes exclusivamente a traves de:
 - **Portal del cliente** — notificaciones in-app.
 - **Intercom** — chat en vivo en el sitio.
 - **WhatsApp Business oficial** — canal verificado.
-- **Telefono oficial** (+41 44 707 9633).
+- **Telefono oficial** ([DATO: teléfono oficial Dubai — Diego confirma]).
 - **Redes sociales oficiales** verificadas (handles publicados en neomaaa.com).
 
 ### 4.1 Canales NO oficiales
