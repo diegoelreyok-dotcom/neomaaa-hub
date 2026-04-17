@@ -50,7 +50,7 @@ export interface PendingRegistration {
   id: string;
   name: string;
   email: string;
-  lang: 'es' | 'ru';
+  lang: 'es' | 'ru' | 'en';
   message: string;
   createdAt: string;
   status: 'pending' | 'approved' | 'rejected';
@@ -119,7 +119,7 @@ export async function POST(req: Request) {
       id,
       name: name.trim().substring(0, 100),
       email: email?.trim()?.substring(0, 200) || '',
-      lang: lang === 'ru' ? 'ru' : 'es',
+      lang: lang === 'ru' ? 'ru' : lang === 'en' ? 'en' : 'es',
       message: message?.trim()?.substring(0, 1000) || '',
       createdAt: new Date().toISOString(),
       status: 'pending',

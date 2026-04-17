@@ -19,7 +19,8 @@ export default async function AdminLayout({
     redirect('/dashboard');
   }
 
-  const lang: Lang = user.lang === 'ru' ? 'ru' : 'es';
+  const lang: Lang =
+    user.lang === 'ru' ? 'ru' : user.lang === 'en' ? 'en' : 'es';
   const userName: string = user.name || user.id || '';
 
   return (

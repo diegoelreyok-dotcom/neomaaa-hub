@@ -241,8 +241,7 @@ FATF actualiza listas 3 veces al año (febrero, junio, octubre).
 | [`compliance-calendar`](/content/compliance/compliance-calendar) | Rutina periódica (diaria/semanal/mensual/trimestral/anual) | Para planificar y no olvidar tareas recurrentes |
 | [`ongoing-monitoring-sop`](/content/compliance/ongoing-monitoring-sop) | Monitoreo post-onboarding | Revisiones mensuales / trigger based |
 | [`screening-sanciones`](/content/compliance/screening-sanciones) | Lista países restringidos | Verificar cualquier cliente / país |
-| [`workflow`](/content/compliance/workflow) | Workflow general compliance | Referencia de procesos |
-| [`workflow-sales-compliance`](/content/compliance/workflow-sales-compliance) | Handoff Sales → Compliance | Flujo cliente nuevo |
+| [`workflow`](/content/compliance/workflow) | Workflow general compliance + handoff Sales→Compliance | Referencia de procesos |
 | [`manual-susana`](/content/compliance/manual-susana) | Manual de compliance oficial (gold source) | Frases prohibidas, tiers onboarding, escalamiento |
 | [`proceso-kyc-sumsub`](/content/compliance/proceso-kyc-sumsub) | SOP técnico Sumsub | Cómo operar Sumsub paso a paso |
 | [`ab-book-policy`](/content/compliance/ab-book-policy) | Política A-Book / B-Book | Consultas de dealing y regulatorios |

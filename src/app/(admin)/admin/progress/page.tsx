@@ -78,13 +78,36 @@ const labels: Record<Lang, {
     csvHeaders: ['Пользователь', 'Роль', 'Прочитано документов', 'Всего документов', 'Процент', 'Последний вход'],
     csvFileName: 'neomaaa-progress',
   },
+  en: {
+    title: 'Progress',
+    subtitle: 'Reading progress by user',
+    exportCSV: 'Export CSV',
+    activeUsers: 'Active Users',
+    ofTotal: 'of',
+    docsRead: 'Documents Read',
+    accessesRegistered: 'accesses recorded',
+    avgProgress: 'Average Progress',
+    advance: 'progress',
+    colUser: 'User',
+    colRole: 'Role',
+    colRead: 'Read',
+    colProgress: 'Progress',
+    colLastAccess: 'Last Login',
+    emptyNoUsers: 'No registered users.',
+    noAccessYet: 'This user has not accessed any documents yet.',
+    docsAccessedLabel: (c) => `Accessed documents (${c})`,
+    accessOne: 'access',
+    accessMany: 'accesses',
+    csvHeaders: ['User', 'Role', 'Documents Read', 'Total Documents', 'Percent', 'Last Login'],
+    csvFileName: 'neomaaa-progress',
+  },
 };
 
 interface UserData {
   id: string;
   name: string;
   roleId: string;
-  lang: 'es' | 'ru';
+  lang: 'es' | 'ru' | 'en';
   isActive: boolean;
   lastLogin?: string;
 }

@@ -37,7 +37,20 @@ export default function PdfDownloadButton({ pdfSlug, lang = 'es' }: PdfDownloadB
         ? `/pdf/es/${pdfSlug}.pdf`
         : `/pdf/ru/ru-${pdfSlug}.pdf`;
 
-    window.open(url, '_blank');
+    // Use an anchor link with `download` attr to avoid popup blockers.
+    // Fallback to window.open if click dispatch fails.
+    try {
+      const a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.download = `${pdfSlug}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } catch {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
     closeModal();
   }
 
@@ -59,6 +72,17 @@ export default function PdfDownloadButton({ pdfSlug, lang = 'es' }: PdfDownloadB
       spanish: 'Испанский',
       russian: 'Русский',
       cancel: 'Отмена',
+    },
+    en: {
+      // PDFs are intentionally only generated in ES and RU. The EN UI still
+      // surfaces the download banner; the modal lets the user choose ES or RU.
+      bannerText: 'This document is available for PDF download (ES / RU only)',
+      bannerBtn: 'Download PDF',
+      modalTitle: 'Select language',
+      modalDesc: 'Choose the language you want to download the document in.',
+      spanish: 'Spanish',
+      russian: 'Russian',
+      cancel: 'Cancel',
     },
   };
 

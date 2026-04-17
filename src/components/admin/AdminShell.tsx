@@ -54,6 +54,20 @@ const L: Record<Lang, NavLabels> = {
     backToPortal: 'Вернуться в портал',
     signedAs: 'Вошли как',
   },
+  en: {
+    admin: 'Admin',
+    dashboard: 'Dashboard',
+    users: 'Users',
+    roles: 'Roles',
+    registrations: 'Requests',
+    progress: 'Progress',
+    certificates: 'Certificates',
+    analytics: 'Analytics',
+    apiKeys: 'API Keys',
+    settings: 'Settings',
+    backToPortal: 'Back to Portal',
+    signedAs: 'Signed in',
+  },
 };
 
 const icons = {

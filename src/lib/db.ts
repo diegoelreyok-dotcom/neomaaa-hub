@@ -408,7 +408,7 @@ export async function seedDefaultData(): Promise<void> {
     id: string;
     name: string;
     roleId: string;
-    lang: 'es' | 'ru';
+    lang: 'es' | 'ru' | 'en';
     code: string;
     mustChangeCode?: boolean;
   }> = [

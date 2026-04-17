@@ -141,6 +141,44 @@ const labels: Record<Lang, {
     createBtn: 'Создать пользователя',
     creating: 'Создание...',
   },
+  en: {
+    title: 'Users',
+    subtitle: (n) => `${n} ${n !== 1 ? 'registered users' : 'registered user'}`,
+    addUser: 'Add user',
+    searchPlaceholder: 'Search by name, ID or role...',
+    colName: 'Name',
+    colRole: 'Role',
+    colLanguage: 'Language',
+    colLastAccess: 'Last login',
+    colStatus: 'Status',
+    colActions: 'Actions',
+    emptyWithSearch: 'No users match that search.',
+    emptyNoUsers: 'No registered users.',
+    active: 'Active',
+    inactive: 'Inactive',
+    deactivate: 'Deactivate',
+    activate: 'Activate',
+    deleteBtn: 'Delete',
+    confirmDelete: (name) => `Delete user "${name}"?`,
+    modalTitle: 'Add user',
+    modalSuccess: 'User created successfully',
+    modalFormHelper: 'Fill in the new team member details',
+    accessCode: 'Access code',
+    copy: 'Copy',
+    copied: 'Copied',
+    codeOnce: 'This code is shown only once. Share it securely.',
+    close: 'Close',
+    nameLabel: 'Name',
+    namePlaceholder: 'Full name',
+    roleLabel: 'Role',
+    selectRole: 'Select role...',
+    languageLabel: 'Language',
+    spanish: 'Spanish (ES)',
+    russian: 'Russian (RU)',
+    cancel: 'Cancel',
+    createBtn: 'Create user',
+    creating: 'Creating...',
+  },
 };
 
 function generateIdFromName(name: string): string {
@@ -165,7 +203,7 @@ export default function UsersPage() {
 
   const [formName, setFormName] = useState('');
   const [formRoleId, setFormRoleId] = useState('');
-  const [formLang, setFormLang] = useState<'es' | 'ru'>('es');
+  const [formLang, setFormLang] = useState<'es' | 'ru' | 'en'>('es');
 
   function getRoleName(roleId: string): string {
     const role = roles.find((r) => r.id === roleId);
@@ -480,7 +518,7 @@ export default function UsersPage() {
                     {t.languageLabel}
                   </label>
                   <div className="flex gap-3">
-                    {(['es', 'ru'] as const).map((l) => (
+                    {(['es', 'ru', 'en'] as const).map((l) => (
                       <button
                         key={l}
                         type="button"
@@ -491,7 +529,7 @@ export default function UsersPage() {
                             : 'bg-[#1A1A1A]/50 border-[#1E1E1E] text-[#A0A0A0] hover:border-[#2A2A2A] hover:text-white'
                         }`}
                       >
-                        {l === 'es' ? t.spanish : t.russian}
+                        {l === 'es' ? t.spanish : l === 'ru' ? t.russian : 'English (EN)'}
                       </button>
                     ))}
                   </div>

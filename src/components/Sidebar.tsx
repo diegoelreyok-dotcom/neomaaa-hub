@@ -34,11 +34,15 @@ export default function Sidebar({ sections, lang, isOpen, onClose, completedDocs
   }
 
   function getSectionName(section: Section): string {
-    return lang === 'ru' ? section.nameRu : section.nameEs;
+    if (lang === 'ru') return section.nameRu;
+    if (lang === 'en') return section.nameEn || section.nameEs;
+    return section.nameEs;
   }
 
-  function getDocTitle(doc: { titleEs: string; titleRu: string }): string {
-    return lang === 'ru' ? doc.titleRu : doc.titleEs;
+  function getDocTitle(doc: { titleEs: string; titleRu: string; titleEn?: string }): string {
+    if (lang === 'ru') return doc.titleRu;
+    if (lang === 'en') return doc.titleEn || doc.titleEs;
+    return doc.titleEs;
   }
 
   return (
@@ -98,7 +102,7 @@ export default function Sidebar({ sections, lang, isOpen, onClose, completedDocs
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
               <polyline points="9 22 9 12 15 12 15 22" />
             </svg>
-            {lang === 'ru' ? 'Главная' : 'Inicio'}
+            {lang === 'ru' ? 'Главная' : lang === 'en' ? 'Home' : 'Inicio'}
           </Link>
 
           <Link
@@ -118,7 +122,7 @@ export default function Sidebar({ sections, lang, isOpen, onClose, completedDocs
               <path d="M8 7h8" />
               <path d="M8 11h6" />
             </svg>
-            {lang === 'ru' ? 'Мой путь' : 'Mi Ruta'}
+            {lang === 'ru' ? 'Мой путь' : lang === 'en' ? 'My Path' : 'Mi Ruta'}
           </Link>
 
           <Link
@@ -137,7 +141,7 @@ export default function Sidebar({ sections, lang, isOpen, onClose, completedDocs
               <circle cx="12" cy="8" r="6" />
               <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
             </svg>
-            {lang === 'ru' ? 'Сертификаты' : 'Mis Certificados'}
+            {lang === 'ru' ? 'Сертификаты' : lang === 'en' ? 'My Certificates' : 'Mis Certificados'}
           </Link>
         </div>
 
@@ -147,7 +151,7 @@ export default function Sidebar({ sections, lang, isOpen, onClose, completedDocs
             <div
               className="flex items-center gap-1.5 bg-neo-dark-3/40 rounded-lg p-1 border border-neo-dark-3/60"
               role="group"
-              aria-label={lang === 'ru' ? 'Язык' : 'Idioma'}
+              aria-label={lang === 'ru' ? 'Язык' : lang === 'en' ? 'Language' : 'Idioma'}
             >
               <button
                 onClick={() => onSwitchLang('es')}
@@ -195,6 +199,29 @@ export default function Sidebar({ sections, lang, isOpen, onClose, completedDocs
                 />
                 <span>RU</span>
               </button>
+              <button
+                onClick={() => onSwitchLang('en')}
+                aria-label="English"
+                aria-pressed={lang === 'en'}
+                className={`
+                  flex-1 flex items-center justify-center gap-1.5 px-2 py-1.5 rounded-md
+                  text-[12px] font-semibold transition-all duration-200
+                  ${lang === 'en'
+                    ? 'bg-neo-dark-2 text-neo-text border border-neo-primary/60 shadow-sm'
+                    : 'text-neo-text-muted hover:text-neo-text-secondary border border-transparent'
+                  }
+                `}
+              >
+                <img
+                  src="/flags/en.svg"
+                  width="16"
+                  height="12"
+                  alt=""
+                  loading="eager"
+                  className="rounded-sm object-cover"
+                />
+                <span>EN</span>
+              </button>
             </div>
           </div>
         )}
@@ -202,7 +229,7 @@ export default function Sidebar({ sections, lang, isOpen, onClose, completedDocs
         {/* Section divider label */}
         <div className="px-6 pt-3 pb-1">
           <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-neo-text-muted/50">
-            {lang === 'ru' ? 'Документация' : 'Documentacion'}
+            {lang === 'ru' ? 'Документация' : lang === 'en' ? 'Documentation' : 'Documentacion'}
           </span>
         </div>
 

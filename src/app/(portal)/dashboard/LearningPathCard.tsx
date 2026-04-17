@@ -36,7 +36,12 @@ export default async function LearningPathCard({ userId, roleId, lang }: Props) 
       if (s.id !== section) continue;
       const doc = s.documents.find((d) => d.slug === slug);
       if (doc) {
-        nextDocTitle = lang === 'ru' ? doc.titleRu : doc.titleEs;
+        nextDocTitle =
+          lang === 'ru'
+            ? doc.titleRu
+            : lang === 'en'
+              ? (doc.titleEn || doc.titleEs)
+              : doc.titleEs;
         break;
       }
     }
@@ -44,7 +49,9 @@ export default async function LearningPathCard({ userId, roleId, lang }: Props) 
 
   const activePhase = state.phases.find((p) => p.isActive) ?? null;
   const activePhaseTitle = activePhase
-    ? lang === 'ru' ? activePhase.phase.titleRu : activePhase.phase.titleEs
+    ? lang === 'ru'
+      ? activePhase.phase.titleRu
+      : activePhase.phase.titleEs
     : null;
 
   const pathTitle = lang === 'ru' ? path.titleRu : path.titleEs;
@@ -58,14 +65,23 @@ export default async function LearningPathCard({ userId, roleId, lang }: Props) 
         seeBadge: 'Посмотреть значок',
         progressLabel: 'Прогресс',
       }
-    : {
-        kicker: 'Tu ruta de aprendizaje',
-        continueBtn: 'Continuar ruta',
-        nextUp: 'Siguiente documento:',
-        pathComplete: 'Ruta completa',
-        seeBadge: 'Ver badge',
-        progressLabel: 'Progreso',
-      };
+    : lang === 'en'
+      ? {
+          kicker: 'Your learning path',
+          continueBtn: 'Continue path',
+          nextUp: 'Next document:',
+          pathComplete: 'Path complete',
+          seeBadge: 'View badge',
+          progressLabel: 'Progress',
+        }
+      : {
+          kicker: 'Tu ruta de aprendizaje',
+          continueBtn: 'Continuar ruta',
+          nextUp: 'Siguiente documento:',
+          pathComplete: 'Ruta completa',
+          seeBadge: 'Ver badge',
+          progressLabel: 'Progreso',
+        };
 
   return (
     <div className="relative overflow-hidden rounded-xl border border-neo-primary/30 bg-gradient-to-br from-neo-primary/[0.06] to-neo-dark-2 p-5">

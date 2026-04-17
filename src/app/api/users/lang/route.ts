@@ -10,7 +10,7 @@ export async function PATCH(req: Request) {
 
   try {
     const { lang } = await req.json();
-    if (lang !== 'es' && lang !== 'ru') {
+    if (lang !== 'es' && lang !== 'ru' && lang !== 'en') {
       return NextResponse.json({ error: 'Invalid language' }, { status: 400 });
     }
 

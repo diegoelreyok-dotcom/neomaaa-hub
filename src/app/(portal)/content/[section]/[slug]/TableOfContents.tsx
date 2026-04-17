@@ -71,7 +71,7 @@ export default function TableOfContents({ content, lang }: Props) {
 
   if (items.length < 2) return null;
 
-  const label = lang === 'ru' ? 'Содержание' : 'En esta página';
+  const label = lang === 'ru' ? 'Содержание' : lang === 'en' ? 'On this page' : 'En esta página';
 
   return (
     <nav className="neo-toc" aria-label={label}>

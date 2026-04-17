@@ -262,7 +262,7 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(function Certif
             color: burgundy,
             margin: 0,
             marginBottom: '36px',
-            fontFamily: "'Playfair Display', 'Georgia', serif",
+            fontFamily: "'Georgia', 'Times New Roman', serif",
             lineHeight: 1.1,
           }}
         >
@@ -338,7 +338,7 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(function Certif
           <div style={{ textAlign: 'center', width: '260px' }}>
             <div
               style={{
-                fontFamily: "'Playfair Display', 'Georgia', serif",
+                fontFamily: "'Georgia', 'Times New Roman', serif",
                 fontStyle: 'italic',
                 fontSize: '22px',
                 color: ink,
@@ -427,7 +427,7 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(function Certif
           <div style={{ textAlign: 'center', width: '260px' }}>
             <div
               style={{
-                fontFamily: "'Playfair Display', 'Georgia', serif",
+                fontFamily: "'Georgia', 'Times New Roman', serif",
                 fontStyle: 'italic',
                 fontSize: '22px',
                 color: ink,

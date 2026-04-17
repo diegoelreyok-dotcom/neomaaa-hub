@@ -40,12 +40,14 @@ export default async function ContentPage({ params }: ContentPageProps) {
             </svg>
           </div>
           <h2 className="text-lg font-semibold text-neo-text mb-2">
-            {lang === 'ru' ? 'Ошибка аутентификации' : 'Error de autenticacion'}
+            {lang === 'ru' ? 'Ошибка аутентификации' : lang === 'en' ? 'Authentication error' : 'Error de autenticacion'}
           </h2>
           <p className="text-sm text-neo-text-muted mb-5">
             {lang === 'ru'
               ? 'Не удалось проверить вашу роль. Попробуйте войти снова.'
-              : 'No se pudo verificar tu rol. Intenta iniciar sesion de nuevo.'
+              : lang === 'en'
+                ? 'Could not verify your role. Please sign in again.'
+                : 'No se pudo verificar tu rol. Intenta iniciar sesion de nuevo.'
             }
           </p>
           <Link
@@ -55,7 +57,7 @@ export default async function ContentPage({ params }: ContentPageProps) {
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="15 18 9 12 15 6" />
             </svg>
-            {lang === 'ru' ? 'Вернуться' : 'Volver al inicio'}
+            {lang === 'ru' ? 'Вернуться' : lang === 'en' ? 'Go back' : 'Volver al inicio'}
           </Link>
         </div>
       </div>
@@ -76,12 +78,14 @@ export default async function ContentPage({ params }: ContentPageProps) {
             </svg>
           </div>
           <h2 className="text-lg font-semibold text-neo-text mb-2">
-            {lang === 'ru' ? 'Доступ ограничен' : 'Acceso restringido'}
+            {lang === 'ru' ? 'Доступ ограничен' : lang === 'en' ? 'Access restricted' : 'Acceso restringido'}
           </h2>
           <p className="text-sm text-neo-text-muted mb-5">
             {lang === 'ru'
               ? 'У вас нет доступа к этому разделу. Обратитесь к администратору.'
-              : 'No tienes acceso a esta seccion. Contacta al administrador.'
+              : lang === 'en'
+                ? 'You do not have access to this section. Contact your administrator.'
+                : 'No tienes acceso a esta seccion. Contacta al administrador.'
             }
           </p>
           <Link
@@ -91,7 +95,7 @@ export default async function ContentPage({ params }: ContentPageProps) {
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="15 18 9 12 15 6" />
             </svg>
-            {lang === 'ru' ? 'Вернуться' : 'Volver al inicio'}
+            {lang === 'ru' ? 'Вернуться' : lang === 'en' ? 'Go back' : 'Volver al inicio'}
           </Link>
         </div>
       </div>
@@ -114,12 +118,14 @@ export default async function ContentPage({ params }: ContentPageProps) {
             </svg>
           </div>
           <h2 className="text-lg font-semibold text-neo-text mb-2">
-            {lang === 'ru' ? 'Документ не найден' : 'Documento no encontrado'}
+            {lang === 'ru' ? 'Документ не найден' : lang === 'en' ? 'Document not found' : 'Documento no encontrado'}
           </h2>
           <p className="text-sm text-neo-text-muted mb-5">
             {lang === 'ru'
               ? 'Запрашиваемый документ не существует.'
-              : 'El documento solicitado no existe.'
+              : lang === 'en'
+                ? 'The requested document does not exist.'
+                : 'El documento solicitado no existe.'
             }
           </p>
           <Link
@@ -129,7 +135,7 @@ export default async function ContentPage({ params }: ContentPageProps) {
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="15 18 9 12 15 6" />
             </svg>
-            {lang === 'ru' ? 'Вернуться' : 'Volver al inicio'}
+            {lang === 'ru' ? 'Вернуться' : lang === 'en' ? 'Go back' : 'Volver al inicio'}
           </Link>
         </div>
       </div>
@@ -138,8 +144,10 @@ export default async function ContentPage({ params }: ContentPageProps) {
 
   // Read content
   const content = getMarkdownContent(doc.filePath, lang);
-  const docTitle = lang === 'ru' ? doc.titleRu : doc.titleEs;
-  const sectionName = lang === 'ru' ? section.nameRu : section.nameEs;
+  const docTitle =
+    lang === 'ru' ? doc.titleRu : lang === 'en' ? (doc.titleEn || doc.titleEs) : doc.titleEs;
+  const sectionName =
+    lang === 'ru' ? section.nameRu : lang === 'en' ? (section.nameEn || section.nameEs) : section.nameEs;
 
   // Calculate reading time
   const readingTime = estimateReadingTime(content);
@@ -177,7 +185,7 @@ export default async function ContentPage({ params }: ContentPageProps) {
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
             <polyline points="9 22 9 12 15 12 15 22" />
           </svg>
-          <span className="hidden sm:inline">{lang === 'ru' ? 'Главная' : 'Inicio'}</span>
+          <span className="hidden sm:inline">{lang === 'ru' ? 'Главная' : lang === 'en' ? 'Home' : 'Inicio'}</span>
         </Link>
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neo-dark-5 flex-shrink-0">
           <polyline points="9 18 15 12 9 6" />
@@ -198,7 +206,7 @@ export default async function ContentPage({ params }: ContentPageProps) {
               <circle cx="12" cy="12" r="10" />
               <polyline points="12 6 12 12 16 14" />
             </svg>
-            {readingTime} min {lang === 'ru' ? 'чтения' : 'de lectura'}
+            {readingTime} min {lang === 'ru' ? 'чтения' : lang === 'en' ? 'read' : 'de lectura'}
           </span>
 
           {/* Section badge */}
@@ -256,10 +264,14 @@ export default async function ContentPage({ params }: ContentPageProps) {
               </div>
               <div className="min-w-0">
                 <div className="text-[10px] font-medium text-neo-text-muted uppercase tracking-wider mb-0.5">
-                  {lang === 'ru' ? 'Предыдущий' : 'Anterior'}
+                  {lang === 'ru' ? 'Предыдущий' : lang === 'en' ? 'Previous' : 'Anterior'}
                 </div>
                 <div className="text-sm font-medium text-neo-text-secondary group-hover:text-neo-text transition-colors duration-200 truncate">
-                  {lang === 'ru' ? prevDoc.titleRu : prevDoc.titleEs}
+                  {lang === 'ru'
+                    ? prevDoc.titleRu
+                    : lang === 'en'
+                      ? (prevDoc.titleEn || prevDoc.titleEs)
+                      : prevDoc.titleEs}
                 </div>
               </div>
             </Link>
@@ -275,10 +287,14 @@ export default async function ContentPage({ params }: ContentPageProps) {
             >
               <div className="min-w-0">
                 <div className="text-[10px] font-medium text-neo-text-muted uppercase tracking-wider mb-0.5">
-                  {lang === 'ru' ? 'Следующий' : 'Siguiente'}
+                  {lang === 'ru' ? 'Следующий' : lang === 'en' ? 'Next' : 'Siguiente'}
                 </div>
                 <div className="text-sm font-medium text-neo-text-secondary group-hover:text-neo-primary transition-colors duration-200 truncate">
-                  {lang === 'ru' ? nextDoc.titleRu : nextDoc.titleEs}
+                  {lang === 'ru'
+                    ? nextDoc.titleRu
+                    : lang === 'en'
+                      ? (nextDoc.titleEn || nextDoc.titleEs)
+                      : nextDoc.titleEs}
                 </div>
               </div>
               <div className="w-8 h-8 rounded-lg bg-neo-dark-3/50 flex items-center justify-center group-hover:bg-neo-primary/10 transition-colors duration-200 flex-shrink-0">
@@ -302,7 +318,7 @@ export default async function ContentPage({ params }: ContentPageProps) {
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
               <polyline points="9 22 9 12 15 12 15 22" />
             </svg>
-            {lang === 'ru' ? 'Вернуться на главную' : 'Volver al inicio'}
+            {lang === 'ru' ? 'Вернуться на главную' : lang === 'en' ? 'Back to home' : 'Volver al inicio'}
           </Link>
         </div>
       </div>

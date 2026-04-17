@@ -33,6 +33,15 @@ export default function LoginPage() {
       error: 'Неверный пользователь или код',
       placeholder: 'Введите имя',
     },
+    en: {
+      subtitle: 'Internal team portal',
+      username: 'Username',
+      code: 'Access code',
+      enter: 'Sign in',
+      entering: 'Signing in...',
+      error: 'Invalid username or code',
+      placeholder: 'Enter your username',
+    },
   };
 
   const t = labels[lang];
@@ -129,9 +138,10 @@ export default function LoginPage() {
                 id="code"
                 type="password"
                 inputMode="numeric"
+                pattern="\d{6}"
                 maxLength={6}
                 value={code}
-                onChange={(e) => { setCode(e.target.value); setError(''); }}
+                onChange={(e) => { setCode(e.target.value.replace(/\D/g, '').slice(0, 6)); setError(''); }}
                 autoComplete="current-password"
                 required
                 className="
@@ -161,7 +171,7 @@ export default function LoginPage() {
             {/* Submit button */}
             <button
               type="submit"
-              disabled={loading || !userId || !code}
+              disabled={loading || !userId.trim() || code.length !== 6 || !/^\d{6}$/.test(code)}
               className="
                 w-full py-3 px-4 rounded-lg mt-2
                 bg-neo-primary text-white
@@ -235,6 +245,29 @@ export default function LoginPage() {
             />
             RU
           </button>
+          <button
+            onClick={() => setLang('en')}
+            aria-label="English"
+            aria-pressed={lang === 'en'}
+            className={`
+              flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium
+              transition-all duration-200
+              ${lang === 'en'
+                ? 'bg-neo-dark-2 text-neo-text border border-neo-dark-3'
+                : 'text-neo-text-muted hover:text-neo-text-secondary border border-transparent'
+              }
+            `}
+          >
+            <img
+              src="/flags/en.svg"
+              width="16"
+              height="12"
+              alt=""
+              loading="eager"
+              className="rounded-sm object-cover"
+            />
+            EN
+          </button>
         </div>
 
         {/* Register link */}
@@ -255,7 +288,11 @@ export default function LoginPage() {
               <line x1="20" y1="8" x2="20" y2="14" />
               <line x1="23" y1="11" x2="17" y2="11" />
             </svg>
-            {lang === 'es' ? 'No tengo acceso — Solicitar registro' : 'У меня нет доступа — Запросить регистрацию'}
+            {lang === 'es'
+              ? 'No tengo acceso — Solicitar registro'
+              : lang === 'en'
+                ? "I don't have access — Request registration"
+                : 'У меня нет доступа — Запросить регистрацию'}
           </Link>
         </div>
       </div>

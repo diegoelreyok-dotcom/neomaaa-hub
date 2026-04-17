@@ -27,7 +27,7 @@ export default function TopBar({ userName, isAdmin, lang, allowedSections, onTog
       <button
         onClick={onToggleSidebar}
         className="lg:hidden text-neo-text-secondary hover:text-neo-text hover:bg-neo-dark-3/50 p-2.5 -ml-1 rounded-lg transition-all duration-200"
-        aria-label={lang === 'ru' ? 'Открыть меню' : 'Abrir menu'}
+        aria-label={lang === 'ru' ? 'Открыть меню' : lang === 'en' ? 'Open menu' : 'Abrir menu'}
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <line x1="3" y1="12" x2="21" y2="12" />
@@ -86,14 +86,14 @@ export default function TopBar({ userName, isAdmin, lang, allowedSections, onTog
             rounded-lg transition-all duration-200
             border border-transparent hover:border-neo-danger/10
           "
-          aria-label={lang === 'ru' ? 'Выйти' : 'Cerrar sesion'}
+          aria-label={lang === 'ru' ? 'Выйти' : lang === 'en' ? 'Sign out' : 'Cerrar sesion'}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
             <polyline points="16 17 21 12 16 7" />
             <line x1="21" y1="12" x2="9" y2="12" />
           </svg>
-          <span className="hidden sm:inline">{lang === 'ru' ? 'Выйти' : 'Salir'}</span>
+          <span className="hidden sm:inline">{lang === 'ru' ? 'Выйти' : lang === 'en' ? 'Sign out' : 'Salir'}</span>
         </button>
       </div>
     </header>

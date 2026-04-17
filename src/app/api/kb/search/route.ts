@@ -13,7 +13,8 @@ export async function GET(req: Request) {
   const url = new URL(req.url);
   const query = (url.searchParams.get('q') || '').trim();
   const limit = Math.min(Number(url.searchParams.get('limit') || '5') || 5, 50);
-  const lang = (url.searchParams.get('lang') || 'es').toLowerCase() === 'ru' ? 'ru' : 'es';
+  const rawLang = (url.searchParams.get('lang') || 'es').toLowerCase();
+  const lang: 'es' | 'ru' | 'en' = rawLang === 'ru' ? 'ru' : rawLang === 'en' ? 'en' : 'es';
 
   if (!query) {
     return NextResponse.json({ error: 'Missing query param "q"' }, { status: 400 });
@@ -29,6 +30,7 @@ export async function GET(req: Request) {
     section: h.section,
     titleEs: h.titleEs,
     titleRu: h.titleRu,
+    titleEn: h.titleEn,
     url: `${origin}/content/${h.section}/${h.slug}`,
     relevance: h.score,
     snippet: buildSnippet(h.body, query),

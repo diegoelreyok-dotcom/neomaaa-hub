@@ -116,6 +116,25 @@ export default function AdminCertificatesPage() {
       loading: 'Загрузка...',
       empty: 'Нет выданных сертификатов.',
     },
+    en: {
+      title: 'Issued Certificates',
+      subtitle: 'Manage all system certificates',
+      total: 'Total',
+      filterUser: 'User',
+      filterDoc: 'Document',
+      from: 'From',
+      to: 'To',
+      clear: 'Clear',
+      user: 'User',
+      doc: 'Document',
+      score: 'Score',
+      issued: 'Issued',
+      actions: 'Actions',
+      view: 'View',
+      revoke: 'Revoke',
+      loading: 'Loading...',
+      empty: 'No certificates issued.',
+    },
   }[lang];
 
   const locale = lang === 'ru' ? 'ru-RU' : 'es-ES';

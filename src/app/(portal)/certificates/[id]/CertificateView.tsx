@@ -37,6 +37,16 @@ export default function CertificateView({ cert, sectionName, lang }: Props) {
       attempts: 'Попыток',
       openPdf: 'Открыть как PDF',
     },
+    en: {
+      back: 'Back',
+      download: 'Download PDF',
+      downloading: 'Generating PDF...',
+      id: 'ID',
+      issued: 'Issued',
+      score: 'Score',
+      attempts: 'Attempts',
+      openPdf: 'Open as PDF',
+    },
   }[lang];
 
   const locale = lang === 'ru' ? 'ru-RU' : 'es-ES';

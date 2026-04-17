@@ -14,7 +14,7 @@ export interface AdminUser {
   id: string;
   name: string;
   roleId: string;
-  lang: 'es' | 'ru';
+  lang: 'es' | 'ru' | 'en';
   isActive: boolean;
   createdAt: string;
   lastLogin?: string;
@@ -41,7 +41,7 @@ export interface AdminRegistration {
   id: string;
   name: string;
   email: string;
-  lang: 'es' | 'ru';
+  lang: 'es' | 'ru' | 'en';
   message: string;
   createdAt: string;
   status: 'pending' | 'approved' | 'rejected';

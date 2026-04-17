@@ -32,6 +32,16 @@ export default function CertificatesList({ certs, lang, docIndex }: Props) {
       issued: 'Выдан',
       viewBtn: 'Посмотреть / Скачать PDF',
     },
+    en: {
+      title: 'Certificates',
+      subtitle: (n: number) => (n === 1 ? '1 certificate earned' : `${n} certificates earned`),
+      empty: 'You have no certificates yet. Pass the quiz on each document to earn them.',
+      exploreBtn: 'Explore documents',
+      section: 'Section',
+      score: 'Score',
+      issued: 'Issued',
+      viewBtn: 'View / Download PDF',
+    },
   }[lang];
 
   const locale = lang === 'ru' ? 'ru-RU' : 'es-ES';

@@ -213,6 +213,55 @@
 
 ---
 
+## Fixes aplicados en sweep de backlog (2026-04-17)
+
+### MEDIUM
+
+- **M1** — `public/pdf/ru/ru-compliance-workflow-sales-compliance.pdf` y `src/content/ru/compliance/workflow-sales-compliance.md` eliminados (orfanos, el doc ES ya estaba eliminado)
+- **M2** — `src/content/es/compliance/susana-playbook.md:244-246` — eliminada fila de tabla que apuntaba a `workflow-sales-compliance`; la entrada `workflow` absorbe el handoff Sales↔Compliance en la descripcion
+- **M2** — `src/content/es/hiring/onboarding-5-dias.md:439` — reemplazada fila que apuntaba a `workflow-sales-compliance` por `workflow` (unico doc de workflow compliance)
+- **M2** — `src/content/es/encyclopedia/vault-yield-system.md:193` — eliminada linea que referenciaba `executive/treasury-management.md` (doc inexistente); se consolido con `wallet-structure-neomaaa` que si existe
+- **M6** — `src/app/login/page.tsx:128-134, 164` — boton submit deshabilitado hasta que `code` sea 6 digitos numericos; input filtra no-digitos automaticamente via `replace(/\D/g, '')`; agregado `pattern="\d{6}"` para validacion HTML
+
+### LOW
+
+- **L4** — `src/components/PdfDownloadButton.tsx:34-52` — reemplazado `window.open(url, '_blank')` con anchor-element approach (`document.createElement('a')` + `download` attr + click dispatch). Fallback a `window.open` con `noopener,noreferrer` si falla. Evita popup blockers.
+- **L5** — `src/components/Certificate.tsx` (3 ocurrencias) — reemplazada `fontFamily: "'Playfair Display', 'Georgia', serif"` por `"'Georgia', 'Times New Roman', serif"`. Ya cae a Georgia silenciosamente (Playfair nunca se cargo), explicito + consistente entre render screen y PDF.
+- **L8** — Verificado: `src/app/api/seed/route.ts` existe. La referencia en middleware `ADMIN_ROUTES` es valida, no es dead code. No-op.
+
+---
+
+## Flagged para decision Diego
+
+### MEDIUM pendientes
+
+- **M2 (executive docs)** — `src/content/es/executive/*` (5 archivos) contienen ~12 refs a `treasury-management.md` (doc que no existe). **NO TOCADOS** porque los executive docs estan fuera de scope de este sweep (audiencia owners). Opciones:
+  - **A.** Crear doc `executive/treasury-management.md` real (framework generico multi-wallet). Los docs ya lo referencian como piedra angular — faltaria ~1 doc full size.
+  - **B.** Hacer pass manual para reemplazar las refs por `wallet-structure-neomaaa.md` y quitar menciones del treasury-management.
+  - **Recomendacion:** A. Los executive ya describen "ver treasury-management para X" — crear el doc cierra la historia. Si no hay tiempo, opcion B y deprecar el concepto.
+- **M2 (RU hiring/marketing)** — `src/content/ru/hiring/onboarding-5-dias.md:435` + `src/content/ru/marketing/competidores-deep-dive.md:11,13`. **NO TOCADOS** por instruccion explicita (RU pausado). Se fixearan cuando se retome la traduccion RU en pase final.
+- **M2 (historical mention)** — `src/content/es/compliance/compliance-calendar.md:719` — mencion historica a `registro-compliance.md` en nota de version ("v1.1 -- absorbe record-keeping de registro-compliance.md"). **DEJADO** — es documentacion historica del changelog, no un link clickeable, no afecta UX.
+- **M4 (quiz pools faltantes)** — 8 compliance docs + 2 encyclopedia + 15 legal + 7 executive sin quiz. Requiere decision de negocio:
+  - **A.** Crear quizzes para todos los docs (volumen: ~32 quizzes de 10 Q cada uno).
+  - **B.** Documentar explicitamente que solo docs con quiz otorgan badge; mostrar indicador "sin certificacion" en los que no tienen.
+  - **C.** Dejar como esta (UX inconsistente). No tomar accion.
+  - **Recomendacion:** B para launch (comunica expectativas), A como backlog post-launch priorizando legal + compliance core.
+- **M5 (RU executive fallback silencioso)** — Requiere decision: banner "Contenido en ES" vs traducir los 7 docs. **Recomendacion:** banner corto ("Este documento no esta disponible en RU, mostrando ES") — 10 lineas en `content/[section]/[slug]/page.tsx`. Traduccion RU es backlog post-launch segun memoria global.
+
+### LOW pendientes (security/UX tradeoffs — requieren decision)
+
+- **L1 — Sanitize schema permite `className` en any tag.** Riesgo real bajo (solo admins editan MD). Fix requiere endurecer schema (bloquear className arbitrario, whitelistear solo clases `neo-*`). **Recomendacion:** dejar como esta; documentar en threat model que admins pueden inyectar CSS visual. Re-evaluar si se abre MD editing a non-admins.
+- **L2 — `getSectionById` no logea `__proto__` lookups.** No es vuln, solo observabilidad. **Recomendacion:** no-op a menos que Diego quiera metricas de hits raros.
+- **L3 — Sesion 1h fuerza re-login.** Tradeoff conocido (ver comentario en `auth.ts:156-159`). Opciones: subir a 8h con refresh token + revalidation en middleware (complejidad). **Recomendacion:** dejar 1h para launch, revisar con feedback real del equipo.
+- **L6 — Rate limit login por userId, no por IP.** Tiene sentido para prevenir bruteforce de codigo, pero atacante con userId conocido puede bloquear. Fix: sumar `OR` con rate limit por IP (permitir si ALGUNO no esta bloqueado). **Recomendacion:** add rate limit por IP en paralelo, no reemplazo. Post-launch.
+- **L7 — Users no pueden borrar su propio cert viejo.** Es politica: ¿los certs son inmutables o reemitibles? **Recomendacion:** dejar admin-only (simplicidad, audit trail limpio). Si user quiere upgrade de score, que contacte admin.
+
+### Nota sobre HIGH/CRITICO
+
+CRITICO (C1) y HIGH (H1-H5) ya fueron cerrados en sweeps previos. Este sweep solo cubre backlog MEDIUM + LOW. Verificado: middleware `src/middleware.ts:74-93` ya incluye chequeo `isActive` (cierra H1).
+
+---
+
 ## Tests no pudo cubrir (requieren browser / prod)
 
 - Cmd+K modal keyboard navigation (arrow keys, scroll)

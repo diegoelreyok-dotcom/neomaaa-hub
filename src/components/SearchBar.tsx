@@ -19,7 +19,8 @@ interface SearchEntry {
   slug: string;
   titleEs: string;
   titleRu: string;
-  language: 'es' | 'ru';
+  titleEn?: string;
+  language: 'es' | 'ru' | 'en';
   body: string;
   wordCount: number;
 }
@@ -53,10 +54,25 @@ const L = {
     kbd: '⌘K',
     navTip: '↑↓ перемещение · Enter открыть · Esc закрыть',
   },
+  en: {
+    trigger: 'Search',
+    placeholder: 'Search the knowledge base...',
+    loading: 'Loading index...',
+    empty: 'No results found.',
+    hint: 'Type to search by title or content',
+    kbd: '⌘K',
+    navTip: '↑↓ navigate · Enter open · Esc close',
+  },
 } as const;
 
-function scoreEntry(entry: SearchEntry, q: string, lang: 'es' | 'ru'): number {
-  const title = (lang === 'ru' ? entry.titleRu : entry.titleEs).toLowerCase();
+function scoreEntry(entry: SearchEntry, q: string, lang: 'es' | 'ru' | 'en'): number {
+  const title = (
+    lang === 'ru'
+      ? entry.titleRu
+      : lang === 'en'
+        ? (entry.titleEn || entry.titleEs)
+        : entry.titleEs
+  ).toLowerCase();
   const body = entry.body.toLowerCase();
   let score = 0;
   if (title.includes(q)) score += 10;
@@ -159,10 +175,15 @@ export default function SearchBar({ lang, allowedSections }: SearchBarProps) {
     const q = query.toLowerCase().trim();
     if (!q) return [];
 
+    // EN fallback: if no EN entries indexed yet, search over ES instead so the
+    // user still gets hits while translations are WIP.
+    const hasEn = lang === 'en' && index.some((e) => e.language === 'en');
+    const effectiveLang: 'es' | 'ru' | 'en' = lang === 'en' && !hasEn ? 'es' : lang;
+
     const allowSet = new Set(allowedSections);
     const scored: ScoredResult[] = [];
     for (const e of index) {
-      if (e.language !== lang) continue;
+      if (e.language !== effectiveLang) continue;
       if (!allowSet.has(e.section)) continue;
       const score = scoreEntry(e, q, lang);
       if (score > 0) {
@@ -291,7 +312,12 @@ export default function SearchBar({ lang, allowedSections }: SearchBarProps) {
                 </div>
               )}
               {results.map((r, i) => {
-                const title = lang === 'ru' ? r.titleRu : r.titleEs;
+                const title =
+                  lang === 'ru'
+                    ? r.titleRu
+                    : lang === 'en'
+                      ? (r.titleEn || r.titleEs)
+                      : r.titleEs;
                 const active = i === selected;
                 return (
                   <button
@@ -322,7 +348,15 @@ export default function SearchBar({ lang, allowedSections }: SearchBarProps) {
             {/* Footer hint */}
             <div className="px-4 h-9 flex items-center justify-between text-[11px] text-neo-text-muted/70 bg-neo-dark-3/20 border-t border-neo-dark-3/40">
               <span>{t.navTip}</span>
-              {index && <span>{index.filter((e) => e.language === lang).length} docs</span>}
+              {index && (
+                <span>
+                  {(() => {
+                    const hasEnLocal = lang === 'en' && index.some((e) => e.language === 'en');
+                    const effLang: 'es' | 'ru' | 'en' = lang === 'en' && !hasEnLocal ? 'es' : lang;
+                    return `${index.filter((e) => e.language === effLang).length} docs`;
+                  })()}
+                </span>
+              )}
             </div>
           </div>
         </div>

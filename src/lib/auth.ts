@@ -9,12 +9,12 @@ import { checkRateLimit, consumeRateLimit } from './rate-limit';
 // (so admins can be deactivated via the panel). Hardcoded creds are only used
 // when the DB entry is missing (e.g. KV wiped, fresh deploy before seed).
 // In production, set ADMIN_CODE_DIEGO, ADMIN_CODE_YULIA, ADMIN_CODE_STANISLAV env vars.
-type HardcodedAdmin = { name: string; codeHash: string; lang: 'es' | 'ru'; roleId: string };
+type HardcodedAdmin = { name: string; codeHash: string; lang: 'es' | 'ru' | 'en'; roleId: string };
 const HARDCODED_ADMINS: Record<string, HardcodedAdmin> = {};
 
 // Initialize hardcoded admins from environment variables (hashed at startup)
 function initHardcodedAdmins() {
-  const adminDefs: { id: string; name: string; envKey: string; lang: 'es' | 'ru' }[] = [
+  const adminDefs: { id: string; name: string; envKey: string; lang: 'es' | 'ru' | 'en' }[] = [
     { id: 'diego', name: 'Diego', envKey: 'ADMIN_CODE_DIEGO', lang: 'es' },
     { id: 'yulia', name: 'Yulia', envKey: 'ADMIN_CODE_YULIA', lang: 'ru' },
     { id: 'stanislav', name: 'Stanislav', envKey: 'ADMIN_CODE_STANISLAV', lang: 'ru' },

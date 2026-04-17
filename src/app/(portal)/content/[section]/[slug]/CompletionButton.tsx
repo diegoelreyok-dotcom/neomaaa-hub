@@ -34,6 +34,16 @@ const i18n = {
     keepStudying: '\u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0432\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u043A \u0438\u0437\u0443\u0447\u0435\u043D\u0438\u044E \u044D\u0442\u043E\u0433\u043E \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430 \u0432 \u043B\u044E\u0431\u043E\u0435 \u0432\u0440\u0435\u043C\u044F.',
     error: '\u041E\u0448\u0438\u0431\u043A\u0430 \u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u0438. \u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u0441\u043D\u043E\u0432\u0430.',
   },
+  en: {
+    markComplete: 'Mark as completed',
+    markCompleteQuiz: 'Mark as completed (take quiz)',
+    takeQuizForCert: 'Take quiz to earn certificate',
+    completed: 'Completed',
+    completing: 'Saving...',
+    docCompleted: 'Document completed',
+    keepStudying: 'You can revisit this document anytime.',
+    error: 'Error saving progress. Try again.',
+  },
 };
 
 export default function CompletionButton({
@@ -53,9 +63,11 @@ export default function CompletionButton({
   const t = i18n[lang];
 
   // Check whether a quiz exists for this document.
+  // Quiz pools only exist in ES and RU. EN users take the ES quiz.
+  const quizLang: 'es' | 'ru' = lang === 'ru' ? 'ru' : 'es';
   useEffect(() => {
     let cancelled = false;
-    fetch(`/api/quiz/available?docPath=${encodeURIComponent(quizDocPath)}&language=${lang}`)
+    fetch(`/api/quiz/available?docPath=${encodeURIComponent(quizDocPath)}&language=${quizLang}`)
       .then(async (r) => {
         if (!r.ok) return { exists: false };
         return r.json().catch(() => ({ exists: false }));
@@ -63,7 +75,7 @@ export default function CompletionButton({
       .then((data) => {
         if (cancelled) return;
         // Backend returns { exists, language, es, ru } — quiz available if exists in current lang or "both"
-        const inLang = lang === 'es' ? data?.es : data?.ru;
+        const inLang = quizLang === 'es' ? data?.es : data?.ru;
         setQuizAvailable(Boolean(data?.exists && inLang));
       })
       .catch(() => {
@@ -72,7 +84,7 @@ export default function CompletionButton({
     return () => {
       cancelled = true;
     };
-  }, [quizDocPath, lang]);
+  }, [quizDocPath, quizLang]);
 
   const markCompletedDirect = useCallback(async () => {
     if (loading || completed) return;
@@ -152,7 +164,7 @@ export default function CompletionButton({
           onSuccess={handleQuizSuccess}
           docPath={quizDocPath}
           docTitle={docTitle}
-          language={lang}
+          language={quizLang}
           userName={userName}
         />
       </>
@@ -254,7 +266,7 @@ export default function CompletionButton({
         onSuccess={handleQuizSuccess}
         docPath={quizDocPath}
         docTitle={docTitle}
-        language={lang}
+        language={quizLang}
       />
     </>
   );

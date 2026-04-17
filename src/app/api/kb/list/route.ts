@@ -11,7 +11,8 @@ export async function GET(req: Request) {
   }
 
   const url = new URL(req.url);
-  const lang = (url.searchParams.get('lang') || 'es').toLowerCase() === 'ru' ? 'ru' : 'es';
+  const rawLang = (url.searchParams.get('lang') || 'es').toLowerCase();
+  const lang: 'es' | 'ru' | 'en' = rawLang === 'ru' ? 'ru' : rawLang === 'en' ? 'en' : 'es';
 
   // Intentionally minimal: docPath + section + slug only (no titles, no previews).
   // Titles/snippets are available via /api/kb/search (rate-limited per-query).

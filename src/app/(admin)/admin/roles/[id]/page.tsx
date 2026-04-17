@@ -70,6 +70,24 @@ const labels: Record<Lang, {
     noneEnabled: 'Нет включённых разделов',
     moreSuffix: 'ещё',
   },
+  en: {
+    errorLoading: 'Error loading roles',
+    notFound: 'Role not found',
+    connError: 'Connection error',
+    backToRoles: 'Back to Roles',
+    admin: 'Admin',
+    configureDesc: 'Configure the sections this role can view',
+    enableAll: 'Enable all',
+    disableAll: 'Disable all',
+    documentOne: 'document',
+    documentMany: 'documents',
+    toggleEnable: 'Enable',
+    toggleDisable: 'Disable',
+    sectionsLabel: 'sections',
+    docsAccessible: 'accessible documents',
+    noneEnabled: 'No sections enabled',
+    moreSuffix: 'more',
+  },
 };
 
 // Mirror of SECTIONS from sections.ts -- used client-side

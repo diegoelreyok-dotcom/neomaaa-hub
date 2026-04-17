@@ -10,7 +10,7 @@ export const runtime = 'nodejs';
 const CONTENT_DIR = path.join(process.cwd(), 'src', 'content');
 
 /** Path-traversal-safe resolver (mirrors src/lib/content.ts). */
-function safeResolve(filePath: string, lang: 'es' | 'ru'): string | null {
+function safeResolve(filePath: string, lang: 'es' | 'ru' | 'en'): string | null {
   if (!filePath || typeof filePath !== 'string' || filePath.includes('\0')) return null;
   const resolved = path.resolve(CONTENT_DIR, lang, filePath);
   const expected = path.resolve(CONTENT_DIR, lang) + path.sep;
@@ -27,7 +27,8 @@ export async function GET(req: Request) {
 
   const url = new URL(req.url);
   const docPath = (url.searchParams.get('path') || '').trim();
-  const lang = (url.searchParams.get('lang') || 'es').toLowerCase() === 'ru' ? 'ru' : 'es';
+  const rawLang = (url.searchParams.get('lang') || 'es').toLowerCase();
+  const lang: 'es' | 'ru' | 'en' = rawLang === 'ru' ? 'ru' : rawLang === 'en' ? 'en' : 'es';
 
   if (!docPath) {
     return NextResponse.json({ error: 'Missing "path" param (e.g. "encyclopedia/abc")' }, { status: 400 });
@@ -44,8 +45,8 @@ export async function GET(req: Request) {
   try {
     content = fs.readFileSync(full, 'utf-8');
   } catch {
-    // Fallback to ES if RU is missing
-    if (lang === 'ru') {
+    // Fallback to ES if RU or EN is missing
+    if (lang === 'ru' || lang === 'en') {
       const fb = safeResolve(filePath, 'es');
       if (fb) {
         try {
@@ -90,6 +91,7 @@ export async function GET(req: Request) {
       slug,
       titleEs: entry?.titleEs || slug,
       titleRu: entry?.titleRu || slug,
+      titleEn: entry?.titleEn || entry?.titleEs || slug,
       language: lang,
       content,
       wordCount: entry?.wordCount ?? content.split(/\s+/).length,

@@ -190,8 +190,7 @@ Cualquier comunicacion comercial del Vault debe incluir el disclaimer:
 - `legal/client-agreement.md` — Acuerdo del cliente (marco contractual general).
 - `legal/terms-conditions.md` — T&C generales.
 - `encyclopedia/abc.md` — Entrada "Vault Yield System" en el glosario.
-- `executive/treasury-management.md` — Como se gestiona el float del broker incluido el Vault.
-- `executive/wallet-structure-neomaaa.md` — Estructura de wallets que soporta el Vault.
+- `executive/wallet-structure-neomaaa.md` — Estructura de wallets que soporta el Vault (incluye gestion del float).
 - `compliance/edd-triggers.md` — Triggers EDD para depositos Vault grandes.
 
 ---

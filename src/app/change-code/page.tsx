@@ -8,7 +8,7 @@ export default function ChangeCodePage() {
   const router = useRouter();
   // Bilingual toggle (no SessionProvider in the app — we'd need one for
   // useSession). ES is the default; user can flip to RU if needed.
-  const [lang, setLang] = useState<'es' | 'ru'>('es');
+  const [lang, setLang] = useState<'es' | 'ru' | 'en'>('es');
 
   const [newCode, setNewCode] = useState('');
   const [confirmCode, setConfirmCode] = useState('');
@@ -39,6 +39,18 @@ export default function ChangeCodePage() {
       mismatch: 'Коды не совпадают',
       invalid: 'Код должен состоять ровно из 6 цифр',
       forbidden: 'Нельзя использовать 000000',
+    },
+    en: {
+      title: 'Change access code',
+      subtitle: 'For security reasons, you must change your code before continuing.',
+      newCode: 'New code (6 digits)',
+      confirm: 'Confirm code',
+      save: 'Save code',
+      saving: 'Saving...',
+      signOut: 'Sign out',
+      mismatch: 'Codes do not match',
+      invalid: 'Code must be exactly 6 digits',
+      forbidden: 'Cannot use 000000',
     },
   }[lang];
 
@@ -180,6 +192,14 @@ export default function ChangeCodePage() {
             className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 ${lang === 'ru' ? 'bg-neo-dark-2 text-neo-text border border-neo-dark-3' : 'text-neo-text-muted hover:text-neo-text-secondary border border-transparent'}`}
           >
             RU
+          </button>
+          <button
+            onClick={() => setLang('en')}
+            aria-label="English"
+            aria-pressed={lang === 'en'}
+            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 ${lang === 'en' ? 'bg-neo-dark-2 text-neo-text border border-neo-dark-3' : 'text-neo-text-muted hover:text-neo-text-secondary border border-transparent'}`}
+          >
+            EN
           </button>
         </div>
 

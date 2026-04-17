@@ -15,7 +15,8 @@ export interface SearchEntry {
   slug: string;
   titleEs: string;
   titleRu: string;
-  language: 'es' | 'ru';
+  titleEn?: string;
+  language: 'es' | 'ru' | 'en';
   body: string;
   wordCount: number;
 }
@@ -48,11 +49,17 @@ export interface ScoredResult extends SearchEntry {
 }
 
 /** Score = title matches (×10) + body occurrences (×1). */
-export function scoreEntry(entry: SearchEntry, query: string, lang: 'es' | 'ru'): number {
+export function scoreEntry(entry: SearchEntry, query: string, lang: 'es' | 'ru' | 'en'): number {
   const q = query.toLowerCase().trim();
   if (!q) return 0;
 
-  const title = (lang === 'ru' ? entry.titleRu : entry.titleEs).toLowerCase();
+  const title = (
+    lang === 'ru'
+      ? entry.titleRu
+      : lang === 'en'
+        ? (entry.titleEn || entry.titleEs)
+        : entry.titleEs
+  ).toLowerCase();
   const body = entry.body.toLowerCase();
 
   let score = 0;
@@ -74,7 +81,7 @@ export function scoreEntry(entry: SearchEntry, query: string, lang: 'es' | 'ru')
 
 export function search(
   query: string,
-  opts: { lang?: 'es' | 'ru'; limit?: number; allowedSections?: string[] } = {},
+  opts: { lang?: 'es' | 'ru' | 'en'; limit?: number; allowedSections?: string[] } = {},
 ): ScoredResult[] {
   const lang = opts.lang || 'es';
   const limit = Math.min(Math.max(1, opts.limit || 10), 50);
@@ -84,9 +91,14 @@ export function search(
   const q = query.toLowerCase().trim();
   if (!q) return [];
 
+  // EN fallback: if no EN entries have been indexed yet, search over ES so the
+  // user still gets results while EN translations are being authored.
+  const hasEn = lang === 'en' && index.some((e) => e.language === 'en');
+  const effectiveLang: 'es' | 'ru' | 'en' = lang === 'en' && !hasEn ? 'es' : lang;
+
   const results: ScoredResult[] = [];
   for (const e of index) {
-    if (e.language !== lang) continue;
+    if (e.language !== effectiveLang) continue;
     if (allowed && !allowed.includes(e.section)) continue;
     const score = scoreEntry(e, q, lang);
     if (score > 0) results.push({ ...e, score });

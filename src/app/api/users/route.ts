@@ -74,7 +74,7 @@ export async function POST(req: Request) {
     }
 
     // Validate lang
-    const validLang = lang === 'ru' ? 'ru' : 'es';
+    const validLang: 'es' | 'ru' | 'en' = lang === 'ru' ? 'ru' : lang === 'en' ? 'en' : 'es';
 
     const code = generateCode();
     const result = await createUser(
@@ -127,7 +127,12 @@ export async function PATCH(req: Request) {
     }
 
     // Validate lang if provided
-    if (safeUpdates.lang && safeUpdates.lang !== 'es' && safeUpdates.lang !== 'ru') {
+    if (
+      safeUpdates.lang &&
+      safeUpdates.lang !== 'es' &&
+      safeUpdates.lang !== 'ru' &&
+      safeUpdates.lang !== 'en'
+    ) {
       return NextResponse.json({ error: 'Idioma invalido' }, { status: 400 });
     }
 

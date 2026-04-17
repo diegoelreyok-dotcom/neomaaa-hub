@@ -436,7 +436,7 @@ Hoy bajás de la teoría general a tu rol específico. Encontrá tu sección aba
 | Screening de Sanciones | Cómo verificamos contra OFAC/EU/UN | [/content/compliance/screening-sanciones](/content/compliance/screening-sanciones) |
 | Proceso KYC Sumsub | El flujo técnico completo | [/content/compliance/proceso-kyc-sumsub](/content/compliance/proceso-kyc-sumsub) |
 | Compliance Calendar | Rutina periódica + record keeping + retention | [/content/compliance/compliance-calendar](/content/compliance/compliance-calendar) |
-| Workflow Sales-Compliance | Cómo trabajamos con ventas | [/content/compliance/workflow-sales-compliance](/content/compliance/workflow-sales-compliance) |
+| Workflow Compliance | Workflow general + handoff Sales↔Compliance | [/content/compliance/workflow](/content/compliance/workflow) |
 
 **Práctica (2h):** Susana te muestra 5 casos KYC reales (1 limpio, 1 borderline, 1 rechazado, 1 PEP, 1 sospechoso). Vos decidís cómo lo manejarías y ella te corrige.
 
