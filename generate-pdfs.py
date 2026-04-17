@@ -269,6 +269,15 @@ def format_inline(text):
     return text
 
 
+def _safe_paragraph_text(text):
+    """Strip potentially unbalanced HTML tags that crash reportlab paraparser."""
+    # Drop all tags, keep text only.
+    clean = re.sub(r'<[^>]+>', ' ', text)
+    # Collapse whitespace
+    clean = re.sub(r'\s+', ' ', clean).strip()
+    return clean
+
+
 def parse_markdown_to_elements(md_text, styles):
     """Parse markdown text and return a list of reportlab flowable elements."""
     elements = []
@@ -575,17 +584,25 @@ def preprocess_for_pdf(md_text):
     # Replace with visible dotted line instead.
     md_text = re.sub(r'_{4,}', '............', md_text)
 
-    # `>` inside text that reportlab's paraparser may interpret as unclosed tags.
-    # Escape stray `>` that aren't closing an HTML tag or starting a blockquote.
-    # Stray ">500K" etc. can confuse the parser.
-    def _escape_stray_gt(line):
-        # Only escape if the line is prose (not starting with > as blockquote, not inside HTML tag context)
+    # Escape `<` and `>` that are prose text (e.g. "<USD 10K", ">$500K"),
+    # not real HTML tags. Whitelist of tags reportlab understands:
+    VALID_TAGS = r'(?:b|i|u|s|strong|em|font|sub|sup|br|para|a|link|img)'
+
+    def _escape_stray_brackets(line):
+        # Skip blockquote lines (markdown `> text`)
         if line.lstrip().startswith('>'):
             return line
-        # Only escape `>` that appear inside text like ">$500K" or ">100 req"
-        return re.sub(r'(?<=[a-zA-Z0-9 ])>(?=\$|\d)', '&gt;', line)
+        # Escape `<` not followed by a valid tag name or closing slash.
+        line = re.sub(
+            rf'<(?!/?{VALID_TAGS}\b)',
+            '&lt;',
+            line,
+        )
+        # Escape `>` that are clearly prose (after letter/number/space, before $ or digit).
+        line = re.sub(r'(?<=[a-zA-Z0-9 ])>(?=\$|\d)', '&gt;', line)
+        return line
 
-    md_text = '\n'.join(_escape_stray_gt(l) for l in md_text.split('\n'))
+    md_text = '\n'.join(_escape_stray_brackets(l) for l in md_text.split('\n'))
 
     return md_text
 
