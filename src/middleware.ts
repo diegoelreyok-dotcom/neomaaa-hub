@@ -68,14 +68,15 @@ export default auth(async (req) => {
     return NextResponse.redirect(new URL('/login', req.url));
   }
 
-  // Session is valid — but verify user is still active in DB.
-  // JWT cached `isActive=true` at login; admin could have disabled since.
-  // Tradeoff: +1 KV get per request (~5-20ms). Fine for internal portal.
+  // Session is valid — optionally verify user is still active in DB.
+  // Only blocks if KV EXPLICITLY returns isActive=false. If KV is unreachable
+  // or returns null (edge runtime quirks), we fall through and trust the JWT.
+  // This prevents accidental lockout of everyone when KV has transient issues.
   if (userId) {
     try {
       const dbUser: any = await kv.get(`user:${userId}`);
-      if (!dbUser || dbUser.isActive === false) {
-        // User was disabled or deleted — kill the session immediately.
+      if (dbUser && dbUser.isActive === false) {
+        // User was explicitly disabled — kill the session.
         if (pathname.startsWith('/api/')) {
           return NextResponse.json(
             { error: 'Account disabled', code: 'ACCOUNT_DISABLED' },
@@ -86,9 +87,10 @@ export default auth(async (req) => {
           new URL('/login?error=AccountDisabled', req.url),
         );
       }
+      // If dbUser is null/undefined, KV might be slow or rate-limited.
+      // Don't block the user — trust the JWT that was validated at login.
     } catch {
-      // KV unavailable — don't block the request on infra failure.
-      // Fall through to normal flow.
+      // KV unavailable — don't block on infra failure. Fall through.
     }
   }
 
