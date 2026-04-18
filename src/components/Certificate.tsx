@@ -139,14 +139,15 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(function Certif
           opacity: 0.04,
           pointerEvents: 'none',
           userSelect: 'none',
-          fontSize: '260px',
+          fontSize: '180px',
           fontWeight: 900,
-          letterSpacing: '-0.05em',
+          letterSpacing: '-0.04em',
           color: ink,
           fontFamily: "'Inter', sans-serif",
+          whiteSpace: 'nowrap',
         }}
       >
-        NM
+        NEOMAAA
       </div>
 
       {/* Logo — top left */}
@@ -207,7 +208,7 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(function Certif
         style={{
           position: 'relative',
           zIndex: 1,
-          padding: '150px 100px 80px',
+          padding: '150px 100px 110px',
           textAlign: 'center',
           height: '100%',
           boxSizing: 'border-box',
@@ -391,33 +392,24 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(function Certif
                   stroke={burgundy}
                   strokeWidth="0.8"
                 />
-                <circle cx="55" cy="55" r="30" fill={burgundy} />
+                <circle cx="55" cy="55" r="26" fill={burgundy} />
+                {/* Inner monogram — clean single letter */}
                 <text
                   x="55"
-                  y="52"
+                  y="63"
                   textAnchor="middle"
                   fill={paper}
-                  fontSize="11"
-                  fontWeight="800"
-                  letterSpacing="1"
+                  fontSize="26"
+                  fontWeight="900"
+                  letterSpacing="0"
                   fontFamily="Inter, sans-serif"
                 >
-                  NM
+                  N
                 </text>
-                <text
-                  x="55"
-                  y="64"
-                  textAnchor="middle"
-                  fill={paper}
-                  fontSize="5"
-                  letterSpacing="1.2"
-                  fontFamily="Inter, sans-serif"
-                >
-                  MARKETS
-                </text>
+                {/* Circular ring text */}
                 <text fill={burgundyDark} fontSize="7" fontWeight="700" letterSpacing="2">
                   <textPath href={`#circlePath-${cert.id}`} startOffset="50%" textAnchor="middle">
-                    {`• ${t.verified} • NEOMAAA MARKETS •`}
+                    {`NEOMAAA MARKETS · ${t.verified}`}
                   </textPath>
                 </text>
               </svg>
