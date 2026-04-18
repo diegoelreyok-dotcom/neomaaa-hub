@@ -18,6 +18,12 @@ const API_KEY_ROUTES = ['/api/kb'];
 // Admin-only routes (both pages and API endpoints)
 const ADMIN_ROUTES = ['/admin', '/api/users', '/api/roles', '/api/seed', '/api/admin'];
 
+// Sub-paths under admin-gated prefixes that any authenticated user can hit
+// (self-service endpoints). Without these exclusions, /api/users/change-code
+// and /api/users/lang get caught by the `/api/users` admin prefix and return
+// 403 for non-admins trying to rotate their own code or switch language.
+const ADMIN_ROUTE_EXCEPTIONS = ['/api/users/change-code', '/api/users/lang'];
+
 // Routes that a logged-in user can reach even when mustChangeCode is true.
 // Everything else forces a redirect to /change-code until they rotate.
 const CODE_CHANGE_ALLOWED = [
@@ -106,7 +112,9 @@ export default auth(async (req) => {
   }
 
   // Admin routes require admin role
-  const isAdminRoute = ADMIN_ROUTES.some((route) => pathname.startsWith(route));
+  const isAdminException = ADMIN_ROUTE_EXCEPTIONS.some((route) => pathname.startsWith(route));
+  const isAdminRoute =
+    !isAdminException && ADMIN_ROUTES.some((route) => pathname.startsWith(route));
   if (isAdminRoute && !isAdmin) {
     if (pathname.startsWith('/api/')) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
