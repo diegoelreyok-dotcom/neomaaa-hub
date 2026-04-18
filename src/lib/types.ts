@@ -4,6 +4,12 @@ export interface User {
   email?: string; // Corporate email (e.g. dl@neomaaa.com). Metadata only — login uses id+code.
   loginCode: string; // bcrypt hash
   roleId: string;
+  /**
+   * Additional sections this user can access beyond their role.sections.
+   * Admin UI adds these ad-hoc (e.g. Edward is `sales` but also gets `marketing`).
+   * Effective sections = role.sections ∪ user.extraSections.
+   */
+  extraSections?: string[];
   lang: 'es' | 'ru' | 'en';
   isActive: boolean;
   createdAt: string;

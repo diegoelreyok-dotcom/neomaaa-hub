@@ -160,7 +160,13 @@ export async function PATCH(req: Request) {
         );
       }
       const role = await getRole(roleId).catch(() => null);
-      if (!role || !Array.isArray(role.sections) || !role.sections.includes(section)) {
+      const extraSections = (session.user as any).extraSections as string[] | undefined;
+      const hasAccess =
+        role && (
+          role.sections.includes(section) ||
+          (Array.isArray(extraSections) && extraSections.includes(section))
+        );
+      if (!hasAccess) {
         return NextResponse.json(
           { error: 'forbidden', message: 'No tienes acceso a esta sección' },
           { status: 403 }

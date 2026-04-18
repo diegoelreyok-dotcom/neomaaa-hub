@@ -116,6 +116,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           token.isAdmin = role?.isAdmin || false;
           token.lang = dbUser.lang;
           token.mustChangeCode = dbUser.mustChangeCode === true;
+          token.extraSections = dbUser.extraSections || [];
           return token;
         }
         // Fallback: hardcoded admin (no DB record)
@@ -144,6 +145,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         (session.user as any).isAdmin = token.isAdmin;
         (session.user as any).lang = token.lang;
         (session.user as any).mustChangeCode = token.mustChangeCode === true;
+        (session.user as any).extraSections = (token as any).extraSections || [];
       }
       return session;
     },

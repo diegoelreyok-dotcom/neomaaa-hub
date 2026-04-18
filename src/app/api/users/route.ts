@@ -48,7 +48,7 @@ export async function POST(req: Request) {
 
   try {
     const body = await req.json();
-    const { id, name, roleId, lang, isActive } = body;
+    const { id, name, roleId, lang, isActive, email, extraSections } = body;
 
     if (!id || typeof id !== 'string' || !name || typeof name !== 'string' || !roleId || typeof roleId !== 'string') {
       return NextResponse.json(
@@ -76,6 +76,10 @@ export async function POST(req: Request) {
     // Validate lang
     const validLang: 'es' | 'ru' | 'en' = lang === 'ru' ? 'ru' : lang === 'en' ? 'en' : 'es';
 
+    const validExtraSections = Array.isArray(extraSections)
+      ? extraSections.filter((s: unknown) => typeof s === 'string')
+      : undefined;
+
     const code = generateCode();
     const result = await createUser(
       {
@@ -84,6 +88,8 @@ export async function POST(req: Request) {
         roleId,
         lang: validLang,
         isActive: isActive !== undefined ? isActive : true,
+        ...(typeof email === 'string' && email.trim() ? { email: email.trim() } : {}),
+        ...(validExtraSections ? { extraSections: validExtraSections } : {}),
       },
       code
     );
@@ -118,11 +124,29 @@ export async function PATCH(req: Request) {
     }
 
     // Only allow specific safe fields to be updated
-    const allowedFields = ['name', 'roleId', 'lang', 'isActive'];
+    const allowedFields = ['name', 'roleId', 'lang', 'isActive', 'email', 'extraSections'];
     const safeUpdates: Record<string, unknown> = {};
     for (const field of allowedFields) {
       if (updates[field] !== undefined) {
         safeUpdates[field] = updates[field];
+      }
+    }
+
+    // Validate extraSections is array of strings
+    if (safeUpdates.extraSections !== undefined) {
+      if (!Array.isArray(safeUpdates.extraSections) ||
+          !safeUpdates.extraSections.every((s: unknown) => typeof s === 'string')) {
+        return NextResponse.json(
+          { error: 'extraSections debe ser un array de strings' },
+          { status: 400 }
+        );
+      }
+    }
+
+    // Validate email format if provided
+    if (safeUpdates.email !== undefined && safeUpdates.email !== null) {
+      if (typeof safeUpdates.email !== 'string' || safeUpdates.email.length > 200) {
+        return NextResponse.json({ error: 'Email invalido' }, { status: 400 });
       }
     }
 

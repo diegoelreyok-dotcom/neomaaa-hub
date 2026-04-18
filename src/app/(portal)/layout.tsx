@@ -88,6 +88,7 @@ export default async function PortalLayout({
   const isAdmin: boolean = user.isAdmin || false;
   const lang: Lang = user.lang || 'es';
   const userName: string = user.name || userId;
+  const extraSections: string[] = Array.isArray(user.extraSections) ? user.extraSections : [];
 
   // Try DB first, fall back to hardcoded roles
   // SECURITY: Fall back to most restrictive role, not admin
@@ -96,7 +97,7 @@ export default async function PortalLayout({
     role = FALLBACK_ROLES[roleId] || (isAdmin ? FALLBACK_ROLES['admin'] : FALLBACK_ROLES['sales']);
   }
 
-  const sections = getVisibleSections(role);
+  const sections = getVisibleSections(role, extraSections);
 
   return (
     <PortalShell

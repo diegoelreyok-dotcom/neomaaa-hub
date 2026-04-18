@@ -30,6 +30,7 @@ export default async function DashboardPage() {
   const userId: string = user?.userId || '';
   const roleId: string = user?.roleId || 'admin';
   const isAdmin: boolean = user?.isAdmin || false;
+  const extraSections: string[] = Array.isArray(user?.extraSections) ? user.extraSections : [];
 
   const content = getDashboardContent(lang);
 
@@ -38,7 +39,7 @@ export default async function DashboardPage() {
   if (!role) {
     role = FALLBACK_ROLES[roleId] || (isAdmin ? FALLBACK_ROLES['admin'] : FALLBACK_ROLES['sales']);
   }
-  const visibleSections = getVisibleSections(role);
+  const visibleSections = getVisibleSections(role, extraSections);
   const totalDocs = visibleSections.reduce((sum, s) => sum + s.documents.length, 0);
   const totalSections = visibleSections.length;
 

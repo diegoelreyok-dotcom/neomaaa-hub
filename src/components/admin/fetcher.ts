@@ -13,11 +13,14 @@ export async function jsonFetcher<T = unknown>(url: string): Promise<T> {
 export interface AdminUser {
   id: string;
   name: string;
+  email?: string;
   roleId: string;
+  extraSections?: string[];
   lang: 'es' | 'ru' | 'en';
   isActive: boolean;
   createdAt: string;
   lastLogin?: string;
+  mustChangeCode?: boolean;
 }
 
 export interface AdminRole {

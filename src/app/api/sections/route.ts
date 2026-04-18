@@ -29,6 +29,6 @@ export async function GET() {
     return NextResponse.json({ error: 'Rol no encontrado' }, { status: 404 });
   }
 
-  const sections = getVisibleSections(role);
+  const sections = getVisibleSections(role, user.extraSections);
   return NextResponse.json(sections);
 }
