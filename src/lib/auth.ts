@@ -135,6 +135,27 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         token.isAdmin = false;
         token.lang = 'es';
         token.mustChangeCode = false;
+        return token;
+      }
+
+      // Subsequent requests: refresh mutable fields from DB so language,
+      // role, and extraSections changes propagate without requiring re-login.
+      // Without this, the JWT keeps the lang set at login and switching
+      // language in the UI updates the sidebar (client state) but NOT the
+      // server-rendered content pages, which still read the stale JWT.
+      if (token.userId) {
+        try {
+          const dbUser = await getUser(token.userId as string);
+          if (dbUser) {
+            token.lang = dbUser.lang;
+            token.roleId = dbUser.roleId;
+            token.extraSections = dbUser.extraSections || [];
+            const role = await getRole(dbUser.roleId);
+            if (role) token.isAdmin = role.isAdmin || false;
+          }
+        } catch {
+          // KV unavailable — fall through with existing token values
+        }
       }
       return token;
     },
