@@ -789,7 +789,7 @@ export default function SettingsPage() {
                     <div className="text-white text-sm font-medium group-hover:text-white transition-colors">
                       {user.name}
                     </div>
-                    <div className="text-[#666666] text-xs mt-0.5">{user.id}@neomaaa.com</div>
+                    <div className="text-[#666666] text-xs mt-0.5">{user.email || '—'}</div>
                   </div>
 
                   {/* Status dot */}
@@ -1062,7 +1062,7 @@ export default function SettingsPage() {
                     </div>
                     <div>
                       <div className="text-white text-sm font-medium">{acc.name}</div>
-                      <div className="text-[#666666] text-xs">{acc.id}@neomaaa.com</div>
+                      <div className="text-[#666666] text-xs">{acc.email || '—'}</div>
                     </div>
                   </div>
                   <div className="col-span-3 flex items-center">

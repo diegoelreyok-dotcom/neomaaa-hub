@@ -468,10 +468,10 @@ The detailed operational verifications are in PHASE 1 of this runbook (technolog
 
 | Person | Role | Phone | Email | Availability |
 |---|---|---|---|---|
-| Diego | CEO / Final Decision | `[DATA: Diego confirms]` | diego@neomaaa.com | 24/7 Go-Live week |
+| Diego | CEO / Final Decision | `[DATA: Diego confirms]` | dl@neomaaa.com | 24/7 Go-Live week |
 | Angel | CCO / Co-founder | `[DATA: Angel confirms]` | angel@neomaaa.com | 24/7 Go-Live week |
-| Yulia | Operations Director | `[DATA: Yulia confirms]` | yulia@neomaaa.com | 24/7 Go-Live week |
-| Stanislav | Principal / Tech | `[DATA: Stanislav confirms]` | stanislav@neomaaa.com | 24/7 Go-Live week |
+| Yulia | Operations Director | `[DATA: Yulia confirms]` | ys@neomaaa.com | 24/7 Go-Live week |
+| Stanislav | Principal / Tech | `[DATA: Stanislav confirms]` | sk@neomaaa.com | 24/7 Go-Live week |
 | Pepe | Head of Dealing | `[DATA: Pepe confirms]` | pepe@neomaaa.com | Market open + on-call |
 | Susana | Compliance Officer | `[DATA: Susana confirms]` | compliance@neomaaa.com | Business hours + critical on-call |
 | Edward | Head of Sales/Support | `[DATA: Edward confirms]` | edward@neomaaa.com | Extended business hours |
