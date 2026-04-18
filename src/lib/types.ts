@@ -1,6 +1,7 @@
 export interface User {
   id: string;
   name: string;
+  email?: string; // Corporate email (e.g. dl@neomaaa.com). Metadata only — login uses id+code.
   loginCode: string; // bcrypt hash
   roleId: string;
   lang: 'es' | 'ru' | 'en';
