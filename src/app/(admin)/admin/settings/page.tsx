@@ -390,6 +390,7 @@ interface RoleData {
 interface UserData {
   id: string;
   name: string;
+  email?: string;
   roleId: string;
   lang: 'es' | 'ru' | 'en';
   isActive: boolean;
@@ -1062,7 +1063,7 @@ export default function SettingsPage() {
                     </div>
                     <div>
                       <div className="text-white text-sm font-medium">{acc.name}</div>
-                      <div className="text-[#666666] text-xs">{acc.email || '—'}</div>
+                      <div className="text-[#666666] text-xs">{user?.email || '—'}</div>
                     </div>
                   </div>
                   <div className="col-span-3 flex items-center">
