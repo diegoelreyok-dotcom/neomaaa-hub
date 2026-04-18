@@ -965,6 +965,10 @@ function ResultView({
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </div>
+          {/* Big APPROVED badge */}
+          <div className="mb-3 px-5 py-1.5 rounded-full bg-neo-success text-white text-xs font-black uppercase tracking-[0.2em]">
+            {t.approved}
+          </div>
           <h2
             id="quiz-modal-title"
             className="text-3xl sm:text-[34px] font-extrabold text-neo-text leading-tight tracking-tight"
@@ -1071,12 +1075,16 @@ function ResultView({
   return (
     <div className="p-8 sm:p-10">
       <div className="flex flex-col items-center text-center">
-        <div className="w-20 h-20 rounded-full bg-neo-warning/15 flex items-center justify-center mb-4">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-neo-warning">
+        <div className="w-20 h-20 rounded-full bg-neo-danger/15 flex items-center justify-center mb-4">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-neo-danger">
             <circle cx="12" cy="12" r="10" />
-            <line x1="12" y1="8" x2="12" y2="12" />
-            <line x1="12" y1="16" x2="12.01" y2="16" />
+            <line x1="15" y1="9" x2="9" y2="15" />
+            <line x1="9" y1="9" x2="15" y2="15" />
           </svg>
+        </div>
+        {/* Big NOT APPROVED badge */}
+        <div className="mb-3 px-5 py-1.5 rounded-full bg-neo-danger text-white text-xs font-black uppercase tracking-[0.2em]">
+          {t.notApproved}
         </div>
         <h2
           id="quiz-modal-title"
