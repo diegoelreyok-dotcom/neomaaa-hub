@@ -46,7 +46,7 @@ export default function QuickActions({ lang }: QuickActionsProps) {
       ),
     },
     {
-      href: '/my-path',
+      href: '/learning',
       title: t.myPath.title,
       desc: t.myPath.desc,
       color: '#98283A',

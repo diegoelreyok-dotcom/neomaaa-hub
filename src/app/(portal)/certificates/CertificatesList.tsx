@@ -10,7 +10,7 @@ import MiniSparkline from './MiniSparkline';
 interface Props {
   certs: Certificate[];
   lang: Lang;
-  docIndex: Record<string, { sectionName: string; sectionNameRu: string }>;
+  docIndex: Record<string, { sectionName: string; sectionNameRu: string; sectionNameEn: string }>;
 }
 
 // -----------------------------------------------------------------------------
@@ -130,7 +130,7 @@ export default function CertificatesList({ certs, lang, docIndex }: Props) {
     },
   }[lang];
 
-  const locale = lang === 'ru' ? 'ru-RU' : 'es-ES';
+  const locale = lang === 'ru' ? 'ru-RU' : lang === 'en' ? 'en-US' : 'es-ES';
   const monthlySeries = buildMonthlySeries(certs);
   const avg = avgScorePct(certs);
   const best = bestScorePct(certs);
@@ -282,7 +282,9 @@ export default function CertificatesList({ certs, lang, docIndex }: Props) {
               const sectionName = meta
                 ? lang === 'ru'
                   ? meta.sectionNameRu
-                  : meta.sectionName
+                  : lang === 'en'
+                    ? meta.sectionNameEn
+                    : meta.sectionName
                 : '—';
               const dateStr = new Date(cert.issuedAt).toLocaleDateString(locale, {
                 day: '2-digit',

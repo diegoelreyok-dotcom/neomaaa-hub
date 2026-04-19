@@ -97,12 +97,12 @@ const SECTION_COLORS: Record<string, { stroke: string; bg: string }> = {
   support: { stroke: '#FBBF24', bg: 'rgba(251, 191, 36, 0.12)' },
   operations: { stroke: '#7A2030', bg: 'rgba(122, 32, 48, 0.12)' },
   marketing: { stroke: '#C94A5C', bg: 'rgba(201, 74, 92, 0.12)' },
-  hiring: { stroke: '#34D399', bg: 'rgba(52, 211, 153, 0.12)' },
-  partners: { stroke: '#FB923C', bg: 'rgba(251, 146, 60, 0.12)' },
-  legal: { stroke: '#A78BFA', bg: 'rgba(167, 139, 250, 0.12)' },
+  hiring: { stroke: '#7A2030', bg: 'rgba(122, 32, 48, 0.12)' },
+  partners: { stroke: '#FBBF24', bg: 'rgba(251, 191, 36, 0.12)' },
+  legal: { stroke: '#98283A', bg: 'rgba(152, 40, 58, 0.12)' },
   launch: { stroke: '#98283A', bg: 'rgba(152, 40, 58, 0.18)' },
-  encyclopedia: { stroke: '#22D3EE', bg: 'rgba(34, 211, 238, 0.12)' },
-  executive: { stroke: '#F87171', bg: 'rgba(248, 113, 113, 0.12)' },
+  encyclopedia: { stroke: '#C94A5C', bg: 'rgba(201, 74, 92, 0.12)' },
+  executive: { stroke: '#7A2030', bg: 'rgba(122, 32, 48, 0.18)' },
 };
 const DEFAULT_SECTION_COLOR = { stroke: '#94A3B8', bg: 'rgba(148, 163, 184, 0.12)' };
 

@@ -39,11 +39,15 @@ export default async function CertificatesPage() {
   const certs = await fetchCertificates(cookie);
 
   // Build helpers to enrich cert info with section name
-  const docIndex = new Map<string, { sectionName: string; sectionNameRu: string }>();
+  const docIndex = new Map<string, { sectionName: string; sectionNameRu: string; sectionNameEn: string }>();
   for (const s of SECTIONS) {
     for (const d of s.documents) {
       const key = `${s.id}/${d.slug}`;
-      docIndex.set(key, { sectionName: s.nameEs, sectionNameRu: s.nameRu });
+      docIndex.set(key, {
+        sectionName: s.nameEs,
+        sectionNameRu: s.nameRu,
+        sectionNameEn: s.nameEn || s.nameEs,
+      });
     }
   }
 
