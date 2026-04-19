@@ -8,6 +8,12 @@ import {
   useAdminProgress,
 } from '@/components/admin/useAdminData';
 import { useAdminLang } from '@/components/admin/AdminContext';
+import {
+  AdminPageHeader,
+  AdminKpi,
+  btnSecondary,
+} from '@/components/admin/AdminUI';
+import AdminStagger, { AdminStaggerItem } from '@/components/admin/AdminStagger';
 
 const labels: Record<Lang, {
   title: string;
@@ -201,13 +207,13 @@ export default function ProgressPage() {
   }
 
   function getProgressColor(pct: number): string {
-    if (pct >= 75) return 'bg-gradient-to-r from-[#38CC97] to-[#2BA87A]';
+    if (pct >= 75) return 'bg-gradient-to-r from-[#10B981] to-[#059669]';
     if (pct >= 40) return 'bg-gradient-to-r from-[#D4A03A] to-[#B8892F]';
     return 'bg-gradient-to-r from-[#C44545] to-[#A33838]';
   }
 
   function getProgressTextColor(pct: number): string {
-    if (pct >= 75) return 'text-[#38CC97]';
+    if (pct >= 75) return 'text-[#10B981]';
     if (pct >= 40) return 'text-[#D4A03A]';
     return 'text-[#C44545]';
   }
@@ -291,64 +297,78 @@ export default function ProgressPage() {
     : 0;
 
   return (
-    <div>
+    <AdminStagger>
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h1 className="text-2xl font-bold text-white">{t.title}</h1>
-          <p className="text-[#666666] text-sm mt-1">
-            {t.subtitle}
-          </p>
-        </div>
-        <button
-          onClick={handleExportCSV}
-          className="inline-flex items-center gap-2 bg-[#111111] border border-[#1E1E1E] text-[#A0A0A0] font-medium text-sm px-4 py-2.5 rounded-lg hover:bg-[#1A1A1A]/50 hover:text-white hover:border-[#1E1E1E] transition-all duration-200"
-        >
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-          </svg>
-          {t.exportCSV}
-        </button>
-      </div>
+      <AdminStaggerItem>
+        <AdminPageHeader
+          title={t.title}
+          subtitle={t.subtitle}
+          actions={
+            <button onClick={handleExportCSV} className={btnSecondary}>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </svg>
+              {t.exportCSV}
+            </button>
+          }
+        />
+      </AdminStaggerItem>
 
       {/* Summary cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-        <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-5">
-          <div className="text-[#666666] text-xs font-semibold uppercase tracking-wider mb-2">{t.activeUsers}</div>
-          <div className="text-2xl font-bold text-white">{users.filter(u => u.isActive).length}</div>
-          <div className="text-[#666666] text-xs mt-1">{t.ofTotal} {users.length}</div>
+      <AdminStaggerItem>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+          <AdminKpi
+            label={t.activeUsers}
+            value={users.filter(u => u.isActive).length}
+            accent="cyan"
+            hint={`${t.ofTotal} ${users.length}`}
+          />
+          <AdminKpi
+            label={t.docsRead}
+            value={totalReadDocs}
+            accent="blue"
+            hint={t.accessesRegistered}
+          />
+          <AdminKpi
+            label={t.avgProgress}
+            value={`${avgProgress}%`}
+            accent={avgProgress >= 75 ? 'green' : avgProgress >= 40 ? 'amber' : 'red'}
+            hint={t.advance}
+          />
         </div>
-        <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-5">
-          <div className="text-[#666666] text-xs font-semibold uppercase tracking-wider mb-2">{t.docsRead}</div>
-          <div className="text-2xl font-bold text-white">{totalReadDocs}</div>
-          <div className="text-[#666666] text-xs mt-1">{t.accessesRegistered}</div>
-        </div>
-        <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-5">
-          <div className="text-[#666666] text-xs font-semibold uppercase tracking-wider mb-2">{t.avgProgress}</div>
-          <div className={`text-2xl font-bold ${getProgressTextColor(avgProgress)}`}>{avgProgress}%</div>
-          <div className="text-[#666666] text-xs mt-1">{t.advance}</div>
-        </div>
-      </div>
+      </AdminStaggerItem>
 
       {/* Progress table */}
-      <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl overflow-hidden">
+      <AdminStaggerItem>
+      <div
+        className="rounded-2xl overflow-hidden border border-white/10"
+        style={{
+          background: 'linear-gradient(135deg, rgba(18,22,38,0.6), rgba(8,11,22,0.6))',
+          backdropFilter: 'blur(10px)',
+        }}
+      >
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="bg-[#0A0A0A]">
-                <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
+              <tr
+                style={{
+                  background: 'linear-gradient(180deg, rgba(10,14,26,0.9), rgba(10,14,26,0.75))',
+                  backdropFilter: 'blur(8px)',
+                }}
+              >
+                <th className="text-left text-[#6B7280] text-[11px] font-semibold uppercase tracking-[0.12em] px-4 py-3.5 border-b border-white/10">
                   {t.colUser}
                 </th>
-                <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
+                <th className="text-left text-[#6B7280] text-[11px] font-semibold uppercase tracking-[0.12em] px-4 py-3.5 border-b border-white/10">
                   {t.colRole}
                 </th>
-                <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
+                <th className="text-left text-[#6B7280] text-[11px] font-semibold uppercase tracking-[0.12em] px-4 py-3.5 border-b border-white/10">
                   {t.colRead}
                 </th>
-                <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3 min-w-[200px]">
+                <th className="text-left text-[#6B7280] text-[11px] font-semibold uppercase tracking-[0.12em] px-4 py-3.5 border-b border-white/10 min-w-[200px]">
                   {t.colProgress}
                 </th>
-                <th className="text-left text-[#666666] text-xs font-semibold uppercase tracking-wider px-4 py-3">
+                <th className="text-left text-[#6B7280] text-[11px] font-semibold uppercase tracking-[0.12em] px-4 py-3.5 border-b border-white/10">
                   {t.colLastAccess}
                 </th>
               </tr>
@@ -387,9 +407,9 @@ export default function ProgressPage() {
                         onClick={() =>
                           setExpandedUser(isExpanded ? null : user.id)
                         }
-                        className={`border-t border-[#1A1A1A]/40 cursor-pointer ${
-                          idx % 2 === 0 ? 'bg-[#111111]' : 'bg-[#111111]/50'
-                        } hover:bg-[#1A1A1A]/30 transition-all duration-200`}
+                        className={`border-t border-white/[0.05] cursor-pointer transition-all duration-150 hover:bg-gradient-to-r hover:from-[#98283A]/[0.06] hover:to-transparent ${
+                          idx % 2 === 1 ? 'bg-white/[0.015]' : ''
+                        }`}
                       >
                         <td className="px-4 py-3.5">
                           <div className="flex items-center gap-3">
@@ -472,7 +492,7 @@ export default function ProgressPage() {
                                         <div className="flex items-start gap-2.5">
                                           <div className={`w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-0.5 ${
                                             p.completed
-                                              ? 'bg-[#38CC97]/15 text-[#38CC97]'
+                                              ? 'bg-[#10B981]/15 text-[#10B981]'
                                               : 'bg-[#1A1A1A]/50 text-[#666666]'
                                           }`}>
                                             {p.completed ? (
@@ -515,7 +535,10 @@ export default function ProgressPage() {
           </table>
         </div>
         {users.length > pageSize && (
-          <div className="flex items-center justify-between px-4 py-3 border-t border-[#1A1A1A]/40 bg-[#0A0A0A]">
+          <div
+            className="flex items-center justify-between px-4 py-3 border-t border-white/[0.05]"
+            style={{ background: 'rgba(10,14,26,0.5)' }}
+          >
             <div className="text-xs text-[#666666]">
               {(page - 1) * pageSize + 1}–{Math.min(page * pageSize, users.length)} / {users.length}
             </div>
@@ -541,6 +564,7 @@ export default function ProgressPage() {
           </div>
         )}
       </div>
-    </div>
+      </AdminStaggerItem>
+    </AdminStagger>
   );
 }

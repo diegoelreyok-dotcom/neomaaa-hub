@@ -199,14 +199,14 @@
 
 /* Variants */
 .neo-callout-info {
-  background: rgba(59, 130, 246, 0.08);
-  border-color: rgba(59, 130, 246, 0.25);
+  background: rgba(201, 74, 92, 0.08);
+  border-color: rgba(201, 74, 92, 0.25);
 }
 .neo-callout-info .neo-callout-icon {
-  background: rgba(59, 130, 246, 0.15);
-  color: #60A5FA;
+  background: rgba(201, 74, 92, 0.15);
+  color: #C94A5C;
 }
-.neo-callout-info .neo-callout-title { color: #60A5FA; }
+.neo-callout-info .neo-callout-title { color: #C94A5C; }
 
 .neo-callout-warning {
   background: rgba(212, 160, 58, 0.08);
@@ -786,7 +786,7 @@
 .neo-badge--success { background: rgba(56, 204, 151, 0.15); color: var(--neo-success); border-color: rgba(56, 204, 151, 0.35); }
 .neo-badge--warning { background: rgba(212, 160, 58, 0.15); color: #F5C547; border-color: rgba(212, 160, 58, 0.35); }
 .neo-badge--danger  { background: rgba(196, 69, 69, 0.15); color: #F87171; border-color: rgba(196, 69, 69, 0.35); }
-.neo-badge--info    { background: rgba(59, 130, 246, 0.15); color: #60A5FA; border-color: rgba(59, 130, 246, 0.35); }
+.neo-badge--info    { background: rgba(201, 74, 92, 0.15); color: #C94A5C; border-color: rgba(201, 74, 92, 0.35); }
 
 /* ==========================================================================
    READING UX — TOC, progress bar

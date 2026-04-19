@@ -1,11 +1,22 @@
 'use client';
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import type { Lang } from '@/lib/types';
 import { useAdminUsers, useAdminRoles } from '@/components/admin/useAdminData';
 import { useAdminLang } from '@/components/admin/AdminContext';
 import type { AdminRole as RoleData } from '@/components/admin/fetcher';
+import {
+  AdminPageHeader,
+  AdminEmpty,
+  AdminBadge,
+  btnPrimary,
+  btnSecondary,
+  btnDanger,
+} from '@/components/admin/AdminUI';
+import { AdminCard } from '@/components/admin/AdminCard';
+import AdminStagger, { AdminStaggerItem } from '@/components/admin/AdminStagger';
 
 const ROLE_GRADIENTS = [
   'from-slate-600 to-slate-700',
@@ -253,24 +264,26 @@ export default function RolesPage() {
   }
 
   return (
-    <div>
+    <AdminStagger>
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h1 className="text-2xl font-bold text-white">{t.title}</h1>
-          <p className="text-[#666666] text-sm mt-1">
-            {roles.length} {roles.length !== 1 ? t.configuredMany : t.configuredOne}
-          </p>
-        </div>
-        <button
-          onClick={() => setShowModal(true)}
-          className="bg-[#98283A] text-white font-semibold text-sm px-4 py-2.5 rounded-lg hover:shadow-lg hover:shadow-[#98283A]/20 transition-all duration-200"
-        >
-          {t.createBtn}
-        </button>
-      </div>
+      <AdminStaggerItem>
+        <AdminPageHeader
+          title={t.title}
+          subtitle={`${roles.length} ${roles.length !== 1 ? t.configuredMany : t.configuredOne}`}
+          counter={roles.length > 0 ? roles.length : undefined}
+          actions={
+            <button onClick={() => setShowModal(true)} className={btnPrimary}>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+              {t.createBtn}
+            </button>
+          }
+        />
+      </AdminStaggerItem>
 
       {/* Roles grid */}
+      <AdminStaggerItem>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {roles.map((role, idx) => {
           const userCount = getUserCountForRole(role.id);
@@ -279,9 +292,29 @@ export default function RolesPage() {
           const secondaryName = lang === 'ru' ? role.name : role.nameRu;
 
           return (
-            <div
+            <motion.div
               key={role.id}
-              className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-5 hover:border-[#98283A]/30 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20 group"
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="relative rounded-2xl overflow-hidden group"
+            >
+            <div
+              className="absolute inset-0 rounded-2xl"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.1), transparent 50%, rgba(152,40,58,0.2))',
+                padding: '1px',
+              }}
+            >
+              <div
+                className="w-full h-full rounded-2xl"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(18,22,38,0.6), rgba(8,11,22,0.6))',
+                  backdropFilter: 'blur(10px)',
+                }}
+              />
+            </div>
+            <div
+              className="relative p-5 group-hover:bg-gradient-to-br group-hover:from-[#98283A]/[0.06] group-hover:to-transparent transition-all duration-300"
             >
               {/* Card header */}
               <div className="flex items-start gap-3 mb-4">
@@ -303,21 +336,19 @@ export default function RolesPage() {
                   )}
                 </div>
                 {role.isAdmin && (
-                  <span className="bg-[#98283A]/15 text-[#98283A] text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider flex-shrink-0 border border-[#98283A]/20">
-                    Admin
-                  </span>
+                  <AdminBadge variant="burgundy">Admin</AdminBadge>
                 )}
               </div>
 
               {/* Stats pills */}
               <div className="flex items-center gap-2 mb-4">
-                <span className="inline-flex items-center gap-1.5 text-[#666666] text-xs bg-[#1A1A1A]/40 px-2.5 py-1 rounded-full font-medium">
+                <span className="inline-flex items-center gap-1.5 text-[#94A3B8] text-xs bg-white/5 border border-white/10 px-2.5 py-1 rounded-full font-medium tabular-nums">
                   <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
                   </svg>
                   {userCount} {userCount !== 1 ? t.userMany : t.userOne}
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-[#666666] text-xs bg-[#1A1A1A]/40 px-2.5 py-1 rounded-full font-medium">
+                <span className="inline-flex items-center gap-1.5 text-[#94A3B8] text-xs bg-white/5 border border-white/10 px-2.5 py-1 rounded-full font-medium tabular-nums">
                   <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6z" />
                   </svg>
@@ -329,7 +360,7 @@ export default function RolesPage() {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => router.push(`/admin/roles/${role.id}`)}
-                  className="flex-1 text-center text-xs font-medium px-3 py-2.5 rounded-lg bg-[#1A1A1A]/50 text-[#A0A0A0] hover:text-white hover:bg-[#1E1E1E] border border-[#1E1E1E]/30 hover:border-[#98283A]/30 transition-all duration-200"
+                  className="flex-1 inline-flex items-center justify-center gap-2 text-xs font-medium px-3 py-2 rounded-xl bg-white/5 text-[#D1D5DB] hover:text-white hover:bg-white/10 border border-white/10 hover:border-[#98283A]/45 transition-all duration-200"
                 >
                   {t.configurePermissions}
                 </button>
@@ -338,42 +369,58 @@ export default function RolesPage() {
                     e.stopPropagation();
                     handleDelete(role);
                   }}
-                  className="text-xs font-medium px-3 py-2.5 rounded-lg bg-[#C44545]/10 text-[#C44545] hover:bg-[#C44545]/20 border border-[#C44545]/20 hover:border-[#C44545]/30 transition-all duration-200"
+                  className={btnDanger}
                 >
                   {t.deleteBtn}
                 </button>
               </div>
             </div>
+            </motion.div>
           );
         })}
       </div>
+      </AdminStaggerItem>
 
       {roles.length === 0 && (
-        <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-12 text-center mt-4">
-          <div className="w-12 h-12 rounded-full bg-[#1A1A1A]/50 flex items-center justify-center mx-auto mb-3">
-            <svg className="w-6 h-6 text-[#666666]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-            </svg>
+        <AdminStaggerItem>
+          <div className="mt-4">
+            <AdminEmpty title={t.emptyHelper} />
           </div>
-          <p className="text-[#666666] text-sm">
-            {t.emptyHelper}
-          </p>
-        </div>
+        </AdminStaggerItem>
       )}
 
       {/* Create Role Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-[#111111] border border-[#1E1E1E] rounded-2xl w-full max-w-md shadow-2xl shadow-black/40">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ background: 'rgba(4,6,14,0.7)', backdropFilter: 'blur(8px)' }}
+        >
+          <div className="relative rounded-2xl w-full max-w-md overflow-hidden">
+            <div
+              className="absolute inset-0 rounded-2xl"
+              style={{
+                background: 'linear-gradient(135deg, rgba(152,40,58,0.4), transparent 50%, rgba(152,40,58,0.26))',
+                padding: '1px',
+              }}
+            >
+              <div
+                className="w-full h-full rounded-2xl"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(22,26,42,0.85), rgba(10,14,26,0.85))',
+                  backdropFilter: 'blur(14px)',
+                }}
+              />
+            </div>
+            <div className="relative">
             {/* Modal header */}
             <div className="px-6 pt-6 pb-4">
               <h2 className="text-lg font-semibold text-white">{t.modalTitle}</h2>
-              <p className="text-[#666666] text-sm mt-1">
+              <p className="text-[#94A3B8] text-sm mt-1">
                 {t.modalSubtitle}
               </p>
             </div>
 
-            <div className="border-b border-[#1A1A1A]/40 mx-6" />
+            <div className="border-b border-white/[0.06] mx-6" />
 
             <div className="p-6 space-y-5">
               {/* Name ES */}
@@ -386,7 +433,7 @@ export default function RolesPage() {
                   value={formName}
                   onChange={(e) => setFormName(e.target.value)}
                   placeholder={t.namePlaceholder}
-                  className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E] text-white rounded-lg px-4 py-2.5 text-sm placeholder:text-[#666666]/50 focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-all duration-200"
+                  className="w-full bg-white/[0.04] border border-white/10 text-white rounded-xl px-4 py-2.5 text-sm placeholder:text-[#6B7280] focus:outline-none focus:border-[#98283A]/50 focus:bg-white/[0.06] focus:shadow-[0_0_0_3px_rgba(152,40,58,0.15)] transition-all duration-200"
                 />
                 {formName.trim() && (
                   <p className="text-[#666666] text-xs mt-1.5">
@@ -405,7 +452,7 @@ export default function RolesPage() {
                   value={formNameRu}
                   onChange={(e) => setFormNameRu(e.target.value)}
                   placeholder={t.nameRuPlaceholder}
-                  className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E] text-white rounded-lg px-4 py-2.5 text-sm placeholder:text-[#666666]/50 focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-all duration-200"
+                  className="w-full bg-white/[0.04] border border-white/10 text-white rounded-xl px-4 py-2.5 text-sm placeholder:text-[#6B7280] focus:outline-none focus:border-[#98283A]/50 focus:bg-white/[0.06] focus:shadow-[0_0_0_3px_rgba(152,40,58,0.15)] transition-all duration-200"
                 />
               </div>
 
@@ -448,22 +495,23 @@ export default function RolesPage() {
                     setFormNameRu('');
                     setFormIsAdmin(false);
                   }}
-                  className="bg-[#1A1A1A] text-[#A0A0A0] font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#1E1E1E] hover:text-white transition-all duration-200"
+                  className={btnSecondary}
                 >
                   {t.cancel}
                 </button>
                 <button
                   onClick={handleCreate}
                   disabled={!formName.trim() || creating}
-                  className="bg-[#98283A] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:shadow-lg hover:shadow-[#98283A]/20 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none"
+                  className={btnPrimary}
                 >
                   {creating ? t.creating : t.create}
                 </button>
               </div>
             </div>
+            </div>
           </div>
         </div>
       )}
-    </div>
+    </AdminStagger>
   );
 }

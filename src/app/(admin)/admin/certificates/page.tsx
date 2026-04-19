@@ -4,6 +4,18 @@ import { useEffect, useState, useMemo } from 'react';
 import Link from 'next/link';
 import type { Certificate } from '@/lib/quiz-types';
 import { useAdminLang } from '@/components/admin/AdminContext';
+import {
+  AdminPageHeader,
+  AdminSkeleton,
+  btnGhost,
+  btnDanger,
+} from '@/components/admin/AdminUI';
+import { AdminCard } from '@/components/admin/AdminCard';
+import AdminStagger, { AdminStaggerItem } from '@/components/admin/AdminStagger';
+import {
+  AdminTable,
+  type AdminTableColumn,
+} from '@/components/admin/AdminTable';
 
 interface Filters {
   user: string;
@@ -19,8 +31,6 @@ export default function AdminCertificatesPage() {
   const [error, setError] = useState<string | null>(null);
   const [filters, setFilters] = useState<Filters>({ user: '', doc: '', from: '', to: '' });
   const [revoking, setRevoking] = useState<string | null>(null);
-  const [page, setPage] = useState(1);
-  const pageSize = 25;
 
   useEffect(() => {
     let cancelled = false;
@@ -28,7 +38,6 @@ export default function AdminCertificatesPage() {
       try {
         const res = await fetch('/api/certificates?all=1');
         if (!res.ok) {
-          // Fallback: try without query param
           const res2 = await fetch('/api/certificates');
           if (!res2.ok) throw new Error('failed');
           const data = await res2.json();
@@ -139,151 +148,144 @@ export default function AdminCertificatesPage() {
 
   const locale = lang === 'ru' ? 'ru-RU' : 'es-ES';
 
-  return (
-    <div>
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold text-white">{t.title}</h1>
-        <p className="text-[#666666] text-sm mt-1">{t.subtitle}</p>
-      </div>
+  const inputCls =
+    'px-3 py-2 bg-white/[0.04] border border-white/10 rounded-xl text-sm text-white placeholder:text-[#6B7280] focus:outline-none focus:border-[#98283A]/50 focus:bg-white/[0.06] focus:shadow-[0_0_0_3px_rgba(152,40,58,0.15)] transition-all duration-200';
 
-      {/* Stats + filters */}
-      <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-5 mb-6">
-        <div className="flex items-center gap-6 mb-4">
-          <div>
-            <div className="text-3xl font-extrabold text-white">{filtered.length}</div>
-            <div className="text-[11px] text-[#666666] uppercase tracking-wider">{t.total}</div>
-          </div>
+  const columns: AdminTableColumn<Certificate>[] = [
+    {
+      key: 'user',
+      header: t.user,
+      render: (cert) => (
+        <div>
+          <div className="text-white text-sm font-medium">{cert.userName}</div>
+          <div className="text-[#6B7280] text-xs">{cert.userId}</div>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-          <input
-            type="text"
-            placeholder={t.filterUser}
-            value={filters.user}
-            onChange={(e) => setFilters((f) => ({ ...f, user: e.target.value }))}
-            className="px-3 py-2 bg-[#1A1A1A] border border-[#1E1E1E] rounded-lg text-sm text-white placeholder:text-[#666666] focus:outline-none focus:border-[#98283A]/60"
-          />
-          <input
-            type="text"
-            placeholder={t.filterDoc}
-            value={filters.doc}
-            onChange={(e) => setFilters((f) => ({ ...f, doc: e.target.value }))}
-            className="px-3 py-2 bg-[#1A1A1A] border border-[#1E1E1E] rounded-lg text-sm text-white placeholder:text-[#666666] focus:outline-none focus:border-[#98283A]/60"
-          />
-          <input
-            type="date"
-            placeholder={t.from}
-            value={filters.from}
-            onChange={(e) => setFilters((f) => ({ ...f, from: e.target.value }))}
-            className="px-3 py-2 bg-[#1A1A1A] border border-[#1E1E1E] rounded-lg text-sm text-white placeholder:text-[#666666] focus:outline-none focus:border-[#98283A]/60"
-          />
-          <input
-            type="date"
-            placeholder={t.to}
-            value={filters.to}
-            onChange={(e) => setFilters((f) => ({ ...f, to: e.target.value }))}
-            className="px-3 py-2 bg-[#1A1A1A] border border-[#1E1E1E] rounded-lg text-sm text-white placeholder:text-[#666666] focus:outline-none focus:border-[#98283A]/60"
-          />
+      ),
+    },
+    {
+      key: 'doc',
+      header: t.doc,
+      render: (cert) => (
+        <div>
+          <div className="text-white text-sm">{cert.docTitle}</div>
+          <div className="text-[#6B7280] text-xs">{cert.docPath}</div>
+        </div>
+      ),
+    },
+    {
+      key: 'score',
+      header: t.score,
+      render: (cert) => (
+        <span className="text-[#C94A5C] font-bold text-sm tabular-nums">
+          {cert.score}/{cert.totalQuestions}
+        </span>
+      ),
+    },
+    {
+      key: 'issued',
+      header: t.issued,
+      render: (cert) => (
+        <span className="text-[#94A3B8] text-sm tabular-nums">
+          {new Date(cert.issuedAt).toLocaleDateString(locale, {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+          })}
+        </span>
+      ),
+    },
+    {
+      key: 'actions',
+      header: t.actions,
+      align: 'right',
+      render: (cert) => (
+        <div className="flex items-center justify-end gap-1">
+          <Link href={`/certificates/${cert.id}`} className={btnGhost}>
+            {t.view}
+          </Link>
           <button
-            onClick={() => setFilters({ user: '', doc: '', from: '', to: '' })}
-            className="px-3 py-2 bg-[#1A1A1A] border border-[#1E1E1E] rounded-lg text-sm text-[#A0A0A0] hover:text-white hover:border-[#2A2A2A]"
+            onClick={() => handleRevoke(cert.id)}
+            disabled={revoking === cert.id}
+            className={`${btnDanger} disabled:opacity-50`}
           >
-            {t.clear}
+            {t.revoke}
           </button>
         </div>
-      </div>
+      ),
+    },
+  ];
+
+  return (
+    <AdminStagger>
+      <AdminStaggerItem>
+        <AdminPageHeader
+          title={t.title}
+          subtitle={t.subtitle}
+          counter={`${filtered.length} ${t.total}`}
+        />
+      </AdminStaggerItem>
+
+      {/* Filters */}
+      <AdminStaggerItem>
+        <div className="mb-6">
+          <AdminCard padding="md">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+              <input
+                type="text"
+                placeholder={t.filterUser}
+                value={filters.user}
+                onChange={(e) => setFilters((f) => ({ ...f, user: e.target.value }))}
+                className={inputCls}
+              />
+              <input
+                type="text"
+                placeholder={t.filterDoc}
+                value={filters.doc}
+                onChange={(e) => setFilters((f) => ({ ...f, doc: e.target.value }))}
+                className={inputCls}
+              />
+              <input
+                type="date"
+                value={filters.from}
+                onChange={(e) => setFilters((f) => ({ ...f, from: e.target.value }))}
+                className={inputCls}
+              />
+              <input
+                type="date"
+                value={filters.to}
+                onChange={(e) => setFilters((f) => ({ ...f, to: e.target.value }))}
+                className={inputCls}
+              />
+              <button
+                onClick={() => setFilters({ user: '', doc: '', from: '', to: '' })}
+                className="px-3 py-2 text-sm text-[#94A3B8] hover:text-white rounded-xl bg-white/[0.04] hover:bg-white/10 border border-white/10 transition-all duration-200"
+              >
+                {t.clear}
+              </button>
+            </div>
+          </AdminCard>
+        </div>
+      </AdminStaggerItem>
 
       {/* Table */}
-      <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl overflow-hidden">
+      <AdminStaggerItem>
         {loading ? (
-          <div className="p-10 text-center text-[#666666]">{t.loading}</div>
+          <AdminSkeleton className="h-96" />
         ) : error ? (
-          <div className="p-10 text-center text-[#C44545]">{error}</div>
-        ) : filtered.length === 0 ? (
-          <div className="p-10 text-center text-[#666666]">{t.empty}</div>
+          <AdminCard padding="lg">
+            <p className="text-[#C94A5C] text-center text-sm py-6">{error}</p>
+          </AdminCard>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead className="bg-[#0A0A0A] border-b border-[#1E1E1E]">
-                <tr className="text-left">
-                  <th className="px-4 py-3 text-[11px] uppercase tracking-wider text-[#666666] font-semibold">{t.user}</th>
-                  <th className="px-4 py-3 text-[11px] uppercase tracking-wider text-[#666666] font-semibold">{t.doc}</th>
-                  <th className="px-4 py-3 text-[11px] uppercase tracking-wider text-[#666666] font-semibold">{t.score}</th>
-                  <th className="px-4 py-3 text-[11px] uppercase tracking-wider text-[#666666] font-semibold">{t.issued}</th>
-                  <th className="px-4 py-3 text-[11px] uppercase tracking-wider text-[#666666] font-semibold text-right">{t.actions}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filtered.slice((page - 1) * pageSize, page * pageSize).map((cert) => (
-                  <tr key={cert.id} className="border-b border-[#1E1E1E] last:border-0 hover:bg-[#161616]">
-                    <td className="px-4 py-3 text-white">
-                      <div className="font-medium">{cert.userName}</div>
-                      <div className="text-[11px] text-[#666666]">{cert.userId}</div>
-                    </td>
-                    <td className="px-4 py-3">
-                      <div className="text-white">{cert.docTitle}</div>
-                      <div className="text-[11px] text-[#666666]">{cert.docPath}</div>
-                    </td>
-                    <td className="px-4 py-3 text-white font-semibold">
-                      {cert.score}/{cert.totalQuestions}
-                    </td>
-                    <td className="px-4 py-3 text-[#A0A0A0]">
-                      {new Date(cert.issuedAt).toLocaleDateString(locale, {
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: 'numeric',
-                      })}
-                    </td>
-                    <td className="px-4 py-3 text-right">
-                      <div className="flex items-center justify-end gap-2">
-                        <Link
-                          href={`/certificates/${cert.id}`}
-                          className="px-3 py-1.5 text-xs font-medium text-[#A0A0A0] hover:text-white hover:bg-[#1A1A1A] rounded-md transition-colors"
-                        >
-                          {t.view}
-                        </Link>
-                        <button
-                          onClick={() => handleRevoke(cert.id)}
-                          disabled={revoking === cert.id}
-                          className="px-3 py-1.5 text-xs font-medium text-[#C44545] hover:bg-[#C44545]/10 rounded-md transition-colors disabled:opacity-50"
-                        >
-                          {t.revoke}
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            {filtered.length > pageSize && (
-              <div className="flex items-center justify-between px-4 py-3 border-t border-[#1E1E1E] bg-[#0A0A0A]">
-                <div className="text-xs text-[#666666]">
-                  {(page - 1) * pageSize + 1}–{Math.min(page * pageSize, filtered.length)} / {filtered.length}
-                </div>
-                <div className="flex items-center gap-1">
-                  <button
-                    onClick={() => setPage((p) => Math.max(1, p - 1))}
-                    disabled={page === 1}
-                    className="px-2.5 py-1.5 text-xs text-[#A0A0A0] hover:text-white hover:bg-[#1A1A1A] rounded disabled:opacity-30 disabled:cursor-not-allowed"
-                  >
-                    ‹
-                  </button>
-                  <span className="text-xs text-[#A0A0A0] px-2">
-                    {page} / {Math.max(1, Math.ceil(filtered.length / pageSize))}
-                  </span>
-                  <button
-                    onClick={() => setPage((p) => Math.min(Math.ceil(filtered.length / pageSize), p + 1))}
-                    disabled={page >= Math.ceil(filtered.length / pageSize)}
-                    className="px-2.5 py-1.5 text-xs text-[#A0A0A0] hover:text-white hover:bg-[#1A1A1A] rounded disabled:opacity-30 disabled:cursor-not-allowed"
-                  >
-                    ›
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
+          <AdminTable
+            columns={columns}
+            data={filtered}
+            rowKey={(c) => c.id}
+            loading={false}
+            pageSize={25}
+            emptyTitle={t.empty}
+          />
         )}
-      </div>
-    </div>
+      </AdminStaggerItem>
+    </AdminStagger>
   );
 }

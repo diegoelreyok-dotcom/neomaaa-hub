@@ -1,6 +1,7 @@
 'use client';
 
 import { ReactNode, useMemo, useState, useDeferredValue } from 'react';
+import { motion } from 'framer-motion';
 import { AdminEmpty, AdminSkeleton } from './AdminUI';
 
 export interface AdminTableColumn<T> {
@@ -30,6 +31,9 @@ interface AdminTableProps<T> {
   skeletonRows?: number;
   dense?: boolean;
 }
+
+const GLASS_BG =
+  'linear-gradient(135deg, rgba(18,22,38,0.6) 0%, rgba(8,11,22,0.6) 100%)';
 
 export function AdminTable<T>({
   columns,
@@ -73,12 +77,15 @@ export function AdminTable<T>({
             <AdminSkeleton className="h-10 w-80" />
           </div>
         )}
-        <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl overflow-hidden">
-          <div className="h-11 bg-[#0A0A0A]" />
+        <div
+          className="rounded-2xl overflow-hidden border border-white/10"
+          style={{ background: GLASS_BG, backdropFilter: 'blur(10px)' }}
+        >
+          <div className="h-11 bg-white/[0.03]" />
           {Array.from({ length: skeletonRows }).map((_, i) => (
             <div
               key={i}
-              className="flex items-center gap-4 px-4 py-4 border-t border-[#1A1A1A]/40"
+              className="flex items-center gap-4 px-4 py-4 border-t border-white/[0.05]"
             >
               <AdminSkeleton className="w-9 h-9 rounded-full" />
               <AdminSkeleton className="h-4 w-40" />
@@ -92,12 +99,16 @@ export function AdminTable<T>({
   }
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+    >
       {searchable && (
         <div className="mb-4">
           <div className="relative max-w-md">
             <svg
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#666666]"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B7280]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -117,24 +128,34 @@ export function AdminTable<T>({
                 setQuery(e.target.value);
                 setPage(1);
               }}
-              className="w-full bg-[#111111] border border-[#1E1E1E] text-white rounded-lg pl-9 pr-4 py-2.5 text-sm placeholder:text-[#555555] focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-colors duration-150"
+              className="w-full text-white rounded-xl pl-9 pr-4 py-2.5 text-sm placeholder:text-[#6B7280] focus:outline-none transition-all duration-200 bg-white/[0.04] border border-white/10 focus:border-[#98283A]/50 focus:bg-white/[0.06] focus:shadow-[0_0_0_3px_rgba(152,40,58,0.15)]"
             />
           </div>
         </div>
       )}
 
-      <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl overflow-hidden">
+      <div
+        className="rounded-2xl overflow-hidden border border-white/10"
+        style={{ background: GLASS_BG, backdropFilter: 'blur(10px)' }}
+      >
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="bg-[#0A0A0A] sticky top-0 z-10">
+              <tr
+                className="sticky top-0 z-10"
+                style={{
+                  background:
+                    'linear-gradient(180deg, rgba(10,14,26,0.9), rgba(10,14,26,0.75))',
+                  backdropFilter: 'blur(8px)',
+                }}
+              >
                 {columns.map((col) => (
                   <th
                     key={col.key}
                     className={`text-${
                       col.align || 'left'
-                    } text-[#666666] text-[11px] font-semibold uppercase tracking-wider px-4 ${
-                      dense ? 'py-2.5' : 'py-3'
+                    } text-[#6B7280] text-[11px] font-semibold uppercase tracking-[0.12em] px-4 border-b border-white/10 ${
+                      dense ? 'py-2.5' : 'py-3.5'
                     } ${col.className || ''}`}
                   >
                     {col.header}
@@ -146,11 +167,13 @@ export function AdminTable<T>({
               {paginated.length === 0 ? (
                 <tr>
                   <td colSpan={columns.length} className="p-0">
-                    <AdminEmpty
-                      icon={emptyIcon}
-                      title={emptyTitle}
-                      hint={emptyHint}
-                    />
+                    <div className="p-2">
+                      <AdminEmpty
+                        icon={emptyIcon}
+                        title={emptyTitle}
+                        hint={emptyHint}
+                      />
+                    </div>
                   </td>
                 </tr>
               ) : (
@@ -158,16 +181,16 @@ export function AdminTable<T>({
                   <tr
                     key={rowKey(row)}
                     onClick={onRowClick ? () => onRowClick(row) : undefined}
-                    className={`border-t border-[#1A1A1A]/40 hover:bg-[#161616] transition-colors duration-100 ${
+                    className={`border-t border-white/[0.05] transition-all duration-150 hover:bg-gradient-to-r hover:from-[#98283A]/[0.06] hover:to-transparent ${
                       onRowClick ? 'cursor-pointer' : ''
-                    } ${idx % 2 === 1 ? 'bg-[#0E0E0E]' : ''}`}
+                    } ${idx % 2 === 1 ? 'bg-white/[0.015]' : ''}`}
                   >
                     {columns.map((col) => (
                       <td
                         key={col.key}
                         className={`text-${col.align || 'left'} px-4 ${
                           dense ? 'py-2.5' : 'py-3.5'
-                        } text-sm ${col.className || ''}`}
+                        } text-sm tabular-nums ${col.className || ''}`}
                       >
                         {col.render(row, pageStart + idx)}
                       </td>
@@ -181,26 +204,29 @@ export function AdminTable<T>({
 
         {/* Pagination footer */}
         {filtered.length > pageSize && (
-          <div className="flex items-center justify-between px-4 py-3 border-t border-[#1A1A1A]/40 bg-[#0A0A0A]">
-            <div className="text-xs text-[#666666]">
+          <div
+            className="flex items-center justify-between px-4 py-3 border-t border-white/[0.05]"
+            style={{ background: 'rgba(10,14,26,0.5)' }}
+          >
+            <div className="text-xs text-[#6B7280] tabular-nums">
               {pageStart + 1}–{Math.min(pageEnd, filtered.length)} / {filtered.length}
             </div>
             <div className="flex items-center gap-1">
               <button
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={safePage === 1}
-                className="px-2.5 py-1.5 text-xs text-[#A0A0A0] hover:text-white hover:bg-[#1A1A1A] rounded disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                className="px-2.5 py-1.5 text-xs text-[#94A3B8] hover:text-white hover:bg-white/5 rounded-lg disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                 aria-label="prev"
               >
                 ‹
               </button>
-              <span className="text-xs text-[#A0A0A0] px-2">
+              <span className="text-xs text-[#94A3B8] px-2 tabular-nums">
                 {safePage} / {totalPages}
               </span>
               <button
                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                 disabled={safePage === totalPages}
-                className="px-2.5 py-1.5 text-xs text-[#A0A0A0] hover:text-white hover:bg-[#1A1A1A] rounded disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                className="px-2.5 py-1.5 text-xs text-[#94A3B8] hover:text-white hover:bg-white/5 rounded-lg disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                 aria-label="next"
               >
                 ›
@@ -209,6 +235,6 @@ export function AdminTable<T>({
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }

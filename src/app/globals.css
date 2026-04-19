@@ -31,7 +31,7 @@
   --neo-text-muted: #6B7280;
 
   /* Semantic */
-  --neo-success: #38CC97;
+  --neo-success: #10B981;
   --neo-warning: #F59E0B;
   --neo-danger: #f04452;
   --neo-info: #3B82F6;
@@ -618,14 +618,14 @@ body {
 
 /* Level 2 — Heads */
 .org-level-2 {
-  background: rgba(59, 130, 246, 0.04);
+  background: rgba(201, 74, 92, 0.04);
   border-radius: 12px;
   max-width: 520px;
 }
 
 .org-head {
   border-color: var(--neo-info);
-  background: rgba(59, 130, 246, 0.06);
+  background: rgba(201, 74, 92, 0.06);
 }
 
 .org-head span {
@@ -758,7 +758,7 @@ body {
 }
 
 .alert-info {
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(201, 74, 92, 0.1);
   border-left: 4px solid var(--neo-info);
   color: #93C5FD;
 }

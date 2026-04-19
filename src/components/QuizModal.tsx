@@ -952,7 +952,7 @@ function ResultView({
                 left: `${(i / 14) * 100}%`,
                 animationDelay: `${(i % 5) * 0.12}s`,
                 background:
-                  ['#00D4AA', '#6C5CE7', '#98283A', '#F5B041', '#00B894'][i % 5],
+                  ['#98283A', '#C94A5C', '#7A2030', '#F5B041', '#10B981'][i % 5],
               }}
             />
           ))}

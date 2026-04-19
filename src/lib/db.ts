@@ -58,12 +58,10 @@ export async function getUser(id: string): Promise<User | null> {
 
 export async function getAllUsers(): Promise<User[]> {
   const keys = await kvKeys('user:*');
-  const users: User[] = [];
-  for (const key of keys) {
-    const data = await kvGet<User>(key);
-    if (data) users.push(data);
-  }
-  return users;
+  // Parallel fetch — sequential await in a for-loop was ~N × round-trip
+  // latency against Upstash, which blew the dashboard render past 40s.
+  const results = await Promise.all(keys.map((key) => kvGet<User>(key)));
+  return results.filter((u): u is User => u !== null);
 }
 
 export async function createUser(
@@ -143,12 +141,8 @@ export async function getRole(id: string): Promise<Role | null> {
 
 export async function getAllRoles(): Promise<Role[]> {
   const keys = await kvKeys('role:*');
-  const roles: Role[] = [];
-  for (const key of keys) {
-    const data = await kvGet<Role>(key);
-    if (data) roles.push(data);
-  }
-  return roles;
+  const results = await Promise.all(keys.map((key) => kvGet<Role>(key)));
+  return results.filter((r): r is Role => r !== null);
 }
 
 export async function createRole(role: Role): Promise<Role> {
@@ -245,22 +239,16 @@ export async function getUserProgress(userId: string): Promise<ReadProgress[]> {
   if (!userId || typeof userId !== 'string') return [];
   const safeUserId = userId.replace(/[^a-zA-Z0-9_-]/g, '');
   const keys = await kvKeys(`progress:${safeUserId}:*`);
-  const progress: ReadProgress[] = [];
-  for (const key of keys) {
-    const data = await kvGet<ReadProgress>(key);
-    if (data) progress.push(data);
-  }
-  return progress;
+  const results = await Promise.all(keys.map((key) => kvGet<ReadProgress>(key)));
+  return results.filter((p): p is ReadProgress => p !== null);
 }
 
 export async function getAllProgress(): Promise<ReadProgress[]> {
   const keys = await kvKeys('progress:*');
-  const progress: ReadProgress[] = [];
-  for (const key of keys) {
-    const data = await kvGet<ReadProgress>(key);
-    if (data) progress.push(data);
-  }
-  return progress;
+  // Parallel: sequential fetch of hundreds of progress rows was the dashboard
+  // bottleneck — now capped at the slowest single round-trip.
+  const results = await Promise.all(keys.map((key) => kvGet<ReadProgress>(key)));
+  return results.filter((p): p is ReadProgress => p !== null);
 }
 
 export async function getProgressEntry(

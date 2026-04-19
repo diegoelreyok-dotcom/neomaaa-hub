@@ -16,6 +16,7 @@ import {
   AdminTable,
   AdminTableColumn,
 } from '@/components/admin/AdminTable';
+import AdminStagger, { AdminStaggerItem } from '@/components/admin/AdminStagger';
 import type { AdminUser, AdminRole } from '@/components/admin/fetcher';
 import { SECTIONS } from '@/lib/sections';
 
@@ -596,12 +597,12 @@ export default function UsersPage() {
       render: (user) => (
         <span
           className={`inline-flex items-center gap-1.5 text-xs font-medium ${
-            user.isActive ? 'text-[#38CC97]' : 'text-[#666666]'
+            user.isActive ? 'text-[#10B981]' : 'text-[#666666]'
           }`}
         >
           <span
             className={`w-1.5 h-1.5 rounded-full inline-block ${
-              user.isActive ? 'bg-[#38CC97]' : 'bg-[#666666]'
+              user.isActive ? 'bg-[#10B981]' : 'bg-[#666666]'
             }`}
           />
           {user.isActive ? t.active : t.inactive}
@@ -647,20 +648,24 @@ export default function UsersPage() {
   ];
 
   return (
-    <div>
-      <AdminPageHeader
-        title={t.title}
-        subtitle={t.subtitle(users.length)}
-        actions={
-          <button onClick={() => setShowCreate(true)} className={btnPrimary}>
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-            </svg>
-            {t.addUser}
-          </button>
-        }
-      />
+    <AdminStagger>
+      <AdminStaggerItem>
+        <AdminPageHeader
+          title={t.title}
+          subtitle={t.subtitle(users.length)}
+          counter={users.length > 0 ? users.length : undefined}
+          actions={
+            <button onClick={() => setShowCreate(true)} className={btnPrimary}>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+              {t.addUser}
+            </button>
+          }
+        />
+      </AdminStaggerItem>
 
+      <AdminStaggerItem>
       <AdminTable
         columns={columns}
         data={users}
@@ -673,6 +678,7 @@ export default function UsersPage() {
         pageSize={25}
         emptyTitle={t.emptyNoUsers}
       />
+      </AdminStaggerItem>
 
       {/* Create User Modal */}
       {showCreate && (
@@ -716,7 +722,7 @@ export default function UsersPage() {
           onSubmit={handleSaveEdit}
         />
       )}
-    </div>
+    </AdminStagger>
   );
 }
 
@@ -784,18 +790,45 @@ function UserModal({
       : t.modalFormHelper;
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-[#111111] border border-[#1E1E1E] rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl shadow-black/40">
-        <div className="px-6 pt-6 pb-4 sticky top-0 bg-[#111111] z-10">
-          <h2 className="text-lg font-semibold text-white">{modalTitle}</h2>
-          <p className="text-[#666666] text-sm mt-1">{subtitle}</p>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ background: 'rgba(4,6,14,0.7)', backdropFilter: 'blur(8px)' }}
+    >
+      <div
+        className="relative rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden shadow-2xl shadow-black/40"
+      >
+        <div
+          className="absolute inset-0 rounded-2xl"
+          style={{
+            background: 'linear-gradient(135deg, rgba(152,40,58,0.4), transparent 50%, rgba(152,40,58,0.26))',
+            padding: '1px',
+          }}
+        >
+          <div
+            className="w-full h-full rounded-2xl"
+            style={{
+              background: 'linear-gradient(135deg, rgba(22,26,42,0.85), rgba(10,14,26,0.85))',
+              backdropFilter: 'blur(14px)',
+            }}
+          />
         </div>
-        <div className="border-b border-[#1A1A1A] mx-6" />
+        <div className="relative max-h-[90vh] overflow-y-auto">
+        <div
+          className="px-6 pt-6 pb-4 sticky top-0 z-10"
+          style={{
+            background: 'linear-gradient(135deg, rgba(22,26,42,0.85), rgba(10,14,26,0.85))',
+            backdropFilter: 'blur(14px)',
+          }}
+        >
+          <h2 className="text-lg font-semibold text-white">{modalTitle}</h2>
+          <p className="text-[#94A3B8] text-sm mt-1">{subtitle}</p>
+        </div>
+        <div className="border-b border-white/[0.06] mx-6" />
 
         {isSuccess ? (
           <div className="p-6">
-            <div className="w-12 h-12 rounded-full bg-[#38CC97]/10 flex items-center justify-center mx-auto mb-4">
-              <svg className="w-6 h-6 text-[#38CC97]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="w-12 h-12 rounded-full bg-[#10B981]/10 flex items-center justify-center mx-auto mb-4">
+              <svg className="w-6 h-6 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
@@ -803,20 +836,20 @@ function UserModal({
               Usuario <span className="text-white font-semibold">{createdUserName}</span>{' '}
               {lang === 'ru' ? 'создан' : lang === 'en' ? 'created' : 'creado'}.
             </p>
-            <div className="bg-[#38CC97]/5 border border-[#38CC97]/20 rounded-xl p-5">
-              <label className="block text-xs uppercase tracking-wide text-[#38CC97]/70 font-medium mb-2">
+            <div className="bg-[#10B981]/5 border border-[#10B981]/20 rounded-xl p-5">
+              <label className="block text-xs uppercase tracking-wide text-[#10B981]/70 font-medium mb-2">
                 {t.accessCode}
               </label>
               <div className="flex items-center justify-between">
-                <span className="text-[#38CC97] font-mono text-3xl font-bold tracking-widest">
+                <span className="text-[#10B981] font-mono text-3xl font-bold tracking-widest">
                   {generatedCode}
                 </span>
                 <button
                   onClick={onCopyCode}
                   className={`text-xs font-medium px-3 py-1.5 rounded-lg transition-colors duration-150 ${
                     copied
-                      ? 'bg-[#38CC97]/20 text-[#38CC97]'
-                      : 'bg-[#38CC97]/10 text-[#38CC97] hover:bg-[#38CC97]/20'
+                      ? 'bg-[#10B981]/20 text-[#10B981]'
+                      : 'bg-[#10B981]/10 text-[#10B981] hover:bg-[#10B981]/20'
                   }`}
                 >
                   {copied ? t.copied : t.copy}
@@ -847,7 +880,7 @@ function UserModal({
                   setForm((prev) => ({ ...prev, name: e.target.value }))
                 }
                 placeholder={t.namePlaceholder}
-                className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E] text-white rounded-lg px-4 py-2.5 text-sm placeholder:text-[#666666]/50 focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-colors"
+                className="w-full bg-white/[0.04] border border-white/10 text-white rounded-xl px-4 py-2.5 text-sm placeholder:text-[#6B7280] focus:outline-none focus:border-[#98283A]/50 focus:bg-white/[0.06] focus:shadow-[0_0_0_3px_rgba(152,40,58,0.15)] transition-all duration-200"
               />
               {mode === 'create' && form.name.trim() && (
                 <p className="text-[#666666] text-xs mt-1.5">
@@ -871,7 +904,7 @@ function UserModal({
                   setForm((prev) => ({ ...prev, email: e.target.value }))
                 }
                 placeholder={t.emailPlaceholder}
-                className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E] text-white rounded-lg px-4 py-2.5 text-sm placeholder:text-[#666666]/50 focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-colors"
+                className="w-full bg-white/[0.04] border border-white/10 text-white rounded-xl px-4 py-2.5 text-sm placeholder:text-[#6B7280] focus:outline-none focus:border-[#98283A]/50 focus:bg-white/[0.06] focus:shadow-[0_0_0_3px_rgba(152,40,58,0.15)] transition-all duration-200"
               />
             </div>
 
@@ -932,7 +965,7 @@ function UserModal({
                         </span>
                       )}
                       {!includedByRole && isExtra && (
-                        <span className="text-[9px] uppercase tracking-wider text-[#38CC97] bg-[#38CC97]/10 px-1.5 py-0.5 rounded">
+                        <span className="text-[9px] uppercase tracking-wider text-[#10B981] bg-[#10B981]/10 px-1.5 py-0.5 rounded">
                           + extra
                         </span>
                       )}
@@ -993,14 +1026,14 @@ function UserModal({
             <div className="flex justify-end gap-3 pt-2">
               <button
                 onClick={onClose}
-                className="bg-transparent text-[#A0A0A0] font-semibold text-sm px-5 py-2.5 rounded-lg border border-[#1E1E1E] hover:bg-[#1A1A1A] hover:text-white transition-colors"
+                className="bg-transparent text-[#94A3B8] font-semibold text-sm px-5 py-2.5 rounded-xl border border-white/10 hover:bg-white/5 hover:text-white transition-all duration-200"
               >
                 {t.cancel}
               </button>
               <button
                 onClick={onSubmit}
                 disabled={!form.name.trim() || !form.roleId || submitting}
-                className="bg-[#98283A] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#B33347] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                className="bg-gradient-to-br from-[#98283A] to-[#7A2030] hover:from-[#B33347] hover:to-[#98283A] text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-[0_0_18px_rgba(152,40,58,0.35)] hover:shadow-[0_0_26px_rgba(152,40,58,0.5)] transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none"
               >
                 {mode === 'edit'
                   ? submitting
@@ -1013,6 +1046,7 @@ function UserModal({
             </div>
           </div>
         )}
+        </div>
       </div>
     </div>
   );

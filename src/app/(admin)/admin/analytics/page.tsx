@@ -176,7 +176,7 @@ function QuizDifficultyList({ quizzes }: { quizzes: QuizStatEntry[] }) {
       {slice.map((q) => {
         const color =
           q.passRate >= 75
-            ? 'bg-[#38CC97]'
+            ? 'bg-[#10B981]'
             : q.passRate >= 50
               ? 'bg-[#D4A03A]'
               : 'bg-[#C44545]';
@@ -230,7 +230,7 @@ function CertTrendStat({
   return (
     <div className="space-y-4">
       <div className="flex items-baseline gap-2">
-        <span className="text-3xl font-extrabold text-[#38CC97]">
+        <span className="text-3xl font-extrabold text-[#10B981]">
           {weekCount}
         </span>
         <span className="text-[#666666] text-xs">esta semana</span>
@@ -309,7 +309,7 @@ function EngagementChart({ points }: { points: EngagementPoint[] }) {
                 style={{ height: `${readH}%`, minHeight: p.docReads ? '2px' : '0' }}
               />
               <div
-                className="w-full bg-[#38CC97]/80 rounded-sm transition-all duration-150 group-hover:bg-[#38CC97]"
+                className="w-full bg-[#10B981]/80 rounded-sm transition-all duration-150 group-hover:bg-[#10B981]"
                 style={{ height: `${loginH}%`, minHeight: p.logins ? '2px' : '0' }}
               />
             </div>
@@ -326,7 +326,7 @@ function EngagementChart({ points }: { points: EngagementPoint[] }) {
           <span className="text-[#A0A0A0]">Doc reads</span>
         </span>
         <span className="inline-flex items-center gap-1.5">
-          <span className="w-2 h-2 bg-[#38CC97] rounded-sm" />
+          <span className="w-2 h-2 bg-[#10B981] rounded-sm" />
           <span className="text-[#A0A0A0]">Logins</span>
         </span>
       </div>
@@ -426,7 +426,7 @@ export default function AdminAnalyticsPage() {
         key: 'certs',
         header: 'Certs',
         render: (u) => (
-          <span className="text-[#38CC97] font-semibold text-sm">
+          <span className="text-[#10B981] font-semibold text-sm">
             {u.certsEarned}
           </span>
         ),
@@ -446,7 +446,7 @@ export default function AdminAnalyticsPage() {
         render: (u) => {
           const color =
             u.completionScore >= 75
-              ? 'from-[#38CC97] to-[#2BA87A]'
+              ? 'from-[#10B981] to-[#059669]'
               : u.completionScore >= 40
                 ? 'from-[#D4A03A] to-[#B8892F]'
                 : 'from-[#C44545] to-[#A33838]';

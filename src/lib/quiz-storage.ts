@@ -133,11 +133,8 @@ export async function getCertificate(
 export async function getAllCertificates(userId: string): Promise<Certificate[]> {
   const safeUserId = sanitizeUserId(userId);
   const keys = await kvKeys(`cert:${safeUserId}:*`);
-  const certs: Certificate[] = [];
-  for (const key of keys) {
-    const c = await kvGet<Certificate>(key);
-    if (c) certs.push(c);
-  }
+  const results = await Promise.all(keys.map((key) => kvGet<Certificate>(key)));
+  const certs = results.filter((c): c is Certificate => c !== null);
   certs.sort((a, b) => (a.issuedAt < b.issuedAt ? 1 : -1));
   return certs;
 }

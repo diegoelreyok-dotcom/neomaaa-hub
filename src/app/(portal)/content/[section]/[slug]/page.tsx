@@ -11,6 +11,9 @@ import ProgressTracker from './ProgressTracker';
 import CompletionButton from './CompletionButton';
 import ReadingProgressBar from './ReadingProgressBar';
 import TableOfContents from './TableOfContents';
+import ContentStagger, { ContentStaggerItem } from './ContentStagger';
+import DocHeader from './DocHeader';
+import DocNavCards from './DocNavCards';
 
 interface ContentPageProps {
   params: { section: string; slug: string };
@@ -23,6 +26,7 @@ function estimateReadingTime(text: string): number {
 
 export default async function ContentPage({ params }: ContentPageProps) {
   const session = await auth();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const user = session?.user as any;
   const roleId: string = user?.roleId;
   const lang: Lang = user?.lang || 'es';
@@ -168,162 +172,90 @@ export default async function ContentPage({ params }: ContentPageProps) {
   // Previous / Next navigation within the section
   const docIndex = section.documents.findIndex((d) => d.slug === slug);
   const prevDoc = docIndex > 0 ? section.documents[docIndex - 1] : null;
-  const nextDoc = docIndex < section.documents.length - 1 ? section.documents[docIndex + 1] : null;
+  const nextDoc =
+    docIndex < section.documents.length - 1 ? section.documents[docIndex + 1] : null;
+
+  const prevTitle = prevDoc
+    ? lang === 'ru'
+      ? prevDoc.titleRu
+      : lang === 'en'
+        ? prevDoc.titleEn || prevDoc.titleEs
+        : prevDoc.titleEs
+    : '';
+  const nextTitle = nextDoc
+    ? lang === 'ru'
+      ? nextDoc.titleRu
+      : lang === 'en'
+        ? nextDoc.titleEn || nextDoc.titleEs
+        : nextDoc.titleEs
+    : '';
 
   return (
     <div>
-      {/* Reading progress bar (fixed top) */}
+      {/* Reading progress bar (fixed top, cyan → burgundy gradient) */}
       <ReadingProgressBar />
 
-      {/* Breadcrumb */}
-      <nav className="flex items-center flex-wrap gap-2 text-[13px] mb-6" aria-label="Breadcrumb">
-        <Link
-          href="/dashboard"
-          className="flex items-center gap-1 text-neo-text-muted hover:text-neo-primary transition-colors duration-200"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-            <polyline points="9 22 9 12 15 12 15 22" />
-          </svg>
-          <span className="hidden sm:inline">{lang === 'ru' ? 'Главная' : lang === 'en' ? 'Home' : 'Inicio'}</span>
-        </Link>
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neo-dark-5 flex-shrink-0">
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
-        <span className="text-neo-text-muted">{sectionName}</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neo-dark-5 flex-shrink-0">
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
-        <span className="text-neo-text font-medium">{docTitle}</span>
-      </nav>
+      <ContentStagger>
+        {/* Glass command header */}
+        <ContentStaggerItem>
+          <DocHeader
+            lang={lang}
+            sectionName={sectionName}
+            docTitle={docTitle}
+            readingTime={readingTime}
+            docIndex={docIndex}
+            docTotal={section.documents.length}
+            pdfSlot={doc.pdfSlug ? <PdfDownloadButton pdfSlug={doc.pdfSlug} lang={lang} /> : null}
+          />
+        </ContentStaggerItem>
 
-      {/* Document header with meta */}
-      <div className="mb-6 pb-5 border-b border-neo-dark-3/50">
-        <div className="flex items-center flex-wrap gap-3">
-          {/* Reading time badge */}
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-neo-text-muted bg-neo-dark-2 border border-neo-dark-3/60 rounded-full px-3 py-1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-            {readingTime} min {lang === 'ru' ? 'чтения' : lang === 'en' ? 'read' : 'de lectura'}
-          </span>
-
-          {/* Section badge */}
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-neo-primary/80 bg-neo-primary/5 border border-neo-primary/10 rounded-full px-3 py-1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75" />
-              <path d="M13.06 6.31l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
-            </svg>
-            {sectionName}
-          </span>
-
-          {/* Doc position indicator */}
-          <span className="text-[11px] text-neo-text-muted/60">
-            {docIndex + 1} / {section.documents.length}
-          </span>
-        </div>
-      </div>
-
-      {/* PDF Download */}
-      {doc.pdfSlug && <PdfDownloadButton pdfSlug={doc.pdfSlug} lang={lang} />}
-
-      {/* Content + sticky TOC (desktop only) */}
-      <div className="neo-content-layout">
-        <div>
-          <MarkdownRenderer content={content} />
-        </div>
-        <aside className="hidden xl:block">
-          <TableOfContents content={content} lang={lang} />
-        </aside>
-      </div>
-
-      {/* Completion button */}
-      <CompletionButton
-        documentPath={doc.filePath}
-        quizDocPath={`${sectionId}/${slug}`}
-        docTitle={docTitle}
-        lang={lang}
-        isCompleted={isCompleted}
-        userName={user?.name || ''}
-      />
-
-      {/* Previous / Next navigation */}
-      <div className="mt-12 pt-6 border-t border-neo-dark-3/50">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Previous */}
-          {prevDoc ? (
-            <Link
-              href={`/content/${sectionId}/${prevDoc.slug}`}
-              className="group flex items-center gap-3 p-4 rounded-xl bg-neo-dark-2 border border-neo-dark-3/60 hover:border-neo-dark-3 hover:bg-neo-dark-2/80 transition-all duration-200"
+        {/* Content + sticky TOC (desktop only) */}
+        <ContentStaggerItem>
+          <div className="neo-content-layout">
+            <div
+              className="relative overflow-hidden rounded-2xl"
+              style={{
+                background:
+                  'linear-gradient(135deg, rgba(18,22,38,0.35) 0%, rgba(8,11,22,0.35) 100%)',
+                backdropFilter: 'blur(6px)',
+                WebkitBackdropFilter: 'blur(6px)',
+                border: '1px solid rgba(255,255,255,0.06)',
+              }}
             >
-              <div className="w-8 h-8 rounded-lg bg-neo-dark-3/50 flex items-center justify-center group-hover:bg-neo-dark-3/80 transition-colors duration-200 flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neo-text-muted group-hover:text-neo-text transition-colors duration-200">
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
+              <div className="px-5 py-6 sm:px-8 sm:py-8">
+                <MarkdownRenderer content={content} />
               </div>
-              <div className="min-w-0">
-                <div className="text-[10px] font-medium text-neo-text-muted uppercase tracking-wider mb-0.5">
-                  {lang === 'ru' ? 'Предыдущий' : lang === 'en' ? 'Previous' : 'Anterior'}
-                </div>
-                <div className="text-sm font-medium text-neo-text-secondary group-hover:text-neo-text transition-colors duration-200 truncate">
-                  {lang === 'ru'
-                    ? prevDoc.titleRu
-                    : lang === 'en'
-                      ? (prevDoc.titleEn || prevDoc.titleEs)
-                      : prevDoc.titleEs}
-                </div>
-              </div>
-            </Link>
-          ) : (
-            <div />
-          )}
+            </div>
+            <aside className="hidden xl:block">
+              <TableOfContents content={content} lang={lang} />
+            </aside>
+          </div>
+        </ContentStaggerItem>
 
-          {/* Next */}
-          {nextDoc ? (
-            <Link
-              href={`/content/${sectionId}/${nextDoc.slug}`}
-              className="group flex items-center justify-end gap-3 p-4 rounded-xl bg-neo-dark-2 border border-neo-dark-3/60 hover:border-neo-primary/30 hover:bg-neo-dark-2/80 transition-all duration-200 text-right"
-            >
-              <div className="min-w-0">
-                <div className="text-[10px] font-medium text-neo-text-muted uppercase tracking-wider mb-0.5">
-                  {lang === 'ru' ? 'Следующий' : lang === 'en' ? 'Next' : 'Siguiente'}
-                </div>
-                <div className="text-sm font-medium text-neo-text-secondary group-hover:text-neo-primary transition-colors duration-200 truncate">
-                  {lang === 'ru'
-                    ? nextDoc.titleRu
-                    : lang === 'en'
-                      ? (nextDoc.titleEn || nextDoc.titleEs)
-                      : nextDoc.titleEs}
-                </div>
-              </div>
-              <div className="w-8 h-8 rounded-lg bg-neo-dark-3/50 flex items-center justify-center group-hover:bg-neo-primary/10 transition-colors duration-200 flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neo-text-muted group-hover:text-neo-primary transition-colors duration-200">
-                  <polyline points="9 18 15 12 9 6" />
-                </svg>
-              </div>
-            </Link>
-          ) : (
-            <div />
-          )}
-        </div>
+        {/* Completion button */}
+        <ContentStaggerItem>
+          <CompletionButton
+            documentPath={doc.filePath}
+            quizDocPath={`${sectionId}/${slug}`}
+            docTitle={docTitle}
+            lang={lang}
+            isCompleted={isCompleted}
+            userName={user?.name || ''}
+          />
+        </ContentStaggerItem>
 
-        {/* Back to dashboard link */}
-        <div className="mt-6 text-center">
-          <Link
-            href="/dashboard"
-            className="inline-flex items-center gap-1.5 text-xs text-neo-text-muted hover:text-neo-primary transition-colors duration-200"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-              <polyline points="9 22 9 12 15 12 15 22" />
-            </svg>
-            {lang === 'ru' ? 'Вернуться на главную' : lang === 'en' ? 'Back to home' : 'Volver al inicio'}
-          </Link>
-        </div>
-      </div>
+        {/* Previous / Next navigation */}
+        <ContentStaggerItem>
+          <DocNavCards
+            sectionId={sectionId}
+            prev={prevDoc ? { slug: prevDoc.slug, title: prevTitle } : null}
+            next={nextDoc ? { slug: nextDoc.slug, title: nextTitle } : null}
+            lang={lang}
+          />
+        </ContentStaggerItem>
+      </ContentStagger>
 
-      {/* Progress tracker (client component) */}
+      {/* Progress tracker (client component, renders null) */}
       <ProgressTracker documentPath={doc.filePath} />
     </div>
   );

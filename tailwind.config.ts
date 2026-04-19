@@ -23,7 +23,7 @@ const config: Config = {
           'text-body': '#D1D5DB',
           'text-secondary': '#9CA3AF',
           'text-muted': '#6B7280',
-          success: '#38CC97',
+          success: '#10B981',
           warning: '#D4A03A',
           danger: '#C44545',
           info: '#3B82F6',

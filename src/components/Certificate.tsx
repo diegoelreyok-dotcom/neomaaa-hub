@@ -65,7 +65,7 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(function Certif
 
   const burgundy = '#98283A';
   const burgundyDark = '#7A2030';
-  const accent = '#00D4AA';
+  const accent = '#D4A03A';
   const paper = '#FAFAF7';
   const ink = '#0A0E1A';
   const subtle = '#6B5D65';

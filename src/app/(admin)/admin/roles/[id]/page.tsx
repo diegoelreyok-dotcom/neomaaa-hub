@@ -344,20 +344,24 @@ export default function RolePermissionsPage() {
           return (
             <div
               key={section.id}
-              className={`bg-[#111111] border rounded-xl transition-all duration-300 ${
+              className={`rounded-2xl transition-all duration-300 border ${
                 isEnabled
-                  ? 'border-[#98283A]/40 shadow-[0_0_20px_rgba(152,40,58,0.06)]'
-                  : 'border-[#1E1E1E]'
+                  ? 'border-[#98283A]/45 shadow-[0_0_24px_rgba(152,40,58,0.18)]'
+                  : 'border-white/10'
               } ${isExpanded ? 'sm:col-span-2 lg:col-span-3' : ''}`}
+              style={{
+                background: 'linear-gradient(135deg, rgba(18,22,38,0.6), rgba(8,11,22,0.6))',
+                backdropFilter: 'blur(10px)',
+              }}
             >
               <div className="p-5">
                 <div className="flex items-start justify-between">
                   <div className="flex items-start gap-3 flex-1 min-w-0">
                     {/* Section icon */}
-                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
                       isEnabled
-                        ? 'bg-[#98283A]/15 text-[#98283A]'
-                        : 'bg-[#1A1A1A]/50 text-[#666666]'
+                        ? 'bg-[#98283A]/15 text-[#C94A5C] border border-[#98283A]/35 shadow-[0_0_14px_rgba(152,40,58,0.25)]'
+                        : 'bg-white/5 text-[#6B7280] border border-white/10'
                     }`}>
                       {SECTION_ICONS[section.id] || (
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -400,8 +404,8 @@ export default function RolePermissionsPage() {
                     disabled={isSaving}
                     className={`relative w-12 h-7 rounded-full transition-all duration-300 flex-shrink-0 ml-3 ${
                       isEnabled
-                        ? 'bg-[#98283A] shadow-lg shadow-[#98283A]/30'
-                        : 'bg-[#1E1E1E] hover:bg-[#1E1E1E]/80'
+                        ? 'bg-gradient-to-br from-[#98283A] to-[#7A2030] shadow-[0_0_18px_rgba(152,40,58,0.45)]'
+                        : 'bg-white/10 hover:bg-white/15'
                     } ${isSaving ? 'opacity-50' : ''}`}
                     aria-label={`${isEnabled ? t.toggleDisable : t.toggleEnable} ${lang === 'ru' ? section.nameRu : section.nameEs}`}
                   >
@@ -448,28 +452,34 @@ export default function RolePermissionsPage() {
       {/* Sticky summary bar */}
       <div className="fixed bottom-0 left-0 right-0 z-40">
         <div className="max-w-5xl mx-auto px-4 pb-4">
-          <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-4 shadow-2xl shadow-black/40 backdrop-blur-sm">
+          <div
+            className="rounded-2xl p-4 shadow-2xl shadow-black/40 border border-white/10"
+            style={{
+              background: 'linear-gradient(135deg, rgba(22,26,42,0.85), rgba(10,14,26,0.85))',
+              backdropFilter: 'blur(14px)',
+            }}
+          >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div>
-                  <div className="text-sm font-medium text-white">
-                    <span className="text-[#98283A] font-bold text-lg">{enabledCount}</span>
-                    <span className="text-[#666666]"> / {totalSections} {t.sectionsLabel}</span>
+                  <div className="text-sm font-medium text-white tabular-nums">
+                    <span className="text-[#C94A5C] font-bold text-lg">{enabledCount}</span>
+                    <span className="text-[#6B7280]"> / {totalSections} {t.sectionsLabel}</span>
                   </div>
-                  <div className="text-[#666666] text-xs mt-0.5">
+                  <div className="text-[#94A3B8] text-xs mt-0.5 tabular-nums">
                     {totalDocsEnabled} {t.docsAccessible}
                   </div>
                 </div>
 
                 {/* Progress indicator */}
                 <div className="hidden sm:flex items-center gap-2">
-                  <div className="w-32 bg-[#1A1A1A]/50 rounded-full h-2 overflow-hidden">
+                  <div className="w-32 bg-white/5 rounded-full h-2 overflow-hidden border border-white/10">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-[#98283A] to-[#B33347] transition-all duration-500"
+                      className="h-full rounded-full bg-gradient-to-r from-[#98283A] to-[#C94A5C] transition-all duration-500"
                       style={{ width: `${(enabledCount / totalSections) * 100}%` }}
                     />
                   </div>
-                  <span className="text-xs text-[#A0A0A0] font-medium">
+                  <span className="text-xs text-[#D1D5DB] font-medium tabular-nums">
                     {Math.round((enabledCount / totalSections) * 100)}%
                   </span>
                 </div>
@@ -484,7 +494,7 @@ export default function RolePermissionsPage() {
                     return (
                       <span
                         key={sid}
-                        className="text-xs bg-[#98283A]/10 text-[#98283A] px-2.5 py-1 rounded-lg font-medium border border-[#98283A]/15"
+                        className="text-xs bg-[#98283A]/12 text-[#C94A5C] px-2.5 py-1 rounded-lg font-medium border border-[#98283A]/30"
                       >
                         {sec ? (lang === 'ru' ? sec.nameRu : sec.nameEs) : sid}
                       </span>

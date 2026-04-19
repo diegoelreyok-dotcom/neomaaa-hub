@@ -1,12 +1,13 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import type { Lang } from '@/lib/types';
 import QuizModal from '@/components/QuizModal';
 
 interface CompletionButtonProps {
   documentPath: string; // doc.filePath, e.g. "sales/training.md"
-  quizDocPath: string;  // "{section}/{slug}", e.g. "sales/training"
+  quizDocPath: string; // "{section}/{slug}", e.g. "sales/training"
   docTitle: string;
   lang: Lang;
   isCompleted: boolean;
@@ -26,13 +27,17 @@ const i18n = {
   },
   ru: {
     markComplete: '\u041E\u0442\u043C\u0435\u0442\u0438\u0442\u044C \u043A\u0430\u043A \u0437\u0430\u0432\u0435\u0440\u0448\u0451\u043D\u043D\u043E\u0435',
-    markCompleteQuiz: '\u041E\u0442\u043C\u0435\u0442\u0438\u0442\u044C \u043A\u0430\u043A \u0437\u0430\u0432\u0435\u0440\u0448\u0451\u043D\u043D\u043E\u0435 (\u043F\u0440\u043E\u0439\u0442\u0438 \u0442\u0435\u0441\u0442)',
+    markCompleteQuiz:
+      '\u041E\u0442\u043C\u0435\u0442\u0438\u0442\u044C \u043A\u0430\u043A \u0437\u0430\u0432\u0435\u0440\u0448\u0451\u043D\u043D\u043E\u0435 (\u043F\u0440\u043E\u0439\u0442\u0438 \u0442\u0435\u0441\u0442)',
     completed: '\u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u043E',
     completing: '\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F...',
-    takeQuizForCert: '\u041F\u0440\u043E\u0439\u0442\u0438 \u0442\u0435\u0441\u0442 \u0434\u043B\u044F \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u044F \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u0430',
+    takeQuizForCert:
+      '\u041F\u0440\u043E\u0439\u0442\u0438 \u0442\u0435\u0441\u0442 \u0434\u043B\u044F \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u044F \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u0430',
     docCompleted: '\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442 \u0437\u0430\u0432\u0435\u0440\u0448\u0451\u043D',
-    keepStudying: '\u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0432\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u043A \u0438\u0437\u0443\u0447\u0435\u043D\u0438\u044E \u044D\u0442\u043E\u0433\u043E \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430 \u0432 \u043B\u044E\u0431\u043E\u0435 \u0432\u0440\u0435\u043C\u044F.',
-    error: '\u041E\u0448\u0438\u0431\u043A\u0430 \u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u0438. \u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u0441\u043D\u043E\u0432\u0430.',
+    keepStudying:
+      '\u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0432\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u043A \u0438\u0437\u0443\u0447\u0435\u043D\u0438\u044E \u044D\u0442\u043E\u0433\u043E \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430 \u0432 \u043B\u044E\u0431\u043E\u0435 \u0432\u0440\u0435\u043C\u044F.',
+    error:
+      '\u041E\u0448\u0438\u0431\u043A\u0430 \u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u0438. \u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u0441\u043D\u043E\u0432\u0430.',
   },
   en: {
     markComplete: 'Mark as completed',
@@ -45,6 +50,69 @@ const i18n = {
     error: 'Error saving progress. Try again.',
   },
 };
+
+// Deterministic pseudo-random so SSR matches CSR
+function rand(seed: number): number {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
+const CONFETTI_COLORS = ['#98283A', '#C94A5C', '#FBBF24', '#7A2030', '#FFFFFF', '#10B981'];
+
+function Confetti() {
+  const pieces = useMemo(
+    () =>
+      Array.from({ length: 28 }).map((_, i) => {
+        const angle = rand(i * 3.3) * Math.PI * 2;
+        const distance = 80 + rand(i * 5.1) * 140;
+        return {
+          id: i,
+          x: Math.cos(angle) * distance,
+          y: Math.sin(angle) * distance * 0.7 - 20,
+          rot: rand(i * 7.7) * 540 - 270,
+          color: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
+          delay: rand(i * 2.1) * 0.15,
+          size: 5 + rand(i * 11) * 4,
+        };
+      }),
+    []
+  );
+
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 z-20 overflow-visible"
+    >
+      {pieces.map((p) => (
+        <motion.span
+          key={p.id}
+          className="absolute left-1/2 top-1/2"
+          initial={{ x: 0, y: 0, opacity: 0, rotate: 0, scale: 0.6 }}
+          animate={{
+            x: p.x,
+            y: p.y,
+            opacity: [0, 1, 1, 0],
+            rotate: p.rot,
+            scale: [0.6, 1, 1, 0.5],
+          }}
+          transition={{
+            duration: 1.4,
+            delay: p.delay,
+            ease: [0.22, 1, 0.36, 1],
+            times: [0, 0.15, 0.7, 1],
+          }}
+          style={{
+            width: p.size,
+            height: p.size * 0.4,
+            background: p.color,
+            borderRadius: 1,
+            boxShadow: `0 0 6px ${p.color}`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
 
 export default function CompletionButton({
   documentPath,
@@ -62,19 +130,18 @@ export default function CompletionButton({
   const [modalOpen, setModalOpen] = useState(false);
   const t = i18n[lang];
 
-  // Check whether a quiz exists for this document.
-  // Quiz pools only exist in ES and RU. EN users take the ES quiz.
   const quizLang: 'es' | 'ru' = lang === 'ru' ? 'ru' : 'es';
   useEffect(() => {
     let cancelled = false;
-    fetch(`/api/quiz/available?docPath=${encodeURIComponent(quizDocPath)}&language=${quizLang}`)
+    fetch(
+      `/api/quiz/available?docPath=${encodeURIComponent(quizDocPath)}&language=${quizLang}`
+    )
       .then(async (r) => {
         if (!r.ok) return { exists: false };
         return r.json().catch(() => ({ exists: false }));
       })
       .then((data) => {
         if (cancelled) return;
-        // Backend returns { exists, language, es, ru } — quiz available if exists in current lang or "both"
         const inLang = quizLang === 'es' ? data?.es : data?.ru;
         setQuizAvailable(Boolean(data?.exists && inLang));
       })
@@ -116,48 +183,213 @@ export default function CompletionButton({
     }
   }, [completed, loading, quizAvailable, markCompletedDirect]);
 
-  // When quiz is passed, mark the doc as completed (quiz server already issues cert,
-  // but we still record progress so the UI reflects completion).
   const handleQuizSuccess = useCallback(() => {
     setCompleted(true);
     setJustCompleted(true);
     setTimeout(() => setJustCompleted(false), 4000);
-    // fire-and-forget: keep local progress store in sync
     fetch('/api/progress', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ documentPath, completed: true }),
-    }).catch(() => { /* non-critical */ });
+    }).catch(() => {
+      /* non-critical */
+    });
   }, [documentPath]);
 
-  // Already completed (loaded from server or just marked)
-  if (completed && !justCompleted) {
+  // --------- SUCCESS (just completed, with confetti) ---------
+  if (justCompleted) {
     return (
-      <>
-        <div className="mt-10 mb-4 space-y-3">
-          <div className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-xl border-2 border-neo-success/30 bg-neo-success/5">
-            <span className="w-6 h-6 rounded-full bg-neo-success/20 flex items-center justify-center flex-shrink-0">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-neo-success">
+      <div className="mb-4 mt-10">
+        <div
+          className="relative overflow-hidden rounded-2xl"
+          style={{
+            background:
+              'linear-gradient(135deg, rgba(16,185,129,0.22), rgba(16,185,129,0.08) 40%, rgba(8,11,22,0.6) 100%)',
+            border: '1px solid rgba(16, 185, 129, 0.35)',
+            boxShadow:
+              '0 0 32px rgba(16, 185, 129, 0.25), inset 0 0 40px rgba(16, 185, 129, 0.08)',
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
+          }}
+        >
+          {/* Mesh accent */}
+          <div
+            aria-hidden
+            className="absolute inset-x-0 top-0 h-[2px]"
+            style={{
+              background:
+                'linear-gradient(90deg, transparent, #10B981 30%, #34D399 50%, #10B981 70%, transparent)',
+            }}
+          />
+
+          <div className="relative z-10 flex flex-col items-center gap-3 py-8 px-6">
+            {/* Expanding ring */}
+            <motion.div
+              aria-hidden
+              initial={{ scale: 0.4, opacity: 0.9 }}
+              animate={{ scale: 3.2, opacity: 0 }}
+              transition={{ duration: 1.1, ease: 'easeOut' }}
+              className="absolute left-1/2 top-[44px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+              style={{
+                width: 72,
+                height: 72,
+                border: '2px solid rgba(16, 185, 129, 0.7)',
+              }}
+            />
+
+            <Confetti />
+
+            {/* Check icon */}
+            <motion.div
+              initial={{ scale: 0, rotate: -20 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{
+                type: 'spring',
+                stiffness: 260,
+                damping: 16,
+                delay: 0.15,
+              }}
+              className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full"
+              style={{
+                background:
+                  'linear-gradient(135deg, #10B981 0%, #34D399 100%)',
+                boxShadow:
+                  '0 0 28px rgba(16, 185, 129, 0.6), 0 0 8px rgba(255,255,255,0.4) inset',
+              }}
+            >
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#0A0E1A"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-            </span>
-            <span className="text-sm font-semibold text-neo-success">{t.completed}</span>
-          </div>
-          {quizAvailable && (
-            <button
-              onClick={() => setModalOpen(true)}
-              className="w-full py-3 px-6 rounded-xl border border-neo-primary/40 bg-neo-primary/5 text-sm font-semibold text-neo-primary hover:bg-neo-primary/10 transition-colors"
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.35 }}
+              className="text-center"
             >
-              <span className="flex items-center justify-center gap-2">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <p
+                className="text-base font-bold tracking-tight"
+                style={{
+                  background: 'linear-gradient(135deg, #FFFFFF 0%, #34D399 120%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                {t.docCompleted}
+              </p>
+              <p className="mt-1 text-xs" style={{ color: '#94A3B8' }}>
+                {t.keepStudying}
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // --------- ALREADY COMPLETED (persistent success) ---------
+  if (completed) {
+    return (
+      <>
+        <div className="mb-4 mt-10 space-y-3">
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="relative overflow-hidden rounded-2xl"
+            style={{
+              background:
+                'linear-gradient(135deg, rgba(16,185,129,0.14), rgba(8,11,22,0.6) 100%)',
+              border: '1px solid rgba(16, 185, 129, 0.3)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+            }}
+          >
+            <div
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-[2px]"
+              style={{
+                background:
+                  'linear-gradient(90deg, transparent, #10B981, transparent)',
+              }}
+            />
+            <div className="flex items-center justify-center gap-3 px-6 py-4">
+              <span
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
+                style={{
+                  background:
+                    'linear-gradient(135deg, #10B981 0%, #34D399 100%)',
+                  boxShadow: '0 0 18px rgba(16, 185, 129, 0.5)',
+                }}
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#0A0E1A"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+              <span
+                className="text-sm font-bold"
+                style={{ color: '#34D399', letterSpacing: '0.02em' }}
+              >
+                {t.completed}
+              </span>
+            </div>
+          </motion.div>
+
+          {quizAvailable && (
+            <motion.button
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.99 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              onClick={() => setModalOpen(true)}
+              className="relative w-full overflow-hidden rounded-2xl px-6 py-3.5"
+              style={{
+                background:
+                  'linear-gradient(135deg, rgba(122,32,48,0.2), rgba(8,11,22,0.6))',
+                border: '1px solid rgba(122, 32, 48, 0.45)',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+              }}
+            >
+              <span className="flex items-center justify-center gap-2 text-sm font-semibold" style={{ color: '#E8A4B0' }}>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M9 11l3 3L22 4" />
                   <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
                 </svg>
                 {t.takeQuizForCert}
               </span>
-            </button>
+            </motion.button>
           )}
         </div>
+
         <QuizModal
           open={modalOpen}
           onClose={() => setModalOpen(false)}
@@ -171,93 +403,188 @@ export default function CompletionButton({
     );
   }
 
-  // Just completed — success animation
-  if (justCompleted) {
-    return (
-      <div className="mt-10 mb-4">
-        <div className="completion-success-container relative flex flex-col items-center justify-center w-full py-6 px-6 rounded-xl border-2 border-neo-success/40 bg-neo-success/5 overflow-hidden">
-          <div className="completion-ring absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-16 h-16 rounded-full border-2 border-neo-success/60 animate-completion-ring" />
-          </div>
-          <div className="relative z-10 flex flex-col items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-neo-success/20 flex items-center justify-center animate-completion-check">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-neo-success">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            </div>
-            <div className="text-center">
-              <p className="text-base font-bold text-neo-success animate-completion-text">{t.docCompleted}</p>
-              <p className="text-xs text-neo-text-muted mt-1">{t.keepStudying}</p>
-            </div>
-          </div>
-        </div>
-
-        <style jsx>{`
-          @keyframes completion-ring {
-            0% { transform: scale(0.5); opacity: 1; }
-            100% { transform: scale(3); opacity: 0; }
-          }
-          @keyframes completion-check {
-            0% { transform: scale(0); opacity: 0; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(1); opacity: 1; }
-          }
-          @keyframes completion-text {
-            0% { transform: translateY(8px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-          }
-          .animate-completion-ring { animation: completion-ring 0.8s ease-out forwards; }
-          .animate-completion-check { animation: completion-check 0.5s ease-out 0.2s both; }
-          .animate-completion-text { animation: completion-text 0.4s ease-out 0.4s both; }
-        `}</style>
-      </div>
-    );
-  }
-
+  // --------- PRIMARY CTA (not yet completed) ---------
   const buttonLabel = quizAvailable ? t.markCompleteQuiz : t.markComplete;
+  const disabled = loading || quizAvailable === null;
 
   return (
     <>
-      <div className="mt-10 mb-4">
-        {error && (
-          <p className="text-xs text-neo-danger text-center mb-3">{t.error}</p>
-        )}
-        <button
-          onClick={handleClick}
-          disabled={loading || quizAvailable === null}
-          className={`
-            w-full py-4 px-6 rounded-xl text-base font-bold
-            transition-all duration-200
-            ${loading || quizAvailable === null
-              ? 'bg-neo-primary/50 text-white/60 cursor-wait'
-              : 'bg-neo-primary text-white hover:bg-neo-primary-light hover:shadow-lg hover:shadow-neo-primary/20 active:scale-[0.98]'
-            }
-          `}
-        >
-          {loading ? (
-            <span className="flex items-center justify-center gap-2">
-              <svg className="animate-spin w-5 h-5" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="opacity-25" />
-                <path d="M4 12a8 8 0 018-8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-              </svg>
-              {t.completing}
-            </span>
-          ) : (
-            <span className="flex items-center justify-center gap-2">
-              {quizAvailable ? (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M9 11l3 3L22 4" />
-                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-                </svg>
-              ) : (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              )}
-              {buttonLabel}
-            </span>
+      <div className="mb-4 mt-10">
+        <AnimatePresence>
+          {error && (
+            <motion.p
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="mb-3 text-center text-xs"
+              style={{ color: '#F87171' }}
+            >
+              {t.error}
+            </motion.p>
           )}
-        </button>
+        </AnimatePresence>
+
+        <motion.button
+          whileHover={disabled ? {} : { y: -2 }}
+          whileTap={disabled ? {} : { scale: 0.99 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+          onClick={handleClick}
+          disabled={disabled}
+          className="group relative w-full overflow-hidden rounded-2xl"
+          style={{ cursor: disabled ? 'wait' : 'pointer' }}
+        >
+          {/* Glow pulse (behind) */}
+          {!disabled && (
+            <span
+              aria-hidden
+              className="absolute -inset-1 rounded-2xl"
+              style={{
+                background:
+                  'linear-gradient(135deg, #C94A5C 0%, #98283A 50%, #7A2030 100%)',
+                filter: 'blur(18px)',
+                opacity: 0.55,
+                animation: 'neo-cta-glow 2.6s ease-in-out infinite',
+              }}
+            />
+          )}
+
+          {/* Gradient border */}
+          <span
+            aria-hidden
+            className="absolute inset-0 rounded-2xl"
+            style={{
+              padding: '1px',
+              background: disabled
+                ? 'linear-gradient(135deg, rgba(152,40,58,0.3), rgba(122,32,48,0.3))'
+                : 'linear-gradient(135deg, #C94A5C 0%, #98283A 50%, #7A2030 100%)',
+            }}
+          >
+            <span
+              className="block h-full w-full rounded-2xl"
+              style={{
+                background:
+                  'linear-gradient(135deg, rgba(18,22,38,0.85) 0%, rgba(8,11,22,0.85) 100%)',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+              }}
+            />
+          </span>
+
+          {/* Sheen sweep */}
+          {!disabled && (
+            <span
+              aria-hidden
+              className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              style={{
+                background:
+                  'linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.12) 50%, transparent 65%)',
+                backgroundSize: '250% 100%',
+                animation: 'neo-cta-sheen 1.8s linear infinite',
+              }}
+            />
+          )}
+
+          {/* Content */}
+          <span className="relative z-10 flex items-center justify-center gap-2.5 px-6 py-4">
+            {loading ? (
+              <span className="flex items-center justify-center gap-2 text-base font-bold text-white/80">
+                <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    className="opacity-25"
+                  />
+                  <path
+                    d="M4 12a8 8 0 018-8"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                {t.completing}
+              </span>
+            ) : (
+              <>
+                <span
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg"
+                  style={{
+                    background:
+                      'linear-gradient(135deg, rgba(152,40,58,0.3), rgba(152,40,58,0.1))',
+                    border: '1px solid rgba(152,40,58,0.45)',
+                    color: '#FFD4DB',
+                    boxShadow: '0 0 12px rgba(152, 40, 58, 0.45)',
+                  }}
+                >
+                  {quizAvailable ? (
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M9 11l3 3L22 4" />
+                      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                    </svg>
+                  ) : (
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.75"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  )}
+                </span>
+                <span
+                  className="text-base font-bold tracking-tight"
+                  style={{
+                    background:
+                      'linear-gradient(135deg, #FFFFFF 0%, #E0FFF6 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  {buttonLabel}
+                </span>
+              </>
+            )}
+          </span>
+        </motion.button>
+
+        <style jsx>{`
+          @keyframes neo-cta-glow {
+            0%, 100% {
+              opacity: 0.35;
+              transform: scale(0.99);
+            }
+            50% {
+              opacity: 0.65;
+              transform: scale(1.01);
+            }
+          }
+          @keyframes neo-cta-sheen {
+            0% {
+              background-position: 200% 0;
+            }
+            100% {
+              background-position: -200% 0;
+            }
+          }
+        `}</style>
       </div>
 
       <QuizModal

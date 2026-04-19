@@ -8,6 +8,14 @@ import type {
   AdminRegistration as Registration,
   AdminRole as Role,
 } from '@/components/admin/fetcher';
+import {
+  AdminPageHeader,
+  AdminEmpty,
+  btnPrimary,
+  btnSecondary,
+} from '@/components/admin/AdminUI';
+import { AdminCard } from '@/components/admin/AdminCard';
+import AdminStagger, { AdminStaggerItem } from '@/components/admin/AdminStagger';
 
 const labels: Record<Lang, {
   title: string;
@@ -251,39 +259,37 @@ export default function RegistrationsPage() {
   const localeCode = lang === 'ru' ? 'ru-RU' : 'es-ES';
 
   return (
-    <div>
+    <AdminStagger>
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h1 className="text-2xl font-bold text-white">{t.title}</h1>
-          <p className="text-[#666666] text-sm mt-1">
-            {t.subtitle}
-          </p>
-        </div>
-        {pending.length > 0 && (
-          <span className="inline-flex items-center gap-1.5 bg-[#D4A03A]/15 text-[#D4A03A] text-xs font-semibold px-3 py-1.5 rounded-full border border-[#D4A03A]/20 animate-pulse">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D4A03A] inline-block" />
-            {pending.length} {pending.length !== 1 ? t.pendingLabelMany : t.pendingLabelOne}
-          </span>
-        )}
-      </div>
+      <AdminStaggerItem>
+        <AdminPageHeader
+          title={t.title}
+          subtitle={t.subtitle}
+          counter={
+            pending.length > 0 ? (
+              <span className="inline-flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FBBF24] animate-pulse" />
+                {pending.length} {pending.length !== 1 ? t.pendingLabelMany : t.pendingLabelOne}
+              </span>
+            ) : undefined
+          }
+        />
+      </AdminStaggerItem>
 
       {/* Pending */}
       {pending.length === 0 ? (
-        <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-12 text-center mb-8">
-          <div className="w-12 h-12 rounded-full bg-[#1A1A1A]/50 flex items-center justify-center mx-auto mb-3">
-            <svg className="w-6 h-6 text-[#666666]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+        <AdminStaggerItem>
+          <div className="mb-8">
+            <AdminEmpty title={t.noPending} />
           </div>
-          <p className="text-[#666666] text-sm">{t.noPending}</p>
-        </div>
+        </AdminStaggerItem>
       ) : (
+        <AdminStaggerItem>
         <div className="space-y-3 mb-8">
           {pending.map(reg => (
-            <div
-              key={reg.id}
-              className="bg-[#111111] border border-[#D4A03A]/20 rounded-xl p-5 hover:border-[#D4A03A]/30 transition-all duration-200 shadow-[0_0_12px_rgba(212,160,58,0.04)]"
+            <AdminCard key={reg.id} accent="amber" padding="md" hover>
+              <div
+              className="-m-0"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-start gap-3 flex-1">
@@ -313,28 +319,37 @@ export default function RegistrationsPage() {
                 <div className="flex gap-2 flex-shrink-0">
                   <button
                     onClick={() => setApprovalModal({ reg, roleId: roles.find(r => !r.isAdmin)?.id || '' })}
-                    className="bg-[#98283A] text-white text-xs font-semibold px-4 py-2 rounded-lg hover:shadow-lg hover:shadow-[#98283A]/20 transition-all duration-200"
+                    className={btnPrimary}
                   >
                     {t.approve}
                   </button>
                   <button
                     onClick={() => handleReject(reg.id)}
-                    className="bg-[#1A1A1A]/50 text-[#A0A0A0] text-xs font-semibold px-4 py-2 rounded-lg border border-[#1E1E1E]/30 hover:bg-[#1E1E1E]/50 hover:text-white transition-all duration-200"
+                    className={btnSecondary}
                   >
                     {t.reject}
                   </button>
                 </div>
               </div>
-            </div>
+              </div>
+            </AdminCard>
           ))}
         </div>
+        </AdminStaggerItem>
       )}
 
       {/* Processed history */}
       {processed.length > 0 && (
+        <AdminStaggerItem>
         <div>
-          <h2 className="text-lg font-semibold text-white mb-3">{t.history}</h2>
-          <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl overflow-hidden">
+          <h2 className="text-sm font-semibold text-[#94A3B8] uppercase tracking-[0.12em] mb-4">{t.history}</h2>
+          <div
+            className="rounded-2xl overflow-hidden border border-white/10"
+            style={{
+              background: 'linear-gradient(135deg, rgba(18,22,38,0.6), rgba(8,11,22,0.6))',
+              backdropFilter: 'blur(10px)',
+            }}
+          >
             {processed.map((reg, idx) => (
               <div
                 key={reg.id}
@@ -354,11 +369,11 @@ export default function RegistrationsPage() {
                   </div>
                   <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-0.5 rounded-full ${
                     reg.status === 'approved'
-                      ? 'bg-[#38CC97]/10 text-[#38CC97] border border-[#38CC97]/20'
+                      ? 'bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/20'
                       : 'bg-[#C44545]/10 text-[#C44545] border border-[#C44545]/20'
                   }`}>
                     <span className={`w-1.5 h-1.5 rounded-full inline-block ${
-                      reg.status === 'approved' ? 'bg-[#38CC97]' : 'bg-[#C44545]'
+                      reg.status === 'approved' ? 'bg-[#10B981]' : 'bg-[#C44545]'
                     }`} />
                     {reg.status === 'approved' ? t.approved : t.rejected}
                   </span>
@@ -380,6 +395,7 @@ export default function RegistrationsPage() {
             ))}
           </div>
         </div>
+        </AdminStaggerItem>
       )}
 
       {/* Approval Modal */}
@@ -438,8 +454,8 @@ export default function RegistrationsPage() {
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-[#111111] border border-[#1E1E1E] rounded-2xl p-6 max-w-sm w-full shadow-2xl shadow-black/40 text-center">
             {/* Success icon */}
-            <div className="w-14 h-14 rounded-full bg-[#38CC97]/10 flex items-center justify-center mx-auto mb-4 border border-[#38CC97]/20">
-              <svg className="w-7 h-7 text-[#38CC97]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="w-14 h-14 rounded-full bg-[#10B981]/10 flex items-center justify-center mx-auto mb-4 border border-[#10B981]/20">
+              <svg className="w-7 h-7 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
@@ -447,14 +463,14 @@ export default function RegistrationsPage() {
             <p className="text-[#666666] text-xs mb-5">{t.shareData}</p>
 
             {/* Credentials card */}
-            <div className="bg-[#38CC97]/5 border border-[#38CC97]/20 rounded-xl p-5 mb-5 text-left">
-              <div className="flex justify-between items-center mb-3 pb-3 border-b border-[#38CC97]/10">
+            <div className="bg-[#10B981]/5 border border-[#10B981]/20 rounded-xl p-5 mb-5 text-left">
+              <div className="flex justify-between items-center mb-3 pb-3 border-b border-[#10B981]/10">
                 <span className="text-[#666666] text-xs font-medium uppercase tracking-wider">{t.userLabel}</span>
                 <span className="text-white font-mono text-sm font-semibold">{generatedCode.userId}</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-[#666666] text-xs font-medium uppercase tracking-wider">{t.codeLabel}</span>
-                <span className="text-[#38CC97] font-mono text-xl font-bold tracking-widest">{generatedCode.code}</span>
+                <span className="text-[#10B981] font-mono text-xl font-bold tracking-widest">{generatedCode.code}</span>
               </div>
             </div>
 
@@ -467,7 +483,7 @@ export default function RegistrationsPage() {
               }}
               className={`w-full font-medium py-2.5 rounded-lg transition-all duration-200 text-sm mb-3 ${
                 copiedCode
-                  ? 'bg-[#38CC97]/15 text-[#38CC97] border border-[#38CC97]/20'
+                  ? 'bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/20'
                   : 'bg-[#1A1A1A]/50 text-[#A0A0A0] border border-[#1E1E1E]/30 hover:bg-[#1E1E1E]/50 hover:text-white'
               }`}
             >
@@ -484,6 +500,6 @@ export default function RegistrationsPage() {
           </div>
         </div>
       )}
-    </div>
+    </AdminStagger>
   );
 }

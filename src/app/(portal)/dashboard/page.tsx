@@ -1,16 +1,23 @@
 import { auth } from '@/lib/auth';
-import { getRole, getUserProgress } from '@/lib/db';
-import { getDashboardContent } from '@/lib/content';
+import { getRole, getUserProgress, getAllProgress, getAllUsers } from '@/lib/db';
 import { getVisibleSections } from '@/lib/permissions';
 import { LEARNING_PATHS, computePathState } from '@/lib/learning-paths';
 import { getAllCertificates } from '@/lib/quiz-storage';
-import type { Lang, Role } from '@/lib/types';
-import { SECTIONS } from '@/lib/sections';
-import MarkdownRenderer from '@/components/MarkdownRenderer';
+import type { Lang, Role, ReadProgress, User } from '@/lib/types';
+import { SECTIONS, getSectionById, getDocByPath } from '@/lib/sections';
 import DashboardProgress from './DashboardProgress';
 import LearningPathCard from './LearningPathCard';
+import HeroSection from './HeroSection';
+import KpiCard from './KpiCard';
+import QuickActions from './QuickActions';
+import ActivityHeatmap from './ActivityHeatmap';
+import ActivityFeed, { type ActivityEvent } from './ActivityFeed';
+import DashboardStagger, { StaggerItem } from './DashboardStagger';
+import MeshGradientBackground from './MeshGradientBackground';
 
-// Fallback roles (same as layout)
+// Target go-live date — update as schedule firms up.
+const LAUNCH_DATE_ISO = '2026-05-31T00:00:00Z';
+
 const FALLBACK_ROLES: Record<string, Role> = {
   admin: { id: 'admin', name: 'Administrador', nameRu: 'Администратор', sections: SECTIONS.map(s => s.id), isAdmin: true },
   principal: { id: 'principal', name: 'Principal', nameRu: 'Принципал', sections: SECTIONS.map(s => s.id), isAdmin: false },
@@ -22,6 +29,53 @@ const FALLBACK_ROLES: Record<string, Role> = {
   dev: { id: 'dev', name: 'Desarrollo', nameRu: 'Разработка', sections: SECTIONS.map(s => s.id), isAdmin: false },
 };
 
+function initialsFrom(name: string): string {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return '?';
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
+
+function dateKey(d: Date): string {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+/**
+ * Build N-length series of daily event counts, oldest → newest.
+ * Each iso timestamp in `timestamps` contributes 1 to its bucket.
+ */
+function buildDailySeries(timestamps: string[], days: number): number[] {
+  const series = new Array(days).fill(0);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const byDay = new Map<string, number>();
+  for (const iso of timestamps) {
+    const d = new Date(iso);
+    if (!Number.isFinite(d.getTime())) continue;
+    const k = dateKey(d);
+    byDay.set(k, (byDay.get(k) || 0) + 1);
+  }
+  for (let i = 0; i < days; i++) {
+    const d = new Date(today);
+    d.setDate(today.getDate() - (days - 1 - i));
+    series[i] = byDay.get(dateKey(d)) || 0;
+  }
+  return series;
+}
+
+function trendFromSeries(series: number[]): { label: string; direction: 'up' | 'down' | 'flat' } {
+  if (series.length < 2) return { label: '', direction: 'flat' };
+  const half = Math.floor(series.length / 2);
+  const firstHalf = series.slice(0, half).reduce((a, b) => a + b, 0);
+  const secondHalf = series.slice(half).reduce((a, b) => a + b, 0);
+  if (firstHalf === 0 && secondHalf === 0) return { label: '', direction: 'flat' };
+  if (firstHalf === 0) return { label: 'new', direction: 'up' };
+  const pct = Math.round(((secondHalf - firstHalf) / firstHalf) * 100);
+  if (pct > 5) return { label: `${pct}%`, direction: 'up' };
+  if (pct < -5) return { label: `${pct}%`, direction: 'down' };
+  return { label: '0%', direction: 'flat' };
+}
+
 export default async function DashboardPage() {
   const session = await auth();
   const user = session?.user as any;
@@ -32,9 +86,6 @@ export default async function DashboardPage() {
   const isAdmin: boolean = user?.isAdmin || false;
   const extraSections: string[] = Array.isArray(user?.extraSections) ? user.extraSections : [];
 
-  const content = getDashboardContent(lang);
-
-  // Calculate total accessible documents
   let role = await getRole(roleId);
   if (!role) {
     role = FALLBACK_ROLES[roleId] || (isAdmin ? FALLBACK_ROLES['admin'] : FALLBACK_ROLES['sales']);
@@ -43,141 +94,211 @@ export default async function DashboardPage() {
   const totalDocs = visibleSections.reduce((sum, s) => sum + s.documents.length, 0);
   const totalSections = visibleSections.length;
 
-  // Certificates count + learning path progress (for KPIs 3 and 4)
+  // Data for KPIs, heatmap, feed
   let certsCount = 0;
   let pathPercent = 0;
+  let userProgress: ReadProgress[] = [];
+  let allProgress: ReadProgress[] = [];
+  let allUsers: User[] = [];
+
   if (userId) {
     try {
-      const [certs, progressEntries] = await Promise.all([
+      const [certs, ownProgress, globalProgress, users] = await Promise.all([
         getAllCertificates(userId),
         getUserProgress(userId),
+        getAllProgress(),
+        getAllUsers(),
       ]);
       certsCount = Array.isArray(certs) ? certs.length : 0;
+      userProgress = ownProgress;
+      allProgress = globalProgress;
+      allUsers = users;
 
       const path = LEARNING_PATHS[roleId] || LEARNING_PATHS['admin'];
       if (path) {
         const completedSet = new Set<string>(
-          progressEntries
-            .filter((p) => p.completed)
-            .map((p) => p.documentPath.replace(/\.md$/, ''))
+          ownProgress.filter((p) => p.completed).map((p) => p.documentPath.replace(/\.md$/, ''))
         );
         pathPercent = computePathState(path, completedSet).percent;
       }
     } catch {
-      // Silently degrade to zeros if storage unavailable
+      // Silently degrade
     }
   }
 
+  // Sparkline series (last 14 days) per KPI
+  const userAccessTs = userProgress.map((p) => p.lastAccessed || p.firstAccessed).filter(Boolean);
+  const userCompletedTs = userProgress.filter((p) => p.completed).map((p) => p.lastAccessed).filter(Boolean);
+
+  const accessSeries = buildDailySeries(userAccessTs, 14);
+  const completedSeries = buildDailySeries(userCompletedTs, 14);
+  // Cumulative version for pathPercent (monotonic upward series)
+  const cumPathSeries = completedSeries.reduce<number[]>((acc, v, i) => {
+    const prev = i === 0 ? 0 : acc[i - 1];
+    acc.push(prev + v);
+    return acc;
+  }, []);
+  // Sections: synthetic flat-ish series of user's sections usage (count unique sections touched daily)
+  const sectionsSeries = buildDailySeries(userAccessTs, 14);
+
+  const accessTrend = trendFromSeries(accessSeries);
+  const completedTrend = trendFromSeries(completedSeries);
+
+  // Heatmap dates: every time the user touched a doc
+  const heatmapDates = userAccessTs;
+
+  // Activity feed: take last 15 events across all users, resolve names + doc titles
+  const userMap = new Map<string, User>();
+  for (const u of allUsers) userMap.set(u.id, u);
+
+  const events: ActivityEvent[] = allProgress
+    .filter((p) => !!p.lastAccessed)
+    .sort((a, b) => (b.lastAccessed || '').localeCompare(a.lastAccessed || ''))
+    .slice(0, 15)
+    .map((p) => {
+      const u = userMap.get(p.userId);
+      const displayName = u?.name || p.userId;
+      const docPath = p.documentPath.replace(/\.md$/, '');
+      const [sectionId, slug] = docPath.split('/', 2);
+      const section = sectionId ? getSectionById(sectionId) : null;
+      const doc = sectionId && slug ? getDocByPath(sectionId, slug) : null;
+      const docTitle =
+        doc
+          ? (lang === 'ru' ? doc.titleRu : lang === 'en' ? (doc.titleEn || doc.titleEs) : doc.titleEs)
+          : docPath;
+      const sectionName =
+        section
+          ? (lang === 'ru' ? section.nameRu : lang === 'en' ? (section.nameEn || section.nameEs) : section.nameEs)
+          : sectionId || '';
+      return {
+        userName: displayName,
+        userInitials: initialsFrom(displayName),
+        action: p.completed ? ('completed' as const) : ('accessed' as const),
+        docTitle,
+        sectionName,
+        timestamp: p.lastAccessed || p.firstAccessed,
+        href: sectionId && slug ? `/content/${sectionId}/${slug}` : undefined,
+      };
+    });
+
+  const roleName =
+    lang === 'ru' ? role.nameRu || role.name : lang === 'en' ? role.name : role.name;
+
+  // KPI icons
+  const iconSections = (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="3" width="7" height="7" />
+      <rect x="14" y="3" width="7" height="7" />
+      <rect x="3" y="14" width="7" height="7" />
+      <rect x="14" y="14" width="7" height="7" />
+    </svg>
+  );
+  const iconDocs = (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+    </svg>
+  );
+  const iconCerts = (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="8" r="6" />
+      <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+    </svg>
+  );
+  const iconPath = (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+      <polyline points="22 4 12 14.01 9 11.01" />
+    </svg>
+  );
+
+  const labelSections = lang === 'ru' ? 'Разделов' : lang === 'en' ? 'Sections' : 'Secciones';
+  const labelDocs = lang === 'ru' ? 'Документов' : lang === 'en' ? 'Documents' : 'Documentos';
+  const labelCerts = lang === 'ru' ? 'Сертификаты' : lang === 'en' ? 'Certificates' : 'Certificados';
+  const labelPath = lang === 'ru' ? 'Мой путь' : lang === 'en' ? 'My Path' : 'Mi Ruta';
+
   return (
-    <div>
-      {/* Welcome header */}
-      <div className="mb-8">
-        <div className="flex items-start justify-between flex-wrap gap-4">
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-neo-text tracking-tight">
-              {lang === 'ru' ? 'Добро пожаловать' : 'Bienvenido'},{' '}
-              <span className="bg-gradient-to-r from-neo-primary to-neo-primary-light bg-clip-text text-transparent">
-                {userName}
-              </span>
-            </h1>
-            <p className="text-neo-text-muted text-sm mt-1.5">
-              {lang === 'ru'
-                ? 'Внутренний портал команды NEOMAAA'
-                : 'Portal interno del equipo NEOMAAA'
-              }
-            </p>
+    <>
+      <MeshGradientBackground />
+
+      <DashboardStagger>
+        <StaggerItem>
+          <HeroSection
+            userName={userName}
+            roleName={roleName}
+            lang={lang}
+            launchDateIso={LAUNCH_DATE_ISO}
+          />
+        </StaggerItem>
+
+        {/* KPI cards with sparklines */}
+        <StaggerItem>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
+            <KpiCard
+              value={totalSections}
+              suffix={`/${SECTIONS.length}`}
+              label={labelSections}
+              color="primary"
+              icon={iconSections}
+              trendData={sectionsSeries}
+            />
+            <KpiCard
+              value={totalDocs}
+              label={labelDocs}
+              color="blue"
+              icon={iconDocs}
+              trendData={accessSeries}
+              trendLabel={accessTrend.label}
+              trendDirection={accessTrend.direction}
+            />
+            <KpiCard
+              value={certsCount}
+              label={labelCerts}
+              color="amber"
+              icon={iconCerts}
+              trendData={completedSeries}
+              trendLabel={completedTrend.label}
+              trendDirection={completedTrend.direction}
+            />
+            <KpiCard
+              value={pathPercent}
+              suffix="%"
+              label={labelPath}
+              color="burgundy"
+              icon={iconPath}
+              trendData={cumPathSeries}
+              trendDirection={pathPercent > 0 ? 'up' : 'flat'}
+            />
           </div>
-        </div>
-      </div>
+        </StaggerItem>
 
-      {/* Stats cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-4">
-        {/* Sections accessible */}
-        <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-4 sm:p-5 hover:border-neo-dark-3 transition-all duration-200">
-          <div className="flex items-center gap-3 mb-1">
-            <div className="w-9 h-9 rounded-lg bg-neo-primary/10 flex items-center justify-center flex-shrink-0">
-              <svg className="w-[18px] h-[18px] text-neo-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
-              </svg>
+        {/* Learning path promoted — right after KPIs */}
+        {userId && (
+          <StaggerItem>
+            <div className="mb-6">
+              <LearningPathCard userId={userId} roleId={roleId} lang={lang} />
             </div>
-            <div className="min-w-0">
-              <div className="text-2xl font-extrabold text-neo-text leading-none">{totalSections}</div>
-              <div className="text-[10px] sm:text-[11px] text-neo-text-muted font-medium uppercase tracking-wider mt-1 truncate">
-                {lang === 'ru' ? '\u0420\u0430\u0437\u0434\u0435\u043B\u043E\u0432' : 'Secciones'}
-              </div>
-            </div>
+          </StaggerItem>
+        )}
+
+        {/* Heatmap + Activity feed side by side */}
+        <StaggerItem>
+          <div className="grid grid-cols-1 lg:grid-cols-[auto,1fr] gap-4 mb-6">
+            <ActivityHeatmap activityDates={heatmapDates} lang={lang} />
+            <ActivityFeed events={events} lang={lang} />
           </div>
-        </div>
+        </StaggerItem>
 
-        {/* Total docs */}
-        <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-4 sm:p-5 hover:border-neo-dark-3 transition-all duration-200">
-          <div className="flex items-center gap-3 mb-1">
-            <div className="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-              <svg className="w-[18px] h-[18px] text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-              </svg>
-            </div>
-            <div className="min-w-0">
-              <div className="text-2xl font-extrabold text-neo-text leading-none">{totalDocs}</div>
-              <div className="text-[10px] sm:text-[11px] text-neo-text-muted font-medium uppercase tracking-wider mt-1 truncate">
-                {lang === 'ru' ? '\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u043E\u0432' : 'Documentos'}
-              </div>
-            </div>
+        <StaggerItem>
+          <QuickActions lang={lang} />
+        </StaggerItem>
+
+        <StaggerItem>
+          <div className="mb-8">
+            <DashboardProgress totalDocs={totalDocs} lang={lang} />
           </div>
-        </div>
-
-        {/* My certificates */}
-        <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-4 sm:p-5 hover:border-neo-dark-3 transition-all duration-200">
-          <div className="flex items-center gap-3 mb-1">
-            <div className="w-9 h-9 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0">
-              <svg className="w-[18px] h-[18px] text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="8" r="6" />
-                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
-              </svg>
-            </div>
-            <div className="min-w-0">
-              <div className="text-2xl font-extrabold text-neo-text leading-none">{certsCount}</div>
-              <div className="text-[10px] sm:text-[11px] text-neo-text-muted font-medium uppercase tracking-wider mt-1 truncate">
-                {lang === 'ru' ? 'Сертификаты' : 'Certificados'}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* My learning path progress */}
-        <div className="bg-neo-dark-2 border border-neo-dark-3/60 rounded-xl p-4 sm:p-5 hover:border-neo-dark-3 transition-all duration-200">
-          <div className="flex items-center gap-3 mb-1">
-            <div className="w-9 h-9 rounded-lg bg-neo-success/10 flex items-center justify-center flex-shrink-0">
-              <svg className="w-[18px] h-[18px] text-neo-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
-                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-                <path d="M8 7h8" />
-                <path d="M8 11h6" />
-              </svg>
-            </div>
-            <div className="min-w-0">
-              <div className="text-2xl font-extrabold text-neo-text leading-none">{pathPercent}%</div>
-              <div className="text-[10px] sm:text-[11px] text-neo-text-muted font-medium uppercase tracking-wider mt-1 truncate">
-                {lang === 'ru' ? 'Мой путь' : 'Mi Ruta'}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Learning path card (server-rendered so SSR has the right state) */}
-      {userId && (
-        <div className="mb-4">
-          <LearningPathCard userId={userId} roleId={roleId} lang={lang} />
-        </div>
-      )}
-
-      {/* Progress card — full width, client component */}
-      <div className="mb-8">
-        <DashboardProgress totalDocs={totalDocs} lang={lang} />
-      </div>
-
-      {/* Markdown content below */}
-      <MarkdownRenderer content={content} />
-    </div>
+        </StaggerItem>
+      </DashboardStagger>
+    </>
   );
 }

@@ -6,8 +6,10 @@ import {
   AdminPageHeader,
   AdminBadge,
   btnPrimary,
+  btnSecondary,
 } from '@/components/admin/AdminUI';
 import { AdminTable, AdminTableColumn } from '@/components/admin/AdminTable';
+import AdminStagger, { AdminStaggerItem } from '@/components/admin/AdminStagger';
 import type { Lang } from '@/lib/types';
 
 interface ApiKeyRow {
@@ -297,20 +299,24 @@ export default function ApiKeysPage() {
   ];
 
   return (
-    <div>
-      <AdminPageHeader
-        title={t.title}
-        subtitle={t.subtitle}
-        actions={
-          <button onClick={() => setShowModal(true)} className={btnPrimary}>
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-            </svg>
-            {t.newKey}
-          </button>
-        }
-      />
+    <AdminStagger>
+      <AdminStaggerItem>
+        <AdminPageHeader
+          title={t.title}
+          subtitle={t.subtitle}
+          counter={keys.length > 0 ? keys.length : undefined}
+          actions={
+            <button onClick={() => setShowModal(true)} className={btnPrimary}>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+              {t.newKey}
+            </button>
+          }
+        />
+      </AdminStaggerItem>
 
+      <AdminStaggerItem>
       <AdminTable
         columns={columns}
         data={keys}
@@ -319,33 +325,53 @@ export default function ApiKeysPage() {
         pageSize={25}
         emptyTitle={t.empty}
       />
+      </AdminStaggerItem>
 
       {showModal && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-[#111111] border border-[#1E1E1E] rounded-2xl w-full max-w-md shadow-2xl shadow-black/40">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ background: 'rgba(4,6,14,0.7)', backdropFilter: 'blur(8px)' }}
+        >
+          <div className="relative rounded-2xl w-full max-w-md overflow-hidden">
+            <div
+              className="absolute inset-0 rounded-2xl"
+              style={{
+                background: 'linear-gradient(135deg, rgba(152,40,58,0.4), transparent 50%, rgba(152,40,58,0.26))',
+                padding: '1px',
+              }}
+            >
+              <div
+                className="w-full h-full rounded-2xl"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(22,26,42,0.85), rgba(10,14,26,0.85))',
+                  backdropFilter: 'blur(14px)',
+                }}
+              />
+            </div>
+            <div className="relative">
             <div className="px-6 pt-6 pb-4">
               <h2 className="text-lg font-semibold text-white">
                 {plaintext ? t.created : t.modalTitle}
               </h2>
-              <p className="text-[#666666] text-sm mt-1">
+              <p className="text-[#94A3B8] text-sm mt-1">
                 {plaintext ? t.copyOnce : t.modalHint}
               </p>
             </div>
-            <div className="border-b border-[#1A1A1A] mx-6" />
+            <div className="border-b border-white/[0.06] mx-6" />
 
             {plaintext ? (
               <div className="p-6">
-                <div className="bg-[#38CC97]/5 border border-[#38CC97]/20 rounded-xl p-5">
+                <div className="bg-[#10B981]/5 border border-[#10B981]/20 rounded-xl p-5">
                   <div className="flex items-center justify-between gap-3">
-                    <code className="text-[#38CC97] font-mono text-xs font-bold break-all">
+                    <code className="text-[#10B981] font-mono text-xs font-bold break-all">
                       {plaintext}
                     </code>
                     <button
                       onClick={copyKey}
                       className={`flex-shrink-0 text-xs font-medium px-3 py-1.5 rounded-lg transition-colors duration-150 ${
                         copied
-                          ? 'bg-[#38CC97]/20 text-[#38CC97]'
-                          : 'bg-[#38CC97]/10 text-[#38CC97] hover:bg-[#38CC97]/20'
+                          ? 'bg-[#10B981]/20 text-[#10B981]'
+                          : 'bg-[#10B981]/10 text-[#10B981] hover:bg-[#10B981]/20'
                       }`}
                     >
                       {copied ? t.copied : t.copy}
@@ -353,10 +379,7 @@ export default function ApiKeysPage() {
                   </div>
                 </div>
                 <div className="mt-6 flex justify-end">
-                  <button
-                    onClick={closeModal}
-                    className="bg-[#1A1A1A] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#2A2A2A] transition-colors"
-                  >
+                  <button onClick={closeModal} className={btnPrimary}>
                     {t.close}
                   </button>
                 </div>
@@ -372,30 +395,28 @@ export default function ApiKeysPage() {
                     value={formName}
                     onChange={(e) => setFormName(e.target.value)}
                     placeholder={t.namePlaceholder}
-                    className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E] text-white rounded-lg px-4 py-2.5 text-sm placeholder:text-[#666666]/50 focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-colors"
+                    className="w-full bg-white/[0.04] border border-white/10 text-white rounded-xl px-4 py-2.5 text-sm placeholder:text-[#6B7280] focus:outline-none focus:border-[#98283A]/50 focus:bg-white/[0.06] focus:shadow-[0_0_0_3px_rgba(152,40,58,0.15)] transition-all duration-200"
                     autoFocus
                   />
                 </div>
                 <div className="flex justify-end gap-3 pt-2">
-                  <button
-                    onClick={closeModal}
-                    className="bg-transparent text-[#A0A0A0] font-semibold text-sm px-5 py-2.5 rounded-lg border border-[#1E1E1E] hover:bg-[#1A1A1A] hover:text-white transition-colors"
-                  >
+                  <button onClick={closeModal} className={btnSecondary}>
                     {t.cancel}
                   </button>
                   <button
                     onClick={handleCreate}
                     disabled={!formName.trim() || creating}
-                    className="bg-[#98283A] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#B33347] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                    className={btnPrimary}
                   >
                     {creating ? t.creating : t.create}
                   </button>
                 </div>
               </div>
             )}
+            </div>
           </div>
         </div>
       )}
-    </div>
+    </AdminStagger>
   );
 }

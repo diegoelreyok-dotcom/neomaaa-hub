@@ -576,17 +576,23 @@ function SettingsCard({
   headerRight?: React.ReactNode;
 }) {
   return (
-    <div className="bg-[#111111] border border-[#1E1E1E] rounded-xl overflow-hidden">
+    <div
+      className="rounded-2xl overflow-hidden border border-white/10"
+      style={{
+        background: 'linear-gradient(135deg, rgba(18,22,38,0.6), rgba(8,11,22,0.6))',
+        backdropFilter: 'blur(10px)',
+      }}
+    >
       {/* Card header */}
       <div className="px-6 pt-6 pb-5 flex items-start justify-between">
         <div>
           <h2 className="text-lg font-semibold text-white tracking-tight">{title}</h2>
-          <p className="text-[#666666] text-sm mt-1 leading-relaxed">{description}</p>
+          <p className="text-[#94A3B8] text-sm mt-1 leading-relaxed">{description}</p>
         </div>
         {headerRight && <div className="flex-shrink-0 ml-4">{headerRight}</div>}
       </div>
       {/* Divider */}
-      <div className="border-b border-[#1A1A1A]/40 mx-6" />
+      <div className="border-b border-white/[0.06] mx-6" />
       {/* Card body */}
       <div className="px-6 py-6">{children}</div>
     </div>
@@ -722,7 +728,7 @@ export default function SettingsPage() {
                 type="text"
                 value={broker[key]}
                 onChange={(e) => setBroker((prev) => ({ ...prev, [key]: e.target.value }))}
-                className="w-full bg-[#1A1A1A]/50 border border-[#1E1E1E] rounded-lg px-4 py-2.5 text-sm text-white placeholder:text-[#666666]/50 focus:outline-none focus:border-[#98283A]/50 focus:ring-2 focus:ring-[#98283A]/10 transition-all duration-200"
+                className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-[#6B7280] focus:outline-none focus:border-[#98283A]/50 focus:bg-white/[0.06] focus:shadow-[0_0_0_3px_rgba(152,40,58,0.15)] transition-all duration-200"
               />
             </div>
           ))}
@@ -795,15 +801,15 @@ export default function SettingsPage() {
 
                   {/* Status dot */}
                   <div className="flex items-center gap-1.5 mr-2">
-                    <span className={`w-1.5 h-1.5 rounded-full inline-block ${user.isActive ? 'bg-[#38CC97]' : 'bg-[#333333]'}`} />
-                    <span className={`text-xs ${user.isActive ? 'text-[#38CC97]' : 'text-[#666666]'}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full inline-block ${user.isActive ? 'bg-[#10B981]' : 'bg-[#333333]'}`} />
+                    <span className={`text-xs ${user.isActive ? 'text-[#10B981]' : 'text-[#666666]'}`}>
                       {user.isActive ? t.active : t.inactive}
                     </span>
                   </div>
 
                   {/* Role badge */}
                   {isOwner ? (
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#6C5CE7]/20 to-violet-500/20 text-[#6C5CE7] border border-[#6C5CE7]/20">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-[#7A2030]/25 to-[#98283A]/20 text-[#C94A5C] border border-[#7A2030]/30">
                       <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                       </svg>
@@ -979,8 +985,8 @@ export default function SettingsPage() {
                   <div className="text-white text-sm font-medium">{lang.name}</div>
                   <div className="text-[#666666] text-xs mt-0.5">{lang.code.toUpperCase()} -- {lang.count} {t.documentsLabel}</div>
                 </div>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[#38CC97]/10 text-[#38CC97] border border-[#38CC97]/20">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#38CC97] inline-block" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/20">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] inline-block" />
                   {t.activeStatus}
                 </span>
               </div>
@@ -1072,8 +1078,8 @@ export default function SettingsPage() {
                     </span>
                   </div>
                   <div className="col-span-4 flex items-center justify-end gap-1.5">
-                    <span className={`w-1.5 h-1.5 rounded-full inline-block ${user?.isActive ? 'bg-[#38CC97]' : 'bg-[#333333]'}`} />
-                    <span className={`text-xs font-medium ${user?.isActive ? 'text-[#38CC97]' : 'text-[#666666]'}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full inline-block ${user?.isActive ? 'bg-[#10B981]' : 'bg-[#333333]'}`} />
+                    <span className={`text-xs font-medium ${user?.isActive ? 'text-[#10B981]' : 'text-[#666666]'}`}>
                       {user ? (user.isActive ? t.active : t.inactive) : t.notFound}
                     </span>
                   </div>
@@ -1150,14 +1156,14 @@ export default function SettingsPage() {
                 {/* Status */}
                 <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${
                   integration.status === 'connected'
-                    ? 'bg-[#38CC97]/10 text-[#38CC97] border border-[#38CC97]/20'
+                    ? 'bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/20'
                     : integration.status === 'partial' || integration.status === 'pending'
                     ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
                     : 'bg-[#1A1A1A]/50 text-[#666666] border border-[#1E1E1E]/30'
                 }`}>
                   <span className={`w-1.5 h-1.5 rounded-full inline-block ${
                     integration.status === 'connected'
-                      ? 'bg-[#38CC97]'
+                      ? 'bg-[#10B981]'
                       : integration.status === 'partial' || integration.status === 'pending'
                       ? 'bg-amber-400'
                       : 'bg-[#666666]/50'
@@ -1270,8 +1276,18 @@ export default function SettingsPage() {
     <div>
       {/* ── Page Header ── */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-white tracking-tight">{t.pageTitle}</h1>
-        <p className="text-[#666666] text-sm mt-1">{t.pageSubtitle}</p>
+        <h1
+          className="text-[28px] font-black tracking-tight leading-none"
+          style={{
+            background: 'linear-gradient(135deg, #FFFFFF 0%, #C94A5C 110%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}
+        >
+          {t.pageTitle}
+        </h1>
+        <p className="text-[#94A3B8] text-sm mt-2">{t.pageSubtitle}</p>
       </div>
 
       {/* ── Main layout: sidebar + content ── */}
@@ -1279,7 +1295,13 @@ export default function SettingsPage() {
         {/* Left sidebar */}
         <div className="w-60 flex-shrink-0">
           <div className="sticky top-6">
-            <nav className="bg-[#111111] border border-[#1E1E1E] rounded-xl p-3 space-y-5">
+            <nav
+              className="rounded-2xl p-3 space-y-5 border border-white/10"
+              style={{
+                background: 'linear-gradient(135deg, rgba(18,22,38,0.6), rgba(8,11,22,0.6))',
+                backdropFilter: 'blur(10px)',
+              }}
+            >
               {CATEGORY_GROUPS.map((group) => {
                 const groupLabel = group.key === 'config' ? t.groupConfig : group.key === 'content' ? t.groupContent : t.groupSystem;
                 return (
@@ -1305,13 +1327,13 @@ export default function SettingsPage() {
                         <button
                           key={cat.id}
                           onClick={() => setActiveSection(cat.id)}
-                          className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200 ${
+                          className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-xl transition-all duration-200 ${
                             isActive
-                              ? 'bg-[#98283A]/10 text-[#98283A] font-medium border border-[#98283A]/20'
-                              : 'text-[#A0A0A0] hover:bg-[#1A1A1A]/50 hover:text-white border border-transparent'
+                              ? 'bg-gradient-to-r from-[#98283A]/15 to-[#98283A]/5 text-[#C94A5C] font-semibold border border-[#98283A]/30 shadow-[0_0_14px_rgba(152,40,58,0.2)]'
+                              : 'text-[#94A3B8] hover:bg-white/5 hover:text-white border border-transparent'
                           }`}
                         >
-                          <span className={`flex-shrink-0 transition-colors duration-200 ${isActive ? 'text-[#98283A]' : 'text-[#666666]'}`}>
+                          <span className={`flex-shrink-0 transition-colors duration-200 ${isActive ? 'text-[#C94A5C]' : 'text-[#6B7280]'}`}>
                             {cat.icon}
                           </span>
                           {catLabel}
