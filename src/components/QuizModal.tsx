@@ -13,6 +13,7 @@ import type {
   QuizResult,
   QuizResultQuestion,
 } from '@/lib/quiz-types';
+import { translateApiError } from '@/lib/api-errors';
 
 export interface QuizModalProps {
   open: boolean;
@@ -394,7 +395,7 @@ export default function QuizModal({
       }
       if (!res.ok) {
         const body = await res.json().catch(() => null);
-        throw new Error(body?.error || `HTTP ${res.status}`);
+        throw new Error(translateApiError(body, language, `HTTP ${res.status}`));
       }
       const data = (await res.json()) as StartResponse;
       if (!data?.questions?.length) throw new Error('Empty question set');
@@ -422,7 +423,7 @@ export default function QuizModal({
       });
       if (!res.ok) {
         const body = await res.json().catch(() => null);
-        throw new Error(body?.error || `HTTP ${res.status}`);
+        throw new Error(translateApiError(body, language, `HTTP ${res.status}`));
       }
       const data = (await res.json()) as QuizResult;
       setResult(data);

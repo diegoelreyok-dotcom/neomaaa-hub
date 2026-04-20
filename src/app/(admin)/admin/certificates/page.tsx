@@ -4,6 +4,7 @@ import { useEffect, useState, useMemo } from 'react';
 import Link from 'next/link';
 import type { Certificate } from '@/lib/quiz-types';
 import { useAdminLang } from '@/components/admin/AdminContext';
+import { adminConfirm, adminAlert } from '@/components/admin/adminPrompts';
 import {
   AdminPageHeader,
   AdminSkeleton,
@@ -73,14 +74,14 @@ export default function AdminCertificatesPage() {
   }, [certs, filters]);
 
   async function handleRevoke(id: string) {
-    if (!confirm(lang === 'ru' ? 'Отозвать сертификат?' : '¿Revocar certificado?')) return;
+    if (!adminConfirm('revoke_certificate', lang)) return;
     setRevoking(id);
     try {
       const res = await fetch(`/api/certificates/${encodeURIComponent(id)}`, { method: 'DELETE' });
       if (!res.ok) throw new Error('failed');
       setCerts((prev) => prev.filter((c) => c.id !== id));
     } catch {
-      alert('Error');
+      adminAlert('generic_error', lang);
     } finally {
       setRevoking(null);
     }

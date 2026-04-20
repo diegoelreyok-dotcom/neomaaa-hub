@@ -30,14 +30,14 @@ function newCertId(userId: string, docPath: string): string {
 export async function POST(req: Request) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
 
   let body: { sessionId?: unknown; answers?: unknown };
   try {
     body = await req.json();
   } catch {
-    return NextResponse.json({ error: 'JSON invalido' }, { status: 400 });
+    return NextResponse.json({ error: 'JSON invalido', code: 'INVALID_JSON' }, { status: 400 });
   }
 
   const sessionId = typeof body.sessionId === 'string' ? body.sessionId : '';
@@ -45,7 +45,7 @@ export async function POST(req: Request) {
 
   if (!sessionId || !Array.isArray(answersRaw)) {
     return NextResponse.json(
-      { error: 'Parametros invalidos: sessionId, answers' },
+      { error: 'Parametros invalidos: sessionId, answers', code: 'VALIDATION_ERROR' },
       { status: 400 }
     );
   }
@@ -53,7 +53,7 @@ export async function POST(req: Request) {
   const quizSession = await getQuizSession(sessionId);
   if (!quizSession) {
     return NextResponse.json(
-      { error: 'Sesion expirada o invalida' },
+      { error: 'Sesion expirada o invalida', code: 'QUIZ_SESSION_INVALID' },
       { status: 404 }
     );
   }
@@ -62,7 +62,7 @@ export async function POST(req: Request) {
   const userName = (session.user as any).name || session.user.name || userId;
 
   if (quizSession.userId !== userId) {
-    return NextResponse.json({ error: 'Sesion de otro usuario' }, { status: 403 });
+    return NextResponse.json({ error: 'Sesion de otro usuario', code: 'QUIZ_SESSION_WRONG_USER' }, { status: 403 });
   }
 
   // Section-level permission check as second layer (role may have changed
@@ -73,7 +73,7 @@ export async function POST(req: Request) {
     const section = quizSession.docPath.split('/')[0];
     if (!section) {
       return NextResponse.json(
-        { error: 'forbidden', message: 'No tienes acceso a esta sección' },
+        { error: 'forbidden', code: 'SECTION_ACCESS_DENIED', message: 'No tienes acceso a esta sección' },
         { status: 403 }
       );
     }
@@ -86,7 +86,7 @@ export async function POST(req: Request) {
       );
     if (!hasAccess) {
       return NextResponse.json(
-        { error: 'forbidden', message: 'No tienes acceso a esta sección' },
+        { error: 'forbidden', code: 'SECTION_ACCESS_DENIED', message: 'No tienes acceso a esta sección' },
         { status: 403 }
       );
     }
@@ -96,6 +96,7 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         error: `Se esperan ${quizSession.questions.length} respuestas, se recibieron ${answersRaw.length}`,
+        code: 'QUIZ_ANSWERS_MISMATCH',
       },
       { status: 400 }
     );

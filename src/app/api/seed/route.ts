@@ -8,10 +8,10 @@ export async function GET() {
   // Require admin authentication
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
   if (!(session.user as any).isAdmin) {
-    return NextResponse.json({ error: 'No autorizado' }, { status: 403 });
+    return NextResponse.json({ error: 'No autorizado', code: 'FORBIDDEN' }, { status: 403 });
   }
 
   try {
@@ -41,7 +41,7 @@ export async function GET() {
     });
   } catch (error: any) {
     return NextResponse.json(
-      { error: 'Error al ejecutar seed', details: process.env.NODE_ENV === 'development' ? error?.message : 'Internal error' },
+      { error: 'Error al ejecutar seed', code: 'INTERNAL_ERROR', details: process.env.NODE_ENV === 'development' ? error?.message : 'Internal error' },
       { status: 500 }
     );
   }

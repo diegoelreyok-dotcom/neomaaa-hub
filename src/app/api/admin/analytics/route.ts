@@ -44,10 +44,10 @@ async function kvWriteCache(key: string, payload: AnalyticsResponse): Promise<vo
 export async function GET(req: Request) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
   if (!(session.user as any).isAdmin) {
-    return NextResponse.json({ error: 'No autorizado' }, { status: 403 });
+    return NextResponse.json({ error: 'No autorizado', code: 'FORBIDDEN' }, { status: 403 });
   }
 
   const { searchParams } = new URL(req.url);
@@ -87,7 +87,7 @@ export async function GET(req: Request) {
   } catch (error) {
     console.error('[admin/analytics] compute failed', error);
     return NextResponse.json(
-      { error: 'Error al calcular analiticas' },
+      { error: 'Error al calcular analiticas', code: 'INTERNAL_ERROR' },
       { status: 500 }
     );
   }

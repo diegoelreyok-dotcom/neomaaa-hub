@@ -32,21 +32,21 @@ function validLanguage(v: unknown): v is QuizLanguage {
 export async function POST(req: Request) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
 
   let body: { docPath?: unknown; language?: unknown };
   try {
     body = await req.json();
   } catch {
-    return NextResponse.json({ error: 'JSON invalido' }, { status: 400 });
+    return NextResponse.json({ error: 'JSON invalido', code: 'INVALID_JSON' }, { status: 400 });
   }
 
   const docPath = typeof body.docPath === 'string' ? body.docPath : '';
   const language = body.language;
   if (!docPath || !validLanguage(language)) {
     return NextResponse.json(
-      { error: 'Parametros invalidos: docPath, language' },
+      { error: 'Parametros invalidos: docPath, language', code: 'VALIDATION_ERROR' },
       { status: 400 }
     );
   }
@@ -60,7 +60,7 @@ export async function POST(req: Request) {
     const section = docPath.split('/')[0];
     if (!section) {
       return NextResponse.json(
-        { error: 'forbidden', message: 'No tienes acceso a esta sección' },
+        { error: 'forbidden', code: 'SECTION_ACCESS_DENIED', message: 'No tienes acceso a esta sección' },
         { status: 403 }
       );
     }
@@ -73,7 +73,7 @@ export async function POST(req: Request) {
       );
     if (!hasAccess) {
       return NextResponse.json(
-        { error: 'forbidden', message: 'No tienes acceso a esta sección' },
+        { error: 'forbidden', code: 'SECTION_ACCESS_DENIED', message: 'No tienes acceso a esta sección' },
         { status: 403 }
       );
     }
@@ -87,7 +87,7 @@ export async function POST(req: Request) {
       Math.ceil((cooldown.expiresAt - Date.now()) / 1000)
     );
     return NextResponse.json(
-      { error: 'cooldown', retryAfter: secondsLeft },
+      { error: 'cooldown', code: 'COOLDOWN_ACTIVE', retryAfter: secondsLeft },
       { status: 409 }
     );
   }
@@ -95,13 +95,13 @@ export async function POST(req: Request) {
   const pool = loadQuizPool(docPath, language);
   if (!pool) {
     return NextResponse.json(
-      { error: 'Quiz no disponible para este documento' },
+      { error: 'Quiz no disponible para este documento', code: 'QUIZ_NOT_AVAILABLE' },
       { status: 404 }
     );
   }
   if (pool.questions.length < QUIZ_QUESTIONS_PER_ATTEMPT) {
     return NextResponse.json(
-      { error: 'Pool de preguntas insuficiente' },
+      { error: 'Pool de preguntas insuficiente', code: 'QUIZ_POOL_INSUFFICIENT' },
       { status: 500 }
     );
   }

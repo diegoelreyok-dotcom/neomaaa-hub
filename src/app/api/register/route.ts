@@ -86,7 +86,7 @@ export async function POST(req: Request) {
     const rlKey = `ratelimit:register:${ip}`;
     const rl = await checkRateLimit(rlKey, REGISTER_MAX_PER_WINDOW, REGISTER_WINDOW_SECONDS);
     if (!rl.allowed) {
-      return NextResponse.json({ error: 'Demasiadas solicitudes. Intenta mas tarde.' }, { status: 429 });
+      return NextResponse.json({ error: 'Demasiadas solicitudes. Intenta mas tarde.', code: 'RATE_LIMITED' }, { status: 429 });
     }
     // Consume one slot up front: a submission (valid or not) counts toward
     // the limit, otherwise attackers could spray with bad payloads for free.
@@ -97,20 +97,20 @@ export async function POST(req: Request) {
 
     // Validate name
     if (!name || typeof name !== 'string' || name.trim().length < 2 || name.trim().length > 100) {
-      return NextResponse.json({ error: 'Nombre requerido (2-100 caracteres)' }, { status: 400 });
+      return NextResponse.json({ error: 'Nombre requerido (2-100 caracteres)', code: 'NAME_REQUIRED' }, { status: 400 });
     }
 
     // Validate email if provided
     if (email && typeof email === 'string' && email.length > 0) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email) || email.length > 200) {
-        return NextResponse.json({ error: 'Email invalido' }, { status: 400 });
+        return NextResponse.json({ error: 'Email invalido', code: 'INVALID_EMAIL' }, { status: 400 });
       }
     }
 
     // Validate message length
     if (message && typeof message === 'string' && message.length > 1000) {
-      return NextResponse.json({ error: 'Mensaje demasiado largo (max 1000 caracteres)' }, { status: 400 });
+      return NextResponse.json({ error: 'Mensaje demasiado largo (max 1000 caracteres)', code: 'MESSAGE_TOO_LONG' }, { status: 400 });
     }
 
     const id = name.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') + '-' + Date.now().toString(36);
@@ -130,7 +130,7 @@ export async function POST(req: Request) {
     // Don't return the internal ID to the public
     return NextResponse.json({ success: true });
   } catch {
-    return NextResponse.json({ error: 'Error al procesar solicitud' }, { status: 500 });
+    return NextResponse.json({ error: 'Error al procesar solicitud', code: 'INTERNAL_ERROR' }, { status: 500 });
   }
 }
 
@@ -139,7 +139,7 @@ export async function GET() {
   const { auth } = await import('@/lib/auth');
   const session = await auth();
   if (!(session?.user as any)?.isAdmin) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized', code: 'UNAUTHORIZED' }, { status: 401 });
   }
 
   try {
@@ -153,7 +153,7 @@ export async function GET() {
     registrations.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
     return NextResponse.json(registrations);
   } catch {
-    return NextResponse.json({ error: 'Server error' }, { status: 500 });
+    return NextResponse.json({ error: 'Server error', code: 'INTERNAL_ERROR' }, { status: 500 });
   }
 }
 
@@ -162,31 +162,31 @@ export async function PATCH(req: Request) {
   const { auth } = await import('@/lib/auth');
   const session = await auth();
   if (!(session?.user as any)?.isAdmin) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized', code: 'UNAUTHORIZED' }, { status: 401 });
   }
 
   try {
     const { id, action, roleId } = await req.json();
 
     if (!id || typeof id !== 'string' || !action || typeof action !== 'string') {
-      return NextResponse.json({ error: 'ID and action required' }, { status: 400 });
+      return NextResponse.json({ error: 'ID and action required', code: 'MISSING_FIELDS' }, { status: 400 });
     }
 
     // Validate action is one of the allowed values
     if (action !== 'approve' && action !== 'reject') {
-      return NextResponse.json({ error: 'Invalid action. Must be "approve" or "reject"' }, { status: 400 });
+      return NextResponse.json({ error: 'Invalid action. Must be "approve" or "reject"', code: 'INVALID_ACTION' }, { status: 400 });
     }
 
     const data = await kvGet<PendingRegistration>(`pending:${id}`);
     if (!data) {
-      return NextResponse.json({ error: 'Registration not found' }, { status: 404 });
+      return NextResponse.json({ error: 'Registration not found', code: 'REGISTRATION_NOT_FOUND' }, { status: 404 });
     }
 
     const registration = data;
 
     // Prevent re-processing already handled registrations
     if (registration.status !== 'pending') {
-      return NextResponse.json({ error: `Registration already ${registration.status}` }, { status: 409 });
+      return NextResponse.json({ error: `Registration already ${registration.status}`, code: 'REGISTRATION_ALREADY_PROCESSED' }, { status: 409 });
     }
 
     if (action === 'reject') {
@@ -197,14 +197,14 @@ export async function PATCH(req: Request) {
 
     if (action === 'approve') {
       if (!roleId || typeof roleId !== 'string') {
-        return NextResponse.json({ error: 'roleId required for approval' }, { status: 400 });
+        return NextResponse.json({ error: 'roleId required for approval', code: 'ROLE_ID_REQUIRED' }, { status: 400 });
       }
 
       // Validate the role exists
       const { getRole, getUser, createUser } = await import('@/lib/db');
       const role = await getRole(roleId);
       if (!role) {
-        return NextResponse.json({ error: 'Role not found' }, { status: 400 });
+        return NextResponse.json({ error: 'Role not found', code: 'ROLE_NOT_FOUND' }, { status: 400 });
       }
 
       // Generate a secure code (6 digits) using crypto, not Math.random.
@@ -243,10 +243,10 @@ export async function PATCH(req: Request) {
       return NextResponse.json({ success: true, status: 'approved', userId, code });
     }
 
-    return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid action', code: 'INVALID_ACTION' }, { status: 400 });
   } catch (err) {
     console.error('Registration PATCH error:', err);
-    return NextResponse.json({ error: 'Server error' }, { status: 500 });
+    return NextResponse.json({ error: 'Server error', code: 'INTERNAL_ERROR' }, { status: 500 });
   }
 }
 
@@ -255,19 +255,19 @@ export async function DELETE(req: Request) {
   const { auth } = await import('@/lib/auth');
   const session = await auth();
   if (!(session?.user as any)?.isAdmin) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized', code: 'UNAUTHORIZED' }, { status: 401 });
   }
 
   try {
     const { searchParams } = new URL(req.url);
     const id = searchParams.get('id');
     if (!id || typeof id !== 'string') {
-      return NextResponse.json({ error: 'ID required' }, { status: 400 });
+      return NextResponse.json({ error: 'ID required', code: 'MISSING_FIELDS' }, { status: 400 });
     }
 
     await kvDel(`pending:${id}`);
     return NextResponse.json({ success: true });
   } catch {
-    return NextResponse.json({ error: 'Server error' }, { status: 500 });
+    return NextResponse.json({ error: 'Server error', code: 'INTERNAL_ERROR' }, { status: 500 });
   }
 }

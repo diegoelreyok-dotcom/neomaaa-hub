@@ -21,14 +21,14 @@ export async function POST(req: Request) {
   const session = await auth();
   const userId = (session?.user as any)?.userId as string | undefined;
   if (!session?.user || !userId) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
 
   let body: any;
   try {
     body = await req.json();
   } catch {
-    return NextResponse.json({ error: 'Cuerpo JSON invalido' }, { status: 400 });
+    return NextResponse.json({ error: 'Cuerpo JSON invalido', code: 'INVALID_JSON' }, { status: 400 });
   }
 
   const newCode = typeof body?.newCode === 'string' ? body.newCode.trim() : '';
@@ -36,7 +36,7 @@ export async function POST(req: Request) {
   // Strict validation: exactly 6 digits.
   if (!/^[0-9]{6}$/.test(newCode)) {
     return NextResponse.json(
-      { error: 'El codigo debe tener exactamente 6 digitos numericos' },
+      { error: 'El codigo debe tener exactamente 6 digitos numericos', code: 'INVALID_CODE_FORMAT' },
       { status: 400 }
     );
   }
@@ -44,27 +44,27 @@ export async function POST(req: Request) {
   // Block the well-known default.
   if (newCode === '000000') {
     return NextResponse.json(
-      { error: 'No puedes usar 000000 como codigo' },
+      { error: 'No puedes usar 000000 como codigo', code: 'CODE_IS_DEFAULT' },
       { status: 400 }
     );
   }
 
   const user = await getUser(userId);
   if (!user) {
-    return NextResponse.json({ error: 'Usuario no encontrado' }, { status: 404 });
+    return NextResponse.json({ error: 'Usuario no encontrado', code: 'USER_NOT_FOUND' }, { status: 404 });
   }
 
   // Reject reusing the current code.
   if (user.loginCode && compareSync(newCode, user.loginCode)) {
     return NextResponse.json(
-      { error: 'El nuevo codigo debe ser distinto al actual' },
+      { error: 'El nuevo codigo debe ser distinto al actual', code: 'CODE_MUST_DIFFER' },
       { status: 400 }
     );
   }
 
   const ok = await regenerateCode(userId, newCode);
   if (!ok) {
-    return NextResponse.json({ error: 'Error al actualizar codigo' }, { status: 500 });
+    return NextResponse.json({ error: 'Error al actualizar codigo', code: 'INTERNAL_ERROR' }, { status: 500 });
   }
 
   await updateUser(userId, { mustChangeCode: false });

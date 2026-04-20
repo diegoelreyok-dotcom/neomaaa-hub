@@ -26,10 +26,10 @@ function generateCode(length = 6): string {
 export async function GET() {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
   if (!(session.user as any).isAdmin) {
-    return NextResponse.json({ error: 'No autorizado' }, { status: 403 });
+    return NextResponse.json({ error: 'No autorizado', code: 'FORBIDDEN' }, { status: 403 });
   }
 
   const users = await getAllUsers();
@@ -41,10 +41,10 @@ export async function GET() {
 export async function POST(req: Request) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
   if (!(session.user as any).isAdmin) {
-    return NextResponse.json({ error: 'No autorizado' }, { status: 403 });
+    return NextResponse.json({ error: 'No autorizado', code: 'FORBIDDEN' }, { status: 403 });
   }
 
   try {
@@ -53,7 +53,7 @@ export async function POST(req: Request) {
 
     if (!id || typeof id !== 'string' || !name || typeof name !== 'string' || !roleId || typeof roleId !== 'string') {
       return NextResponse.json(
-        { error: 'Faltan campos: id, name, roleId' },
+        { error: 'Faltan campos: id, name, roleId', code: 'MISSING_FIELDS' },
         { status: 400 }
       );
     }
@@ -61,7 +61,7 @@ export async function POST(req: Request) {
     // Validate id format (alphanumeric + hyphens, max 50 chars)
     if (!/^[a-zA-Z0-9-]+$/.test(id) || id.length > 50) {
       return NextResponse.json(
-        { error: 'ID invalido. Solo letras, numeros y guiones (max 50 caracteres)' },
+        { error: 'ID invalido. Solo letras, numeros y guiones (max 50 caracteres)', code: 'INVALID_ID_FORMAT' },
         { status: 400 }
       );
     }
@@ -69,7 +69,7 @@ export async function POST(req: Request) {
     // Validate name length
     if (name.length > 100) {
       return NextResponse.json(
-        { error: 'Nombre demasiado largo (max 100 caracteres)' },
+        { error: 'Nombre demasiado largo (max 100 caracteres)', code: 'NAME_TOO_LONG' },
         { status: 400 }
       );
     }
@@ -99,21 +99,21 @@ export async function POST(req: Request) {
     const { loginCode, ...safeUser } = result.user;
     return NextResponse.json({ user: safeUser, code: result.code }, { status: 201 });
   } catch (error: any) {
-    const message = error?.message === 'User already exists'
-      ? 'Ya existe un usuario con ese ID'
-      : 'Error al crear usuario';
-    const status = error?.message === 'User already exists' ? 409 : 500;
-    return NextResponse.json({ error: message }, { status });
+    const isDup = error?.message === 'User already exists';
+    const message = isDup ? 'Ya existe un usuario con ese ID' : 'Error al crear usuario';
+    const code = isDup ? 'USER_ALREADY_EXISTS' : 'INTERNAL_ERROR';
+    const status = isDup ? 409 : 500;
+    return NextResponse.json({ error: message, code }, { status });
   }
 }
 
 export async function PATCH(req: Request) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
   if (!(session.user as any).isAdmin) {
-    return NextResponse.json({ error: 'No autorizado' }, { status: 403 });
+    return NextResponse.json({ error: 'No autorizado', code: 'FORBIDDEN' }, { status: 403 });
   }
 
   try {
@@ -121,7 +121,7 @@ export async function PATCH(req: Request) {
     const { id, ...updates } = body;
 
     if (!id || typeof id !== 'string') {
-      return NextResponse.json({ error: 'Falta campo: id' }, { status: 400 });
+      return NextResponse.json({ error: 'Falta campo: id', code: 'MISSING_FIELDS' }, { status: 400 });
     }
 
     // Only allow specific safe fields to be updated
@@ -138,7 +138,7 @@ export async function PATCH(req: Request) {
       if (!Array.isArray(safeUpdates.extraSections) ||
           !safeUpdates.extraSections.every((s: unknown) => typeof s === 'string')) {
         return NextResponse.json(
-          { error: 'extraSections debe ser un array de strings' },
+          { error: 'extraSections debe ser un array de strings', code: 'INVALID_EXTRA_SECTIONS' },
           { status: 400 }
         );
       }
@@ -147,7 +147,7 @@ export async function PATCH(req: Request) {
     // Validate email format if provided
     if (safeUpdates.email !== undefined && safeUpdates.email !== null) {
       if (typeof safeUpdates.email !== 'string' || safeUpdates.email.length > 200) {
-        return NextResponse.json({ error: 'Email invalido' }, { status: 400 });
+        return NextResponse.json({ error: 'Email invalido', code: 'INVALID_EMAIL' }, { status: 400 });
       }
     }
 
@@ -158,19 +158,19 @@ export async function PATCH(req: Request) {
       safeUpdates.lang !== 'ru' &&
       safeUpdates.lang !== 'en'
     ) {
-      return NextResponse.json({ error: 'Idioma invalido' }, { status: 400 });
+      return NextResponse.json({ error: 'Idioma invalido', code: 'INVALID_LANG' }, { status: 400 });
     }
 
     const updated = await updateUser(id, safeUpdates);
     if (!updated) {
-      return NextResponse.json({ error: 'Usuario no encontrado' }, { status: 404 });
+      return NextResponse.json({ error: 'Usuario no encontrado', code: 'USER_NOT_FOUND' }, { status: 404 });
     }
 
     const { loginCode, ...safeUser } = updated;
     return NextResponse.json(safeUser);
   } catch (error) {
     return NextResponse.json(
-      { error: 'Error al actualizar usuario' },
+      { error: 'Error al actualizar usuario', code: 'INTERNAL_ERROR' },
       { status: 500 }
     );
   }
@@ -179,10 +179,10 @@ export async function PATCH(req: Request) {
 export async function DELETE(req: Request) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
   if (!(session.user as any).isAdmin) {
-    return NextResponse.json({ error: 'No autorizado' }, { status: 403 });
+    return NextResponse.json({ error: 'No autorizado', code: 'FORBIDDEN' }, { status: 403 });
   }
 
   try {
@@ -190,14 +190,14 @@ export async function DELETE(req: Request) {
     const id = searchParams.get('id');
 
     if (!id) {
-      return NextResponse.json({ error: 'Falta parametro: id' }, { status: 400 });
+      return NextResponse.json({ error: 'Falta parametro: id', code: 'MISSING_FIELDS' }, { status: 400 });
     }
 
     // Prevent admin from deleting themselves.
     const selfId = (session.user as any).userId as string | undefined;
     if (selfId && selfId === id) {
       return NextResponse.json(
-        { error: 'No puedes eliminar tu propio usuario' },
+        { error: 'No puedes eliminar tu propio usuario', code: 'CANNOT_DELETE_SELF' },
         { status: 400 }
       );
     }
@@ -231,7 +231,7 @@ export async function DELETE(req: Request) {
   } catch (error) {
     console.error('[users DELETE] error', error);
     return NextResponse.json(
-      { error: 'Error al eliminar usuario' },
+      { error: 'Error al eliminar usuario', code: 'INTERNAL_ERROR' },
       { status: 500 }
     );
   }

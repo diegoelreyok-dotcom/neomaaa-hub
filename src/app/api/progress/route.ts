@@ -58,7 +58,7 @@ async function maybeIssueRoleBadge(userId: string, userName: string, roleId: str
 export async function GET(req: Request) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
 
   const userId = (session.user as any).userId;
@@ -78,7 +78,7 @@ export async function GET(req: Request) {
 export async function POST(req: Request) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
 
   try {
@@ -87,7 +87,7 @@ export async function POST(req: Request) {
 
     if (!documentPath || typeof documentPath !== 'string') {
       return NextResponse.json(
-        { error: 'Falta campo: documentPath' },
+        { error: 'Falta campo: documentPath', code: 'MISSING_FIELDS' },
         { status: 400 }
       );
     }
@@ -95,7 +95,7 @@ export async function POST(req: Request) {
     // Validate documentPath format (prevent arbitrary key injection)
     if (documentPath.length > 200 || !/^[a-zA-Z0-9_\-./]+$/.test(documentPath)) {
       return NextResponse.json(
-        { error: 'documentPath invalido' },
+        { error: 'documentPath invalido', code: 'INVALID_DOCUMENT_PATH' },
         { status: 400 }
       );
     }
@@ -106,7 +106,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true });
   } catch (error) {
     return NextResponse.json(
-      { error: 'Error al registrar progreso' },
+      { error: 'Error al registrar progreso', code: 'INTERNAL_ERROR' },
       { status: 500 }
     );
   }
@@ -115,7 +115,7 @@ export async function POST(req: Request) {
 export async function PATCH(req: Request) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
 
   try {
@@ -124,7 +124,7 @@ export async function PATCH(req: Request) {
 
     if (!documentPath || typeof documentPath !== 'string') {
       return NextResponse.json(
-        { error: 'Falta campo: documentPath' },
+        { error: 'Falta campo: documentPath', code: 'MISSING_FIELDS' },
         { status: 400 }
       );
     }
@@ -132,14 +132,14 @@ export async function PATCH(req: Request) {
     // Validate documentPath format
     if (documentPath.length > 200 || !/^[a-zA-Z0-9_\-./]+$/.test(documentPath)) {
       return NextResponse.json(
-        { error: 'documentPath invalido' },
+        { error: 'documentPath invalido', code: 'INVALID_DOCUMENT_PATH' },
         { status: 400 }
       );
     }
 
     if (completed !== true) {
       return NextResponse.json(
-        { error: 'Solo se soporta completed: true' },
+        { error: 'Solo se soporta completed: true', code: 'ONLY_COMPLETED_TRUE' },
         { status: 400 }
       );
     }
@@ -155,7 +155,7 @@ export async function PATCH(req: Request) {
       const section = documentPath.split('/')[0];
       if (!section) {
         return NextResponse.json(
-          { error: 'forbidden', message: 'No tienes acceso a esta sección' },
+          { error: 'forbidden', code: 'SECTION_ACCESS_DENIED', message: 'No tienes acceso a esta sección' },
           { status: 403 }
         );
       }
@@ -168,7 +168,7 @@ export async function PATCH(req: Request) {
         );
       if (!hasAccess) {
         return NextResponse.json(
-          { error: 'forbidden', message: 'No tienes acceso a esta sección' },
+          { error: 'forbidden', code: 'SECTION_ACCESS_DENIED', message: 'No tienes acceso a esta sección' },
           { status: 403 }
         );
       }
@@ -180,6 +180,7 @@ export async function PATCH(req: Request) {
       return NextResponse.json(
         {
           error: 'no_access',
+          code: 'MUST_READ_FIRST',
           message: 'Debes leer el documento antes de marcarlo completado',
         },
         { status: 400 }
@@ -198,6 +199,7 @@ export async function PATCH(req: Request) {
       return NextResponse.json(
         {
           error: 'read_too_fast',
+          code: 'READ_TOO_FAST',
           message: 'Debes pasar más tiempo leyendo antes de marcarlo completado',
           minSeconds: MIN_READ_SECONDS,
         },
@@ -213,7 +215,7 @@ export async function PATCH(req: Request) {
     return NextResponse.json({ success: true, progress: result });
   } catch (error) {
     return NextResponse.json(
-      { error: 'Error al marcar como completado' },
+      { error: 'Error al marcar como completado', code: 'INTERNAL_ERROR' },
       { status: 500 }
     );
   }

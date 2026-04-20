@@ -5,6 +5,7 @@ import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import MeshGradientBackground from '@/app/(portal)/dashboard/MeshGradientBackground';
+import { translateApiError } from '@/lib/api-errors';
 
 type LangCC = 'es' | 'ru' | 'en';
 
@@ -89,9 +90,9 @@ export default function ChangeCodePage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ newCode }),
       });
-      const data = await res.json();
+      const data = await res.json().catch(() => null);
       if (!res.ok) {
-        setError(data?.error || t.invalid);
+        setError(translateApiError(data, lang, t.invalid));
         return;
       }
       await signOut({ redirect: false });

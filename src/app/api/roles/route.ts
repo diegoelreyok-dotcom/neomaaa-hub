@@ -5,10 +5,10 @@ import { getAllRoles, createRole, updateRole, deleteRole } from '@/lib/db';
 export async function GET() {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
   if (!(session.user as any).isAdmin) {
-    return NextResponse.json({ error: 'No autorizado' }, { status: 403 });
+    return NextResponse.json({ error: 'No autorizado', code: 'FORBIDDEN' }, { status: 403 });
   }
 
   const roles = await getAllRoles();
@@ -18,10 +18,10 @@ export async function GET() {
 export async function POST(req: Request) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
   if (!(session.user as any).isAdmin) {
-    return NextResponse.json({ error: 'No autorizado' }, { status: 403 });
+    return NextResponse.json({ error: 'No autorizado', code: 'FORBIDDEN' }, { status: 403 });
   }
 
   try {
@@ -30,7 +30,7 @@ export async function POST(req: Request) {
 
     if (!id || typeof id !== 'string' || !name || typeof name !== 'string') {
       return NextResponse.json(
-        { error: 'Faltan campos: id, name' },
+        { error: 'Faltan campos: id, name', code: 'MISSING_FIELDS' },
         { status: 400 }
       );
     }
@@ -38,7 +38,7 @@ export async function POST(req: Request) {
     // Validate id format
     if (!/^[a-zA-Z0-9-]+$/.test(id) || id.length > 50) {
       return NextResponse.json(
-        { error: 'ID invalido. Solo letras, numeros y guiones (max 50 caracteres)' },
+        { error: 'ID invalido. Solo letras, numeros y guiones (max 50 caracteres)', code: 'INVALID_ID_FORMAT' },
         { status: 400 }
       );
     }
@@ -46,7 +46,7 @@ export async function POST(req: Request) {
     // Validate sections is an array of strings
     if (sections && (!Array.isArray(sections) || !sections.every((s: unknown) => typeof s === 'string'))) {
       return NextResponse.json(
-        { error: 'sections debe ser un array de strings' },
+        { error: 'sections debe ser un array de strings', code: 'INVALID_SECTIONS' },
         { status: 400 }
       );
     }
@@ -62,7 +62,7 @@ export async function POST(req: Request) {
     return NextResponse.json(role, { status: 201 });
   } catch (error) {
     return NextResponse.json(
-      { error: 'Error al crear rol' },
+      { error: 'Error al crear rol', code: 'INTERNAL_ERROR' },
       { status: 500 }
     );
   }
@@ -71,10 +71,10 @@ export async function POST(req: Request) {
 export async function PATCH(req: Request) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
   if (!(session.user as any).isAdmin) {
-    return NextResponse.json({ error: 'No autorizado' }, { status: 403 });
+    return NextResponse.json({ error: 'No autorizado', code: 'FORBIDDEN' }, { status: 403 });
   }
 
   try {
@@ -82,18 +82,18 @@ export async function PATCH(req: Request) {
     const { id, ...updates } = body;
 
     if (!id) {
-      return NextResponse.json({ error: 'Falta campo: id' }, { status: 400 });
+      return NextResponse.json({ error: 'Falta campo: id', code: 'MISSING_FIELDS' }, { status: 400 });
     }
 
     const updated = await updateRole(id, updates);
     if (!updated) {
-      return NextResponse.json({ error: 'Rol no encontrado' }, { status: 404 });
+      return NextResponse.json({ error: 'Rol no encontrado', code: 'ROLE_NOT_FOUND' }, { status: 404 });
     }
 
     return NextResponse.json(updated);
   } catch (error) {
     return NextResponse.json(
-      { error: 'Error al actualizar rol' },
+      { error: 'Error al actualizar rol', code: 'INTERNAL_ERROR' },
       { status: 500 }
     );
   }
@@ -102,10 +102,10 @@ export async function PATCH(req: Request) {
 export async function DELETE(req: Request) {
   const session = await auth();
   if (!session?.user) {
-    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+    return NextResponse.json({ error: 'No autenticado', code: 'UNAUTHORIZED' }, { status: 401 });
   }
   if (!(session.user as any).isAdmin) {
-    return NextResponse.json({ error: 'No autorizado' }, { status: 403 });
+    return NextResponse.json({ error: 'No autorizado', code: 'FORBIDDEN' }, { status: 403 });
   }
 
   try {
@@ -113,18 +113,20 @@ export async function DELETE(req: Request) {
     const id = searchParams.get('id');
 
     if (!id) {
-      return NextResponse.json({ error: 'Falta parametro: id' }, { status: 400 });
+      return NextResponse.json({ error: 'Falta parametro: id', code: 'MISSING_FIELDS' }, { status: 400 });
     }
 
     // Prevent deleting protected roles
     if (id === 'admin') {
-      return NextResponse.json({ error: 'No se puede eliminar el rol de administrador' }, { status: 403 });
+      return NextResponse.json({ error: 'No se puede eliminar el rol de administrador', code: 'CANNOT_DELETE_ADMIN_ROLE' }, { status: 403 });
     }
 
     await deleteRole(id);
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    const message = error?.message?.includes('Cannot delete') ? error.message : 'Error al eliminar rol';
-    return NextResponse.json({ error: message }, { status: 500 });
+    const isInUse = !!error?.message?.includes('Cannot delete');
+    const message = isInUse ? error.message : 'Error al eliminar rol';
+    const code = isInUse ? 'ROLE_IN_USE' : 'INTERNAL_ERROR';
+    return NextResponse.json({ error: message, code }, { status: 500 });
   }
 }
