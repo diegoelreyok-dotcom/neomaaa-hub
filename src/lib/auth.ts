@@ -140,19 +140,36 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
       // Subsequent requests: refresh mutable fields from DB so language,
       // role, and extraSections changes propagate without requiring re-login.
-      // Without this, the JWT keeps the lang set at login and switching
-      // language in the UI updates the sidebar (client state) but NOT the
-      // server-rendered content pages, which still read the stale JWT.
-      if (token.userId) {
+      //
+      // Throttle + smart-fetch:
+      //   - Re-read the user at most once every 30s (switch lang still
+      //     takes effect within one cache window, good UX).
+      //   - Only re-fetch the role if roleId actually changed — saves one
+      //     KV round-trip on the common case where nothing has changed.
+      //   - Every authenticated request hits this callback; unthrottled
+      //     DB reads were adding ~200-400ms to every navigation.
+      const REFRESH_WINDOW_MS = 30_000;
+      const lastRefresh = (token as any).refreshedAt as number | undefined;
+      const now = Date.now();
+      if (token.userId && (!lastRefresh || now - lastRefresh > REFRESH_WINDOW_MS)) {
         try {
           const dbUser = await getUser(token.userId as string);
           if (dbUser) {
             token.lang = dbUser.lang;
-            token.roleId = dbUser.roleId;
             token.extraSections = dbUser.extraSections || [];
-            const role = await getRole(dbUser.roleId);
-            if (role) token.isAdmin = role.isAdmin || false;
+            // Propagate deactivation through the JWT so middleware can
+            // redirect to /login without needing its own KV round-trip.
+            (token as any).disabled = dbUser.isActive === false;
+            if (dbUser.roleId !== token.roleId) {
+              token.roleId = dbUser.roleId;
+              const role = await getRole(dbUser.roleId);
+              if (role) token.isAdmin = role.isAdmin || false;
+            }
+          } else {
+            // User was deleted mid-session — mark token as disabled.
+            (token as any).disabled = true;
           }
+          (token as any).refreshedAt = now;
         } catch {
           // KV unavailable — fall through with existing token values
         }
@@ -167,6 +184,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         (session.user as any).lang = token.lang;
         (session.user as any).mustChangeCode = token.mustChangeCode === true;
         (session.user as any).extraSections = (token as any).extraSections || [];
+        (session.user as any).disabled = (token as any).disabled === true;
       }
       return session;
     },

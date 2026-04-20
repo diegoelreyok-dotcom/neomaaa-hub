@@ -1,6 +1,5 @@
 import { auth } from '@/lib/auth';
 import { NextResponse } from 'next/server';
-import { kv } from '@vercel/kv';
 
 // Public routes that don't require authentication
 const PUBLIC_ROUTES = ['/login', '/register', '/api/auth'];
@@ -74,30 +73,20 @@ export default auth(async (req) => {
     return NextResponse.redirect(new URL('/login', req.url));
   }
 
-  // Session is valid — optionally verify user is still active in DB.
-  // Only blocks if KV EXPLICITLY returns isActive=false. If KV is unreachable
-  // or returns null (edge runtime quirks), we fall through and trust the JWT.
-  // This prevents accidental lockout of everyone when KV has transient issues.
-  if (userId) {
-    try {
-      const dbUser: any = await kv.get(`user:${userId}`);
-      if (dbUser && dbUser.isActive === false) {
-        // User was explicitly disabled — kill the session.
-        if (pathname.startsWith('/api/')) {
-          return NextResponse.json(
-            { error: 'Account disabled', code: 'ACCOUNT_DISABLED' },
-            { status: 401 },
-          );
-        }
-        return NextResponse.redirect(
-          new URL('/login?error=AccountDisabled', req.url),
-        );
-      }
-      // If dbUser is null/undefined, KV might be slow or rate-limited.
-      // Don't block the user — trust the JWT that was validated at login.
-    } catch {
-      // KV unavailable — don't block on infra failure. Fall through.
+  // Session is valid — check the deactivation flag that the JWT callback
+  // propagates from KV (set when dbUser.isActive === false or user was
+  // deleted mid-session). Moving this check off the critical path of every
+  // request saves one KV round-trip per navigation (~100-300ms).
+  // Propagation is up to ~30s (the JWT refresh throttle window).
+  const disabled = (req.auth?.user as any)?.disabled === true;
+  if (disabled) {
+    if (pathname.startsWith('/api/')) {
+      return NextResponse.json(
+        { error: 'Account disabled', code: 'ACCOUNT_DISABLED' },
+        { status: 401 },
+      );
     }
+    return NextResponse.redirect(new URL('/login?error=AccountDisabled', req.url));
   }
 
   // Forced code rotation: user must rotate their code before reaching anything
