@@ -19,14 +19,14 @@ import MeshGradientBackground from './MeshGradientBackground';
 const LAUNCH_DATE_ISO = '2026-05-31T00:00:00Z';
 
 const FALLBACK_ROLES: Record<string, Role> = {
-  admin: { id: 'admin', name: 'Administrador', nameRu: 'Администратор', sections: SECTIONS.map(s => s.id), isAdmin: true },
-  principal: { id: 'principal', name: 'Principal', nameRu: 'Принципал', sections: SECTIONS.map(s => s.id), isAdmin: false },
-  sales: { id: 'sales', name: 'Ventas', nameRu: 'Продажи', sections: ['sales', 'encyclopedia', 'support'], isAdmin: false },
-  compliance: { id: 'compliance', name: 'Compliance', nameRu: 'Комплаенс', sections: ['compliance', 'encyclopedia', 'support'], isAdmin: false },
-  'support-role': { id: 'support-role', name: 'Soporte', nameRu: 'Поддержка', sections: ['support', 'operations', 'encyclopedia'], isAdmin: false },
-  dealing: { id: 'dealing', name: 'Dealing', nameRu: 'Дилинг', sections: ['compliance', 'operations', 'encyclopedia'], isAdmin: false },
-  'marketing-role': { id: 'marketing-role', name: 'Marketing', nameRu: 'Маркетинг', sections: ['marketing', 'encyclopedia'], isAdmin: false },
-  dev: { id: 'dev', name: 'Desarrollo', nameRu: 'Разработка', sections: SECTIONS.map(s => s.id), isAdmin: false },
+  admin: { id: 'admin', name: 'Administrador', nameRu: 'Администратор', nameEn: 'Administrator', sections: SECTIONS.map(s => s.id), isAdmin: true },
+  principal: { id: 'principal', name: 'Principal', nameRu: 'Принципал', nameEn: 'Principal', sections: SECTIONS.map(s => s.id), isAdmin: false },
+  sales: { id: 'sales', name: 'Ventas', nameRu: 'Продажи', nameEn: 'Sales', sections: ['sales', 'encyclopedia', 'support'], isAdmin: false },
+  compliance: { id: 'compliance', name: 'Compliance', nameRu: 'Комплаенс', nameEn: 'Compliance', sections: ['compliance', 'encyclopedia', 'support'], isAdmin: false },
+  'support-role': { id: 'support-role', name: 'Soporte', nameRu: 'Поддержка', nameEn: 'Support', sections: ['support', 'operations', 'encyclopedia'], isAdmin: false },
+  dealing: { id: 'dealing', name: 'Dealing', nameRu: 'Дилинг', nameEn: 'Dealing', sections: ['compliance', 'operations', 'encyclopedia'], isAdmin: false },
+  'marketing-role': { id: 'marketing-role', name: 'Marketing', nameRu: 'Маркетинг', nameEn: 'Marketing', sections: ['marketing', 'encyclopedia'], isAdmin: false },
+  dev: { id: 'dev', name: 'Desarrollo', nameRu: 'Разработка', nameEn: 'Development', sections: SECTIONS.map(s => s.id), isAdmin: false },
 };
 
 function initialsFrom(name: string): string {
@@ -182,7 +182,7 @@ export default async function DashboardPage() {
     });
 
   const roleName =
-    lang === 'ru' ? role.nameRu || role.name : lang === 'en' ? role.name : role.name;
+    lang === 'ru' ? role.nameRu || role.name : lang === 'en' ? (role.nameEn || role.name) : role.name;
 
   // KPI icons
   const iconSections = (

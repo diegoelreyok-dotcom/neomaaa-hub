@@ -129,12 +129,30 @@ export default function LearningPathView({
           startHere: 'Empezar aqui',
         };
 
-  const title = lang === 'ru' ? path.titleRu : path.titleEs;
-  const description = lang === 'ru' ? path.descriptionRu : path.descriptionEs;
-  const finalBadgeTitle = lang === 'ru' ? path.finalBadge.titleRu : path.finalBadge.titleEs;
-  const finalBadgeDesc = lang === 'ru'
-    ? path.finalBadge.descriptionRu
-    : path.finalBadge.descriptionEs;
+  const title =
+    lang === 'ru'
+      ? path.titleRu
+      : lang === 'en' && path.titleEn
+      ? path.titleEn
+      : path.titleEs;
+  const description =
+    lang === 'ru'
+      ? path.descriptionRu
+      : lang === 'en' && path.descriptionEn
+      ? path.descriptionEn
+      : path.descriptionEs;
+  const finalBadgeTitle =
+    lang === 'ru'
+      ? path.finalBadge.titleRu
+      : lang === 'en' && path.finalBadge.titleEn
+      ? path.finalBadge.titleEn
+      : path.finalBadge.titleEs;
+  const finalBadgeDesc =
+    lang === 'ru'
+      ? path.finalBadge.descriptionRu
+      : lang === 'en' && path.finalBadge.descriptionEn
+      ? path.finalBadge.descriptionEn
+      : path.finalBadge.descriptionEs;
 
   const remainingDocs = Math.max(0, state.totalDocs - state.completedCount);
   const etaHours = Math.max(
@@ -386,7 +404,7 @@ export default function LearningPathView({
                     {t.badgeEarned}:{' '}
                     <span className="text-neo-text-body font-medium">
                       {new Date(badge.issuedAt).toLocaleDateString(
-                        lang === 'ru' ? 'ru-RU' : 'es-ES',
+                        lang === 'ru' ? 'ru-RU' : lang === 'en' ? 'en-US' : 'es-ES',
                         { day: '2-digit', month: 'long', year: 'numeric' }
                       )}
                     </span>
@@ -451,8 +469,18 @@ interface PhaseNodeProps {
 
 function PhaseNode({ phaseState, index, lang, docTitles, color, t }: PhaseNodeProps) {
   const phase = phaseState.phase;
-  const phaseTitle = lang === 'ru' ? phase.titleRu : phase.titleEs;
-  const phaseDesc = lang === 'ru' ? phase.descriptionRu : phase.descriptionEs;
+  const phaseTitle =
+    lang === 'ru'
+      ? phase.titleRu
+      : lang === 'en' && phase.titleEn
+      ? phase.titleEn
+      : phase.titleEs;
+  const phaseDesc =
+    lang === 'ru'
+      ? phase.descriptionRu
+      : lang === 'en' && phase.descriptionEn
+      ? phase.descriptionEn
+      : phase.descriptionEs;
 
   const status: 'locked' | 'completed' | 'active' | 'available' = !phaseState.isUnlocked
     ? 'locked'
