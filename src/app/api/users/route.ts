@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { randomInt } from 'crypto';
 import { revalidateTag } from 'next/cache';
 import { auth } from '@/lib/auth';
 import {
@@ -11,17 +10,7 @@ import {
 } from '@/lib/db';
 import { deleteAllCertsForUser } from '@/lib/quiz-storage';
 import { deleteAllBadgesForUser } from '@/lib/role-badges';
-
-function generateCode(length = 6): string {
-  // Crypto-secure RNG (randomInt) — Math.random() is predictable.
-  // Ambiguous chars (0/O, 1/l/I) kept out for readability.
-  const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz';
-  let code = '';
-  for (let i = 0; i < length; i++) {
-    code += chars.charAt(randomInt(0, chars.length));
-  }
-  return code;
-}
+import { generateCode } from '@/lib/codes';
 
 export async function GET() {
   const session = await auth();

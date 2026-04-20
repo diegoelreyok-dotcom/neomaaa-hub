@@ -327,6 +327,7 @@ export default function LearningPathView({
                   docTitles={docTitles}
                   t={t}
                   color={PHASE_COLORS[idx % PHASE_COLORS.length]}
+                  isBrandNew={state.completedCount === 0}
                 />
               </motion.div>
             ))}
@@ -455,6 +456,7 @@ interface PhaseNodeProps {
   lang: Lang;
   docTitles: Record<string, { es: string; ru: string }>;
   color: string;
+  isBrandNew?: boolean;
   t: {
     phase: string;
     active: string;
@@ -462,12 +464,13 @@ interface PhaseNodeProps {
     locked: string;
     continue: string;
     continueHere: string;
+    startHere: string;
     modules: (n: number) => string;
     toUnlock: string;
   };
 }
 
-function PhaseNode({ phaseState, index, lang, docTitles, color, t }: PhaseNodeProps) {
+function PhaseNode({ phaseState, index, lang, docTitles, color, t, isBrandNew }: PhaseNodeProps) {
   const phase = phaseState.phase;
   const phaseTitle =
     lang === 'ru'
@@ -645,6 +648,7 @@ function PhaseNode({ phaseState, index, lang, docTitles, color, t }: PhaseNodePr
                 );
               }
 
+              const startHerePulse = isContinueDoc && !!isBrandNew;
               return (
                 <Link
                   key={docPath}
@@ -659,11 +663,12 @@ function PhaseNode({ phaseState, index, lang, docTitles, color, t }: PhaseNodePr
                         ? 'bg-white/[0.04] text-white hover:bg-white/[0.08] font-medium'
                         : 'text-neo-text-body hover:bg-white/5'
                     }
+                    ${startHerePulse ? 'animate-[startHerePulse_2.2s_ease-in-out_infinite]' : ''}
                   `}
                   style={
                     isContinueDoc
                       ? {
-                          boxShadow: `inset 0 0 0 1px ${color}44`,
+                          boxShadow: `inset 0 0 0 1px ${color}${startHerePulse ? '88' : '44'}`,
                         }
                       : undefined
                   }
@@ -695,7 +700,7 @@ function PhaseNode({ phaseState, index, lang, docTitles, color, t }: PhaseNodePr
                       className="inline-flex items-center gap-1 text-[10px] font-bold tracking-[0.1em] flex-shrink-0 uppercase"
                       style={{ color }}
                     >
-                      {t.continueHere}
+                      {startHerePulse ? t.startHere.toUpperCase() : t.continueHere}
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12" />
                         <polyline points="12 5 19 12 12 19" />
@@ -709,10 +714,14 @@ function PhaseNode({ phaseState, index, lang, docTitles, color, t }: PhaseNodePr
         </div>
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         @keyframes nodePulse {
           0%, 100% { opacity: 0.7; }
           50%      { opacity: 1; }
+        }
+        @keyframes startHerePulse {
+          0%, 100% { background-color: rgba(201, 74, 92, 0.08); }
+          50%      { background-color: rgba(201, 74, 92, 0.22); }
         }
       `}</style>
     </div>

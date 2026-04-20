@@ -19,6 +19,7 @@ import {
 } from '@/components/admin/AdminUI';
 import { AdminCard } from '@/components/admin/AdminCard';
 import AdminStagger, { AdminStaggerItem } from '@/components/admin/AdminStagger';
+import TeamActivityWidgets from '@/components/admin/TeamActivityWidgets';
 
 const labels: Record<Lang, {
   title: string;
@@ -363,6 +364,18 @@ export default function AdminDashboardPage() {
               </span>
             )}
           </div>
+        </div>
+      </AdminStaggerItem>
+
+      {/* Team activity widgets: sign-ins, stuck users, completions */}
+      <AdminStaggerItem>
+        <div className="mb-8">
+          <TeamActivityWidgets
+            lang={lang}
+            users={users}
+            roles={roles}
+            progress={progress}
+          />
         </div>
       </AdminStaggerItem>
 

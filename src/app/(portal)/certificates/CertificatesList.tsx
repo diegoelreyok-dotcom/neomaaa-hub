@@ -70,7 +70,10 @@ export default function CertificatesList({ certs, lang, docIndex }: Props) {
       missionLabel: 'Coleccion',
       empty:
         'Aun no has obtenido certificados. Completa un modulo y aproba el quiz para conseguir tu primer trofeo.',
-      emptyCta: 'Empezar tu primer modulo',
+      emptyHeadline: 'Aun no tienes certificados',
+      emptySub:
+        'Completa modulos y aprueba los quizzes para obtener tu primer certificado oficial NEOMAAA Markets',
+      emptyCta: 'Empezar mi ruta',
       section: 'Seccion',
       score: 'Puntaje',
       issued: 'Emitido',
@@ -93,7 +96,10 @@ export default function CertificatesList({ certs, lang, docIndex }: Props) {
       missionLabel: 'Коллекция',
       empty:
         'У вас пока нет сертификатов. Пройдите модуль и сдайте квиз, чтобы получить первый трофей.',
-      emptyCta: 'Начать первый модуль',
+      emptyHeadline: 'У вас пока нет сертификатов',
+      emptySub:
+        'Завершайте модули и сдавайте тесты, чтобы получить первый официальный сертификат NEOMAAA Markets',
+      emptyCta: 'Начать путь',
       section: 'Раздел',
       score: 'Результат',
       issued: 'Выдан',
@@ -116,7 +122,10 @@ export default function CertificatesList({ certs, lang, docIndex }: Props) {
       missionLabel: 'Collection',
       empty:
         'You have no certificates yet. Complete a module and pass the quiz to earn your first trophy.',
-      emptyCta: 'Start your first module',
+      emptyHeadline: 'No certificates yet',
+      emptySub:
+        'Complete modules and pass the quizzes to earn your first official NEOMAAA Markets certificate',
+      emptyCta: 'Start my path',
       section: 'Section',
       score: 'Score',
       issued: 'Issued',
@@ -273,7 +282,11 @@ export default function CertificatesList({ certs, lang, docIndex }: Props) {
               },
             }}
           >
-            <EmptyState empty={t.empty} cta={t.emptyCta} />
+            <EmptyState
+              headline={t.emptyHeadline}
+              sub={t.emptySub}
+              cta={t.emptyCta}
+            />
           </motion.div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
@@ -664,12 +677,20 @@ function Corner({ pos }: { pos: 'tl' | 'tr' | 'bl' | 'br' }) {
 // EmptyState
 // -----------------------------------------------------------------------------
 
-function EmptyState({ empty, cta }: { empty: string; cta: string }) {
+function EmptyState({
+  headline,
+  sub,
+  cta,
+}: {
+  headline: string;
+  sub: string;
+  cta: string;
+}) {
   return (
     <div
       className="relative overflow-hidden rounded-2xl border p-10 sm:p-14 text-center"
       style={{
-        borderColor: 'rgba(255,255,255,0.1)',
+        borderColor: 'rgba(201,74,92,0.3)',
         background:
           'linear-gradient(135deg, rgba(18,22,38,0.6) 0%, rgba(8,11,22,0.6) 100%)',
         backdropFilter: 'blur(10px)',
@@ -679,29 +700,45 @@ function EmptyState({ empty, cta }: { empty: string; cta: string }) {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(circle at 50% 0%, rgba(251,191,36,0.18) 0%, transparent 55%)',
+            'radial-gradient(circle at 50% 0%, rgba(201,74,92,0.22) 0%, transparent 55%)',
         }}
       />
 
       <div className="relative">
         <div
-          className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-5 relative"
+          className="inline-flex items-center justify-center w-24 h-24 rounded-full mb-5 relative"
           style={{
             background:
-              'radial-gradient(circle, rgba(251,191,36,0.3) 0%, transparent 85%)',
-            border: '1px solid rgba(251,191,36,0.5)',
+              'radial-gradient(circle, rgba(201,74,92,0.35) 0%, transparent 85%)',
+            border: '1px solid rgba(201,74,92,0.55)',
             boxShadow:
-              '0 0 30px rgba(251,191,36,0.4), inset 0 0 15px rgba(251,191,36,0.2)',
+              '0 0 36px rgba(201,74,92,0.4), inset 0 0 18px rgba(201,74,92,0.22)',
           }}
         >
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="8" r="6" />
-            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+          <svg
+            width="44"
+            height="44"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#C94A5C"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+            <path d="M4 22h16" />
+            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
           </svg>
         </div>
 
-        <p className="text-white/80 text-[15px] sm:text-base mb-6 max-w-lg mx-auto leading-relaxed">
-          {empty}
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 tracking-tight">
+          {headline}
+        </h2>
+        <p className="text-white/70 text-[14px] sm:text-[15px] mb-6 max-w-lg mx-auto leading-relaxed">
+          {sub}
         </p>
 
         <Link

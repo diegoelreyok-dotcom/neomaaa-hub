@@ -17,6 +17,7 @@ import {
   AdminTableColumn,
 } from '@/components/admin/AdminTable';
 import AdminStagger, { AdminStaggerItem } from '@/components/admin/AdminStagger';
+import InviteModal from '@/components/admin/InviteModal';
 import type { AdminUser, AdminRole } from '@/components/admin/fetcher';
 import { SECTIONS } from '@/lib/sections';
 
@@ -85,6 +86,7 @@ const labels: Record<Lang, {
   activeLabel: string;
   copyEmail: string;
   emailCopied: string;
+  inviteBtn: string;
 }> = {
   es: {
     title: 'Usuarios',
@@ -140,6 +142,7 @@ const labels: Record<Lang, {
     activeLabel: 'Usuario activo',
     copyEmail: 'Copiar email',
     emailCopied: 'Email copiado',
+    inviteBtn: 'Invitar',
   },
   ru: {
     title: 'Пользователи',
@@ -195,6 +198,7 @@ const labels: Record<Lang, {
     activeLabel: 'Активен',
     copyEmail: 'Скопировать email',
     emailCopied: 'Email скопирован',
+    inviteBtn: 'Пригласить',
   },
   en: {
     title: 'Users',
@@ -250,6 +254,7 @@ const labels: Record<Lang, {
     activeLabel: 'User active',
     copyEmail: 'Copy email',
     emailCopied: 'Email copied',
+    inviteBtn: 'Invite',
   },
 };
 
@@ -312,6 +317,9 @@ export default function UsersPage() {
 
   // Email copy feedback
   const [copiedEmailFor, setCopiedEmailFor] = useState<string | null>(null);
+
+  // Invite modal state
+  const [invitingUser, setInvitingUser] = useState<AdminUser | null>(null);
 
   const sortedSections = useMemo(
     () => [...SECTIONS].sort((a, b) => a.order - b.order),
@@ -627,6 +635,15 @@ export default function UsersPage() {
           <button
             onClick={(e) => {
               e.stopPropagation();
+              setInvitingUser(user);
+            }}
+            className="text-xs font-semibold px-2.5 py-1 rounded text-[#C94A5C] hover:bg-[#C94A5C]/10 border border-transparent hover:border-[#C94A5C]/25 transition-colors"
+          >
+            {t.inviteBtn}
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
               toggleActive(user);
             }}
             className="text-xs font-medium px-2.5 py-1 rounded text-[#A0A0A0] hover:text-white hover:bg-[#1A1A1A] transition-colors"
@@ -698,6 +715,14 @@ export default function UsersPage() {
           onCopyCode={handleCopyCode}
           onClose={closeCreate}
           onSubmit={handleCreate}
+        />
+      )}
+
+      {/* Invite Modal */}
+      {invitingUser && (
+        <InviteModal
+          user={invitingUser}
+          onClose={() => setInvitingUser(null)}
         />
       )}
 

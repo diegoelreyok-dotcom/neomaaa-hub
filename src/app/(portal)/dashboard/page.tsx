@@ -219,6 +219,28 @@ export default async function DashboardPage() {
   const labelCerts = lang === 'ru' ? 'Сертификаты' : lang === 'en' ? 'Certificates' : 'Certificados';
   const labelPath = lang === 'ru' ? 'Мой путь' : lang === 'en' ? 'My Path' : 'Mi Ruta';
 
+  // Brand-new user — no progress, no certs. Show a welcoming CTA on top.
+  const isBrandNew = userProgress.length === 0 && certsCount === 0;
+  const firstName = (userName.trim().split(/\s+/)[0] || userName || '').trim();
+  const welcomeTitle =
+    lang === 'ru'
+      ? `Добро пожаловать в команду, ${firstName}!`
+      : lang === 'en'
+        ? `Welcome to the team, ${firstName}!`
+        : `Bienvenido al equipo, ${firstName}!`;
+  const welcomeSubtitle =
+    lang === 'ru'
+      ? 'Начните с вашего учебного маршрута'
+      : lang === 'en'
+        ? 'Start with your learning path'
+        : 'Empieza por tu ruta de aprendizaje';
+  const welcomeCta =
+    lang === 'ru'
+      ? 'Открыть мой путь'
+      : lang === 'en'
+        ? 'Open my path'
+        : 'Abrir mi ruta';
+
   return (
     <>
       <MeshGradientBackground />
@@ -232,6 +254,83 @@ export default async function DashboardPage() {
             launchDateIso={LAUNCH_DATE_ISO}
           />
         </StaggerItem>
+
+        {/* Brand-new user welcome CTA */}
+        {isBrandNew && firstName && (
+          <StaggerItem>
+            <div className="mb-6">
+              <div
+                className="relative overflow-hidden rounded-2xl border p-6 sm:p-7"
+                style={{
+                  borderColor: 'rgba(201,74,92,0.3)',
+                  background:
+                    'linear-gradient(135deg, rgba(152,40,58,0.18) 0%, rgba(18,22,38,0.72) 55%, rgba(8,11,22,0.72) 100%)',
+                  backdropFilter: 'blur(10px)',
+                  boxShadow: '0 0 28px rgba(201,74,92,0.18)',
+                }}
+              >
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background:
+                      'radial-gradient(circle at 82% 20%, rgba(201,74,92,0.22), transparent 55%)',
+                  }}
+                />
+                <div className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div className="min-w-0 flex-1">
+                    <div className="inline-flex items-center gap-2 mb-2 px-2.5 py-1 rounded-full bg-[#98283A]/15 border border-[#98283A]/40">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C94A5C] opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C94A5C]" />
+                      </span>
+                      <span className="text-[10px] font-bold tracking-[0.2em] text-[#C94A5C] uppercase">
+                        Start
+                      </span>
+                    </div>
+                    <h2
+                      className="text-xl sm:text-2xl font-bold tracking-tight"
+                      style={{
+                        background: 'linear-gradient(135deg, #FFFFFF 0%, #C94A5C 140%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                      }}
+                    >
+                      {welcomeTitle}
+                    </h2>
+                    <p className="text-neo-text-muted text-sm mt-1.5 max-w-xl">
+                      {welcomeSubtitle}
+                    </p>
+                  </div>
+                  <a
+                    href="/learning"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-sm text-white transition-all hover:-translate-y-0.5 flex-shrink-0 self-start sm:self-center"
+                    style={{
+                      background: 'linear-gradient(135deg, #98283A 0%, #C94A5C 100%)',
+                      boxShadow:
+                        '0 0 22px rgba(152,40,58,0.55), 0 4px 12px rgba(0,0,0,0.3)',
+                    }}
+                  >
+                    {welcomeCta}
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </StaggerItem>
+        )}
 
         {/* KPI cards with sparklines */}
         <StaggerItem>
