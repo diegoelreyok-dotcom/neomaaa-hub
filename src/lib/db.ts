@@ -1,6 +1,7 @@
 import { User, Role, ReadProgress } from './types';
 import { hashSync, compareSync } from 'bcryptjs';
 import { randomInt } from 'crypto';
+import { unstable_cache } from 'next/cache';
 
 // In-memory store for development (when Vercel KV is not available)
 const memStore: Record<string, string> = {};
@@ -63,6 +64,17 @@ export async function getAllUsers(): Promise<User[]> {
   const results = await Promise.all(keys.map((key) => kvGet<User>(key)));
   return results.filter((u): u is User => u !== null);
 }
+
+/**
+ * Cached variant for read-only, non-user-specific contexts (e.g. dashboard
+ * fanout). 60s revalidate window + tag so mutation paths can invalidate.
+ * Do NOT use for flows that depend on fresh data (auth, access checks).
+ */
+export const getAllUsersCached = unstable_cache(
+  async () => getAllUsers(),
+  ['all-users'],
+  { revalidate: 60, tags: ['users'] }
+);
 
 export async function createUser(
   user: Omit<User, 'loginCode' | 'createdAt'>,
@@ -250,6 +262,17 @@ export async function getAllProgress(): Promise<ReadProgress[]> {
   const results = await Promise.all(keys.map((key) => kvGet<ReadProgress>(key)));
   return results.filter((p): p is ReadProgress => p !== null);
 }
+
+/**
+ * Cached variant — same invariants as getAllUsersCached. At ~500 progress
+ * entries, the raw call fans out 500 parallel Upstash reads per dashboard
+ * render; the cache keeps that at 1/min.
+ */
+export const getAllProgressCached = unstable_cache(
+  async () => getAllProgress(),
+  ['all-progress'],
+  { revalidate: 60, tags: ['progress'] }
+);
 
 export async function getProgressEntry(
   userId: string,

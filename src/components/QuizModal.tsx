@@ -20,7 +20,7 @@ export interface QuizModalProps {
   onSuccess: () => void;
   docPath: string; // "section/slug", e.g. "encyclopedia/abc"
   docTitle: string;
-  language: 'es' | 'ru';
+  language: 'es' | 'ru' | 'en';
   /** Shown in the "¡Felicitaciones, {name}!" passed screen. */
   userName?: string;
 }
@@ -85,7 +85,7 @@ interface QuizStrings {
   tryAgain: string;
 }
 
-const i18n: Record<'es' | 'ru', QuizStrings> = {
+const i18n: Record<'es' | 'ru' | 'en', QuizStrings> = {
   es: {
     title: 'Quiz de evaluacion',
     introLead: 'Para marcar este documento como completado, debes responder un quiz.',
@@ -196,6 +196,61 @@ const i18n: Record<'es' | 'ru', QuizStrings> = {
     errorBody:
       'Не удалось обработать запрос. Проверьте соединение и попробуйте снова.',
     tryAgain: 'Повторить',
+  },
+  en: {
+    title: 'Evaluation quiz',
+    introLead: 'To mark this document as completed, you must pass a quiz.',
+    questions: '10 questions',
+    questionsDesc: 'Randomly selected from the question bank',
+    noTime: 'No time limit',
+    noTimeDesc: 'Take all the time you need',
+    pass: 'Pass with 7/10',
+    passDesc: 'Automatic certificate on pass',
+    warnAbandon: 'If you leave, you lose your progress',
+    warnAbandonDesc: 'You will have to start over',
+    cancel: 'Cancel',
+    start: 'Start quiz',
+    loading: 'Preparing questions...',
+    progressOf: (a: number, b: number) => `${a}/${b}`,
+    questionOf: (a: number, b: number) => `Question ${a} of ${b}`,
+    previous: 'Previous',
+    next: 'Next',
+    submit: 'Submit answers',
+    submitting: 'Submitting answers...',
+    confirmLeaveTitle: 'Are you sure you want to leave?',
+    confirmLeaveBody:
+      'If you leave now you will lose all quiz progress and must start over.',
+    stay: 'Continue quiz',
+    leave: 'Leave and lose progress',
+    approved: 'Passed',
+    notApproved: 'Not passed',
+    congrats: (name: string) => `Congratulations, ${name}!`,
+    congratsNoName: 'Congratulations!',
+    almost: 'Almost',
+    almostBody: (score: number, threshold: number) =>
+      `You answered ${score} of 10 correctly. You need ${threshold}/10. Review the material and try again in 1 hour.`,
+    scoreLabel: 'Score',
+    needScore: (n: number) => `Need ${n} to pass`,
+    certificateIssued: 'You earned the certificate',
+    certificatePreview: (doc: string) => `${doc} certificate — NEOMAAA Markets`,
+    viewCertificate: 'View full certificate',
+    viewCertificateNow: 'View certificate now',
+    redirectingIn: (n: number) => `Redirecting in ${n}...`,
+    close: 'Close',
+    reviewErrors: 'Review the questions you missed',
+    yourAnswer: 'Your answer',
+    correctAnswer: 'Correct',
+    explanation: 'Explanation',
+    noAnswer: 'No answer',
+    study: 'Study again',
+    retry: 'Retry quiz',
+    retryIn: (mm: string, ss: string) => `You can retry in ${mm}:${ss}`,
+    cooldownError: (mm: string, ss: string) =>
+      `You must wait ${mm}:${ss} before retrying this quiz.`,
+    errorTitle: 'An error occurred',
+    errorBody:
+      'We could not process your request. Check your connection and try again.',
+    tryAgain: 'Retry',
   },
 };
 
@@ -319,10 +374,13 @@ export default function QuizModal({
     setView('loading');
     setErrorMsg('');
     try {
+      // Questions only exist in es/ru; EN users get ES quiz content
+      // while UI chrome stays in EN via i18n[language].
+      const questionLang = language === 'ru' ? 'ru' : 'es';
       const res = await fetch('/api/quiz/start', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ docPath, language }),
+        body: JSON.stringify({ docPath, language: questionLang }),
       });
       if (res.status === 409) {
         const body = await res.json().catch(() => null);
@@ -899,7 +957,7 @@ function ResultView({
   questions: StartResponse['questions'];
   answers: number[];
   docTitle: string;
-  language: 'es' | 'ru';
+  language: 'es' | 'ru' | 'en';
   userName?: string;
   cooldownLeft: number | null;
   onClose: () => void;

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { randomInt } from 'crypto';
+import { revalidateTag } from 'next/cache';
 import { auth } from '@/lib/auth';
 import {
   getAllUsers,

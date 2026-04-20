@@ -1,5 +1,5 @@
 import { auth } from '@/lib/auth';
-import { getRole, getUserProgress, getAllProgress, getAllUsers } from '@/lib/db';
+import { getRole, getUserProgress, getAllProgressCached, getAllUsersCached } from '@/lib/db';
 import { getVisibleSections } from '@/lib/permissions';
 import { LEARNING_PATHS, computePathState } from '@/lib/learning-paths';
 import { getAllCertificates } from '@/lib/quiz-storage';
@@ -106,8 +106,8 @@ export default async function DashboardPage() {
       const [certs, ownProgress, globalProgress, users] = await Promise.all([
         getAllCertificates(userId),
         getUserProgress(userId),
-        getAllProgress(),
-        getAllUsers(),
+        getAllProgressCached(),
+        getAllUsersCached(),
       ]);
       certsCount = Array.isArray(certs) ? certs.length : 0;
       userProgress = ownProgress;
@@ -121,8 +121,10 @@ export default async function DashboardPage() {
         );
         pathPercent = computePathState(path, completedSet).percent;
       }
-    } catch {
-      // Silently degrade
+    } catch (err) {
+      // Degrade gracefully — widgets will render with zeros — but surface
+      // the failure in Vercel logs so we stop flying blind.
+      console.error('[dashboard] KV fetch failed', err);
     }
   }
 

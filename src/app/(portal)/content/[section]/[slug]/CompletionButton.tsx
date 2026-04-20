@@ -130,7 +130,10 @@ export default function CompletionButton({
   const [modalOpen, setModalOpen] = useState(false);
   const t = i18n[lang];
 
+  // Quiz question banks exist only in es/ru; EN users get ES questions.
+  // The Modal UI chrome still switches to EN via the `language` prop.
   const quizLang: 'es' | 'ru' = lang === 'ru' ? 'ru' : 'es';
+  const modalLang: 'es' | 'ru' | 'en' = lang;
   useEffect(() => {
     let cancelled = false;
     fetch(
@@ -396,7 +399,7 @@ export default function CompletionButton({
           onSuccess={handleQuizSuccess}
           docPath={quizDocPath}
           docTitle={docTitle}
-          language={quizLang}
+          language={modalLang}
           userName={userName}
         />
       </>
@@ -593,7 +596,7 @@ export default function CompletionButton({
         onSuccess={handleQuizSuccess}
         docPath={quizDocPath}
         docTitle={docTitle}
-        language={quizLang}
+        language={modalLang}
       />
     </>
   );
