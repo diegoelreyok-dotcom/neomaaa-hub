@@ -113,6 +113,7 @@ export default async function PortalLayout({
       userName={userName}
       isAdmin={isAdmin}
       lang={lang}
+      roleId={roleId}
     >
       {children}
     </PortalShell>

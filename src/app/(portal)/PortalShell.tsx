@@ -11,6 +11,7 @@ interface PortalShellProps {
   userName: string;
   isAdmin: boolean;
   lang: Lang;
+  roleId: string;
   children: React.ReactNode;
 }
 
@@ -19,6 +20,7 @@ export default function PortalShell({
   userName,
   isAdmin,
   lang: initialLang,
+  roleId,
   children,
 }: PortalShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -72,6 +74,8 @@ export default function PortalShell({
         completedDocs={completedDocs}
         accessedDocs={accessedDocs}
         onSwitchLang={handleSwitchLang}
+        roleId={roleId}
+        isAdmin={isAdmin}
       />
 
       <div className="lg:ml-[280px] flex flex-col min-h-screen transition-[margin] duration-300">

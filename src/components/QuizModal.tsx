@@ -13,6 +13,11 @@ import type {
   QuizResult,
   QuizResultQuestion,
 } from '@/lib/quiz-types';
+import {
+  QUIZ_QUESTIONS_PER_ATTEMPT,
+  QUIZ_PASS_THRESHOLD,
+  QUIZ_COOLDOWN_SECONDS,
+} from '@/lib/quiz-types';
 import { translateApiError } from '@/lib/api-errors';
 
 export interface QuizModalProps {
@@ -84,17 +89,19 @@ interface QuizStrings {
   errorTitle: string;
   errorBody: string;
   tryAgain: string;
+  timeRemaining: string;
+  timeUp: string;
 }
 
 const i18n: Record<'es' | 'ru' | 'en', QuizStrings> = {
   es: {
     title: 'Quiz de evaluacion',
     introLead: 'Para marcar este documento como completado, debes responder un quiz.',
-    questions: '10 preguntas',
+    questions: `${QUIZ_QUESTIONS_PER_ATTEMPT} preguntas`,
     questionsDesc: 'Seleccionadas al azar del banco',
-    noTime: 'Sin tiempo limite',
-    noTimeDesc: 'Tomate el tiempo que necesites',
-    pass: 'Apruebas con 7/10',
+    noTime: '60 segundos por pregunta',
+    noTimeDesc: 'Si se acaba el tiempo, avanza sola',
+    pass: `Apruebas con ${QUIZ_PASS_THRESHOLD}/${QUIZ_QUESTIONS_PER_ATTEMPT}`,
     passDesc: 'Certificado automatico al aprobar',
     warnAbandon: 'Si abandonas, pierdes el progreso',
     warnAbandonDesc: 'Deberas empezar desde cero',
@@ -118,7 +125,7 @@ const i18n: Record<'es' | 'ru' | 'en', QuizStrings> = {
     congratsNoName: 'Felicitaciones!',
     almost: 'Casi',
     almostBody: (score: number, threshold: number) =>
-      `Has respondido correctamente ${score} de 10 preguntas. Necesitas ${threshold}/10. Estudia el material y vuelve a intentarlo en 1 hora.`,
+      `Has respondido correctamente ${score} de ${QUIZ_QUESTIONS_PER_ATTEMPT} preguntas. Necesitas ${threshold}/${QUIZ_QUESTIONS_PER_ATTEMPT}. Estudia el material y vuelve a intentarlo en 4 horas.`,
     scoreLabel: 'Puntaje',
     needScore: (n: number) => `Necesitas ${n} para aprobar`,
     certificateIssued: 'Has obtenido el certificado',
@@ -141,16 +148,18 @@ const i18n: Record<'es' | 'ru' | 'en', QuizStrings> = {
     errorBody:
       'No pudimos procesar tu solicitud. Verifica tu conexion e intenta nuevamente.',
     tryAgain: 'Reintentar',
+    timeRemaining: 'Tiempo restante',
+    timeUp: 'Se acabo el tiempo',
   },
   ru: {
     title: 'Тест для оценки',
     introLead:
       'Чтобы отметить документ как завершённый, вы должны пройти тест.',
-    questions: '10 вопросов',
+    questions: `${QUIZ_QUESTIONS_PER_ATTEMPT} вопросов`,
     questionsDesc: 'Случайная выборка из банка',
-    noTime: 'Без ограничения времени',
-    noTimeDesc: 'Не спешите',
-    pass: 'Проходной балл: 7 из 10',
+    noTime: '60 секунд на вопрос',
+    noTimeDesc: 'Когда время вышло — автопереход',
+    pass: `Проходной балл: ${QUIZ_PASS_THRESHOLD} из ${QUIZ_QUESTIONS_PER_ATTEMPT}`,
     passDesc: 'Сертификат выдаётся автоматически',
     warnAbandon: 'Выход означает потерю прогресса',
     warnAbandonDesc: 'Придётся начать заново',
@@ -174,7 +183,7 @@ const i18n: Record<'es' | 'ru' | 'en', QuizStrings> = {
     congratsNoName: 'Поздравляем!',
     almost: 'Почти',
     almostBody: (score: number, threshold: number) =>
-      `Вы ответили правильно на ${score} из 10 вопросов. Нужно ${threshold}/10. Изучите материал и попробуйте снова через 1 час.`,
+      `Вы ответили правильно на ${score} из ${QUIZ_QUESTIONS_PER_ATTEMPT} вопросов. Нужно ${threshold}/${QUIZ_QUESTIONS_PER_ATTEMPT}. Изучите материал и попробуйте снова через 4 часа.`,
     scoreLabel: 'Результат',
     needScore: (n: number) => `Нужно ${n} для прохождения`,
     certificateIssued: 'Вы получили сертификат',
@@ -197,15 +206,17 @@ const i18n: Record<'es' | 'ru' | 'en', QuizStrings> = {
     errorBody:
       'Не удалось обработать запрос. Проверьте соединение и попробуйте снова.',
     tryAgain: 'Повторить',
+    timeRemaining: 'Осталось времени',
+    timeUp: 'Время вышло',
   },
   en: {
     title: 'Evaluation quiz',
     introLead: 'To mark this document as completed, you must pass a quiz.',
-    questions: '10 questions',
+    questions: `${QUIZ_QUESTIONS_PER_ATTEMPT} questions`,
     questionsDesc: 'Randomly selected from the question bank',
-    noTime: 'No time limit',
-    noTimeDesc: 'Take all the time you need',
-    pass: 'Pass with 7/10',
+    noTime: '60 seconds per question',
+    noTimeDesc: 'Auto-advances when time runs out',
+    pass: `Pass with ${QUIZ_PASS_THRESHOLD}/${QUIZ_QUESTIONS_PER_ATTEMPT}`,
     passDesc: 'Automatic certificate on pass',
     warnAbandon: 'If you leave, you lose your progress',
     warnAbandonDesc: 'You will have to start over',
@@ -229,7 +240,7 @@ const i18n: Record<'es' | 'ru' | 'en', QuizStrings> = {
     congratsNoName: 'Congratulations!',
     almost: 'Almost',
     almostBody: (score: number, threshold: number) =>
-      `You answered ${score} of 10 correctly. You need ${threshold}/10. Review the material and try again in 1 hour.`,
+      `You answered ${score} of ${QUIZ_QUESTIONS_PER_ATTEMPT} correctly. You need ${threshold}/${QUIZ_QUESTIONS_PER_ATTEMPT}. Review the material and try again in 4 hours.`,
     scoreLabel: 'Score',
     needScore: (n: number) => `Need ${n} to pass`,
     certificateIssued: 'You earned the certificate',
@@ -252,8 +263,13 @@ const i18n: Record<'es' | 'ru' | 'en', QuizStrings> = {
     errorBody:
       'We could not process your request. Check your connection and try again.',
     tryAgain: 'Retry',
+    timeRemaining: 'Time remaining',
+    timeUp: "Time's up",
   },
 };
+
+/** Seconds each question is visible before auto-advance. */
+const QUESTION_TIME_SECONDS = 60;
 
 interface ClientQuestion {
   id: string;
@@ -291,6 +307,8 @@ export default function QuizModal({
   const [confirmLeave, setConfirmLeave] = useState(false);
   /** Seconds until user can re-attempt this quiz. null means no cooldown. */
   const [cooldownLeft, setCooldownLeft] = useState<number | null>(null);
+  /** Seconds remaining on the current question's countdown. */
+  const [secondsLeft, setSecondsLeft] = useState<number>(QUESTION_TIME_SECONDS);
 
   const contentRef = useRef<HTMLDivElement>(null);
   const hasNotifiedSuccessRef = useRef(false);
@@ -311,6 +329,7 @@ export default function QuizModal({
         setErrorMsg('');
         setConfirmLeave(false);
         setCooldownLeft(null);
+        setSecondsLeft(QUESTION_TIME_SECONDS);
         hasNotifiedSuccessRef.current = false;
       }, 200);
       return () => clearTimeout(timer);
@@ -439,8 +458,11 @@ export default function QuizModal({
           }
         }
       } else {
-        // Start the 1h cooldown countdown using backend-authoritative value.
-        const secs = typeof data.retryAfter === 'number' ? data.retryAfter : 3600;
+        // Start the cooldown countdown using backend-authoritative value.
+        const secs =
+          typeof data.retryAfter === 'number'
+            ? data.retryAfter
+            : QUIZ_COOLDOWN_SECONDS;
         setCooldownLeft(secs);
       }
     } catch (err: any) {
@@ -450,13 +472,33 @@ export default function QuizModal({
   }, [sessionId, answers, onSuccess]);
 
   const goPrev = () => setCurrentIdx((i) => Math.max(0, i - 1));
-  const goNext = () => {
+  const goNext = useCallback(() => {
     if (currentIdx >= questions.length - 1) {
       submitQuiz();
     } else {
       setCurrentIdx((i) => Math.min(questions.length - 1, i + 1));
     }
-  };
+  }, [currentIdx, questions.length, submitQuiz]);
+
+  // Per-question countdown. Runs only while actively taking the quiz.
+  // Resets to QUESTION_TIME_SECONDS whenever the current question changes
+  // or whenever we enter the in_progress view.
+  useEffect(() => {
+    if (view !== 'in_progress') return;
+    setSecondsLeft(QUESTION_TIME_SECONDS);
+    const id = setInterval(() => {
+      setSecondsLeft((s) => (s <= 0 ? 0 : s - 1));
+    }, 1000);
+    return () => clearInterval(id);
+  }, [view, currentIdx]);
+
+  // When timer hits 0, auto-advance (or auto-submit on the last question).
+  // Current answer is preserved if selected, otherwise stays as -1 (unanswered).
+  useEffect(() => {
+    if (view !== 'in_progress') return;
+    if (secondsLeft > 0) return;
+    goNext();
+  }, [secondsLeft, view, goNext]);
 
   const setAnswer = (value: number) => {
     setAnswers((prev) => {
@@ -525,6 +567,7 @@ export default function QuizModal({
             currentAnswer={currentAnswer}
             isLast={isLast}
             canAdvance={canAdvance}
+            secondsLeft={secondsLeft}
             onClose={attemptClose}
             onPrev={goPrev}
             onNext={goNext}
@@ -758,6 +801,7 @@ function InProgressView({
   currentAnswer,
   isLast,
   canAdvance,
+  secondsLeft,
   onClose,
   onPrev,
   onNext,
@@ -771,6 +815,7 @@ function InProgressView({
   currentAnswer: number;
   isLast: boolean;
   canAdvance: boolean;
+  secondsLeft: number;
   onClose: () => void;
   onPrev: () => void;
   onNext: () => void;
@@ -799,20 +844,23 @@ function InProgressView({
       onKeyDown={onKey}
     >
       {/* Top bar */}
-      <div className="flex items-center justify-between px-6 sm:px-8 pt-6 pb-3">
+      <div className="flex items-center justify-between px-6 sm:px-8 pt-6 pb-3 gap-3">
         <div className="text-xs font-medium text-neo-text-muted tracking-wide">
           {t.questionOf(idx + 1, total)}
         </div>
-        <button
-          onClick={onClose}
-          aria-label={t.close}
-          className="w-8 h-8 flex items-center justify-center rounded-lg text-neo-text-muted hover:text-neo-text hover:bg-neo-dark-3/50 transition-colors"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
+        <div className="flex items-center gap-2">
+          <QuestionTimer secondsLeft={secondsLeft} total={QUESTION_TIME_SECONDS} label={t.timeRemaining} timeUpLabel={t.timeUp} />
+          <button
+            onClick={onClose}
+            aria-label={t.close}
+            className="w-8 h-8 flex items-center justify-center rounded-lg text-neo-text-muted hover:text-neo-text hover:bg-neo-dark-3/50 transition-colors"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Progress bar with "X/10" label above */}
@@ -1382,6 +1430,78 @@ function ConfirmLeaveDialog({
             {t.stay}
           </button>
         </div>
+      </div>
+    </div>
+  );
+}
+
+/* ---------- Timer ---------- */
+
+function QuestionTimer({
+  secondsLeft,
+  total,
+  label,
+  timeUpLabel,
+}: {
+  secondsLeft: number;
+  total: number;
+  label: string;
+  timeUpLabel: string;
+}) {
+  // SVG progress ring. Radius chosen so stroke stays inside 36x36 viewbox.
+  const size = 36;
+  const radius = 15;
+  const circumference = 2 * Math.PI * radius;
+  const clamped = Math.max(0, Math.min(total, secondsLeft));
+  const pct = total > 0 ? clamped / total : 0;
+  const dash = circumference * pct;
+
+  // Color thresholds: burgundy >15s, amber 6-15s, red <=5s.
+  const ringColor =
+    clamped <= 5 ? '#ef4444' : clamped <= 15 ? '#F5B041' : '#98283A';
+  const textColor =
+    clamped <= 5
+      ? 'text-red-500'
+      : clamped <= 15
+      ? 'text-amber-400'
+      : 'text-[#C94A5C]';
+
+  const isUp = clamped === 0;
+
+  return (
+    <div
+      className="flex items-center gap-2"
+      role="timer"
+      aria-live="polite"
+      aria-label={isUp ? timeUpLabel : `${label}: ${clamped}s`}
+      title={isUp ? timeUpLabel : `${label}: ${clamped}s`}
+    >
+      <div className="relative flex items-center justify-center" style={{ width: size, height: size }}>
+        <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="-rotate-90">
+          <circle
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            stroke="#2a2733"
+            strokeWidth={3}
+            fill="none"
+          />
+          <circle
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            stroke={ringColor}
+            strokeWidth={3}
+            fill="none"
+            strokeLinecap="round"
+            strokeDasharray={circumference}
+            strokeDashoffset={circumference - dash}
+            style={{ transition: 'stroke-dashoffset 1s linear, stroke 0.3s' }}
+          />
+        </svg>
+        <span className={`absolute text-[10px] font-bold tabular-nums ${textColor}`}>
+          {clamped}
+        </span>
       </div>
     </div>
   );

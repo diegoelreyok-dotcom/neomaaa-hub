@@ -91,8 +91,8 @@ export interface Certificate {
 }
 
 /** Constants. */
-export const QUIZ_QUESTIONS_PER_ATTEMPT = 10;
-export const QUIZ_PASS_THRESHOLD = 7;
+export const QUIZ_QUESTIONS_PER_ATTEMPT = 15;
+export const QUIZ_PASS_THRESHOLD = 12;
 export const QUIZ_SESSION_TTL_SECONDS = 30 * 60;
-/** How long to block re-attempts after a failed quiz (1 hour). */
-export const QUIZ_COOLDOWN_SECONDS = 60 * 60;
+/** How long to block re-attempts after a failed quiz (4 hours). */
+export const QUIZ_COOLDOWN_SECONDS = 4 * 60 * 60;

@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
 import type { Section, Lang } from '@/lib/types';
+import { pathOrderedDocs } from '@/lib/permissions';
 import SidebarOrb from './SidebarOrb';
 
 interface SidebarProps {
@@ -15,6 +16,8 @@ interface SidebarProps {
   completedDocs?: string[];
   accessedDocs?: string[];
   onSwitchLang?: (lang: Lang) => void;
+  roleId?: string;
+  isAdmin?: boolean;
 }
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -91,8 +94,41 @@ export default function Sidebar({
   completedDocs = [],
   accessedDocs = [],
   onSwitchLang,
+  roleId,
+  isAdmin = false,
 }: SidebarProps) {
   const pathname = usePathname();
+
+  // Compute locked doc paths based on the user's learning path.
+  // Admins see everything unlocked. Docs outside the path are never locked.
+  // completedDocs comes in as filePaths ("section/slug.md"); normalize to "section/slug".
+  const { lockedDocs, requiredDocByLocked } = useMemo(() => {
+    const locked = new Set<string>();
+    const required = new Map<string, string>();
+    if (isAdmin || !roleId) return { lockedDocs: locked, requiredDocByLocked: required };
+    const ordered = pathOrderedDocs(roleId);
+    if (ordered.length === 0) return { lockedDocs: locked, requiredDocByLocked: required };
+
+    const completedSet = new Set(
+      completedDocs.map((p) => p.replace(/\.md$/, ''))
+    );
+    // Walk in order; first uncompleted index is the "gate". Everything after
+    // is locked with requiredDoc = first missing prior.
+    let firstMissing: string | null = null;
+    for (const doc of ordered) {
+      if (!completedSet.has(doc)) {
+        if (firstMissing === null) {
+          firstMissing = doc;
+          // This doc itself is reachable (it's the active gate).
+          continue;
+        }
+        locked.add(doc);
+        required.set(doc, firstMissing);
+      }
+    }
+    return { lockedDocs: locked, requiredDocByLocked: required };
+  }, [roleId, isAdmin, completedDocs]);
+
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>(() => {
     const initial: Record<string, boolean> = {};
     for (const section of sections) {
@@ -432,19 +468,41 @@ export default function Sidebar({
                           className="overflow-hidden"
                         >
                           <div className="py-1 space-y-0.5">
-                            {section.documents.map((doc) => (
-                              <SidebarDocLink
-                                key={doc.slug}
-                                href={`/content/${section.id}/${doc.slug}`}
-                                title={getDocTitle(doc)}
-                                active={
-                                  pathname === `/content/${section.id}/${doc.slug}`
-                                }
-                                completed={completedDocs.includes(doc.filePath)}
-                                accessed={accessedDocs.includes(doc.filePath)}
-                                onNavigate={onClose}
-                              />
-                            ))}
+                            {section.documents.map((doc) => {
+                              const docKey = `${section.id}/${doc.slug}`;
+                              const locked = lockedDocs.has(docKey);
+                              const reqKey = locked ? requiredDocByLocked.get(docKey) : undefined;
+                              let reqTitle = '';
+                              if (reqKey) {
+                                const [rs, rsl] = reqKey.split('/');
+                                const found = sections
+                                  .find((s) => s.id === rs)
+                                  ?.documents.find((d) => d.slug === rsl);
+                                if (found) reqTitle = getDocTitle(found);
+                              }
+                              return (
+                                <SidebarDocLink
+                                  key={doc.slug}
+                                  href={`/content/${section.id}/${doc.slug}`}
+                                  title={getDocTitle(doc)}
+                                  active={
+                                    pathname === `/content/${section.id}/${doc.slug}`
+                                  }
+                                  completed={completedDocs.includes(doc.filePath)}
+                                  accessed={accessedDocs.includes(doc.filePath)}
+                                  locked={locked}
+                                  requiredTitle={reqTitle}
+                                  lockedTooltip={
+                                    lang === 'ru'
+                                      ? 'Сначала завершите'
+                                      : lang === 'en'
+                                        ? 'Complete first'
+                                        : 'Completa primero'
+                                  }
+                                  onNavigate={onClose}
+                                />
+                              );
+                            })}
                           </div>
                         </motion.div>
                       )}
@@ -542,6 +600,9 @@ interface SidebarDocLinkProps {
   active: boolean;
   completed: boolean;
   accessed: boolean;
+  locked?: boolean;
+  requiredTitle?: string;
+  lockedTooltip?: string;
   onNavigate: () => void;
 }
 
@@ -551,6 +612,9 @@ function SidebarDocLink({
   active,
   completed,
   accessed,
+  locked = false,
+  requiredTitle = '',
+  lockedTooltip = '',
   onNavigate,
 }: SidebarDocLinkProps) {
   const ref = useRef<HTMLAnchorElement>(null);
@@ -561,6 +625,31 @@ function SidebarDocLink({
     const rect = el.getBoundingClientRect();
     el.style.setProperty('--mx', `${e.clientX - rect.left}px`);
     el.style.setProperty('--my', `${e.clientY - rect.top}px`);
+  }
+
+  // Locked variant: render a non-clickable div with muted style + lock icon.
+  if (locked) {
+    const tooltip = requiredTitle
+      ? `${lockedTooltip}: ${requiredTitle}`
+      : lockedTooltip;
+    return (
+      <div
+        title={tooltip}
+        aria-disabled="true"
+        className="relative flex items-center gap-2 pl-5 pr-3 py-[7px] ml-3 text-[12.5px] rounded-lg text-neo-text-muted/60 cursor-not-allowed select-none"
+      >
+        <span
+          className="relative z-10 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
+          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+        >
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-neo-text-muted/70">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+        </span>
+        <span className="relative z-10 truncate italic">{title}</span>
+      </div>
+    );
   }
 
   return (

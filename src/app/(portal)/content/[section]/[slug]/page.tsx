@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { auth } from '@/lib/auth';
 import { getRole, getUserProgress } from '@/lib/db';
-import { canAccessDocument } from '@/lib/permissions';
+import { canAccessDocument, canAccessPathDoc } from '@/lib/permissions';
 import { getSectionById, getDocByPath } from '@/lib/sections';
 import { getMarkdownContent } from '@/lib/content';
 import type { Lang } from '@/lib/types';
@@ -106,6 +106,89 @@ export default async function ContentPage({ params }: ContentPageProps) {
     );
   }
 
+  // Sequential learning-path gate. Admins bypass inside canAccessPathDoc.
+  // Uses docPath in "{section}/{slug}" form (no .md suffix) — matches
+  // LEARNING_PATHS[roleId] doc entries.
+  const docPathKey = `${sectionId}/${slug}`;
+  const userIdForGate: string | undefined = user?.userId;
+  let completedSet = new Set<string>();
+  if (userIdForGate) {
+    try {
+      const progress = await getUserProgress(userIdForGate);
+      completedSet = new Set(
+        progress
+          .filter((p) => p.completed)
+          .map((p) => p.documentPath.replace(/\.md$/, ''))
+      );
+    } catch {
+      // non-critical — empty set means first doc is accessible, others locked
+    }
+  }
+  const gate = canAccessPathDoc(
+    roleId,
+    docPathKey,
+    completedSet,
+    Boolean(user?.isAdmin) || role.isAdmin
+  );
+  if (!gate.allowed) {
+    const requiredPath = gate.requiredDoc || '';
+    const [reqSection, reqSlug] = requiredPath.split('/');
+    const reqDocMeta = reqSection && reqSlug ? getDocByPath(reqSection, reqSlug) : null;
+    const reqTitle = reqDocMeta
+      ? lang === 'ru'
+        ? reqDocMeta.titleRu
+        : lang === 'en'
+          ? reqDocMeta.titleEn || reqDocMeta.titleEs
+          : reqDocMeta.titleEs
+      : requiredPath;
+    return (
+      <div className="flex items-center justify-center min-h-[50vh]">
+        <div className="bg-neo-dark-2 border border-neo-dark-3 rounded-xl p-8 max-w-md text-center">
+          <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-neo-warning/10 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-neo-warning">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+          </div>
+          <h2 className="text-lg font-semibold text-neo-text mb-2">
+            {lang === 'ru'
+              ? 'Сначала завершите предыдущий модуль'
+              : lang === 'en'
+                ? 'Complete the previous module first'
+                : 'Completa el modulo anterior primero'}
+          </h2>
+          <p className="text-sm text-neo-text-muted mb-5">
+            {lang === 'ru'
+              ? 'Этот документ открывается последовательно. Пройдите предыдущий документ вашего пути.'
+              : lang === 'en'
+                ? 'This doc unlocks sequentially. Finish the previous doc in your learning path first.'
+                : 'Este documento se desbloquea en orden. Primero terminá el documento anterior de tu ruta.'}
+          </p>
+          {requiredPath && (
+            <Link
+              href={`/content/${requiredPath}`}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-neo-primary hover:text-neo-primary-light transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+              {lang === 'ru' ? 'Открыть: ' : lang === 'en' ? 'Go to: ' : 'Ir a: '}
+              {reqTitle}
+            </Link>
+          )}
+          <div className="mt-4">
+            <Link
+              href="/learning"
+              className="text-xs text-neo-text-muted hover:text-neo-text transition-colors"
+            >
+              {lang === 'ru' ? 'Мой путь обучения' : lang === 'en' ? 'My learning path' : 'Mi ruta de aprendizaje'}
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // Get section and document metadata
   const section = getSectionById(sectionId);
   const doc = getDocByPath(sectionId, slug);
@@ -156,18 +239,8 @@ export default async function ContentPage({ params }: ContentPageProps) {
   // Calculate reading time
   const readingTime = estimateReadingTime(content);
 
-  // Check if user has already completed this document
-  const userId = user?.userId;
-  let isCompleted = false;
-  if (userId) {
-    try {
-      const progress = await getUserProgress(userId);
-      const docProgress = progress.find((p) => p.documentPath === doc.filePath);
-      isCompleted = docProgress?.completed === true;
-    } catch {
-      // Non-critical — default to not completed
-    }
-  }
+  // Re-use the completedSet already computed above for the path gate.
+  const isCompleted = completedSet.has(docPathKey);
 
   // Previous / Next navigation within the section
   const docIndex = section.documents.findIndex((d) => d.slug === slug);
