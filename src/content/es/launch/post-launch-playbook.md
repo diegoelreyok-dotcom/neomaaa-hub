@@ -101,7 +101,7 @@ Se revisan viernes 16:00 UAE en la retro. Cada KPI se compara contra la semana a
 
 **Revenue total broker** — spread + comisiones + FX markup neto de rebates IBs. Owner: Finance Mgr / Yulia.
 
-**Gross margin** — revenue menos PSP fees + LP fees + hedging. Mide eficiencia A/B Book (ver `/content/es/compliance/ab-book-policy`).
+**Gross margin** — revenue menos PSP fees + LP fees + hedging. Mide eficiencia A/B Book (ver `/content/es/executive/ab-book-policy`).
 
 **CAC blended** — ads + salarios sales + retainers marketing / FTDs totales.
 
@@ -190,7 +190,7 @@ La semana 1 es defensa pura. El sistema se esta estresando por primera vez con t
 
 **Dias 4-5 — Observacion y ajuste mental:**
 - Pipeline de ventas (Skale) empieza a mostrar patrones. Edward reporta martes y jueves en el dealing sync: que objeciones se repiten, que tipo de cliente convierte, que canal trae leads calificados.
-- **Pepe identifica flow toxico temprano** (clientes con scalping/arbitraje). Registra en MT5 Manager con tag `flow-review`. No se actua todavia. Revision formal viernes retro. Ver [A/B Book Policy](/content/es/compliance/ab-book-policy).
+- **Pepe identifica flow toxico temprano** (clientes con scalping/arbitraje). Registra en MT5 Manager con tag `flow-review`. No se actua todavia. Revision formal viernes retro. Ver [A/B Book Policy](/content/es/executive/ab-book-policy).
 - Finance Manager (o Yulia) reconcilia PSPs primera vez: fondos acreditados vs settlements reales.
 
 **Dias 6-7 — Primera retrospectiva:**
@@ -454,7 +454,7 @@ La disciplina del mes 1 no es opcional. Es la base sobre la que se construye tod
 > - [Manual de Crisis](/content/es/operations/manual-crisis) — cuando triggers no son suficiente
 > - [Financial Controls](/content/es/executive/financial-controls) — dashboards P&L y reconciliaciones
 > - [Compliance Calendar](/content/es/compliance/compliance-calendar) — obligaciones AOFA L15968/N
-> - [A/B Book Policy](/content/es/compliance/ab-book-policy) — flow toxico y risk management
+> - [A/B Book Policy](/content/es/executive/ab-book-policy) — flow toxico y risk management
 > - [Gestion de Tickets](/content/es/support/gestion-tickets) — SLAs soporte
 > - [Programa de Partners](/content/es/partners/programa) — IBs y afiliados
 

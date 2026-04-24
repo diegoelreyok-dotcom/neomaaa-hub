@@ -141,7 +141,7 @@ The risk that A-Book profitable clients earn more than the broker can cover with
 - Number of clients flagged A-Book vs B-Book
 
 **Mitigation**
-- Clear flow categorization policy (see `compliance/ab-book-policy.md`):
+- Clear flow categorization policy (see `executive/ab-book-policy.md`):
   - Consistently profitable clients → automatic A-Book (hedged with LP)
   - Small retail / non-systematic scalping → acceptable B-Book
   - High-volume VIP → mandatory A-Book with monitoring

@@ -101,7 +101,7 @@ Reviewed Friday 16:00 UAE at retro. Each KPI compared against previous week and 
 
 **Total broker revenue** — spread + commissions + FX markup net of IB rebates. Owner: Finance Mgr / Yulia.
 
-**Gross margin** — revenue minus PSP fees + LP fees + hedging. Measures A/B Book efficiency (see `/content/en/compliance/ab-book-policy`).
+**Gross margin** — revenue minus PSP fees + LP fees + hedging. Measures A/B Book efficiency (see `/content/en/executive/ab-book-policy`).
 
 **Blended CAC** — ads + sales salaries + marketing retainers / total FTDs.
 
@@ -190,7 +190,7 @@ Week 1 is pure defense. The system is stressing for the first time with real tra
 
 **Days 4-5 — Observation and mental adjustment:**
 - Sales pipeline (Skale) starts showing patterns. Edward reports Tuesday and Thursday at dealing sync: what objections repeat, what type of client converts, what channel brings qualified leads.
-- **Pepe identifies toxic flow early** (scalping/arbitrage clients). Records in MT5 Manager with `flow-review` tag. No action yet. Formal review Friday retro. See [A/B Book Policy](/content/en/compliance/ab-book-policy).
+- **Pepe identifies toxic flow early** (scalping/arbitrage clients). Records in MT5 Manager with `flow-review` tag. No action yet. Formal review Friday retro. See [A/B Book Policy](/content/en/executive/ab-book-policy).
 - Finance Manager (or Yulia) reconciles PSPs first time: credited funds vs real settlements.
 
 **Days 6-7 — First retrospective:**
@@ -454,7 +454,7 @@ Month 1 discipline is not optional. It is the foundation on which all of NEOMAAA
 > - [Crisis Manual](/content/en/operations/manual-crisis) — when triggers are not enough
 > - [Financial Controls](/content/en/executive/financial-controls) — P&L dashboards and reconciliations
 > - [Compliance Calendar](/content/en/compliance/compliance-calendar) — AOFA L15968/N obligations
-> - [A/B Book Policy](/content/en/compliance/ab-book-policy) — toxic flow and risk management
+> - [A/B Book Policy](/content/en/executive/ab-book-policy) — toxic flow and risk management
 > - [Ticket Management](/content/en/support/gestion-tickets) — support SLAs
 > - [Partners Program](/content/en/partners/programa) — IBs and affiliates
 

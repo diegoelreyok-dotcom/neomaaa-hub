@@ -700,7 +700,7 @@ Fill rate baja, latency sube, slippage empeora. Si persiste >4 semanas y no hay 
 - `executive/risk-management-owner.md` — LP counterparty risk detallado
 - `executive/financial-controls.md` — controles sobre pagos a/desde LPs
 - `executive/unit-economics-broker.md` — impacto del markup LP en P&L
-- `compliance/ab-book-policy.md` — política A-Book / B-Book y cuándo hedgear
+- `executive/ab-book-policy.md` — política A-Book / B-Book y cuándo hedgear
 - `operations/*` — runbooks operativos de Pepe
 
 ---

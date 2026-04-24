@@ -24,7 +24,7 @@ Zona horaria de referencia: **UAE (GMT+4)** donde opera HQ (Dubai). Conversiones
 > - [Manual de Crisis](/content/es/operations/manual-crisis)
 > - [Manual de Depositos](/content/es/operations/depositos)
 > - [Compliance Calendar AOFA](/content/es/compliance/compliance-calendar)
-> - [A/B Book Policy](/content/es/compliance/ab-book-policy)
+> - [A/B Book Policy](/content/es/executive/ab-book-policy)
 > - [Financial Controls](/content/es/executive/financial-controls)
 > - [Gestion de Tickets Support](/content/es/support/gestion-tickets)
 
@@ -387,7 +387,7 @@ Este plan se activa **SOLO bajo decision de Diego** (o Angel en su ausencia) cua
 ### Bloque 1: Fundamentos (Semanas 1-2)
 *Sin esto no se puede avanzar con nada mas.*
 
-- [ ] **Politica A-Book / B-Book documentada** (Pepe) — % B-Book, umbrales pase a A-Book, tratamiento toxic flow, politica hedging. Ver [ab-book-policy](/content/es/compliance/ab-book-policy).
+- [ ] **Politica A-Book / B-Book documentada** (Pepe) — % B-Book, umbrales pase a A-Book, tratamiento toxic flow, politica hedging. Ver [ab-book-policy](/content/es/executive/ab-book-policy).
 - [ ] **Esquema de comisiones cerrado** — aprobado por Principals. Ver [commissions](/content/es/sales/commissions).
 - [ ] **PSPs activos confirmados** — lista final de procesadores live dia 1. Minimo: 1 crypto (USDT), 1 tarjeta, 1 transferencia local LATAM (PIX/PSE/SPEI).
 - [ ] **Skale CRM configurado** — campos custom: tipo cuenta, FTD date/amount, depositos totales, ultimo deposito, KYC status, assigned agent, lead source.

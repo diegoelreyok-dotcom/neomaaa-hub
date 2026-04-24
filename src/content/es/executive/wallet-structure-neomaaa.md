@@ -513,7 +513,7 @@ Acciones concretas que Diego + Yulia ejecutan esta semana y la próxima.
 - [`treasury-management.md`](/content/executive/treasury-management) — framework genérico multi-wallet
 - [`unit-economics-broker.md`](/content/executive/unit-economics-broker) — CAC/LTV/margen bruto
 - [`financial-controls.md`](/content/executive/financial-controls) — sistema de controles diarios/semanales/mensuales
-- [`compliance/ab-book-policy.md`](/content/compliance/ab-book-policy) — policy hibrida A/B book
+- [`executive/ab-book-policy.md`](/content/executive/ab-book-policy) — policy hibrida A/B book
 - [`compliance/expansion-regulatoria.md`](/content/compliance/expansion-regulatoria) — requisitos regulatorios AOFA Anjouan
 
 ---

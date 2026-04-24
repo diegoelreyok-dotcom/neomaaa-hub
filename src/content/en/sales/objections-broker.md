@@ -74,17 +74,26 @@
 
 ---
 
-### Objection 4: "What if you trade against my trades?"
+### Objection 4: "Do you bet against my trades?"
 
-**Why they say it:** Knows that market maker brokers trade against the client. Suspects NEOMAAA does the same.
+**Why they say it:** Knows that brokers with a market maker component can take the other side of the trade. Wants to understand how NEOMAAA works.
 
-**Response:**
-"It's a smart question and the answer is transparent. NEOMAAA runs a hybrid ECN/STP model: orders are routed according to our published execution policy and may be executed against external liquidity providers or internally, as our client agreement acknowledges. Our interest is the continuity of the relationship, not a single trade. You can audit every execution in MT5: fill times, slippage, and effective spread are logged. The full execution policy is published in our legal documentation."
+**Response (approved wording — use verbatim):**
+"NEOMAAA runs a **hybrid ECN/STP model with a principal component**, as established in our official Terms. This means part of the flow is passed to Liquidity Providers (A-Book) and part is handled internally with risk management (B-Book). This is the retail broker standard and is officially disclosed in our [Order Execution Policy](/content/legal/order-execution-policy) and [Conflicts of Interest](/content/legal/conflicts-of-interest) document. The structural conflict this creates is managed through quarterly best-execution verification and independent Compliance supervision. You can audit every execution in MT5: fill times, slippage and effective spread are logged."
+
+> [!DANGER]
+> **PROHIBITED phrases** for this objection (NEVER say — they are false and create regulatory risk):
+> - "We don't trade against the client."
+> - "We don't execute internally against the client."
+> - "We are not a market maker."
+> - "No conflict of interest."
+>
+> As a hybrid broker with a B-Book component, a structural conflict DOES exist. Disclosing it and explaining how it is managed is the official position.
 
 **Key points:**
-- Hybrid ECN/STP model
-- Orders routed to liquidity providers
-- No conflict of interest
+- **Hybrid ECN/STP model with principal component** (A-Book + B-Book)
+- Structural conflict **disclosed** and managed (best execution + Compliance)
+- Redirect client to `legal/order-execution-policy` and `legal/conflicts-of-interest`
 - MT5 allows auditing execution
 
 ---

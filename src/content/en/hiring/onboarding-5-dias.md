@@ -446,7 +446,7 @@ Today you drop from general theory to your specific role. Find your section belo
 |---|---|---|
 | Deposits and Withdrawals | Operational procedure | [/content/operations/deposits](/content/operations/deposits) |
 | PSPs Explained | Who each payment provider is | (in preparation, ask your lead) |
-| Partners Financial Model | How affiliate commissions are calculated | [/content/partners/modelo-financiero](/content/partners/modelo-financiero) |
+| Partners Financial Model | How affiliate commissions are calculated | [/content/executive/modelo-financiero-partners](/content/executive/modelo-financiero-partners) |
 | Internal FAQ | Frequent internal questions | [/content/operations/faq-interno](/content/operations/faq-interno) |
 | Go-Live Runbook | What runs on launch day | [/content/operations/go-live-runbook](/content/operations/go-live-runbook) |
 

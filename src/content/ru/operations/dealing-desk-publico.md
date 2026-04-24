@@ -48,7 +48,7 @@
 - Margins markup или внутренней экономики дилинга
 - Внутренних P&L reports по клиенту или по столу
 
-Всё это живёт в `compliance/ab-book-policy.md` — конфиденциальном документе с ограниченным доступом для Pepe (Head of Dealing), Susana (Compliance), Angel (Co-founder), Diego (Founder) и регуляторных аудиторов.
+Всё это живёт в `executive/ab-book-policy.md` — конфиденциальном документе с ограниченным доступом для Pepe (Head of Dealing), Susana (Compliance), Angel (Co-founder), Diego (Founder) и регуляторных аудиторов.
 
 ---
 
@@ -460,4 +460,4 @@ Dealing desk не недостижим. Pepe и его команда сущес
 - `legal/complaint-handling.md` — Формальный процесс претензий
 - `operations/manual-crisis.md` — Протокол при массовом инциденте исполнения
 - `compliance/workflow.md` — Общий workflow compliance
-- `compliance/ab-book-policy.md` — **КОНФИДЕНЦИАЛЬНО** — только Pepe, Susana, Angel, Diego
+- `executive/ab-book-policy.md` — **КОНФИДЕНЦИАЛЬНО** — только Pepe, Susana, Angel, Diego

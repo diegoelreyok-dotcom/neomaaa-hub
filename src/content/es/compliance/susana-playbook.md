@@ -244,7 +244,7 @@ FATF actualiza listas 3 veces al año (febrero, junio, octubre).
 | [`workflow`](/content/compliance/workflow) | Workflow general compliance + handoff Sales→Compliance | Referencia de procesos |
 | [`manual-susana`](/content/compliance/manual-susana) | Manual de compliance oficial (gold source) | Frases prohibidas, tiers onboarding, escalamiento |
 | [`proceso-kyc-sumsub`](/content/compliance/proceso-kyc-sumsub) | SOP técnico Sumsub | Cómo operar Sumsub paso a paso |
-| [`ab-book-policy`](/content/compliance/ab-book-policy) | Política A-Book / B-Book | Consultas de dealing y regulatorios |
+| [`ab-book-policy`](/content/executive/ab-book-policy) | Política A-Book / B-Book | Consultas de dealing y regulatorios |
 | [`onboarding`](/content/compliance/onboarding) | Onboarding clientes detallado | Proceso completo de alta |
 | [`expansion-regulatoria`](/content/compliance/expansion-regulatoria) | Regulación por región | Antes de abrir mercado nuevo |
 | [`legal/aml-kyc-policy`](/content/legal/aml-kyc-policy) | Política AML/KYC oficial (legal) | Referencia formal para auditorías |

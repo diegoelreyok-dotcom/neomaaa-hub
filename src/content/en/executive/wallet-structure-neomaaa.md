@@ -513,7 +513,7 @@ Concrete actions Diego + Yulia execute this week and next.
 - [`treasury-management.md`](/content/executive/treasury-management) — generic multi-wallet framework
 - [`unit-economics-broker.md`](/content/executive/unit-economics-broker) — CAC/LTV/gross margin
 - [`financial-controls.md`](/content/executive/financial-controls) — daily/weekly/monthly control system
-- [`compliance/ab-book-policy.md`](/content/compliance/ab-book-policy) — hybrid A/B book policy
+- [`executive/ab-book-policy.md`](/content/executive/ab-book-policy) — hybrid A/B book policy
 - [`compliance/expansion-regulatoria.md`](/content/compliance/expansion-regulatoria) — AOFA Anjouan regulatory requirements
 
 ---

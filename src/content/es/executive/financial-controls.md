@@ -621,7 +621,7 @@ Listado de `[DATO:]` que owners completan:
 - [`wallet-structure-neomaaa.md`](/content/executive/wallet-structure-neomaaa) — setup específico wallets NEOMAAA
 - [`unit-economics-broker.md`](/content/executive/unit-economics-broker) — CAC / LTV / margen
 - [`compliance/expansion-regulatoria.md`](/content/compliance/expansion-regulatoria) — requisitos regulatorios AOFA Anjouan
-- [`compliance/ab-book-policy.md`](/content/compliance/ab-book-policy) — policy hibrida A/B book
+- [`executive/ab-book-policy.md`](/content/executive/ab-book-policy) — policy hibrida A/B book
 
 ---
 

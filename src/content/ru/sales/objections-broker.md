@@ -70,15 +70,24 @@
 
 ### Возражение 4: "А вдруг вы торгуете против моих сделок?"
 
-**Почему он это говорит:** Знает, что брокеры market maker торгуют против клиента. Подозревает, что NEOMAAA делает то же самое.
+**Почему он это говорит:** Знает, что брокеры с компонентом market maker могут принимать другую сторону сделки. Хочет понять, как работает NEOMAAA.
 
-**Ответ:**
-"Es una pregunta inteligente. NEOMAAA opera con modelo ECN/STP hibrido. Esto significa que tus ordenes se enrutan directamente a proveedores de liquidez, no las ejecutamos internamente contra ti. No tenemos incentivo para que pierdas, al contrario: cuanto mas operes y mas capital tengas, mas beneficio genera la relacion para ambas partes. Puedes verificar la calidad de ejecucion en MT5 revisando los tiempos de llenado y el slippage de tus ordenes."
+**Ответ (утверждённая формулировка — использовать дословно):**
+"NEOMAAA работает по **гибридной модели ECN/STP с principal-компонентом**, как это установлено нашими официальными Условиями. Это значит, что часть потока ордеров передаётся Liquidity Providers (A-Book), а часть обрабатывается внутренне с управлением рисками (B-Book). Это стандарт для retail-брокеров и официально раскрыто в нашей [Политике исполнения ордеров](/content/legal/order-execution-policy) и документе [Конфликт интересов](/content/legal/conflicts-of-interest). Структурный конфликт, который это создаёт, управляется через best execution с квартальной проверкой и независимый надзор Compliance. Каждое исполнение можно проверить в MT5: время заполнения, slippage и эффективный спред фиксируются."
+
+> [!DANGER]
+> **ЗАПРЕЩЁННЫЕ фразы** для этого возражения (НИКОГДА не произносить — они ложны и создают регуляторный риск):
+> - «Мы не торгуем против клиента.»
+> - «Мы не исполняем внутренне против клиента.»
+> - «Мы не market maker.»
+> - «Нет конфликта интересов.»
+>
+> Как гибридный брокер с B-Book компонентом, структурный конфликт ЕСТЬ. Раскрывать его и объяснять, как он управляется — официальная позиция.
 
 **Ключевые моменты:**
-- Гибридная модель ECN/STP
-- Ордера маршрутизируются к провайдерам ликвидности
-- Нет конфликта интересов
+- **Гибридная модель ECN/STP с principal-компонентом** (A-Book + B-Book)
+- Структурный конфликт **раскрыт** и управляется (best execution + Compliance)
+- Направлять клиента к `legal/order-execution-policy` и `legal/conflicts-of-interest`
 - MT5 позволяет аудировать исполнение
 
 ---

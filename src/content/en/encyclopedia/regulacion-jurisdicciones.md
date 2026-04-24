@@ -182,5 +182,5 @@ Closing phrases that work:
 > - **NEVER** say we're FCA/CySEC/MAS — it's a regulatory lie.
 > - We compensate with retail NBP + segregation + support + education.
 > - USA absolutely prohibited. Sanctioned countries absolutely prohibited.
-> - EU: passive acceptance with full disclosure.
+> - **EU / EEA / UK / Australia / Canada: DIRECT REJECTION.** NEOMAAA Markets does not accept clients resident in the EEA or the UK. See [`compliance/screening-sanciones`](/content/compliance/screening-sanciones) and the **CR-26** rejection template in `support/playbook`.
 > - When the client is uncertain: tell the truth with context. Transparency builds long-term clients.

@@ -47,18 +47,14 @@ NEOMAAA Markets es un broker de forex y CFDs que ofrece acceso a mas de 2,000 in
 
 Neomaaa Ltd esta registrada como International Business Company con numero IBC 15968. La licencia de broker es la L15968/N, emitida por la Anjouan Offshore Finance Authority (AOFA) en la Union de Comoros.
 
-### 1.3 Quienes son los fundadores/directivos?
-
-[SOLO USO INTERNO] Los Principals son Diego, Yulia, y Stanislav. No reciben salario; su compensacion es via equity. Para clientes, la respuesta es: "NEOMAAA Markets es operado por un equipo directivo con experiencia en mercados financieros y tecnologia." No dar nombres personales a clientes salvo que un Principal lo autorice.
-
-### 1.4 En que paises operan?
+### 1.3 En que paises operan?
 
 NEOMAAA Markets acepta clientes de la mayoria de paises del mundo. Los mercados principales son **LATAM** (Brasil, Colombia, Mexico, Argentina, Chile, Peru, Ecuador, Republica Dominicana y el resto excluyendo USA/Canadá), **CIS** con screening caso por caso (Rusia y vecinos), **Middle East / MENA** (UAE, Saudi, Qatar, Turquía, excluyendo Iraq), **Africa** (Sudáfrica, Nigeria, Kenya, Egipto, excluyendo Sudán), y **SE Asia fase 2** (China, Vietnam, Filipinas, Indonesia, Tailandia, excluyendo North Korea y Myanmar).
 
 > [!WARNING]
 > **Países restringidos:** no aceptamos clientes de USA, Canada, EEA (todos los países, incluida España), UK, Australia, Cuba, Iraq, Myanmar, North Korea, Sudan + sancionados. Lista completa y gold source: [`compliance/screening-sanciones`](/content/compliance/screening-sanciones) sección 12.5.
 
-### 1.4b Podemos aceptar un cliente residente en España? (PREGUNTA FRECUENTE)
+### 1.4 Podemos aceptar un cliente residente en España? (PREGUNTA FRECUENTE)
 
 **NO.** Respuesta oficial de Diego (Abril 2026): *"Actualmente no podemos trabajar como broker con clientes de España/Europa sin las regulaciones que piden esos países."*
 
@@ -77,7 +73,7 @@ El trading en forex esta disponible 24 horas, 5 dias a la semana (domingo 22:00 
 
 ### 1.6 Que modelo de ejecucion usan?
 
-Modelo hibrido ECN/STP. Las ordenes se envian directamente a proveedores de liquidez sin intervencion de dealing desk. Esto significa que NEOMAAA no opera contra el cliente. Los precios provienen del pool de liquidez agregado.
+Modelo **hibrido ECN/STP con componente principal**, como lo establecen los Terminos oficiales. Parte del flujo se pasa a proveedores de liquidez (A-Book) y parte se gestiona internamente con controles de riesgo (B-Book). Esto es el estandar en brokers retail y esta oficialmente divulgado. **NO usar la frase "NEOMAAA no opera contra el cliente"** — es una frase prohibida (ver compliance/frases-prohibidas).
 
 ---
 
@@ -476,23 +472,19 @@ Verificar que no tiene posiciones abiertas. Si las tiene, debe cerrarlas primero
 
 ## Categoria 18: Datos Operativos Internos
 
-### 18.1 Cual es el tamano actual del equipo?
-
-[SOLO USO INTERNO] 12 personas activas + 4 vacantes por cubrir. Los 3 Principals (Diego, Yulia, Stanislav) no reciben salario; su compensacion es equity. La nomina actual es aproximadamente $21,000 USD/mes, proyectada a $34,000 USD/mes con el equipo completo de Stage 1.
-
-### 18.2 Que CRM usamos?
+### 18.1 Que CRM usamos?
 
 Skale CRM. Es el sistema central para gestion de clientes, depositos, retiros, y reportes. Todos los miembros del equipo con acceso deben tener sus credenciales y conocer las funciones relevantes a su rol.
 
-### 18.3 Que sistema de KYC usamos?
+### 18.2 Que sistema de KYC usamos?
 
 Sumsub. Es la plataforma de verificacion de identidad automatizada. Procesa documentos de identidad y comprobantes de domicilio. Los agentes de soporte pueden consultar el estado de verificacion de un cliente en el panel de Sumsub.
 
-### 18.4 Que sistema de soporte usamos?
+### 18.3 Que sistema de soporte usamos?
 
 Intercom. Es la plataforma de chat en vivo, email, y gestion de tickets. Todos los agentes de soporte operan desde Intercom. Tambien se usa para mensajes automatizados y base de conocimiento publica (si se configura).
 
-### 18.5 Como se manejan las escalaciones internas?
+### 18.4 Como se manejan las escalaciones internas?
 
 Flujo de escalacion:
 1. **Soporte L1** (agente) resuelve consultas estandar.

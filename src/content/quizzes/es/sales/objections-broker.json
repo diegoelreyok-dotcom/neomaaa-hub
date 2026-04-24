@@ -24,7 +24,7 @@
         "Pedirle que deposite más dinero"
       ],
       "correctIndex": 1,
-      "explanation": "Reconocer que licencia sola no basta. Destacar ejecución ECN/STP (sin conflicto interés), MT5 para auditar, cuenta Cent $5 como prueba real: verificar depósitos, operaciones Y RETIROS antes de comprometer más capital."
+      "explanation": "Reconocer que licencia sola no basta. Destacar modelo híbrido ECN/STP (A-Book + B-Book, oficialmente divulgado), MT5 para auditar, cuenta Cent $5 como prueba real: verificar depósitos, operaciones Y RETIROS antes de comprometer más capital."
     },
     {
       "id": "q3",
@@ -40,15 +40,15 @@
     },
     {
       "id": "q4",
-      "question": "Cliente sospecha: '¿si apuestan contra mis operaciones?'. ¿Cómo se responde?",
+      "question": "Cliente sospecha: '¿apuestan contra mis operaciones?'. ¿Cómo se responde?",
       "options": [
-        "Asegurar que es imposible",
-        "NEOMAAA opera con modelo ECN/STP híbrido: órdenes enrutadas directamente a proveedores de liquidez. No ejecutamos internamente contra el cliente. Sin conflicto de interés. MT5 permite auditar",
-        "Admitir que sí pero es pequeño",
+        "Asegurar que 'no operamos internamente contra el cliente' y que 'no hay conflicto de interés'",
+        "NEOMAAA opera un modelo híbrido ECN/STP con componente principal: parte del flujo se pasa a Liquidity Providers (A-Book) y parte se maneja internamente con gestión de riesgo (B-Book). Es el estándar retail y está oficialmente divulgado. El conflicto estructural se gestiona con best execution trimestral + supervisión independiente de Compliance. MT5 permite auditar",
+        "Admitir que sí apostamos contra el cliente pero es pequeño",
         "Desviar el tema"
       ],
       "correctIndex": 1,
-      "explanation": "Modelo ECN/STP híbrido. Órdenes enrutadas a proveedores de liquidez, sin intervención interna. No hay incentivo para que pierda el cliente (más operar y más capital = más beneficio mutuo). MT5 permite verificar tiempos de llenado y slippage."
+      "explanation": "Wording aprobado: modelo híbrido ECN/STP con componente principal (A-Book + B-Book), oficialmente divulgado en Términos, Política de Ejecución y documento de Conflictos de Interés. PROHIBIDO decir 'no operamos contra el cliente' o 'sin conflicto de interés' — es falso (como broker híbrido con B-Book sí existe un conflicto estructural) y genera riesgo regulatorio. La postura oficial es divulgar el conflicto y explicar cómo se gestiona (best execution verificada trimestralmente + Compliance independiente)."
     },
     {
       "id": "q5",

@@ -132,7 +132,7 @@ export const LEARNING_PATHS: Record<string, LearningPath> = {
         descriptionEn: 'Operational context every salesperson must master: compliance workflow, A-Book, dealing desk, and PSPs.',
         docs: [
           'compliance/workflow',
-          'compliance/ab-book-policy',
+          'executive/ab-book-policy',
           'operations/dealing-desk-publico',
           'operations/psps-explicados',
         ],
@@ -286,7 +286,7 @@ export const LEARNING_PATHS: Record<string, LearningPath> = {
         docs: [
           'compliance/screening-sanciones',
           'compliance/compliance-calendar',
-          'compliance/ab-book-policy',
+          'executive/ab-book-policy',
         ],
         requiredForNext: 3,
       },
@@ -417,7 +417,7 @@ export const LEARNING_PATHS: Record<string, LearningPath> = {
         descriptionEn: 'Public dealing desk, A-Book/B-Book policy, and operational workflow.',
         docs: [
           'operations/dealing-desk-publico',
-          'compliance/ab-book-policy',
+          'executive/ab-book-policy',
           'compliance/workflow',
           'legal/order-execution-policy',
         ],
@@ -503,7 +503,7 @@ export const LEARNING_PATHS: Record<string, LearningPath> = {
         descriptionRu: 'A-Book/B-Book, дилинг, депозиты, PSPs, KYC.',
         descriptionEn: 'A-Book/B-Book, dealing, deposits, PSPs, KYC. The legal and operational chassis.',
         docs: [
-          'compliance/ab-book-policy',
+          'executive/ab-book-policy',
           'compliance/workflow',
           'operations/dealing-desk-publico',
           'operations/deposits',
@@ -522,7 +522,7 @@ export const LEARNING_PATHS: Record<string, LearningPath> = {
         descriptionEn: 'Partner program, financial model, and the two launch checklists.',
         docs: [
           'partners/programa-completo',
-          'partners/modelo-financiero',
+          'executive/modelo-financiero-partners',
           'operations/go-live-runbook',
           'launch/post-launch-playbook',
           'operations/manual-crisis',
@@ -592,7 +592,7 @@ export const LEARNING_PATHS: Record<string, LearningPath> = {
         descriptionRu: 'A-Book, дилинг, платежи и KYC.',
         descriptionEn: 'A-Book, dealing, payments, and KYC.',
         docs: [
-          'compliance/ab-book-policy',
+          'executive/ab-book-policy',
           'compliance/workflow',
           'operations/dealing-desk-publico',
           'operations/deposits',
@@ -610,7 +610,7 @@ export const LEARNING_PATHS: Record<string, LearningPath> = {
         descriptionEn: 'Partners, finance, and checklists.',
         docs: [
           'partners/programa-completo',
-          'partners/modelo-financiero',
+          'executive/modelo-financiero-partners',
           'operations/go-live-runbook',
           'launch/post-launch-playbook',
         ],

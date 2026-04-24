@@ -22,7 +22,7 @@ Un conflicto de interes existe cuando los intereses de la Empresa, sus empleados
 
 En la actividad de broker, los conflictos de interes estructurales incluyen:
 
-- **Modelo de ejecucion:** cualquier broker con componente **B-Book / internalizado** toma el otro lado de la posicion del cliente — lo que el cliente pierde es ganancia para el broker y viceversa.
+- **Modelo de ejecucion:** en la porcion de flujo internalizada, la Empresa actua como contraparte. Esto genera un **conflicto estructural de intereses** que se gestiona mediante (a) best execution verificada trimestralmente, (b) supervision independiente del area de Compliance, y (c) los controles descritos en la Seccion 4.1 de este documento.
 - **Componente A-Book:** el broker cobra markup sobre el spread del LP — incentivo a maximizar volumen, no resultado del cliente.
 - **Bonos y promociones:** incentivo a que el cliente deposite y opere mas.
 - **Relaciones con IB/afiliados:** comision a intermediarios por volumen genera incentivos a sobre-trading.
@@ -47,7 +47,7 @@ Este enfoque es **estandar en la industria retail**; el broker que afirme "cero 
 ## 4. Conflictos identificados y controles
 
 ### 4.1 Modelo hibrido ECN/STP con internalizacion parcial
-- **Conflicto:** la parte internalizada hace que la perdida del cliente sea ganancia del broker.
+- **Conflicto:** en la porcion de flujo internalizada, la Empresa actua como contraparte, lo que genera un **conflicto estructural de intereses** inherente al modelo.
 - **Control:** politica de **best execution** (`legal/order-execution-policy.md`). El dealing desk (bajo supervision del Head of Dealing y del Compliance Officer) no manipula precios: garantiza que el precio recibido por el cliente sea **comparable al precio de mercado** al momento de la ejecucion.
 - **Supervision:** Compliance audita ejecuciones mensualmente. El cliente puede solicitar **execution report** de cualquier operacion.
 

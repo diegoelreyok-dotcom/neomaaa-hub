@@ -141,7 +141,7 @@ El riesgo de que clientes A-Book clients rentables ganen más de lo que el broke
 - Número de clientes en flag A-Book vs B-Book
 
 **Mitigación**
-- Flow categorization policy clara (ver `compliance/ab-book-policy.md`):
+- Flow categorization policy clara (ver `executive/ab-book-policy.md`):
   - Clientes rentables consistentes → A-Book automático (hedged con LP)
   - Clientes retail pequeños / scalping no sistemático → B-Book aceptable
   - VIP high volume → A-Book obligatorio con monitoring

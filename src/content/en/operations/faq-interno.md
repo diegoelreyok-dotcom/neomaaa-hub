@@ -47,18 +47,14 @@ NEOMAAA Markets is a forex and CFD broker offering access to more than 2,000 fin
 
 Neomaaa Ltd is registered as an International Business Company with number IBC 15968. The broker license is L15968/N, issued by the Anjouan Offshore Finance Authority (AOFA) in the Union of Comoros.
 
-### 1.3 Who are the founders/executives?
-
-[INTERNAL USE ONLY] The Principals are Diego, Yulia, and Stanislav. They do not receive salary; their compensation is via equity. For clients, the answer is: "NEOMAAA Markets is operated by an executive team with experience in financial markets and technology." Do not give personal names to clients unless a Principal authorizes it.
-
-### 1.4 Which countries do you operate in?
+### 1.3 Which countries do you operate in?
 
 NEOMAAA Markets accepts clients from most countries in the world. Main markets are **LATAM** (Brazil, Colombia, Mexico, Argentina, Chile, Peru, Ecuador, Dominican Republic, and the rest excluding USA/Canada), **CIS** with case-by-case screening (Russia and neighbors), **Middle East / MENA** (UAE, Saudi, Qatar, Turkey, excluding Iraq), **Africa** (South Africa, Nigeria, Kenya, Egypt, excluding Sudan), and **SE Asia phase 2** (China, Vietnam, Philippines, Indonesia, Thailand, excluding North Korea and Myanmar).
 
 > [!WARNING]
 > **Restricted countries:** we do not accept clients from United States of America, Canada, EEA (all countries, including Spain), United Kingdom, Australia, Cuba, Iraq, Myanmar, North Korea, Sudan + sanctioned. Full list and gold source: [`compliance/screening-sanciones`](/content/compliance/screening-sanciones) section 12.5.
 
-### 1.4b Can we accept a client residing in Spain? (FREQUENT QUESTION)
+### 1.4 Can we accept a client residing in Spain? (FREQUENT QUESTION)
 
 **NO.** Official answer from Diego (April 2026): *"Currently we cannot work as a broker with clients from Spain/Europe without the regulations those countries require."*
 
@@ -77,7 +73,7 @@ Forex trading is available 24 hours, 5 days a week (Sunday 22:00 CET to Friday 2
 
 ### 1.6 What execution model do you use?
 
-Hybrid ECN/STP model. Orders are sent directly to liquidity providers without dealing desk intervention. This means NEOMAAA does not trade against the client. Prices come from the aggregated liquidity pool.
+**Hybrid ECN/STP with principal component**, as stated in the official Terms. Part of the order flow is passed to liquidity providers (A-Book) and part is managed internally with risk controls (B-Book). This is the standard retail broker model and is officially disclosed. **Do NOT use the phrase "NEOMAAA does not trade against the client"** — it is a prohibited phrase (see compliance/frases-prohibidas).
 
 ---
 
@@ -476,23 +472,19 @@ Verify they have no open positions. If they do, they must close them first. Proc
 
 ## Category 18: Internal Operational Data
 
-### 18.1 What is the current team size?
-
-[INTERNAL USE ONLY] 12 active people + 4 vacancies to fill. The 3 Principals (Diego, Yulia, Stanislav) don't receive salary; their compensation is equity. Current payroll is approximately $21,000 USD/month, projected to $34,000 USD/month with complete Stage 1 team.
-
-### 18.2 What CRM do we use?
+### 18.1 What CRM do we use?
 
 Skale CRM. It's the central system for client management, deposits, withdrawals, and reports. All team members with access must have their credentials and know functions relevant to their role.
 
-### 18.3 What KYC system do we use?
+### 18.2 What KYC system do we use?
 
 Sumsub. It's the automated identity verification platform. Processes ID documents and proof of address. Support agents can check a client's verification status in the Sumsub panel.
 
-### 18.4 What support system do we use?
+### 18.3 What support system do we use?
 
 Intercom. It's the live chat, email, and ticket management platform. All support agents operate from Intercom. Also used for automated messages and public knowledge base (if configured).
 
-### 18.5 How are internal escalations handled?
+### 18.4 How are internal escalations handled?
 
 Escalation flow:
 1. **L1 Support** (agent) resolves standard queries.

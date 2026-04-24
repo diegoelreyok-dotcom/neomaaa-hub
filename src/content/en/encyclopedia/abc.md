@@ -46,7 +46,7 @@ The price at which you can BUY an instrument. Always the higher price of the bid
 Model where the broker acts as counterparty to the client. The broker "absorbs" the order internally without sending it to the market. The broker earns when the client loses and vice versa. Used for small orders or predictable flow.
 
 > [!INFO]
-> **Approved policy:** Neomaaa Ltd OFFICIALLY acknowledges in its T&C that it may act as principal or counterparty. The client may be told we operate a "hybrid execution model (STP/ECN or principal/counterparty depending on market conditions)" citing the published Execution Policy. What IS confidential: internal routing criteria, thresholds, ratios, and A/B classification of individual clients (see `compliance/ab-book-policy.md`). Never say "we are 100% A-Book" or "we are never counterparty" — that is false and contradicts the T&C.
+> **Approved policy:** Neomaaa Ltd OFFICIALLY acknowledges in its T&C that it may act as principal or counterparty. The client may be told we operate a "hybrid execution model (STP/ECN or principal/counterparty depending on market conditions)" citing the published Execution Policy. What IS confidential: internal routing criteria, thresholds, ratios, and A/B classification of individual clients (see `executive/ab-book-policy.md`). Never say "we are 100% A-Book" or "we are never counterparty" — that is false and contradicts the T&C.
 
 ### Balance
 Total money in the client's account, not counting open positions. Different from Equity.

@@ -621,7 +621,7 @@ List of `[DATA:]` that owners complete:
 - [`wallet-structure-neomaaa.md`](/content/executive/wallet-structure-neomaaa) — NEOMAAA specific wallet setup
 - [`unit-economics-broker.md`](/content/executive/unit-economics-broker) — CAC / LTV / margin
 - [`compliance/expansion-regulatoria.md`](/content/compliance/expansion-regulatoria) — AOFA Anjouan regulatory requirements
-- [`compliance/ab-book-policy.md`](/content/compliance/ab-book-policy) — hybrid A/B book policy
+- [`executive/ab-book-policy.md`](/content/executive/ab-book-policy) — hybrid A/B book policy
 
 ---
 

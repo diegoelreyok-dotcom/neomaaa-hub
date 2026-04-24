@@ -912,7 +912,7 @@ Otros escenarios (2, 6, 7, 8) se trabajan via table-top exercises (conversacion 
 - [Depositos y Retiros](deposits.md) — para escenario 2
 - [Manual Compliance](../compliance/manual-susana.md) — para escenario 7
 - [Manejo de Quejas](../support/manejo-quejas.md) — para escenario 5
-- [Politica A-Book / B-Book](../compliance/ab-book-policy.md) — relevante para escenario 4
+- [Politica A-Book / B-Book](../executive/ab-book-policy.md) — relevante para escenario 4
 
 ---
 

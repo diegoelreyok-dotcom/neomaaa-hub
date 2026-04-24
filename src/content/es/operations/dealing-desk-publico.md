@@ -48,7 +48,7 @@ El problema no es el execution mix en sí — el problema es cuando el equipo de
 - Márgenes de markup o economía interna del dealing
 - Reportes internos de P&L por cliente o por mesa
 
-Todo eso vive en `compliance/ab-book-policy.md` — documento confidencial con acceso restringido a Pepe (Head of Dealing), Susana (Compliance), Angel (Co-founder), Diego (Founder) y auditores regulatorios.
+Todo eso vive en `executive/ab-book-policy.md` — documento confidencial con acceso restringido a Pepe (Head of Dealing), Susana (Compliance), Angel (Co-founder), Diego (Founder) y auditores regulatorios.
 
 ---
 
@@ -465,4 +465,4 @@ La política de NEOMAAA en reclamos de ejecución es **compensar el reclamo leg�
 - `legal/complaint-handling.md` — Proceso formal de reclamos
 - `operations/manual-crisis.md` — Protocolo si hay un incidente masivo de ejecución
 - `compliance/workflow.md` — Workflow general de compliance
-- `compliance/ab-book-policy.md` — **CONFIDENCIAL** — solo Pepe, Susana, Angel, Diego
+- `executive/ab-book-policy.md` — **CONFIDENCIAL** — solo Pepe, Susana, Angel, Diego

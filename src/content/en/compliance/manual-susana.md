@@ -59,7 +59,7 @@ Full training process in [Compliance Calendar](/content/compliance/compliance-ca
 
 **Important:** Neomaaa Ltd OFFICIALLY acknowledges in its Terms and Conditions (`legal/terms-conditions.md` and `legal/order-execution-policy.md`) that it may act as principal or counterparty in client trades. Therefore, mentioning that we operate a "hybrid ECN/STP model" or that "Neomaaa may act as principal or counterparty" is APPROVED and public communication.
 
-What is CONFIDENTIAL and for the exclusive use of the Dealing Desk + Principals is the internal routing policy ([ab-book-policy.md](/content/compliance/ab-book-policy)): thresholds, ratios, specific criteria, and the A/B classification of individual clients. The sales team does NOT have access to this info and does NOT know whether a specific client is A-Book or B-Book.
+What is CONFIDENTIAL and for the exclusive use of the Dealing Desk + Principals is the internal routing policy ([ab-book-policy.md](/content/executive/ab-book-policy)): thresholds, ratios, specific criteria, and the A/B classification of individual clients. The sales team does NOT have access to this info and does NOT know whether a specific client is A-Book or B-Book.
 
 | Client question | Approved response (public) | PROHIBITED response |
 |---|---|---|
@@ -109,7 +109,7 @@ The operational compliance framework lives in the 7 docs of the new playbook. Th
 | [Onboarding](/content/compliance/onboarding) | Detailed client onboarding |
 | [Sumsub KYC Process](/content/compliance/proceso-kyc-sumsub) | Step-by-step Sumsub technical SOP |
 | [Sanctions Screening](/content/compliance/screening-sanciones) | Restricted countries list + screening operations |
-| [A-Book / B-Book Policy](/content/compliance/ab-book-policy) | CONFIDENTIAL internal routing policy |
+| [A-Book / B-Book Policy](/content/executive/ab-book-policy) | CONFIDENTIAL internal routing policy |
 | [Regulatory Expansion](/content/compliance/expansion-regulatoria) | Expansion plan to new jurisdictions |
 
 ### Related legal docs

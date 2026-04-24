@@ -22,7 +22,7 @@ A conflict of interest exists when the interests of the Company, its employees, 
 
 In brokerage activity, structural conflicts of interest include:
 
-- **Execution model:** any broker with a **B-Book / internalized** component takes the other side of the client's position — what the client loses is profit for the broker, and vice versa.
+- **Execution model:** in the internalized portion of flow, the Company acts as counterparty. This creates a **structural conflict of interest** which is managed through (a) quarterly best-execution verification, (b) independent supervision by the Compliance function, and (c) the controls described in Section 4.1 of this document.
 - **A-Book component:** the broker charges a markup over the LP spread — creating an incentive to maximize volume, not client outcomes.
 - **Bonuses and promotions:** incentive for the client to deposit and trade more.
 - **Relationships with IBs/affiliates:** commission paid to intermediaries based on volume creates incentives for over-trading.
@@ -47,7 +47,7 @@ This approach is **industry-standard in retail brokerage**; any broker claiming 
 ## 4. Identified conflicts and controls
 
 ### 4.1 Hybrid ECN/STP model with partial internalization
-- **Conflict:** the internalized portion means that the client's loss is the broker's gain.
+- **Conflict:** on the internalized flow, the Company acts as counterparty, which creates a **structural conflict of interest** inherent to the hybrid model.
 - **Control:** **best execution** policy (`legal/order-execution-policy.md`). The dealing desk (under the supervision of the Head of Dealing and the Compliance Officer) does not manipulate prices: it ensures that the price received by the client is **comparable to the market price** at the time of execution.
 - **Oversight:** Compliance audits executions monthly. The client may request an **execution report** for any trade.
 

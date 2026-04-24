@@ -92,7 +92,6 @@ export const SECTIONS: Section[] = [
       { slug: 'onboarding', titleEs: 'Client Onboarding', titleRu: 'Онбординг клиентов', titleEn: 'Client Onboarding', filePath: 'compliance/onboarding.md', pdfSlug: 'compliance-onboarding' }, // TODO: EN translation
       { slug: 'manual-susana', titleEs: 'Manual Compliance', titleRu: 'Руководство по комплаенсу', titleEn: 'Compliance Manual', filePath: 'compliance/manual-susana.md', pdfSlug: 'compliance-manual-susana' }, // TODO: EN translation
       { slug: 'frases-prohibidas', titleEs: 'Frases Prohibidas y Aprobadas (Gold Source)', titleRu: 'Запрещённые и одобренные фразы (Gold Source)', titleEn: 'Prohibited & Approved Phrases (Gold Source)', filePath: 'compliance/frases-prohibidas.md', pdfSlug: 'compliance-frases-prohibidas' }, // TODO: EN translation
-      { slug: 'ab-book-policy', titleEs: 'Política A-Book / B-Book', titleRu: 'Политика A-Book / B-Book', titleEn: 'A-Book / B-Book Policy', filePath: 'compliance/ab-book-policy.md', pdfSlug: 'compliance-ab-book-policy' }, // TODO: EN translation
       { slug: 'proceso-kyc-sumsub', titleEs: 'Proceso KYC Completo con Sumsub', titleRu: 'Полный процесс KYC с Sumsub', titleEn: 'Full KYC Process with Sumsub', filePath: 'compliance/proceso-kyc-sumsub.md', pdfSlug: 'compliance-proceso-kyc-sumsub' }, // TODO: EN translation
       { slug: 'screening-sanciones', titleEs: 'Screening de Sanciones', titleRu: 'Скрининг санкций', titleEn: 'Sanctions Screening', filePath: 'compliance/screening-sanciones.md', pdfSlug: 'compliance-screening-sanciones' }, // TODO: EN translation
       { slug: 'expansion-regulatoria', titleEs: 'Plan de Expansión Regulatoria', titleRu: 'План регуляторного расширения', titleEn: 'Regulatory Expansion Plan', filePath: 'compliance/expansion-regulatoria.md', pdfSlug: 'compliance-expansion-regulatoria' }, // TODO: EN translation
@@ -135,7 +134,6 @@ export const SECTIONS: Section[] = [
     order: 8,
     documents: [
       { slug: 'programa-completo', titleEs: 'Programa Completo', titleRu: 'Полная программа', titleEn: 'Full Program', filePath: 'partners/programa-completo.md', pdfSlug: 'partners-programa-completo' }, // TODO: EN translation
-      { slug: 'modelo-financiero', titleEs: 'Modelo Financiero', titleRu: 'Финансовая модель', titleEn: 'Financial Model', filePath: 'partners/modelo-financiero.md', pdfSlug: 'partners-modelo-financiero' }, // TODO: EN translation
       { slug: 'guia-operativa', titleEs: 'Guía Operativa Partners', titleRu: 'Операционное руководство', titleEn: 'Partners Operational Guide', filePath: 'partners/guia-operativa.md', pdfSlug: 'partners-guia-operativa' }, // TODO: EN translation
       { slug: 'playbook-ib', titleEs: 'Playbook del IB', titleRu: 'Playbook для IB', titleEn: 'IB Playbook', filePath: 'partners/playbook-ib.md', pdfSlug: 'partners-playbook-ib' }, // TODO: EN translation
     ],
@@ -178,6 +176,8 @@ export const SECTIONS: Section[] = [
       { slug: 'risk-management-owner', titleEs: 'Risk Management — Vista del Owner', titleRu: 'Управление рисками — взгляд владельца', titleEn: 'Risk Management — Owner View', filePath: 'executive/risk-management-owner.md', pdfSlug: 'executive-risk-management' }, // TODO: EN translation
       { slug: 'liquidity-providers-b2b', titleEs: 'Liquidity Providers — Relación B2B Estratégica', titleRu: 'Поставщики ликвидности — B2B стратегия', titleEn: 'Liquidity Providers — Strategic B2B Relationship', filePath: 'executive/liquidity-providers-b2b.md', pdfSlug: 'executive-liquidity-providers' }, // TODO: EN translation
       { slug: 'escalamiento-y-crecimiento', titleEs: 'Escalamiento y Crecimiento Sostenible', titleRu: 'Масштабирование и устойчивый рост', titleEn: 'Scaling & Sustainable Growth', filePath: 'executive/escalamiento-y-crecimiento.md', pdfSlug: 'executive-escalamiento' }, // TODO: EN translation
+      { slug: 'ab-book-policy', titleEs: 'Política A-Book / B-Book (Interno)', titleRu: 'Политика A-Book / B-Book (Внутр.)', titleEn: 'A-Book / B-Book Policy (Internal)', filePath: 'executive/ab-book-policy.md', pdfSlug: 'executive-ab-book-policy' },
+      { slug: 'modelo-financiero-partners', titleEs: 'Modelo Financiero — Programa Partners', titleRu: 'Финансовая модель — программа партнеров', titleEn: 'Financial Model — Partners Program', filePath: 'executive/modelo-financiero-partners.md', pdfSlug: 'executive-modelo-financiero-partners' },
     ],
   },
 ];

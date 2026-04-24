@@ -700,7 +700,7 @@ Fill rate drops, latency rises, slippage worsens. If persists >4 weeks and there
 - `executive/risk-management-owner.md` — detailed LP counterparty risk
 - `executive/financial-controls.md` — controls on payments to/from LPs
 - `executive/unit-economics-broker.md` — LP markup impact on P&L
-- `compliance/ab-book-policy.md` — A-Book / B-Book policy and when to hedge
+- `executive/ab-book-policy.md` — A-Book / B-Book policy and when to hedge
 - `operations/*` — Pepe's operational runbooks
 
 ---

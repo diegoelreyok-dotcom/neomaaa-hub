@@ -912,7 +912,7 @@ Other scenarios (2, 6, 7, 8) are worked via table-top exercises (guided conversa
 - [Deposits and Withdrawals](deposits.md) — for scenario 2
 - [Compliance Manual](../compliance/manual-susana.md) — for scenario 7
 - [Complaint Handling](../support/manejo-quejas.md) — for scenario 5
-- [A-Book / B-Book Policy](../compliance/ab-book-policy.md) — relevant for scenario 4
+- [A-Book / B-Book Policy](../executive/ab-book-policy.md) — relevant for scenario 4
 
 ---
 

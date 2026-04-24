@@ -24,7 +24,7 @@ Reference time zone: **UAE (GMT+4)** where HQ operates (Dubai). LATAM conversion
 > - [Crisis Manual](/content/en/operations/manual-crisis)
 > - [Deposits Manual](/content/en/operations/depositos)
 > - [AOFA Compliance Calendar](/content/en/compliance/compliance-calendar)
-> - [A/B Book Policy](/content/en/compliance/ab-book-policy)
+> - [A/B Book Policy](/content/en/executive/ab-book-policy)
 > - [Financial Controls](/content/en/executive/financial-controls)
 > - [Support Ticket Management](/content/en/support/gestion-tickets)
 
@@ -387,7 +387,7 @@ This plan is activated **ONLY on Diego's decision** (or Angel in his absence) wh
 ### Block 1: Fundamentals (Weeks 1-2)
 *Without this, nothing else can proceed.*
 
-- [ ] **A-Book / B-Book policy documented** (Pepe) — % B-Book, A-Book pass thresholds, toxic flow treatment, hedging policy. See [ab-book-policy](/content/en/compliance/ab-book-policy).
+- [ ] **A-Book / B-Book policy documented** (Pepe) — % B-Book, A-Book pass thresholds, toxic flow treatment, hedging policy. See [ab-book-policy](/content/en/executive/ab-book-policy).
 - [ ] **Commission scheme closed** — approved by Principals. See [commissions](/content/en/sales/commissions).
 - [ ] **Confirmed active PSPs** — final list of processors live day 1. Minimum: 1 crypto (USDT), 1 card, 1 LATAM local transfer (PIX/PSE/SPEI).
 - [ ] **Skale CRM configured** — custom fields: account type, FTD date/amount, total deposits, last deposit, KYC status, assigned agent, lead source.

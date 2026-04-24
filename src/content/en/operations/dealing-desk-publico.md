@@ -48,7 +48,7 @@ The problem isn't the execution mix itself — the problem is when the client-fa
 - Markup margins or internal dealing economics
 - Internal P&L reports by client or by desk
 
-All that lives in `compliance/ab-book-policy.md` — confidential document with restricted access to Pepe (Head of Dealing), Susana (Compliance), Angel (Co-founder), Diego (Founder), and regulatory auditors.
+All that lives in `executive/ab-book-policy.md` — confidential document with restricted access to Pepe (Head of Dealing), Susana (Compliance), Angel (Co-founder), Diego (Founder), and regulatory auditors.
 
 ---
 
@@ -465,4 +465,4 @@ NEOMAAA's policy on execution claims is **compensate the legitimate claim** rath
 - `legal/complaint-handling.md` — Formal complaint process
 - `operations/manual-crisis.md` — Protocol if there's a massive execution incident
 - `compliance/workflow.md` — General compliance workflow
-- `compliance/ab-book-policy.md` — **CONFIDENTIAL** — only Pepe, Susana, Angel, Diego
+- `executive/ab-book-policy.md` — **CONFIDENTIAL** — only Pepe, Susana, Angel, Diego

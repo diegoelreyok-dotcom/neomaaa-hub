@@ -415,7 +415,7 @@ Convierten estrategia en ejecucion. Cada Head tiene presupuesto propio, equipo p
 
 ## Head of Dealing
 
-**Funcion real.** Ejecucion de ordenes correcta y rentable. Gestiona el libro del broker: exposure por instrumento, decisiones A-Book vs B-Book (ver [Politica A-Book/B-Book](/es/compliance/ab-book-policy)). Negocia y mantiene relacion con liquidity providers y bridges. Monitorea slippage, requotes, execution quality. Protege el P&L del broker. Detecta y neutraliza abuso (scalping, arbitraje, toxic flow).
+**Funcion real.** Ejecucion de ordenes correcta y rentable. Gestiona el libro del broker: exposure por instrumento, decisiones A-Book vs B-Book (ver [Politica A-Book/B-Book](/es/executive/ab-book-policy)). Negocia y mantiene relacion con liquidity providers y bridges. Monitorea slippage, requotes, execution quality. Protege el P&L del broker. Detecta y neutraliza abuso (scalping, arbitraje, toxic flow).
 
 **Reportes que genera.**
 - **Dealing daily.** Volumen total, P&L del broker, exposure neto por instrumento top 10, incidents.

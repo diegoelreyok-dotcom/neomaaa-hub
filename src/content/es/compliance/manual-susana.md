@@ -59,7 +59,7 @@ Proceso completo de capacitacion en [Compliance Calendar](/content/compliance/co
 
 **Importante:** Neomaaa Ltd reconoce OFICIALMENTE en sus Terminos y Condiciones (`legal/terms-conditions.md` y `legal/order-execution-policy.md`) que puede actuar como principal o counterparty en operaciones de clientes. Por lo tanto, mencionar que operamos "modelo hibrido ECN/STP" o que "Neomaaa puede actuar como principal o counterparty" es comunicacion APROBADA y publica.
 
-Lo que es CONFIDENCIAL y de uso exclusivo del Dealing Desk + Principals es la politica interna de enrutamiento ([ab-book-policy.md](/content/compliance/ab-book-policy)): umbrales, ratios, criterios especificos, y la clasificacion A/B de clientes individuales. El equipo de ventas NO tiene acceso a esta info y NO sabe si un cliente especifico es A-Book o B-Book.
+Lo que es CONFIDENCIAL y de uso exclusivo del Dealing Desk + Principals es la politica interna de enrutamiento ([ab-book-policy.md](/content/executive/ab-book-policy)): umbrales, ratios, criterios especificos, y la clasificacion A/B de clientes individuales. El equipo de ventas NO tiene acceso a esta info y NO sabe si un cliente especifico es A-Book o B-Book.
 
 | Pregunta del cliente | Respuesta aprobada (publica) | Respuesta PROHIBIDA |
 |---|---|---|
@@ -109,7 +109,7 @@ El framework operativo de compliance esta en los 7 docs del playbook nuevo. Este
 | [Onboarding](/content/compliance/onboarding) | Onboarding de clientes detallado |
 | [Proceso KYC Sumsub](/content/compliance/proceso-kyc-sumsub) | SOP tecnico Sumsub paso a paso |
 | [Screening Sanciones](/content/compliance/screening-sanciones) | Lista paises restringidos + operativa de screening |
-| [A-Book / B-Book Policy](/content/compliance/ab-book-policy) | Politica interna CONFIDENCIAL de enrutamiento |
+| [A-Book / B-Book Policy](/content/executive/ab-book-policy) | Politica interna CONFIDENCIAL de enrutamiento |
 | [Expansion Regulatoria](/content/compliance/expansion-regulatoria) | Plan de expansion a nuevas jurisdicciones |
 
 ### Docs legales relacionados

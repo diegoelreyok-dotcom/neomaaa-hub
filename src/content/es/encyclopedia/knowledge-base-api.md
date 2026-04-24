@@ -227,7 +227,7 @@ hits = kb_search("política A-Book")
 for h in hits["results"]:
     print(h["titleEs"], h["url"])
 
-full = kb_doc("compliance/ab-book-policy")
+full = kb_doc("executive/ab-book-policy")
 print(full["content"][:500])
 ```
 

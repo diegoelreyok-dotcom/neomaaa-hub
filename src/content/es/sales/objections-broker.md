@@ -74,17 +74,26 @@
 
 ---
 
-### Objecion 4: "Si depositaran contra mis operaciones?"
+### Objecion 4: "Apuestan contra mis operaciones?"
 
-**Por que lo dice:** Sabe que brokers market maker operan contra el cliente. Sospecha que NEOMAAA hace lo mismo.
+**Por que lo dice:** Sabe que brokers con componente market maker pueden tomar el otro lado del trade. Quiere saber como funciona NEOMAAA.
 
-**Respuesta:**
-"Es una pregunta inteligente y la respuesta es transparente. NEOMAAA opera un modelo hibrido ECN/STP: las ordenes se enrutan segun nuestra politica de ejecucion publicada y pueden ejecutarse contra proveedores de liquidez externos o internamente, como admite nuestro contrato de cliente. Nuestro interes es la continuidad de la relacion, no un trade puntual. Puedes auditar cada ejecucion en MT5: tiempos de llenado, slippage y spread efectivo quedan registrados. La politica de ejecucion completa esta publicada en nuestra documentacion legal."
+**Respuesta (wording aprobado — usar tal cual):**
+"NEOMAAA opera un modelo **hibrido ECN/STP con componente principal**, como lo establecen nuestros Terminos oficiales. Esto significa que parte del flujo se pasa a Liquidity Providers (A-Book) y parte se maneja internamente con gestion de riesgo (B-Book). Esto es el estandar en brokers retail y esta oficialmente divulgado en nuestra [Politica de Ejecucion de Ordenes](/content/legal/order-execution-policy) y en el documento de [Conflictos de Interes](/content/legal/conflicts-of-interest). El conflicto estructural que esto genera se gestiona mediante best execution verificada trimestralmente y supervision independiente de Compliance. Podes auditar cada ejecucion en MT5: tiempos de llenado, slippage y spread efectivo quedan registrados."
+
+> [!DANGER]
+> **Frases PROHIBIDAS** para esta objecion (NUNCA decirlas — son falsas y generan riesgo regulatorio):
+> - "No operamos contra el cliente."
+> - "No ejecutamos internamente contra el cliente."
+> - "No somos market maker."
+> - "Sin conflicto de interes."
+>
+> Como broker hibrido con componente B-Book, SI existe un conflicto estructural. Divulgarlo y explicar como se gestiona es la postura oficial.
 
 **Puntos clave:**
-- Modelo ECN/STP hibrido
-- Ordenes enrutadas a proveedores de liquidez
-- Sin conflicto de interes
+- Modelo **hibrido ECN/STP con componente principal** (A-Book + B-Book)
+- Conflicto estructural **divulgado** y gestionado (best execution + Compliance)
+- Redirigir al cliente a `legal/order-execution-policy` y `legal/conflicts-of-interest`
 - MT5 permite auditar ejecucion
 
 ---

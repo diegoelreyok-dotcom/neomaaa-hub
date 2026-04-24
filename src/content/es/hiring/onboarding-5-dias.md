@@ -446,7 +446,7 @@ Hoy bajás de la teoría general a tu rol específico. Encontrá tu sección aba
 |---|---|---|
 | Depósitos y Retiros | Procedimiento operativo | [/content/operations/deposits](/content/operations/deposits) |
 | PSPs Explicados | Quién es cada proveedor de pago | (en preparación, pedilo a tu lead) |
-| Modelo Financiero Partners | Cómo se calculan comisiones a afiliados | [/content/partners/modelo-financiero](/content/partners/modelo-financiero) |
+| Modelo Financiero Partners | Cómo se calculan comisiones a afiliados | [/content/executive/modelo-financiero-partners](/content/executive/modelo-financiero-partners) |
 | FAQ Interno | Preguntas internas frecuentes | [/content/operations/faq-interno](/content/operations/faq-interno) |
 | Go-Live Runbook | Qué se ejecuta el día del lanzamiento | [/content/operations/go-live-runbook](/content/operations/go-live-runbook) |
 

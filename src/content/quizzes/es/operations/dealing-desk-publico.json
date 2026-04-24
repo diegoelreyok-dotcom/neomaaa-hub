@@ -338,12 +338,12 @@
       "question": "¿Dónde vive el documento confidencial de A-Book/B-Book policy?",
       "options": [
         "Público en el sitio",
-        "En compliance/ab-book-policy.md, acceso restringido a Pepe, Susana, Angel, Diego y auditores regulatorios",
+        "En executive/ab-book-policy.md, acceso restringido a Pepe, Susana, Angel, Diego y auditores regulatorios",
         "En el portal del cliente",
         "En el FAQ"
       ],
       "correctIndex": 1,
-      "explanation": "El doc confidencial vive en compliance/ab-book-policy.md. Acceso restringido: Pepe (Head Dealing), Susana (Compliance), Angel, Diego y auditores regulatorios."
+      "explanation": "El doc confidencial vive en executive/ab-book-policy.md. Acceso restringido: Pepe (Head Dealing), Susana (Compliance), Angel, Diego y auditores regulatorios."
     },
     {
       "id": "q30",

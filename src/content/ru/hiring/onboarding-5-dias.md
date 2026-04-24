@@ -442,7 +442,7 @@ NEOMAAA Markets работает по лицензии **Anjouan Offshore Financ
 |---|---|---|
 | Депозиты и Выводы | Операционная процедура | [/content/operations/deposits](/content/operations/deposits) |
 | PSP объяснённые | Кто каждый провайдер платежей | (в подготовке, запросите у лида) |
-| Финансовая модель партнёров | Как рассчитываются комиссии партнёрам | [/content/partners/modelo-financiero](/content/partners/modelo-financiero) |
+| Финансовая модель партнёров | Как рассчитываются комиссии партнёрам | [/content/executive/modelo-financiero-partners](/content/executive/modelo-financiero-partners) |
 | Внутренний FAQ | Частые внутренние вопросы | [/content/operations/faq-interno](/content/operations/faq-interno) |
 | Go-Live Runbook | Что выполняется в день запуска | [/content/operations/go-live-runbook](/content/operations/go-live-runbook) |
 

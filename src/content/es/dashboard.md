@@ -58,7 +58,7 @@
 <li><a href="/content/compliance/proceso-kyc-sumsub">Proceso KYC Sumsub</a></li>
 <li><a href="/content/compliance/screening-sanciones">Screening de Sanciones</a></li>
 <li><a href="/content/encyclopedia/regulacion-jurisdicciones">Jurisdicciones reguladoras <span class="neo-badge neo-badge--primary">NUEVO</span></a></li>
-<li><a href="/content/compliance/ab-book-policy">Política A-Book / B-Book</a></li>
+<li><a href="/content/executive/ab-book-policy">Política A-Book / B-Book</a></li>
 </ul>
 </div>
 

@@ -46,7 +46,7 @@ Precio al que puedes COMPRAR un instrumento. Siempre es el precio mas alto del p
 Modelo donde el broker actua como contraparte del cliente. El broker "absorbe" la orden internamente sin enviarla al mercado. El broker gana cuando el cliente pierde y viceversa. Se usa para ordenes pequenas o flow predecible.
 
 > [!INFO]
-> **Politica aprobada:** Neomaaa Ltd reconoce OFICIALMENTE en sus T&C que puede actuar como principal o counterparty. Al cliente se le puede decir que operamos "modelo hibrido de ejecucion (STP/ECN o principal/counterparty segun condiciones de mercado)" citando la Politica de Ejecucion publicada. Lo que SI es confidencial: criterios internos de enrutamiento, umbrales, ratios, y la clasificacion A/B de clientes individuales (ver `compliance/ab-book-policy.md`). Nunca decir "somos 100% A-Book" ni "nunca somos contraparte" — es falso y contradice el T&C.
+> **Politica aprobada:** Neomaaa Ltd reconoce OFICIALMENTE en sus T&C que puede actuar como principal o counterparty. Al cliente se le puede decir que operamos "modelo hibrido de ejecucion (STP/ECN o principal/counterparty segun condiciones de mercado)" citando la Politica de Ejecucion publicada. Lo que SI es confidencial: criterios internos de enrutamiento, umbrales, ratios, y la clasificacion A/B de clientes individuales (ver `executive/ab-book-policy.md`). Nunca decir "somos 100% A-Book" ni "nunca somos contraparte" — es falso y contradice el T&C.
 
 ### Balance
 Dinero total en la cuenta del cliente, sin contar posiciones abiertas. Diferente al Equity.
