@@ -171,10 +171,15 @@
     },
     {
       "id": "q17",
-      "question": "Cuantas frases prohibidas estan listadas en el manual?",
-      "options": ["5", "10", "20", "50"],
+      "question": "Cual de estas frases NO debe decirle un agente al cliente?",
+      "options": [
+        "El trading implica riesgo y los resultados dependen de su estrategia",
+        "NEOMAAA opera bajo licencia L15968/N de AOFA",
+        "Garantizamos rentabilidad mensual",
+        "Spreads variables segun condiciones de mercado"
+      ],
       "correctIndex": 2,
-      "explanation": "20 frases prohibidas listadas con su razon y alternativa correcta. Aplican a todos los canales (WhatsApp, Telegram, email, redes, etc.)."
+      "explanation": "'Garantizamos rentabilidad' es promesa de rendimiento ilegal en cualquier jurisdiccion y aparece en compliance/frases-prohibidas. Las otras 3 son frases aprobadas. Fuente oficial de frases prohibidas: compliance/frases-prohibidas (28 frases vigentes)."
     },
     {
       "id": "q18",

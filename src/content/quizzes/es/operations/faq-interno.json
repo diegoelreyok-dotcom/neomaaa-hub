@@ -5,23 +5,23 @@
     {
       "id": "q1",
       "question": "¿Cuál es el depósito mínimo para una cuenta Cent?",
-      "options": ["$1 USD", "$5 USD", "$50 USD", "$500 USD"],
+      "options": ["$1 USD", "$10 USD", "$50 USD", "$500 USD"],
       "correctIndex": 1,
-      "explanation": "Cuenta Cent: $5 USD. Standard: $50. Raw: $500. Institutional: $50,000."
+      "explanation": "Cent: $10. Standard: $250. Raw: $500. Institutional: $50,000. Fuente oficial: encyclopedia/productos-mt5."
     },
     {
       "id": "q2",
       "question": "¿Cuál es el apalancamiento máximo en cuenta Cent?",
       "options": ["1:100", "1:200", "1:500", "1:1000"],
       "correctIndex": 3,
-      "explanation": "Cent: 1:1000. Standard: 1:500. Raw: 1:200. Institutional: 1:100."
+      "explanation": "Cent: 1:1000. Standard: 1:500. Raw: 1:500. Institutional: 1:100. Fuente oficial: encyclopedia/productos-mt5."
     },
     {
       "id": "q3",
       "question": "¿Qué comisión cobra la cuenta Raw por lote?",
-      "options": ["Sin comisión", "$1 USD/lote", "$3.5/lote/lado ($7 round-trip)", "$10/lote"],
+      "options": ["Sin comisión", "$1 USD/lote", "$3/lote/lado ($6 round-trip)", "$10/lote"],
       "correctIndex": 2,
-      "explanation": "Raw cobra $3.5 USD por lote estándar por lado ($7 round-trip). Spread desde 0.0 pips."
+      "explanation": "Raw cobra $3 USD por lote estándar por lado ($6 round-trip). Spread desde 0.0 pips. Fuente oficial: encyclopedia/productos-mt5."
     },
     {
       "id": "q4",
@@ -40,9 +40,14 @@
     {
       "id": "q6",
       "question": "¿Cuál es el teléfono de soporte de NEOMAAA?",
-      "options": ["+1 555 0123", "+41 44 707 9633", "+34 900 000 000", "+971 4 000 0000"],
-      "correctIndex": 1,
-      "explanation": "Teléfono soporte: +41 44 707 9633. Canales: chat Intercom (<2 min), email (<1h), WhatsApp, teléfono."
+      "options": [
+        "Teléfono publicado en neomaaa.com (oficial Dubai)",
+        "+41 44 707 9633 (Suiza)",
+        "+1 555 0123 (USA)",
+        "Cualquier número que el agente quiera dar"
+      ],
+      "correctIndex": 0,
+      "explanation": "El número oficial está publicado en neomaaa.com. Canales primarios: chat Intercom (<2 min), email (<1h), WhatsApp. Nunca inventar un teléfono."
     },
     {
       "id": "q7",
@@ -50,11 +55,11 @@
       "options": [
         "Todos los países",
         "Sólo Europa",
-        "Estados Unidos, Canadá, Unión Europea, Reino Unido, países bajo sanciones internacionales",
+        "Estados Unidos, Canadá, EEA, Reino Unido, Australia, países bajo sanciones internacionales",
         "Sólo LATAM"
       ],
       "correctIndex": 2,
-      "explanation": "No acepta: USA, Canadá, UE, UK, países bajo sanciones internacionales. Mercados principales: LATAM, Middle East, Africa, SE Asia."
+      "explanation": "No acepta: USA, Canadá, EEA, UK, **Australia**, países bajo sanciones internacionales (Cuba, Iran, Iraq, Myanmar, Corea del Norte, Sudan, Crimea/Donetsk/Luhansk). Mercados objetivo: LATAM, España, Asia."
     },
     {
       "id": "q8",
