@@ -1,6 +1,10 @@
 # MT5 and NEOMAAA products — Technical guide for the whole team
 
 > [!INFO]
+> **THIS DOCUMENT IS THE OFFICIAL SOURCE OF PRODUCT SPECS.**  
+> Any other mention of leverage, spreads, minimum deposit, commissions, or withdrawal times across the platform MUST match the values listed here. If you see a different number in another doc, it's an error — report it to the Compliance Officer.
+
+> [!INFO]
 > MT5 (MetaTrader 5) is the platform 100% of our clients trade on. If you don't understand it, you can't do support, sales, or retention. This document covers what anyone on the team needs to know, regardless of their role.
 
 <div className="neo-stat-grid">
@@ -35,16 +39,39 @@ MetaTrader 4 was released in 2005. It was (and remains) the de facto standard in
 
 NEOMAAA offers **4 account types** designed for different trader profiles. The client chooses when opening the account and can hold multiple accounts of different types under the same Client Portal login.
 
-| Account | Minimum deposit | Spread (from) | Commission | Max leverage | Ideal for |
-|--------|----------------|----------------|----------|--------------|------------|
-| **Cent** | $5 | 1.0 pip | $0 (included in spread) | 1:1000 | Beginners, real-money demo, testing strategy with minimum risk |
-| **Standard** | $50 | 1.0 pip | $0 (included in spread) | 1:1000 | Regular retail trader, moderate volume |
-| **Raw** | $500 | 0.0 pips | $3/lot/side ($6 round-turn) | 1:500 | Scalpers, algos, active traders prioritizing low spread |
-| **Institutional** | $50,000 | 0.0 pips | Custom (negotiable) | Negotiable | Funds, money managers, institutional clients |
+### Table 1 — Specs per account type
+
+| Account | Max leverage | Min deposit | Typical EUR/USD spread | Commission | Stop-out | Margin call |
+|---------|--------------|-------------|------------------------|------------|----------|-------------|
+| **Cent** | 1:1000 | $10 | from 1.5 pips | $0 (included in spread) | 30% | 80% |
+| **Standard** | 1:500 | $250 | from 1.0 pip | $0 (included in spread) | 30% | 80% |
+| **Raw** | 1:500 | $500 | from 0.0 pips | $3/lot/side ($6 round-trip) | 40% | 80% |
+| **Institutional** | 1:100 | $50,000 | negotiated (tight) | Custom (negotiable) | 30% | 80% |
 
 **Key Standard vs Raw difference:**
 - Standard: no commission, wider spread (1.0 pip typical on EURUSD). Total cost ≈ $10/lot.
-- Raw: near-zero spread + fixed $3/side commission. Total cost ≈ $6/lot on liquid instruments. Cheaper at high volume.
+- Raw: near-zero spread + fixed $3/side commission ($6 round-trip). Total cost ≈ $6/lot on liquid instruments. Cheaper at high volume.
+
+### Table 2 — Withdrawal times by method
+
+| Method | SLA | Notes |
+|--------|-----|-------|
+| **Crypto** | 1–24h after approval | Fastest. Subject to on-chain confirmations. |
+| **E-wallet** (Skrill / Neteller) | 1–2 business days | AML rule: same method as deposit. |
+| **Local methods** (PIX / PSE / SPEI / etc.) | 1–3 business days | Available by LATAM region. |
+| **Bank transfer** | 2–5 business days | Receiving bank may add 1–2 extra days. |
+| **Card (reversal)** | 3–5 business days | Reversal to original method up to deposit amount. |
+
+### Table 3 — Coverage
+
+| Area | Value |
+|------|-------|
+| Instruments | **2,000+** (forex, metals, indices, commodities, crypto CFDs, stocks CFDs, ETFs, energies) |
+| Deposit methods | **120+** |
+| Platforms | **MT5** (Desktop Windows/Mac, WebTrader, iOS, Android) |
+| Execution | **Hybrid ECN/STP** — primary component ECN |
+| Operating jurisdictions | LATAM + Spain + Asia |
+| Restricted jurisdictions | EEA, UK, Australia, USA, Canada, sanctioned countries |
 
 **Cent account — technical note:**
 On the Cent account, lots are expressed in cents: 1 Cent lot = 1,000 units (not 100,000). Allows trading very small sizes and seeing P&L magnified (useful for education). Not recommended for serious traders because notional volume is low.
@@ -215,7 +242,7 @@ Each instrument has a "spec sheet" defining how it works. Example for EUR/USD:
 | Contract size | 100,000 EUR | 1 standard lot = 100,000 units of the base |
 | Tick size | 0.00001 | Minimum price increment |
 | Pip value (1 lot) | USD 10 | How much PnL moves per pip |
-| Leverage | up to 1:1000 | Margin required vs position size |
+| Leverage | up to 1:1000 (Cent) / 1:500 (Standard, Raw) / 1:100 (Institutional) | Margin required vs position size |
 | Margin per lot (1:500) | USD 216 | Example at price 1.08 and 1:500 leverage |
 | Swap long | –0.5 points/day | How much you pay/earn holding 1 lot long overnight |
 | Swap short | +0.2 points/day | Same for short position |

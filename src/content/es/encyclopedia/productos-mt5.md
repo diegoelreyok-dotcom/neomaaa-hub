@@ -1,6 +1,10 @@
 # MT5 y productos de NEOMAAA — Guía técnica para todo el equipo
 
 > [!INFO]
+> **ESTE DOCUMENTO ES LA FUENTE OFICIAL DE SPECS DE PRODUCTO.**  
+> Cualquier otra mención de apalancamiento, spreads, depósito mínimo, comisiones o tiempos de retiro en la plataforma DEBE coincidir con los valores aquí listados. Si ves un número distinto en otro doc, es un error — reportalo al Compliance Officer.
+
+> [!INFO]
 > MT5 (MetaTrader 5) es la plataforma donde opera 100% de nuestros clientes. Si no la entendés, no podés hacer soporte, ventas ni retención. Este documento cubre lo que tiene que saber cualquier persona del equipo, sin importar su rol.
 
 <div className="neo-stat-grid">
@@ -35,16 +39,39 @@ MetaTrader 4 salió en 2005. Fue (y sigue siendo) el estándar de facto en forex
 
 NEOMAAA ofrece **4 tipos de cuenta** diseñados para perfiles distintos de trader. El cliente elige al abrir la cuenta y puede tener varias cuentas de distintos tipos bajo el mismo login de Client Portal.
 
-| Cuenta | Depósito mínimo | Spread (desde) | Comisión | Leverage máx | Ideal para |
-|--------|----------------|----------------|----------|--------------|------------|
-| **Cent** | $5 | 1.0 pip | $0 (incluida en spread) | 1:1000 | Principiantes, demo real, probar estrategia con riesgo mínimo |
-| **Standard** | $50 | 1.0 pip | $0 (incluida en spread) | 1:1000 | Trader retail regular, volumen moderado |
-| **Raw** | $500 | 0.0 pips | $3/lote/lado ($6 round-turn) | 1:500 | Scalpers, algos, traders activos que priorizan spread bajo |
-| **Institutional** | $50,000 | 0.0 pips | Custom (negociable) | Negociable | Fondos, money managers, clientes institucionales |
+### Tabla 1 — Specs por tipo de cuenta
+
+| Cuenta | Leverage máx | Depósito mín | Spread EUR/USD típico | Comisión | Stop-out | Margin call |
+|--------|--------------|--------------|-----------------------|----------|----------|-------------|
+| **Cent** | 1:1000 | $10 | desde 1.5 pips | $0 (incluida en spread) | 30% | 80% |
+| **Standard** | 1:500 | $250 | desde 1.0 pip | $0 (incluida en spread) | 30% | 80% |
+| **Raw** | 1:500 | $500 | desde 0.0 pips | $3/lote/lado ($6 round-trip) | 40% | 80% |
+| **Institutional** | 1:100 | $50,000 | negociado (tight) | Custom (negociable) | 30% | 80% |
 
 **Diferencia clave Standard vs Raw:**
 - Standard: sin comisión, spread mayor (1.0 pip típico en EURUSD). Costo total ≈ $10/lote.
-- Raw: spread casi cero + comisión fija $3/lado. Costo total ≈ $6/lote en instrumentos liquidos. Más barato para volumen alto.
+- Raw: spread casi cero + comisión fija $3/lado ($6 round-trip). Costo total ≈ $6/lote en instrumentos líquidos. Más barato para volumen alto.
+
+### Tabla 2 — Tiempos de retiro por método
+
+| Método | SLA | Observaciones |
+|--------|-----|---------------|
+| **Crypto** | 1–24h tras aprobación | Más rápido. Sujeto a confirmaciones on-chain. |
+| **E-wallet** (Skrill / Neteller) | 1–2 días hábiles | Sujeto a política AML: mismo método que depósito. |
+| **Métodos locales** (PIX / PSE / SPEI / etc.) | 1–3 días hábiles | Disponibles por región LATAM. |
+| **Transferencia bancaria** | 2–5 días hábiles | El banco receptor puede sumar 1–2 días extra. |
+| **Tarjeta (reverso)** | 3–5 días hábiles | Reverso al método original hasta cubrir depósito. |
+
+### Tabla 3 — Cobertura
+
+| Área | Valor |
+|------|-------|
+| Instrumentos | **2,000+** (forex, metales, índices, commodities, cripto CFDs, stocks CFDs, ETFs, energies) |
+| Métodos de depósito | **120+** |
+| Plataformas | **MT5** (Desktop Windows/Mac, WebTrader, iOS, Android) |
+| Ejecución | **Híbrida ECN/STP** — componente principal ECN |
+| Jurisdicciones operativas | LATAM + España + Asia |
+| Jurisdicciones restringidas | EEA, UK, Australia, USA, Canadá, países sancionados |
 
 **Cuenta Cent — nota técnica:**
 En la cuenta Cent los lotes están expresados en centavos: 1 lote Cent = 1,000 unidades (no 100,000). Permite operar con tamaños muy pequeños y ver el P&L magnificado (útil para educar). No es recomendable para traders serios porque el volumen nocional es bajo.
@@ -215,7 +242,7 @@ Cada instrumento tiene una "hoja técnica" que define cómo funciona. Ejemplo pa
 | Contract size | 100,000 EUR | 1 lote estándar = 100,000 unidades de la base |
 | Tick size | 0.00001 | Incremento mínimo de precio |
 | Pip value (1 lote) | USD 10 | Cuánto mueve el PnL por cada pip |
-| Leverage | hasta 1:1000 | Margen requerido vs tamaño de posición |
+| Leverage | hasta 1:1000 (Cent) / 1:500 (Standard, Raw) / 1:100 (Institutional) | Margen requerido vs tamaño de posición |
 | Margin per lot (1:500) | USD 216 | Ejemplo con precio 1.08 y leverage 1:500 |
 | Swap long | –0.5 points/día | Cuánto pagás/cobrás si dejás un lote comprado overnight |
 | Swap short | +0.2 points/día | Idem para posición vendida |

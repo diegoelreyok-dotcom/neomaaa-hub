@@ -37,22 +37,27 @@
     },
     {
       "id": "q5",
-      "question": "Limite de deposito acumulado para Tier 1?",
-      "options": ["$500", "$1,000", "$10,000", "Sin limite"],
+      "question": "Que factores determinan la clasificacion de riesgo LOW / MEDIUM / HIGH segun la matriz de riesgo?",
+      "options": [
+        "El monto acumulado depositado por el cliente",
+        "Perfil del cliente (PEP, profesion), pais de residencia, producto, comportamiento y source of funds",
+        "El tipo de cuenta MT5 que elige (Cent, Standard, Raw)",
+        "La antiguedad del cliente en la plataforma"
+      ],
       "correctIndex": 1,
-      "explanation": "Tier 1 Basico: $0-$1,000. Tier 2 Intermedio: $1,001-$10,000. Tier 3 Alto: $10,001-$50,000. Tier 4 Institucional: $50,001+."
+      "explanation": "La clasificacion es cualitativa, no por monto. Se evaluan: identidad (PEP, sanctions), geografia (pais FATF), estructura (corporate/UBO), reputacion (adverse media), comportamiento (patron transaccional) y SoF. Ver compliance/risk-matrix. El sistema anterior por montos acumulados ($1K/$10K/$50K) fue deprecado."
     },
     {
       "id": "q6",
-      "question": "Que se requiere en Tier 3 que no en Tier 2?",
+      "question": "Un cliente individual con perfil normal, pais no restringido, sin PEP ni sanctions, deposita $3,000 con tarjeta y Sumsub devuelve clean. Necesita EDD automaticamente?",
       "options": [
-        "ID adicional",
-        "Documento que respalde origen de fondos (extracto bancario, nomina, declaracion fiscal)",
-        "Otra prueba de domicilio",
-        "Cuenta demo"
+        "Si, cualquier deposito sobre $1,000 requiere EDD",
+        "Si, porque supera el umbral de Tier 2",
+        "No, solo se activa EDD si dispara algun trigger especifico (PEP, sanctions, pais FATF, comportamiento inusual, etc.)",
+        "Si, todos los depositos con tarjeta requieren EDD"
       ],
-      "correctIndex": 1,
-      "explanation": "Tier 3: requiere documento que respalde origen de fondos (extracto bancario, recibo de nomina, declaracion fiscal). Tier 2 solo una declaracion."
+      "correctIndex": 2,
+      "explanation": "EDD se activa por triggers cualitativos definidos en compliance/edd-triggers (PEP, sanctions, pais FATF, profesion alto riesgo, patron inusual, >5x perfil declarado, etc.), no por umbrales fijos de monto. Ver risk-matrix para la matriz completa LOW/MEDIUM/HIGH."
     },
     {
       "id": "q7",

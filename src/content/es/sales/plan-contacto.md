@@ -224,9 +224,9 @@ Plan semana siguiente:
 |----------|-----------|
 | "Ya tengo otro broker" | "Perfecto — muchos de nuestros traders operan con 2-3 brokers. ¿Por que no pruebas con una cuenta Cent de $5? Sin compromiso, y puedes comparar spreads y ejecucion." |
 | "No tengo dinero ahora" | "Entiendo. La cuenta Cent arranca desde $5, literalmente el precio de un cafe. Es para probar, no para arriesgar." |
-| "No confio en brokers nuevos" | "NEOMAAA no es nuevo — ya operamos la prop trading con miles de traders. Ahora expandimos al brokerage con licencia regulada L15968/N. Tus fondos estan segregados." |
+| "No confio en brokers nuevos" | "NEOMAAA Funded (empresa hermana) tiene trayectoria en prop trading. NEOMAAA Markets lanza como broker con equipo ejecutivo de 20+ años combinados y licencia regulada L15968/N. Tus fondos estan segregados." |
 | "Necesito pensarlo" | "Totalmente. Te dejo mi WhatsApp para cuando estes listo. Mientras, ¿te gustaria que te envie una guia rapida de como funciona la plataforma?" |
-| "¿Que pasa con mis retiros?" | "Retiros se procesan en 24h habiles. Mismo metodo que usaste para depositar. Sin sorpresas." |
+| "¿Que pasa con mis retiros?" | "Depende del metodo: crypto en horas; tarjeta 3-5 dias habiles; transferencia 2-5 dias habiles; e-wallet 1-2 dias habiles; metodos locales 1-3 dias habiles. Ver **encyclopedia/productos-mt5** para la tabla completa." |
 | "¿Que spread tienen?" | "Depende de la cuenta: Standard desde 1.0 pip sin comision, Raw desde 0.0 pips + $3/lote/lado. ¿Que instrumentos operas?" |
 
 ---
